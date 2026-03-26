@@ -1,0 +1,363 @@
+defined_text = {
+	name = GetSpiritDhenbasana
+	random = no
+	text = {
+		localisation_key = spirit_dhenbasana_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = dhenbasana_suppressed }
+					NOT = { has_global_flag = dhenbasana_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = dhenbasana_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritMarutha
+	random = no
+	text = {
+		localisation_key = spirit_marutha_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = marutha_suppressed }
+					NOT = { has_global_flag = marutha_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = marutha_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritkharunyana
+	random = no
+	text = {
+		localisation_key = spirit_kharunyana_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = kharunyana_suppressed }
+					NOT = { has_global_flag = kharunyana_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = kharunyana_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritHuszien
+	random = no
+	text = {
+		localisation_key = spirit_huszien_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = huszien_suppressed }
+					NOT = { has_global_flag = huszien_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = huszien_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritHokuma
+	random = no
+	text = {
+		localisation_key = spirit_hokuma_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = hokuma_suppressed }
+					NOT = { has_global_flag = hokuma_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = hokuma_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritHukai
+	random = no
+	text = {
+		localisation_key = spirit_hukai_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = hukai_telebei_suppressed }
+					NOT = { has_global_flag = hukai_telebei_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = hukai_telebei_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritHengdaBowu
+	random = no
+	text = {
+		localisation_key = spirit_hengda_bowu_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = hengdu_bowu_suppressed }
+					NOT = { has_global_flag = hengdu_bowu_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = hengdu_bowu_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritGehetKetine
+	random = no
+	text = {
+		localisation_key = spirit_gehet_ketine_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = gehet_ketine_suppressed }
+					NOT = { has_global_flag = gehet_ketine_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = gehet_ketine_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritLupulan
+	random = no
+	text = {
+		localisation_key = spirit_lupulan_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = lupulan_suppressed }
+					NOT = { has_global_flag = lupulan_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = lupulan_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritPhokhao
+	random = no
+	text = {
+		localisation_key = spirit_phokhao_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = phokhao_suppressed }
+					NOT = { has_global_flag = phokhao_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = phokhao_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritYanhe
+	random = no
+	text = {
+		localisation_key = spirit_yanhe_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = yanhe_suppressed }
+					NOT = { has_global_flag = yanhe_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = yanhe_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetSpiritTughayasa
+	random = no
+	text = {
+		localisation_key = spirit_tughayasa_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = tughayasa_suppressed }
+					NOT = { has_global_flag = tughayasa_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = tughayasa_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+#defined_text = {
+#	name = GetSpiritSematTidakhui
+#	random = no
+#	text = {
+#		localisation_key = spirit_semat_tidakhui_yes
+#		trigger = { NOT = { ai = yes } NOT = { has_global_flag = disable_semat_tidakhui } }
+#	}
+#	text = {
+#		localisation_key = spirit_no
+#		trigger = { always = yes }
+#	}
+#}
+defined_text = {
+	name = GetSpiritCinulau
+	random = no
+	text = {
+		localisation_key = spirit_cinulau_yes
+		trigger = {
+			ai = no
+			OR = {
+				AND = {
+					NOT = { has_country_flag = rending_appease_flag }
+					NOT = { has_global_flag = cinulau_suppressed }
+					NOT = { has_global_flag = cinulau_scoured }
+				}
+				AND = {
+					has_country_flag = rending_appease_flag
+					NOT = { has_country_flag = cinulau_appeased }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = RendPurpBorderWindow
+	random = no
+	text = {
+		localisation_key = rend_purp_border_window
+		trigger = { ai = no }
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { ai = yes }
+	}
+}
+
+defined_text = {
+	name = RendRedBorderWindow
+	random = no
+	text = {
+		localisation_key = rend_red_border_window
+		trigger = { ai = no }
+	}
+	text = {
+		localisation_key = spirit_no
+		trigger = { ai = yes }
+	}
+}

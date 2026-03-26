@@ -1,0 +1,21 @@
+# No previous file for Nakhchivan
+
+owner = F65
+controller = F65
+add_core = F65
+culture = windhowler_gnoll
+religion = xhazobkult
+capital = ""
+
+hre = no
+
+base_tax = 1
+base_production = 1
+base_manpower = 2
+
+trade_goods = livestock
+
+add_permanent_province_modifier = {
+	name = ogre_minority_oppressed_small
+	duration = -1
+}

@@ -1,0 +1,22 @@
+bookmark =
+{
+	name = "BULWAR_NAME"
+	desc = "BULWAR_DESC"
+	date = 1444.11.11
+	
+	center = 601
+	
+	country = F46	#Jaddari
+	country = F34	#Azka-Evran
+	country = F30	#Kumarkand
+	country = F22	#Dartaxâgerdim
+	country = F21	#Birzartanšes
+	country = F50	#Mulén
+	country = F23	#Ovdal Tûngr
+	country = F29	#Zokka
+
+	easy_country = F21
+	easy_country = F29
+	easy_country = F46
+
+}

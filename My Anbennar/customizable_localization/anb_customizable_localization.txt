@@ -1,0 +1,5046 @@
+
+defined_text = {
+	name = GetMagesOrFallbackName
+	random = no
+	
+	text = {
+		localisation_key = "[This.GetMagesName]"
+		trigger = {
+			has_estate = estate_mages
+		}
+	}
+	
+	text = {
+		localisation_key = estate_mages
+		trigger = {
+			NOT = { has_estate = estate_mages }
+		}
+	}
+}
+
+defined_text = {
+	name = GetAdeenOrFallbackName
+	random = no
+
+	text = {
+		localisation_key = "[This.GetHouse of the AdeenName]"
+		trigger = {
+			has_estate = estate_adeen
+		}
+	}
+
+	text = {
+		localisation_key = estate_adeen
+		trigger = {
+			NOT = { has_estate = estate_adeen }
+		}
+	}
+}
+
+defined_text = {
+	name = GetArtificersOrFallbackName
+	random = no
+	
+	text = {
+		localisation_key = "[This.GetArtificersName]"
+		trigger = {
+			has_estate = estate_artificers
+		}
+	}
+	
+	text = {
+		localisation_key = estate_artificers
+		trigger = {
+			NOT = { has_estate = estate_artificers }
+		}
+	}
+}
+
+defined_text = {
+	name = GetAdventurersOrFallbackName
+	random = no
+	
+	text = {
+		localisation_key = "[This.GetAdventurersName]"
+		trigger = {
+			has_estate = estate_adventurers
+		}
+	}
+	
+	text = {
+		localisation_key = estate_adventurers
+		trigger = {
+			NOT = { has_estate = estate_adventurers }
+		}
+	}
+}
+
+defined_text = {
+	name = GetMonstrousTribesOrFallbackName
+	random = no
+	
+	text = {
+		localisation_key = "[This.GetMonstrous TribesName]"
+		trigger = {
+			has_estate = estate_monstrous_tribes
+		}
+	}
+	
+	text = {
+		localisation_key = estate_monstrous_tribes
+		trigger = {
+			NOT = { has_estate = estate_monstrous_tribes }
+		}
+	}
+}
+
+defined_text = {
+	name = GetRajMinistriesOrFallbackName
+	random = no
+	
+	text = {
+		localisation_key = "[This.GetMinistriesName]"
+		trigger = {
+			has_estate = estate_raj_ministries
+		}
+	}
+	
+	text = {
+		localisation_key = estate_raj_ministries
+		trigger = {
+			NOT = { has_estate = estate_raj_ministries }
+		}
+	}
+}
+
+defined_text = {
+	name = GetEunuchsOrFallbackName
+	random = no
+	
+	text = {
+		localisation_key = country_estate_eunuchs_anb_name
+		trigger = {
+			has_estate = estate_eunuchs_anb
+		}
+	}
+	
+	text = {
+		localisation_key = estate_eunuchs_anb
+		trigger = {
+			NOT = { has_estate = estate_eunuchs_anb }
+		}
+	}
+}
+
+defined_text = {
+	name = "GetCossacksOrFallbackName"
+	random = no
+	text = {
+		localisation_key = "[This.GetOrachavName]"
+		trigger = { has_estate = estate_cossacks }
+	}
+	text = {
+		localisation_key = estate_cossacks
+	}
+}
+
+defined_text = {
+	name = GetPlanetouchedOrFallbackName
+	random = no
+	
+	text = {
+		localisation_key = "[This.GetPlanetouchedName]"
+		trigger = {
+			has_estate = estate_planetouched
+		}
+	}
+	
+	text = {
+		localisation_key = estate_planetouched
+		trigger = {
+			NOT = { has_estate = estate_planetouched }
+		}
+	}
+}
+
+defined_text = {
+	name = GetHorseRaceFirst
+	random = no
+	
+	text = {
+		localisation_key = horseRaceBlue
+		trigger = {
+			event_target:blue_origin = { is_variable_equal = { which = horseRaceRank value = 1 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceTeal
+		trigger = {
+			event_target:teal_origin = { is_variable_equal = { which = horseRaceRank value = 1 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceGreen
+		trigger = {
+			event_target:green_origin = { is_variable_equal = { which = horseRaceRank value = 1 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceYellow
+		trigger = {
+			event_target:yellow_origin = { is_variable_equal = { which = horseRaceRank value = 1 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceOrange
+		trigger = {
+			event_target:orange_origin = { is_variable_equal = { which = horseRaceRank value = 1 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceRed
+		trigger = {
+			event_target:red_origin = { is_variable_equal = { which = horseRaceRank value = 1 } }
+		}
+	}
+}
+
+defined_text = {
+	name = GetHorseRaceSecond
+	random = no
+	
+	text = {
+		localisation_key = horseRaceBlue
+		trigger = {
+			event_target:blue_origin = { is_variable_equal = { which = horseRaceRank value = 2 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceTeal
+		trigger = {
+			event_target:teal_origin = { is_variable_equal = { which = horseRaceRank value = 2 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceGreen
+		trigger = {
+			event_target:green_origin = { is_variable_equal = { which = horseRaceRank value = 2 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceYellow
+		trigger = {
+			event_target:yellow_origin = { is_variable_equal = { which = horseRaceRank value = 2 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceOrange
+		trigger = {
+			event_target:orange_origin = { is_variable_equal = { which = horseRaceRank value = 2 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceRed
+		trigger = {
+			event_target:red_origin = { is_variable_equal = { which = horseRaceRank value = 2 } }
+		}
+	}
+}
+
+defined_text = {
+	name = GetHorseRaceThird
+	random = no
+	
+	text = {
+		localisation_key = horseRaceBlue
+		trigger = {
+			event_target:blue_origin = { is_variable_equal = { which = horseRaceRank value = 3 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceTeal
+		trigger = {
+			event_target:teal_origin = { is_variable_equal = { which = horseRaceRank value = 3 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceGreen
+		trigger = {
+			event_target:green_origin = { is_variable_equal = { which = horseRaceRank value = 3 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceYellow
+		trigger = {
+			event_target:yellow_origin = { is_variable_equal = { which = horseRaceRank value = 3 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceOrange
+		trigger = {
+			event_target:orange_origin = { is_variable_equal = { which = horseRaceRank value = 3 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceRed
+		trigger = {
+			event_target:red_origin = { is_variable_equal = { which = horseRaceRank value = 3 } }
+		}
+	}
+}
+
+defined_text = {
+	name = GetHorseRaceFourth
+	random = no
+	
+	text = {
+		localisation_key = horseRaceBlue
+		trigger = {
+			event_target:blue_origin = { is_variable_equal = { which = horseRaceRank value = 4 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceTeal
+		trigger = {
+			event_target:teal_origin = { is_variable_equal = { which = horseRaceRank value = 4 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceGreen
+		trigger = {
+			event_target:green_origin = { is_variable_equal = { which = horseRaceRank value = 4 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceYellow
+		trigger = {
+			event_target:yellow_origin = { is_variable_equal = { which = horseRaceRank value = 4 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceOrange
+		trigger = {
+			event_target:orange_origin = { is_variable_equal = { which = horseRaceRank value = 4 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceRed
+		trigger = {
+			event_target:red_origin = { is_variable_equal = { which = horseRaceRank value = 4 } }
+		}
+	}
+}
+
+defined_text = {
+	name = GetHorseRaceFifth
+	random = no
+	
+	text = {
+		localisation_key = horseRaceBlue
+		trigger = {
+			event_target:blue_origin = { is_variable_equal = { which = horseRaceRank value = 5 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceTeal
+		trigger = {
+			event_target:teal_origin = { is_variable_equal = { which = horseRaceRank value = 5 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceGreen
+		trigger = {
+			event_target:green_origin = { is_variable_equal = { which = horseRaceRank value = 5 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceYellow
+		trigger = {
+			event_target:yellow_origin = { is_variable_equal = { which = horseRaceRank value = 5 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceOrange
+		trigger = {
+			event_target:orange_origin = { is_variable_equal = { which = horseRaceRank value = 5 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceRed
+		trigger = {
+			event_target:red_origin = { is_variable_equal = { which = horseRaceRank value = 5 } }
+		}
+	}
+}
+
+defined_text = {
+	name = GetHorseRaceSixth
+	random = no
+	
+	text = {
+		localisation_key = horseRaceBlue
+		trigger = {
+			event_target:blue_origin = { is_variable_equal = { which = horseRaceRank value = 6 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceTeal
+		trigger = {
+			event_target:teal_origin = { is_variable_equal = { which = horseRaceRank value = 6 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceGreen
+		trigger = {
+			event_target:green_origin = { is_variable_equal = { which = horseRaceRank value = 6 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceYellow
+		trigger = {
+			event_target:yellow_origin = { is_variable_equal = { which = horseRaceRank value = 6 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceOrange
+		trigger = {
+			event_target:orange_origin = { is_variable_equal = { which = horseRaceRank value = 6 } }
+		}
+	}
+	text = {
+		localisation_key = horseRaceRed
+		trigger = {
+			event_target:red_origin = { is_variable_equal = { which = horseRaceRank value = 6 } }
+		}
+	}
+}
+
+defined_text = {
+	name = GetHorseRaceColour
+	random = no
+	
+	text = {
+		localisation_key = horseRaceOptionBlue
+		trigger = {
+			province_id = event_target:blue_origin
+		}
+	}
+	text = {
+		localisation_key = horseRaceOptionTeal
+		trigger = {
+			province_id = event_target:teal_origin
+		}
+	}
+	text = {
+		localisation_key = horseRaceGreen
+		trigger = {
+			province_id = event_target:green_origin
+		}
+	}
+	text = {
+		localisation_key = horseRaceOptionYellow
+		trigger = {
+			province_id = event_target:yellow_origin
+		}
+	}
+	text = {
+		localisation_key = horseRaceOrange
+		trigger = {
+			province_id = event_target:orange_origin
+		}
+	}
+	text = {
+		localisation_key = horseRaceRed
+		trigger = {
+			province_id = event_target:red_origin
+		}
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingFocus
+	random = no
+	
+	text = {
+		localisation_key = trainingFocusSwift
+		trigger = {
+			has_country_flag = ghavaanaj_herd_training_swift_flag
+		}
+	}
+	text = {
+		localisation_key = trainingFocusSturdy
+		trigger = {
+			has_country_flag = ghavaanaj_herd_training_sturdy_flag
+		}
+	}
+	text = {
+		localisation_key = trainingFocusSmart
+		trigger = {
+			has_country_flag = ghavaanaj_herd_training_smart_flag
+		}
+	}
+	text = {
+		localisation_key = trainingFocusSteadfast
+		trigger = {
+			has_country_flag = ghavaanaj_herd_training_steadfast_flag
+		}
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingProgress
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingProgress100
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 100 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress90
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 90 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress80
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 80 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress70
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 70 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress60
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 60 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress50
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 50 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress40
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 40 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress30
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 30 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress20
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 20 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress10
+		trigger = {
+			check_variable = { which = ghavaanaj_herd_training_counter value = 10 }
+		}
+	}
+	text = {
+		localisation_key = ghavaanajTrainingProgress00
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChance
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChance
+		trigger = { OR = { has_country_flag = ghavaanaj_herd_training_swift_flag has_country_flag = ghavaanaj_herd_training_sturdy_flag has_country_flag = ghavaanaj_herd_training_smart_flag has_country_flag = ghavaanaj_herd_training_steadfast_flag } }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceNull
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingPhysical
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingBar0
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_03 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar1
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_02 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar2
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_01 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar3
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_00 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar4
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_11 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar5
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_12 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar6
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_13 }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingMental
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingBar0
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_03 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar1
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_02 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar2
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_01 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar3
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_00 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar4
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_11 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar5
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_12 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingBar6
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_13 }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingMentalBonus
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingMentalBonus03
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_03 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingMentalBonus02
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_02 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingMentalBonus01
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_01 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingMentalBonus00
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_00 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingMentalBonus11
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_11 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingMentalBonus12
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_12 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingMentalBonus13
+		trigger = { has_country_modifier = ghavaanaj_herd_training_mental_13 }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingPhysicalBonus
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingPhysicalBonus03
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_03 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingPhysicalBonus02
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_02 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingPhysicalBonus01
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_01 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingPhysicalBonus00
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_00 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingPhysicalBonus11
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_11 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingPhysicalBonus12
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_12 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingPhysicalBonus13
+		trigger = { has_country_modifier = ghavaanaj_herd_training_physical_13 }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingTotalBonus
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingTotalBonus01
+		trigger = { has_country_modifier = ghavaanaj_herd_training_general_1 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingTotalBonus02
+		trigger = { has_country_modifier = ghavaanaj_herd_training_general_2 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingTotalBonus03
+		trigger = { has_country_modifier = ghavaanaj_herd_training_general_3 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingTotalBonus04
+		trigger = { has_country_modifier = ghavaanaj_herd_training_general_4 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingTotalBonus05
+		trigger = { has_country_modifier = ghavaanaj_herd_training_general_5 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingTotalBonus06
+		trigger = { has_country_modifier = ghavaanaj_herd_training_general_6 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingTotalBonus00
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSizeNumber
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber20
+		trigger = { ghavaanaj_has_herd_size_20 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber19
+		trigger = { ghavaanaj_has_herd_size_19 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber18
+		trigger = { ghavaanaj_has_herd_size_18 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber17
+		trigger = { ghavaanaj_has_herd_size_17 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber16
+		trigger = { ghavaanaj_has_herd_size_16 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber15
+		trigger = { ghavaanaj_has_herd_size_15 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber14
+		trigger = { ghavaanaj_has_herd_size_14 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber13
+		trigger = { ghavaanaj_has_herd_size_13 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber12
+		trigger = { ghavaanaj_has_herd_size_12 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber11
+		trigger = { ghavaanaj_has_herd_size_11 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber10
+		trigger = { ghavaanaj_has_herd_size_10 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber9
+		trigger = { ghavaanaj_has_herd_size_9 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber8
+		trigger = { ghavaanaj_has_herd_size_8 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber7
+		trigger = { ghavaanaj_has_herd_size_7 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber6
+		trigger = { ghavaanaj_has_herd_size_6 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber5
+		trigger = { ghavaanaj_has_herd_size_5 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber4
+		trigger = { ghavaanaj_has_herd_size_4 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber3
+		trigger = { ghavaanaj_has_herd_size_3 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber2
+		trigger = { ghavaanaj_has_herd_size_2 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumber1
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSizeNumberHalved
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved20
+		trigger = { ghavaanaj_has_herd_size_20 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved19
+		trigger = { ghavaanaj_has_herd_size_19 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved18
+		trigger = { ghavaanaj_has_herd_size_18 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved17
+		trigger = { ghavaanaj_has_herd_size_17 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved16
+		trigger = { ghavaanaj_has_herd_size_16 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved15
+		trigger = { ghavaanaj_has_herd_size_15 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved14
+		trigger = { ghavaanaj_has_herd_size_14 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved13
+		trigger = { ghavaanaj_has_herd_size_13 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved12
+		trigger = { ghavaanaj_has_herd_size_12 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved11
+		trigger = { ghavaanaj_has_herd_size_11 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved10
+		trigger = { ghavaanaj_has_herd_size_10 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved9
+		trigger = { ghavaanaj_has_herd_size_9 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved8
+		trigger = { ghavaanaj_has_herd_size_8 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved7
+		trigger = { ghavaanaj_has_herd_size_7 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved6
+		trigger = { ghavaanaj_has_herd_size_6 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved5
+		trigger = { ghavaanaj_has_herd_size_5 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved4
+		trigger = { ghavaanaj_has_herd_size_4 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved3
+		trigger = { ghavaanaj_has_herd_size_3 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved2
+		trigger = { ghavaanaj_has_herd_size_2 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdSizeNumberHalved1
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSizeGrowth
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdGrowth9
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 9 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth8
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 8 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth7
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 7 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth6
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 6 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth5
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 5 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth4
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 4 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth3
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 3 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth2
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 2 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth1
+		trigger = { check_variable = { which = ghavaanaj_herd_size_counter value = 1 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdGrowth0
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize1
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { always = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 1 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize2
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_2 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 2 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize3
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_3 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 3 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize4
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_4 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 4 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize5
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_5 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 5 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize6
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_6 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 6 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize7
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_7 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 7 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize8
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_8 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 8 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize9
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_9 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 9 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize10
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_10 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 10 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize11
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_11 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 11 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize12
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_12 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 12 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize13
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_13 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 13 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize14
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_14 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 14 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize15
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_15 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 15 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize16
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_16 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 16 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize17
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_17 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 17 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize18
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_18 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 18 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize19
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_19 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 19 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajHerdSize20
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajHerdElephant
+		trigger = { ghavaanaj_has_herd_size_20 = yes }
+	}
+	text = {
+		localisation_key = ghavaanajHerdPen
+		trigger = { check_variable = { which = ghavaanaj_max_herd_size value = 20 } }
+	}
+	text = {
+		localisation_key = ghavaanajHerdField
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChanceTrainingHarder
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChanceTrainingHarder
+		trigger = { has_country_modifier = ghavaanaj_herd_training_harder }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChanceRefinedTraining
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChanceRefinedTraining
+		trigger = { has_country_flag = ghavaanaj_refined_training_flag }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChanceReeshiBonds
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChanceReeshiBonds
+		trigger = { has_estate_privilege = estate_mages_reeshi_bonds }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChanceQuartermaster
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChanceQuartermaster1
+		trigger = { advisor = quartermaster }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceQuartermaster0
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChanceAtPeace
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChanceAtPeace0
+		trigger = { is_at_war = yes }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceAtPeace1
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChanceLeaderShock
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChanceLeaderShock3
+		trigger = { has_leader_with = { shock = 6 } }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceLeaderShock2
+		trigger = { has_leader_with = { shock = 5 } }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceLeaderShock1
+		trigger = { has_leader_with = { shock = 4 } }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceLeaderShock0
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChanceMonarchMil
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChanceMonarchMil5
+		trigger = { monthly_mil = 18 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceMonarchMil4
+		trigger = { monthly_mil = 16 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceMonarchMil3
+		trigger = { monthly_mil = 14 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceMonarchMil2
+		trigger = { monthly_mil = 12 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceMonarchMil1
+		trigger = { monthly_mil = 10 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceMonarchMil0
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetGhavaanajTrainingChanceArmyTradition
+	random = no
+	
+	text = {
+		localisation_key = ghavaanajTrainingChanceArmyTradition3
+		trigger = { army_tradition = 80 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceArmyTradition2
+		trigger = { army_tradition = 60 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceArmyTradition1
+		trigger = { army_tradition = 40 }
+	}
+	text = {
+		localisation_key = ghavaanajTrainingChanceArmyTradition0
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerElephantRacing
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_elephant_racing_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchElephantRacing
+		trigger = { event_target:sharaajaghal_games_elephant_racing_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_elephant_racing } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerElephantRacing
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerElephantArchery
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_elephant_archery_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchElephantArchery
+		trigger = { event_target:sharaajaghal_games_elephant_archery_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_elephant_archery } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerElephantArchery
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerElephantJousting
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_elephant_jousting_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchElephantJousting
+		trigger = { event_target:sharaajaghal_games_elephant_jousting_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_elephant_jousting } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerElephantJousting
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerHorseRacing
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_horse_racing_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchHorseRacing
+		trigger = { event_target:sharaajaghal_games_horse_racing_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_horse_racing } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerHorseRacing
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerHorseArchery
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_horse_archery_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchHorseArchery
+		trigger = { event_target:sharaajaghal_games_horse_archery_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_horse_archery } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerHorseArchery
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerHorseJousting
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_horse_jousting_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchHorseJousting
+		trigger = { event_target:sharaajaghal_games_horse_jousting_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_horse_jousting } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerHorseJousting
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerDuellingStaff
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_duelling_staff_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchDuellingStaff
+		trigger = { event_target:sharaajaghal_games_duelling_staff_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_duelling_staff } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerDuellingStaff
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerDuellingSword
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_duelling_sword_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchDuellingSword
+		trigger = { event_target:sharaajaghal_games_duelling_sword_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_duelling_sword } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerDuellingSword
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerArchery
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_archery_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchArchery
+		trigger = { event_target:sharaajaghal_games_archery_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_archery } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerArchery
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerJavelin
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_javelin_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchJavelin
+		trigger = { event_target:sharaajaghal_games_javelin_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_javelin } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerJavelin
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerDistanceRunning
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_distance_running_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchDistanceRunning
+		trigger = { event_target:sharaajaghal_games_distance_running_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_distance_running } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerDistanceRunning
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetSharaajaghalGameWinnerSprint
+	random = no
+	
+	text = {
+		localisation_key = sharaajaghalGameWinnerIndependent
+		trigger = { event_target:sharaajaghal_games_sprint_winner = { OR = { tag = REB exists = no } } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerMonarchSprint
+		trigger = { event_target:sharaajaghal_games_sprint_winner = { has_ruler_flag = sharaajaghal_games_ruler_participating_sprint } }
+	}
+	text = {
+		localisation_key = sharaajaghalGameWinnerSprint
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetBimLauSpiritPower
+	random = no
+	
+	text = {
+		localisation_key = BimLauTombPower_negligible
+		trigger = {
+			4565 = {
+				NOT = {
+					check_variable = {
+						which = BimLauTombPower
+						value = 25
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = BimLauTombPower_very_weak
+		trigger = {
+			4565 = {
+				check_variable = {
+					which = BimLauTombPower
+					value = 25
+				}
+				NOT = {
+					check_variable = {
+						which = BimLauTombPower
+						value = 75
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = BimLauTombPower_weak
+		trigger = {
+			4565 = {
+				check_variable = {
+					which = BimLauTombPower
+					value = 75
+				}
+				NOT = {
+					check_variable = {
+						which = BimLauTombPower
+						value = 125
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = BimLauTombPower_medium
+		trigger = {
+			4565 = {
+				check_variable = {
+					which = BimLauTombPower
+					value = 125
+				}
+				NOT = {
+					check_variable = {
+						which = BimLauTombPower
+						value = 200
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = BimLauTombPower_high
+		trigger = {
+			4565 = {
+				check_variable = {
+					which = BimLauTombPower
+					value = 200
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetBimLauOpulence
+	random = no
+	
+	text = {
+		localisation_key = BimLauOpulence_negligible
+		trigger = {
+			4565 = {
+				NOT = {
+					check_variable = {
+						which = BimLauTombOpulence
+						value = 25
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = BimLauOpulence_very_low
+		trigger = {
+			4565 = {
+				check_variable = {
+					which = BimLauTombOpulence
+					value = 25
+				}
+				NOT = {
+					check_variable = {
+						which = BimLauTombOpulence
+						value = 75
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = BimLauOpulence_low
+		trigger = {
+			4565 = {
+				check_variable = {
+					which = BimLauTombOpulence
+					value = 75
+				}
+				NOT = {
+					check_variable = {
+						which = BimLauTombOpulence
+						value = 125
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = BimLauOpulence_medium
+		trigger = {
+			4565 = {
+				check_variable = {
+					which = BimLauTombOpulence
+					value = 125
+				}
+				NOT = {
+					check_variable = {
+						which = BimLauTombOpulence
+						value = 200
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = BimLauOpulence_high
+		trigger = {
+			4565 = {
+				check_variable = {
+					which = BimLauTombOpulence
+					value = 200
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetCommandDeclareWarThreshold
+	random = no
+	
+	text = {
+		localisation_key = commandDeclareWarThreshold40
+		trigger = { has_reform = command_obedience }
+	}
+	text = {
+		localisation_key = commandDeclareWarThreshold50
+		trigger = { NOT = { has_reform = command_obedience } }
+	}
+}
+
+defined_text = {
+	name = GetCommandWarRoomX
+	random = no
+	
+	text = {
+		localisation_key = commandTheCommandWolf
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 1 } }
+	}
+	text = {
+		localisation_key = commandTheCommandBoar
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 2 } }
+	}
+	text = {
+		localisation_key = commandTheCommandLion
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 3 } }
+	}
+	text = {
+		localisation_key = commandTheCommandDragon
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 4 } }
+	}
+	text = {
+		localisation_key = commandTheCommandTiger
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 5 } }
+	}
+	text = {
+		localisation_key = commandTheCommandElephant
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 6 } }
+	}
+}
+
+defined_text = {
+	name = GetCommandWarRoomY
+	random = no
+	
+	text = {
+		localisation_key = commandTheCommandWolf
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 1 } }
+	}
+	text = {
+		localisation_key = commandTheCommandBoar
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 2 } }
+	}
+	text = {
+		localisation_key = commandTheCommandLion
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 3 } }
+	}
+	text = {
+		localisation_key = commandTheCommandDragon
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 4 } }
+	}
+	text = {
+		localisation_key = commandTheCommandTiger
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 5 } }
+	}
+	text = {
+		localisation_key = commandTheCommandElephant
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 6 } }
+	}
+}
+
+defined_text = {
+	name = GetCommandWarRoomBannerX
+	random = no
+	
+	text = {
+		localisation_key = commandTheCommandWolfBannerLeft
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 1 } }
+	}
+	text = {
+		localisation_key = commandTheCommandBoarBannerLeft
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 2 } }
+	}
+	text = {
+		localisation_key = commandTheCommandLionBannerLeft
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 3 } }
+	}
+	text = {
+		localisation_key = commandTheCommandDragonBannerLeft
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 4 } }
+	}
+	text = {
+		localisation_key = commandTheCommandTigerBannerLeft
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 5 } }
+	}
+	text = {
+		localisation_key = commandTheCommandElephantBannerLeft
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 6 } }
+	}
+}
+
+defined_text = {
+	name = GetCommandWarRoomBannerY
+	random = no
+	
+	text = {
+		localisation_key = commandTheCommandWolfBannerRight
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 1 } }
+	}
+	text = {
+		localisation_key = commandTheCommandBoarBannerRight
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 2 } }
+	}
+	text = {
+		localisation_key = commandTheCommandLionBannerRight
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 3 } }
+	}
+	text = {
+		localisation_key = commandTheCommandDragonBannerRight
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 4 } }
+	}
+	text = {
+		localisation_key = commandTheCommandTigerBannerRight
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 5 } }
+	}
+	text = {
+		localisation_key = commandTheCommandElephantBannerRight
+		trigger = { event_target:command_war_room_estate_2 = { province_id = 6 } }
+	}
+}
+
+defined_text = {
+	name = GetCommandWarRoomBannerXBoth
+	random = no
+	
+	text = {
+		localisation_key = commandTheCommandWolfBanner
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 1 } }
+	}
+	text = {
+		localisation_key = commandTheCommandBoarBanner
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 2 } }
+	}
+	text = {
+		localisation_key = commandTheCommandLionBanner
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 3 } }
+	}
+	text = {
+		localisation_key = commandTheCommandDragonBanner
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 4 } }
+	}
+	text = {
+		localisation_key = commandTheCommandTigerBanner
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 5 } }
+	}
+	text = {
+		localisation_key = commandTheCommandElephantBanner
+		trigger = { event_target:command_war_room_estate_1 = { province_id = 6 } }
+	}
+}
+
+defined_text = {
+	name = GetCommandWarRoomBanner
+	random = no
+	
+	text = {
+		localisation_key = commandTheCommandWolfBanner
+		trigger = { has_country_modifier = command_rule_of_the_wolf }
+	}
+	text = {
+		localisation_key = commandTheCommandBoarBanner
+		trigger = { has_country_modifier = command_rule_of_the_boar }
+	}
+	text = {
+		localisation_key = commandTheCommandLionBanner
+		trigger = { has_country_modifier = command_rule_of_the_lion }
+	}
+	text = {
+		localisation_key = commandTheCommandDragonBanner
+		trigger = { has_country_modifier = command_rule_of_the_dragon }
+	}
+	text = {
+		localisation_key = commandTheCommandTigerBanner
+		trigger = { has_country_modifier = command_rule_of_the_tiger }
+	}
+	text = {
+		localisation_key = commandTheCommandElephantBanner
+		trigger = { has_country_modifier = command_rule_of_the_elephant }
+	}
+}
+
+defined_text = {
+	name = GetCommandWolfArmyHired
+	random = no
+	
+	text = {
+		localisation_key = commandNormalColour
+		trigger = { any_hired_mercenary_company = { template = merc_command_wolf_army } }
+	}
+	text = {
+		localisation_key = commandGreyColour
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetCommandBoarArmyHired
+	random = no
+	
+	text = {
+		localisation_key = commandNormalColour
+		trigger = { any_hired_mercenary_company = { template = merc_command_boar_army } }
+	}
+	text = {
+		localisation_key = commandGreyColour
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetCommandLionArmyHired
+	random = no
+	
+	text = {
+		localisation_key = commandNormalColour
+		trigger = { any_hired_mercenary_company = { template = merc_command_lion_army } }
+	}
+	text = {
+		localisation_key = commandGreyColour
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetCommandDragonArmyHired
+	random = no
+	
+	text = {
+		localisation_key = commandNormalColour
+		trigger = { any_hired_mercenary_company = { template = merc_command_dragon_army } }
+	}
+	text = {
+		localisation_key = commandGreyColour
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetCommandElephantArmyHired
+	random = no
+	
+	text = {
+		localisation_key = commandNormalColour
+		trigger = { any_hired_mercenary_company = { template = merc_command_elephant_army } }
+	}
+	text = {
+		localisation_key = commandGreyColour
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetCommandTigerArmyHired
+	random = no
+	
+	text = {
+		localisation_key = commandNormalColour
+		trigger = { any_hired_mercenary_company = { template = merc_command_tiger_army } }
+	}
+	text = {
+		localisation_key = commandGreyColour
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = GetCommandSirRevoltXia
+	random = no
+
+	text = {
+		localisation_key = command_120_xia
+		trigger = { has_country_flag = command_sir_revolt_xia_participation }
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+defined_text = {
+	name = GetCommandSirRevoltOni
+	random = no
+
+	text = {
+		localisation_key = command_120_oni
+		trigger = { has_country_flag = command_sir_revolt_oni_participation }
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+defined_text = {
+	name = GetCommandSirRevoltRebel
+	random = no
+
+	text = {
+		localisation_key = command_120_rebel
+		trigger = { has_country_flag = command_sir_revolt_rebel_participation }
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+defined_text = {
+	name = GetCommandSirRevoltRuinKingdoms
+	random = no
+
+	text = {
+		localisation_key = command_120_ruinkingdoms
+		trigger = {
+			OR = {
+				has_country_flag = command_sir_revolt_khadisrapur_participation
+				has_country_flag = command_sir_revolt_sarnavan_participation
+				has_country_flag = command_sir_revolt_parraj_participation
+			}
+		}
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+
+defined_text = {
+	name = GetCommandInsubordinationEncircle
+	random = no
+
+	text = {
+		localisation_key = the_command_1989_encircle
+		trigger = {
+			OR = {
+				AND = {
+					event_target:tiger_command_capital = { NOT = { has_province_flag = command_encircled_flag } }
+					NOT = { has_country_flag = R62_tiger_subdued }
+				}
+				AND = {
+					event_target:elephant_command_capital = { NOT = { has_province_flag = command_encircled_flag } }
+					NOT = { has_country_flag = R62_elephant_subdued }
+				}
+				AND = {
+					event_target:dragon_command_capital = { NOT = { has_province_flag = command_encircled_flag } }
+					NOT = { has_country_flag = R62_dragon_subdued }
+				}
+			}
+		}
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+
+defined_text = {
+	name = GetCommandInsubordinationBombard
+	random = no
+
+	text = {
+		localisation_key = the_command_1989_bombard
+		trigger = {
+			OR = {
+				AND = {
+					event_target:tiger_command_capital = { has_province_flag = command_encircled_flag NOT = { has_province_flag = command_destroyed_logistics_flag } }
+					NOT = { has_country_flag = R62_tiger_subdued }
+				}
+				AND = {
+					event_target:elephant_command_capital = { has_province_flag = command_encircled_flag NOT = { has_province_flag = command_destroyed_logistics_flag } }
+					NOT = { has_country_flag = R62_elephant_subdued }
+				}
+				AND = {
+					event_target:dragon_command_capital = { has_province_flag = command_encircled_flag NOT = { has_province_flag = command_destroyed_logistics_flag } }
+					NOT = { has_country_flag = R62_dragon_subdued }
+				}
+			}
+		}
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+
+defined_text = {
+	name = GetCommandInsubordinationTiger
+	random = no
+
+	text = {
+		localisation_key = the_command_1989_tiger
+		trigger = {
+			NOT = {
+				has_country_flag = R62_tiger_subdued
+				has_country_flag = R62_concentrated_barrage
+			}
+		}
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+
+defined_text = {
+	name = GetCommandInsubordinationElephant
+	random = no
+
+	text = {
+		localisation_key = the_command_1989_elephant
+		trigger = {
+			NOT = {
+				has_country_flag = R62_elephant_subdued
+				has_country_flag = R62_dwarven_siege_weapons
+			}
+		}
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+
+defined_text = {
+	name = GetCommandInsubordinationDragon
+	random = no
+
+	text = {
+		localisation_key = the_command_1989_dragon
+		trigger = {
+			NOT = {
+				has_country_flag = R62_dragon_subdued
+				has_country_flag = R62_cut_copper_supply
+			}
+		}
+	}
+
+	text = { localisation_key = commandNormalColour }
+}
+
+
+defined_text = {
+	name = GetCommandEncirclementTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_encirclement_provinces
+		trigger = {
+			command_encircle_capital_trigger = yes
+		}
+	}
+
+	text = { localisation_key = command_1989_encirclement_provinces_fail }
+}
+
+defined_text = {
+	name = GetCommandMilPowerTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_milpower
+		trigger = {
+			mil_power = 50
+		}
+	}
+
+	text = { localisation_key = command_1989_milpower_fail }
+}
+
+defined_text = {
+	name = GetCommandTigerRiverTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_river_province
+		trigger = {
+			event_target:tiger_command_upstream = {
+				controller = {
+					OR = {
+						tag = R62
+						is_subject_of = R62
+						NOT = {
+							war_with = R62
+						}
+					}
+				}
+			}
+		}
+	}
+
+	text = { localisation_key = command_1989_river_province_fail }
+}
+
+defined_text = {
+	name = GetCommandElephantRiverTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_river_province
+		trigger = {
+			event_target:elephant_command_upstream = {
+				controller = {
+					OR = {
+						tag = R62
+						is_subject_of = R62
+						NOT = {
+							war_with = R62
+						}
+					}
+				}
+			}
+		}
+	}
+
+	text = { localisation_key = command_1989_river_province_fail }
+}
+
+defined_text = {
+	name = GetCommandDragonRiverTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_river_province
+		trigger = {
+			event_target:dragon_command_upstream = {
+				controller = {
+					OR = {
+						tag = R62
+						is_subject_of = R62
+						NOT = {
+							war_with = R62
+						}
+					}
+				}
+			}
+		}
+	}
+
+	text = { localisation_key = command_1989_river_province_fail }
+}
+
+defined_text = {
+	name = GetCommandMilPowerTrigger100
+	random = no
+
+	text = {
+		localisation_key = command_1989_milpower100
+		trigger = {
+			mil_power = 100
+		}
+	}
+
+	text = {
+		localisation_key = command_1989_milpower100_fail
+	}
+}
+
+defined_text = {
+	name = GetCommandTigerBarrageTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_barrage_trigger
+		trigger = {
+			event_target:tiger_command_capital = { artillery_in_province = 30 artillery_in_province = R62 }
+		}
+	}
+
+	text = { localisation_key = command_1989_barrage_trigger_fail }
+}
+
+defined_text = {
+	name = GetCommandDwarfOpinionSpyTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_dwarf_opinion
+		trigger = {
+			5424 = {
+				owner = {
+					OR = {
+						has_opinion = { who = R62 value = 50 }
+						has_spy_network_from = { who = R62 value = 60 }
+					}
+					NOT = {
+						war_with = R62
+					}
+				}
+			}
+		}
+	}
+
+	text = { localisation_key = command_1989_dwarf_opinion_fail }
+}
+
+defined_text = {
+	name = GetCommandTreasuryTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_treasury
+		trigger = {
+			treasury = 250
+		}
+	}
+
+	text = { localisation_key = command_1989_treasury_fail }
+}
+
+defined_text = {
+	name = GetCommandDipPowerTrigger
+	random = no
+
+	text = {
+		localisation_key = command_1989_dippower
+		trigger = {
+			dip_power = 250
+		}
+	}
+
+	text = { localisation_key = command_1989_dippower_fail }
+}
+
+defined_text = {
+	name = elevate_bishopric_desc_var
+	random = no
+	
+	text = {
+		localisation_key = elevate_bishopric_rc_desc
+		trigger = { religion = regent_court }
+	}
+	text = {
+		localisation_key = elevate_bishopric_corinite_desc
+		trigger = { religion = corinite }
+	}
+	text = {
+		localisation_key = elevate_bishopric_ravelian_desc
+		trigger = { religion = ravelian }
+	}
+}
+
+defined_text = {
+	name = GetJ33WorkerStance
+	random = no
+	
+	text = {
+		localisation_key = J33Adjacent
+		trigger = { kalsyto_adjacent_worker = yes }
+	}
+	text = {
+		localisation_key = J33Distant
+		trigger = { kalsyto_distant_worker = yes }
+	}
+	text = {
+		localisation_key = J33Opposed
+		trigger = { kalsyto_oppose_worker = yes }
+	}
+}
+
+defined_text = {
+	name = GetJ33SoldierStance
+	random = no
+	
+	text = {
+		localisation_key = J33Adjacent
+		trigger = { kalsyto_adjacent_soldier = yes }
+	}
+	text = {
+		localisation_key = J33Distant
+		trigger = { kalsyto_distant_soldier = yes }
+	}
+	text = {
+		localisation_key = J33Opposed
+		trigger = { kalsyto_oppose_soldier = yes }
+	}
+}
+
+defined_text = {
+	name = GetJ33TraderStance
+	random = no
+	
+	text = {
+		localisation_key = J33Adjacent
+		trigger = { kalsyto_adjacent_trader = yes }
+	}
+	text = {
+		localisation_key = J33Distant
+		trigger = { kalsyto_distant_trader = yes }
+	}
+	text = {
+		localisation_key = J33Opposed
+		trigger = { kalsyto_oppose_trader = yes }
+	}
+}
+
+defined_text = {
+	name = GetJ33GunStance
+	random = no
+	
+	text = {
+		localisation_key = J33Adjacent
+		trigger = { kalsyto_adjacent_gun = yes }
+	}
+	text = {
+		localisation_key = J33Distant
+		trigger = { kalsyto_distant_gun = yes }
+	}
+	text = {
+		localisation_key = J33Opposed
+		trigger = { kalsyto_oppose_gun = yes }
+	}
+}
+
+defined_text = {
+	name = GetJ33ChildStance
+	random = no
+	
+	text = {
+		localisation_key = J33Adjacent
+		trigger = { kalsyto_adjacent_child = yes }
+	}
+	text = {
+		localisation_key = J33Distant
+		trigger = { kalsyto_distant_child = yes }
+	}
+	text = {
+		localisation_key = J33Opposed
+		trigger = { kalsyto_oppose_child = yes }
+	}
+}
+
+defined_text = {
+	name = GetJ33CitizenStance
+	random = no
+	
+	text = {
+		localisation_key = J33Adjacent
+		trigger = { kalsyto_adjacent_citizen = yes }
+	}
+	text = {
+		localisation_key = J33Distant
+		trigger = { kalsyto_distant_citizen = yes }
+	}
+	text = {
+		localisation_key = J33Opposed
+		trigger = { kalsyto_oppose_citizen = yes }
+	}
+}
+
+defined_text = {
+	name = GetUndergrowthAdvisor
+	random = no
+
+	text = {
+		localisation_key = undergrowthrock
+		trigger = {
+			OR = {
+				tag = H92
+				was_tag = H92
+			}
+		 }
+	}
+	text = {
+		localisation_key = undergrowthdirt
+		trigger = {
+			OR = {
+				tag = H93
+				was_tag = H93
+			}
+		} 
+	}
+	text = {
+		localisation_key = undergrowthamber
+		trigger = {
+			OR = {
+				tag = H88
+				was_tag = H88
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetUndergrowthSlaves1
+
+	text = {
+		localisation_key = undergrowthdwarves
+		trigger = {
+			4265 = {
+				has_dwarven_minority_trigger = yes
+			}
+		}
+	}
+}
+defined_text = {
+	name = GetUndergrowthSlaves2
+	text = {
+		localisation_key = undergrowthorcs
+		trigger = {
+			4265 = {
+				has_orcish_minority_trigger = yes
+			}
+		}
+	}
+}
+defined_text = {
+	name = GetUndergrowthSlaves3
+	text = {
+		localisation_key = undergrowthhumans
+		trigger = {
+			4265 = {
+				has_human_minority_trigger = yes
+			}
+		}
+	}
+}
+defined_text = {
+	name = GetUndergrowthSlaves4
+	text = {
+		localisation_key = undergrowthharimari
+		trigger = {
+			4265 = {
+				has_harimari_minority_trigger = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetHeroicRealmRice
+
+	text = {
+		localisation_key = HeroicRealmJustRice
+		trigger = {
+			has_country_flag = heroicrealmjustrice
+		}
+	}
+	text = {
+		localisation_key = HeroicRealmRiceAndSwords
+		trigger = {
+			has_country_flag = heroicrealmriceandswords
+		}
+	}
+	text = {
+		localisation_key = HeroicRealmRiceAndGuns
+		trigger = {
+			has_country_flag = heroicrealmriceandguns
+		}
+	}
+}
+
+defined_text = {
+	name = GetEstateAdeenStrictDrillsName
+	random = no
+
+	text = {
+		localisation_key = estate_adeen_strict_drills_name2
+		trigger = { mission_completed = R38_adasa_academies }
+	}
+
+	text = {
+		localisation_key = estate_adeen_strict_drills_name1
+		trigger = { NOT = { mission_completed = R38_adasa_academies } }
+	}
+}
+
+defined_text = {
+	name = GetVisvatma
+
+	text = {
+		localisation_key = Visvatma10
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 102
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = Visvatma9
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 92
+				}
+			}				
+		}
+	}
+	text = {
+		localisation_key = Visvatma8
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 82
+				}
+			}				
+		}
+	}
+	text = {
+		localisation_key = Visvatma7
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 72
+				}
+			}				
+		}
+	}
+	text = {
+		localisation_key = Visvatma6
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 62
+				}
+			}				
+		}
+	}
+	text = {
+		localisation_key = Visvatma5
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 52
+				}
+			}				
+		}
+	}
+	text = {
+		localisation_key = Visvatma4
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 42
+				}
+			}				
+		}
+	}
+	text = {
+		localisation_key = Visvatma3
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 32
+				}
+			}				
+		}
+	}
+	text = {
+		localisation_key = Visvatma2
+		trigger = {
+			4871 = {
+				check_variable = {
+					which = globalWardStrength
+					value = 22
+				}
+			}				
+		}
+	}
+	text = {
+		localisation_key = Visvatma1
+		trigger = {
+			always = yes		
+		}
+	}
+}	
+
+defined_text = {
+	name = GetKelmaxherhoLeaderName
+	random = no
+
+	text = {
+		localisation_key = kelmaxherho_l1
+		trigger = { has_country_flag = zokka_kel_ad_1 }
+	}
+
+	text = {
+		localisation_key = kelmaxherho_l2
+		trigger = { has_country_flag = zokka_kel_ad_2 }
+	}
+
+	text = {
+		localisation_key = kelmaxherho_l3
+		trigger = { has_country_flag = zokka_kel_ad_3 }
+	}
+
+	text = {
+		localisation_key = kelmaxherho_l4
+		trigger = { has_country_flag = zokka_kel_ad_4 }
+	}
+
+	text = {
+		localisation_key = kelmaxherho_l5
+		trigger = { has_country_flag = zokka_kel_ad_5 }
+	}
+
+	text = {
+		localisation_key = kelmaxherho_l6
+		trigger = { has_country_flag = zokka_kel_ad_6 }
+	}
+}
+
+defined_text = {
+	name = GetKaxhkeddaxLeaderName
+	random = no
+
+	text = {
+		localisation_key = kaxhkeddax_l1
+		trigger = { has_country_flag = zokka_kaxh_ad_1 }
+	}
+
+	text = {
+		localisation_key = kaxhkeddax_l2
+		trigger = { has_country_flag = zokka_kaxh_ad_2 }
+	}
+
+	text = {
+		localisation_key = kaxhkeddax_l3
+		trigger = { has_country_flag = zokka_kaxh_ad_3 }
+	}
+
+	text = {
+		localisation_key = kaxhkeddax_l4
+		trigger = { has_country_flag = zokka_kaxh_ad_4 }
+	}
+
+	text = {
+		localisation_key = kaxhkeddax_l5
+		trigger = { has_country_flag = zokka_kaxh_ad_5 }
+	}
+
+	text = {
+		localisation_key = kaxhkeddax_l6
+		trigger = { has_country_flag = zokka_kaxh_ad_6 }
+	}
+}
+
+defined_text = {
+	name = GetKelmaxherhoSheHe
+	random = no
+
+	text = {
+		localisation_key = zokka_she
+		trigger = { has_country_flag = zokka_kel_ad_6 }
+	}
+
+	text = {
+		localisation_key = zokka_he
+		trigger = { NOT = { has_country_flag = zokka_kel_ad_6 } }
+	}
+}
+
+defined_text = {
+	name = GetKaxhkeddaxSheHe
+	random = no
+
+	text = {
+		localisation_key = zokka_she
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_1 has_country_flag = zokka_kaxh_ad_2 has_country_flag = zokka_kaxh_ad_4 has_country_flag = zokka_kaxh_ad_6 } }
+	}
+
+	text = {
+		localisation_key = zokka_he
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_3 has_country_flag = zokka_kaxh_ad_5 } }
+	}
+}
+
+defined_text = {
+	name = GetKelmaxherhoHerHis
+	random = no
+
+	text = {
+		localisation_key = zokka_her
+		trigger = { has_country_flag = zokka_kel_ad_6 }
+	}
+
+	text = {
+		localisation_key = zokka_his
+		trigger = { NOT = { has_country_flag = zokka_kel_ad_6 } }
+	}
+}
+
+defined_text = {
+	name = GetKaxhkeddaxHerHis
+	random = no
+
+	text = {
+		localisation_key = zokka_her
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_1 has_country_flag = zokka_kaxh_ad_2 has_country_flag = zokka_kaxh_ad_4 has_country_flag = zokka_kaxh_ad_6 } }
+	}
+
+	text = {
+		localisation_key = zokka_his
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_3 has_country_flag = zokka_kaxh_ad_5 } }
+	}
+}
+
+defined_text = {
+	name = GetKelmaxherhoSheHeCap
+	random = no
+
+	text = {
+		localisation_key = zokka_she_cap
+		trigger = { has_country_flag = zokka_kel_ad_6 }
+	}
+
+	text = {
+		localisation_key = zokka_he_cap
+		trigger = { NOT = { has_country_flag = zokka_kel_ad_6 } }
+	}
+}
+
+defined_text = {
+	name = GetKaxhkeddaxSheHeCap
+	random = no
+
+	text = {
+		localisation_key = zokka_she_cap
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_1 has_country_flag = zokka_kaxh_ad_2 has_country_flag = zokka_kaxh_ad_4 has_country_flag = zokka_kaxh_ad_6 } }
+	}
+
+	text = {
+		localisation_key = zokka_he_cap
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_3 has_country_flag = zokka_kaxh_ad_5 } }
+	}
+}
+
+defined_text = {
+	name = GetKelmaxherhoHerHisCap
+	random = no
+
+	text = {
+		localisation_key = zokka_her_cap
+		trigger = { has_country_flag = zokka_kel_ad_6 }
+	}
+
+	text = {
+		localisation_key = zokka_his_cap
+		trigger = { NOT = { has_country_flag = zokka_kel_ad_6 } }
+	}
+}
+
+defined_text = {
+	name = GetKaxhkeddaxHerHisCap
+	random = no
+
+	text = {
+		localisation_key = zokka_her_cap
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_1 has_country_flag = zokka_kaxh_ad_2 has_country_flag = zokka_kaxh_ad_4 has_country_flag = zokka_kaxh_ad_6 } }
+	}
+
+	text = {
+		localisation_key = zokka_his_cap
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_3 has_country_flag = zokka_kaxh_ad_5 } }
+	}
+}
+
+defined_text = {
+	name = GetKelmaxherhoHerHim
+	random = no
+
+	text = {
+		localisation_key = zokka_her
+		trigger = { has_country_flag = zokka_kel_ad_6 }
+	}
+
+	text = {
+		localisation_key = zokka_him
+		trigger = { NOT = { has_country_flag = zokka_kel_ad_6 } }
+	}
+}
+
+defined_text = {
+	name = GetKaxhkeddaxHerHim
+	random = no
+
+	text = {
+		localisation_key = zokka_her
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_1 has_country_flag = zokka_kaxh_ad_2 has_country_flag = zokka_kaxh_ad_4 has_country_flag = zokka_kaxh_ad_6 } }
+	}
+
+	text = {
+		localisation_key = zokka_him
+		trigger = { OR = { has_country_flag = zokka_kaxh_ad_3 has_country_flag = zokka_kaxh_ad_5 } }
+	}
+}
+
+defined_text = {
+	name = GetClawPaw
+	random = no
+
+	text = {
+		localisation_key = zokka_claw
+		trigger = { has_country_flag = zokka_clawgrip_flag }
+	}
+
+	text = { localisation_key = zokka_paw }
+}
+
+defined_text = {
+	name = GetPackLordLady
+	random = no
+
+	text = {
+		localisation_key = zokka_lord
+		trigger = { is_female = no }
+	}
+
+	text = {
+		localisation_key = zokka_lady
+		trigger = { is_female = yes }
+	}
+}
+
+defined_text = {
+	name = GetWarWizardTitle
+	random = no
+
+	text = { #Zokka - has overly verbose ruler title
+		localisation_key = "[This.GetPackLordLady]"
+		trigger = {
+			tag = F29
+			has_reform = ekxiem_zokka
+		}
+	}
+
+	text = { #Umbral Covenant - Vile One has empty ruler title
+		localisation_key = "[This.Monarch.GetName]"
+		trigger = { tag = S90 }
+	}
+
+	text = { localisation_key = string_ruler_title }
+}
+
+defined_text = {
+	name = GetVaengheimRoostLevel
+	random = no
+
+	text = { 
+		localisation_key = VaengheimJoltqir
+		trigger = {
+			has_country_flag = Z88_hero_halls_1
+		}
+	}
+
+	text = {
+		localisation_key = VaengheimJoltvilqir
+		trigger = {
+			has_country_flag = Z88_hero_halls_2
+		}
+	}
+}
+
+defined_text = {
+	name = GetVaengheimRoostReq
+	random = no
+
+	text = { 
+		localisation_key = Vaengroostone
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = Vaengheim_t3_roost_count
+					value = 1
+				}
+			}
+		}
+	}
+
+	text = { 
+		localisation_key = Vaengroosttwo
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = Vaengheim_t3_roost_count
+					value = 2
+				}
+			}
+		}
+	}
+
+	text = { 
+		localisation_key = Vaengroostthree
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = Vaengheim_t3_roost_count
+					value = 3
+				}
+			}
+		}
+	}
+
+	text = { 
+		localisation_key = Vaengroostmore
+		trigger = {
+			check_variable = {
+				which = Vaengheim_t3_roost_count
+				value = 3
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetBeastMemoryMajorStory
+	random = no
+
+	text = { 
+		localisation_key = BeastMemoryBold
+		trigger = {
+			has_church_aspect = brave_mongoose_bold_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryCharismatic
+		trigger = {
+			has_church_aspect = brave_mongoose_charismatic_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryPrideful
+		trigger = {
+			has_church_aspect = brave_mongoose_prideful_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryAmbitious
+		trigger = {
+			has_church_aspect = brave_mongoose_ambitious_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryCunning
+		trigger = {
+			has_church_aspect = wise_leopard_cunning_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryAvaricious
+		trigger = {
+			has_church_aspect = wise_leopard_avaricious_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryCalculating
+		trigger = {
+			has_church_aspect = wise_leopard_calculating_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryInflexible
+		trigger = {
+			has_church_aspect = wise_leopard_inflexible_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryLoyal
+		trigger = {
+			has_church_aspect = noble_elephant_loyal_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemorySelfless
+		trigger = {
+			has_church_aspect = noble_elephant_selfless_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryImpartial
+		trigger = {
+			has_church_aspect = noble_elephant_impartial_major
+		}
+	}
+
+	text = { 
+		localisation_key = BeastMemoryProtector
+		trigger = {
+			has_church_aspect = noble_elephant_protector_major
+		}
+	}
+}
+
+defined_text = {
+	name = EoaPrincelySupportChance
+	random = no
+
+	text = {
+		localisation_key = eoa_princely_support_low
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = eoa_prince_support
+					value = 9
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = eoa_princely_support_mid
+		trigger = {
+			check_variable = {
+				which = eoa_prince_support
+				value = 9
+			}
+			NOT = {
+				check_variable = {
+					which = eoa_prince_support
+					value = 20
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = eoa_princely_support_high
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = { 
+	# currently used for any "...[Root.GetReligionAdjectiveOrFallback] faith."
+	# created for "Skaldhyrric Faith" but applicable to any religion where the name doesn't work as an adjective (though you may need to modify more events to use it)
+	# works in province and country scope
+	name = GetReligionAdjectiveOrFallback
+	random = no
+	text = {
+		localisation_key = skaldhyrric_faith_adj
+		trigger = {
+			religion = skaldhyrric_faith
+		}
+	}
+
+	text = { # fallback
+		localisation_key = "[This.Religion.GetName]"
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+#Bulwari Temples
+defined_text = {
+	name = bulwar_temple_monastery_dakmender
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_telekenid_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.330
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_telekenid_yes
+		trigger = {
+			5505 = { has_province_modifier = bulwar_sarhal_temple_system_dakmender }
+			bulwar_temple_system_own_core_reli_trigger = { area = telekenid_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_telekenid_no
+		trigger = {
+			5505 = { has_province_modifier = bulwar_sarhal_temple_system_dakmender }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_dakmender_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = dakmender_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_dakmender_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_iburengampakad
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_bamaliwuni_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.331
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_bamaliwuni_yes
+		trigger = {
+			5585 = { has_province_modifier = bulwar_sarhal_temple_system_kuvunika }
+			bulwar_temple_system_own_core_reli_trigger = { area = bamaliwuni_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_bamaliwuni_no
+		trigger = {
+			5585 = { has_province_modifier = bulwar_sarhal_temple_system_kuvunika }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_iburengampakad_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = iburengampakad_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_iburengampakad_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_shalazar
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_kherass_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.332
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kherass_yes
+		trigger = {
+			5650 = { has_province_modifier = bulwar_sarhal_temple_system_shalazar }
+			bulwar_temple_system_own_core_reli_trigger = { area = odu_kherass_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kherass_no
+		trigger = {
+			5650 = { has_province_modifier = bulwar_sarhal_temple_system_shalazar }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_shalazar_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = tiki_shalazar_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_shalazar_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_muhaqaar
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_gol_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.333
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_gol_yes
+		trigger = {
+			483 = { has_province_modifier = bulwar_sarhal_temple_system_deshwimat }
+			bulwar_temple_system_own_core_reli_trigger = { area = gol_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_gol_no
+		trigger = {
+			483 = { has_province_modifier = bulwar_sarhal_temple_system_deshwimat }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_muhaqaar_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = shena_muhaqaar_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_muhaqaar_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_grizaka
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_khetapera_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.334
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_khetapera_yes
+		trigger = {
+			5481 = { has_province_modifier = bulwar_sarhal_temple_system_niramit }
+			bulwar_temple_system_own_core_reli_trigger = { area = khetapera_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_khetapera_no
+		trigger = {
+			5481 = { has_province_modifier = bulwar_sarhal_temple_system_niramit }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_grizaka_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = garpix_grizaka_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_grizaka_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_kunolo
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_nako_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.335
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_nako_yes
+		trigger = {
+			5710 = { has_province_modifier = bulwar_sarhal_temple_system_kunolo }
+			bulwar_temple_system_own_core_reli_trigger = { area = dao_nako_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_nako_no
+		trigger = {
+			5710 = { has_province_modifier = bulwar_sarhal_temple_system_kunolo }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kunolo_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = kunolo_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kunolo_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_akasik
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_akasik_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.336
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_akasik_yes
+		trigger = {
+			400 = { has_province_modifier = bulwar_sarhal_temple_system_khasa }
+			bulwar_temple_system_own_core_reli_trigger = { area = akasik_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_akasik_no
+		trigger = {
+			400 = { has_province_modifier = bulwar_sarhal_temple_system_khasa }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_middle_akasik_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = middle_akasik_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_middle_akasik_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_kheterat
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_akasik_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.337
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kheterata_yes
+		trigger = {
+			475 = { has_province_modifier = bulwar_sarhal_temple_system_kheterat }
+			bulwar_temple_system_own_core_reli_trigger = { area = kheterata_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kheterata_no
+		trigger = {
+			475 = { has_province_modifier = bulwar_sarhal_temple_system_kheterat }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kheterat_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = kheterat_proper_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kheterat_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_yetmesira
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_yetefesefi_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.338
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_yetefesefi_yes
+		trigger = {
+			5529 = { has_province_modifier = bulwar_sarhal_temple_system_yetmesira }
+			bulwar_temple_system_own_core_reli_trigger = { area = yetefesefi_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_yetefesefi_no
+		trigger = {
+			5529 = { has_province_modifier = bulwar_sarhal_temple_system_yetmesira }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_yetmesira_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = yetmesira_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_yetmesira_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_simegesfan
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_denibari_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.339
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_denibari_yes
+		trigger = {
+			5590 = { has_province_modifier = bulwar_sarhal_temple_system_mewojala }
+			bulwar_temple_system_own_core_reli_trigger = { area = denibari_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_denibari_no
+		trigger = {
+			5590 = { has_province_modifier = bulwar_sarhal_temple_system_mewojala }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_simegesfan_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = simegesfan_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_simegesfan_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_biakata
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_janama_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.340
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_janama_yes
+		trigger = {
+			5813 = { has_province_modifier = bulwar_sarhal_temple_system_sigilan }
+			bulwar_temple_system_own_core_reli_trigger = { area = janama_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_janama_no
+		trigger = {
+			5813 = { has_province_modifier = bulwar_sarhal_temple_system_sigilan }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_biakata_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = biakata_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_biakata_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+#Solo Temples
+defined_text = {
+	name = bulwar_temple_monastery_dasmatus
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_dasmatus_yes_got_event
+		trigger = {
+			5434 = { has_province_modifier = bulwar_sarhal_temple_system_coburakaz }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_dasmatus_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = dasmatus_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_dasmatus_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_ishmajyepfo
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_ishmajyepfo_yes_got_event
+		trigger = {
+			5631 = { has_province_modifier = bulwar_sarhal_temple_system_cyamutaka }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_ishmajyepfo_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = ishmajyepfo_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_ishmajyepfo_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_warabani
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_warabani_yes_got_event
+		trigger = {
+			5728 = { has_province_modifier = bulwar_sarhal_temple_system_fojara }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_warabani_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = warabani_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_warabani_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = bulwar_temple_monastery_kvangraak
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_kvangraak_yes_got_event
+		trigger = {
+			5442 = { has_province_modifier = bulwar_sarhal_temple_system_kvangraak }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kvangraak_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = kvangraak_area }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_kvangraak_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+#Solo Monasteries
+defined_text = {
+	name = bulwar_temple_monastery_swamp
+	random = no
+
+	text = {
+		localisation_key = bulwar_temple_monastery_swamp_yes_got_event
+		trigger = {
+			has_global_flag = bulwar_monastery_exist.341
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_swamp_yes
+		trigger = {
+			bulwar_temple_system_own_core_reli_trigger = { area = shadow_swamp_region }
+		}
+	}
+	text = {
+		localisation_key = bulwar_temple_monastery_swamp_no
+		trigger = {
+			always = yes
+		}
+	}
+}
+#Monasteries
+defined_text = {
+	name = bulwar_flavour_330_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.330.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.330.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_331_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.331.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.331.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_332_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.332.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.332.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_333_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.333.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.333.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_334_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.334.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.334.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_335_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.335.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.335.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_336_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.336.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.336.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_337_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.337.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.337.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_338_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.338.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.338.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_339_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.339.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.339.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_340_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.340.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.340.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+defined_text = {
+	name = bulwar_flavour_341_custom_a
+	random = no
+
+	text = {
+		localisation_key = bulwar_flavour.341.custom.a.jadd
+		trigger = {
+			religion = the_jadd
+		}
+	}
+	text = {
+		localisation_key = bulwar_flavour.341.custom.a.nsc
+		trigger = {
+			religion = bulwari_sun_cult
+		}
+	}
+}
+
+defined_text = {
+	name = rinta_path_first_expedition_loc
+	random = no
+
+	text = {
+		localisation_key = PROV5710
+		trigger = {
+			check_variable = {
+				which = rinta_path_first_expe
+				value = 20
+			}
+		}
+	}
+	text = {
+		localisation_key = PROV5823
+	}
+}
+defined_text = {
+	name = rinta_path_second_expedition_loc
+	random = no
+
+	text = {
+		localisation_key = PROV5847
+		trigger = {
+			check_variable = {
+				which = rinta_path_second_expe
+				value = 20
+			}
+		}
+	}
+	text = {
+		localisation_key = PROV5574
+	}
+}
+defined_text = {
+	name = rinta_path_third_expedition_loc
+	random = no
+
+	text = {
+		localisation_key = PROV6717
+		trigger = {
+			check_variable = {
+				which = rinta_path_third_expe
+				value = 20
+			}
+		}
+	}
+	text = {
+		localisation_key = PROV4774
+	}
+}
+
+# Volcanic Truth
+defined_text = {
+	name = vt_dip_holy_order_flag
+	text = {
+		localisation_key = vt_dip_holy_order_taga_ala_effect_tt_1
+		trigger = { has_global_flag = vt_taga_ala_trade_dip_order }
+	}
+	text = {
+		localisation_key = vt_dip_holy_order_taga_ala_effect_tt_2
+		trigger = { has_global_flag = vt_taga_ala_convert_dip_order }
+	}
+	text = {
+		localisation_key = vt_dip_holy_order_taga_ala_effect_tt_3
+		trigger = { has_global_flag = vt_taga_ala_war_dip_order }
+	}
+}
+
+
+#Umbral Covenant
+defined_text = {
+	name = getUCEssenceVar
+	text = {
+		localisation_key = ZERO
+		trigger = { NOT = { check_variable = { which = uc_shadow_essence_usage value = 1 } } }
+	}
+	text = {
+		localisation_key = "[Root.uc_shadow_essence_usage.GetValue]"
+		trigger = { check_variable = { which = uc_shadow_essence_usage value = 1 } }
+	}
+}
+defined_text = {
+	name = getUCFreeEssenceVar
+	text = {
+		localisation_key = ZERO
+		trigger = { NOT = { check_variable = { which = uc_free_shadow_essence value = 1 } } }
+	}
+	text = {
+		localisation_key = "[Root.uc_free_shadow_essence.GetValue]"
+		trigger = { check_variable = { which = uc_free_shadow_essence value = 1 } }
+	}
+}
+defined_text = {
+	name = getUCEssenceVarCap
+	text = {
+		localisation_key = ZERO
+		trigger = { NOT = { check_variable = { which = uc_shadow_capacity value = 1 } } }
+	}
+	text = {
+		localisation_key = "[Root.uc_shadow_capacity.GetValue]"
+		trigger = { check_variable = { which = uc_shadow_capacity value = 1 } }
+	}
+}
+defined_text = {
+	name = getNameUCAbility1
+	text = {
+		localisation_key = spirits_incorporeal_accompaniment_name
+		trigger = { has_country_flag = show_uc_spirits_powers_flag }
+	}
+	text = {
+		localisation_key = shadows_extraction_name
+		trigger = { has_country_flag = show_uc_shadows_powers_flag }
+	}
+	text = {
+		localisation_key = dusk_even_in_night_name
+		trigger = { has_country_flag = show_uc_dusk_powers_flag }
+	}
+	text = {
+		localisation_key = soul_light_name
+		trigger = { has_country_flag = show_uc_soul_powers_flag }
+	}
+	text = {
+		localisation_key = abyss_tajan_name
+		trigger = { has_country_flag = show_uc_abyss_powers_flag }
+	}
+}
+defined_text = {
+	name = getNameUCAbility2
+	text = {
+		localisation_key = spirits_communion_name
+		trigger = { has_country_flag = show_uc_spirits_powers_flag }
+	}
+	text = {
+		localisation_key = shadows_dark_resuscitation_name
+		trigger = { has_country_flag = show_uc_shadows_powers_flag }
+	}
+	text = {
+		localisation_key = dusk_incensed_to_rage_name
+		trigger = { has_country_flag = show_uc_dusk_powers_flag }
+	}
+	text = {
+		localisation_key = soul_dark_name
+		trigger = { has_country_flag = show_uc_soul_powers_flag }
+	}
+	text = {
+		localisation_key = abyss_viscus_name
+		trigger = { has_country_flag = show_uc_abyss_powers_flag }
+	}
+}
+defined_text = {
+	name = getNameUCAbility3
+	text = {
+		localisation_key = spirits_rise_from_shadow_name
+		trigger = { has_country_flag = show_uc_spirits_powers_flag }
+	}
+	text = {
+		localisation_key = shadows_trick_of_the_light_name
+		trigger = { has_country_flag = show_uc_shadows_powers_flag }
+	}
+	text = {
+		localisation_key = dusk_even_souls_kneel_name
+		trigger = { has_country_flag = show_uc_dusk_powers_flag }
+	}
+	text = {
+		localisation_key = soul_font_name
+		trigger = { has_country_flag = show_uc_soul_powers_flag }
+	}
+	text = {
+		localisation_key = abyss_serpent_king_name
+		trigger = { has_country_flag = show_uc_abyss_powers_flag }
+	}
+}
+defined_text = {
+	name = getNameUCAbility4
+	text = {
+		localisation_key = spirits_always_watching_name
+		trigger = { has_country_flag = show_uc_spirits_powers_flag }
+	}
+	text = {
+		localisation_key = shadows_immaterial_fabrication_name
+		trigger = { has_country_flag = show_uc_shadows_powers_flag }
+	}
+	text = {
+		localisation_key = dusk_what_lurks_in_the_dark_name
+		trigger = { has_country_flag = show_uc_dusk_powers_flag }
+	}
+	text = {
+		localisation_key = soul_harnessing_entropy_name
+		trigger = { has_country_flag = show_uc_soul_powers_flag }
+	}
+	text = {
+		localisation_key = abyss_fueled_by_suffering_name
+		trigger = { has_country_flag = show_uc_abyss_powers_flag }
+	}
+}
+defined_text = {
+	name = getNameUCAbility5
+	text = {
+		localisation_key = spirits_ritual_name
+		trigger = { has_country_flag = show_uc_spirits_powers_flag }
+	}
+	text = {
+		localisation_key = shadows_ritual_name
+		trigger = { has_country_flag = show_uc_shadows_powers_flag }
+	}
+	text = {
+		localisation_key = dusk_ritual_name
+		trigger = { has_country_flag = show_uc_dusk_powers_flag }
+	}
+	text = {
+		localisation_key = soul_ritual_name
+		trigger = { has_country_flag = show_uc_soul_powers_flag }
+	}
+	text = {
+		localisation_key = abyss_ritual_name
+		trigger = { has_country_flag = show_uc_abyss_powers_flag }
+	}
+}
+
+defined_text = {
+	name = EndhuviDebateTitle
+	text = {
+		localisation_key = flavour_endhuvi.204.ta
+		trigger = { has_country_flag = R36_adm_debate_1 }
+	}
+}
+
+defined_text = {
+	name = EndhuviDebateOptA
+	text = {
+		localisation_key = flavour_endhuvi.204.aa1
+		trigger = {
+			has_country_flag = R36_adm_debate_1
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_1
+				has_country_flag = R36_adm_debate_normal_reward_1
+				has_country_flag = R36_adm_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.aa2
+		trigger = {
+			has_country_flag = R36_adm_debate_1
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_2
+				has_country_flag = R36_adm_debate_normal_reward_2
+				has_country_flag = R36_adm_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.aa3
+		trigger = {
+			has_country_flag = R36_adm_debate_1
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_3
+				has_country_flag = R36_adm_debate_normal_reward_3
+				has_country_flag = R36_adm_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.aa4
+		trigger = {
+			has_country_flag = R36_adm_debate_1
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_4
+				has_country_flag = R36_adm_debate_normal_reward_4
+				has_country_flag = R36_adm_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ab1
+		trigger = {
+			has_country_flag = R36_adm_debate_2
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_1
+				has_country_flag = R36_adm_debate_normal_reward_1
+				has_country_flag = R36_adm_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ab2
+		trigger = {
+			has_country_flag = R36_adm_debate_2
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_2
+				has_country_flag = R36_adm_debate_normal_reward_2
+				has_country_flag = R36_adm_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ab3
+		trigger = {
+			has_country_flag = R36_adm_debate_2
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_3
+				has_country_flag = R36_adm_debate_normal_reward_3
+				has_country_flag = R36_adm_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ab4
+		trigger = {
+			has_country_flag = R36_adm_debate_2
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_4
+				has_country_flag = R36_adm_debate_normal_reward_4
+				has_country_flag = R36_adm_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ac1
+		trigger = {
+			has_country_flag = R36_adm_debate_3
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_1
+				has_country_flag = R36_adm_debate_normal_reward_1
+				has_country_flag = R36_adm_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ac2
+		trigger = {
+			has_country_flag = R36_adm_debate_3
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_2
+				has_country_flag = R36_adm_debate_normal_reward_2
+				has_country_flag = R36_adm_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ac3
+		trigger = {
+			has_country_flag = R36_adm_debate_3
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_3
+				has_country_flag = R36_adm_debate_normal_reward_3
+				has_country_flag = R36_adm_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ac4
+		trigger = {
+			has_country_flag = R36_adm_debate_3
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_4
+				has_country_flag = R36_adm_debate_normal_reward_4
+				has_country_flag = R36_adm_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ad1
+		trigger = {
+			has_country_flag = R36_adm_debate_4
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_1
+				has_country_flag = R36_adm_debate_normal_reward_1
+				has_country_flag = R36_adm_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ad2
+		trigger = {
+			has_country_flag = R36_adm_debate_4
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_2
+				has_country_flag = R36_adm_debate_normal_reward_2
+				has_country_flag = R36_adm_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ad3
+		trigger = {
+			has_country_flag = R36_adm_debate_4
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_3
+				has_country_flag = R36_adm_debate_normal_reward_3
+				has_country_flag = R36_adm_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ad4
+		trigger = {
+			has_country_flag = R36_adm_debate_4
+			OR = {
+				has_country_flag = R36_adm_debate_easy_reward_4
+				has_country_flag = R36_adm_debate_normal_reward_4
+				has_country_flag = R36_adm_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ae1
+		trigger = {
+			has_country_flag = R36_dip_debate_1
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_1
+				has_country_flag = R36_dip_debate_normal_reward_1
+				has_country_flag = R36_dip_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ae2
+		trigger = {
+			has_country_flag = R36_dip_debate_1
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_2
+				has_country_flag = R36_dip_debate_normal_reward_2
+				has_country_flag = R36_dip_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ae3
+		trigger = {
+			has_country_flag = R36_dip_debate_1
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_3
+				has_country_flag = R36_dip_debate_normal_reward_3
+				has_country_flag = R36_dip_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ae4
+		trigger = {
+			has_country_flag = R36_dip_debate_1
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_4
+				has_country_flag = R36_dip_debate_normal_reward_4
+				has_country_flag = R36_dip_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.af1
+		trigger = {
+			has_country_flag = R36_dip_debate_2
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_1
+				has_country_flag = R36_dip_debate_normal_reward_1
+				has_country_flag = R36_dip_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.af2
+		trigger = {
+			has_country_flag = R36_dip_debate_2
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_2
+				has_country_flag = R36_dip_debate_normal_reward_2
+				has_country_flag = R36_dip_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.af3
+		trigger = {
+			has_country_flag = R36_dip_debate_2
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_3
+				has_country_flag = R36_dip_debate_normal_reward_3
+				has_country_flag = R36_dip_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.af4
+		trigger = {
+			has_country_flag = R36_dip_debate_2
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_4
+				has_country_flag = R36_dip_debate_normal_reward_4
+				has_country_flag = R36_dip_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ag1
+		trigger = {
+			has_country_flag = R36_dip_debate_3
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_1
+				has_country_flag = R36_dip_debate_normal_reward_1
+				has_country_flag = R36_dip_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ag2
+		trigger = {
+			has_country_flag = R36_dip_debate_3
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_2
+				has_country_flag = R36_dip_debate_normal_reward_2
+				has_country_flag = R36_dip_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ag3
+		trigger = {
+			has_country_flag = R36_dip_debate_3
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_3
+				has_country_flag = R36_dip_debate_normal_reward_3
+				has_country_flag = R36_dip_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ag4
+		trigger = {
+			has_country_flag = R36_dip_debate_3
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_4
+				has_country_flag = R36_dip_debate_normal_reward_4
+				has_country_flag = R36_dip_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ah1
+		trigger = {
+			has_country_flag = R36_dip_debate_4
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_1
+				has_country_flag = R36_dip_debate_normal_reward_1
+				has_country_flag = R36_dip_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ah2
+		trigger = {
+			has_country_flag = R36_dip_debate_4
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_2
+				has_country_flag = R36_dip_debate_normal_reward_2
+				has_country_flag = R36_dip_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ah3
+		trigger = {
+			has_country_flag = R36_dip_debate_4
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_3
+				has_country_flag = R36_dip_debate_normal_reward_3
+				has_country_flag = R36_dip_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ah4
+		trigger = {
+			has_country_flag = R36_dip_debate_4
+			OR = {
+				has_country_flag = R36_dip_debate_easy_reward_4
+				has_country_flag = R36_dip_debate_normal_reward_4
+				has_country_flag = R36_dip_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ai1
+		trigger = {
+			has_country_flag = R36_mil_debate_1
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_1
+				has_country_flag = R36_mil_debate_normal_reward_1
+				has_country_flag = R36_mil_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ai2
+		trigger = {
+			has_country_flag = R36_mil_debate_1
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_2
+				has_country_flag = R36_mil_debate_normal_reward_2
+				has_country_flag = R36_mil_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ai3
+		trigger = {
+			has_country_flag = R36_mil_debate_1
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_3
+				has_country_flag = R36_mil_debate_normal_reward_3
+				has_country_flag = R36_mil_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ai4
+		trigger = {
+			has_country_flag = R36_mil_debate_1
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_4
+				has_country_flag = R36_mil_debate_normal_reward_4
+				has_country_flag = R36_mil_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.aj1
+		trigger = {
+			has_country_flag = R36_mil_debate_2
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_1
+				has_country_flag = R36_mil_debate_normal_reward_1
+				has_country_flag = R36_mil_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.aj2
+		trigger = {
+			has_country_flag = R36_mil_debate_2
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_2
+				has_country_flag = R36_mil_debate_normal_reward_2
+				has_country_flag = R36_mil_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.aj3
+		trigger = {
+			has_country_flag = R36_mil_debate_2
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_3
+				has_country_flag = R36_mil_debate_normal_reward_3
+				has_country_flag = R36_mil_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.aj4
+		trigger = {
+			has_country_flag = R36_mil_debate_2
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_4
+				has_country_flag = R36_mil_debate_normal_reward_4
+				has_country_flag = R36_mil_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ak1
+		trigger = {
+			has_country_flag = R36_mil_debate_3
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_1
+				has_country_flag = R36_mil_debate_normal_reward_1
+				has_country_flag = R36_mil_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ak2
+		trigger = {
+			has_country_flag = R36_mil_debate_3
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_2
+				has_country_flag = R36_mil_debate_normal_reward_2
+				has_country_flag = R36_mil_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ak3
+		trigger = {
+			has_country_flag = R36_mil_debate_3
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_3
+				has_country_flag = R36_mil_debate_normal_reward_3
+				has_country_flag = R36_mil_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.ak4
+		trigger = {
+			has_country_flag = R36_mil_debate_3
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_4
+				has_country_flag = R36_mil_debate_normal_reward_4
+				has_country_flag = R36_mil_debate_hard_reward_4
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.al1
+		trigger = {
+			has_country_flag = R36_mil_debate_4
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_1
+				has_country_flag = R36_mil_debate_normal_reward_1
+				has_country_flag = R36_mil_debate_hard_reward_1
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.al2
+		trigger = {
+			has_country_flag = R36_mil_debate_4
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_2
+				has_country_flag = R36_mil_debate_normal_reward_2
+				has_country_flag = R36_mil_debate_hard_reward_2
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.al3
+		trigger = {
+			has_country_flag = R36_mil_debate_4
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_3
+				has_country_flag = R36_mil_debate_normal_reward_3
+				has_country_flag = R36_mil_debate_hard_reward_3
+			}
+		}
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.al4
+		trigger = {
+			has_country_flag = R36_mil_debate_4
+			OR = {
+				has_country_flag = R36_mil_debate_easy_reward_4
+				has_country_flag = R36_mil_debate_normal_reward_4
+				has_country_flag = R36_mil_debate_hard_reward_4
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = EndhuviDebateOptB
+	text = {
+		localisation_key = flavour_endhuvi.204.ba
+		trigger = { has_country_flag = R36_adm_debate_1 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bb
+		trigger = { has_country_flag = R36_adm_debate_2 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bc
+		trigger = { has_country_flag = R36_adm_debate_3 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bd
+		trigger = { has_country_flag = R36_adm_debate_4 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.be
+		trigger = { has_country_flag = R36_dip_debate_1 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bf
+		trigger = { has_country_flag = R36_dip_debate_2 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bg
+		trigger = { has_country_flag = R36_dip_debate_3 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bh
+		trigger = { has_country_flag = R36_dip_debate_4 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bi
+		trigger = { has_country_flag = R36_mil_debate_1 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bj
+		trigger = { has_country_flag = R36_mil_debate_2 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bk
+		trigger = { has_country_flag = R36_mil_debate_3 }
+	}
+	text = {
+		localisation_key = flavour_endhuvi.204.bl
+		trigger = { has_country_flag = R36_mil_debate_4 }
+	}
+}
+
+defined_text = {
+	name = EndhuviDebateOptC
+	text = {
+		localisation_key = flavour_endhuvi.204.c1
+		trigger = { has_country_flag = R36_adm_debate_1 }
+	}
+}
+
+# G61 - Kimanis
+defined_text = {
+	name = GetReelectCountKimanis
+	random = no
+	text = {
+		localisation_key = "[This.election_term_G61.GetValue]"
+		trigger = {
+			check_variable = {
+				which = election_term_G61
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = ZERO
+	}
+	
+}
+defined_text = {
+	name = Getscornful_insult_counter_G61
+	random = no
+	text = {
+		localisation_key = "[This.scornful_insult_counter_G61.GetValue]"
+		trigger = {
+			check_variable = {
+				which = scornful_insult_counter_G61
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+defined_text = {
+	name = Getglorious_battle_count_G61
+	random = no
+	text = {
+		localisation_key = "[This.glorious_battle_count_G61.GetValue]"
+		trigger = {
+			check_variable = {
+				which = glorious_battle_count_G61
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+defined_text = {
+	name = Getvinecount_G61
+	random = no
+	text = {
+		localisation_key = "[This.vinecount_G61.GetValue]"
+		trigger = {
+			check_variable = {
+				which = vinecount_G61
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+defined_text = {
+	name = GetG61_glorious_battle_descriptor_tt
+	random = no
+	text = {
+		localisation_key = G61_glorious_battle_descriptor_discovery_tt
+		trigger = { current_age = age_of_discovery }
+	}
+	text = {
+		localisation_key = G61_glorious_battle_descriptor_reformation_tt
+		trigger = { current_age = age_of_reformation }
+	}
+	text = {
+		localisation_key = G61_glorious_battle_descriptor_absolutism_tt
+		trigger = { current_age = age_of_absolutism }
+	}
+	text = {
+		localisation_key = G61_glorious_battle_descriptor_revolutions_tt
+		trigger = { current_age = age_of_revolutions }
+	}
+}
+
+
+
+#Lake Federation Variables
+defined_text = {
+	name = getLakeInvestmentVar
+	random = no
+	
+	text = {
+		localisation_key = "[Root.lakeInvestment.GetValue]"
+		trigger = { check_variable = { which = lakeInvestment value = 1 } }
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+
+defined_text = {
+	name = getLakeAssemblyHouseVar
+	random = no
+	
+	text = {
+		localisation_key = "[Root.lakeAssemblyHouse.GetValue]"
+		trigger = { check_variable = { which = lakeAssemblyHouse value = 1 } }
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+defined_text = {
+	name = getLakeInvestmentBankVar
+	random = no
+	
+	text = {
+		localisation_key = "[Root.lakeInvestmentBank.GetValue]"
+		trigger = { check_variable = { which = lakeInvestmentBank value = 1 } }
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+
+defined_text = {
+	name = getLakeCentralBankVar
+	random = no
+	
+	text = {
+		localisation_key = "[Root.lakeCentralBank.GetValue]"
+		trigger = { check_variable = { which = lakeCentralBank value = 1 } }
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+
+defined_text = {
+	name = getMuseumInvestmentVar
+	random = no
+	
+	text = {
+		localisation_key = "[Root.museumInvestment.GetValue]"
+		trigger = { check_variable = { which = museumInvestment value = 1 } }
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+
+defined_text = {
+	name = getMuseumInvestmentProgressVar
+	random = no
+
+	text = {
+		localisation_key = "[Root.museumInvestmentProgress.GetValue]"
+		trigger = { check_variable = { which = museumInvestmentProgress value = 1 } }
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+
+
+
+#Planetouched Agenda Counters
+defined_text = {
+	name = getPlanetouchedAgendaGoodCounter
+	random = no
+	
+	text = {
+		localisation_key = "[Root.planetouched_agenda_good_var.GetValue]"
+		trigger = { check_variable = { which = planetouched_agenda_good_var value = 1 } }
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+
+defined_text = {
+	name = getPlanetouchedAgendaBadCounter
+	random = no
+	
+	text = {
+		localisation_key = "[Root.planetouched_agenda_bad_var.GetValue]"
+		trigger = { check_variable = { which = planetouched_agenda_bad_var value = 1 } }
+	}
+	text = {
+		localisation_key = ZERO
+	}
+}
+
+defined_text = {
+	name = getAttractionPunctuationWoman
+	random = no
+
+	text = { localisation_key = ellipses trigger = { ruler_attracted_to_men = yes } }
+	text = { localisation_key = exclamation_point }
+}
+defined_text = {
+	name = getAttractionPunctuationMan
+	random = no
+
+	text = { localisation_key = ellipses trigger = { ruler_attracted_to_women = yes } }
+	text = { localisation_key = exclamation_point }
+}

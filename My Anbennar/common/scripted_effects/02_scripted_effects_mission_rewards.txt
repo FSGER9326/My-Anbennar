@@ -1,0 +1,1150 @@
+# This file contains all effects which are are needed for dynamic effects, but have more than 512 characters in total.
+# It also has the dynamic effect itself too.
+#Use insight_tooltip = INSIGHT_JUST_TOOLTIP if you don't want to have anything specific
+country_event_with_insight = {
+	country_event = {
+		id = $id$
+		[[days] days = $days$]
+		[[random] random = $random$]
+		[[tooltip] tooltip = $tooltip$]
+	}
+	custom_tooltip = EVENT_INSIGHT_INTRO
+	custom_tooltip = $insight_tooltip$
+	[[effect_tooltip] tooltip = { $effect_tooltip$ }]
+}
+
+# "Simple" as in "Do not put too many characters in the input argument or else it will not work"
+# This serves as both an useful effect for small dynamic mission rewards
+# And as a reminder how the template for the dynamic mission rewards should look like
+
+# Use this if you want the rewards / triggers to be exclusive
+# This means if a AND b are fulfilled then the player gets only reward from a
+# IMPORTANT: They do NOT fire events for some reason.
+simple_dynamic_effect = {
+	custom_tooltip = $first_custom_tooltip$
+	if = {
+		limit = {
+			$first_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$first_effect$
+	}
+	custom_tooltip = mission_alternatively_tt
+	[[second_custom_tooltip] custom_tooltip = $second_custom_tooltip$ ]
+	if = {
+		limit = {
+			$second_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$second_effect$
+	}
+	hidden_effect = {
+		if = {
+			limit = { $first_limit$ }
+			$first_effect$
+		}
+		else = {
+			$second_effect$
+		}
+	}
+}
+
+# Use this if you want the rewards / triggers to be additive
+# This means if a AND b are fulfilled then the player gets both
+simple_dynamic_effect_without_alternative = {
+	custom_tooltip = $first_custom_tooltip$
+	if = {
+		limit = {
+			$first_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$first_effect$
+	}
+	[[second_custom_tooltip] custom_tooltip = $second_custom_tooltip$ ]
+	if = {
+		limit = {
+			$second_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$second_effect$
+	}
+	hidden_effect = {
+		if = {
+			limit = { $first_limit$ }
+			$first_effect$
+		}
+		if = {
+			limit = { $second_limit$ }
+			$second_effect$
+		}
+	}
+}
+
+# "Complex" as in "if you need this effect then you should rethink your mission reward"
+# Supports up to 10 dynamic effects
+# Will probably result in a grocery list when you hover over the effects though
+complex_dynamic_effect = {
+	custom_tooltip = $first_custom_tooltip$
+	if = {
+		limit = {
+			$first_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$first_effect$
+	}
+
+	[[second_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $second_custom_tooltip$
+	if = {
+		limit = {
+			$second_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$second_effect$
+	}
+	]
+
+	[[third_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $third_custom_tooltip$
+	if = {
+		limit = {
+			$third_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$third_effect$
+	}
+	]
+
+	[[fourth_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $fourth_custom_tooltip$
+	if = {
+		limit = {
+			$fourth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$fourth_effect$
+	}
+	]
+
+	[[fifth_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $fifth_custom_tooltip$
+	if = {
+		limit = {
+			$fifth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$fifth_effect$
+	}
+	]
+
+	[[sixth_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $sixth_custom_tooltip$
+	if = {
+		limit = {
+			$sixth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$sixth_effect$
+	}
+	]
+
+	[[seventh_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $seventh_custom_tooltip$
+	if = {
+		limit = {
+			$seventh_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$seventh_effect$
+	}
+	]
+
+	[[eighth_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $eighth_custom_tooltip$
+	if = {
+		limit = {
+			$eighth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$eighth_effect$
+	}
+	]
+
+	[[nineth_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $nineth_custom_tooltip$
+	if = {
+		limit = {
+			$nineth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$nineth_effect$
+	}
+	]
+
+	[[tenth_custom_tooltip] 
+	custom_tooltip = mission_alternatively_tt
+	custom_tooltip = $tenth_custom_tooltip$
+	if = {
+		limit = {
+			$tenth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$tenth_effect$
+	}
+	]
+
+	hidden_effect = {
+		if = {
+			limit = { $first_limit$ }
+			$first_effect$
+		}
+		[[second_custom_tooltip] 
+		else_if = {
+			limit = { $second_limit$ }
+			$second_effect$
+		}
+		]
+		[[third_custom_tooltip] 
+		else_if = {
+			limit = { $third_limit$ }
+			$third_effect$
+		}
+		]
+		[[fourth_custom_tooltip] 
+		else_if = {
+			limit = { $fourth_limit$ }
+			$fourth_effect$
+		}
+		]
+		[[fifth_custom_tooltip] 
+		else_if = {
+			limit = { $fifth_limit$ }
+			$fifth_effect$
+		}
+		]
+		[[sixth_custom_tooltip] 
+		else_if = {
+			limit = { $sixth_limit$ }
+			$sixth_effect$
+		}
+		]
+		[[seventh_custom_tooltip] 
+		else_if = {
+			limit = { $seventh_limit$ }
+			$seventh_effect$
+		}
+		]
+		[[eigth_custom_tooltip] 
+		else_if = {
+			limit = { $eigth_limit$ }
+			$eigth_effect$
+		}
+		]
+		[[nineth_custom_tooltip] 
+		else_if = {
+			limit = { $nineth_limit$ }
+			$nineth_effect$
+		}
+		]
+		[[tenth_custom_tooltip] 
+		else_if = {
+			limit = { $tenth_limit$ }
+			$tenth_effect$
+		}
+		]
+	}
+}
+
+# Use this if you want the rewards / triggers to be additive
+# This means if a AND b are fulfilled then the player gets both
+complex_dynamic_effect_without_alternative = {
+	custom_tooltip = $first_custom_tooltip$
+	if = {
+		limit = {
+			$first_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$first_effect$
+	}
+
+	[[second_custom_tooltip] 
+	custom_tooltip = $second_custom_tooltip$
+	if = {
+		limit = {
+			$second_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$second_effect$
+	}
+	]
+
+	[[third_custom_tooltip] 
+	custom_tooltip = $third_custom_tooltip$
+	if = {
+		limit = {
+			$third_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$third_effect$
+	}
+	]
+
+	[[fourth_custom_tooltip] 
+	custom_tooltip = $fourth_custom_tooltip$
+	if = {
+		limit = {
+			$fourth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$fourth_effect$
+	}
+	]
+
+	[[fifth_custom_tooltip] 
+	custom_tooltip = $fifth_custom_tooltip$
+	if = {
+		limit = {
+			$fifth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$fifth_effect$
+	}
+	]
+
+	[[sixth_custom_tooltip] 
+	custom_tooltip = $sixth_custom_tooltip$
+	if = {
+		limit = {
+			$sixth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$sixth_effect$
+	}
+	]
+
+	[[seventh_custom_tooltip] 
+	custom_tooltip = $seventh_custom_tooltip$
+	if = {
+		limit = {
+			$seventh_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$seventh_effect$
+	}
+	]
+
+	[[eighth_custom_tooltip] 
+	custom_tooltip = $eighth_custom_tooltip$
+	if = {
+		limit = {
+			$eighth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$eighth_effect$
+	}
+	]
+
+	[[nineth_custom_tooltip] 
+	custom_tooltip = $nineth_custom_tooltip$
+	if = {
+		limit = {
+			$nineth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$nineth_effect$
+	}
+	]
+
+	[[tenth_custom_tooltip] 
+	custom_tooltip = $tenth_custom_tooltip$
+	if = {
+		limit = {
+			$tenth_limit$
+		}
+		custom_tooltip = BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = BONUS_REWARD_NO }
+	tooltip = {
+		$tenth_effect$
+	}
+	]
+
+	[[combined_effect]
+	if = {
+		limit = {
+			$first_limit$
+			$second_limit$
+			$third_limit$
+			$fourth_limit$
+			$fifth_limit$
+			$sixth_limit$
+			$seventh_limit$
+			$eigth_limit$
+			$nineth_limit$
+			$tenth_limit$
+		}
+		custom_tooltip = COMBINED_BONUS_REWARD_YES
+	}
+	else = { custom_tooltip = COMBINED_BONUS_REWARD_NO }
+	tooltip = {
+		$combined_effect$
+	}
+	]
+
+	hidden_effect = {
+		if = {
+			limit = { $first_limit$ }
+			$first_effect$
+		}
+		[[second_custom_tooltip] 
+		if = {
+			limit = { $second_limit$ }
+			$second_effect$
+		}
+		]
+		[[third_custom_tooltip] 
+		if = {
+			limit = { $third_limit$ }
+			$third_effect$
+		}
+		]
+		[[fourth_custom_tooltip] 
+		if = {
+			limit = { $fourth_limit$ }
+			$fourth_effect$
+		}
+		]
+		[[fifth_custom_tooltip] 
+		if = {
+			limit = { $fifth_limit$ }
+			$fifth_effect$
+		}
+		]
+		[[sixth_custom_tooltip] 
+		if = {
+			limit = { $sixth_limit$ }
+			$sixth_effect$
+		}
+		]
+		[[seventh_custom_tooltip] 
+		if = {
+			limit = { $seventh_limit$ }
+			$seventh_effect$
+		}
+		]
+		[[eigth_custom_tooltip] 
+		if = {
+			limit = { $eigth_limit$ }
+			$eigth_effect$
+		}
+		]
+		[[nineth_custom_tooltip] 
+		if = {
+			limit = { $nineth_limit$ }
+			$nineth_effect$
+		}
+		]
+		[[tenth_custom_tooltip] 
+		if = {
+			limit = { $tenth_limit$ }
+			$tenth_effect$
+		}
+		]
+		[[combined_effect] 
+		if = {
+			limit = {
+				$first_limit$
+				$second_limit$
+				$third_limit$
+				$fourth_limit$
+				$fifth_limit$
+				$sixth_limit$
+				$seventh_limit$
+				$eigth_limit$
+				$nineth_limit$
+				$tenth_limit$
+			}
+			$combined_effect$
+		}
+		]
+	}
+}
+
+
+create_general_with_pips = {
+	create_general = {
+		tradition = $tradition$
+		[[add_fire] add_fire = $add_fire$ ]
+		[[add_shock] add_shock = $add_shock$ ]
+		[[add_manuever] add_manuever = $add_manuever$ ]
+		[[add_siege] add_siege = $add_siege$ ]
+		[[name] name = "$name$" ]
+		[[culture] culture = $culture$ ]
+	}
+	custom_tooltip = ME_GENERAL_$add_fire$_$add_shock$_$add_manuever$_$add_siege$
+}
+
+mission_give_province_claims = {
+	$id$ = {
+		if = {
+			limit = {
+				NOT = { is_core = $tag$ }
+				NOT = { is_permanent_claim = $tag$ }
+			}
+			add_permanent_claim = $tag$
+		}
+	}
+}
+
+mission_give_area_claims = {
+	$group$ = {
+		limit = {
+			NOT = { is_core = $tag$ }
+			NOT = { is_permanent_claim = $tag$ }
+		}
+		add_permanent_claim = $tag$
+	}
+}
+
+give_claims = {
+	[[province]
+		mission_give_province_claims = { id = $province$ tag = ROOT }
+	]
+	[[id]
+		mission_give_province_claims = { id = $id$ tag = ROOT }
+	]
+	[[area]
+		mission_give_area_claims = { group = $area$ tag = ROOT }
+	]
+	[[region]
+		mission_give_area_claims = { group = $region$ tag = ROOT }
+	]
+}
+
+add_power_projection_mission = {
+	add_power_projection = {
+		type = mission_rewards_power_projection
+		amount = $amount$
+	}
+}
+
+country_event_with_effect_insight = {
+	country_event = {
+		id = $id$
+		[[days] days = $days$]
+		[[random] random = $random$]
+		[[tooltip] tooltip = $tooltip$]
+	}
+	custom_tooltip = EVENT_INSIGHT_INTRO
+	tooltip = {
+		$effect$
+	}
+}
+
+country_event_with_option_insight = {
+	country_event = {
+		id = $id$
+		[[days] days = $days$]
+		[[random] random = $random$]
+		[[tooltip] tooltip = $tooltip$]
+	}
+	custom_tooltip = EVENT_INSIGHT_INTRO
+	custom_tooltip = EVENT_INSIGHT_OPT_1
+	tooltip = {
+		$option_1$
+	}
+	[[option_2]
+		custom_tooltip = EVENT_INSIGHT_OPT_2
+		tooltip = {
+			$option_2$
+		}
+	]
+	[[option_3]
+		custom_tooltip = EVENT_INSIGHT_OPT_3
+		tooltip = {
+			$option_3$
+		}
+	]
+	[[option_4]
+		custom_tooltip = EVENT_INSIGHT_OPT_4
+		tooltip = {
+			$option_4$
+		}
+	]
+	[[option_5]
+		custom_tooltip = EVENT_INSIGHT_OPT_5
+		tooltip = {
+			$option_5$
+		}
+	]
+}
+
+# ######################################
+# # Branching Missions Preview Effects #
+# ######################################
+#enable_branching_mission_review = {
+# 	if = {
+# 		limit = { ai = yes }
+# 		country_event = { id = $ai_event_id$ }
+# 	}
+# 	else = {
+# 		custom_tooltip = BYZ_unlock_branches_decision
+# 		hidden_effect = {
+# 			set_country_flag = can_choose_$key$_branching_missions
+# 			change_variable = {
+# 				which = can_preview_missions_var
+# 				value = 1
+# 			}
+# 		}
+# 	}
+#}
+
+# select_current_missions_TEU = {
+# 	if = {
+# 		limit = { has_country_flag = teu_prussian_path }
+# 		hidden_effect = {
+# 			clr_country_flag = teu_crusader_path
+# 			if = {
+# 				limit = {
+# 					has_country_flag = formed_prussia_flag
+# 					NOT = { tag = PRU }
+# 					NOT = { was_tag = PRU }
+# 				}
+# 				clr_country_flag = formed_prussia_flag
+# 			}
+# 		}
+# 	}
+# 	if = {
+# 		limit = { has_country_flag = teu_crusader_path }
+# 		hidden_effect = {
+# 			clr_country_flag = teu_prussian_path
+# 			clr_country_flag = teu_diplomacy_hre_path
+# 			clr_country_flag = teu_conquest_hre_path
+# 			set_country_flag = formed_prussia_flag
+# 		}
+# 		if = {
+# 			limit = { has_mission = teu_defeat_the_poles }
+# 			hidden_effect = {
+# 				if = {
+# 					limit = {
+# 						has_mission = teu_crusader_mil_reform_1
+# 						NOT = { mission_completed = teu_crusader_mil_reform_1 }
+# 					}
+# 					set_country_flag = teu_crusader_battle_counter
+# 				}
+# 				else = {
+# 					clr_country_flag = teu_crusader_battle_counter
+# 				}
+# 			}
+# 		}
+# 		custom_tooltip = flavor_teu.10.b.ct
+# 		if = {
+# 			limit = { is_part_of_hre = yes }
+# 			set_in_empire = no
+# 		}
+# 		samogitia_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		lithuania_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		mazovia_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		malopolska_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		central_poland_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 	}
+# }
+# select_current_missions_TEU_PRU = {
+# 	if = {
+# 		limit = { has_country_flag = teu_diplomacy_hre_path }
+# 		hidden_effect = {
+# 			clr_country_flag = teu_conquest_hre_path
+# 			clr_country_flag = teu_kingdom_prussia_path
+# 			clr_country_flag = teu_joined_the_hre
+# 		}
+# 		if = {
+# 			limit = { 
+# 				is_part_of_hre = no
+# 				hre_size = 1
+# 			}
+# 			set_in_empire = yes
+# 			emperor = { add_imperial_influence = 10 }
+# 		}
+# 		if = {
+# 			limit = { tag = TEU }
+# 			country_event = { id = flavor_teu.34 }
+# 		}
+# 		if = {
+# 			limit = { exists = BRA }
+# 			add_casus_belli = {
+# 				type = cb_vassalize_mission
+# 				target = BRA
+# 				months = 240
+# 			}
+# 		}			
+# 		mittelmark_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		neumark_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 	}
+# 	if = {
+# 		limit = { has_country_flag = teu_conquest_hre_path }
+# 		if = {
+# 			limit = { 
+# 				is_part_of_hre = no
+# 				hre_size = 1
+# 			}
+# 			set_in_empire = yes
+# 			emperor = { add_imperial_influence = 10 }
+# 		}
+# 		hidden_effect = {
+# 			set_country_flag = teu_conquest_hre_path
+# 			clr_country_flag = teu_diplomacy_hre_path
+# 			clr_country_flag = teu_kingdom_prussia_path
+# 			clr_country_flag = teu_joined_the_hre
+# 		}
+# 		if = {
+# 			limit = { tag = TEU }
+# 			country_event = { id = flavor_teu.34 }
+# 		}
+# 		mittelmark_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		neumark_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		vorpommern_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		hinter_pommern_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		mecklenburg_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		add_country_modifier = {
+# 			name = teu_pru_prussian_unification_wars
+# 			duration = 9125
+# 		}
+# 	}
+# 	if = {
+# 		limit = { has_country_flag = teu_kingdom_prussia_path }
+# 		if = {
+# 			limit = { is_part_of_hre = yes }
+# 			set_in_empire = no
+# 		}
+# 		add_prestige = 50
+# 		if = {
+# 			limit = { has_country_flag = teu_is_allowed_to_stay_in_the_hre }
+# 			reverse_add_opinion = {
+# 				who = emperor
+# 				modifier = hre_country_left
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			clr_country_flag = teu_diplomacy_hre_path
+# 			clr_country_flag = teu_conquest_hre_path
+# 			clr_country_flag = teu_joined_the_hre
+# 		}
+# 		samogitia_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		lithuania_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		mazovia_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		malopolska_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		central_poland_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 	}
+# }
+# select_current_missions_LIV = {
+# 	if = {
+# 		limit = {
+# 			has_country_flag = liv_crusader_path
+# 		}
+# 		hidden_effect = {
+# 			set_country_flag = formed_livonia_flag
+# 			set_country_flag = formed_courland_flag
+# 		}
+# 		custom_tooltip = flavor_liv.1.b.ct
+# 		lithuania_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		samogitia_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		karelia_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		novgorod_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 		pskov_area = {
+# 			limit = {
+# 				NOT = { is_core = ROOT }
+# 				NOT = { is_permanent_claim = ROOT }
+# 			}
+# 			add_permanent_claim = ROOT
+# 		}
+# 	}
+# }
+# select_current_missions_BYZ = {}	#Empty
+# select_current_missions_PER = {
+# 	if = {
+# 		limit = {
+# 			OR = {
+# 				has_country_flag = per_shia_missions
+# 				has_country_flag = per_sunni_missions
+# 			}
+# 		}
+# 		country_event = { id = flavor_per.34 } 
+# 	}
+# 	if = {
+# 		limit = { has_country_flag = per_zoroastrian_missions }
+# 		if = { 
+# 			limit = { NOT = { religion_group = zoroastrian_group } } 
+# 			country_event = { id = flavor_per.35 } 
+# 		} 
+# 		else = { 
+# 			change_estate_land_share = { estate = estate_church share = -5 } 
+# 		} 
+# 	}
+# }
+
+select_current_missions = {
+# 	hidden_effect = {
+# 		clr_country_flag = can_choose_$key$_branching_missions
+# 		change_variable = {
+# 			which = can_preview_missions_var
+# 			value = -1
+# 		}
+# 	}
+# 	select_current_missions_$key$ = yes
+}
+select_current_branch = {
+# 	custom_tooltip = BYZ_end_preview
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU } }
+# 		select_current_missions = { key = TEU }
+# 	}
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU_PRU } }
+# 		select_current_missions = { key = TEU_PRU }
+# 	}
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = LIV } }
+# 		select_current_missions = { key = LIV }
+# 	}
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = BYZ } }
+# 		select_current_missions = { key = BYZ }
+# 	}
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = PER } }
+# 		select_current_missions = { key = PER }
+# 	}
+}
+
+clear_all_branching_flags = {
+# 	#TEU
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU } }
+# 		clr_country_flag = teu_prussian_path
+# 		clr_country_flag = teu_crusader_path
+# 	}
+# 	#TEU-PRU
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU_PRU } }
+# 		clr_country_flag = teu_conquest_hre_path
+# 		clr_country_flag = teu_diplomacy_hre_path
+# 		clr_country_flag = teu_kingdom_prussia_path
+# 	}
+# 	#LIV
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = LIV } }
+# 		clr_country_flag = liv_livonian_path
+# 		clr_country_flag = liv_crusader_path
+# 	}
+# 	#BYZ
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = BYZ } }
+# 		clr_country_flag = BYZ_centralized
+# 		clr_country_flag = BYZ_decentralized
+# 	}
+# 	#PER
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = PER } }
+# 		clr_country_flag = per_shia_missions
+# 		clr_country_flag = per_sunni_missions
+# 		clr_country_flag = per_zoroastrian_missions
+# 	}
+}
+
+preview_mission_branch_1 = {
+# 	#TEU
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU } }
+# 		set_country_flag = teu_prussian_path
+# 		custom_tooltip = TEU_preview_prussian
+# 	}
+# 	#TEU_PRU
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU_PRU } }
+# 		set_country_flag = teu_conquest_hre_path
+# 		custom_tooltip = TEU_PRU_preview_hre_conquest
+# 	}
+# 	#LIV
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = LIV } }
+# 		set_country_flag = liv_livonian_path
+# 		custom_tooltip = LIV_preview_livonian
+# 	}
+# 	#BYZ
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = BYZ } }
+# 		set_country_flag = BYZ_centralized
+# 		custom_tooltip = BYZ_preview_centralized
+# 	}
+# 	#PER
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = PER } }
+# 		set_country_flag = per_shia_missions
+# 		custom_tooltip = per_preview_shia_missions
+# 	}
+}
+preview_mission_branch_2 = {
+# 	#TEU
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU } }
+# 		set_country_flag = teu_crusader_path
+# 		custom_tooltip = TEU_preview_crusader
+# 	}
+# 	#TEU_PRU
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU_PRU } }
+# 		if = {
+# 			limit = { hre_size = 1 }
+# 			set_country_flag = teu_diplomacy_hre_path
+# 			custom_tooltip = TEU_PRU_preview_hre_diplomacy
+# 		}
+# 		else = {
+# 			set_country_flag = teu_kingdom_prussia_path
+# 			custom_tooltip = TEU_PRU_preview_prussian_kingdom
+# 		}
+# 	}
+# 	#LIV
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = LIV } }
+# 		set_country_flag = liv_crusader_path
+# 		custom_tooltip = LIV_preview_crusader
+# 	}
+# 	#BYZ
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = BYZ } }
+# 		set_country_flag = BYZ_decentralized
+# 		custom_tooltip = BYZ_preview_decentralized
+# 	}
+# 	#PER
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = PER } }
+# 		set_country_flag = per_sunni_missions
+# 		custom_tooltip = per_preview_sunni_missions
+# 	}
+}
+preview_mission_branch_3 = {
+# 	#TEU_PRU
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = TEU_PRU } }
+# 		set_country_flag = teu_kingdom_prussia_path
+# 		custom_tooltip = TEU_PRU_preview_prussian_kingdom
+# 	}
+# 	#PER
+# 	if = {
+# 		limit = { can_preview_mission_of_key = { key = PER } }
+# 		set_country_flag = per_zoroastrian_missions
+# 		custom_tooltip = per_preview_zoroastrian_missions
+# 	}
+}
+preview_mission_branch_4 = {
+}
+preview_mission_branch_5 = {
+}
+preview_mission_branch = {
+	clear_all_branching_flags = yes
+	preview_mission_branch_$branch$ = yes
+	hidden_effect = { swap_non_generic_missions = yes }
+}

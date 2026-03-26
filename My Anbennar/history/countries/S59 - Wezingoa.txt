@@ -1,0 +1,50 @@
+setup_vision_sarhal = yes
+government = monarchy
+add_government_reform = mengi_kingdom_reform
+government_rank = 1
+primary_culture = yeteferen
+religion = sky_domain
+technology_group = tech_east_sarhaly
+capital = 6729
+
+historical_rival = S60
+historical_friend = S58
+
+
+1000.1.1 = { set_estate_privilege = estate_mages_organization_religious }
+
+1444.10.1 = {
+	monarch = {
+		name = "Kiros III"
+		dynasty = "zor Bira-Bonsa"
+		birth_date = 1400.11.2
+		adm = 5
+		dip = 3
+		mil = 2
+	}
+	add_ruler_personality = drunkard_personality
+	define_powerful_mage = {
+		type = ruler
+		conjuration = 1
+		transmutation = 2
+		abjuration = 2
+	}
+}
+
+1444.10.2 = {
+	heir = {
+		name = "Hajo"
+		monarch_name = "Hajo II"
+		dynasty = "zor Bira-Bonsa"
+		claim = 100
+		birth_date = 1431.10.1
+		death_date = 1445.12.1
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+# How many effective levels do they have, between ruler and estate?
+# Note that overlaps (like ruler evocation 1 and estate evocation 1) only count once
+historical_magic_advancements = { overall_level = 5 }

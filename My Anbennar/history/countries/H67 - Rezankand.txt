@@ -1,0 +1,13 @@
+
+government = theocracy
+add_government_reform = exemplar_state
+government_rank = 2
+primary_culture = dawn_elf
+religion = bulwari_sun_cult
+technology_group = tech_east_elven
+capital = 2333
+
+1000.1.1 = { 
+    set_estate_privilege = estate_mages_organization_magi_clans 
+    initialise_custom_spell_list = { group = bulwar }
+}

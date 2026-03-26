@@ -1,0 +1,41 @@
+
+country_decisions = {
+
+	isobelin_decision_comissioners_plan_progress = {
+		potential = {
+			tag = G91
+			AND = {
+				has_country_flag = isobelin_country_flag_comissioners_plan
+				NOT = {
+					check_variable = {
+						which = isobelin_variable_comissioners_plan
+						value = 150.01
+					}				
+				}
+			}
+		}
+		
+		allow = {
+			always = no
+		}
+		
+		effect = {
+			custom_tooltip = isobelin_tooltip_comissioners_plan_progress
+		}
+	}
+
+	isobelin_decision_zoo_and_museum = {
+		potential = { has_country_flag = isobelin_decisions_zoo_and_museum }
+		allow = {
+			hidden_trigger = {
+				ai = no
+				has_country_flag = isobelin_decisions_zoo_and_museum
+				NOT = { has_country_flag = isobelin_decision_menu_open }
+			}
+		}
+		effect = {
+			set_country_flag = isobelin_decision_menu_open
+			country_event = { id = flavor_isobelin.999 }
+		}
+	}
+}

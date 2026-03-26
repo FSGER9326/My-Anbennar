@@ -1,0 +1,16 @@
+
+name = "Karshyras Rebellion"
+war_goal = {
+	type = annex_country
+	casus_belli = cb_annex
+}
+
+#Nahab declares revolution against Crodamic rule
+1444.1.1 = {
+	add_attacker = S15
+	add_defender = L68
+}
+1500.1.1 = { #only for correctness sake - no effect
+	rem_attacker = S15
+	rem_defender = L68
+}

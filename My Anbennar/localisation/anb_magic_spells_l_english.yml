@@ -1,0 +1,924 @@
+﻿l_english:
+ 
+ #################
+ ### SPELLBOOK ###
+ #################
+
+ open_abjuration_spellbook_tt:0 "Turn to the Abjuration spells"
+ open_conjuration_spellbook_tt:0 "Turn to the Conjuration spells"
+ open_divination_spellbook_tt:0 "Turn to the Divination spells"
+ open_enchantment_spellbook_tt:0 "Turn to the Enchantment spells"
+ open_evocation_spellbook_tt:0 "Turn to the Evocation spells"
+ open_illusion_spellbook_tt:0 "Turn to the Illusion spells"
+ open_necromancy_spellbook_tt:0 "Turn to the Necromancy spells"
+ open_transmutation_spellbook_tt:0 "Turn to the Transmutation spells"
+
+ magic_menu_cast_spell_slot_1:0 "[Root.MagicMenuSpellSlot1]"
+ magic_menu_cast_spell_slot_2:0 "[Root.MagicMenuSpellSlot2]"
+ magic_menu_cast_spell_slot_3:0 "[Root.MagicMenuSpellSlot3]"
+ magic_menu_cast_spell_slot_4:0 "[Root.MagicMenuSpellSlot4]"
+ magic_menu_cast_spell_slot_5:0 "[Root.MagicMenuSpellSlot5]"
+ magic_menu_cast_spell_slot_6:0 "[Root.MagicMenuSpellSlot6]"
+ magic_menu_cast_spell_slot_1_2:0 "[Root.MagicMenuSpellSlot1_2]"
+ magic_menu_cast_spell_slot_2_2:0 "[Root.MagicMenuSpellSlot2_2]"
+ magic_menu_cast_spell_slot_3_2:0 "[Root.MagicMenuSpellSlot3_2]"
+ magic_menu_cast_spell_slot_4_2:0 "[Root.MagicMenuSpellSlot4_2]"
+ magic_menu_cast_spell_slot_5_2:0 "[Root.MagicMenuSpellSlot5_2]"
+ magic_menu_cast_spell_slot_6_2:0 "[Root.MagicMenuSpellSlot6_2]"
+
+ ####################
+ ### SPELLCASTING ###
+ ####################
+
+ while_ruler_alive_tt:0 "...while our ruler lives"
+ while_heir_alive_tt:0 "...while our heir lives and rules"
+ for_next_cast_only_tt:0 "...the next time we cast it"
+ spell_is_free_tt:0 "This spell is §Gfree§! to cast"
+ spell_is_half_tt:0 "This spell is §Ghalf§!-cost to cast"
+ spell_is_three_quarter_tt: "This spell is §G-25.0%§! cost to cast"
+
+ abjuration_0_combat_ward_spell_free:0 "'§YCombat Ward§!' §GFree§! to Cast"
+ abjuration_1_ward_spell_free:0 "'§YWard§!' §GFree§! to Cast"
+ abjuration_1_protected_journey_spell_free:0 "'§YProtected Journey§!' §GFree§! to Cast"
+ abjuration_2_mass_ward_spell_free:0 "'§YMass Ward§!' §GFree§! to Cast"
+ abjuration_2_mage_armor_spell_free:0 "'§YMage Armor§!' §GFree§! to Cast"
+ abjuration_3_field_of_forbiddance_spell_free:0 "'§YField of Forbiddance§!' §GFree§! to Cast"
+
+ conjuration_0_summon_familiars_spell_free:0 "'§YSummon Familiars§!' §GFree§! to Cast"
+ conjuration_1_summon_animals_spell_free:0 "'§YSummon Animals§!' §GFree§! to Cast"
+ conjuration_1_conjure_supplies_spell_free:0 "'§YConjure Supplies§!' §GFree§! to Cast"
+ conjuration_2_summon_elementals_spell_free:0 "'§YSummon Elementals§!' §GFree§! to Cast"
+ conjuration_2_aid_construction_spell_free:0 "'§YAid Construction§!' §GFree§! to Cast"
+ conjuration_3_extraplanar_contact_spell_free:0 "'§YExtraplanar Contact§!' §GFree§! to Cast"
+
+ divination_0_guidance_spell_free:0 "'§YGuidance§!' §GFree§! to Cast"
+ divination_1_eye_for_talent_spell_free:0 "'§YEye for Talent§!' §GFree§! to Cast"
+ divination_1_deposit_divination_spell_free:0 "'§YDeposit Divination§!' §GFree§! to Cast"
+ divination_2_scry_spell_free:0 "'§YScry§!' §GFree§! to Cast"
+ divination_2_manipulated_fortune_spell_free:0 "'§YManipulated Fortune§!' §GFree§! to Cast"
+ divination_3_foresight_spell_free:0 "'§YForesight§!' §GFree§! to Cast"
+
+ enchantment_0_enchanting_envoy_spell_free:0 "'§YEnchanting Envoy§!' §GFree§! to Cast"
+ enchantment_1_heartstring_spell_free:0 "'§YHeartstring§!' §GFree§! to Cast"
+ enchantment_1_command_animals_spell_free:0 "'§YCommand Animals§!' §GFree§! to Cast"
+ enchantment_2_thoughtweave_spell_free:0 "'§YThoughtweave§!' §GFree§! to Cast"
+ enchantment_2_enchanting_embassy_spell_free:0 "'§YEnchanting Embassy§!' §GFree§! to Cast"
+ enchantment_3_dominate_to_surrender_spell_free:0 "'§YDominate to Surrender§!' §GFree§! to Cast"
+
+ evocation_0_fireball_spell_free:0 "'§YFireball§!' §GFree§! to Cast"
+ evocation_1_shock_and_awe_spell_free:0 "'§YShock and Awe§!' §GFree§! to Cast"
+ evocation_1_flaming_munitions_spell_free:0 "'§YFlaming Munitions§!' §GFree§! to Cast"
+ evocation_2_meteor_swarm_spell_free:0 "'§YMeteor Swarm§!' §GFree§! to Cast"
+ evocation_2_tearfall_spell_free:0 "'§YTearfall§!' §GFree§! to Cast"
+ evocation_3_elemental_fury_spell_free:0 "'§YElemental Fury§!' §GFree§! to Cast"
+
+ illusion_0_invisibility_spell_free:0 "'§YInvisibility§!' §GFree§! to Cast"
+ illusion_1_fear_and_loathing_spell_free:0 "'§YFear and Loathing§!' §GFree§! to Cast"
+ illusion_1_bread_and_circuses_spell_free:0 "'§YBread and Circuses§!' §GFree§! to Cast"
+ illusion_2_assimilation_program_spell_free:0 "'§YAssimilation Program§!' §GFree§! to Cast"
+ illusion_2_shadows_in_the_night_spell_free:0 "'§YShadows in the Night§!' §GFree§! to Cast"
+ illusion_3_lead_the_crowds_spell_free:0 "'§YLead the Crowds§!' §GFree§! to Cast"
+ anb_has_special_agendas_tooltip:0 "This spell cannot be cast due to us having §YSpecial Agendas§!!"
+
+ necromancy_0_false_life_spell_free:0 "'§YFalse Life§!' §GFree§! to Cast"
+ necromancy_1_steal_vitality_spell_free:0 "'§YSteal Vitality§!' §GFree§! to Cast"
+ necromancy_1_contagion_spell_free:0 "'§YContagion§!' §GFree§! to Cast"
+ necromancy_2_speak_with_dead_spell_free:0 "'§YSpeak With Dead§!' §GFree§! to Cast"
+ necromancy_2_remove_pain_spell_free:0 "'§YRemove Pain§!' §GFree§! to Cast"
+ necromancy_3_chronophage_spell_free:0 "'§YChronophage§!' §GFree§! to Cast"
+
+ transmutation_0_longstrider_spell_free:0 "'§YLongstrider§!' §GFree§! to Cast"
+ transmutation_1_plant_growth_spell_free:0 "'§YPlant Growth§!' §GFree§! to Cast"
+ transmutation_1_mass_enlarge_spell_free:0 "'§YMass Enlarge§!' §GFree§! to Cast"
+ transmutation_2_transmute_to_gold_spell_free:0 "'§YTransmute to Gold§!' §GFree§! to Cast"
+ transmutation_2_reshape_terrain_spell_free:0 "'§YReshape Terrain§!' §GFree§! to Cast"
+ transmutation_3_rite_of_conception_spell_free:0 "'§YRite of Conception§!' §GFree§! to Cast"
+
+ abjuration_spell_free:0 "§YAbjuration Spells§! §GFree§! to Cast"
+ conjuration_spell_free:0 "§YConjuration Spells§! §GFree§! to Cast"
+ divination_spell_free:0 "§YDivination Spells§! §GFree§! to Cast"
+ enchantment_spell_free:0 "§YEnchantment Spells§! §GFree§! to Cast"
+ evocation_spell_free:0 "§YEvocation Spells§! §GFree§! to Cast"
+ illusion_spell_free:0 "§YIllusion Spells§! §GFree§! to Cast"
+ necromancy_spell_free:0 "§YNecromancy Spells§! §GFree§! to Cast"
+ transmutation_spell_free:0 "§YTransmutation Spells§! §GFree§! to Cast"
+ all_spell_free:0 "§YAll Spells§! §GFree§! to Cast"
+
+ abjuration_0_combat_ward_spell_half:0 "'§YCombat Ward§!' Costs §GHalf§! Mana"
+ abjuration_1_ward_spell_half:0 "'§YWard§!' Costs §GHalf§! Mana"
+ abjuration_1_protected_journey_spell_half:0 "'§YProtected Journey§!' Costs §GHalf§! Mana"
+ abjuration_2_mass_ward_spell_half:0 "'§YMass Ward§!' Costs §GHalf§! Mana"
+ abjuration_2_mage_armor_spell_half:0 "'§YMage Armor§!' Costs §GHalf§! Mana"
+ abjuration_3_field_of_forbiddance_spell_half:0 "'§YField of Forbiddance§!' Costs §GHalf§! Mana"
+
+ conjuration_0_summon_familiars_spell_half:0 "'§YSummon Familiars§!' Costs §GHalf§! Mana"
+ conjuration_1_summon_animals_spell_half:0 "'§YSummon Animals§!' Costs §GHalf§! Mana"
+ conjuration_1_conjure_supplies_spell_half:0 "'§YConjure Supplies§!' Costs §GHalf§! Mana"
+ conjuration_2_summon_elementals_spell_half:0 "'§YSummon Elementals§!' Costs §GHalf§! Mana"
+ conjuration_2_aid_construction_spell_half:0 "'§YAid Construction§!' Costs §GHalf§! Mana"
+ conjuration_3_extraplanar_contact_spell_half:0 "'§YExtraplanar Contact§!' Costs §GHalf§! Mana"
+
+ divination_0_guidance_spell_half:0 "'§YGuidance§!' Costs §GHalf§! Mana"
+ divination_1_eye_for_talent_spell_half:0 "'§YEye for Talent§!' Costs §GHalf§! Mana"
+ divination_1_deposit_divination_spell_half:0 "'§YDeposit Divination§!' Costs §GHalf§! Mana"
+ divination_2_scry_spell_half:0 "'§YScry§!' Costs §GHalf§! Mana"
+ divination_2_manipulated_fortune_spell_half:0 "'§YManipulated Fortune§!' Costs §GHalf§! Mana"
+ divination_3_foresight_spell_half:0 "'§YForesight§!' Costs §GHalf§! Mana"
+
+ enchantment_0_enchanting_envoy_spell_half:0 "'§YEnchanting Envoy§!' Costs §GHalf§! Mana"
+ enchantment_1_heartstring_spell_half:0 "'§YHeartstring§!' Costs §GHalf§! Mana"
+ enchantment_1_command_animals_spell_half:0 "'§YCommand Animals§!' Costs §GHalf§! Mana"
+ enchantment_2_thoughtweave_spell_half:0 "'§YThoughtweave§!' Costs §GHalf§! Mana"
+ enchantment_2_enchanting_embassy_spell_half:0 "'§YEnchanting Embassy§!' Costs §GHalf§! Mana"
+ enchantment_3_dominate_to_surrender_spell_half:0 "'§YDominate to Surrender§!' Costs §GHalf§! Mana"
+
+ evocation_0_fireball_spell_half:0 "'§YFireball§!' Costs §GHalf§! Mana"
+ evocation_1_shock_and_awe_spell_half:0 "'§YShock and Awe§!' Costs §GHalf§! Mana"
+ evocation_1_flaming_munitions_spell_half:0 "'§YFlaming Munitions§!' Costs §GHalf§! Mana"
+ evocation_2_meteor_swarm_spell_half:0 "'§YMeteor Swarm§!' Costs §GHalf§! Mana"
+ evocation_2_tearfall_spell_half:0 "'§YTearfall§!' Costs §GHalf§! Mana"
+ evocation_3_elemental_fury_spell_half:0 "'§YElemental Fury§!' Costs §GHalf§! Mana"
+
+ illusion_0_invisibility_spell_half:0 "'§YInvisibility§!' Costs §GHalf§! Mana"
+ illusion_1_fear_and_loathing_spell_half:0 "'§YFear and Loathing§!' Costs §GHalf§! Mana"
+ illusion_1_bread_and_circuses_spell_half:0 "'§YBread and Circuses§!' Costs §GHalf§! Mana"
+ illusion_2_assimilation_program_spell_half:0 "'§YAssimilation Program§!' Costs §GHalf§! Mana"
+ illusion_2_shadows_in_the_night_spell_half:0 "'§YShadows in the Night§!' Costs §GHalf§! Mana"
+ illusion_3_lead_the_crowds_spell_half:0 "'§YLead the Crowds§!' Costs §GHalf§! Mana"
+
+ necromancy_0_false_life_spell_half:0 "'§YFalse Life§!' Costs §GHalf§! Mana"
+ necromancy_1_steal_vitality_spell_half:0 "'§YSteal Vitality§!' Costs §GHalf§! Mana"
+ necromancy_1_contagion_spell_half:0 "'§YContagion§!' Costs §GHalf§! Mana"
+ necromancy_2_speak_with_dead_spell_half:0 "'§YSpeak With Dead§!' Costs §GHalf§! Mana"
+ necromancy_2_remove_pain_spell_half:0 "'§YRemove Pain§!' Costs §GHalf§! Mana"
+ necromancy_3_chronophage_spell_half:0 "'§YChronophage§!' Costs §GHalf§! Mana"
+
+ transmutation_0_longstrider_spell_half:0 "'§YLongstrider§!' Costs §GHalf§! Mana"
+ transmutation_1_plant_growth_spell_half:0 "'§YPlant Growth§!' Costs §GHalf§! Mana"
+ transmutation_1_mass_enlarge_spell_half:0 "'§YMass Enlarge§!' Costs §GHalf§! Mana"
+ transmutation_2_transmute_to_gold_spell_half:0 "'§YTransmute to Gold§!' Costs §GHalf§! Mana"
+ transmutation_2_reshape_terrain_spell_half:0 "'§YReshape Terrain§!' Costs §GHalf§! Mana"
+ transmutation_3_rite_of_conception_spell_half:0 "'§YRite of Conception§!' Costs §GHalf§! Mana"
+
+ abjuration_spell_half:0 "§YAbjuration Spells§! Cost §GHalf§! Mana"
+ conjuration_spell_half:0 "§YConjuration Spells§! Cost §GHalf§! Mana"
+ divination_spell_half:0 "§YDivination Spells§! Cost §GHalf§! Mana"
+ enchantment_spell_half:0 "§YEnchantment Spells§! Cost §GHalf§! Mana"
+ evocation_spell_half:0 "§YEvocation Spells§! Cost §GHalf§! Mana"
+ illusion_spell_half:0 "§YIllusion Spells§! Cost §GHalf§! Mana"
+ necromancy_spell_half:0 "§YNecromancy Spells§! Cost §GHalf§! Mana"
+ transmutation_spell_half:0 "§YTransmutation Spells§! Cost §GHalf§! Mana"
+ all_spell_half:0 "§YAll Spells§! Cost §GHalf§! Mana"
+ next_all_spell_half:0 "The next §YSpell§! cast will cost §GHalf§! Mana"
+
+ abjuration_0_combat_ward_spell_three_quarter:0 "'§YCombat Ward§!' Costs §G25.0%§! less Mana"
+ abjuration_1_ward_spell_three_quarter:0 "'§YWard§!' Costs §G25.0%§! less Mana"
+ abjuration_1_protected_journey_spell_three_quarter:0 "'§YProtected Journey§!' Costs §G25.0%§! less Mana"
+ abjuration_2_mass_ward_spell_three_quarter:0 "'§YMass Ward§!' Costs §G25.0%§! less Mana"
+ abjuration_2_mage_armor_spell_three_quarter:0 "'§YMage Armor§!' Costs §G25.0%§! less Mana"
+ abjuration_3_field_of_forbiddance_spell_three_quarter:0 "'§YField of Forbiddance§!' Costs §G25.0%§! less Mana"
+
+ conjuration_0_summon_familiars_spell_three_quarter:0 "'§YSummon Familiars§!' Costs §G25.0%§! less Mana"
+ conjuration_1_summon_animals_spell_three_quarter:0 "'§YSummon Animals§!' Costs §G25.0%§! less Mana"
+ conjuration_1_conjure_supplies_spell_three_quarter:0 "'§YConjure Supplies§!' Costs §G25.0%§! less Mana"
+ conjuration_2_summon_elementals_spell_three_quarter:0 "'§YSummon Elementals§!' Costs §G25.0%§! less Mana"
+ conjuration_2_aid_construction_spell_three_quarter:0 "'§YAid Construction§!' Costs §G25.0%§! less Mana"
+ conjuration_3_extraplanar_contact_spell_three_quarter:0 "'§YExtraplanar Contact§!' Costs §G25.0%§! less Mana"
+
+ divination_0_guidance_spell_three_quarter:0 "'§YGuidance§!' Costs §G25.0%§! less Mana"
+ divination_1_eye_for_talent_spell_three_quarter:0 "'§YEye for Talent§!' Costs §G25.0%§! less Mana"
+ divination_1_deposit_divination_spell_three_quarter:0 "'§YDeposit Divination§!' Costs §G25.0%§! less Mana"
+ divination_2_scry_spell_three_quarter:0 "'§YScry§!' Costs §G25.0%§! less Mana"
+ divination_2_manipulated_fortune_spell_three_quarter:0 "'§YManipulated Fortune§!' Costs §G25.0%§! less Mana"
+ divination_3_foresight_spell_three_quarter:0 "'§YForesight§!' Costs §G25.0%§! less Mana"
+
+ enchantment_0_enchanting_envoy_spell_three_quarter:0 "'§YEnchanting Envoy§!' Costs §G25.0%§! less Mana"
+ enchantment_1_heartstring_spell_three_quarter:0 "'§YHeartstring§!' Costs §G25.0%§! less Mana"
+ enchantment_1_command_animals_spell_three_quarter:0 "'§YCommand Animals§!' Costs §G25.0%§! less Mana"
+ enchantment_2_thoughtweave_spell_three_quarter:0 "'§YThoughtweave§!' Costs §G25.0%§! less Mana"
+ enchantment_2_enchanting_embassy_spell_three_quarter:0 "'§YEnchanting Embassy§!' Costs §G25.0%§! less Mana"
+ enchantment_3_dominate_to_surrender_spell_three_quarter:0 "'§YDominate to Surrender§!' Costs §G25.0%§! less Mana"
+
+ evocation_0_fireball_spell_three_quarter:0 "'§YFireball§!' Costs §G25.0%§! less Mana"
+ evocation_1_shock_and_awe_spell_three_quarter:0 "'§YShock and Awe§!' Costs §G25.0%§! less Mana"
+ evocation_1_flaming_munitions_spell_three_quarter:0 "'§YFlaming Munitions§!' Costs §G25.0%§! less Mana"
+ evocation_2_meteor_swarm_spell_three_quarter:0 "'§YMeteor Swarm§!' Costs §G25.0%§! less Mana"
+ evocation_2_tearfall_spell_three_quarter:0 "'§YTearfall§!' Costs §G25.0%§! less Mana"
+ evocation_3_elemental_fury_spell_three_quarter:0 "'§YElemental Fury§!' Costs §G25.0%§! less Mana"
+
+ illusion_0_invisibility_spell_three_quarter:0 "'§YInvisibility§!' Costs §G25.0%§! less Mana"
+ illusion_1_fear_and_loathing_spell_three_quarter:0 "'§YFear and Loathing§!' Costs §G25.0%§! less Mana"
+ illusion_1_bread_and_circuses_spell_three_quarter:0 "'§YBread and Circuses§!' Costs §G25.0%§! less Mana"
+ illusion_2_assimilation_program_spell_three_quarter:0 "'§YAssimilation Program§!' Costs §G25.0%§! less Mana"
+ illusion_2_shadows_in_the_night_spell_three_quarter:0 "'§YShadows in the Night§!' Costs §G25.0%§! less Mana"
+ illusion_3_lead_the_crowds_spell_three_quarter:0 "'§YLead the Crowds§!' Costs §G25.0%§! less Mana"
+
+ necromancy_0_false_life_spell_three_quarter:0 "'§YFalse Life§!' Costs §G25.0%§! less Mana"
+ necromancy_1_steal_vitality_spell_three_quarter:0 "'§YSteal Vitality§!' Costs §G25.0%§! less Mana"
+ necromancy_1_contagion_spell_three_quarter:0 "'§YContagion§!' Costs §G25.0%§! less Mana"
+ necromancy_2_speak_with_dead_spell_three_quarter:0 "'§YSpeak With Dead§!' Costs §G25.0%§! less Mana"
+ necromancy_2_remove_pain_spell_three_quarter:0 "'§YRemove Pain§!' Costs §G25.0%§! less Mana"
+ necromancy_3_chronophage_spell_three_quarter:0 "'§YChronophage§!' Costs §G25.0%§! less Mana"
+
+ transmutation_0_longstrider_spell_three_quarter:0 "'§YLongstrider§!' Costs §G25.0%§! less Mana"
+ transmutation_1_plant_growth_spell_three_quarter:0 "'§YPlant Growth§!' Costs §G25.0%§! less Mana"
+ transmutation_1_mass_enlarge_spell_three_quarter:0 "'§YMass Enlarge§!' Costs §G25.0%§! less Mana"
+ transmutation_2_transmute_to_gold_spell_three_quarter:0 "'§YTransmute to Gold§!' Costs §G25.0%§! less Mana"
+ transmutation_2_reshape_terrain_spell_three_quarter:0 "'§YReshape Terrain§!' Costs §G25.0%§! less Mana"
+ transmutation_3_rite_of_conception_spell_three_quarter:0 "'§YRite of Conception§!' Costs §G25.0%§! less Mana"
+
+ abjuration_spell_three_quarter:0 "§YAbjuration Spells§! Cost §G25.0%§! less Mana"
+ conjuration_spell_three_quarter:0 "§YConjuration Spells§! Cost §G25.0%§! less Mana"
+ divination_spell_three_quarter:0 "§YDivination Spells§! Cost §G25.0%§! less Mana"
+ enchantment_spell_three_quarter:0 "§YEnchantment Spells§! Cost §G25.0%§! less Mana"
+ evocation_spell_three_quarter:0 "§YEvocation Spells§! Cost §G25.0%§! less Mana"
+ illusion_spell_three_quarter:0 "§YIllusion Spells§! Cost §G25.0%§! less Mana"
+ necromancy_spell_three_quarter:0 "§YNecromancy Spells§! Cost §G25.0%§! less Mana"
+ transmutation_spell_three_quarter:0 "§YTransmutation Spells§! Cost §G25.0%§! less Mana"
+ all_spell_three_quarter:0 "§YAll Spells§! Cost §G25.0%§! less Mana"
+
+ has_cast_war_magic:0 "Have an active §YWar Magic§! spell"
+ has_not_cast_war_magic:0 "Do NOT have an active §YWar Magic§! spell"
+ only_one_war_magic_tt:0 "We can only have one §YWar Magic§! spell active at a time (casting a new spell will clear the old one)\n[This.GetWarMagicExceptionUmbralCovenant]"
+ spell_sabotage_effect_tt:0 "All war enemies and rivals get the following effect:"
+ spell_sabotage_effect_2_tt:0 "Random war enemies get the following effect:"
+ siege_spell_tt:0 "This is a §YSiege Spell§! or §YAnti-Siege Spell§! and can only be cast from the siege magic province button."
+
+ has_siege:0 "Province is under siege"
+ has_war_wizard:0 "Have a §YWar Wizard§! (General with §Y7+ Shock§!)"
+
+ magic_effect_separator_tt:0 "-----------------------------------------\n"
+
+ magic_booster_by_witch_king_tt:0 "The effects of this spell are enhanced by our §YWitch-King§!!"
+
+ # spell counting
+ has_cast_spell_count_trigger_all_1_tt:0 "Has cast at least §Y1§! spell.\n(Currently: §Y[This.GetAllSchoolsSpellCount]§!)"
+ has_cast_spell_count_trigger_all_2_tt:0 "Has cast at least §Y2§! spells.\n(Currently: §Y[This.GetAllSchoolsSpellCount]§!)"
+ has_cast_spell_count_trigger_all_3_tt:0 "Has cast at least §Y3§! spells.\n(Currently: §Y[This.GetAllSchoolsSpellCount]§!)"
+
+ has_cast_spell_count_trigger_abjuration_1_tt:0 "Has cast at least §Y1§! Abjuration spell.\n(Currently: §Y[This.GetAbjurationSpellCount]§!)"
+ has_cast_spell_count_trigger_abjuration_2_tt:0 "Has cast at least §Y2§! Abjuration spells.\n(Currently: §Y[This.GetAbjurationSpellCount]§!)"
+ has_cast_spell_count_trigger_abjuration_3_tt:0 "Has cast at least §Y3§! Abjuration spells.\n(Currently: §Y[This.GetAbjurationSpellCount]§!)"
+
+ has_cast_spell_count_trigger_necromancy_1_tt:0 "Has cast at least §Y1§! Necromancy spell.\n(Currently: §Y[This.GetNecromancySpellCount]§!)"
+ has_cast_spell_count_trigger_necromancy_2_tt:0 "Has cast at least §Y2§! Necromancy spells.\n(Currently: §Y[This.GetNecromancySpellCount]§!)"
+ has_cast_spell_count_trigger_necromancy_3_tt:0 "Has cast at least §Y3§! Necromancy spells.\n(Currently: §Y[This.GetNecromancySpellCount]§!)"
+
+ has_cast_spell_count_trigger_divination_1_tt:0 "Has cast at least §Y1§! Divination spell.\n(Currently: §Y[This.GetDivinationSpellCount]§!)"
+ has_cast_spell_count_trigger_divination_2_tt:0 "Has cast at least §Y2§! Divination spells.\n(Currently: §Y[This.GetDivinationSpellCount]§!)"
+ has_cast_spell_count_trigger_divination_3_tt:0 "Has cast at least §Y3§! Divination spells.\n(Currently: §Y[This.GetDivinationSpellCount]§!)"
+
+ has_cast_spell_count_trigger_transmutation_1_tt:0 "Has cast at least §Y1§! Transmutation spell.\n(Currently: §Y[This.GetTransmutationSpellCount]§!)"
+ has_cast_spell_count_trigger_transmutation_2_tt:0 "Has cast at least §Y2§! Transmutation spells.\n(Currently: §Y[This.GetTransmutationSpellCount]§!)"
+ has_cast_spell_count_trigger_transmutation_3_tt:0 "Has cast at least §Y3§! Transmutation spells.\n(Currently: §Y[This.GetTransmutationSpellCount]§!)"
+
+ has_cast_spell_count_trigger_evocation_1_tt:0 "Has cast at least §Y1§! Evocation spell.\n(Currently: §Y[This.GetEvocationSpellCount]§!)"
+ has_cast_spell_count_trigger_evocation_2_tt:0 "Has cast at least §Y2§! Evocation spells.\n(Currently: §Y[This.GetEvocationSpellCount]§!)"
+ has_cast_spell_count_trigger_evocation_3_tt:0 "Has cast at least §Y3§! Evocation spells.\n(Currently: §Y[This.GetEvocationSpellCount]§!)"
+
+ has_cast_spell_count_trigger_illusion_1_tt:0 "Has cast at least §Y1§! Illusion spell.\n(Currently: §Y[This.GetIllusionSpellCount]§!)"
+ has_cast_spell_count_trigger_illusion_2_tt:0 "Has cast at least §Y2§! Illusion spells.\n(Currently: §Y[This.GetIllusionSpellCount]§!)"
+ has_cast_spell_count_trigger_illusion_3_tt:0 "Has cast at least §Y3§! Illusion spells.\n(Currently: §Y[This.GetIllusionSpellCount]§!)"
+ has_cast_spell_count_trigger_illusion_6_tt:0 "Has cast at least §Y6§! Illusion spells.\n(Currently: §Y[This.GetIllusionSpellCount]§!)"
+
+ has_cast_spell_count_trigger_enchantment_1_tt:0 "Has cast at least §Y1§! Enchantment spell.\n(Currently: §Y[This.GetEnchantmentSpellCount]§!)"
+ has_cast_spell_count_trigger_enchantment_2_tt:0 "Has cast at least §Y2§! Enchantment spells.\n(Currently: §Y[This.GetEnchantmentSpellCount]§!)"
+ has_cast_spell_count_trigger_enchantment_3_tt:0 "Has cast at least §Y3§! Enchantment spells.\n(Currently: §Y[This.GetEnchantmentSpellCount]§!)"
+
+ #Mana Used on Spells Counting
+ has_spent_amount_mana_on_spells_all_100_tt: "Has used at least §Y100§! §MMana§! on spells\n(Currently: §Y[This.count_all_spell_mana.GetValue]§!)"
+ has_spent_amount_mana_on_spells_all_200_tt: "Has used at least §Y200§! §MMana§! on spells\n(Currently: §Y[This.count_all_spell_mana.GetValue]§!)"
+
+ has_spent_amount_mana_on_spells_abjuration_100_tt: "Has used at least §Y100§! §MMana§! on §YAbjuration§! spells\n(Currently: §Y[This.count_abjuration_spell_mana.GetValue]§!)"
+ has_spent_amount_mana_on_spells_abjuration_200_tt: "Has used at least §Y200§! §MMana§! on §YAbjuration§! spells\n(Currently: §Y[This.count_abjuration_spell_mana.GetValue]§!)"
+
+ has_spent_amount_mana_on_spells_necromancy_100_tt: "Has used at least §Y100§! §MMana§! on §YNecromancy§! spells\n(Currently: §Y[This.count_necromancy_spell_mana.GetValue]§!)"
+ has_spent_amount_mana_on_spells_necromancy_200_tt: "Has used at least §Y200§! §MMana§! on §YNecromancy§! spells\n(Currently: §Y[This.count_necromancy_spell_mana.GetValue]§!)"
+
+ has_spent_amount_mana_on_spells_divination_100_tt: "Has used at least §Y100§! §MMana§! on §YDivination§! spells\n(Currently: §Y[This.count_divination_spell_mana.GetValue]§!)"
+ has_spent_amount_mana_on_spells_divination_200_tt: "Has used at least §Y200§! §MMana§! on §YDivination§! spells\n(Currently: §Y[This.count_divination_spell_mana.GetValue]§!)"
+
+ has_spent_amount_mana_on_spells_transmutation_100_tt: "Has used at least §Y100§! §MMana§! on §YTransmutation§! spells\n(Currently: §Y[This.count_transmutation_spell_mana.GetValue]§!)"
+ has_spent_amount_mana_on_spells_transmutation_200_tt: "Has used at least §Y200§! §MMana§! on §YTransmutation§! spells\n(Currently: §Y[This.count_transmutation_spell_mana.GetValue]§!)"
+
+ has_spent_amount_mana_on_spells_evocation_100_tt: "Has used at least §Y100§! §MMana§! on §YEvocation§! spells\n(Currently: §Y[This.count_evocation_spell_mana.GetValue]§!)"
+ has_spent_amount_mana_on_spells_evocation_200_tt: "Has used at least §Y200§! §MMana§! on §YEvocation§! spells\n(Currently: §Y[This.count_evocation_spell_mana.GetValue]§!)"
+
+ has_spent_amount_mana_on_spells_illusion_100_tt: "Has used at least §Y100§! §MMana§! on §YIllusion§! spells\n(Currently: §Y[This.count_illusion_spell_mana.GetValue]§!)"
+ has_spent_amount_mana_on_spells_illusion_200_tt: "Has used at least §Y200§! §MMana§! on §YIllusion§! spells\n(Currently: §Y[This.count_illusion_spell_mana.GetValue]§!)"
+
+ has_spent_amount_mana_on_spells_enchantment_100_tt: "Has used at least §Y100§! §MMana§! on §YEnchantment§! spells\n(Currently: §Y[This.count_enchantment_spell_mana.GetValue]§!)"
+ has_spent_amount_mana_on_spells_enchantment_200_tt: "Has used at least §Y200§! §MMana§! on §YEnchantment§! spells\n(Currently: §Y[This.count_enchantment_spell_mana.GetValue]§!)"
+
+ ############################
+ ### ABJURATION (100-199) ### Localisation for all spells written by Bonbonny
+ ############################
+
+ abjuration_0_combat_ward_spell:0 "Combat Ward"
+ abjuration_0_combat_ward_spell_2:0 "War Magic" #UI line 2
+ abjuration_0_combat_ward_spell_desc:0 "§gDefensive wards come in all shapes and fashions, from form-fitting barriers around otherwise fragile objects, to intangible shields, to glyphs and runes that act as traps. The most basic ward consists of only a single word: Halt.§!"
+ abjuration_1_ward_spell:0 "Ward"
+ abjuration_1_ward_spell_2:0 "Anti-Siege Spell" #UI line 2
+ abjuration_1_ward_spell_desc:0 "§gFrom about the 11th century until the Blackpowder Rebellion, castles in Cannor employed wards to protect from low-level magic like fireballs or magic missiles. This was a source of steady work for many beginner mages.§!"
+ abjuration_1_protected_journey_spell:0 "Protected Journey"
+ abjuration_1_protected_journey_spell_2:0 "" #UI line 2
+ abjuration_1_protected_journey_spell_desc:0 "§gIn 1514 AA Pearlsedge put forward a prize for a localized, mobile ward large enough to encompass a whole ship. Its fruits were exploited by both state actors and adventuring bands, exploding Cannorian presence in Aelantir.§!"
+ abjuration_2_mass_ward_spell:0 "Mass Ward"
+ abjuration_2_mass_ward_spell_2:0 "Anti-Siege Spell" #UI line 2
+ abjuration_2_mass_ward_spell_desc:0 "§gMost magical advancements focused on improving the concentration of the mage, and thus the power of their magic. The breakthrough came by turning this thinking on its head: the same basic spell, cast repeatedly, created efficiencies that outscaled the drop in quality.§!"
+ abjuration_2_mage_armor_spell:0 "Mage Armor"
+ abjuration_2_mage_armor_spell_2:0 "War Magic" #UI line 2
+ abjuration_2_mage_armor_spell_desc:0 "§gThe proliferation of black damestear bullets in the eighteenth century put an end to the "one-man armies" that had defined Cannorian warfare since the Crimson Deluge. The Camiran Doctrine (introduced by Camir I Silmuna) positioned mages behind the front line, casting powerful wards in between rifle volleys.§!"
+ abjuration_3_field_of_forbiddance_spell:0 "Field of Forbiddance"
+ abjuration_3_field_of_forbiddance_spell_2:0 "" #UI line 2
+ abjuration_3_field_of_forbiddance_spell_desc:0 "§gThe rise of nation-states was contingent on developments in Abjuration. Its ability to physically enforce theoretical taboos created the space for both the rule of law and the tyranny of witch-kings. From tamper-proof seals to magically defined borders, Abjuration became the school of choice for nations with advancing political systems.§!"
+
+ abjuration_0_combat_ward_mod:0 "War Magic: Combat Ward"
+ desc_abjuration_0_combat_ward_mod:0 "We can only have one §YWar Magic§! spell active at a time! Casting another §YWar Magic§! spell will remove this one."
+ abjuration_1_ward_mod_0:0 "Abjuration: Ward"
+ abjuration_1_ward_mod_1:0 "Abjuration: Ward (Magical Fortress: Foundations of Pride)"
+ abjuration_1_ward_mod_2:0 "Abjuration: Ward (Magical Fortress: Castle of Ego)"
+ abjuration_1_ward_mod_3:0 "Abjuration: Ward (Magical Fortress: Palace of Dreams)"
+ abjuration_1_ward_mod_3_desc:0 "This province is immune to §YSiege Magic§! so long as the wards hold!"
+ abjuration_1_ward_upgrade_0:0 "£no£If §YMagical Fortress§! is at least Level §Y1§!:\nMaximum Attrition: §G+1§!\nAttrition for Enemies: §G+1§!\n\n£no£If §YMagical Fortress§! is at least Level §Y2§!:\nFort Level: §G+1§!\nLocal Defensiveness: §G+25.0%§!\n\n£no£If §YMagical Fortress§! is Level §Y3§!:\n'§YWard§!' protects against all §YSiege Magic§!"
+ abjuration_1_ward_upgrade_1:0 "£yes£If §YMagical Fortress§! is at least Level §Y1§!:\nLocal Fort Maintenance: §G-50.0%§!\nMaximum Attrition: §G+1§!\n\n£no£If §YMagical Fortress§! is at least Level §Y2§!:\nFort Level: §G+1§!\nLocal Defensiveness: §G+25.0%§!\n\n£no£If §YMagical Fortress§! is Level §Y3§!:\n'§YWard§!' protects against all §YSiege Magic§!"
+ abjuration_1_ward_upgrade_2:0 "£yes£If §YMagical Fortress§! is at least Level §Y1§!:\nLocal Fort Maintenance: §G-50.0%§!\nMaximum Attrition: §G+1§!\n\n£yes£If §YMagical Fortress§! is at least Level §Y2§!:\nFort Level: §G+1§!\nLocal Defensiveness: §G+25.0%§!\n\n£no£If §YMagical Fortress§! is Level §Y3§!:\n'§YWard§!' protects against all §YSiege Magic§!"
+ abjuration_1_ward_upgrade_3:0 "£yes£If §YMagical Fortress§! is at least Level §Y1§!:\nLocal Fort Maintenance: §G-50.0%§!\nMaximum Attrition: §G+1§!\n\n£yes£If §YMagical Fortress§! is at least Level §Y2§!:\nFort Level: §G+1§!\nLocal Defensiveness: §G+25.0%§!\n\n£yes£If §YMagical Fortress§! is Level §Y3§!:\n'§YWard§!' protects against all §YSiege Magic§!"
+ change_siege_negative_tt:0 "Decrease the siege progress in §Y[This.GetName]§! by §Y1§!"
+ abjuration_1_protected_journey_mod:0 "Abjuration: Protected Journey"
+ abjuration_2_mass_ward_cooldown_mod:0 "Mass Ward"
+ abjuration_2_mass_ward_spell_effect_tt:0 "Apply '§YWard§!' to every unwarded fort we own and control, at half duration."
+ abjuration_2_mage_armor_mod:0 "War Magic: Mage Armor"
+ abjuration_2_mage_armor_mod_buffed:0 "War Magic: Anti-Blackpowder Mage Armor"
+ abjuration_3_field_of_forbiddance_cooldown_mod:0 "Abjuration: Field of Forbiddance"
+ abjuration_3_field_of_forbiddance_local_mod:0 "Abjuration: Field of Forbiddance"
+ every_mage_tower_tt:0 "Every province with a §YMage Tower§! receives the following:"
+ abjuration_3_field_of_forbiddance_effect_tt:0 "Lose §G-40.00%§! Local Autonomy in §Y[This.GetName]§!"
+
+ has_cast_combat_ward:0 "The spell '§YCombat Ward§!' is active"
+ has_not_cast_combat_ward:0 "The spell '§YCombat Ward§!' is NOT active"
+ has_cast_protected_journey:0 "The spell '§YProtected Journey§!' is active"
+ has_not_cast_protected_journey:0 "The spell '§YProtected Journey§!' is NOT active"
+ has_cast_mass_ward:0 "The spell '§YMass Ward§!' is active"
+ has_not_cast_mass_ward:0 "The spell '§YMass Ward§!' is NOT active"
+ has_cast_mage_armor:0 "The spell '§YMage Armor§!' is active"
+ has_not_cast_mage_armor:0 "The spell '§YMage Armor§!' is NOT active"
+ has_cast_field_of_forbiddance:0 "The spell '§YField of Forbiddance§!' is active"
+ has_not_cast_field_of_forbiddance:0 "The spell '§YField of Forbiddance§!' is NOT active"
+ has_cast_abjuration_war_magic:0 "Any Abjuration §YWar Magic§! is active"
+ has_not_cast_abjuration_war_magic:0 "No Abjuration §YWar Magic§! is active"
+ has_cast_ward:0 "Any owned §YProvince(s)§! has defensive magical wards"
+ has_not_cast_ward:0 "No owned §YProvince(s)§! has defensive magical wards"
+ province_has_magical_ward:0 "§Y[This.GetName]§! has defensive magical wards"
+ province_has_no_magical_ward:0 "§Y[This.GetName]§! does NOT have defensive magical wards"
+ cannot_siege_magical_fortress:0 "§R§Y[This.GetName]§! is being protected by a '§YWard§!' from a §YMagical Fortress: Palace of Dreams§!§!"
+
+ has_cast_any_abjuration_spell_tt:0 "Has any §YAbjuration§! spell active"
+ has_not_cast_any_abjuration_spell_tt:0 "Has no §YAbjuration§! spell active"
+
+ #############################
+ ### CONJURATION (200-299) ###
+ #############################
+
+ conjuration_0_summon_familiars_spell:0 "Summon Familiars"
+ conjuration_0_summon_familiars_spell_2:0 "" #UI line 2
+ conjuration_0_summon_familiars_spell_desc:0 "§gAll Conjuration is fundamentally summoning, the calling of what is currently elsewhere. In so doing, the caster can manifest objects across great distances, or even across planes. The first thing most novices conjure is a friend.§!"
+ conjuration_1_summon_animals_spell:0 "Summon Animals"
+ conjuration_1_summon_animals_spell_2:0 "" #UI line 2
+ conjuration_1_summon_animals_spell_desc:0 "§gThe easiest act of conjuration is to summon what already exists, by tugging it first to another plane and then to you. A proficient Conjurer, for instance, may surprise the enemy by the sudden arrival of several dozen feral hogs.§!"
+ conjuration_1_conjure_supplies_spell:0 "Conjure Supplies"
+ conjuration_1_conjure_supplies_spell_2:0 "" #UI line 2
+ conjuration_1_conjure_supplies_spell_desc:0 "§gThe journeyman conjures by using reality as a map, studying physical objects closely and summoning a copy of them. The master relies instead on his mind and imagination, making real the fantastic, summoning from planes of sheer possibility.§!"
+ conjuration_2_summon_elementals_spell:0 "Summon Elementals"
+ conjuration_2_summon_elementals_spell_2:0 "" #UI line 2
+ conjuration_2_summon_elementals_spell_desc:0 "§gElementals are beings of "characteristic energy" pulled from conceptual planes to temporarily serve a master in our world. They tend to be pre-sentient, only partially physical in nature, and extremely upset.§!"
+ conjuration_2_aid_construction_spell:0 "Aid Construction"
+ conjuration_2_aid_construction_spell_2:0 "" #UI line 2
+ conjuration_2_aid_construction_spell_desc:0 "§gThrough the power of the mind, many mages find work in the laborious task of construction. Conjuration can act as a unique form of transportation, enabling building techniques that would otherwise be impossible.§!"
+ conjuration_3_extraplanar_contact_spell:0 "Extraplanar Contact"
+ conjuration_3_extraplanar_contact_spell_2:0 "" #UI line 2
+ conjuration_3_extraplanar_contact_spell_desc:0 "§gOccasionally, Conjuration spells go awry, resulting in the summoning not of beings, but thoughts--perhaps memories. Vistas of the space between planes, knowledge that never was. Were you wise, you'd ignore it. How unfortunate.§!"
+
+ conjuration_0_summon_familiars_spell_effect_no_tt:0 "The ongoing mana cost is reduced by §G33.3%§! for every level our §Y[Root.Monarch.GetTitle]§! has in the school currently advancing."
+ conjuration_0_summon_familiars_spell_effect_yes_tt:0 "The ongoing mana cost is reduced by §G33.3%§! for every level our §Y[Root.Monarch.GetTitle]§! has in §Y[get_advancement_school]§!."
+ conjuration_0_summon_familiars_mod:0 "Conjuration: Summoning Familiars"
+ conjuration_0_summon_familiars_mod_1:0 "Conjuration: Summoning Familiars"
+ conjuration_0_summon_familiars_mod_2:0 "Conjuration: Summoning Familiars"
+ conjuration_0_summon_familiars_mod_3:0 "Conjuration: Summoning Familiars"
+
+ conjuration_1_summon_animals_spell_effect_tt:0 "Gain access to the §YFeral Animals§! mercenary company for §Y5§! years. They do NOT contribute to our §YForce Limit§!.\nThey are a company with §Y[Root.feral_animals_reg.GetValue]§! regiments comprising §Y[Root.feral_animals_inf.GetValue]§! Infantry and §Y[Root.feral_animals_cav.GetValue]§! Cavalry.\nFrom §YFeral Animal§! Traditions:\n   Discipline: §R-20.0%§!\n   Land Attrition: §G-25.0%§!.\n"
+ conjuration_1_summon_animals_mod:0 "Conjuration: Summoning Feral Animals"
+ desc_conjuration_1_summon_animals_mod:0 "We have access to the §YFeral Animals§! mercenary company"
+ conjuration_1_conjure_supplies_mod:0 "Conjuration: Conjured Supplies"
+ conjuration_2_summon_elementals_spell_effect_tt:0 "Gain access to the §YLeashed Elementals§! mercenary company for §Y10§! years. They do NOT contribute to our §YForce Limit§!.\nThey are a company with §Y[Root.leashed_elementals_reg.GetValue]§! regiments comprising §Y[Root.leashed_elementals_inf.GetValue]§! Infantry and §Y[Root.leashed_elementals_cav.GetValue]§! Cavalry.\nFrom §YLeashed Elementals§! Traditions:\n   Shock Damage: §G+25.0%§!.\n   Fire Damage Received: §G-10.0%§!\n   Shock Damage Received: §G-10.0%§!\n"
+
+ conjuration_2_greater_summon_elementals_spell_effect_tt:0 "Gain access to the §YGreater Leashed Elementals§! mercenary company for §Y10§! years. They do NOT contribute to our §YForce Limit§!.\nThey are a company with §Y[Root.leashed_elementals_reg.GetValue]§! regiments comprising §Y[Root.leashed_elementals_inf.GetValue]§! Infantry and §Y[Root.leashed_elementals_cav.GetValue]§! Cavalry.\nFrom §YGreater Leashed Elementals§! Traditions:\n   Shock Damage: §G+50.0%§!.\n   Fire Damage Received: §G-20.0%§!\n   Shock Damage Received: §G-20.0%§!\n"
+ conjuration_2_summon_elementals_mod:0 "Conjuration: Summoning Leashed Elementals"
+ desc_conjuration_2_summon_elementals_mod:0 "We have access to the §YLeashed Elementals§! mercenary company"
+ conjuration_2_greater_summon_elementals_mod:0 "Conjuration: Summoning Greater Leashed Elementals"
+ desc_conjuration_2_greater_summon_elementals_mod:0 "We have access to the §YGreater Leashed Elementals§! mercenary company"
+ conjuration_2_aid_construction_mod:0 "Conjuration: Aid Construction"
+ conjuration_2_aid_construction_mod_buffed:0 "Conjuration: Bolstered Aid Construction"
+ conjuration_3_extraplanar_contact_estate_mod:0 "Conjuration: Extraplanar Contact"
+ conjuration_3_extraplanar_contact_spell_effect_yes_tt:0 "£yes£If the §Y[Root.Monarch.GetTitle]§! is a §YPowerful Mage§!:\nGain a random §Mspell level§!!\n[GetExtraplanarContactLastUpgrade]"
+ conjuration_3_extraplanar_contact_spell_effect_no_tt:0 "£no£If the §Y[Root.Monarch.GetTitle]§! is a §YPowerful Mage§!:\nGain a random §Mspell level§!!"
+ extraplanar_contact_abjuration:0 "The last upgraded spell school was §YAbjuration§!\n"
+ extraplanar_contact_conjuration:0 "The last upgraded spell school was §YConjuration§!\n"
+ extraplanar_contact_divination:0 "The last upgraded spell school was §YDivination§!\n"
+ extraplanar_contact_enchantment:0 "The last upgraded spell school was §YEnchantment§!\n"
+ extraplanar_contact_evocation:0 "The last upgraded spell school was §YEvocation§!\n"
+ extraplanar_contact_illusion:0 "The last upgraded spell school was §YAbjuration§!\n"
+ extraplanar_contact_necromancy:0 "The last upgraded spell school was §YNecromancy§!\n"
+ extraplanar_contact_transmutation:0 "The last upgraded spell school was §YTransmutation§!\n"
+
+ has_cast_summon_familiars:0 "The spell '§YSummon Familiars§!' is active"
+ has_not_cast_summon_familiars:0 "The spell '§YSummon Familiars§!' is NOT active"
+ has_cast_summon_animals:0 "The spell '§YSummon Animals§!' is active"
+ has_not_cast_summon_animals:0 "The spell '§YSummon Animals§!' is NOT active"
+ has_cast_conjure_supplies:0 "The spell '§YConjure Supplies§!' is active"
+ has_not_cast_conjure_supplies:0 "The spell '§YConjure Supplies§!' is NOT active"
+ has_cast_summon_elementals:0 "The spell '§YSummon Elementals§!' is active"
+ has_not_cast_summon_elementals:0 "The spell '§YSummon Elementals§!' is NOT active"
+ has_cast_aid_construction:0 "The spell '§YAid Construction§!' is active"
+ has_not_cast_aid_construction:0 "The spell '§YAid Construction§!' is NOT active"
+ has_cast_extraplanar_contact:0 "The spell '§YExtraplanar Contact§!' is active"
+ has_not_cast_extraplanar_contact:0 "The spell '§YExtraplanar Contact§!' is NOT active"
+ 
+ magic_spell.203.t:0 "Summoned Elementals Vanishing!"
+ magic_spell.202.t:0 "Summoned Animals Vanishing!"
+ magic_spell.202.d:0 "The nature of Conjuration is temporary: rarely do such specific overlaps in space and time manage to stick around for long. In the absence of powerful magic, connections falter. Soon,what was both here and there is now only there."
+ magic_spell.202.a:0 "Accept the loss"
+ magic_spell.202.b:0 "A little bit longer--!"
+ not_enough_mana_tt:0 "£no£Not enough §MMana§!"
+ you_already_recast_tt:0 "We have already sustained the summoning!"
+
+ has_cast_any_conjuration_spell_tt:0 "Has any §YConjuration§! spell active"
+
+ ############################
+ ### DIVINATION (300-399) ###
+ ############################
+
+ divination_0_guidance_spell:0 "Guidance"
+ divination_0_guidance_spell_2:0 "" #UI line 2
+ divination_0_guidance_spell_desc:0 "§gThe primary skill of Divination is to know something one oughtn't know, to know it without explanation and cause. This first manifests only as a gut feeling, yet it is trust in that feeling which defines the Diviner.§!"
+ divination_1_deposit_divination_spell:0 "Deposit Divination"
+ divination_1_deposit_divination_spell_2:0 "" #UI line 2
+ divination_1_deposit_divination_spell_desc:0 "§gThe importance of what is inside the earth varies by location. Aul-Dwarov sought out mithril ("True-steel"), whereas Mašnsih "World-Gardeners" find underground reservoirs in the dry lands. In Vimdatrong, "dragon lines" are identified as suitable places for new chi wellsprings.§!"
+ divination_1_eye_for_talent_spell:0 "Eye for Talent"
+ divination_1_eye_for_talent_spell_2:0 "" #UI line 2
+ divination_1_eye_for_talent_spell_desc:0 "§gThrough prophecy or coincidence, Diviners occasionally pick out certain individuals set apart from the rest. These so-called "chosen ones" are rarely fated heroes, but they are useful nevertheless.§!"
+ divination_2_scry_spell:0 "Scry"
+ divination_2_scry_spell_2:0 "" #UI line 2
+ divination_2_scry_spell_desc:0 "§gCause and effect can propagate impossibly across space, even backwards through time. Scrying is the recognition of this fact, reading the future in tongues of fire, seeing distant lands in the organs of pigeons.§!"
+ divination_2_manipulated_fortune_spell:0 "Manipulated Fortune"
+ divination_2_manipulated_fortune_spell_2:0 "War Magic" #UI line 2
+ divination_2_manipulated_fortune_spell_desc:0 "§gA Diviner cannot force the hand of fate, but neither is she bound to it. Through careful action, an outcome that was always possible can be made almost certain. To the outside world, it often appears as though the Diviner simply has better luck.§!"
+ divination_3_foresight_spell:0 "Foresight"
+ divination_3_foresight_spell_2:0 "" #UI line 2
+ divination_3_foresight_spell_desc:0 "§gThe gift of Foresight is unlike prophesy, giving one the ability to see the near future rather than predict distant posterity. A wise ruler accepts the trade, knowing that today is but kindling for a brighter tomorrow.§!"
+
+ divination_0_guidance_upgrade_no:0 "\n£no£If §YOrb of Omniscience§! is at least Level §Y1§!:\nGain §G25§! Monarch Power instead of §G20§!."
+ divination_0_guidance_upgrade_yes:0 "\n£yes£If §YOrb of Omniscience§! is at least Level §Y1§!:\nGain §G25§! Monarch Power instead of §G20§!."
+ divination_1_deposit_divination_spell_effect:0 "Every owned §YMineable§! good gets the following effect:"
+ divination_1_deposit_divination_upgrade_no:0 "£no£If §YOrb of Omniscience§! is at least Level §Y1§!:\nDouble the length of '§YDeposit Divination§!'"
+ divination_1_deposit_divination_upgrade_yes:0 "£yes£If §YOrb of Omniscience§! is at least Level §Y1§!:\nDouble the length of '§YDeposit Divination§!'"
+ divination_1_deposit_divination_local_mod:0 "Divination: Divined Deposits"
+ divination_1_deposit_divination_local_mod_S61_upgrade:0 "Divination: Divined Deposits"
+ divination_1_deposit_divination_mod:0 "Divination: Deposit Divination"
+ divination_1_deposit_divination_trigger:0 "Any owned province produces one of the following: §YCopper§!, §YIron§!, §YGems§!, §YSalt§!, §YGold§!, §YMithril§!, §YDamestear§!, or §YCoal§!"
+ divination_1_eye_for_talent_spell_effect_tt:0 "Hire any §G-25.0%§! cheaper cost advisor with a skill level equal to §Y1§! plus our §YMagical Infrastructure§! Level."
+ for_advisor_hire:0 "for as long as this advisor remains in our employ"
+ divination_1_eye_for_talent_upgrade_no:0 "\n£no£If §YOrb of Omniscience§! is at least Level §Y2§!:\nThat advisor will be §G1.5x§! more effective"
+ divination_1_eye_for_talent_upgrade_yes:0 "\n£yes£If §YOrb of Omniscience§! is at least Level §Y2§!:\nThat advisor will be §G1.5x§! more effective"
+ divination_1_eye_for_talent_artist_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_inquisitor_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_master_of_mint_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_natural_scientist_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_philosopher_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_theologian_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_treasurer_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_colonial_governor_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_diplomat_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_naval_reformer_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_navigator_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_spymaster_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_statesman_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_trader_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_army_organiser_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_army_reformer_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_commandant_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_grand_captain_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_recruitmaster_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_fortification_expert_mod:0 "Divination: Eye for Talent"
+ divination_1_eye_for_talent_quartermaster_mod:0 "Divination: Eye for Talent"
+ divination_2_scry_local_mod:0 "Divination: Scrying Institutions"
+ divination_2_scry_spell_effect_tt:0 "Steal §YInstitutions§! from those we §YScry§!."
+ divination_2_scry_upgrade_no:0 "\n£no£If §YOrb of Omniscience§! is at least Level §Y2§!:\nInstantly gain §G+50§! §YInstitution Progress§! in the capital."
+ divination_2_scry_upgrade_yes:0 "\n£yes£If §YOrb of Omniscience§! is at least Level §Y2§!:\nInstantly gain §G+50§! §YInstitution Progress§! in the capital."
+ is_scrying_mod:0 "Divination: Scry"
+ is_scrying_mod_buffed:0 "Divination: Scry"
+ divination_2_manipulated_fortune_upgrade_no:0 "£no£If §YOrb of Omniscience§! is Level §Y3§!:\nGlobal Defender Dice Roll Bonus: §G+1.00§!"
+ divination_2_manipulated_fortune_upgrade_yes:0 "£yes£If §YOrb of Omniscience§! is Level §Y3§!:\nGlobal Defender Dice Roll Bonus: §G+1.00§!"
+ divination_2_manipulated_fortune_mod:0 "War Magic: Manipulated Fortune"
+ desc_divination_2_manipulated_fortune_mod:0 "We can only have one §YWar Magic§! spell active at a time! Casting another §YWar Magic§! spell will remove this one."
+ divination_2_manipulated_fortune_mod_buffed:0 "War Magic: Empowered Manipulated Fortune"
+ desc_divination_2_manipulated_fortune_mod_buffed:0 "We can only have one §YWar Magic§! spell active at a time! Casting another §YWar Magic§! spell will remove this one."
+ divination_3_foresight_upgrade_no:0 "£no£If §YOrb of Omniscience§! is Level §Y3§!:\nAll Powers Cost: §G-15.0%§! instead of §G-10.0%§!."
+ divination_3_foresight_upgrade_yes:0 "£yes£If §YOrb of Omniscience§! is Level §Y3§!:\nAll Powers Cost: §G-15.0%§! instead of §G-10.0%§!."
+ divination_3_foresight_mod:0 "Divination: Foresight"
+ divination_3_foresight_mod_buffed:0 "Divination: Fivesight"
+ has_cast_guidance_1_times: "The spell '§YGuidance§!' has been cast §Y1§! times (Currently: §Y[Root.GetNumGuidance]§!)"
+ has_cast_guidance_3_times: "The spell '§YGuidance§!' has been cast §Y3§! times (Currently: §Y[Root.GetNumGuidance]§!)"
+ has_cast_guidance_5_times: "The spell '§YGuidance§!' has been cast §Y5§! times (Currently: §Y[Root.GetNumGuidance]§!)"
+ has_cast_guidance_10_times: "The spell '§YGuidance§!' has been cast §Y10§! times (Currently: §Y[Root.GetNumGuidance]§!)"
+ has_cast_guidance_20_times: "The spell '§YGuidance§!' has been cast §Y20§! times (Currently: §Y[Root.GetNumGuidance]§!)"
+ has_cast_eye_for_talent_1_times:0 "The spell '§YEye for Talent§!' has been cast §Y1§! times (Currently: §Y[Root.GetNumEyeForTalent]§!)"
+ has_cast_deposit_divination:0 "The spell '§YDeposit Divination§!' is active"
+ has_not_cast_deposit_divination:0 "The spell '§YDeposit Divination§!' is NOT active"
+ has_cast_eye_for_talent:0 "The spell '§YEye For Talent§!' is active"
+ has_not_cast_eye_for_talent:0 "The spell '§YEye For Talent§!' is NOT active"
+ has_cast_scry:0 "The spell '§YScry§!' is active"
+ has_not_cast_scry:0 "The spell '§YScry§!' is NOT active"
+ has_cast_manipulated_fortune:0 "The spell '§YManipulated Fortune§!' is active"
+ has_not_cast_manipulated_fortune:0 "The spell '§YManipulated Fortune§!' is NOT active"
+ has_cast_foresight:0 "The spell '§YForesight§!' is active"
+ has_not_cast_foresight:0 "The spell '§YForesight§!' is NOT active"
+
+ magic_spell.300.title:0 "Eye for Talent"
+ magic_spell.300.desc:0 "The stars were right. The bones held true. The doves were numbered correctly, and the micidorian count came back off the charts: this figure was undeniably the Chosen One spoken of in prophecy. Upon hearing the news, they dropped whatever they were previously doing and traveled to [Root.Capital.GetName], accepting their heroic destiny serving their [Root.Monarch.GetTitle]. There are lots of prophecies, of course, and therefore many Chosen Ones. Seems like there's a new one every day, eager to prove their heroic service to the [Root.GovernmentName]. Which one shall we select?"
+ magic_spell.300.a:0 "I'll take... this one."
+ magic_spell.300.b:0 "...No, this one!"
+ magic_spell.300.c:0 "Wait, actually, this one!"
+ magic_spell.300.d:0 "I like the look of this one..."
+ magic_spell.300.e:0 "How did they grow a beard like that?"
+ magic_spell.300.f:0 "How did they grow NOSE HAIR like that?"
+ magic_spell.300.g:0 "Is that a third arm? These Chosen Ones are weird people."
+ magic_spell.300.h:0 "We're looking for an administrator."
+ magic_spell.300.i:0 "Is there a diploma in the house?"
+ magic_spell.300.j:0 "We need a military leader!"
+
+ has_cast_any_divination_spell_tt:0 "Has any §YDivination§! spell active"
+
+ #############################
+ ### ENCHANTMENT (400-499) ###
+ #############################
+
+ enchantment_0_enchanting_envoy_spell:0 "Enchanting Envoy"
+ enchantment_0_enchanting_envoy_spell_2:0 "" #UI line 2
+ enchantment_0_enchanting_envoy_spell_desc:0 "§gEnchantment is a delicate instrument, whose subtle song is better heard by intimate audiences than large crowds. Therefore, the personalized use of magic directed at a single influential individual best suits the tool.§!"
+ enchantment_1_heartstring_spell:0 "Heartstring"
+ enchantment_1_heartstring_spell_2:0 "War Magic" #UI line 2
+ enchantment_1_heartstring_spell_desc:0 "§gThe Charm spell makes its target broadly receptive to the caster's words and actions, in whatever fashion meets least resistance. The simplicity of this effect scales readily; skillfully wrought auras of Charm can affect entire buildings and beyond.§!"
+ enchantment_1_command_animals_spell:0 "Command Animals"
+ enchantment_1_command_animals_spell_2:0 "" #UI line 2
+ enchantment_1_command_animals_spell_desc:0 "§gMany a Cannorian princess retreats daily to the forested areas of her family's estate, attracting a flock of small woodland creatures to her side. Those in the know understand this is her practicing Enchantment magic.§!"
+ enchantment_2_thoughtweave_spell:0 "Thoughtweave"
+ enchantment_2_thoughtweave_spell_2:0 "War Magic" #UI line 2
+ enchantment_2_thoughtweave_spell_desc:0 "§gA powerful Enchanter can plumb the depths of their target's mind, allowing them even to rewrite memories. Continual use of this power weakens self-identity in the target, creating a blank slate for the caster to reshape.§!"
+ enchantment_2_enchanting_embassy_spell:0 "Enchanting Embassy"
+ enchantment_2_enchanting_embassy_spell_2:0 "" #UI line 2
+ enchantment_2_enchanting_embassy_spell_desc:0 "§gThe levels of Enchantment are as follows: a suggestion, a geas (or compulsion), and an enthrallment (or domination). True mastery is defined by the careful usage of all three types of Enchantment, allowing the caster to pace themselves.§!"
+ enchantment_3_dominate_to_surrender_spell:0 "Dominate to Surrender"
+ enchantment_3_dominate_to_surrender_spell_2:0 "Siege Spell" #UI line 2
+ enchantment_3_dominate_to_surrender_spell_desc:0 "§gEnchantment is a clash of personalities in which the stronger mind completely overtakes the weaker. The right caster can force a thousand men to lay down their arms, so long as their will is stronger.§!"
+
+ enchantment_0_enchanting_envoy_mod:0 "Enchantment: Enchanting Envoy"
+ enchantment_1_heartstring_mod:0 "War Magic: Heartstring"
+ desc_enchantment_1_heartstring_mod:0 "We can only have one §YWar Magic§! spell active at a time! Casting another §YWar Magic§! spell will remove this one."
+ enchantment_1_command_animals_spell_effect_tt:0 "Every owned §YAnimal§! good gets the following effect:"
+ enchantment_1_command_animals_mod:0 "Enchantment: Command Animals"
+ enchantment_1_command_animals_local_mod:0 "Enchantment: Command Animals"
+ enchantment_1_command_animals_trigger:0 "Any owned province produces one of the following: §YLivestock§!, §YWool§!, §YFish§!, §YFur§!, §YIvory§!, or §YSilk§!"
+ enchantment_1_command_animals_alt_trigger:0 "Any owned province produces one of the following: §YLivestock§!, §YWool§!, §YFish§!, §YFur§!, §YIvory§!, §YSilk§!, or §YSlaves§!,"
+ enchantment_2_thoughtweave_mod:0 "War Magic: Thoughtweave"
+ desc_enchantment_2_thoughtweave_mod:0 "We can only have one §YWar Magic§! spell active at a time! Casting another §YWar Magic§! spell will remove this one."
+ enchantment_2_enchanting_embassy_mod:0 "Enchantment: Enchanting Embassy"
+ enchantment_3_dominate_to_surrender_spell_effect_tt:0 "§Y[This.GetName]§! will fall to siege in a matter of days."
+ enchantment_3_dominate_to_surrender_wk_spell_effect_tt:0 "Gain §YTerritorial Cores§! in the area of this province"
+ enchantment_3_dominate_to_surrender_siege_mod:0 "Enchantment: Dominating Province"
+ enchantment_3_dominate_to_surrender_local_mod:0 "Enchantment: Dominated to Surrender"
+
+ has_cast_enchanting_envoy:0 "The spell '§YEnchanting Envoy§!' is active"
+ has_not_cast_enchanting_envoy:0 "The spell '§YEnchanting Envoy§!' is NOT active"
+ has_cast_heartstring:0 "The spell '§YHeartstring§!' is active"
+ has_not_cast_heartstring:0 "The spell '§YHeartstring§!' is NOT active"
+ has_cast_command_animals:0 "The spell '§YCommand Animals§!' is active"
+ has_not_cast_command_animals:0 "The spell '§YCommand Animals§!' is NOT active"
+ has_cast_enchanting_embassy:0 "The spell '§YEnchanting Embassy§!' is active"
+ has_not_cast_enchanting_embassy:0 "The spell '§YEnchanting Embassy§!' is NOT active"
+ has_cast_thoughtweave:0 "The spell '§YThoughtweave§!' is active"
+ has_not_cast_thoughtweave:0 "The spell '§YThoughtweave§!' is NOT active"
+
+ has_cast_enchanting_envoy_embassy:0 "The spell '§YEnchanting Envoy§!' or '§YEnchanting Embassy§!' is active"
+ has_not_cast_enchanting_envoy_embassy:0 "The spells '§YEnchanting Envoy§!' and '§YEnchanting Embassy§!' are NOT active"
+ has_cast_heartstring_thoughtweave:0 "The spell '§YHeartstring§!' or '§YThoughtweave§!' is active"
+ has_not_cast_heartstring_thoughtweave:0 "The spells '§YHeartstring§!' and '§YThoughtweave§!' are NOT active"
+
+ magic_spell.401.t:0 "Enchantment Spell Hysteria"
+ magic_spell.401.d:0 "Rumours have reached our advisors that the seeds of mass-hysteria have begun to fester. Wide-scale paranoia has spread across the populace, who fear that their minds may not have been their own for a long time, and that [Root.Monarch.GetName] and [Root.Monarch.GetHerHis] gang of [Root.GetMagesName] are the cause of it!"
+ magic_spell.401.a:0 "We maintain the masquerade."
+ magic_spell.401.b:0 "Deny such accusations!"
+ magic_enchantment_hysteria:0 "Enchantment Spell Hysteria"
+ 
+ magic_spell.402.t:0 "$ESTATE_MAGES$ Blackmail Over Enchantment"
+ magic_spell.402.d:0 "The disloyal $ESTATE_MAGES$ of our realm have accused [Root.Monarch.GetName] of wide-scale Enchantment, accusing [Root.Monarch.GetHerHim] of being Nichmer the Sorcerer-King reincarnate!\n\nThey do however, understand our concerns, and for a meagre donation to their institutions will keep this incident quiet."
+ magic_spell.402.dloyal:0 "The $ESTATE_MAGES$ of our realm have accused [Root.Monarch.GetName] of wide-scale Enchantment, accusing [Root.Monarch.GetHerHim] of being Nichmer the Sorcerer-King reincarnate!\n\nThey do however, understand our concerns, and for a meagre donation to their institutions will keep this incident quiet."
+ magic_spell.402.a:0 "Bribe the $ESTATE_MAGES$"
+ magic_spell.402.b:0 "Refuse!"
+ magic_spell.402.c:0 "Punish them for disloyalty"
+ EST_VAL_MAGES_PUNISHED:0 "Mages Punished: §Y$VAL$%§!"
+
+ magic_spell.405.t:0 "Fort Dominated to Surrender!"
+ magic_spell.405.desc:0 "The minds of lesser men are ever susceptible to the whims of the mighty, and our soldiers are no exception. Our foes' mages have unleashed terrible arts of enchantment upon the once-stalwart defenders of [dominated_province.GetName], seizing their minds and subverting their loyalties in an instant. Convinced they had no other choice, our own garrison threw wide the gates and invited their enemies inside! The siege ended without so much as a sortie."
+ magic_spell.405.a:0 "Damnation!"
+
+ has_cast_any_enchantment_spell_tt:0 "Has any §YEnchantment§! spell active"
+
+
+ ###########################
+ ### EVOCATION (500-599) ###
+ ###########################
+
+ evocation_0_fireball_spell:0 "Fireball"
+ evocation_0_fireball_spell_2:0 "Siege Spell" #UI line 2
+ evocation_0_fireball_spell_desc:0 "§gEvocation is nothing less than command over raw energy. Working similarly to a trebuchet, a powerful mage can create a ball of flame the size of a small house to fling across enemy walls and battlements.§!"
+ evocation_1_shock_and_awe_spell:0 "Shock and Awe"
+ evocation_1_shock_and_awe_spell_2:0 "War Magic" #UI line 2
+ evocation_1_shock_and_awe_spell_desc:0 "§gUnsurprisingly, the most common use of Evocation is on the battlefield. War Magic is the catch-all term for the use of offensive magics to alter the course of battle, from flinging fireballs to calling down lightning strikes.§!"
+ evocation_1_flaming_munitions_spell:0 "Flaming Munitions"
+ evocation_1_flaming_munitions_spell_2:0 "War Magic" #UI line 2
+ evocation_1_flaming_munitions_spell_desc:0 "§gAn Enchanter's magic, poured into an object, imbues it with the mind of its creator. An Abjurer's magic protects the object’s physical form, whereas a Transmuter modifies it. An Evoker's magic turns objects into pure screaming.§!"
+ evocation_2_meteor_swarm_spell:0 "Meteor Swarm"
+ evocation_2_meteor_swarm_spell_2:0 "Siege Spell" #UI line 2
+ evocation_2_meteor_swarm_spell_desc:0 "§gTrading precision for punctuation, the Evoker can blindly channel energy downwards. Dragging at the Prime Material itself, airborne dust particles coalesce into massive missiles and strike whatever might be standing underneath.§!"
+ evocation_2_tearfall_spell:0 "Tearfall"
+ evocation_2_tearfall_spell_2:0 "" #UI line 2
+ evocation_2_tearfall_spell_desc:0 "§gThe tenth month is Tearfall, when Damestear meteorites fall to Halann in great number. Smaller fragments of meteor, left in the upper atmosphere, can be directed earthwards with only minimal effort and collateral damage.§!"
+ evocation_3_elemental_fury_spell:0 "Elemental Fury"
+ evocation_3_elemental_fury_spell_2:0 "War Magic" #UI line 2
+ evocation_3_elemental_fury_spell_desc:0 "§gEvocation magic tends to work best when fueled by the strong emotions of its caster. Strong positive emotions can work wonders, but on the battlefield nothing sustains magic quite like panic, grief, and rage.§!"
+
+ evocation_0_fireball_spell_effect_tt:0 "Increase the siege progress in §Y[This.GetName]§! by §Y+2§!"
+ evocation_0_fireball_buffed_spell_effect_tt:0 "Increase the siege progress in §Y[This.GetName]§! by §Y+3§!"
+ evocation_1_shock_and_awe_mod:0 "War Magic: Shock and Awe"
+ desc_evocation_1_shock_and_awe_mod:0 "We can only have one §YWar Magic§! spell active at a time! Casting another §YWar Magic§! spell will remove this one."
+ evocation_1_flaming_munitions_mod:0 "War Magic: Flaming Munitions"
+ desc_evocation_1_flaming_munitions_mod:0 "Whenever we §YBarrage§! a province, we also cast '§YFireball§!' for free on that province. This ability can only apply to each province once a year.\n\nWe can only have one §YWar Magic§! spell active at a time! Casting another §YWar Magic§! spell will remove this one."
+ evocation_2_meteor_swarm_local_mod:0 "Evocation: Meteor Crater"
+ evocation_2_tearfall_spell_trigger_tt:0 "We are NOT currently attempting to evoke a §YDamestear Meteor§!"
+ evocation_2_tearfall_spell_effect_tt:0 "The next time the month becomes §YTearfall(10)§!:"
+ evocation_2_tearfall_spell_effect_2_tt:0 "Summon a small §YDamestear§! meteorite to strike a random owned province. It lasts between §Y20§! to §Y40§! years, but may dwindle sooner."
+ evocation_2_tearfall_wk_spell_effect_tt:0 "Summon a small §YDamestear§! meteorite to strike a random owned area. It lasts between §Y20§! to §Y40§! years, but may dwindle sooner."
+ evocation_3_elemental_fury_mod:0 "War Magic: Elemental Fury"
+ desc_evocation_3_elemental_fury_mod:0 "Whenever we §YBarrage§! a province, we also cast '§YFireball§!' for free on that province. This ability can only apply to each province once a year.\n\nWe can only have one §YWar Magic§! spell active at a time! Casting another §YWar Magic§! spell will remove this one."
+ evocation_fireball_on_barrage_tt:0 "Whenever we §YBarrage§! a province while having this §YWar Magic§! active, we will also cast '§YFireball§!' for free. This ability can only apply to each province once a year."
+
+ has_cast_shock_and_awe:0 "The spell '§YShock and Awe§!' is active"
+ has_not_cast_shock_and_awe:0 "The spell '§YShock and Awe§!' is NOT active"
+ has_cast_flaming_munitions:0 "The spell '§YFlaming Munitions§!' is active"
+ has_not_cast_flaming_munitions:0 "The spell '§YFlaming Munitions§!' is NOT active"
+ has_cast_elemental_fury:0 "The spell '§YElemental Fury§!' is active"
+ has_not_cast_elemental_fury:0 "The spell '§YElemental Fury§!' is NOT active"
+
+ has_cast_evocation_war_magic:0 "Any Evocation §YWar Magic§! is active"
+ has_not_cast_evocation_war_magic:0 "No Evocation §YWar Magic§! is active"
+
+ magic_spell.500.t:0 "Tearfall!"
+ magic_spell.500.d:0 "Only the most attentive of astrologers noticed tonight when a new, flickering star joined the celestial chorus. It capered over the horizon, tripping the light fantastic, leaning in closer yet closer to the ever-faithful dance partner, Halann. Finally it sank into her warm, soft clutches, digging an earthen cradle somewhere nearby."
+ magic_spell.500.a:0 "Our miners make route to [damestear_province.GetName]!"
+ magic_spell.500.b:0 "Where did our meteor go?"
+ tearfall_lost_province_tt:0 "Somewhere in the distance, a rumbling dislodges some paltry hidden treasures..."
+
+ magic_spell.502.t:0 "Defenders Blasted by Fireball!"
+ magic_spell.502.desc:0 "Working similarly to a trebuchet, a powerful mage can create a ball of flame the size of a small house to fling across enemy walls and battlements. This unexpected boon of firepower to our enemies threatens to lay out the defenders of [fireball_province.GetName]."
+ magic_spell.502.a:0 "Send reinforcements! The siege is not lost!"
+
+ magic_spell.503.t:0 "Fortifications Falls to Meteors!"
+ magic_spell.503.desc:0 "In a truly grotesque display of magical prowess, our enemies' war wizards have evoked a meteor shower directly onto our battlements! The fortress at [meteor_province.GetName] has been destroyed, the defenders sure to fall soon after..."
+ magic_spell.503.a:0 "What is the aim? To rule over ruins?"
+
+ has_cast_any_evocation_spell_tt:0 "Has any §YEvocation§! spell active"
+
+ ##########################
+ ### ILLUSION (600-699) ###
+ ##########################
+
+ illusion_0_invisibility_spell:0 "Invisibility"
+ illusion_0_invisibility_spell_2:0 "" #UI line 2
+ illusion_0_invisibility_spell_desc:0 "§gThe first target of Illusion magic is the caster themself. This is true in both senses of the phrase: not only are the most basic glamours aimed at one's own body, but the Illusionist can rarely see through their own tricks.§!"
+ illusion_1_fear_and_loathing_spell:0 "Fear and Loathing"
+ illusion_1_fear_and_loathing_spell_2:0 "" #UI line 2
+ illusion_1_fear_and_loathing_spell_desc:0 "§gAny journeyman Illusionist can tell you that Illusion magic is basically advanced lying. Lying to yourself, your target, and the universe, until the lie is indistinguishable from truth. The simplest lie is this: your suspicions are correct.§!"
+ illusion_1_bread_and_circuses_spell:0 "Bread and Circuses"
+ illusion_1_bread_and_circuses_spell_2:0 "" #UI line 2
+ illusion_1_bread_and_circuses_spell_desc:0 "§gIllusion magic can often be found at carnivals, providing bright displays of color and aiding the magician's performance. Illusion is therefore reliant on misdirection, both in sleight of hand and in politics.§!"
+ illusion_1_bread_and_circuses_cttt_1:0 "The Diet is not in session."
+ illusion_1_bread_and_circuses_cttt_2:0 "Do NOT have a pending autocompletion."
+ illusion_2_assimilation_program_spell:0 "Assimilation Program"
+ illusion_2_assimilation_program_spell_2:0 "" #UI line 2
+ illusion_2_assimilation_program_spell_desc:0 "§gWithout society, Illusion has no significance. It is the mistaken belief in a shared reality that allows the unreal to take hold. Therefore, the most important myth to reinforce is the correctness of the dominant social paradigm.§!"
+ illusion_2_shadows_in_the_night_spell:0 "Shadows in the Night"
+ illusion_2_shadows_in_the_night_spell_2:0 "" #UI line 2
+ illusion_2_shadows_in_the_night_spell_desc:0 "§gThe enemy of Illusion is scrutiny. The clever Illusionist therefore keeps to shadows, preferring hoary rumor to proven fact. The Enchanter cultivates a person, whereas the Illusionist cultivates an environment.§!"
+ illusion_3_lead_the_crowds_spell:0 "Lead the Crowds"
+ illusion_3_lead_the_crowds_spell_2:0 "" #UI line 2
+ illusion_3_lead_the_crowds_spell_desc:0 "§g"Memorable events in history are but the visible effects of invisible changes in collective thought-patterns. These collectives are unreasonable, impulsive, and in a state of expectant attention which enables mass hallucination. They may be stirred or calmed, but above all they must be led."\n --Gelmon síl Vivin, "The Crowd" (1795)§!"
+
+ illusion_0_invisibility_mod:0 "Illusion: Invisibility"
+ illusion_1_fear_and_loathing_cooldown_mod:0 "Illusion: Fear and Loathing"
+ illusion_1_fear_and_loathing_sabotage_mod:0 "Sabotage: Fear and Loathing"
+ desc_illusion_1_fear_and_loathing_sabotage_mod:0 "One of our war enemies or rivals has sabotaged us!"
+ illusion_2_assimilation_program_mod:0 "Illusion: Assimilation Program"
+ illusion_2_shadows_in_the_night_cooldown_mod:0 "Illusion: Shadows in the Night"
+ illusion_2_shadows_in_the_night_sabotage_mod:0 "Sabotage: Shadows in the Night"
+ desc_illusion_2_shadows_in_the_night_sabotage_mod:0 "One of our war enemies or rivals has sabotaged us!"
+ illusion_3_lead_the_crowds_mod:0 "Illusion: Lead the Crowds"
+
+ illusion_1_fear_and_loathing_spell_effect_tt:0 "§RPeasant§! regiment(s) rise up in revolt in a war enemy's §YCapital(s)§!.\nAn additional §RPeasant§! revolt will occur in a random enemy for every §Y100§! Development among our war enemies.\n"
+ illusion_1_bread_and_circuses_yes_active_agenda:0 "£yes£If any §YEstate Agenda§! is active:\nAutomatically complete the active §YEstate Agenda§!.\n\n£no£If no §YEstate Agenda§! is active:\n§YSummon the Diet§! and §YAll Estates§! will gain §G5§! loyalty."
+ illusion_1_bread_and_circuses_no_active_agenda:0 "£no£If any §YEstate Agenda§! is active:\nAutomatically complete the active §YEstate Agenda§!.\n\n£yes£If no §YEstate Agenda§! is active:\n§YSummon the Diet§! and §YAll Estates§! will gain §G5§! loyalty."
+ has_not_azalkatsa_naga:0 "Do NOT have the §YNaga§! estate"
+ illusion_3_lead_the_crowds_effect:0 "Lose §G10§! years of separatism in all owned §YProvince(s)§!."
+ illusion_3_lead_the_crowds_wk_effect_tt:0 "Casting this spell will cause the [Root.GetMagesName] to be regarded as §MParagons§! among infamous mages."
+
+ has_cast_invisibility:0 "The spell '§YInvisbility§!' is active"
+ has_not_cast_invisibility:0 "The spell '§YInvisbility§!' is NOT active"
+ has_cast_fear_and_loathing:0 "The spell '§YFear and Loathing§!' is active"
+ has_not_cast_fear_and_loathing:0 "The spell '§YFear and Loathing§!' is NOT active"
+ has_cast_assimilation_program:0 "The spell '§YAssimilation Program§!' is active"
+ has_not_cast_assimilation_program:0 "The spell '§YAssimilation Program§!' is NOT active"
+ has_cast_shadows_in_the_night:0 "The spell '§YShadows in the Night§!' is active"
+ has_not_cast_shadows_in_the_night:0 "The spell '§YShadows in the Night§!' is NOT active"
+ has_cast_lead_the_crowds:0 "The spell '§YLead the Crowds§!' is active"
+ has_not_cast_lead_the_crowds:0 "The spell '§YLead the Crowds§!' is NOT active"
+
+ affected_by_sabotage_magic:0 "§Y[This.GetName]§! is affected by a §YSabotage§! spell"
+ not_affected_by_sabotage_magic:0 "§Y[This.GetName]§! is NOT affected by a §YSabotage§! spell"
+
+ magic_spell.600.t:0 "Shadows in the Night..."
+ magic_spell.600.desc:0 "Movement in the corner of the eye, a figure always just beyond the periphery of sight; these visions and more plague our men every night, disrupting morale and spreading a sense of constant anxiety amongst the troops. Though we are almost certain this is merely the trickery of enemy Illusionists, our myriad reassurances have been unable to completely quell our soldiers’ misgivings."
+ magic_spell.600.a:0 "Damnation!"
+
+ magic_spell.601.t:0 "[Root.GetFearAndLoathingName]"
+ magic_spell.601.t1:0 "Fear and Loathing in [Root.Capital.GetName]!"
+ magic_spell.601.desc:0 "Madness, disorder, rioting in the streets! The hearts of our citizens have been turned against their fellow countrymen, spreading chaos and sparking revolts in our capital. Our mages tell us this must be the result of enemy spellcraft, damnable Illusion magic that muddles the senses with lies and deceit. Only a sufficient show of force will wipe clean the streets of [Root.Capital.GetName] now."
+ magic_spell.601.a:0 "Damnation!"
+
+ has_cast_any_illusion_spell_tt:0 "Has any §YIllusion§! spell active"
+
+ ############################
+ ### NECROMANCY (700-799) ###
+ ############################
+
+ necromancy_0_false_life_spell:0 "False Life"
+ necromancy_0_false_life_spell_2:0 "" #UI line 2
+ necromancy_0_false_life_spell_desc:0 "§gTo deal with life is to deal with death. Most novice Necromancers stumble onto their expertise in frustrated attempts to create healing magic. Artificial animation is the first step on their journey.§!"
+ necromancy_1_steal_vitality_spell:0 "Steal Vitality"
+ necromancy_1_steal_vitality_spell_2:0 "" #UI line 2
+ necromancy_1_steal_vitality_spell_desc:0 "§gEventually, each novice Necromancer discover the same truth: life cannot be created, only transferred. There are alternatively noble and selfish distributions, but to be a necromancer is to decide who deserves life.§!"
+ necromancy_1_contagion_spell:0 "Contagion"
+ necromancy_1_contagion_spell_2:0 "Anti-Siege Spell" #UI line 2
+ necromancy_1_contagion_spell_desc:0 "§gTo survive, a creature may kill another. Plague is a living being, growing and feasting and dying. Therefore, it is no sin for plague to kill a man to sustain itself. Nor is it a sin to father disease, raise it to maturity, and set it loose.§!"
+ necromancy_2_speak_with_dead_spell:0 "Speak with Dead"
+ necromancy_2_speak_with_dead_spell_2:0 "" #UI line 2
+ necromancy_2_speak_with_dead_spell_desc:0 "§gIn 1751, the Rending of Realms brought ghosts of Halessi ancestors back to the Prime Material. Efforts to measure the casualties were all futile: what is a casualty, after all, besides an arbitrary distinction between living and dead?§!"
+ necromancy_2_remove_pain_spell:0 "Remove Pain"
+ necromancy_2_remove_pain_spell_2:0 "" #UI line 2
+ necromancy_2_remove_pain_spell_desc:0 "§g"In their twos the men arose, stiffly and ungainly from their sick-beds. They gathered up matériel and broke camp, harsh moonlight glancing off rusty fauchards and glassy eyes alike. Unwearily they trudged back to the front lines, the sound of broken bones splintering softly underfoot."\n--Tales from The War of the Sorcerer-King§!"
+ necromancy_3_chronophage_spell:0 "Chronophage"
+ necromancy_3_chronophage_spell_2:0 "" #UI line 2
+ necromancy_3_chronophage_spell_desc:0 "§gHow sweet the supple flesh of unripened youth. How bitter the rind of senescence! The goal of every necromancer is to borrow time--to steal it from others, to take it from one's own future. A binge, followed by a purge. This is health!§!"
+
+ necromancy_0_false_life_mod:0 "Necromancy: False Life"
+ necromancy_1_steal_vitality_effect_tt:0 "Every owned §YFinished§! good gets the following effects:"
+ necromancy_1_steal_vitality_local_mod:0 "Necromancy: Steal Vitality"
+ necromancy_1_steal_vitality_cooldown_mod:0 "Necromancy: Steal Vitality"
+ necromancy_1_steal_vitality_trigger:0 "Any owned province produces one of the following: §YCloth§!, §YGlass§!, §YPaper§!, §YPorcelain§!, §YPrecursor Relics§!, §YDyes§!, or §YSlaves§!"
+ necromancy_1_contagion_local_mod:0 "Necromancy: Contagion"
+ necromancy_1_contagion_tracking_mod:0 "Necromancy: Contagion"
+ necromancy_2_speak_with_dead_spell_trigger_tt:0 "Since our §Y[Root.Monarch.GetTitle]§! is §Y[Root.GetRulerRace]§!, we may only cast this spell every §Y[Root.GetSpeakWithDeadYears] Years§!"
+ necromancy_2_speak_with_dead_cooldown_mod:0 "Necromancy: The Dead Speak!"
+ necromancy_2_speak_with_dead_spell_effect_tt:0 "Casting this spell will block our [Root.Monarch.GetTitle] from receiving '§YLearnings of an Elder§!' events."
+ necromancy_3_chronophage_mod:0 "Necromancy: Chronophage"
+ necromancy_3_chronophage_spell_effect_tt:0 "After §Y1 year§!, suffer the consequences of §R-1§! §YStability§! and §R+1§! §YWar Exhaustion§!."
+
+ has_cast_false_life:0 "The spell '§YFalse Life§!' is active"
+ has_not_cast_false_life:0 "The spell '§YFalse Life§!' is NOT active"
+ has_cast_steal_vitality:0 "The spell '§YSteal Vitality§!' is active"
+ has_not_cast_steal_vitality:0 "The spell '§YSteal Vitality§!' is NOT active"
+ has_cast_contagion:0 "The spell '§YContagion§!' is active"
+ has_not_cast_contagion:0 "The spell '§YContagion§!' is NOT active"
+ province_has_contagion:0 "§Y[This.GetName]§! is affected by the spell '§YContagion§!'"
+ province_has_not_contagion:0 "§Y[This.GetName]§! is NOT affected by the spell '§YContagion§!'"
+ has_cast_speak_with_dead:0 "The spell '§YSpeak with Dead§!' affected our ruler"
+ has_not_cast_speak_with_dead:0 "The spell '§YSpeak with Dead§!' has never affected our ruler"
+ has_cast_chronophage:0 "The spell '§YChronophage§!' is active"
+ has_not_cast_chronophage:0 "The spell '§YChronophage§!' is NOT active"
+
+ magic_spell.700.t:0 "Chronophage: The Reaper's Due"
+ magic_spell.700.d:0 "Time is a precise clockwork, a mechanism of springs and gears and escapements. The meek mage dares not touch it, overprecious as he is about the continuity of existence. You know better: for one year, one bright, glorious, shining year, you put your finger on the clock hand, halting its cycle—nay, winding it back. Your features smoothed and softened. You knew no consequences for your actions. The lethargy you possessed was exchanged for an anxiety for action. But the mainspring did not stop: it uncoiled further, the tension building and building, your finger slipping off the hand—until it shot forward, clockwork roaring back to life, the clock-hand tracing a year of rotations in a second of movement.\n\nYou lie awake in your bed, the unsuffered consequences of the past year arriving all at once. How many nights did you forget to sleep, on how many meals did you gorge yourself? You are vomiting it up, the fruit of time: its initial sweetness forgotten under a surge of stinging bile.\n\nYou will not open your eyes for the next two days. You will not leave this bed for a week. You will stare at all the lovely people, doing things you once had done, and know in your heart that you will never do them again."
+ magic_spell.700.a:0 "Time's Up."
+
+ #magic_spell.702.t:0 "Out of Control Undead Army!"
+ #magic_spell.702.d:0 "The recent death of our ruler has seen the undead servants of our realm falter and lose their minds, attacking and eating other subjects of the realm!\nThankfully the magic that keeps them unliving will soon wane, but gods know when that will happen. If we don't do anything our country will be left to the hands of the hungering dead!"
+ #magic_spell.702.a:0 "We've lost control! Aaaagh!"
+ #magic_spell.702.b:0 "Bring them under my will!"
+ #magic_spell.702.c:0 "The Necromancers remain in control."
+ #undead_army_becomes_threat_tt:0 "Where once armies stood, wandering zombies will threaten the countryside!"
+
+ #magic_spell.704.t:0 "Undead Army Annihilated!"
+ #magic_spell.704.desc:0 "The slow, shambling forces of the dead do not feel fear, and thus will never properly retreat. A recent battle has resulted in the total loss of all necromantic agents, and enemy armies have prevented our necromancers from reaching the battlefield to salvage forces."
+ #magic_spell.704.a:0 "Let us survey the damage."
+ #magic_spell.704.b:0 "I don't want to hear about this again! (Hide pop-ups)."
+
+ magic_spell.702.t: "Dispute over our Undead Doctrine"
+ magic_spell.702.desc: "With our newfound mastery of the necromantic arts, a protracted debate over the form of our undead legions has divided the council. Our mages argue that future wars must be approached in terms of raw numbers. Any future conquests will see us facing vast armies of enemy infantry, providing us in turn with an endless supply of humanoid corpses to throw at our foes.\n\nHowever, such a sudden shift to an infantry-focused army would be difficult, to say the least. We have always fought as cavalry, leveraging speed and size to outflank and overpower our foes. To abandon centuries of tactical and strategic experience is a bitter brew to swallow, and one many of our ordsikars argue is not worth the cost."
+ magic_spell.702.a: "It would be wasteful not to raise the enemy dead."
+ magic_spell.702.b: "Centaur cavalry reigned supreme in life, and shall now do so in death."
+ necromancy_undead_cavalry_mod: "Undead Cavalry"
+ necromancy_undead_cavalry_duration: "until §YRacial Military§! changes"
+ necromancy_undead_cavalry_hint: "§GEvent Insight§!:\nAs we have §YCentaur Military§!, we will get the choice between keeping §YFull Cavalry Armies§! or gaining §YUndead Units§!\n"
+ necromancy_undead_cavalry_units: "Unit Types stay as §YCentaur§!\n"
+
+ magic_spell.710.t:0 "Magical Contagion!"
+ magic_spell.710.desc:0 "A ghastly sight awaits us in [contagion_province.GetName]. Our enemies have set a necromantic plague upon their own province, blighting the land and infecting the people with an incurable disease. These villains would sooner bring death upon their own than see us seize control of even a single tract of their land!"
+ magic_spell.710.a:0 "Damnation!"
+
+ has_cast_any_necromancy_spell_tt:0 "Has any §YNecromancy§! spell active"
+
+ ###############################
+ ### TRANSMUTATION (800-899) ###
+ ###############################
+
+ transmutation_0_longstrider_spell:0 "Longstrider"
+ transmutation_0_longstrider_spell_2:0 "" #UI line 2
+ transmutation_0_longstrider_spell_desc:0 "§gSome Transmuters cast Longstrider with a pinch of dirt, others with a coiled spring, still others the sole of a shoe. The shoe-casters take the spell's name very literally. No one likes the shoe-casters.§!"
+ transmutation_1_plant_growth_spell:0 "Plant Growth"
+ transmutation_1_plant_growth_spell_2:0 "" #UI line 2
+ transmutation_1_plant_growth_spell_desc:0 "§gApprentices first practice Transmutation magic on plants before graduating to animals or people. A talented mage can use this rudimentary skillset to great advantage and profit, producing flourishing fields of crops.§!"
+ transmutation_1_mass_enlarge_spell:0 "Mass Enlarge"
+ transmutation_1_mass_enlarge_spell_2:0 "Siege Spell" #UI line 2
+ transmutation_1_mass_enlarge_spell_desc:0 "§gGiants were once the hegemons of the old world, and brought an end to the Rule of Dragons. Against such a foe, even the most fortified bastion would be nothing more than a children's toy.§!"
+ transmutation_2_transmute_to_gold_spell:0 "Transmute to Gold"
+ transmutation_2_transmute_to_gold_spell_2:0 "" #UI line 2
+ transmutation_2_transmute_to_gold_spell_desc:0 "§gWhereas Herbalism uses natural ingredients such as plants and fungi in their whole form, Alchemy breaks things down to their components and reconstructs them in new ways. Practiced for centuries in regions like Yanshen, the scientific approach taken by Alchemists can be seen as progenitor of Artificery.§!"
+ transmutation_2_reshape_terrain_spell:0 "Reshape Terrain"
+ transmutation_2_reshape_terrain_spell_2:0 "" #UI line 2
+ transmutation_2_reshape_terrain_spell_desc:0 "§gTransmutation differs from the other schools of magic in that its effects persist long after the magic ends. There is no dispelling a tilled field, no countercurse for trees.§!"
+ transmutation_3_rite_of_conception_spell:0 "Rite of Conception"
+ transmutation_3_rite_of_conception_spell_2:0 "" #UI line 2
+ transmutation_3_rite_of_conception_spell_desc:0 "§gThe Rite of Conception is not a single act, but a series of rituals thought to increase one's chances at a magically gifted child. Widely varying by region, rites in Haless can involve bathing pregnant women in the right hot springs, whereas in Cannor one might see the performance of powerful magics during a royal bedding ceremony.§!"
+
+ transmutation_0_longstrider_mod:0 "Transmutation: Longstrider"
+ transmutation_1_plant_growth_spell_effect_tt:0 "Every owned §YPlant§! good gets the following effects:"
+ transmutation_1_plant_growth_local_mod:0 "Transmutation: Plant Growth"
+ transmutation_1_plant_growth_cooldown_mod:0 "Transmutation: Plant Growth"
+ transmutation_1_plant_growth_trigger:0 "Any owned province produces one of the following: §YFungi§!, §YSerpentbloom§!, §YGrain§!, §YTea§!, §YSpices§!, §YCoffee§!, §YCocoa§!, §YCotton§!, §YSugar§!, §YWine§!, §YTobacco§!, §YCloves§!, §YIncense§!, or §YExotic Wood§!"
+ cast_plant_growth:0 "Cast Plant Growth"
+ transmutation_1_plant_growth_wk_spell_effect:0 "Get §G+20§! Opinion (§R-2.0§! Yearly) with all allies, subjects, and overlords, to a maximum of §G+100§!"
+ transmutation_1_mass_enlarge_local_mod:0 "Transmutation: Mass Enlarge"
+ transmutation_2_reshape_terrain_mod:0 "Transmutation: Reshape Terrain"
+ transmutation_2_reshape_terrain_buffed_mod:0 "Transmutation: Enhanced Reshape Terrain"
+ transmutation_3_rite_of_conception_cooldown_mod:0 "Transmutation: Rite of Conception"
+ transmutation_3_rite_of_conception_trigger_tt:0 "We are NOT currently attempting a §YRite of Conception§!"
+ transmutation_3_rite_of_conception_effect_tt:0 "One of §Y3§! options will happen.\n\n§Y33.33%§! chance of: The event '§YThe Golden Child§!' happens in §Y240 to 300 days§!. This is a 5/5/5 §YPowerful Mage§!.\n\n§Y33.33%§! chance of: The event '§YThe Laughing Magician§!' happens in §Y240 to 300 days§!. This is a 3/3/3 §YPowerful Mage§! with one additional §yLegendary§! school.\n\n§Y33.33%§! chance of: The event '§YComplications During Childbirth...§!' happens in §Y240 to 300 days§!. We will be able to choose one of the two, but not without consequences." #Special tooltip for line breaks and brevity
+
+ has_cast_longstrider:0 "The spell '§YLongstrider§!' is active"
+ has_not_cast_longstrider:0 "The spell '§YLongstrider§!' is NOT active"
+ has_cast_plant_growth:0 "The spell '§YPlant Growth§!' is active"
+ has_not_cast_plant_growth:0 "The spell '§YPlant Growth§!' is NOT active"
+ has_cast_reshape_terrain:0 "The spell '§YReshape Terrain§!' is active"
+ has_not_cast_reshape_terrain:0 "The spell '§YReshape Terrain§!' is NOT active"
+ has_not_cast_wish_for_order:0 "The spell '§YWish for Order§!' is NOT active"
+
+ 
+ magic_spell.800.t:0 "The Golden Child"
+ magic_spell.800.d:0 "There has always been controversy around the performance of Rites of Conception, owing in part to the great regional variation that accompanies the practice. In some cultures, the rites extend to the imbibing of certain potions and the inhalation of special smokes by the pregnant party. In others, the rites require the conceiving of twins, one of whom must kill the other in the womb. In the years to come, there will be rumors about the nature of this one's conception and birth. There will be no question, however, as to their magical talent. From a golden-colored pool, the child emerges. Their eyes are already open, peering curiously at you with preternatural sight."
+ magic_spell.800.a:0 "This child is our new heir!"
+ magic_spell.800.b:0 "I've changed my mind. Our existing heir will serve well."
+ magic_estate_magical_elite_heir:0 "We will disinherit our current heir, [Root.Heir.GetName]. Due to the Magical Elite government reform, this will not cost us anything."
+ magic_estate_disinherit_heir:0 "We will disinherit our current heir, [Root.Heir.GetName]."
+ homunculus_consort_bonus:0 "\nThe §Y[Root.GetHomunculusConsortName]§! will guide this one well:\nIncrease all heir skills by §Y1§!"
+
+ magic_spell.801.t:0 "The Laughing Magician"
+ magic_spell.801.d:0 "Oh dear. Something has gone wrong with this one, surely. No child of yours could be so difficult on the eyes, so sickly in their cough, so feeble in their countenance. It is as though their life is a grotesque parody of the one they were meant to live. Some cultures practice the Rite of Conception by conceiving twins and having one kill the other. In this case, it seems the wrong child survived.\n\nThe babe stares one wicked eye at you, and emits a brutish, hacking laugh. My magic was stronger, they seem to say. My magic survived."
+ magic_spell.801.a:0 "This is my child. Who said those things? Banish them."
+ magic_spell.801.b:0 "There must have been some mistake! We should start over."
+ powerful_mage_bonus_legendary:0 "They are a §YPowerful Mage§! with an additional §yLegendary§! school."
+
+ magic_spell.802.t:0 "Complications During Childbirth..."
+ magic_spell.802.d:0 "Twins! The very word brings fear to the mind of [Root.Monarch.GetName]. Twins represent a much harder birth, a contested succession, and in some cultures, an ill omen. Twin mages--the air crackles at the thought. Would their sibling squabbles mean the end of the palace grounds, owing to some stray fireball or earthquake?\n\nAs their two heads crest, the tension reaches a fever pitch. The Rite of Conception, intended to bring forth only one child, grows unstable. The energies of two children clash, savage and uncontrolled, flowing in and out of each other in violent streaks of purple. One child is scarred by the conflict, their skin lightly smoldering as arcs of lightning burn blooming patterns into their flesh. The other remains beautiful, serene through the conflict--yet if nothing is done, they shall soon both be dead!\n\nThe wild-eyed midwife turns to [Root.Monarch.GetName], gripping her knife tight. One must be sacrificed, she screams. The ritual was not made for two. She is kind--she does not ask you for your hands, only your word. One phrase, and she will do what a parent cannot."
+ magic_spell.802.a:0 "I choose to save the beautiful child."
+ magic_spell.802.b:0 "I choose to save the twisted child."
+ golden_child_tt:0 "This is a 5/5/5 §YPowerful Mage§!."
+ laughing_magician_tt:0 "This is a 3/3/3 §YPowerful Mage§! with one additional §yLegendary§! school."
+ other_child_becomes_magical_abom:0 "\n§RThe will to live is strong, even in the sacrificed child...§!"
+
+ magic_spell.803.t:0 "Power Overwhelming"
+ magic_spell.803.d:0 "(Placeholder) Tughayasa enters inside you and grants you immesurable magic power"
+ magic_spell.803.a:0 "Yippee!"
+ #magic_spell.804.t:0 "An Abomination!"
+ #magic_spell.804.d:0 "Our pursuit of magic has borne poisonous fruit. Our rites must have been done improperly, or perhaps they were tainted from the start--is it any great surprise that of the many ancient flesh-rituals we followed, one of them might have been aimed towards unseemly ends? All matter of unguents were applied to the [Root.Consort.GetTitle], flesh grafted and rituals spoken that even we half-understood. Now here are the effects of it all: on the date of the birth, when celebrations were being prepared just downstairs, the child delivered itself via bisection, and crawled out of its mother's throat fully-grown.\n\nIt has eyes where it ought to have teeth, and teeth where it ought to have hair. Not a single person present to witness the delivery survived, and the guards are still unable to bring it down."
+ #magic_spell.804.a:0 "Grieve violently."
+
+ has_cast_any_transmutation_spell_tt:0 "Has any §YTransmutation§! spell active"

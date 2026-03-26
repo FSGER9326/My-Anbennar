@@ -1,0 +1,10 @@
+government = theocracy
+add_government_reform = ashhana_realm_of_art #doesn't do anything, just here for reference
+government_rank = 2
+primary_culture = ashhana_lizardfolk 
+religion = zaradyrra
+technology_group = tech_lizardfolk
+
+capital = 5996
+
+1000.1.1 = { set_estate_privilege = estate_mages_organization_state }

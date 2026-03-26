@@ -1,0 +1,1849 @@
+namespace = reveria
+
+###########
+
+#Ancient Skald Stories, Reveria hosts a feast and the skalds from Gerudia tell of ancient tales, crowns and bloodlines
+country_event = {
+	id = reveria.6
+	title = reveria.6.t
+	desc = reveria.6.d
+	picture = KING_DOING_GREAT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name= "reveria_recently_hosted_feast"
+				duration = 3650
+			}
+			every_known_country = {
+				limit = { culture_group = gerudian }
+				add_country_modifier = {
+					name= "reveria_recently_attended_feast"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	option = {
+		name = reveria.6.a
+		ai_chance = { 
+			factor = 100 
+		}
+
+		increase_ruler_dip_effect = yes
+		add_prestige = 20
+
+		country_event = { id = reveria.8 days = 60 }
+	}
+}
+
+#Dome_lost
+country_event = {
+	id = reveria.7
+	title = reveria.7.t
+	desc = reveria.7.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = reveria.7.a
+		ai_chance = { 
+			factor = 100 
+		}
+		add_stability = -1
+	}
+}
+
+#Research_Reaver_Bloodlines, reveria sends a research party to Gerudia to find out how a reverian crown should look like and how the ancient reaver bloodlines flow
+country_event = {
+	id = reveria.8
+	title = reveria.8.t
+	desc = reveria.8.d
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = reveria.8.a
+		ai_chance = { 
+			factor = 100 
+		}
+
+		add_prestige = 10
+		add_legitimacy = 40
+		if = { 
+			limit = { exists = A02 }
+			reverse_add_opinion = {
+				who = A02 
+				modifier = reveria_researched_bloodlines
+			}
+			A02 = { 
+				add_legitimacy = 10 
+				add_prestige = 5 
+			}
+		}
+		if = { 
+			limit = { exists = A11 } 
+			reverse_add_opinion = {
+				who = A11 
+				modifier = reveria_researched_bloodlines
+			}
+			A11 = { 
+				add_legitimacy = 10
+				add_prestige = 5
+			}
+		}
+		country_event = { id = reveria.9 }
+	}
+}	
+
+#Reverian_Crown, reveria contacts some experienced craftsmen and has a crown made according to the descriptions of the skalds
+country_event = {
+	id = reveria.9
+	title = reveria.9.t
+	desc = reveria.9.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = reveria.9.a
+		ai_chance = { 
+			factor = 100 
+		}	
+		
+		increase_ruler_dip_effect = yes
+		add_country_modifier = {
+			name= "reveria_crown"
+			duration = -1
+		}	
+	}
+}	
+
+#New_small_friends, reveria offers vital support to the fledgling state of New Shire and they draft border agreements
+country_event = {
+	id = reveria.10
+	title = reveria.10.t
+	desc = reveria.10.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = reveria.10.a
+		ai_chance = { 
+			factor = 100 
+		}
+		trigger = {
+			A05 = {
+				owns_core_province = 144 
+				owns_core_province = 141
+			}
+		}
+		141 = { 
+			cede_province = A97 
+		}
+		144 = { 
+			cede_province = A97 
+		}
+		add_trust = {
+			who = A97 
+			value = 50
+			mutual = yes
+		}
+		add_historical_friend = A97
+		A97 = { add_historical_friend = A05 }
+		capital_scope = { 
+			add_base_tax = 3
+			add_base_production = 3
+			add_base_manpower = 3
+		}
+		A97 = { 
+			country_event = { id = reveria.34 }
+			144 = { 
+				add_core = A97 
+			}
+			141 = { 
+				add_core = A97 
+			}
+			144 = { 
+				remove_core = A05
+			}
+			141 = {
+				remove_core = A05
+			}
+		}
+	}		
+	option = {
+		name = reveria.10.b
+		ai_chance = { 
+			factor = 100 
+		}
+		trigger = {
+			A05 = { 
+				owns_core_province = 144
+				owns_core_province = 141 
+			}
+		}
+		add_treasury = -300
+		A97 = { add_treasury = 200 }
+		141 = {
+			change_culture = reverian
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+		}
+		144 = {
+			change_culture = reverian
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+		}
+		A97 = { 
+			capital_scope = { 
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+		}
+		add_historical_friend = A97
+		A97 = { add_historical_friend = A05}
+		add_trust = {
+			who = A97
+			value = 10
+			mutual = yes
+		}
+		A97 = { 
+			country_event = { id = reveria.35 }
+		}
+	}
+	option = {
+		name = reveria.10.c
+		ai_chance = { 
+			factor = 5 
+		}
+		trigger = {
+			OR = {  
+				NOT = { owns_core_province = 144}
+				NOT = { owns_core_province = 141}
+			}
+		}
+		add_historical_friend = A97
+		A97 = { add_historical_friend = A05}
+	}
+}
+
+#Gnomes_in_the_administration, integrating gnomes in the reverian administration, which adds the Artificer estate
+country_event = {
+	id = reveria.11
+	title = reveria.11.t
+	desc = reveria.11.d
+	picture = ECONOMY_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = reveria.11.a
+		ai_chance = { 
+			factor = 100 
+		}
+		unlock_artificery = yes
+		change_innovativeness = 2
+		add_estate_loyalty = {
+			estate = estate_mages
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -5
+		}
+		if = {
+			limit = { government = monarchy }
+			country_event = { id = reveria.37 days = 30 }
+		}
+	}
+}	
+
+#A New Capital
+country_event = {
+	id = reveria.12
+	title = reveria.12.t
+	desc = reveria.12.d
+	picture = COLONIZATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.12.a
+		ai_chance = { 
+			factor = 100 
+		}
+		177 = { 
+			add_province_modifier = { 
+				name = reveria_preparing_new_capital
+				duration = 9125
+			}
+		}
+	}		
+}
+
+#A New Capital
+country_event = {
+	id = reveria.13
+	title = reveria.13.t
+	desc = reveria.13.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = reveria.13.a
+		ai_chance = { 
+			factor = 100 
+		}
+
+		set_capital = 177
+		177 = { #Oddansbay
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+			change_trade_goods = gems
+			add_province_modifier = {
+				name = reveria_reaver_capital
+				duration = -1
+			}
+		}
+		176 = { #Lilroy
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1 
+			add_province_modifier = {
+				name = reveria_countryside_development
+				duration = 9125
+			}
+		}
+		178 = { #Norcamb
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+			add_province_modifier = {
+				name = reveria_countryside_development
+				duration = 9125
+			} 
+		}
+		175 = { #Chiddeburd
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+			add_province_modifier = {
+				name = reveria_countryside_development
+				duration = 9125
+			}
+		}
+		reaver_coast_area = {
+			limit = { culture = reverian }
+			add_base_tax = -1 
+			add_base_production = -1 
+			add_base_manpower = -1 
+			add_province_modifier = { 
+				name = reveria_mass_exodus
+				duration = 3650 
+			}
+		}
+		iochand_area = {
+			limit = { culture = reverian }
+			add_base_tax = -1 
+			add_base_production = -1 
+			add_base_manpower = -1 
+			add_province_modifier = { 
+				name = reveria_mass_exodus
+				duration = 3650 
+			}		
+		}
+	}
+}
+
+#But We Dont Have Dark Vision
+country_event = {
+	id = reveria.15
+	title = reveria.15.t
+	desc = reveria.15.d
+	picture = CAVE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+	
+	option = {
+		name = reveria.15.a
+		ai_chance = { 
+			factor = 100 
+		}
+		dragonmaw_area = { add_permanent_claim = ROOT }
+		dragonheart_area = { add_permanent_claim = ROOT }
+		dragondepth_area = { add_permanent_claim = ROOT }
+	}
+}
+
+#Gnomish_gift, the gnomes surprise the ruler of reveria with a gift, for all his hard effort at making the gnomes within his realm a prosperous people
+country_event = {
+	id = reveria.16
+	title = reveria.16.t
+	desc = reveria.16.d
+	picture = INVENTION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.16.a
+		ai_chance = {
+			factor = 100
+		}
+
+		hidden_effect = {
+			set_country_flag = unlocked_artifice_invention_reaver_axe_rifle
+		}
+		custom_tooltip = reveria_unlocked_artifice_invention_reaver_axe_rifle.tt
+		add_country_modifier = {
+			name= "reveria_reaver_technocracy"
+			duration = -1
+		}
+	}
+}
+
+
+#Second_ynnic_raid, reveria raids until the Macbarja and Vels Bacar dams, a huge success
+country_event = {
+	id = reveria.18
+	title = reveria.18.t
+	desc = reveria.18.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = reveria.18.a
+		ai_chance = { factor = 100 }
+
+		custom_tooltip = reveria_upper_ynn_raid.tt
+		hidden_effect = {
+			dolindha_region = {
+				add_devastation = 30
+				remove_loot = { amount = 100 who = ROOT }
+			}
+		}
+		1171 = { #Vareynn
+			destroy_great_project = {
+				type = ynnic_tranvit_hippodrome
+			}
+		}
+		1165 = { #Bosancovac
+			destroy_great_project = {
+				type = ynnic_dam_bosancovac
+			}
+		}
+		1186 = { #Mocbarja
+			destroy_great_project = {
+				type = ynnic_dam_mocbarja
+			}
+		}
+		add_treasury = 500
+		ynn_riverside = {
+			add_province_modifier = {
+				name = reveria_recent_flood
+				duration = 1825
+			}
+		}
+	}
+}
+
+#Southern_ynnic_raid, reveria raids from the Vels Bacar dam till they can go no more, a huge success, spotting the Dome
+country_event = {
+	id = reveria.19
+	title = reveria.19.t
+	desc = reveria.19.d
+	picture = VILLAGE_RAIDED_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	name = reveria.19.a
+		ai_chance = { factor = 100 }
+
+		country_event = { id = reveria.23 }
+		custom_tooltip = reveria_lower_ynn_raid.tt
+		hidden_effect = {
+			sarda_region = {
+				add_devastation = 30
+				remove_loot = { amount = 100 who = ROOT }
+			}
+		}
+		1139 = { #Arverynn
+			destroy_great_project = {
+				type = ynnic_teal_keep
+			}
+		}
+		1138 = { #Vels Bacar
+			destroy_great_project = {
+				type = ynnic_dam_vels_bacar
+			}
+		}
+		1133 = { #Adbrabohvi
+			destroy_great_project = {
+				type = ynnic_dam_adbrabohvi
+			}
+		}
+		add_treasury = 500
+		ynn_riverside = {
+			add_province_modifier = {
+				name = reveria_recent_flood
+				duration = 1825
+			}
+		}
+	}
+}
+
+#North Ynn Raid
+country_event = {
+	id = reveria.20
+	title = reveria.20.t
+	desc = reveria.20.d
+	picture = VILLAGE_BURNING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	name = reveria.20.a
+		ai_chance = { factor = 100 }
+
+		country_event = { id = reveria.21 }
+		custom_tooltip = reveria_north_ynn_raid.tt
+		hidden_effect = {
+			rzenta_region = {
+				add_devastation = 30
+				remove_loot = { amount = 100 who = ROOT }
+			}
+		}
+		1191 = { #Svemel
+			destroy_great_project = { 
+				type = ynnic_grand_temple_svemel 
+			} 
+		}
+		add_treasury = 500
+		ynn_riverside = {
+			add_province_modifier = {
+				name = reveria_recent_flood
+				duration = 1825
+			}
+		}
+	}
+}
+
+#The_last_dragon_of_aelantir, the ynnic reavers are on the way back to base when they are attacked by a dragon, which scorches a portion of the crew and treasure
+country_event = {
+	id = reveria.21
+	title = reveria.21.t
+	desc = reveria.21.d
+	picture = DRAGON_ATTACK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.21.a
+		ai_chance = { factor = 50 }
+
+		add_treasury = -110
+		add_manpower = -0.3
+		set_country_flag = drozma_fighting_last_stand
+		country_event = {
+			id = ynn_events.24
+		}
+		custom_tooltip = ynn_slay_1480_tt
+	}
+}
+
+
+#Fate_of_the_dome
+country_event = {
+	id = reveria.23
+	title = reveria.23.t
+	desc = reveria.23.d
+	picture = GOLDEN_CITY_eventPicture
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			1746 = {
+				kill_units = {
+					who = ROOT
+					type = transport
+					amount = 10
+				}
+			}
+		}
+	}
+
+	option = {
+		name = reveria.23.a
+		ai_chance = { factor = 100 }
+
+		country_event = { id = reveria.24 }
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+			}
+			1142 = { destroy_great_project = { type = ynnic_precursor_dome_stanyrhrada } } #Stanyrhrada
+		}
+	}
+}
+
+#Dome_secured
+country_event = {
+	id = reveria.24
+	title = reveria.24.t
+	desc = reveria.24.d
+	picture = ARTWORK_eventPicture
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						religion = ynn_river_worship
+						religion = ynn_river_reformed
+					}
+				}
+				country_event = { id = reveria.7 }
+			}
+			random_owned_province = {
+				limit = {
+					has_port = yes
+				}
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = reveria.24.a
+		ai_chance = { factor = 95 }
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+			}
+			capital_scope = {
+				set_province_flag = ynnic_precursor_dome_relocation
+				add_great_project = {
+					type = ynnic_precursor_dome_stanyrhrada
+					instant = yes
+				}
+				set_great_project_tier_1 = { type = ynnic_precursor_dome_stanyrhrada }
+			}
+		}
+		else = {
+			capital_scope = { 
+				add_province_modifier = { 
+					name = reveria_golden_dome
+					duration = -1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = reveria.24.b
+		ai_chance = { factor = 5 }
+
+		add_treasury = 2000
+	}
+}
+
+#Bjarnrik_hosts
+country_event = {
+	id = reveria.25
+	title = reveria.25.t
+	desc = reveria.25.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.25.a
+		ai_chance = { factor = 100 }
+		add_prestige = 10
+		add_treasury = -30
+	}
+}
+
+#reveria gave borderlands to halflings
+country_event = {
+	id = reveria.34
+	title = reveria.34.t
+	desc = reveria.34.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.34.a
+		ai_chance = { factor = 100 }
+		add_prestige = 10
+	}
+}
+
+#reveria gave payment to halflings to keep the land
+country_event = {
+	id = reveria.35
+	title = reveria.35.t
+	desc = reveria.35.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.35.a
+		ai_chance = { factor = 100 }
+		add_inflation = 1
+	}
+}
+
+
+#reveria gets the choice to change to the Gnome Co-Government reform
+country_event = {
+	id = reveria.37
+	title = reveria.37.t
+	desc = reveria.37.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.37.a
+		ai_chance = { factor = 100 }
+		add_government_reform = gnomish_cogovernment_reform
+		add_country_modifier = {
+			name= "reveria_restructuring_government"
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = reveria.37.b
+		ai_chance = { factor = 0 }
+		add_prestige = 10
+	}
+}
+
+#reverian winebox chain1
+country_event = {
+	id = reveria.42
+	title = reveria.42.t
+	desc = reveria.42.d
+	picture = TRADEGOODS_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = A01
+		A05 = {
+			has_ruler = "Lothane III"
+		}
+		A30 = {
+			has_ruler = "Lothane III"
+		}
+		A01 = { alliance_with = A30 }
+	}
+
+	option = {
+		name = reveria.42.a
+		ai_chance = { factor = 90 }
+		add_treasury = -10
+		hidden_effect = { 
+			random_list = {
+				65 = {
+					A30 = {
+						country_event = { 
+							id = reveria.43 
+							days = 10 
+						}
+					}
+				}
+				35 = {
+					A05 = {
+						country_event = { 
+							id = reveria.44 
+							days = 10 
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = reveria.42.b
+		ai_chance = { factor = 10 }
+		add_prestige = 5
+	}
+}
+
+#reveria, the wine arrives at wex
+country_event = {
+	id = reveria.43
+	title = reveria.43.t
+	desc = reveria.43.d
+	picture = IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.43.a
+		ai_chance = { factor = 90 }
+		add_prestige = 1
+		add_treasury = -10 
+		add_opinion = {
+			who = A01
+			modifier = reveria_received_gift
+		}
+		A01 = {
+			country_event = { 
+				id = reveria.45
+				days = 10
+			}
+		}
+	}	
+	option = {
+		name = reveria.43.b
+		ai_chance = { factor = 10 }
+		add_prestige = 10
+		add_opinion = {
+			who = A01
+			modifier = reveria_received_gift
+		}
+		A01 = {
+			country_event = {
+				id = reveria.46
+				days = 10
+			}
+		}
+	}
+}
+
+#reveria, the wine arrives at reveria
+country_event = {
+	id = reveria.44
+	title = reveria.44.t
+	desc = reveria.44.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.44.a
+		ai_chance = { factor = 50 }
+		A01 = {
+			country_event = { 
+				id = reveria.48 
+				days = 10
+			}
+		}
+	}	
+	option = {
+		name = reveria.44.b
+		ai_chance = { factor = 50 }
+		add_prestige = 5
+		reverse_add_opinion = {
+			who = A01
+			modifier = reveria_stole_gift
+		}
+		A01 = {
+			country_event = { 
+				id = reveria.47
+				days = 10
+			}
+		}		
+	}
+}
+
+#reveria, the sword arrives at lorent
+country_event = {
+	id = reveria.45
+	title = reveria.45.t
+	desc = reveria.45.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.45.a
+		ai_chance = { factor = 100 }
+		add_opinion = {
+			who = A30
+			modifier = reveria_received_gift
+		}
+		add_prestige = 1
+	}
+}
+
+#reveria, lorent finds out wex is not sending a gift back
+country_event = {
+	id = reveria.46
+	title = reveria.46.t
+	desc = reveria.46.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.46.a
+		ai_chance = { factor = 100 }
+		add_opinion = {
+			who = A30
+			modifier = reveria_unrequited_gift
+		}
+	}
+}
+
+#reveria, lorent finds out reveria is keeping the wine
+country_event = {
+	id = reveria.47
+	title = reveria.47.t
+	desc = reveria.47.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.47.a
+		ai_chance = { factor = 10 }
+		add_opinion = {
+			who = A05
+			modifier = reveria_stole_gift
+		}
+		add_casus_belli = {
+			target = A05
+			type = 	cb_insult
+			months = 12
+		}
+	}
+	option = {
+		name = reveria.47.b
+		ai_chance = { factor = 90 }
+		add_treasury = -10
+		add_opinion = {
+			who = A05
+			modifier = reveria_stole_gift
+		}
+		add_casus_belli = {
+			target = A05
+			type = 	cb_insult
+			months = 12
+		}
+		A30 = {
+			country_event = { 
+				id = reveria.43 
+				days = 10 
+			}
+		}
+	}
+}
+
+#reveria, lorent finds out reveria is returning the wine
+country_event = {
+	id = reveria.48
+	title = reveria.48.t
+	desc = reveria.48.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.48.a
+		ai_chance = { factor = 30 }
+		add_treasury = -5 
+		add_opinion = {
+			who = A05
+			modifier = reveria_returned_gift
+		}
+		A30 = {
+			country_event = { 
+				id = reveria.43 
+				days = 10 
+			}
+		}
+	}
+	option = {
+		name = reveria.48.b
+		ai_chance = { factor = 70 }
+		add_treasury = -15
+		add_prestige = 5
+		add_opinion = {
+			who = A05
+			modifier = reveria_returned_gift
+		}
+		A30 = {
+			country_event = { 
+				id = reveria.43 
+				days = 10 
+			}
+		}
+		A05 = {
+			country_event = { 
+				id = reveria.49
+				days = 10 
+			}
+		}
+	}
+}
+
+#reveria, reveria receives a thank you bottle
+country_event = {
+	id = reveria.49
+	title = reveria.49.t
+	desc = reveria.49.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.49.a
+		ai_chance = { factor = 80 }
+		add_prestige = 1
+		add_treasury = -10
+		add_opinion = {
+			who = A01
+			modifier = reveria_received_gift
+		}
+		A01 = {country_event = { id = reveria.50 days = 10 }}
+	}
+	option = {
+		name = reveria.49.b
+		ai_chance = { factor = 20 }
+		add_prestige = 5
+		add_opinion = {
+			who = A01
+			modifier = reveria_received_gift
+		}
+	}
+}
+
+#reveria, lorent receives Reverian Fish
+country_event = {
+	id = reveria.50
+	title = reveria.50.t
+	desc = reveria.50.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	option = {
+		name = reveria.50.a
+		ai_chance = { factor = 100 }
+		add_prestige = 5
+		add_opinion = {
+			who = A05
+			modifier = reveria_received_gift
+		}
+	}
+}
+
+#reveria, reveria small country friendship pact, Rev side
+country_event = {
+	id = reveria.51
+	title = reveria.51.t
+	desc = reveria.51.d
+	picture = LIBERUM_VETO_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tag = A05
+		A05 = { 
+			alliance_with = A97 
+			historical_friend_with = A97 
+		}
+	}
+	
+	option = {
+		name = reveria.51.a
+		ai_chance = { factor = 100 }
+		large_increase_of_halfling_tolerance_effect = yes
+		capital_scope = { add_halfling_minority_size_effect = yes }
+		add_country_modifier = {
+			name= "reveria_halfling_merc_adv"
+			duration = -1
+		}
+		A97 = { 
+			country_event = { 
+				id = reveria.52 
+				days = 1 
+			} 
+		}
+	}	
+}
+
+#reveria, reveria small country friendship pact, halfling side
+country_event = {
+	id = reveria.52
+	title = reveria.52.t
+	desc = reveria.52.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	option = {
+		name = reveria.52.a
+		ai_chance = { factor = 100 }
+
+		large_increase_of_human_tolerance_effect = yes
+		capital_scope = { add_human_minority_size_effect = yes }
+		add_country_modifier = {
+			name= "reveria_reverian_boatsmiths"
+			duration = -1
+		}
+	}
+}
+
+#Revrhavn Become Vassal
+country_event = {
+	id = reveria.53
+	title = reveria.53.t
+	desc = reveria.53.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	option = { #Yes
+		name = reveria.53.a
+		ai_chance = { factor = 50 }
+
+		A05 = {
+			vassalize = Z10
+		}
+	}
+
+	option = { #No
+		name = reveria.53.b
+		trigger = { A05 = { ai = yes } }
+		ai_chance = { factor = 50 }
+
+		A05 = {
+			add_casus_belli = {
+				target = Z10
+				type = cb_vassalize_mission
+				months = 360
+			}
+		}
+	}
+}
+
+#Roots of our kind
+country_event = {
+	id = reveria.54
+	title = reveria.54.t
+	desc = reveria.54.d
+	picture = HARBOUR_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	option = { #Gerudian Light
+		name = reveria.54.a
+		ai_chance = { factor = 25 }
+
+		hidden_effect = { set_country_flag = reveria_gerudian_names }
+		custom_tooltip = reveria_TODO.tt
+		#Add Gerudian Province Name Switch Here when done
+	}
+
+	option = { #Gerudia Hard
+		name = reveria.54.b
+		ai_chance = { factor = 25 }
+
+		hidden_effect = { set_country_flag = reveria_gerudian_names }
+		custom_tooltip = reveria_TODO.tt
+		#Add Gerudian Province Name Switch Here when done
+		#Add Gerudian Dynasty Rename here when done
+	}
+
+	option = { #Return of the Askelings
+		name = reveria.54.c
+		ai_chance = { factor = 25 }
+
+		country_event = { id = reveria.55 }
+		custom_tooltip = reveria_askeling_return.tt
+	}
+
+	option = { #No Gerudian
+		name = reveria.54.e
+		ai_chance = { factor = 25 }
+
+		add_prestige = 10
+	}
+}
+
+country_event = {
+	id = reveria.55
+	title = reveria.55.t
+	desc = reveria.55.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = reveria.55.a
+		ai_chance = { factor = 100 }
+
+		define_heir = {
+			male = yes
+			name = Karl
+			age = 11
+			culture = reverian
+			religion = skaldhyrric_faith
+			monarch_name = "Karl I 'the Restored'"
+			dynasty = Askeling
+			claim = 100
+			adm = 4
+			dip = 3
+			mil = 3
+		}
+		add_heir_personality = righteous_personality
+		hidden_effect = { set_country_flag = reveria_gerudian_names }
+		custom_tooltip = reveria_TODO.tt
+		#Add Gerudian Province Name Switch Here when done
+		#Add Gerudian Dynasty Rename here when done
+	}
+}
+
+#The Right to the Land
+country_event = {
+	id = reveria.56
+	title = reveria.56.t
+	desc = reveria.56.d
+	picture = COLONIZATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Favor the Reavers
+		name = reveria.56.a
+		ai_chance = { 
+			factor = 50 
+		}
+
+		custom_tooltip = reveria_right_to_the_land.tt
+		hidden_effect = {
+			set_country_flag = reveria_right_to_the_land_reaver
+		}
+		largest_decrease_of_kobold_tolerance_effect = yes
+		178 = { #Norcamb
+			change_culture = ROOT
+			change_religion = ROOT
+			add_local_autonomy = 10
+		}
+		176 = { #Lilroy
+			change_culture = cliff_gnome
+			change_religion = the_thought
+			add_local_autonomy = 10
+		}
+		177 = { #Oddansbay
+			change_culture = ROOT
+			change_religion = ROOT
+			add_local_autonomy = 10
+		}
+		170 = { #Haighpeck
+			change_culture = ROOT
+			change_religion = ROOT
+			add_local_autonomy = 10
+		}
+		dragondowns_area = {
+			change_culture = ROOT
+			change_religion = ROOT
+			add_local_autonomy = 10
+		}
+		172 = { #Widdechand
+			change_culture = cliff_gnome
+			change_religion = the_thought
+		}
+	}
+
+	option = { #Favor the Gnomes
+		name = reveria.56.b
+		ai_chance = { 
+			factor = 50
+		}
+
+		custom_tooltip = reveria_right_to_the_land.tt
+		hidden_effect = {
+			set_country_flag = reveria_right_to_the_land_gnomes
+		}
+		largest_decrease_of_kobold_tolerance_effect = yes
+		178 = { #Norcamb
+			change_culture = cliff_gnome
+			change_religion = the_thought
+			add_local_autonomy = 10
+		}
+		176 = { #Lilroy
+			change_culture = cliff_gnome
+			change_religion = the_thought
+			add_local_autonomy = 10
+		}
+		177 = { #Oddansbay
+			change_culture = ROOT
+			change_religion = ROOT
+			add_local_autonomy = 10
+		}
+		170 = { #Haighpeck
+			change_culture = cliff_gnome
+			change_religion = the_thought
+			add_local_autonomy = 10
+		}
+		dragondowns_area = {
+			change_culture = cliff_gnome
+			change_religion = the_thought
+			add_local_autonomy = 10		
+		}
+		172 = { #Widdechand
+			change_culture = ROOT
+			change_religion = ROOT
+		}
+	}
+}
+
+#Dragonsdeepth Mining Done
+country_event = {
+	id = reveria.57
+	title = reveria.57.t
+	desc = reveria.57.d
+	picture = INVENTION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+	hidden = yes
+	
+	option = {
+		name = reveria.57.a
+		ai_chance = { 
+			factor = 100 
+		}
+
+		dragonmaw_area = { add_base_production = 1 }
+		dragonheart_area = { add_base_production = 1 }
+		dragondepth_area = { add_base_production = 1 }
+	}
+}
+
+country_event = {
+	id = reveria.58
+	title = reveria.58.t
+	desc = reveria.58.d
+	picture = NUSANTARA_THRONE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	option = {
+		name = reveria.58.a
+		ai_chance = { factor = 100 }
+
+		add_government_reform = reaver_noble_class
+	}
+}
+
+country_event = {
+	id = reveria.59
+	title = reveria.59.t
+	desc = reveria.59.d
+	picture = muslimgfx_BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { 
+		has_country_modifier = human_military
+	}
+
+	option = {
+		name = reveria.59.a
+		ai_chance = { factor = 100 }
+
+		add_country_modifier = {
+			name = "reveria_gnomish_cannons"
+			duration = -1
+		}
+		custom_tooltip = reveria_lose_if_not_human.tt
+	}
+}
+
+country_event = { #Reaver Invasion
+	id = reveria.60
+	title = reveria.60.t
+	desc = reveria.60.d
+	picture = DUTCH_SHIPS_PLUNDERING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	immediate = { 
+		hidden_effect = {
+			add_country_modifier = {
+				name = reveria_reaver_invasion
+				duration = 9125
+			}
+		}
+	}
+
+	option = {
+		name = reveria.60.a
+		ai_chance = { factor = 100 }
+
+		tooltip = {
+			add_country_modifier = {
+				name = reveria_reaver_invasion
+				duration = 9125
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_costal_divenhal_land = yes
+			}
+			#What culture should the province be?
+			if = {
+				limit = {
+					superregion = north_salahad_superregion
+				}
+				change_culture = reaver_akasik
+				change_religion = skaldhyrric_faith
+			}
+			else_if = {
+				limit = {
+					region = lencenor_region
+				}
+				change_culture = talderannic
+				change_religion = skaldhyrric_faith
+			}
+			else_if = {
+				limit = {
+					OR = {
+						region = west_dameshead_region
+						region = damescrown_region
+						region = esmaria_region
+						region = east_dameshead_region
+					}
+				}
+				change_culture = perlatter
+				change_religion = the_thought
+			}
+			else_if = {
+				limit = {
+					OR = {
+						region = businor_region
+						region = the_borders_region
+						region = ourdia_region
+						region = bahar_region
+						region = bulwar_proper_region
+						area = imuluses_area
+						area = flooded_coast_area
+						area = kuz_mountains_area
+					}
+				}
+				change_culture = reaver_tefori
+				change_religion = uelos_cult
+			}
+			else = {
+				change_culture = reverian
+				change_religion = regent_court
+			}
+		}
+	}
+}
+
+country_event = { #Reaver Empire
+	id = reveria.61
+	title = reveria.61.t
+	desc = reveria.61.d
+	picture = VILLAGE_BURNING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	option = {
+		name = reveria.61.a
+		ai_chance = { factor = 100 }
+
+		if = {
+			limit = { has_country_flag = reveria_gerudian_names }
+			override_country_name = GERUDIANNAMEREAVEREMPIRE
+		}
+		else = {
+			override_country_name = REAVEREMPIRE
+		}
+		set_government_rank_scripted_effect = { rank = 3 } 
+		add_country_modifier = {
+			name = "great_reveria_empire"
+			duration = -1
+		}
+
+		country_event = { id = reveria.62 }
+
+		8 = { #Anbenncost
+			cede_province = ROOT 
+			add_base_tax = -100
+			add_base_production = -100
+			add_base_manpower = -100
+			add_devastation = 100
+			change_culture = ROOT
+			change_religion = ROOT
+		}
+		emperor = {
+			capital_scope = {
+				add_base_tax = -6
+				add_base_production = -6
+				add_base_manpower = -6
+				add_devastation = 50
+			}
+		}
+		dismantle_hre = yes
+		add_adm_power = 200
+		add_dip_power = 200
+		add_mil_power = 200
+		add_treasury = 5000
+		custom_tooltip = reveria_fire_of_yore.tt
+		hidden_effect = {
+			every_subject_country = {
+				limit = {
+					is_subject_of_type = personal_union
+				}
+				add_country_modifier = {
+					name = reveria_new_age_of_black_ice
+					duration = -1
+				}
+			}
+			every_known_country = {
+				limit = {
+					capital_scope = {
+						OR = {
+							superregion = western_cannor_superregion
+							superregion = escann_superregion
+						}
+					}
+					NOT = { is_subject_of = ROOT }
+				}
+				add_country_modifier = {
+					name = reveria_terror_anew
+					duration = 9125
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Reaver Empire Color
+	id = reveria.62
+	title = reveria.62.t
+	desc = reveria.62.d
+	picture = muslimgfx_EXPLORERS_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	option = {
+		name = reveria.62.a
+		ai_chance = { factor = 100 }
+
+	}
+	option = {
+		name = reveria.62.b
+		ai_chance = { factor = 0 }
+
+		change_country_color = { color = { 78 67 110 } }
+		hidden_effect = { country_event = { id = reveria.200 } }
+	}
+	option = {
+		name = reveria.62.c
+		ai_chance = { factor = 0 }
+
+		change_country_color = { color = { 177 204 200 } }
+		hidden_effect = { country_event = { id = reveria.200 } }
+	}
+	option = {
+		name = reveria.62.e
+		ai_chance = { factor = 0 }
+
+		change_country_color = { color = { 115 93 227 } }
+		hidden_effect = { country_event = { id = reveria.200 } }
+	}
+	option = {
+		name = reveria.62.f
+		ai_chance = { factor = 0 }
+
+		change_country_color = { color = { 155 147 196 } }
+		hidden_effect = { country_event = { id = reveria.200 } }
+	}
+}
+
+country_event = {
+	id = reveria.63
+	title = reveria.63.t
+	desc = reveria.63.d
+	picture = ELVEN_CONSTELLATION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+	option = {
+		name = reveria.63.a
+		ai_chance = { factor = 50 }
+
+		add_country_modifier = {
+			name = reveria_second_age_of_reavers
+			duration = -1
+		}
+	}
+
+	option = {
+		name = reveria.63.b
+		ai_chance = { factor = 50 }
+
+		if = {
+			limit = { has_had_golden_age = yes }
+			reset_golden_age = yes
+		}
+		if = {
+			limit = { in_golden_age = yes }
+			extend_golden_age = 600
+		}
+	}
+}
+
+country_event = { #Culture Conversion Event
+	id = reveria.64
+	title = reveria.64.t
+	desc = reveria.64.d
+	picture = VIKING_KING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+
+	option = {
+		name = reveria.64.a
+		ai_chance = { factor = 50 }
+
+		#IF and not IF_ELSE to not break if you have 2 flags at the same time
+		if = {
+			limit = { has_country_flag = reveria_talderranic_convert }
+			deranne_area = { change_culture = talderannic }
+		}
+		if = {
+			limit = { has_country_flag = reveria_perlatter_convert }
+			damespearl_area = { change_culture = perlatter }
+			pearlywine_area = { change_culture = perlatter }
+		}
+		if = {
+			limit = { has_country_flag = reveria_tefori_reaver_convert }
+			isle_of_tef_area = { change_culture = reaver_tefori }
+		}
+		if = {
+			limit = { has_country_flag = reveria_akasik_reaver_convert }
+			oris_area = { change_culture = seascourge_gnoll }
+			deshak_area = { change_culture = reaver_akasik }
+			ekha_area = { change_culture = reaver_akasik }
+			400 = { change_culture = reaver_akasik } #Khasa
+			383 = { change_culture = reaver_akasik } #Desh-Al-Deshak
+			384 = { change_culture = seascourge_gnoll } #Adseenu
+			386 = { change_culture = seascourge_gnoll } #Akasat
+			391 = { change_culture = seascourge_gnoll } #Habnits
+			389 = { change_culture = seascourge_gnoll } #Benirkes
+		}
+	}
+}
+
+country_event = { #Castellos Fucking Dies, PIECE OF SHIT
+	id = reveria.65
+	title = reveria.65.t
+	desc = reveria.65.d
+	picture = PROTESTANT_RELIGIOUS_TENSIONS_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = { }
+
+
+	option = { #Stay Cannorian
+		name = reveria.65.a
+
+		custom_tooltip = reveria_religious_chaos.tt
+		add_prestige = 10
+		add_country_modifier = {
+			name = reveria_entrenched_loyalty
+			duration = 9125
+		}
+	}
+
+	option = { #Skald
+		name = reveria.65.b
+
+		custom_tooltip = reveria_religious_chaos.tt
+		change_religion = skaldhyrric_faith
+		set_ruler_religion = skaldhyrric_faith
+		set_heir_religion = skaldhyrric_faith
+		set_consort_religion = skaldhyrric_faith
+		add_country_modifier = {
+			name = reveria_return_to_the_old_ways
+			duration = 9125
+		}
+	}
+
+	option = { #The Thought
+		name = reveria.65.c
+
+		custom_tooltip = reveria_religious_chaos.tt
+		change_religion = the_thought
+		set_ruler_religion = the_thought
+		set_heir_religion = the_thought
+		set_consort_religion = the_thought
+		add_harmonized_religion = regent_court
+		add_country_modifier = {
+			name = reveria_the_new_thoughts
+			duration = 9125
+		}
+	}
+
+	option = { #Uelos
+		name = reveria.65.e
+		trigger = {
+			OR = {
+				has_country_flag = reveria_hears_the_sea
+				any_owned_or_subject_province = { religion = uelos_cult }
+			}
+		}
+
+		custom_tooltip = reveria_religious_chaos.tt
+		change_religion = uelos_cult
+		set_ruler_religion = uelos_cult
+		set_heir_religion = uelos_cult
+		set_consort_religion = uelos_cult
+		add_country_modifier = {
+			name = reveria_call_of_the_seas
+			duration = 9125
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = { culture = reverian }
+				random_list  = {
+					30 = { }
+					30 = { change_religion = skaldhyrric_faith }
+					30 = { change_religion = the_thought }
+					10 = { change_religion = uelos_cult }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Friends?
+	id = reveria.66
+	title = reveria.66.t
+	desc = reveria.66.d
+	picture = COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+
+
+	option = { #Friends!
+		name = reveria.66.a
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 4
+				NOT = {
+					alliance_with = A01
+					alliance_with = A13
+				}
+			}
+		}
+
+		create_alliance = A97
+		join_all_offensive_wars_of = A97
+		join_all_defensive_wars_of = A97
+		country_event = { id = reveria.10  days = 60 }
+		define_advisor = {
+			type = grand_captain
+			skill = 2
+			culture = bluefoot_halfling
+			religion = regent_court
+			discount = yes
+		}
+		define_advisor = {
+			type = fortification_expert
+			skill = 2
+			culture = redfoot_halfling
+			religion = regent_court
+			discount = yes
+		}
+		add_country_modifier = {
+			name= "reveria_halfling_wars"
+			duration = 3650
+		}
+		small_increase_of_halfling_tolerance_effect = yes
+		A97 = {
+			add_opinion = {
+				who = ROOT
+				modifier = supported_independence
+			}
+			small_increase_of_human_tolerance_effect = yes
+		}
+		hidden_effect = { country_event = { id = reveria.51 days = 730 } }
+	}
+
+	option = { #Na 
+		name = reveria.66.b
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 4
+				NOT = {
+					alliance_with = A01
+					alliance_with = A13
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = reveria.200
+	title = reveria.200.t
+	desc = reveria.200.d
+	picture = COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { }
+	hidden = yes
+
+	option = {
+		name = reveria.200.a
+
+		country_event = { id = reveria.62 }
+	}
+}

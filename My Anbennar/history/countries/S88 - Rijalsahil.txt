@@ -1,0 +1,13 @@
+setup_vision_sarhal = yes
+government = native
+add_government_reform = native_chiefdom_reform
+government_rank = 1
+primary_culture = guryadagga
+religion = genie_cult
+technology_group = tech_baashidi
+
+capital = 6581
+
+1444.11.11 = {
+	set_country_flag = manually_fight_qeyikul_fl
+}

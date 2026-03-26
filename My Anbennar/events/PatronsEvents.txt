@@ -1,0 +1,747 @@
+
+namespace = patrons_events
+#Coded by RubedoFox
+
+# Patrons general interactions menu; keep this universal
+country_event = {
+	id =  patrons_events.1
+	title =  patrons_events.1.t
+	#
+		desc = {
+			trigger = { has_ruler_flag = ancestor_spirit_patron }
+			desc = ancestor_spirit.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = hoko_patron }
+			desc = hoko.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = gumiho_patron }
+			desc = gumiho.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = huli_jing_patron }
+			desc = huli_jing.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = bladedancer_patron }
+			desc = bladedancer.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = maiden_patron }
+			desc = maiden.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = nang_patron }
+			desc = nang.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = rakshasa_patron }
+			desc = rakshasa.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = xhazob_patron }
+			desc = xhazob.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = baku_patron }
+			desc = baku.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = yaksha_patron }
+			desc = yaksha.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = manifestation_of_surael_patron }
+			desc = manifestation_of_surael.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = spring_old_patron }
+			desc = spring_old.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = summer_waves_patron }
+			desc = summer_waves.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = autumn_gloam_patron }
+			desc = autumn_gloam.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = winter_everfrost_patron }
+			desc = winter_everfrost.d
+		}
+		desc = {
+			trigger = { has_ruler_flag = unthroned_patron }
+			desc = unthroned_patron.d
+		}
+	#
+	picture = EMPTY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	# option = {	#Become Mage
+	# 	name = patrons_events.1.mage
+	# 	trigger = {
+	# 		NOT = { ruler_is_powerful_mage = yes }
+	# 		check_variable = {
+	# 			which = PatronApproval
+	# 			value = 8
+	# 		}
+	# 	}
+	# 	add_ruler_personality = mage_personality
+	# 	hidden_effect = {
+	# 		subtract_variable = {
+	# 			which = PatronApproval
+	# 			value = 4
+	# 		}
+	# 	}
+	# }
+	
+	option = {	#Ask for Boon
+		name = patrons_events.1.a
+		trigger = {
+			check_variable = {
+				which = PatronApproval
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				has_ruler_flag = ancestor_spirit_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.1 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = hoko_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.3 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = gumiho_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.5 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = huli_jing_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.7 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = bladedancer_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.9 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = maiden_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.11 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = nang_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.13 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = rakshasa_patron
+			}
+			hidden_effect = { country_event = { id = patrons_infernal_events.1 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = xhazob_patron
+			}
+			hidden_effect = { country_event = { id = patrons_infernal_events.3 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = baku_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.1 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = spring_old_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.3 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = summer_waves_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.5 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = autumn_gloam_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.7 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = winter_everfrost_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.9 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = unthroned_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.11 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = yaksha_patron
+			}
+			hidden_effect = { country_event = { id = patrons_celestial_events.1 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = manifestation_of_surael_patron
+			}
+			hidden_effect = { country_event = { id = patrons_celestial_events.3 } }
+		}
+	}
+	
+	option = {	#Offer Tribute
+		name = patrons_events.1.b
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = PatronApproval
+					value = 8
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_ruler_flag = ancestor_spirit_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.2 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = hoko_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.4 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = gumiho_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.6 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = huli_jing_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.8 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = bladedancer_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.10 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = maiden_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.12 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = nang_patron
+			}
+			hidden_effect = { country_event = { id = patrons_spirit_events.14 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = rakshasa_patron
+			}
+			hidden_effect = { country_event = { id = patrons_infernal_events.2 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = xhazob_patron
+			}
+			hidden_effect = { country_event = { id = patrons_infernal_events.4 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = baku_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.2 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = spring_old_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.4 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = summer_waves_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.6 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = autumn_gloam_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.8 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = winter_everfrost_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.10 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = unthroned_patron
+			}
+			hidden_effect = { country_event = { id = patrons_fey_events.12 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = yaksha_patron
+			}
+			hidden_effect = { country_event = { id = patrons_celestial_events.2 } }
+		}
+		if = {
+			limit = {
+				has_ruler_flag = manifestation_of_surael_patron
+			}
+			hidden_effect = { country_event = { id = patrons_celestial_events.4 } }
+		}
+	}
+
+	# Commented out because it's now in magic UI, and ai_chance = 0
+	# option = {
+	# 	name = magic_project_summoning
+	# 	ai_chance = { factor = 0 }
+	# 	trigger = {
+	# 		capital_scope = {
+	# 			OR = {
+	# 				superregion = yanshen_superregion
+	# 				superregion = gozengun_superregion
+	# 				superregion = vimdatrong_superregion
+	# 			}
+	# 		}
+	# 	}
+
+	# 	if = { limit = { is_or_was_tag = { tag = Y26 } }
+	# 		custom_tooltip = we_are_yinquan_tt
+	# 	}
+	# 	else_if = { limit = { has_ruler_flag = magic_project_summoning_complete }
+	# 		custom_tooltip = magic_project_already_done_tt
+	# 	}
+	# 	else_if = { limit = { has_ruler_flag = magic_project_summoning_started }
+	# 		custom_tooltip = magic_project_started_tt
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			NOT = {
+	# 				is_ruler_conjuration_level_3 = yes
+	# 				AND = {
+	# 					is_ruler_conjuration_level_2 = yes
+	# 					is_ruler_divination_level_2_minimum = yes
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_tooltip = school_mastery_not_enough_summoning_tt
+	# 	}
+	# 	else_if = { limit = { NOT = { adm_power = 50 } }
+	# 		custom_tooltip = magic_need_50_adm_tt
+	# 	}
+	# 	else_if = { limit = { NOT = { dip_power = 50 } }
+	# 		custom_tooltip = magic_need_50_dip_tt
+	# 	}
+	# 	else_if = { limit = { NOT = { mil_power = 50 } }
+	# 		custom_tooltip = magic_need_50_mil_tt
+	# 	}
+	# 	else = {
+	# 		add_adm_power = -50
+	# 		add_dip_power = -50
+	# 		add_mil_power = -50
+	# 		country_event = { id = magic_project_summoning.1 }
+	# 	}
+	# 	custom_tooltip = magic_summoning_desc_tt
+	# }
+
+	option = {	#Close Menu
+		name = patrons_events.1.c
+	}
+}
+
+# #Spirit patron selection
+country_event = {
+	id =  patrons_events.2
+	title =  patrons_events.2.t
+	desc =  patrons_events.2.d
+	picture = EMPTY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+	
+	option = {	#Ancestral spirit
+		name = patrons_events.2.a
+		ai_chance = { 
+			factor = 33 
+			#if high stat, use this to get best usage
+			modifier = {
+				factor = 20
+				adm = 5
+			}
+			#if low stat, use this to compensate
+			modifier = {
+				factor = 20
+				NOT = { adm = 3 }
+			}
+		}
+		trigger = {
+			capital_scope = {
+				OR = {
+					superregion = yanshen_superregion
+					superregion = gozengun_superregion
+				}
+			}
+		}
+		set_magic_patron = {
+			name_key = ancestor_spirit
+			initial_approval = 5
+		}
+	}
+	
+	option = {	#Natural spirit
+		name = patrons_events.2.b
+		ai_chance = { 
+			factor = 33 
+			#if high stat, use this to get best usage
+			modifier = {
+				factor = 20
+				mil = 5
+			}
+			#if low stat, use this to compensate
+			modifier = {
+				factor = 20
+				NOT = { mil = 3 }
+			}
+		}
+		trigger = {
+			capital_scope = {
+				OR = {
+					superregion = yanshen_superregion
+					superregion = gozengun_superregion
+				}
+			}
+		}
+		set_magic_patron = {
+			name_key = hoko
+			initial_approval = 5
+		}
+	}
+
+	option = {	#Fox
+		name = patrons_events.2.c
+		ai_chance = { 
+			factor = 33 
+			#if high stat, use this to get best usage
+			modifier = {
+				factor = 20
+				dip = 5
+			}
+			#if low stat, use this to compensate
+			modifier = {
+				factor = 20
+				NOT = { dip = 3 }
+			}
+		}
+		trigger = {
+			OR = {
+				culture_group = gowon
+				culture_group = yan
+			}
+			OR = {
+				religion = mystic_accord
+				religion = accretive_path
+				religion = transmutative_path
+				religion = neokttareum
+			}
+			NOT = { has_reform = wulin }
+			NOT = { has_reform = one_xia }
+			NOT = { has_reform = xiaken }
+			NOT = { has_reform = xia_parliament_reform }
+			NOT = { has_reform = indep_xiaken }
+		}
+		if = {
+			limit = {
+				culture_group = gowon
+			}
+			set_magic_patron = {
+				name_key = gumiho
+				initial_approval = 5
+			}
+		}
+		else_if = {
+			limit = {
+				culture_group = yan
+			}
+			set_magic_patron = {
+				name_key = huli_jing
+				initial_approval = 5
+			}
+		}
+	}
+
+	option = {	#Dakini Bladedancers
+		name = patrons_events.2.e
+		ai_chance = { 
+			factor = 33 
+			#if high stat, use this to get best usage
+			modifier = {
+				factor = 20
+				mil = 5
+			}
+			#if low stat, use this to compensate
+			modifier = {
+				factor = 20
+				NOT = { mil = 3 }
+			}
+		}
+		trigger = {
+			OR = {
+				has_reform = wulin
+				has_reform = one_xia
+				has_reform = xiaken
+				has_reform = xia_parliament_reform
+				has_reform = indep_xiaken
+			}
+		}
+		set_magic_patron = {
+			name_key = bladedancer
+			initial_approval = 5
+		}
+	}
+
+	option = {	#Dewi Maidens
+		name = patrons_events.2.f
+		ai_chance = { 
+			factor = 33 
+			#if high stat, use this to get best usage
+			modifier = {
+				factor = 20
+				mil = 5
+			}
+			#if low stat, use this to compensate
+			modifier = {
+				factor = 20
+				NOT = { mil = 3 }
+			}
+		}
+		trigger = {
+			capital_scope = {
+				superregion = vimdatrong_superregion
+			}
+		}
+		set_magic_patron = {
+			name_key = maiden
+			initial_approval = 5
+		}
+	}
+
+	option = {	#Nang Ta-Khian
+		name = patrons_events.2.g
+		ai_chance = { 
+			factor = 33 
+			#if high stat, use this to get best usage
+			modifier = {
+				factor = 20
+				adm = 5
+			}
+			#if low stat, use this to compensate
+			modifier = {
+				factor = 20
+				NOT = { adm = 3 }
+			}
+		}
+		trigger = {
+			capital_scope = {
+				superregion = vimdatrong_superregion
+			}
+		}
+		set_magic_patron = {
+			name_key = nang
+			initial_approval = 5
+		}
+	}
+}
+
+#Fey patron selection
+country_event = {
+	id =  patrons_events.3
+	title =  patrons_events.3.t
+	desc =  patrons_events.3.d
+	picture = EMPTY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {	#Raheni Baku
+		name = patrons_events.3.a
+		trigger = {
+			capital_scope = {
+				superregion = rahen_superregion
+			}
+		}
+		set_magic_patron = {
+			name_key = baku
+			initial_approval = 5
+		}
+	}
+	option = {
+		name = patrons_events.3.b
+		trigger = {
+			religion = spring_court
+		}
+		set_magic_patron = {
+			name_key = spring_old
+			initial_approval = 5
+		}
+	}
+	option = {
+		name = patrons_events.3.c
+		trigger = {
+			religion = summer_court
+		}
+		set_magic_patron = {
+			name_key = summer_waves
+			initial_approval = 5
+		}
+	}
+	option = {
+		name = patrons_events.3.dd
+		trigger = {
+			religion = autumn_court
+		}
+		set_magic_patron = {
+			name_key = autumn_gloam
+			initial_approval = 5
+		}
+	}
+	option = {
+		name = patrons_events.3.e
+		trigger = {
+			religion = winter_court
+		}
+		set_magic_patron = {
+			name_key = winter_everfrost
+			initial_approval = 5
+		}
+	}
+	option = {
+		name = patrons_events.3.e
+		trigger = {
+			religion = eordellon
+		}
+		set_magic_patron = {
+			name_key = unthroned_patron
+			initial_approval = 5
+		}
+	}
+}
+
+#Fiend patron selection
+country_event = {
+	id =  patrons_events.4
+	title =  patrons_events.4.t
+	desc =  patrons_events.4.d
+	picture = EMPTY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {	#Rakshasa
+		name = patrons_events.4.a
+		trigger = {
+			capital_scope = {
+				superregion = rahen_superregion
+			}
+		}
+		set_magic_patron = {
+			name_key = rakshasa
+			initial_approval = 5
+		}
+	}
+}
+
+country_event = { #Xhazob
+	id = patrons_events.6
+	title = patrons_events.6.t
+	desc = patrons_events.6.d
+	picture = WITCHBURNING_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = xhazobkult
+		culture_group = gnollish
+	}
+
+	option = {
+		name = patrons_events.6.a
+		
+		set_magic_patron = {
+			name_key = xhazob
+			initial_approval = 3
+		}
+	}
+}
+
+#Celestial patron selection
+country_event = {
+	id =  patrons_events.5
+	title =  patrons_events.5.t
+	desc =  patrons_events.5.d
+	picture = EMPTY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {	#Raheni Yaksha
+		name = patrons_events.5.a
+		trigger = {
+			capital_scope = {
+				superregion = rahen_superregion
+			}
+		}
+		set_magic_patron = {
+			name_key = yaksha
+			initial_approval = 5
+		}
+	}
+}

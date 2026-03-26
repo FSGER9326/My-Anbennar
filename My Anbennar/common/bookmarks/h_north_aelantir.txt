@@ -1,0 +1,20 @@
+bookmark = {
+	name = "NORTH_AELANTIR_NAME"
+	desc = "NORTH_AELANTIR_DESC"
+	date = 1444.11.11
+	
+	center = 3301
+	
+	country = G35	#Arverynn
+	country = G38	#Vels Fadhecai
+	country = G32	#Malacnar
+	country = H16	#Gemradcurt
+	country = H14	#Eighard
+	country = H07	#Bagcatir
+	country = G01	#Boek
+	country = G44	#Leptone
+	
+	easy_country = G32 #Malacnar
+	easy_country = G44 #Leptone
+	easy_country = H07 #Bagcatir
+}

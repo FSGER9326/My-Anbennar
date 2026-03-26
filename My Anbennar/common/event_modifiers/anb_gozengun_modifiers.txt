@@ -1,0 +1,86 @@
+slogmire_tar_pits = {
+	trade_goods_size = 1.5
+	local_development_cost = 0.5
+	local_hostile_movement_speed = -0.25
+	local_friendly_movement_speed = -0.25
+
+	picture = "tar_pit"
+}
+hill_troll_taishi = {
+	min_local_autonomy = 25
+	land_forcelimit = 2
+	trade_value = 0.1
+
+	picture = "taishi_banner"
+}
+gate_of_korath = {
+	fort_level = 1
+	local_assault_fort_ability = 0.2
+	local_defensiveness = 0.3
+	province_trade_power_value = 5
+
+	picture = "stone_gate_of_korath"
+}
+V01_benign_neglect = {
+	global_autonomy = 0.1
+	horde_unity = -0.25
+	nomadic_tribes_loyalty_modifier = 0.1
+}
+V15_anarkhudi_war_economy = {
+	land_forcelimit = 10
+	land_morale = -0.1
+	discipline = -0.05
+	manpower_recovery_speed = 0.5
+	global_manpower_modifier = 0.5
+	global_tax_income = 120
+}
+V16_hill_troll_warriors = {
+	land_forcelimit = 10
+	land_morale = 0.15
+	discipline = 0.05
+	global_tax_income = 120
+}
+V14_feudalism_institution_growth = {
+	institution_growth = 12
+}
+spirit_farm_settlements = {
+	trade_goods_size_modifier = -0.25
+	local_friendly_movement_speed = 0.25
+	trade_value = 0.1
+
+	picture = "spirit_farm_tree"
+}
+shuvuush_fear_of_yanshen = {
+	siege_ability = 0.1
+	leader_siege = 1
+	shock_damage = 0.10
+	province_warscore_cost = -0.1
+	ae_impact = 0.1
+}
+
+###########################
+### Shuvuush Generic MT ###
+###########################
+
+shuvuush_terror_stampede = {
+	raze_power_gain = 0.15
+	available_province_loot = -0.5
+}
+
+shuvuush_ancestral_guidance = {
+	reform_progress_growth = 0.1
+}
+
+shuvuush_relentless_rise = {
+	no_cost_for_reinforcing = yes
+}
+
+shuvuush_daxugo_reward = {
+	movement_speed = 0.15
+}
+shuvuush_guwaamud_reward = {
+	shock_damage = 0.1
+}
+shuvuush_baztungh_khayus_reward = {
+	cavalry_power = 0.1
+}

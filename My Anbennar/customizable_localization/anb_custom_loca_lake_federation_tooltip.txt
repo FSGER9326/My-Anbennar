@@ -1,0 +1,842 @@
+
+defined_text = {
+	name = ideas_melting_pot
+	random = no
+	
+	text = {
+		localisation_key = ideas_melting_pot_done
+		trigger = {
+			has_global_flag = lake_ideas_melting_pot
+		}
+	}
+	
+	text = {
+		localisation_key = ideas_melting_pot_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = linguistic_academy
+	random = no
+	
+	text = {
+		localisation_key = linguistic_academy_done
+		trigger = {
+			has_global_flag = lake_linguistic_academy
+		}
+	}
+	
+	text = {
+		localisation_key = linguistic_academy_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = the_islander_declaration
+	random = no
+	
+	text = {
+		localisation_key = the_islander_declaration_done
+		trigger = {
+			has_global_flag = lake_islander_declaration
+		}
+	}
+	
+	text = {
+		localisation_key = the_islander_declaration_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = clothing_for_everyone
+	random = no
+	
+	text = {
+		localisation_key = clothing_for_everyone_done
+		trigger = {
+			has_global_flag = lake_clothing_for_everyone
+		}
+	}
+	
+	text = {
+		localisation_key = clothing_for_everyone_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = agricultural_reform
+	random = no
+	
+	text = {
+		localisation_key = agricultural_reform_done
+		trigger = {
+			has_global_flag = lake_agricultural_reform
+		}
+	}
+	
+	text = {
+		localisation_key = agricultural_reform_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = preservation_act
+	random = no
+	
+	text = {
+		localisation_key = preservation_act_done
+		trigger = {
+			has_global_flag = lake_preservation_act
+		}
+	}
+	
+	text = {
+		localisation_key = preservation_act_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = the_judiciary_system
+	random = no
+	
+	text = {
+		localisation_key = the_judiciary_system_done
+		trigger = {
+			has_global_flag = lake_judiciary_system
+		}
+	}
+	
+	text = {
+		localisation_key = the_judiciary_system_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = federation_artisan
+	random = no
+	
+	text = {
+		localisation_key = federation_artisan_done
+		trigger = {
+			has_global_flag = lake_federation_artisan
+		}
+	}
+	
+	text = {
+		localisation_key = federation_artisan_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = implement_regulation
+	random = no
+	
+	text = {
+		localisation_key = implement_regulation_done
+		trigger = {
+			has_global_flag = lake_implement_regulation
+		}
+	}
+	
+	text = {
+		localisation_key = implement_regulation_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = the_federation_museum
+	random = no
+	
+	text = {
+		localisation_key = the_federation_museum_done
+		trigger = {
+			has_global_flag = federation_museum_build
+		}
+	}
+	
+	text = {
+		localisation_key = the_federation_museum_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = every_man_a_landlord
+	random = no
+	
+	text = {
+		localisation_key = every_man_a_landlord_done
+		trigger = {
+			has_global_flag = lake_every_man_a_landlord
+		}
+	}
+	
+	text = {
+		localisation_key = every_man_a_landlord_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = the_federation_needs
+	random = no
+	
+	text = {
+		localisation_key = the_federation_needs_done
+		trigger = {
+			has_global_flag = lake_the_federation_needs
+		}
+	}
+	
+	text = {
+		localisation_key = the_federation_needs_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = a_united_federation
+	random = no
+	
+	text = {
+		localisation_key = a_united_federation_done
+		trigger = {
+			has_global_flag = lake_a_united_federation
+		}
+	}
+	
+	text = {
+		localisation_key = a_united_federation_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = free_trade
+	random = no
+	
+	text = {
+		localisation_key = free_trade_done
+		trigger = {
+			has_global_flag = lake_free_trade
+		}
+	}
+	
+	text = {
+		localisation_key = free_trade_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = the_place_of_everyone
+	random = no
+	
+	text = {
+		localisation_key = the_place_of_everyone_done
+		trigger = {
+			has_global_flag = lake_the_place_of_everyone
+		}
+	}
+	
+	text = {
+		localisation_key = the_place_of_everyone_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = federation_soldier_first
+	random = no
+	
+	text = {
+		localisation_key = federation_soldier_first_done
+		trigger = {
+			has_global_flag = lake_federation_soldier_first
+		}
+	}
+	
+	text = {
+		localisation_key = federation_soldier_first_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = the_root_military_reform
+	random = no
+	
+	text = {
+		localisation_key = the_root_military_reform_done
+		trigger = {
+			has_global_flag = lake_military_reform
+		}
+	}
+	
+	text = {
+		localisation_key = the_root_military_reform_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = fashion_made
+	random = no
+	
+	text = {
+		localisation_key = fashion_made_done
+		trigger = {
+			has_global_flag = lake_fashion_made
+		}
+	}
+	
+	text = {
+		localisation_key = fashion_made_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = anti_piracy_act
+	random = no
+	
+	text = {
+		localisation_key = anti_piracy_act_done
+		trigger = {
+			has_global_flag = lake_anti_piracy_act
+		}
+	}
+	
+	text = {
+		localisation_key = anti_piracy_act_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = open_it
+	random = no
+	
+	text = {
+		localisation_key = open_it_done
+		trigger = {
+			has_global_flag = federation_assembly_house_build
+		}
+	}
+	
+	text = {
+		localisation_key = open_it_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = the_mainland_question
+	random = no
+	
+	text = {
+		localisation_key = the_mainland_question_done
+		trigger = {
+			has_global_flag = lake_the_mainland_question
+		}
+	}
+	
+	text = {
+		localisation_key = the_mainland_question_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = open_the_central_bank
+	random = no
+	
+	text = {
+		localisation_key = open_the_central_bank_done
+		trigger = {
+			has_global_flag = federation_central_bank_build
+		}
+	}
+	
+	text = {
+		localisation_key = open_the_central_bank_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = caravan_act
+	random = no
+	
+	text = {
+		localisation_key = caravan_act_done
+		trigger = {
+			has_global_flag = lake_caravan_act
+		}
+	}
+	
+	text = {
+		localisation_key = caravan_act_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = wandering_band
+	random = no
+	
+	text = {
+		localisation_key = wandering_band_done
+		trigger = {
+			has_global_flag = lake_wandering_band
+		}
+	}
+	
+	text = {
+		localisation_key = wandering_band_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = mage_b1
+	random = no
+
+	text = {
+		localisation_key = mage_b1_done
+		trigger = {
+			has_global_flag = lake_mage_b_1
+		}
+	}
+
+	text = {
+		localisation_key = mage_b1_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = mage_b2
+	random = no
+
+	text = {
+		localisation_key = mage_b2_done
+		trigger = {
+			has_global_flag = lake_mage_b_2
+		}
+	}
+
+	text = {
+		localisation_key = mage_b2_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = mage_b3
+	random = no
+
+	text = {
+		localisation_key = mage_b3_done
+		trigger = {
+			has_global_flag = lake_mage_b_3
+		}
+	}
+
+	text = {
+		localisation_key = mage_b3_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = mage_b4
+	random = no
+
+	text = {
+		localisation_key = mage_b4_done
+		trigger = {
+			has_global_flag = lake_mage_b_4
+		}
+	}
+
+	text = {
+		localisation_key = mage_b4_not
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = getLakeFedInfo
+	random = no
+
+	text = {
+        localisation_key = lake_fed_lake_info
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+	name = getLakeFedColorFront
+	random = no
+
+	text = {
+        localisation_key = lake_fed_color_front
+        trigger = { tag = FROM }
+    }
+}
+
+defined_text = {
+	name = getLakeFedColorEnd
+	random = no
+
+	text = {
+        localisation_key = lake_fed_color_end
+        trigger = { tag = FROM }
+    }
+}
+
+defined_text = { #Because some names are too long for all the information to fit on one line at max length
+	name = GetLakeFedName
+	random = no
+
+	text = {
+        localisation_key = lake_fed_lake_J05_name
+        trigger = { tag = J05 }
+    }
+
+	text = {
+        localisation_key = lake_fed_lake_J11_name
+        trigger = { tag = J11 }
+    }
+
+	text = {
+        localisation_key = lake_fed_lake_J12_name
+        trigger = { tag = J12 }
+    }
+
+	text = {
+        localisation_key = lake_fed_lake_name
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+	name = getLakeFedCohesionNum
+	random = no
+
+	text = {
+		localisation_key = getLakeFedCohesionNum_5
+		trigger = { has_global_flag = lake_cohesion_5 }
+	}
+
+	text = {
+		localisation_key = getLakeFedCohesionNum_4
+		trigger = { has_global_flag = lake_cohesion_4 }
+	}
+
+	text = {
+		localisation_key = getLakeFedCohesionNum_3
+		trigger = { has_global_flag = lake_cohesion_3 }
+	}
+
+	text = {
+		localisation_key = getLakeFedCohesionNum_2
+		trigger = { has_global_flag = lake_cohesion_2 }
+	}
+
+	text = {
+		localisation_key = getLakeFedCohesionNum_1
+		trigger = { has_global_flag = lake_cohesion_1 }
+	}
+}
+
+defined_text = {
+	name = getLakeFedFaction
+	random = no
+
+	text = {
+		localisation_key = getLakeFedFaction_purse
+		trigger = { has_country_modifier = federation_subventionner }
+	}
+
+	text = {
+		localisation_key = getLakeFedFaction_sword
+		trigger = { has_country_modifier = federation_fighter }
+	}
+
+	text = {
+		localisation_key = getLakeFedFaction_none
+		trigger = {
+			has_global_flag = lake_fed_factions_enabled
+			NOT = {
+				has_country_modifier = federation_subventionner
+				has_country_modifier = federation_fighter
+			}
+			exists = yes
+		}
+	}
+}
+
+defined_text = {
+	name = getLakeFedLeader
+	random = no
+
+	text = {
+        localisation_key = lake_fed_lake_leader
+        trigger = {
+            has_country_flag = federation_leader
+        }
+    }
+}
+
+defined_text = {
+	name = getLakeFedStanding
+	random = no
+
+	text = {
+        localisation_key = lake_fed_is_dead
+        trigger = { 
+			exists = no 
+		}
+    }
+	text = {
+        localisation_key = lake_fed_under_foreign_occupation
+        trigger = {
+            is_subject = yes
+			overlord = { NOT = { has_country_modifier = lake_federation_member } }
+        }
+    }
+	text = {
+        localisation_key = lake_fed_under_occupation
+        trigger = {
+            is_subject = yes
+        }
+    }
+    text = {
+        localisation_key = lake_fed_lake_highest_standing
+        trigger = {
+			NOT = {
+				any_known_country = {
+					check_variable = {
+						which = FederationPoints
+						which = PREV
+					}
+				}
+			}
+        }
+    }
+	text = {
+        localisation_key = lake_fed_lake_very_high_standing
+        trigger = {
+			NOT = {
+				calc_true_if = {
+					all_known_country = {
+						check_variable = {
+							which = FederationPoints
+							which = PREV
+						}
+					}
+					amount = 4
+				}
+			}
+        }
+    }
+	text = {
+        localisation_key = lake_fed_lake_high_standing
+        trigger = {
+			NOT = {
+				calc_true_if = {
+					all_known_country = {
+						check_variable = {
+							which = FederationPoints
+							which = PREV
+						}
+					}
+					amount = 8
+				}
+			}
+        }
+    }
+	text = {
+        localisation_key = lake_fed_lake_normal_standing
+        trigger = {
+			NOT = {
+				calc_true_if = {
+					all_known_country = {
+						check_variable = {
+							which = FederationPoints
+							which = PREV
+						}
+					}
+					amount = 15
+				}
+			}
+        }
+    }
+	text = {
+        localisation_key = lake_fed_lake_low_standing
+        trigger = {
+			NOT = {
+				calc_true_if = {
+					all_known_country = {
+						check_variable = {
+							which = FederationPoints
+							which = PREV
+						}
+					}
+					amount = 25
+				}
+			}
+        }
+    }
+	text = {
+        localisation_key = lake_fed_lake_very_low_standing
+        trigger = {	always = yes }
+    }
+}
+
+defined_text = {
+	name = getLakeFedCrisis
+	random = no
+
+	text = {
+        localisation_key = lake_fed_crisis_cutdown
+        trigger = {
+            has_global_flag = federation_crisis_cutdown_war
+        }
+    }
+
+	text = {
+        localisation_key = lake_fed_crisis_gold_island
+        trigger = {
+            has_global_flag = federation_crisis_goldisland
+        }
+    }
+
+	text = {
+        localisation_key = lake_fed_crisis_mage_war
+        trigger = {
+            has_global_flag = federation_crisis_magew
+        }
+    }
+
+	text = {
+        localisation_key = lake_fed_crisis_qcity
+        trigger = {
+            has_global_flag = federation_crisis_qcity
+        }
+    }
+
+	text = {
+        localisation_key = lake_fed_crisis_religious_war
+        trigger = {
+            has_global_flag = federation_crisis_religious
+			NOT = { has_global_flag = federation_crisis_religious_end }
+        }
+    }
+
+	text = {
+        localisation_key = lake_fed_crisis_kalyin_war
+        trigger = {
+            has_global_flag = federation_crisis_religious_2
+        }
+    }
+
+	text = {
+        localisation_key = lake_fed_crisis_seiche
+        trigger = {
+            has_global_flag = federation_crisis_seiche
+        }
+    }
+
+	text = {
+        localisation_key = lake_fed_crisis_splintering
+        trigger = {
+            has_global_flag = federation_crisis_splintering
+        }
+    }
+
+	text = { localisation_key = lake_fed_crisis_none }
+}
+
+defined_text = {
+	name = lake_508_title
+	text = { 
+		localisation_key = lake.508.t2
+		trigger = {
+			has_country_flag = Loca_Flag_Had_Event_508
+		}
+	}
+	text = { 
+		localisation_key = lake.508.t1
+		trigger = {
+			NOT = { has_country_flag = Loca_Flag_Had_Event_508 }
+		}
+	}
+}

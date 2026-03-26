@@ -1,0 +1,32 @@
+
+setup_vision_cannor = yes
+government = tribal
+add_government_reform = deepwoods_horde
+government_rank = 1
+primary_culture = forest_goblin
+religion = pactseeker
+technology_group = tech_forest_goblin
+capital = 7016
+
+1000.1.1 = { set_estate_privilege = estate_mages_organization_guilds }
+
+# Rando gobbo who met Lord Blossom. Despite her misgivings about the Fey, she begged him to help her clan. The kindly archfey agreed and allowed her a pact with him.
+1443.3.10 = {
+	monarch = {
+		name = "Vox"
+		dynasty = "Petalmasher"
+		female = yes
+		adm = 2
+		dip = 4
+		mil = 3
+		birth_date = 1415.10.15
+	}
+	define_powerful_mage = {
+		type = ruler
+		evocation = 2
+	}
+}
+
+# How many effective levels do they have, between ruler and estate?
+# Note that overlaps (like ruler evocation 1 and estate evocation 1) only count once
+historical_magic_advancements = { overall_level = 2 }

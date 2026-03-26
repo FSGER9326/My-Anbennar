@@ -1,0 +1,45 @@
+
+setup_vision_south_aelantir = yes
+government = monarchy
+add_government_reform = taychend_duchy
+mercantilism = 25
+government_rank = 1
+primary_culture = thekvrystana
+religion = gods_of_the_taychend
+technology_group = tech_taychendi
+capital = 2520
+
+
+1000.1.1 = { set_estate_privilege = estate_mages_organization_guilds }
+
+
+
+1444.1.1 = {
+	monarch = {
+		name = "Jahlonand"
+		dynasty = "Gelmarathi"
+		adm = 2
+		dip = 5
+		mil = 1
+		birth_date = 1388.11.25
+	}
+	define_powerful_mage = {
+		type = ruler
+		abjuration = 1
+		transmutation = 2
+	}
+	add_ruler_personality = entrepreneur_personality
+	set_variable = {
+		which = TaychendGlory
+		value = 115
+	}
+	update_taychend_glory = yes
+}
+
+# How many effective levels do they have, between ruler and estate?
+# Note that overlaps (like ruler evocation 1 and estate evocation 1) only count once
+historical_magic_advancements = {
+	enchantment = 1
+	overall_level = 4 #enchantment in estate does not overlap with ruler magic levels
+	infrastructure = 1
+}

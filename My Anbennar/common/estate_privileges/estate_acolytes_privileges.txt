@@ -1,0 +1,736 @@
+###### Acolyte Estate Privileges, for the BD mission tree
+
+estate_mages_organization_acolytes = {
+	icon = privilege_the_dark_host
+	influence = 0
+	loyalty = 0.05
+	is_valid = {
+		is_or_was_tag = { tag = Z99 }
+		has_subject_of_type = acolyte_dominion
+	}
+	can_select = {
+		has_subject_of_type = acolyte_dominion
+	}
+	can_revoke = {
+		always = no
+	}
+	on_revoked = {
+	}
+	on_granted = {
+		if = {
+			limit = { NOT = { has_estate_privilege = estate_mages_organization_acolytes } }
+			clear_mages_organization_effect = yes
+		}
+		scaling_with_influence_privilege_tooltip = {
+			estate_privilege = estate_mages_organization_acolytes
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	on_invalid = {
+		custom_tooltip = estate_mages_religious_invalid_tooltip
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_mages_organization_privilege = yes } }
+				set_estate_privilege = estate_mages_organization_state
+			}
+			remove_estate_privilege = estate_acolytes_land_share_10
+			remove_estate_privilege = estate_acolytes_land_share_20
+			remove_estate_privilege = estate_acolytes_land_share_30
+			remove_estate_privilege = estate_acolytes_land_share_40
+			remove_estate_privilege = estate_acolytes_land_share_50
+			remove_estate_privilege = estate_acolytes_dominions_law_army_decentralisation
+			remove_estate_privilege = estate_acolytes_dominions_law_army_centralisation
+			remove_estate_privilege = estate_acolytes_dominions_law_the_dark_tithe
+			remove_estate_privilege = estate_acolytes_dominions_law_centralized_banking
+			remove_estate_privilege = estate_acolytes_dominions_law_power_split
+			remove_estate_privilege = estate_acolytes_dominions_law_ibevaries_lab_rats
+			remove_estate_privilege = estate_acolytes_dominions_law_gnomish_brain
+			remove_estate_privilege = estate_acolytes_dominions_law_kobold_slaves
+			remove_estate_privilege = estate_acolytes_dominions_law_warden_of_the_state_mage_minions
+			remove_estate_privilege = estate_acolytes_dominions_law_warden_of_the_state_children_of_war
+			remove_estate_privilege = estate_acolytes_dominions_law_warden_of_the_state_envoy_of_heart
+			remove_estate_privilege = estate_acolytes_dominions_law_absolute_power
+			remove_estate_privilege = estate_acolytes_dominions_law_timed_research
+			remove_estate_privilege = estate_acolytes_dominions_law_sanguine_knowledge
+		}
+	}
+
+	influence_scaled_conditional_modifier = {
+		trigger = {
+			NOT = {
+				estate_loyalty = {
+					estate = estate_mages
+					loyalty = 30
+				}
+			}
+		}
+		modifier = {
+			land_morale = -0.2
+			yearly_absolutism = -0.2
+			devotion = -2
+			reduced_liberty_desire = -50
+		}
+	}
+	influence_scaled_conditional_modifier = {	#Modifier that are applied if the specified conditions are true. At 100% Influence you gain 100% of the modifier.
+		trigger = {
+			estate_loyalty = {
+				estate = estate_mages
+				loyalty = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_mages
+					loyalty = 60
+				}
+			}
+		}
+		modifier = {
+			land_morale = 0.1
+		}
+	}
+	influence_scaled_conditional_modifier = {	#Modifier that are applied if the specified conditions are true. At 100% Influence you gain 100% of the modifier.
+		trigger = {
+			estate_loyalty = {
+				estate = estate_mages
+				loyalty = 60
+			}
+		}
+		modifier = {
+			land_morale = 0.2
+			yearly_absolutism = 0.2
+			devotion = 2
+		}
+	}
+	
+	mechanics = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_land_share_10 = {
+	icon = privilege_land_share_10
+	influence = 0.2
+	loyalty = 0.1
+	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+	is_valid = {
+		has_estate_privilege = estate_acolytes_land_share_10
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+		hidden_effect = { set_variable = { BD_land_share = 0.1 } }
+	}
+	penalties = {
+	}
+	benefits = {
+		reduced_liberty_desire = 10
+		mages_privilege_slots = 1
+	}
+	mechanics = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_land_share_20 = {
+	icon = privilege_land_share_20
+	influence = 0.1
+	loyalty = 0.05
+	is_valid = {
+		has_estate_privilege = estate_acolytes_land_share_20
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+		hidden_effect = { set_variable = { BD_land_share = 0.2 } }
+	}
+	penalties = {
+		reduced_liberty_desire = -5
+	}
+	benefits = {
+		mages_privilege_slots = 1
+	}
+	mechanics = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_land_share_30 = {
+	icon = privilege_land_share_30
+	influence = 0.05
+	loyalty = -0.05
+	max_absolutism = 5
+	is_valid = {
+		has_estate_privilege = estate_acolytes_land_share_30
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+		hidden_effect = { set_variable = { BD_land_share = 0.3 } }
+	}
+	penalties = {
+		reduced_liberty_desire = -20
+	}
+	benefits = {
+		mages_privilege_slots = 1
+	}
+	mechanics = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_land_share_40 = {
+	icon = privilege_land_share_40
+	influence = -0.05
+	loyalty = -0.10
+	max_absolutism = 10
+	is_valid = {
+		has_estate_privilege = estate_acolytes_land_share_40
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+		hidden_effect = { set_variable = { BD_land_share = 0.4 } }
+	}
+	penalties = {
+		reduced_liberty_desire = -30
+	}
+	benefits = {
+		mages_privilege_slots = 1
+	}
+	mechanics = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_land_share_50 = {
+	icon = privilege_land_share_50
+	influence = -0.15
+	loyalty = -0.15
+	max_absolutism = 20
+	is_valid = {
+		has_estate_privilege = estate_acolytes_land_share_50
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+		hidden_effect = { set_variable = { BD_land_share = 0.5 } }
+	}
+	penalties = {
+		reduced_liberty_desire = -50
+	}
+	benefits = {
+		mages_privilege_slots = 1
+	}
+	mechanics = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_army_decentralisation = {
+	icon = privilege_dominion_law_army_decentralisation
+	influence = 0.05
+	loyalty = 0.05
+	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_army_decentralisation
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	
+	benefits = {
+		reduced_liberty_desire = 10
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_army_centralisation = {
+	icon = privilege_dominion_law_army_centralisation
+	influence = -0.05
+	loyalty = -0.05
+	max_absolutism = 5
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_army_centralisation
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+		reduced_liberty_desire = -10
+	}
+	
+	benefits = {
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_power_split = {
+	icon = privilege_dominion_law_power_split
+	influence = 0
+	loyalty = 0.15
+	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_power_split
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	
+	benefits = {
+		reduced_liberty_desire = 10
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_absolute_power = {
+	icon = privilege_dominion_law_absolute_power
+	influence = -0.15
+	loyalty = -0.05
+	max_absolutism = 10
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_absolute_power
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	
+	on_granted = {
+	}
+	
+	penalties = {
+	}
+	
+	benefits = {
+		mages_ruler_experience_mod = 0.1
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_warden_of_the_state_mage_minions = {
+	icon = privilege_dominion_law_wardens
+	influence = 0
+	loyalty = 0.15
+	max_absolutism = 0
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_warden_of_the_state_mage_minions
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	
+	penalties = {
+	}
+	
+	benefits = {
+		mages_ruler_experience_mod = 0.1
+		mages_privilege_slots = 1
+	}
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_warden_of_the_state_children_of_war = {
+	icon = privilege_dominion_law_wardens
+	influence = 0
+	loyalty = 0.15
+	max_absolutism = 0
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_warden_of_the_state_children_of_war
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	
+	benefits = {
+		mages_privilege_slots = 1
+	}
+
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_warden_of_the_state_envoy_of_heart = {
+	icon = privilege_dominion_law_wardens
+	influence = 0
+	loyalty = 0.15
+	max_absolutism = 0
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_warden_of_the_state_envoy_of_heart
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	
+	benefits = {
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_the_dark_tithe = {
+	icon = privilege_dominion_law_dark_tithe
+	influence = 0
+	loyalty = -0.05
+	max_absolutism = 5
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_the_dark_tithe
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+		reduced_liberty_desire = -10
+	}
+	
+	benefits = {
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_centralized_banking = {
+	icon = privilege_dominion_law_centralized_banking
+	influence = -0.05
+	loyalty = 0.05
+	max_absolutism = 5
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_centralized_banking
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	
+	benefits = {
+		reduced_liberty_desire = 15
+		mages_privilege_slots = 1
+	}
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_ibevaries_lab_rats = {
+	icon = privilege_dominion_law_ibevari
+	influence = 0
+	loyalty = 0.1
+	max_absolutism = 0
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_ibevaries_lab_rats
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	
+	benefits = {
+		reduced_liberty_desire = 5
+		mages_ruler_experience_mod = 0.2
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_gnomish_brain = {
+	icon = privilege_dominion_law_gnomish_brain
+	influence = 0
+	loyalty = 0.1
+	max_absolutism = 5
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_gnomish_brain
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	
+	benefits = {
+		mages_ruler_experience_mod = 0.15
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+
+estate_acolytes_dominions_law_kobold_slaves = {
+	icon = privilege_dominion_law_kobold_slave
+	influence = 0
+	loyalty = 0.05
+	max_absolutism = 0
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_kobold_slaves
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	
+	benefits = {
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_timed_research = {
+	icon = privilege_dominion_law_timed_research
+	influence = -0.05
+	loyalty = 0.15
+	max_absolutism = -15
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes} modifier = { max_absolutism = 3 } }
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_timed_research
+	}
+	can_select = {
+		always = yes
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	
+	on_granted = {
+	}
+	
+	penalties = {
+	}
+	
+	benefits = {
+		mages_ruler_experience_mod = 1
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_acolytes_dominions_law_sanguine_knowledge = {
+	icon = privilege_dominion_law_sanguine_knowledge
+	influence = 0
+	loyalty = 0.05
+	max_absolutism = 0
+	is_valid = {
+		has_estate_privilege = estate_acolytes_dominions_law_sanguine_knowledge
+	}
+	can_select = {
+	}
+	can_revoke = {
+		is_dominion_law = yes
+	}
+	on_revoked = {
+	}
+	
+	on_granted = {
+	}
+	
+	penalties = {
+	}
+	
+	benefits = {
+		mages_ruler_experience_mod = 0.2
+		mages_privilege_slots = 1
+	}
+	
+	mechanics = {
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

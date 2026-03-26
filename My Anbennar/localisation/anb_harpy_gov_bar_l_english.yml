@@ -1,0 +1,24 @@
+﻿l_english:
+ harpy_march_bonuses:0 "Chosen subject by Harpy overlord"
+ ability_harpylen_queendom_claim_mechanic: "Queendom's Claim"
+ harpylen_queendom_power: "Queendom's Claim"
+ monthly_harpylen_queendom_power: "Monthly Queendom's Claim"
+ harpy_queendom_button_1:0 "Elevate an Advisor from the minor Flocks"
+ harpy_queendom_button_1_desc:0 "We shall elevate an advisor from one of the minor flocks to the Royal Court."
+ harpy_queendom_button_2:0 "Elevate a Subject's Military Prowess"
+ harpy_queendom_button_2_desc:0 "We shall strengthen a subject to allow them to serve us more efficiently."
+ harpy_queendom_button_3:0 "Elevate a General from the minor Flocks"
+ harpy_queendom_button_3_desc:0 "We shall elevate a general from one of the minor flocks to the Royal Forces."
+ 
+ harpylen_queendom_claim_march_rng_tt:0 "Give a §YRandom Subject Nation§! March bonuses for §Y10 years§!."
+ harpylen_queendom_claim_general_rng_tt:0 "Gain a §Yrandom general§! from one of the minor flocks."
+ harpy_queendom_ui_custom_tt:0 "§YQueendom's Claim§!: §Y[Root.QueendomOverallVar.GetValue]§!\n--------------\nWe gain §G[Root.QueendomAdditionVar.GetValue]§! §YQueendom's Claim§! each month, with a maximum of §Y100.00§!\nBase: §G+0.50§!\nFrom §YFlourishing Roosts§!: §G[Root.QueendomRoostCountVar.GetValue]§!\nFrom §YThe Queen's Throne§! Monument levels: §G[Root.QueendomMonumentVar.GetValue]§!\nFrom Ruler §YDiplomacy§! skill: §G[Root.QueendomRulerVar.GetValue]§!\n\nAt Maximum Power, §YQueendom's Claim§! has the following effects:\nAggressive Expansion Impact: §G-10.0%§!\nDiplomatic Reputation: §G+2.00§!"
+
+harpylen_queendom_dictates_tt: "Dictates of the Matiarch\n--------------\nIf §YFocusing§! Admin:\nAll Subjects Lose §G10§! Liberty Desire\nOur highest development §YSubject§! without §YHonour The Matriach§! gets §YHonour The Matriach§! for §Y25§! years, giving:\n§G+50%§! Taxation Efficiency and §G-25%§! Liberty Desire.\n\nIf §YFocusing§! Diplo:\nLose §G10§! Aggressive Expansion\nOur highest development §YSubject§! without §YBreathing The Incense§! gets §YBreathing The Incense§! for §Y25§! years, giving:\n§G-15%§! Development Cost and §G-15%§! Construction Cost.\n\nIf §YFocusing§! Mil:\nGain a Random §YPowerful General§!\nOur highest development §YSubject§! without §YSongs Of Battle§! gets §YSongs Of Battle§! for §Y25§! years, giving §YMarch§! bonuses."
+
+harpylen_render_unto_tt: "Render Unto\n--------------\nUp to §Y40§! Subject owned provinces will lose §R1§! Development.\n§GHalf§! of the amount lost will be transferred to us."
+
+harpylen_justified_expansion_tt: "Queen's Domain\n--------------\nGain a §YVassalisation§! Casus Belli on any Neighbouring Country that has at least §Y1§! Harpy Pop per §Y50§! owned development.\n\nThe Queen's Domain Updater §YDecision§! highlights valid targets for this power."
+
+HAR_valid_countries_tt: "Highlighted Countries are Valid targets for the Queen's Right Gov power"
+HAR_bar_calc_tt: "Click to update highlight calculations."

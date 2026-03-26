@@ -1,0 +1,28 @@
+
+setup_vision_sarhal = yes
+government = theocracy
+add_government_reform = sponsored_adventurer_reform
+government_rank = 1
+primary_culture = ashamadi
+religion = rinta_seekers
+technology_group = tech_baashidi
+
+capital = 5654
+
+1000.1.1 = {
+	add_isolationism = 9
+
+	set_country_flag = started_as_baashidi_tag_flag
+}
+
+1444.1.1 = {
+	monarch = {
+		name = "Daacad"
+		dynasty = "Noor"
+		birth_date = 1423.1.17
+		adm = 3
+		dip = 2
+		mil = 6
+	}
+	add_ruler_personality = bold_fighter_personality
+}

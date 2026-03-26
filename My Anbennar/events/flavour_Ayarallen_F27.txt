@@ -1,0 +1,707 @@
+namespace = flavour_ayarallen
+
+country_event = { #plight of the sadnatu
+	id = flavour_ayarallen.1
+	title = flavour_ayarallen.1.t
+	desc = flavour_ayarallen.1.d
+	picture = muslimgfx_UNIVERSITY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.1.a
+		custom_tooltip = f27_cede_sadnatu_tt
+		garpix_tluukt_area = { 
+			if = { 
+				limit = { 
+					NOT = { 
+						owned_by = F27
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province =  F27
+				add_core = F27
+			}
+			if = {
+				limit = {
+					religion = xhazobkult
+				}
+				change_religion = the_hunt
+			}
+			add_human_minority_size_effect = yes
+		}
+		grixekyr_area = { 
+			if = { 
+				limit = { 
+					NOT = { 
+						owned_by = F27
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province =  F27
+				add_core = F27
+			}
+			if = {
+				limit = {
+					religion = xhazobkult
+				}
+				change_religion = the_hunt
+			}
+			add_human_minority_size_effect = yes
+		}
+		sur_mountains_area = { 
+			if = { 
+				limit = { 
+					NOT = { 
+						owned_by = F27
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province =  F27
+				add_core = F27
+			}
+			if = {
+				limit = {
+					religion = xhazobkult
+				}
+				change_religion = the_hunt
+			}
+			add_human_minority_size_effect = yes
+		}
+		jixobix_area = { 
+			if = {
+				limit = { 
+					NOT = { 
+						owned_by = F30
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province =  F30
+				add_core = F30
+			}
+			if = {
+				limit = {
+					religion = xhazobkult
+				}
+				change_religion = bulwari_sun_cult
+			}
+			add_human_minority_size_effect = yes
+		}
+		if = {
+			limit = {
+				NOT = { F30 = { is_subject_of = F27 } }
+			}
+			F27 = { vassalize = F30 }
+		}
+	}
+}
+
+country_event = { #bind the houses
+	id = flavour_ayarallen.2
+	title = flavour_ayarallen.2.t
+	desc = flavour_ayarallen.2.d
+	picture = HARPY_TOWN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.2.a
+		F80 = {
+			inherit = F33
+		}
+		add_dip_power = -100
+	}
+	option = {
+		name = flavour_ayarallen.2.b
+		add_dip_power = 200
+	}
+}
+
+country_event = { #summon the matriarchs
+	id = flavour_ayarallen.3
+	title = flavour_ayarallen.3.t
+	desc = flavour_ayarallen.3.d
+	picture = HARPY_TOWN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.3.a
+		F80 = {
+			add_country_modifier = {
+				name = F27_formation_flying
+				duration = 18250
+			}
+		}
+		F81 = {
+			add_country_modifier = {
+				name = F27_formation_flying
+				duration = 18250
+			}
+		}
+		gelkalis_area = {
+			add_permanent_claim = ROOT
+		}
+		elusadul_area = {
+			add_permanent_claim = ROOT
+			add_permanent_claim = F81
+		}
+		traz_buranun_area = {
+			add_permanent_claim = ROOT
+		}
+		north_naza_area = {
+			add_permanent_claim = F80
+		}
+	}
+}
+
+country_event = { #The Queendom's Claim
+	id = flavour_ayarallen.4
+	title = flavour_ayarallen.4.t
+	desc = flavour_ayarallen.4.d
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.4.a
+		hidden_effect = {
+			country_event = { id = flavour_ayarallen.14 days = 124 }
+			set_country_flag = hasQueendomGovBarFlag
+			set_variable = { which = QueendomAdditionVar value = 0 }
+			set_variable = { which = QueendomRoostCountVar value = 0 }
+			set_variable = { which = QueendomMonumentVar value = 0 }
+			set_variable = { which = QueendomRulerVar value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_reform = harpy_queendom_reform
+				}
+			}
+			change_government_to_monarchy = yes
+			add_government_reform = harpy_matriarchy_ayarallen_early_gov_mechanic_reform
+		}
+		add_country_modifier = {
+			name = F27_transfer
+			duration = -1
+		}
+		bulwar_proper_region = {
+			add_permanent_claim = ROOT
+		}
+		sareyand_area = {
+			add_permanent_claim = ROOT
+		}
+		avamezan_area = {
+			add_permanent_claim = ROOT
+		}
+		eduz_vacyn_area = {
+			add_permanent_claim = ROOT
+		}
+	}
+}
+
+
+
+country_event = { #The Proclamation of Harpylen - capstone
+	id = flavour_ayarallen.6
+	title = flavour_ayarallen.6.t
+	desc = flavour_ayarallen.6.d
+	picture = SURAKES_SUN_GARDEN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.6.a
+		override_country_name = HARPYLEN_NAME
+		swap_non_generic_missions = yes
+		set_country_flag = harpylen_restored_flag
+		country_event = { id = harpy_events.123 }
+		hidden_effect = {
+			set_country_flag = f27_formed_harpylen
+			every_owned_province = {
+				limit = {
+					is_part_of_hre = yes
+				}
+				set_in_empire = no
+			}
+		}
+		set_government_rank_scripted_effect = { rank = 3 }
+		add_government_reform = harpy_queendom_reform
+		add_prestige = 50
+		if = {
+			limit = { has_custom_ideas = no }
+			country_event = { id = ideagroups.1 } #Swap Ideas
+		}
+		add_country_modifier = {
+			name = "centralization_modifier"
+			duration = 7300
+		}
+		lock_racial_admin = yes
+	}
+}
+
+country_event = { #The Kumarkandi Concession
+	id = flavour_ayarallen.7
+	title = flavour_ayarallen.7.t
+	desc = flavour_ayarallen.7.d
+	picture = SIEGE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.7.a
+		add_prestige = 25
+		kumarkand_area = { 
+			limit = { 
+				NOT = { 
+					owned_by = F30 
+				} 
+				country_or_non_sovereign_subject_holds = F27 
+			} 
+			remove_core = owner 
+			cede_province =  F30 
+			add_core = F30 
+		}
+		traz_buranun_area = { 
+			limit = { 
+				NOT = { 
+					owned_by = F30 
+				} 
+				country_or_non_sovereign_subject_holds = F27 
+			} 
+			remove_core = owner 
+			cede_province =  F30 
+			add_core = F30 
+		}
+		if = {
+			limit = {
+				NOT = { F30 = { is_subject_of = F27 } }
+			}
+			F27 = { vassalize = F30 }
+		}
+		F30 = { add_historical_friend = F27 }
+		F27 = { 
+			add_historical_friend = F30 
+			add_adm_power = 300
+		}
+	}
+
+}
+
+country_event = { #The Setadazari Concession
+	id = flavour_ayarallen.8
+	title = flavour_ayarallen.8.t
+	desc = flavour_ayarallen.8.d
+	picture = muslimgfx_CITY_DEVELOPMENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.8.a
+		custom_tooltip = f27_release_setadazar_option_tt
+		hidden_effect = {
+			east_naza_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F83 
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province = F83
+				add_core = F83 
+			}
+			south_naza_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F83 
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province = F83
+				add_core = F83 
+			}
+			avamezan_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F83 
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province = F83
+				add_core = F83 
+			}
+			eduz_vacyn_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F83 
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province = F83
+				add_core = F83 
+			}
+			sareyand_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F83 
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province = F83
+				add_core = F83
+			}
+			harklum_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F30
+					}
+					F30 = {
+						exists = yes
+					}
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province = F30
+				add_core = F30
+			}	
+		}
+		if = {
+			limit = {
+				F30  = {
+					NOT = {
+						AND = {
+							is_vassal = yes
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+			vassalize = F30
+		}
+		if = {
+			limit = {
+				NOT = { F83 = { is_subject_of = F27 } }
+			}
+			F27 = { vassalize = F83 }
+		}
+		F27 = { add_historical_friend = F83 }
+		F83 = { add_historical_friend = F27 }
+		add_country_modifier = {
+			name = F27_temple_custodian
+			duration = -1
+		}
+	}
+}
+
+country_event = { #brasan concession
+	id = flavour_ayarallen.9
+	title = flavour_ayarallen.9.t
+	desc = flavour_ayarallen.9.d
+	picture = DHIMMI_ESTATE_UPSET_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.9.a
+		custom_tooltip = f27_brasanni_hand_land_option_tt
+		add_permanent_power_projection = {
+			type = 10_permanent_power_projection
+			amount = 10
+		}
+		hidden_effect = {
+			irrliam_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F24 
+					} 
+					country_or_non_sovereign_subject_holds = F27
+				} 
+				remove_core = owner 
+				cede_province =  F24
+				add_core = F24 
+			}
+			anzabad_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F24 
+					} 
+					country_or_non_sovereign_subject_holds = F27 
+				} 
+				remove_core = owner 
+				cede_province =  F24 
+				add_core = F24 
+			}
+			zansap_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F24 
+					} 
+					country_or_non_sovereign_subject_holds = F27
+				} 
+				remove_core = owner 
+				cede_province =  F24 
+				add_core = F24 
+			} 
+			upper_brasan_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F24 
+					} 
+					country_or_non_sovereign_subject_holds = F27
+				} 
+				remove_core = owner 
+				cede_province =  F24 
+				add_core = F24 
+			}
+			medurubar_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F24 
+					} 
+					country_or_non_sovereign_subject_holds = F27
+				} 
+				remove_core = owner 
+				cede_province =  F24 
+				add_core = F24 
+			} 
+			lower_brasan_area = {
+				limit = { 
+					NOT = { 
+						owned_by = F24 
+					} 
+					country_or_non_sovereign_subject_holds = F27
+				} 
+				remove_core = owner 
+				cede_province =  F24 
+				add_core = F24 
+			}
+			anzarzax_area = {
+				limit = {
+					NOT = { 
+						owned_by = F30
+					} 
+					country_or_non_sovereign_subject_holds = F27
+				} 
+				remove_core = owner 
+				cede_province = F30 
+				add_core = F30
+			}
+			bulwar_area = {
+				limit = {
+					NOT = { 
+						owned_by = F30
+					} 
+					country_or_non_sovereign_subject_holds = F27
+				} 
+				remove_core = owner 
+				cede_province = F30 
+				add_core = F30
+			}
+		}
+		if = {
+			limit = {
+				F24 = {
+					NOT = {
+						AND = {
+							is_vassal = yes
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+			vassalize = F24
+		}
+		if = {
+			limit = {
+				F30  = {
+					NOT = {
+						AND = {
+							is_vassal = yes
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+			vassalize = F30
+		}
+		F24 = { add_historical_friend = F27 }
+		F27 = { add_historical_friend = F24 }
+	}
+}
+
+
+
+country_event = { #Rumours from Lake Firanya
+	id = flavour_ayarallen.14
+	title = flavour_ayarallen.14.t
+	desc = flavour_ayarallen.14.d
+	picture = THE_COVENANT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.14.a
+		hidden_effect = { country_event = { id = flavour_ayarallen.15 days = 124 } }
+	}
+}
+
+country_event = { #The Firanyaleni Revolt
+	id = flavour_ayarallen.15
+	title = flavour_ayarallen.15.t
+	desc = flavour_ayarallen.15.d
+	picture = HARPY_IMMORTAL_FIGHT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.15.a
+		custom_tooltip = f27_firanyan_revolt_tt
+		hidden_effect = {
+			set_global_flag = f27_firanyaleni_revolt
+			676 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			677 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			678 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			675 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			672 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			673 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			674 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			F82 = { declare_war_with_cb = { who = F27 casus_belli = cb_annex } }
+			676 = { add_latest_building = { builder = F82 fort = yes } }
+			F82 = {
+				every_neighbor_country = {
+					limit = {
+						culture_is_orcish = yes
+						NOT = { is_subject = yes }
+					}
+					create_alliance = F82
+					join_all_offensive_wars_of = F82
+				}
+			}
+		}
+	}
+	option = {
+		name = flavour_ayarallen.15.b
+		custom_tooltip = f27_firanyan_revolt_tag_switch_tt
+		hidden_effect = {
+			set_global_flag = f27_firanyaleni_revolt
+			676 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			677 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			678 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			675 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			672 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			673 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			674 = { if = { limit = { NOT = { owned_by = F82 } country_or_non_sovereign_subject_holds = F27 } remove_core = owner cede_province =  F82 add_core = F82 } }
+			F82 = { declare_war_with_cb = { who = F27 casus_belli = cb_annex } }
+			676 = { add_latest_building = { builder = F82 fort = yes } }
+			F82 = {
+				every_neighbor_country = {
+					limit = {
+						culture_is_orcish = yes
+						NOT = { is_subject = yes }
+					}
+					create_alliance = F82
+					join_all_offensive_wars_of = F82
+				}
+			}
+			switch_tag = F82
+		}
+	}
+}
+
+country_event = {
+	id = flavour_ayarallen.16
+	title = flavour_ayarallen.16.t
+	desc = flavour_ayarallen.16.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = flavour_ayarallen.16.a
+		hidden_effect = { white_peace = F82 clr_global_flag = f27_firanyaleni_revolt set_country_flag = crushed_firanyan_revolt }
+		inherit = F82
+		add_treasury = 250
+		676 = { add_devastation = 20 add_unrest = 10 }
+		677 = { add_devastation = 20 add_unrest = 10 }
+		678 = { add_devastation = 20 add_unrest = 10 }
+		675 = { add_devastation = 20 add_unrest = 10 }
+		672 = { add_devastation = 20 add_unrest = 10 }
+		673 = { add_devastation = 20 add_unrest = 10 }
+		674 = { add_devastation = 20 add_unrest = 10 }
+	}
+	option = {
+		name = flavour_ayarallen.16.b
+		hidden_effect = { white_peace = F82 clr_global_flag = f27_firanyaleni_revolt set_country_flag = crushed_firanyan_revolt }
+		inherit = F82
+		676 = { add_devastation = -10 }
+		677 = { add_devastation = -10 }
+		678 = { add_devastation = -10 }
+		675 = { add_devastation = -10 }
+		672 = { add_devastation = -10 }
+		673 = { add_devastation = -10 }
+		674 = { add_devastation = -10 }
+	}
+}
+
+country_event = {
+	id = flavour_ayarallen.17
+	title = flavour_ayarallen.17.t
+	desc = flavour_ayarallen.17.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = flavour_ayarallen.17.a
+		hidden_effect = { white_peace = F27 clr_global_flag = f27_firanyaleni_revolt }
+		inherit = F27
+	}
+}
+
+
+country_event = {
+	id = flavour_ayarallen.100
+	title = flavour_ayarallen.100.t
+	desc = flavour_ayarallen.100.d
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavour_ayarallen.100.a
+		ai_chance = {
+			factor = 100
+		}
+		F27 = {
+			vassalize = ROOT
+		}
+		aqatbahar_area = {
+			add_permanent_claim = ROOT
+		}
+		azka_evran_area = {
+			add_permanent_claim = ROOT
+		}
+		fajabahar_area = {
+			add_permanent_claim = ROOT
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = flavour_ayarallen.100.b
+	}
+}

@@ -1,0 +1,1038 @@
+spriteTypes = {
+	
+	#all
+	
+	spriteType = {
+		name = "GFX_event_button_empty"
+		texturefile = "gfx//interface//event_interfaces//event_button_empty.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_close"
+		texturefile = "gfx//interface//event_interfaces//event_button_close.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_back_to_menu"
+		texturefile = "gfx//interface//event_interfaces//event_button_back_to_menu.dds"
+		loadType = "INGAME"
+	}
+
+	#Azkare stuff
+	spriteType = {
+		name = "GFX_azkare_parliament_culture_window"
+		texturefile = "gfx//interface//event_interfaces//azkare_parliament_culture_window.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_azkare_parliament_main_window"
+		texturefile = "gfx//interface//event_interfaces//azkare_parliament_main_window.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_azkare_parliament_legion_window"
+		texturefile = "gfx//interface//event_interfaces//azkare_parliament_legion_window.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_option_separator"
+		texturefile = "gfx//interface//event_interfaces//icon_option_separator.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "AZKARE_INFO_WINDOW_eventPicture"
+		texturefile = "gfx/event_pictures/zz_event_menus/AZKARE_INFO_WINDOW_eventPicture.dds"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "GFX_event_button_close_orange"
+		texturefile = "gfx//interface//event_interfaces//event_button_close_orange.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_back_to_menu_orange"
+		texturefile = "gfx//interface//event_interfaces//event_button_back_to_menu_orange.dds"
+		loadType = "INGAME"
+	}
+	
+	
+	#Magic stuff
+	
+	spriteType = {
+		name = "SPELL_MENU_eventPicture"
+		texturefile = "gfx/event_pictures/zz_event_menus/SPELL_MENU_eventPicture.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_magic_influence_indicator"
+		texturefile = "gfx//interface//magic_menus//magic_influence_indicator.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_magic_button_go_back"
+		texturefile = "gfx//interface//magic_menus//magic_button_go_back.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_magic_button_close"
+		texturefile = "gfx//interface//magic_menus//magic_button_close.dds"
+		loadType = "INGAME"
+	}
+
+	##SGC
+	spriteType = {
+		name = "GFX_sgc_main_menu"
+		texturefile = "gfx//interface//event_interfaces//SGC//sgc_main_menu.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_sgc_sub_menu"
+		texturefile = "gfx//interface//event_interfaces//SGC//sgc_sub_menu.dds"
+		loadType = "INGAME"
+	}
+	
+	
+	#Azjakuma Magic
+	
+	spriteType = {
+		name = "GFX_estate_magic_shinukhorchi_bg"
+		texturefile = "gfx//interface//magic_menus//estate_magic_shinukhorchi_bg.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_estate_magic_chumijemoya_bg"
+		texturefile = "gfx//interface//magic_menus//estate_magic_chumijemoya_bg.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_estate_magic_ajgriijarul_bg"
+		texturefile = "gfx//interface//magic_menus//estate_magic_ajgriijarul_bg.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_estate_magic_kabiurgarko_bg"
+		texturefile = "gfx//interface//magic_menus//estate_magic_kabiurgarko_bg.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_estate_magic_khelorvalshi_bg"
+		texturefile = "gfx//interface//magic_menus//estate_magic_khelorvalshi_bg.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_desc_shinukhorchi"
+		texturefile = "gfx//interface//magic_menus//desc_shinukhorchi.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_desc_chumijemoya"
+		texturefile = "gfx//interface//magic_menus//desc_chumijemoya.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_desc_ajgriijarul"
+		texturefile = "gfx//interface//magic_menus//desc_ajgriijarul.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_desc_kabiurgarko"
+		texturefile = "gfx//interface//magic_menus//desc_kabiurgarko.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_desc_khelorvalshi"
+		texturefile = "gfx//interface//magic_menus//desc_khelorvalshi.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_talisman"
+		texturefile = "gfx//interface//magic_menus//spell_talisman.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_fertility"
+		texturefile = "gfx//interface//magic_menus//spell_fertility.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_fertility_r"
+		texturefile = "gfx//interface//magic_menus//spell_fertility_r.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_vassal_domination"
+		texturefile = "gfx//interface//magic_menus//spell_vassal_domination.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_blazing_soul"
+		texturefile = "gfx//interface//magic_menus//spell_blazing_soul.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_spell_numbing_haze"
+		texturefile = "gfx//interface//magic_menus//spell_numbing_haze.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_mind_clouding"
+		texturefile = "gfx//interface//magic_menus//spell_mind_clouding.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_fog_unravelling"
+		texturefile = "gfx//interface//magic_menus//spell_fog_unravelling.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_mist_whispers"
+		texturefile = "gfx//interface//magic_menus//spell_mist_whispers.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_mist_whispers_r"
+		texturefile = "gfx//interface//magic_menus//spell_mist_whispers_r.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_fog_unravelling_r"
+		texturefile = "gfx//interface//magic_menus//spell_fog_unravelling_r.dds"
+		loadType = "INGAME"
+	}
+	
+	
+	spriteType = {
+		name = "GFX_spell_warrior_mist"
+		texturefile = "gfx//interface//magic_menus//spell_warrior_mist.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_warrior_mist_r"
+		texturefile = "gfx//interface//magic_menus//spell_warrior_mist_r.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_dominate_unruly"
+		texturefile = "gfx//interface//magic_menus//spell_dominate_unruly.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_rage"
+		texturefile = "gfx//interface//magic_menus//spell_rage.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_soul_ignition"
+		texturefile = "gfx//interface//magic_menus//spell_soul_ignition.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_earth_bending"
+		texturefile = "gfx//interface//magic_menus//spell_earth_bending.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_wood_bending"
+		texturefile = "gfx//interface//magic_menus//spell_wood_bending.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_soul_bending"
+		texturefile = "gfx//interface//magic_menus//spell_soul_bending.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_metal_bending"
+		texturefile = "gfx//interface//magic_menus//spell_metal_bending.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_spell_drain_defenders"
+		texturefile = "gfx//interface//magic_menus//spell_drain_defenders.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_drain_defenders_r"
+		texturefile = "gfx//interface//magic_menus//spell_drain_defenders_r.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_drain_pop"
+		texturefile = "gfx//interface//magic_menus//spell_drain_pop.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_drain_pop_r"
+		texturefile = "gfx//interface//magic_menus//spell_drain_pop_r.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_blood_ritual"
+		texturefile = "gfx//interface//magic_menus//spell_blood_ritual.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_blood_ritual_r"
+		texturefile = "gfx//interface//magic_menus//spell_blood_ritual_r.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_spirit_consumption"
+		texturefile = "gfx//interface//magic_menus//spell_spirit_consumption.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_text_icon_abjuration"
+		texturefile = "gfx//interface//magic_menus//text_icon_abjuration.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_text_icon_conjuration"
+		texturefile = "gfx//interface//magic_menus//text_icon_conjuration.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_text_icon_divination"
+		texturefile = "gfx//interface//magic_menus//text_icon_divination.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_text_icon_enchantment"
+		texturefile = "gfx//interface//magic_menus//text_icon_enchantment.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_text_icon_evocation"
+		texturefile = "gfx//interface//magic_menus//text_icon_evocation.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_text_icon_illusion"
+		texturefile = "gfx//interface//magic_menus//text_icon_illusion.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_text_icon_necromancy"
+		texturefile = "gfx//interface//magic_menus//text_icon_necromancy.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_text_icon_transmutation"
+		texturefile = "gfx//interface//magic_menus//text_icon_transmutation.dds"
+		loadType = "INGAME"
+	}
+	
+	
+	
+	#Krak magic
+	
+	spriteType = {
+		name = "GFX_estate_magic_icesmith_bg"
+		texturefile = "gfx//interface//magic_menus//estate_magic_icesmith_bg.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_ice_equipment"
+		texturefile = "gfx//interface//magic_menus//spell_ice_equipment.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_ice_drills"
+		texturefile = "gfx//interface//magic_menus//spell_ice_drills.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_ice_gems"
+		texturefile = "gfx//interface//magic_menus//spell_ice_gems.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_ice_fields"
+		texturefile = "gfx//interface//magic_menus//spell_ice_fields.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spell_ice_holds"
+		texturefile = "gfx//interface//magic_menus//spell_ice_holds.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_desc_icesmith"
+		texturefile = "gfx//interface//magic_menus//desc_icesmith.dds"
+		loadType = "INGAME"
+	}	
+	
+	#Bianfang
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_m7"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_m7.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_m6"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_m6.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_m5"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_m5.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_m4"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_m4.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_m3"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_m3.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_m2"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_m2.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_m1"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_m1.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_0"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_0.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_1"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_1.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_2"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_2.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_3"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_3.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_4"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_4.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_5"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_5.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_6"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_6.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_bianfang_tyrant_bar_7"
+		texturefile = "gfx//interface//event_interfaces//bianfang//bianfang_tyrant_bar_7.dds"
+		loadType = "INGAME"
+	}
+	
+	
+	
+	
+	spriteType = {
+		name = "GFX_bullet_point_icon"
+		texturefile = "gfx//interface//bullet_point_icon.dds"
+		loadType = "INGAME"
+	}
+	
+	
+	#Settings
+	spriteType = {
+		name = "GFX_settings_main_bg"
+		texturefile = "gfx//interface//settings//settings_main_bg.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_conqueror_bg"
+		texturefile = "gfx//interface//settings//settings_conqueror_bg.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_regions_bg"
+		texturefile = "gfx//interface//settings//settings_regions_bg.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "SETTINGS_MAIN_eventPicture"
+		texturefile = "gfx/event_pictures/zz_event_menus/SETTINGS_MAIN_eventPicture.dds"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "SETTINGS_REGIONS_eventPicture"
+		texturefile = "gfx/event_pictures/zz_event_menus/SETTINGS_REGIONS_eventPicture.dds"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "SETTINGS_CONQUERORS_eventPicture"
+		texturefile = "gfx/event_pictures/zz_event_menus/SETTINGS_CONQUERORS_eventPicture.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_settings_button_regions_menu"
+		texturefile = "gfx//interface//settings//settings_button_regions_menu.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_conquerors_menu"
+		texturefile = "gfx//interface//settings//settings_button_conquerors_menu.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_conquerors_menu_g"
+		texturefile = "gfx//interface//settings//settings_button_conquerors_menu_g.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_achievements_off"
+		texturefile = "gfx//interface//settings//settings_button_achievements_off.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_achievements_on"
+		texturefile = "gfx//interface//settings//settings_button_achievements_on.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_start_game"
+		texturefile = "gfx//interface//settings//settings_button_start_game.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_settings_empty"
+		texturefile = "gfx//interface//settings//event_button_settings_empty.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_settings_cannor"
+		texturefile = "gfx//interface//settings//settings_cannor.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_north_aelantir"
+		texturefile = "gfx//interface//settings//settings_north_aelantir.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_bulwar"
+		texturefile = "gfx//interface//settings//settings_bulwar.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_forbidden_plains"
+		texturefile = "gfx//interface//settings//settings_forbidden_plains.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_deepwoods"
+		texturefile = "gfx//interface//settings//settings_deepwoods.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_east_serpentspine"
+		texturefile = "gfx//interface//settings//settings_east_serpentspine.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_haless"
+		texturefile = "gfx//interface//settings//settings_haless.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_north_sarhal"
+		texturefile = "gfx//interface//settings//settings_north_sarhal.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_rahen"
+		texturefile = "gfx//interface//settings//settings_rahen.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_west_serpentspine"
+		texturefile = "gfx//interface//settings//settings_west_serpentspine.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_insyaa"
+		texturefile = "gfx//interface//settings//settings_insyaa.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_south_aelantir"
+		texturefile = "gfx//interface//settings//settings_south_aelantir.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_south_sarhal"
+		texturefile = "gfx//interface//settings//settings_south_sarhal.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_east_sarhal"
+		texturefile = "gfx//interface//settings//settings_east_sarhal.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_gozenguun"
+		texturefile = "gfx//interface//settings//settings_gozenguun.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_settings_button_all"
+		texturefile = "gfx//interface//settings//settings_button_all.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_all_x"
+		texturefile = "gfx//interface//settings//settings_button_all_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_north_aelantir"
+		texturefile = "gfx//interface//settings//settings_button_north_aelantir.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_north_aelantir_x"
+		texturefile = "gfx//interface//settings//settings_button_north_aelantir_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_south_aelantir"
+		texturefile = "gfx//interface//settings//settings_button_south_aelantir.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_south_aelantir_x"
+		texturefile = "gfx//interface//settings//settings_button_south_aelantir_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_cannor"
+		texturefile = "gfx//interface//settings//settings_button_cannor.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_cannor_x"
+		texturefile = "gfx//interface//settings//settings_button_cannor_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_deepwoods"
+		texturefile = "gfx//interface//settings//settings_button_deepwoods.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_deepwoods_x"
+		texturefile = "gfx//interface//settings//settings_button_deepwoods_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_bulwar"
+		texturefile = "gfx//interface//settings//settings_button_bulwar.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_bulwar_x"
+		texturefile = "gfx//interface//settings//settings_button_bulwar_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_north_sarhal"
+		texturefile = "gfx//interface//settings//settings_button_north_sarhal.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_north_sarhal_x"
+		texturefile = "gfx//interface//settings//settings_button_north_sarhal_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_south_sarhal"
+		texturefile = "gfx//interface//settings//settings_button_south_sarhal.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_south_sarhal_x"
+		texturefile = "gfx//interface//settings//settings_button_south_sarhal_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_east_sarhal"
+		texturefile = "gfx//interface//settings//settings_button_east_sarhal.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_east_sarhal_x"
+		texturefile = "gfx//interface//settings//settings_button_east_sarhal_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_west_serpentspine"
+		texturefile = "gfx//interface//settings//settings_button_west_serpentspine.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_west_serpentspine_x"
+		texturefile = "gfx//interface//settings//settings_button_west_serpentspine_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_east_serpentspine"
+		texturefile = "gfx//interface//settings//settings_button_east_serpentspine.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_east_serpentspine_x"
+		texturefile = "gfx//interface//settings//settings_button_east_serpentspine_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_forbidden_plains"
+		texturefile = "gfx//interface//settings//settings_button_forbidden_plains.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_forbidden_plains_x"
+		texturefile = "gfx//interface//settings//settings_button_forbidden_plains_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_rahen"
+		texturefile = "gfx//interface//settings//settings_button_rahen.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_rahen_x"
+		texturefile = "gfx//interface//settings//settings_button_rahen_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_haless"
+		texturefile = "gfx//interface//settings//settings_button_haless.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_haless_x"
+		texturefile = "gfx//interface//settings//settings_button_haless_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_gozenguun"
+		texturefile = "gfx//interface//settings//settings_button_gozenguun.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_gozenguun_x"
+		texturefile = "gfx//interface//settings//settings_button_gozenguun_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_insyaa"
+		texturefile = "gfx//interface//settings//settings_button_insyaa.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_insyaa_x"
+		texturefile = "gfx//interface//settings//settings_button_insyaa_x.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_back_to_menu"
+		texturefile = "gfx//interface//settings//settings_button_back_to_menu.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_back_to_menu_2"
+		texturefile = "gfx//interface//settings//settings_button_back_to_menu_2.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_settings_alert_red"
+		texturefile = "gfx//interface//settings//settings_alert_red.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_alert_orange"
+		texturefile = "gfx//interface//settings//settings_alert_orange.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_alert_red_orange"
+		texturefile = "gfx//interface//settings//settings_alert_red_orange.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_alert_none"
+		texturefile = "gfx//interface//settings//settings_alert_none.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_settings_alert_red_main"
+		texturefile = "gfx//interface//settings//settings_alert_red_main.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_alert_orange_main"
+		texturefile = "gfx//interface//settings//settings_alert_orange_main.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_icon_settings_alert_red"
+		texturefile = "gfx//interface//settings//icon_settings_alert_red.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_settings_alert_orange"
+		texturefile = "gfx//interface//settings//icon_settings_alert_orange.dds"
+		loadType = "INGAME"
+	}
+	
+	
+	spriteType = {
+		name = "GFX_settings_button_no_conqueror"
+		texturefile = "gfx//interface//settings//settings_button_no_conqueror.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_no_conqueror_g"
+		texturefile = "gfx//interface//settings//settings_button_no_conqueror_g.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_conqueror"
+		texturefile = "gfx//interface//settings//settings_button_conqueror.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_conqueror_g"
+		texturefile = "gfx//interface//settings//settings_button_conqueror_g.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_mythical"
+		texturefile = "gfx//interface//settings//settings_button_mythical.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_mythical_g"
+		texturefile = "gfx//interface//settings//settings_button_mythical_g.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_conqueror_variance_on"
+		texturefile = "gfx//interface//settings//settings_button_conqueror_variance_on.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_conqueror_variance_off"
+		texturefile = "gfx//interface//settings//settings_button_conqueror_variance_off.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_conqueror_delay_on"
+		texturefile = "gfx//interface//settings//settings_button_conqueror_delay_on.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_settings_button_conqueror_delay_off"
+		texturefile = "gfx//interface//settings//settings_button_conqueror_delay_off.dds"
+		loadType = "INGAME"
+	}
+
+	#Rending
+
+	spriteType = {
+		name = "GFX_event_button_spirit_cinulau"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_cinulau.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_lupulan"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_lupulan.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_dhenbasana"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_dhenbasana.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_gehet_ketine"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_gehet_ketine.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_hengdu_bowu"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_hengdu_bowu.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_hokuma"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_hokuma.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_hukai_and_telebei"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_hukai_and_telebei.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_huszien"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_huszien.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_kharunyana"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_kharunyana.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_marutha"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_marutha.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_phokhao"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_phokhao.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_tughayasa"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_tughayasa.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_yanhe"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_yanhe.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spirit_four_lords"
+		texturefile = "gfx//interface//event_interfaces//event_button_spirit_four_lords.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_rending_window_purple"
+		texturefile = "gfx//interface//event_interfaces//rending_window_purple.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_rending_window_red"
+		texturefile = "gfx//interface//event_interfaces//rending_window_red.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_event_button_spawnable"
+		texturefile = "gfx//interface//event_interfaces//event_button_spawnable.dds"
+		loadType = "INGAME"
+	}
+	#Rending GUI
+	spriteType = {
+		name = "GFX_spirit_cinulau"
+		texturefile = "gfx//interface//spirits//spirit_cinulau.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_dhenbasana"
+		texturefile = "gfx//interface//spirits//spirit_dhenbasana.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_gehet_ketine"
+		texturefile = "gfx//interface//spirits//spirit_gehet_ketine.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_gehet_ketine"
+		texturefile = "gfx//interface//spirits//spirit_gehet_ketine.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_hengda_bowu"
+		texturefile = "gfx//interface//spirits//spirit_hengda_bowu.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_hokuma"
+		texturefile = "gfx//interface//spirits//spirit_hokuma.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_hukai"
+		texturefile = "gfx//interface//spirits//spirit_hukai.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_huszien"
+		texturefile = "gfx//interface//spirits//spirit_huszien.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_kharunyana"
+		texturefile = "gfx//interface//spirits//spirit_kharunyana.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_lupulan"
+		texturefile = "gfx//interface//spirits//spirit_lupulan.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_marutha"
+		texturefile = "gfx//interface//spirits//spirit_marutha.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_phokhao"
+		texturefile = "gfx//interface//spirits//spirit_phokhao.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_tughayasa"
+		texturefile = "gfx//interface//spirits//spirit_tughayasa.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_spirit_yanhe"
+		texturefile = "gfx//interface//spirits//spirit_yanhe.dds"
+		loadType = "INGAME"
+	}
+	#Effelai
+	spriteType = {
+		name = "GFX_text_icon_effelai_hub_attuned_in_text"
+		texturefile = "gfx//interface//icon_effelai_hub_attuned_in_text.dds"
+		loadType = "INGAME"
+	}
+	#KDC
+	spriteType = {
+		name = "GFX_event_button_understand_dragons"
+		texturefile = "gfx//interface//event_interfaces//event_button_understand_dragons.dds"
+		loadType = "INGAME"
+	}
+}

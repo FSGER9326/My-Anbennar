@@ -1,0 +1,5 @@
+
+#setup_vision_generic = yes
+# is it necessary?
+
+technology_group = tech_cannorian

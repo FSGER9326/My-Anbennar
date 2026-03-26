@@ -1,0 +1,20 @@
+bookmark = {
+	name = "SOUTH_AELANTIR_NAME"
+	desc = "SOUTH_AELANTIR_DESC"
+	date = 1444.11.11
+	
+	center = 2653
+	
+	country = G52	#Ameion
+	country = G46	#Degakheion
+	country = G58	#Keyolion
+	country = G64	#Larankar
+	country = J78	#Uesrennu
+	country = G63	#Mteibhara
+	country = G15	#Sel'parura
+	country = G87	#Chaqway
+	
+	easy_country = G52 #Ameion
+	easy_country = G46 #Degakheion
+	easy_country = G64 #Larankar
+}
