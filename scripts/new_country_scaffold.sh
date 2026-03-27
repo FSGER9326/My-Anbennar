@@ -28,8 +28,9 @@ Start here:
 - checklist-status-manifest.json
 
 Run generic audit once repo-map files exist:
-- ./scripts/checklist_manifest_audit.py --manifest $base/checklist-status-manifest.json
-- Optional override example: ./scripts/checklist_manifest_audit.py --manifest $base/checklist-status-manifest.json --index-file docs/repo-maps/README.md
+- Python: \`python scripts/checklist_manifest_audit.py --manifest $base/checklist-status-manifest.json\`
+- Python 3 fallback: \`python3 scripts/checklist_manifest_audit.py --manifest $base/checklist-status-manifest.json\`
+- Python override example: \`python scripts/checklist_manifest_audit.py --manifest $base/checklist-status-manifest.json --index-file docs/repo-maps/README.md\`
 EOT
 
 echo "Created scaffold at $base"
