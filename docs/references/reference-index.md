@@ -10,11 +10,22 @@ It is not a replacement for repo-grounded scanning.
 - `eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Scopes - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Variables - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Triggers - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Scripted function modding - Europa Universalis 4 Wiki.html`
 
 ## System-specific references
 
+- `eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Estate modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Mercenaries modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Modifier modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Province modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Rebel modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Subject type modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Trade company modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Trade goods modding - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Estate modding - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Mercenaries modding - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Modifier modding - Europa Universalis 4 Wiki.html`
@@ -27,23 +38,16 @@ It is not a replacement for repo-grounded scanning.
 1. Start with repo implementation patterns in `docs/repo-maps/`.
 2. Use this index to locate syntax/engine behavior details.
 3. Return to repo files to validate final implementation assumptions.
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-=======
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
+
+## Gap tracking
+
+If a referenced article is missing locally, record it here before adding new crosswalk entries:
+
+- _No current gaps tracked._
+
 
 
 ## Comparison notes
 
 - `eu4-baseline-vs-anbennar-comparison-notes.md`
-<<<<<<< ours
-<<<<<<< ours
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
+

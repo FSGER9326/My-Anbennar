@@ -41,23 +41,24 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 | Adventurer systems | Adventurer estate plus government mechanic plus spawnable/event content | `common/government_mechanics`, `events/estate_adventurers.txt`, `events/AdventurerSpawnables.txt` | Detailed |
 | Witch-king, lichdom, war wizard, magical infamy | High-risk ruler-magic state machine with infamy tiers and conversion helpers | `common/scripted_effects`, `common/scripted_triggers`, `events`, `decisions`, `common/event_modifiers`, `common/custom_gui` | Detailed |
 | Government mechanics + GUI wiring | Reusable government power bars/interactions with custom interfaces | `common/government_mechanics`, `interface/government_mechanics` | Detailed |
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-=======
 | Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
->>>>>>> theirs
-=======
 | Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
->>>>>>> theirs
-=======
+
 | Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
->>>>>>> theirs
+
+| Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
 | Custom estate ecosystems | Organization/law privilege trees wired to larger systems | `common/estates`, `common/estate_privileges`, `events/estate_*.txt` | Detailed |
 | Custom estates | Mages, Adventurers, Artificers, Vampires, Commands, castes, and other non-vanilla estates | `common/estates`, `common/estate_privileges`, `events/estate_*.txt` | Overview |
 | Custom government mechanics | Large library of tag- and region-specific government power systems | `common/government_mechanics`, `interface/government_mechanics` | Overview |
 | Custom GUI infrastructure | Shared pattern used by magic, province systems, racial UI, and other non-vanilla layers | `common/custom_gui`, `interface/*.gui`, `interface/*.gfx` | Overview |
 | Special diplomacy, peace, rebels, units | Extra support layers for non-vanilla content | `common/new_diplomatic_actions`, `common/peace_treaties`, `common/rebel_types`, `common/units` | Index only |
+
+## Registry maintenance rule
+
+To reduce future merge conflicts in this index:
+
+- append new article links at the end of the `Existing Reference Articles` list
+- defer major reordering to dedicated cleanup commits
 
 ## Existing Reference Articles
 
@@ -74,18 +75,12 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 - [anbennar-systems-scan-roadmap.md](./anbennar-systems-scan-roadmap.md)
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-=======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
-=======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
-=======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
+
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+ 
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)

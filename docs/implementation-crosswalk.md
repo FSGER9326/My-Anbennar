@@ -74,19 +74,10 @@ Design doc: `docs/design/mission-rewrite-spec.md`; `docs/design/open-questions-a
 
 Repo pattern: `docs/repo-maps/racial-population-and-military-reference.md`
 
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
 EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-=======
+EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
 EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
->>>>>>> theirs
-=======
 EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
->>>>>>> theirs
-=======
-EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
->>>>>>> theirs
 
 Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
@@ -120,27 +111,21 @@ Notes:
 
 Design doc: `docs/design/reform-bible.md`
 
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
+Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
+
+EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
 Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-=======
+
 Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
->>>>>>> theirs
-=======
+
 Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
->>>>>>> theirs
-=======
-Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
 
-EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
->>>>>>> theirs
 
 Lore doc: `docs/lore/verne-identity-and-court-culture.md`
 
@@ -149,18 +134,12 @@ Status: IMPLEMENTATION_READY
 Notes:
 
 - Use existing government power/interactions architecture for any new Verne state meters.
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-=======
 - Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
->>>>>>> theirs
-=======
+
 - Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
->>>>>>> theirs
-=======
+
 - Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
->>>>>>> theirs
+
 - Keep first iteration minimal (one bar + one interaction) before multi-action expansion.
 
 ---
@@ -190,19 +169,12 @@ Design doc: `docs/design/pressure-disasters-and-corinite.md`
 
 Repo pattern: `docs/repo-maps/witch-king-lichdom-war-wizard-infamy-reference.md`; `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`
 
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
 EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
-=======
+EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
 EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
->>>>>>> theirs
-=======
+
 EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
->>>>>>> theirs
-=======
-EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
->>>>>>> theirs
+
 
 Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
@@ -234,6 +206,11 @@ Notes:
 ---
 
 ## Crosswalk maintenance notes
+
+Conflict-resolution note:
+
+- Keep this file focused on per-system mapping only; place shared reference inventory updates in `docs/references/reference-index.md` to reduce future merge conflicts.
+
 
 - If a row is blocked by uncertain implementation details, keep `NEEDS_REPO_CHECK` until a concrete repo-map article resolves it.
 - If a row is blocked by unresolved design conflicts, keep `NEEDS_DESIGN` and link the design open-questions entry.

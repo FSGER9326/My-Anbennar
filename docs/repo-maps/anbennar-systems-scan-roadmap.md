@@ -162,63 +162,46 @@ Already documented:
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-=======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
-=======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
-=======
+
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
 
 Best next articles:
 
 1. Race- and religion-specific framework comparison matrix
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
 2. Government mechanic activation map by reform file
 3. Artificery-magic crossover and nation-specific invention usage
 4. Verne monument object-ID parity check for design names
-=======
 2. Artificery-magic crossover and nation-specific invention usage
 3. Verne monument object-ID parity check for design names
 4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
->>>>>>> theirs
-=======
+
 2. Artificery-magic crossover and nation-specific invention usage
 3. Verne monument object-ID parity check for design names
 4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
->>>>>>> theirs
-=======
 2. Artificery-magic crossover and nation-specific invention usage
 3. Verne monument object-ID parity check for design names
 4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
->>>>>>> theirs
+ 
 
 Recently completed in this pass:
 
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-=======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
-=======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
-=======
+
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
->>>>>>> theirs
+
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
 
@@ -233,3 +216,14 @@ Each future article should include:
 - at least two real code examples
 - notes on how the implementation differs from a simpler vanilla-style approach
 - safe extension or adaptation notes
+
+
+## Coordination rule for index files
+
+When adding a new repo-map article, update these three files in the same commit:
+
+1. `docs/repo-maps/README.md`
+2. `docs/repo-maps/anbennar-systems-master-index.md`
+3. `docs/repo-maps/anbennar-systems-scan-roadmap.md`
+
+This keeps the documentation registry consistent and avoids repeat conflict-only follow-up commits.

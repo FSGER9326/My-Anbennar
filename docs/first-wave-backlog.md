@@ -5,7 +5,7 @@ This file turns the theorycraft into small Codex-sized work items.
 
 Each task should be possible to complete in one focused session. Early tasks should touch a small number of files and prefer helper layers over giant rewrites.
 
-Run [`docs/codex-grounding-checklist.md`](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/codex-grounding-checklist.md) before starting any backlog item that edits code.
+Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before starting any backlog item that edits code.
 
 ## Working rules
 - Prefer 1 to 3 files per task when possible.
@@ -18,14 +18,14 @@ Run [`docs/codex-grounding-checklist.md`](/C:/Users/User/Documents/GitHub/My-Anb
 
 ### V-00 Map shared touchpoints and compatibility risks
 Target files:
-- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
-- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
-- [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
-- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
-- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
-- [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
-- [`common/on_actions/00_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/00_on_actions.txt)
-- [`docs/mod-spec.md`](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/mod-spec.md)
+- [`common/ideas/anb_country_ideas.txt`](../common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](../localisation/anb_powers_and_ideas_l_english.yml)
+- [`common/ideas/00_basic_ideas.txt`](../common/ideas/00_basic_ideas.txt)
+- [`common/great_projects/anb_monuments_missions.txt`](../common/great_projects/anb_monuments_missions.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](../common/mercenary_companies/0_anb_elite_mercenaries.txt)
+- [`events/Flavour_Verne_A33.txt`](../events/Flavour_Verne_A33.txt)
+- [`common/on_actions/00_on_actions.txt`](../common/on_actions/00_on_actions.txt)
+- [`docs/mod-spec.md`](./mod-spec.md)
 
 Done when:
 - we know where Verne national ideas, idea localization, monuments, mercs, dynasty handling, and advisor spawning already live
@@ -36,8 +36,8 @@ Done when:
 
 ### V-01 Create the Verne modifier file
 Target files:
-- [`common/event_modifiers/verne_overhaul_modifiers.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/event_modifiers/verne_overhaul_modifiers.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/event_modifiers/verne_overhaul_modifiers.txt`](../common/event_modifiers/verne_overhaul_modifiers.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - first-wave pressure modifiers exist
@@ -46,7 +46,7 @@ Done when:
 
 ### V-02 Create the Verne trigger file
 Target files:
-- [`common/scripted_triggers/verne_overhaul_triggers.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/scripted_triggers/verne_overhaul_triggers.txt)
+- [`common/scripted_triggers/verne_overhaul_triggers.txt`](../common/scripted_triggers/verne_overhaul_triggers.txt)
 
 Done when:
 - doctrine precursor triggers exist
@@ -57,7 +57,7 @@ Done when:
 
 ### V-03 Create the Verne effect file
 Target files:
-- [`common/scripted_effects/verne_overhaul_effects.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/scripted_effects/verne_overhaul_effects.txt)
+- [`common/scripted_effects/verne_overhaul_effects.txt`](../common/scripted_effects/verne_overhaul_effects.txt)
 
 Done when:
 - projection score increments exist
@@ -69,8 +69,8 @@ Done when:
 
 ### V-04 Reserve first-wave flags, variables, and loc stubs
 Target files:
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
-- [`docs/mod-spec.md`](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/mod-spec.md)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
+- [`docs/mod-spec.md`](./mod-spec.md)
 
 Done when:
 - the first-wave variables are fixed and named
@@ -84,15 +84,15 @@ Before V-05 through V-13, confirm all of the following:
 
 - where `A33_ideas` currently lives
 - where Verne idea localization currently lives
-- whether the doctrine-menu replacement needs support in [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
+- whether the doctrine-menu replacement needs support in [`common/ideas/00_basic_ideas.txt`](../common/ideas/00_basic_ideas.txt)
 - which shared systems still expect vanilla/basic idea groups and therefore need alternate handling or a deferred compatibility note
 
 ### V-05 Replace Verne national ideas cleanly
 Target files:
-- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
-- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
-- [`common/ideas/verne_country_ideas_overhaul.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_country_ideas_overhaul.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/ideas/anb_country_ideas.txt`](../common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](../localisation/anb_powers_and_ideas_l_english.yml)
+- [`common/ideas/verne_country_ideas_overhaul.txt`](../common/ideas/verne_country_ideas_overhaul.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - Verne traditions, seven national ideas, and ambition match the theorycraft summary
@@ -101,8 +101,8 @@ Done when:
 
 ### V-06 Add Silver Oaths Ideas
 Target files:
-- [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the full seven internal idea entries exist
@@ -111,8 +111,8 @@ Done when:
 
 ### V-07 Add Vernissage Ideas
 Target files:
-- [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the full seven internal idea entries exist
@@ -121,8 +121,8 @@ Done when:
 
 ### V-08 Add Dragonwake Ideas
 Target files:
-- [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the full seven internal idea entries exist
@@ -131,8 +131,8 @@ Done when:
 
 ### V-09 Add Imperial Sea Court Ideas
 Target files:
-- [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the full seven internal idea entries exist
@@ -141,8 +141,8 @@ Done when:
 
 ### V-10 Add Red Court Ideas
 Target files:
-- [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the full seven internal idea entries exist
@@ -151,8 +151,8 @@ Done when:
 
 ### V-11 Add Crimson Wake Order Ideas
 Target files:
-- [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the full seven internal idea entries exist
@@ -161,8 +161,8 @@ Done when:
 
 ### V-12 Add Estuary Companies Ideas
 Target files:
-- [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the full seven internal idea entries exist
@@ -171,8 +171,8 @@ Done when:
 
 ### V-13 Add the first-wave policy layer
 Target files:
-- [`common/policies/verne_doctrine_policies.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/policies/verne_doctrine_policies.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/policies/verne_doctrine_policies.txt`](../common/policies/verne_doctrine_policies.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the first-wave exact policy packages exist
@@ -183,8 +183,8 @@ Done when:
 
 ### V-14 Add Tier 1 reform triplet
 Target files:
-- [`common/government_reforms/verne_overhaul_reforms.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/government_reforms/verne_overhaul_reforms.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - Court of Silver Oaths exists
@@ -193,8 +193,8 @@ Done when:
 
 ### V-15 Add Tier 2 reform triplet
 Target files:
-- [`common/government_reforms/verne_overhaul_reforms.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/government_reforms/verne_overhaul_reforms.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - Admiralty of the Crimson Wake exists
@@ -203,8 +203,8 @@ Done when:
 
 ### V-16 Add Tier 3 reform triplet
 Target files:
-- [`common/government_reforms/verne_overhaul_reforms.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/government_reforms/verne_overhaul_reforms.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - Red Court Arcana exists
@@ -215,9 +215,9 @@ Done when:
 
 ### V-17 Add the dynasty safeguard chain
 Target files:
-- [`events/verne_overhaul_dynasty_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_dynasty_events.txt)
-- [`common/on_actions/zz_verne_overhaul_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/zz_verne_overhaul_on_actions.txt)
-- [`common/scripted_triggers/verne_overhaul_triggers.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/scripted_triggers/verne_overhaul_triggers.txt)
+- [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt)
+- [`common/on_actions/zz_verne_overhaul_on_actions.txt`](../common/on_actions/zz_verne_overhaul_on_actions.txt)
+- [`common/scripted_triggers/verne_overhaul_triggers.txt`](../common/scripted_triggers/verne_overhaul_triggers.txt)
 
 Done when:
 - a Verne-specific `on_new_heir` safeguard exists
@@ -227,9 +227,9 @@ Done when:
 
 ### V-18 Add the five core dynastic decisions
 Target files:
-- [`decisions/verne_overhaul_decisions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions/verne_overhaul_decisions.txt)
-- [`events/verne_overhaul_dynasty_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_dynasty_events.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)
+- [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - Train the Heir in the Red Court exists
@@ -240,9 +240,9 @@ Done when:
 
 ### V-19 Add the first advisor archetype package
 Target files:
-- [`events/verne_overhaul_advisor_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_advisor_events.txt)
-- [`decisions/verne_overhaul_decisions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions/verne_overhaul_decisions.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`events/verne_overhaul_advisor_events.txt`](../events/verne_overhaul_advisor_events.txt)
+- [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - Red Court Magister exists
@@ -254,7 +254,7 @@ Done when:
 
 ### V-20 Rewrite `Old Friends, Old Rivals`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 - supporting helper files as needed
 
 Done when:
@@ -264,7 +264,7 @@ Done when:
 
 ### V-21 Rewrite `Alvar's Reform`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission acts as state-foundation content
@@ -273,7 +273,7 @@ Done when:
 
 ### V-22 Rewrite `The Grand Port of Heartspier`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission becomes the first true sea-state mission
@@ -281,7 +281,7 @@ Done when:
 
 ### V-23 Rewrite `The Riches of the Khenak`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission becomes the industrial foundation mission
@@ -289,7 +289,7 @@ Done when:
 
 ### V-24 Rewrite `The Vernissage`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission unlocks cultural and international prestige systems
@@ -297,7 +297,7 @@ Done when:
 
 ### V-25 Rewrite `Across the Pond`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission can be completed through multiple overseas route families
@@ -305,7 +305,7 @@ Done when:
 
 ### V-26 Rewrite `In Search of Adventure`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission supports colonizer and Vernissage/adventure-network routes
@@ -313,7 +313,7 @@ Done when:
 
 ### V-27 Rewrite `Binding the Beast`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission becomes the wyvern-state founding mission
@@ -321,7 +321,7 @@ Done when:
 
 ### V-28 Rewrite `Expand the Wyvern Nests`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission grows nest and rider infrastructure
@@ -329,7 +329,7 @@ Done when:
 
 ### V-29 Rewrite `The Lament's Regatta`
 Target files:
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 Done when:
 - the mission becomes the true maritime-international prestige mission
@@ -340,16 +340,16 @@ Done when:
 ### Order-state safety gate
 Before V-30 and V-31, confirm whether the cleanest first-wave implementation patches the existing shared Verne sections in:
 
-- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
-- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
+- [`common/great_projects/anb_monuments_missions.txt`](../common/great_projects/anb_monuments_missions.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](../common/mercenary_companies/0_anb_elite_mercenaries.txt)
 
 Use standalone Verne files only if they are clearly safer than editing the existing anchors.
 
 ### V-30 Add the Chapterhouse monument
 Target files:
-- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
-- [`common/great_projects/verne_overhaul_monuments.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/verne_overhaul_monuments.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/great_projects/anb_monuments_missions.txt`](../common/great_projects/anb_monuments_missions.txt)
+- [`common/great_projects/verne_overhaul_monuments.txt`](../common/great_projects/verne_overhaul_monuments.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the Chapterhouse unlock sequence is real
@@ -358,10 +358,10 @@ Done when:
 
 ### V-31 Add the first three order companies
 Target files:
-- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
-- [`common/mercenary_companies/verne_overhaul_orders.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/verne_overhaul_orders.txt)
-- [`events/verne_overhaul_orders.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_orders.txt)
-- [`decisions/verne_overhaul_decisions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions/verne_overhaul_decisions.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](../common/mercenary_companies/0_anb_elite_mercenaries.txt)
+- [`common/mercenary_companies/verne_overhaul_orders.txt`](../common/mercenary_companies/verne_overhaul_orders.txt)
+- [`events/verne_overhaul_orders.txt`](../events/verne_overhaul_orders.txt)
+- [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)
 
 Done when:
 - Crimson Wake Lances exist
@@ -371,8 +371,8 @@ Done when:
 
 ### V-32 Add the anti-corruption decision package
 Target files:
-- [`decisions/verne_overhaul_decisions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions/verne_overhaul_decisions.txt)
-- [`events/verne_overhaul_cleansing_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_cleansing_events.txt)
+- [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)
+- [`events/verne_overhaul_cleansing_events.txt`](../events/verne_overhaul_cleansing_events.txt)
 
 Done when:
 - Purge the Admiralty Ledgers exists
@@ -381,9 +381,9 @@ Done when:
 
 ### V-33 Add pressure modifiers and the four disaster scaffolds
 Target files:
-- [`common/disasters/verne_overhaul_disasters.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/disasters/verne_overhaul_disasters.txt)
-- [`events/verne_overhaul_disaster_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_disaster_events.txt)
-- [`common/event_modifiers/verne_overhaul_modifiers.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/event_modifiers/verne_overhaul_modifiers.txt)
+- [`common/disasters/verne_overhaul_disasters.txt`](../common/disasters/verne_overhaul_disasters.txt)
+- [`events/verne_overhaul_disaster_events.txt`](../events/verne_overhaul_disaster_events.txt)
+- [`common/event_modifiers/verne_overhaul_modifiers.txt`](../common/event_modifiers/verne_overhaul_modifiers.txt)
 
 Done when:
 - Shattering of Silver Oaths scaffold exists
