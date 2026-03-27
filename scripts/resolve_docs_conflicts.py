@@ -14,7 +14,10 @@ HOTSPOTS = {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
     "docs/start-here.md",
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -31,10 +34,15 @@ HOTSPOTS = {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
     "docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md",
     "docs/repo-maps/anbennar-systems-master-index.md",
     "docs/repo-maps/anbennar-systems-scan-roadmap.md",
     "docs/wiki/checklist-automation-system.md",
+=======
+    "docs/repo-maps/anbennar-systems-master-index.md",
+    "docs/repo-maps/anbennar-systems-scan-roadmap.md",
+>>>>>>> theirs
 =======
     "docs/repo-maps/anbennar-systems-master-index.md",
     "docs/repo-maps/anbennar-systems-scan-roadmap.md",
