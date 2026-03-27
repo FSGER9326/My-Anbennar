@@ -2,7 +2,7 @@
 """Audit EU4 event IDs for common beginner mistakes.
 
 Checks include duplicate event IDs with more than one occurrence, both within
-a single file and across files.
+the same file and across different files.
 """
 from __future__ import annotations
 
@@ -67,7 +67,7 @@ def main() -> int:
     targets = [ROOT / p for p in file_list]
 
     errors: list[str] = []
-    seen_ids: dict[str, list[str]] = defaultdict(list)
+    seen_ids: dict[str, list[tuple[str, int]]] = defaultdict(list)
 
     for path in targets:
         if not path.exists():
@@ -87,14 +87,13 @@ def main() -> int:
                 errors.append(
                     f"{path.relative_to(ROOT)}: id '{event_id}' uses namespace '{ns}' not declared in file"
                 )
-            seen_ids[event_id].append(f"{path.relative_to(ROOT)}:{line_no}")
+            seen_ids[event_id].append((str(path.relative_to(ROOT)), line_no))
 
-    for event_id, locations in sorted(seen_ids.items()):
-        if len(locations) > 1:
-            unique_files = {location.rsplit(":", 1)[0] for location in locations}
-            scope = "across files" if len(unique_files) > 1 else "within file"
+    for event_id, occurrences in sorted(seen_ids.items()):
+        if len(occurrences) > 1:
+            locations = [f"{relative_path}:{line_no}" for relative_path, line_no in occurrences]
             errors.append(
-                f"duplicate event id '{event_id}' found {scope}: {', '.join(locations)}"
+                f"duplicate event id '{event_id}' found in occurrences: {', '.join(locations)}"
             )
 
     if errors:
