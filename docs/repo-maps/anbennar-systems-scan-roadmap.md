@@ -144,6 +144,42 @@ Priority:
 
 - high
 
+## Deep-diff families and smoke tests (operational definitions)
+
+### What “deep-diff” means in this roadmap
+
+A deep-diff is not just “this file is different.” It is a structured diff that answers:
+
+1. baseline EU4 object/flow,
+2. Anbennar object/flow,
+3. exact anchors (files + IDs + helper triggers/effects),
+4. behavior impact,
+5. safe adaptation path.
+
+### What a “family” means here
+
+A family is a set of related mechanics that share code patterns and grep anchors, for example:
+
+- estate + privilege frameworks,
+- government mechanics + reform activation,
+- diplomacy + peace layers,
+- religion + conversion behavior,
+- unit + military behavior,
+- rebellion + unrest pipelines.
+
+Working by family lets one checklist validate several targets.
+
+### What a “smoke test” means here
+
+Smoke tests are quick checks for high-risk IDs and entry points after edits. They are meant to catch broken wiring early, not to prove full gameplay correctness.
+
+Minimum smoke-test pattern per family:
+
+- one object-ID existence check,
+- one trigger/effect reachability check,
+- one localization key existence check,
+- one obvious integration-point check (mission/event/reform/estate hook).
+
 ## Current First-Wave Deliverables
 
 Already documented:
@@ -159,14 +195,50 @@ Already documented:
 - [adventurer-systems-and-estate-patterns-reference.md](./adventurer-systems-and-estate-patterns-reference.md)
 - [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md)
 - [anbennar-systems-master-index.md](./anbennar-systems-master-index.md)
+- [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
+- [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+- [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
+- [anbennar-vs-eu4-mechanics-gap-register.md](./anbennar-vs-eu4-mechanics-gap-register.md)
+- [custom-estates-family-and-privilege-framework-base-vs-anbennar-reference.md](./custom-estates-family-and-privilege-framework-base-vs-anbennar-reference.md)
+- [religion-behavior-deltas-for-verne-reference.md](./religion-behavior-deltas-for-verne-reference.md)
+- [unit-system-deltas-base-vs-anbennar-reference.md](./unit-system-deltas-base-vs-anbennar-reference.md)
+- [rebel-system-deltas-base-vs-anbennar-reference.md](./rebel-system-deltas-base-vs-anbennar-reference.md)
+- [peace-treaty-layer-base-vs-anbennar-reference.md](./peace-treaty-layer-base-vs-anbennar-reference.md)
+- [diplomatic-actions-layer-base-vs-anbennar-reference.md](./diplomatic-actions-layer-base-vs-anbennar-reference.md)
+- [government-mechanics-library-base-vs-anbennar-reference.md](./government-mechanics-library-base-vs-anbennar-reference.md)
+- [automated-grep-checklists-by-mechanic-family.md](./automated-grep-checklists-by-mechanic-family.md)
+- [repo-rescan-playbook.md](./repo-rescan-playbook.md)
 
 Best next articles:
 
-1. Mage estate and magical politics reference
-2. Witch-king, lichdom, and magical infamy reference
-3. Government mechanics and custom GUI reference
-4. Custom estate patterns beyond Adventurers and Artificers
-5. Artificery-magic crossover and nation-specific invention usage
+1. Race- and religion-specific framework comparison matrix
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+5. Add object-ID-level appendices to the new deep-diff references
+6. Build quick smoke-test scripts for high-risk IDs in each family
+
+Recently completed in this pass:
+
+- [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
+- [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+- [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
+- [anbennar-vs-eu4-mechanics-gap-register.md](./anbennar-vs-eu4-mechanics-gap-register.md)
+- [custom-estates-family-and-privilege-framework-base-vs-anbennar-reference.md](./custom-estates-family-and-privilege-framework-base-vs-anbennar-reference.md)
+- [religion-behavior-deltas-for-verne-reference.md](./religion-behavior-deltas-for-verne-reference.md)
+- [unit-system-deltas-base-vs-anbennar-reference.md](./unit-system-deltas-base-vs-anbennar-reference.md)
+- [rebel-system-deltas-base-vs-anbennar-reference.md](./rebel-system-deltas-base-vs-anbennar-reference.md)
+- [peace-treaty-layer-base-vs-anbennar-reference.md](./peace-treaty-layer-base-vs-anbennar-reference.md)
+- [diplomatic-actions-layer-base-vs-anbennar-reference.md](./diplomatic-actions-layer-base-vs-anbennar-reference.md)
+- [government-mechanics-library-base-vs-anbennar-reference.md](./government-mechanics-library-base-vs-anbennar-reference.md)
+- [automated-grep-checklists-by-mechanic-family.md](./automated-grep-checklists-by-mechanic-family.md)
+- [repo-rescan-playbook.md](./repo-rescan-playbook.md)
 
 ## Documentation Standard
 
@@ -179,3 +251,14 @@ Each future article should include:
 - at least two real code examples
 - notes on how the implementation differs from a simpler vanilla-style approach
 - safe extension or adaptation notes
+
+
+## Coordination rule for index files
+
+When adding a new repo-map article, update these three files in the same commit:
+
+1. `docs/repo-maps/README.md`
+2. `docs/repo-maps/anbennar-systems-master-index.md`
+3. `docs/repo-maps/anbennar-systems-scan-roadmap.md`
+
+This keeps the documentation registry consistent and avoids repeat conflict-only follow-up commits.
