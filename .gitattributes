@@ -3,12 +3,44 @@
 
 # Prefer additive auto-merge in docs index hotspots to reduce manual conflicts.
 docs/README.md merge=union
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 docs/start-here.md merge=union
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 docs/implementation-crosswalk.md merge=union
 docs/references/README.md merge=union
 docs/references/reference-index.md merge=union
 docs/repo-maps/README.md merge=union
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md merge=union
 docs/repo-maps/anbennar-systems-master-index.md merge=union
 docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
 docs/wiki/checklist-automation-system.md merge=union
+=======
+docs/repo-maps/anbennar-systems-master-index.md merge=union
+docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
+>>>>>>> theirs
+=======
+docs/repo-maps/anbennar-systems-master-index.md merge=union
+docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
+>>>>>>> theirs
+=======
+docs/repo-maps/anbennar-systems-master-index.md merge=union
+docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
+>>>>>>> theirs
+=======
+docs/repo-maps/anbennar-systems-master-index.md merge=union
+docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
+>>>>>>> theirs

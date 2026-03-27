@@ -57,6 +57,10 @@ def main() -> int:
         print("ERROR: Working tree is not clean. Commit or stash first.")
         return 1
 
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
     branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
     if branch == "main":
         print("ERROR: Current branch is 'main'.")
@@ -64,6 +68,14 @@ def main() -> int:
         print("If you are already on main, run a normal pull/check flow instead.")
         return 1
 
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
     print("Fetching latest refs...")
     run(["git", "fetch", "origin"], check=True)
 
@@ -82,6 +94,22 @@ def main() -> int:
 
     run_smoke_checks()
 
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+>>>>>>> theirs
+=======
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+>>>>>>> theirs
+=======
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+>>>>>>> theirs
+=======
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+>>>>>>> theirs
     msg = f"Merge {base_ref} into {branch} with docs guard automation"
     print("Creating merge commit...")
     run(["git", "commit", "-m", msg], check=True)

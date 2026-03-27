@@ -1,6 +1,7 @@
 # Anbennar vs EU4 Mechanics Gap Register
 
 Purpose: keep a running list of major mechanics that still need a clean "base EU4 vs Anbennar implementation" comparison.
+Purpose: keep a running list of major mechanics that still need a clean “base EU4 vs Anbennar implementation” comparison.
 
 Use this as the queue for future repo-map deep scans.
 
