@@ -6,6 +6,9 @@ Use it as the main non-code workspace for planning, design, grounding, and local
 
 ## What lives here
 
+### New? Start here
+- [start-here.md](./start-here.md)
+
 ### Planning
 - [mod-spec.md](./mod-spec.md)
 - [implementation-roadmap.md](./implementation-roadmap.md)
@@ -40,6 +43,12 @@ The `repo-maps/` folder records how existing Anbennar systems are actually imple
 ### Local references
 - [references/README.md](./references/README.md)
 - [references/eu4-wiki](./references/eu4-wiki)
+
+### Maintenance wiki
+- [wiki/README.md](./wiki/README.md)
+- [wiki/high-value-non-modding-eu4-wiki-topics.md](./wiki/high-value-non-modding-eu4-wiki-topics.md)
+- [wiki/noob-friendly-doc-naming-convention.md](./wiki/noob-friendly-doc-naming-convention.md)
+
 
 ### Maintenance wiki
 - [wiki/README.md](./wiki/README.md)
