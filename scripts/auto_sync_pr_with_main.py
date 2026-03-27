@@ -58,6 +58,13 @@ def run_python_script(script: str, *args: str) -> None:
         raise SystemExit(result.returncode)
 
 
+def run_shell_script(script: str, *args: str) -> None:
+    result = run(["bash", str(ROOT / "scripts" / script), *args])
+    print_output(result)
+    if result.returncode != 0:
+        raise SystemExit(result.returncode)
+
+
 def main() -> int:
     ensure_clean_worktree()
 
@@ -86,30 +93,14 @@ def main() -> int:
     unresolved = [line.strip() for line in remaining.stdout.splitlines() if line.strip()]
     if unresolved:
         print("ERROR: Some conflicts remain. Resolve manually, then run:")
-        print("  Full Verne smoke bundle:")
-        print("    bash scripts/verne_smoke_checks.sh")
-        print("  Or run checks individually:")
         print(f"    {sys.executable} scripts/docs_conflict_guard.py")
-        print(f"    {sys.executable} scripts/verne_checklist_audit.py")
-        print(f"    {sys.executable} scripts/checklist_link_audit.py")
-        print(
-            f"    {sys.executable} scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml"
-        )
-        print(f"    {sys.executable} scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt")
-        print(
-            f"    {sys.executable} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
-        )
+        print("    bash scripts/verne_smoke_checks.sh")
         return 1
 
     print("Running conflict guard and smoke checks...")
     run_python_script("docs_conflict_guard.py")
-    run_python_script("verne_checklist_audit.py")
-    run_python_script("checklist_link_audit.py")
-    run_python_script(
-        "localisation_audit.py", "--file", "localisation/Flavour_Verne_A33_l_english.yml"
-    )
-    run_python_script("event_id_audit.py", "--file", "events/Flavour_Verne_A33.txt")
-    run_python_script("country_smoke_runner.py", "--profile", "automation/country_profiles/verne.json")
+    # Keep parity with shell + PowerShell sync entrypoints by delegating to the shared smoke bundle.
+    run_shell_script("verne_smoke_checks.sh")
 
     if not has_merge_head():
         print("Already up to date. No merge commit needed.")
