@@ -23,6 +23,14 @@ Current maps:
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
 =======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 >>>>>>> theirs
@@ -38,7 +46,15 @@ Suggested reading order:
 1. start with [anbennar-systems-master-index.md](./anbennar-systems-master-index.md)
 2. read [magic-systems-reference.md](./magic-systems-reference.md) for the biggest custom framework
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 3. read the deep references for magic succession/projects, high-magic risk, racial systems, artificery, adventurers, estate ecosystems, and custom government+GUI patterns
+=======
+3. read the deep references for magic succession/projects, high-magic risk, racial systems, artificery, adventurers, estate ecosystems, custom government+GUI patterns, and government-mechanic activation mapping
+>>>>>>> theirs
+=======
+3. read the deep references for magic succession/projects, high-magic risk, racial systems, artificery, adventurers, estate ecosystems, custom government+GUI patterns, and government-mechanic activation mapping
+>>>>>>> theirs
 =======
 3. read the deep references for magic succession/projects, high-magic risk, racial systems, artificery, adventurers, estate ecosystems, custom government+GUI patterns, and government-mechanic activation mapping
 >>>>>>> theirs

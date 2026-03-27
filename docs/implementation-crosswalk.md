@@ -75,7 +75,15 @@ Design doc: `docs/design/mission-rewrite-spec.md`; `docs/design/open-questions-a
 Repo pattern: `docs/repo-maps/racial-population-and-military-reference.md`
 
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
+=======
+EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
+>>>>>>> theirs
+=======
+EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
+>>>>>>> theirs
 =======
 EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
 >>>>>>> theirs
@@ -113,9 +121,21 @@ Notes:
 Design doc: `docs/design/reform-bible.md`
 
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
+=======
+Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
+
+EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
+>>>>>>> theirs
+=======
+Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
+
+EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
+>>>>>>> theirs
 =======
 Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
 
@@ -130,6 +150,14 @@ Notes:
 
 - Use existing government power/interactions architecture for any new Verne state meters.
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+- Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
+>>>>>>> theirs
+=======
+- Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
+>>>>>>> theirs
 =======
 - Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
 >>>>>>> theirs
@@ -163,7 +191,15 @@ Design doc: `docs/design/pressure-disasters-and-corinite.md`
 Repo pattern: `docs/repo-maps/witch-king-lichdom-war-wizard-infamy-reference.md`; `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`
 
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
+=======
+EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
+>>>>>>> theirs
+=======
+EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
+>>>>>>> theirs
 =======
 EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
 >>>>>>> theirs

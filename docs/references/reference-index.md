@@ -28,10 +28,22 @@ It is not a replacement for repo-grounded scanning.
 2. Use this index to locate syntax/engine behavior details.
 3. Return to repo files to validate final implementation assumptions.
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 
 
 ## Comparison notes
 
 - `eu4-baseline-vs-anbennar-comparison-notes.md`
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
 >>>>>>> theirs

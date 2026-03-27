@@ -27,6 +27,14 @@ Use this trust order:
 
 - [reference-index.md](./reference-index.md)
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+- [eu4-baseline-vs-anbennar-comparison-notes.md](./eu4-baseline-vs-anbennar-comparison-notes.md)
+>>>>>>> theirs
+=======
+- [eu4-baseline-vs-anbennar-comparison-notes.md](./eu4-baseline-vs-anbennar-comparison-notes.md)
+>>>>>>> theirs
 =======
 - [eu4-baseline-vs-anbennar-comparison-notes.md](./eu4-baseline-vs-anbennar-comparison-notes.md)
 >>>>>>> theirs

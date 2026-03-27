@@ -163,6 +163,14 @@ Already documented:
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
 =======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 >>>>>>> theirs
@@ -173,9 +181,21 @@ Best next articles:
 
 1. Race- and religion-specific framework comparison matrix
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 2. Government mechanic activation map by reform file
 3. Artificery-magic crossover and nation-specific invention usage
 4. Verne monument object-ID parity check for design names
+=======
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+>>>>>>> theirs
+=======
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+>>>>>>> theirs
 =======
 2. Artificery-magic crossover and nation-specific invention usage
 3. Verne monument object-ID parity check for design names
@@ -188,6 +208,14 @@ Recently completed in this pass:
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
 =======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 >>>>>>> theirs

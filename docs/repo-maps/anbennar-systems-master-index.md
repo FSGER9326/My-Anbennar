@@ -42,6 +42,14 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 | Witch-king, lichdom, war wizard, magical infamy | High-risk ruler-magic state machine with infamy tiers and conversion helpers | `common/scripted_effects`, `common/scripted_triggers`, `events`, `decisions`, `common/event_modifiers`, `common/custom_gui` | Detailed |
 | Government mechanics + GUI wiring | Reusable government power bars/interactions with custom interfaces | `common/government_mechanics`, `interface/government_mechanics` | Detailed |
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+| Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
+>>>>>>> theirs
+=======
+| Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
+>>>>>>> theirs
 =======
 | Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
 >>>>>>> theirs
@@ -67,6 +75,14 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
 =======
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 >>>>>>> theirs
