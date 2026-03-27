@@ -6,9 +6,6 @@ Use it as the main non-code workspace for planning, design, grounding, and local
 
 ## What lives here
 
-### New? Start here
-- [start-here.md](./start-here.md)
-
 ### Planning
 - [mod-spec.md](./mod-spec.md)
 - [implementation-roadmap.md](./implementation-roadmap.md)
