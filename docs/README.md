@@ -4,12 +4,12 @@ This folder holds the working project documentation for the Verne overhaul.
 
 Use it as the main non-code workspace for planning, design, grounding, and local reference material.
 
-## What Lives Here
+## What lives here
 
 ### Planning
-- [mod-spec.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/mod-spec.md)
-- [implementation-roadmap.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/implementation-roadmap.md)
-- [first-wave-backlog.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/first-wave-backlog.md)
+- [mod-spec.md](./mod-spec.md)
+- [implementation-roadmap.md](./implementation-roadmap.md)
+- [first-wave-backlog.md](./first-wave-backlog.md)
 
 These files answer:
 
@@ -18,57 +18,43 @@ These files answer:
 - what the next concrete tasks are
 
 ### Working rules
-- [codex-grounding-checklist.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/codex-grounding-checklist.md)
-- [eu4-local-reference-index.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/eu4-local-reference-index.md)
+- [codex-grounding-checklist.md](./codex-grounding-checklist.md)
+- [references/reference-index.md](./references/reference-index.md)
 
-These files exist to keep implementation grounded in:
+These files keep implementation grounded in:
 
 - the real Anbennar repo
 - the local EU4 wiki snapshots
 - explicit compatibility checks before editing
 
 ### Design layer
-- [design/README.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/README.md)
+- [design/README.md](./design/README.md)
 
-The `design/` folder is the structured GitHub-friendly design layer built from the theorycraft document.
-
-It includes:
-
-- doctrine and national-idea specs
-- reforms
-- mission rewrites
-- dynasty and court systems
-- orders, monuments, and mercs
-- pressure, disasters, and Corinite material
-- implementation scaffolding
-- a source-coverage matrix
+The `design/` folder is the structured GitHub-friendly design layer.
 
 ### Repo grounding maps
-- [repo-maps/README.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/repo-maps/README.md)
+- [repo-maps/README.md](./repo-maps/README.md)
 
-The `repo-maps/` folder records how existing Anbennar systems are actually implemented in the repo so future changes can mirror real patterns instead of guessing.
-
-It now includes:
-
-- Verne overseas system maps
-- a master index of non-vanilla Anbennar systems
-- a first-pass magic systems reference
-- five deeper second-wave subsystem articles
-- a broader non-magic systems overview
-- a roadmap for future deep-scan articles
+The `repo-maps/` folder records how existing Anbennar systems are actually implemented in the repo.
 
 ### Local references
-- [references/eu4-wiki](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/references/eu4-wiki)
-
-This is the saved EU4 wiki snapshot bundle used as a local reference set.
+- [references/README.md](./references/README.md)
+- [references/eu4-wiki](./references/eu4-wiki)
 
 ## Suggested use order
 
-1. check the real repo files
-2. check the grounding checklist
-3. check the relevant design doc
-4. check the local EU4 wiki snapshot if syntax or engine rules are unclear
+1. Check real repo files.
+2. Check the grounding checklist.
+3. Check the relevant design doc.
+4. Check local EU4 wiki snapshots if syntax or engine rules are unclear.
 
-## Repo cleanup note
+## Documentation organization recommendations
 
-Documentation and reference material should live under `docs/` when possible so the repo root stays focused on actual mod content.
+If the repo feels crowded, a practical structure is:
+
+- **`docs/design/`**: intended mechanics and design decisions
+- **`docs/repo-maps/`**: implementation anchors and code-grounded patterns
+- **`docs/references/`**: static external references (EU4 snapshots)
+- **`docs/planning/`** *(optional future move)*: sequencing docs like roadmap/backlog/specs
+
+For low-risk cleanup, move files gradually and keep redirects/index links updated in the same commit.
