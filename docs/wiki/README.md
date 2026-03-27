@@ -13,6 +13,8 @@ Use it to track:
 
 - [anbennar-base-vs-verne-change-ledger.md](./anbennar-base-vs-verne-change-ledger.md)
 - [upstream-update-adaptation-playbook.md](./upstream-update-adaptation-playbook.md)
+- [high-value-non-modding-eu4-wiki-topics.md](./high-value-non-modding-eu4-wiki-topics.md)
+- [noob-friendly-doc-naming-convention.md](./noob-friendly-doc-naming-convention.md)
 
 ## Rule for future sessions
 

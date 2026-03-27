@@ -45,6 +45,9 @@ If a referenced article is missing locally, record it here before adding new cro
 
 - _No current gaps tracked._
 
+## Comparison notes
+
+- `eu4-baseline-vs-anbennar-comparison-notes.md`
 
 
 ## Comparison notes
