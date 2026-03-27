@@ -34,6 +34,12 @@ rg -n "verne-cross-nation-mission-interaction-watchlist.md" docs/repo-maps/READM
 echo "[7/8] Run checklist status audit"
 ./scripts/verne_checklist_audit.py
 
+echo "[8/9] Run checklist markdown link audit"
+./scripts/checklist_link_audit.py
+
+echo "[9/9] Run docs conflict guard"
+./scripts/docs_conflict_guard.py
+
 echo "[8/8] Run checklist markdown link audit"
 ./scripts/checklist_link_audit.py
 
