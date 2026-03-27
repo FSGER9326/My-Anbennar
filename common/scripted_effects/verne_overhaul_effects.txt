@@ -1,0 +1,32 @@
+# Verne Overhaul - reusable scripted effects
+# Purpose: keep high-risk multi-step Verne logic in one place so future edits are safer.
+
+verne_overhaul_enable_adventure_network_tier_1 = {
+	# Starts the reusable adventure-network state used by multiple Verne missions.
+	set_country_flag = verne_unlock_port_of_adventure_button
+	add_country_modifier = {
+		name = "verne_network_of_adventure_tier_1"
+		duration = -1
+	}
+}
+
+verne_overhaul_apply_regatta_spire_swap = {
+	# Performs the exact New Hookfield -> Stingport monument transfer used by the Regatta chain.
+	5763 = {
+		destroy_great_project = {
+			type = kazakesh
+		}
+		change_trade_goods = tropical_wood
+		set_province_flag = verne_moved_this_spire
+	}
+	hide_ambient_object = LF_Spire_F_1
+	show_ambient_object = LF_Spire_stolen
+	set_country_flag = verne_moved_spire
+	376 = {
+		add_great_project = {
+			type = kazakesh_stingport
+			instant = yes
+		}
+		change_trade_goods = precursor_relics
+	}
+}
