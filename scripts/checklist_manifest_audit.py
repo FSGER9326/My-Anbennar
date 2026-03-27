@@ -21,14 +21,43 @@ def run_audit(root: Path, manifest: Path, index_files: list[Path], allowed_statu
     if not manifest.exists():
         return 1, f"ERROR: missing manifest: {manifest}"
 
-    data = json.loads(manifest.read_text(encoding="utf-8"))
+    try:
+        data = json.loads(manifest.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return (
+            1,
+            (
+                f"ERROR: invalid JSON in manifest {manifest} "
+                f"(line {exc.lineno}, column {exc.colno}): {exc.msg}"
+            ),
+        )
+
+    if not isinstance(data, dict):
+        return 1, f"ERROR: manifest root must be a JSON object: {manifest}"
+
     items = data.get("items", [])
     if not items:
         return 1, "ERROR: manifest has no items"
+    if not isinstance(items, list):
+        return 1, "ERROR: manifest field 'items' must be a list"
 
-    index_texts = [p.read_text(encoding="utf-8") for p in index_files]
+    index_texts: list[str] = []
+    for index_file in index_files:
+        if not index_file.exists():
+            rel = index_file.relative_to(root) if index_file.is_relative_to(root) else index_file
+            return 1, f"ERROR: missing index file: {rel}"
+
+        try:
+            index_texts.append(index_file.read_text(encoding="utf-8"))
+        except OSError as exc:
+            rel = index_file.relative_to(root) if index_file.is_relative_to(root) else index_file
+            return 1, f"ERROR: unable to read index file {rel}: {exc}"
 
     for item in items:
+        if not isinstance(item, dict):
+            errors.append(f"<non-object-item>: item must be an object, got {type(item).__name__}")
+            continue
+
         item_id = item.get("id", "<missing-id>")
         path = item.get("path")
         status = item.get("status")
