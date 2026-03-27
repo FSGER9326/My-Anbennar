@@ -41,6 +41,11 @@ The `repo-maps/` folder records how existing Anbennar systems are actually imple
 - [references/README.md](./references/README.md)
 - [references/eu4-wiki](./references/eu4-wiki)
 
+### Maintenance wiki
+- [wiki/README.md](./wiki/README.md)
+
+Use this for long-term change tracking and upstream-update adaptation notes.
+
 ## Suggested use order
 
 1. Check real repo files.
