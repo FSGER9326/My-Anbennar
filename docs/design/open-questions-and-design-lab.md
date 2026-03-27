@@ -27,7 +27,7 @@ These are the strongest design-ready packages, but they still require a groundin
 - Wyvern order company definitions
 - Verne-specific disasters
 - Advisor archetypes
-- Helper-layer trigger/effect/event scaffolding preserved in [implementation-scaffolding.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/implementation-scaffolding.md)
+- Helper-layer trigger/effect/event scaffolding preserved in [implementation-scaffolding.md](./implementation-scaffolding.md)
 
 ## Needs Further Design
 
@@ -74,4 +74,4 @@ The imported draft merged a lot of repeated content successfully:
 Important note:
 
 - the first imported draft did omit or only partially preserve some engineering-heavy material from the original master plan
-- that material is now preserved separately in [implementation-scaffolding.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/implementation-scaffolding.md)
+- that material is now preserved separately in [implementation-scaffolding.md](./implementation-scaffolding.md)
