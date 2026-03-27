@@ -33,36 +33,180 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
+        id: checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
+        id: setup_python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install ripgrep
+        id: install_ripgrep
         run: sudo apt-get update && sudo apt-get install -y ripgrep
 
       - name: Compile Python scripts
+        id: compile_python
         run: python -m py_compile scripts/*.py
 
-      - name: Run Python automation checks
-        run: |
-          python scripts/docs_conflict_guard.py
-          python scripts/checklist_link_audit.py
-          python scripts/verne_checklist_audit.py
-          python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml
-          python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt
-          python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json
+      - name: Run docs conflict guard
+        id: docs_conflict_guard
+        run: python scripts/docs_conflict_guard.py
+
+      - name: Run checklist link audit
+        id: checklist_link_audit
+        run: python scripts/checklist_link_audit.py
+
+      - name: Run verne checklist audit
+        id: verne_checklist_audit
+        run: python scripts/verne_checklist_audit.py
+
+      - name: Run localization audit
+        id: localization_audit
+        run: python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml
+
+      - name: Run event ID audit
+        id: event_id_audit
+        run: python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt
+
+      - name: Run country smoke runner
+        id: country_smoke_runner
+        run: python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json
 
       - name: Run Bash smoke checks
+        id: bash_smoke_checks
         run: bash scripts/verne_smoke_checks.sh
+
+      - name: Build validation fix summary
+        id: build_validation_fix_summary
+        if: always()
+        shell: bash
+        env:
+          COMPILE_PYTHON_OUTCOME: ${{ steps.compile_python.outcome }}
+          DOCS_CONFLICT_GUARD_OUTCOME: ${{ steps.docs_conflict_guard.outcome }}
+          CHECKLIST_LINK_AUDIT_OUTCOME: ${{ steps.checklist_link_audit.outcome }}
+          VERNE_CHECKLIST_AUDIT_OUTCOME: ${{ steps.verne_checklist_audit.outcome }}
+          LOCALIZATION_AUDIT_OUTCOME: ${{ steps.localization_audit.outcome }}
+          EVENT_ID_AUDIT_OUTCOME: ${{ steps.event_id_audit.outcome }}
+          COUNTRY_SMOKE_RUNNER_OUTCOME: ${{ steps.country_smoke_runner.outcome }}
+          BASH_SMOKE_CHECKS_OUTCOME: ${{ steps.bash_smoke_checks.outcome }}
+        run: |
+          summary_file="verne-validation-summary-ubuntu.md"
+          {
+            echo "# Verne validation fixes (ubuntu)"
+            echo
+            echo "## Action items first (copy/paste)"
+            echo
+          } > "$summary_file"
+
+          add_fix() {
+            local check_name="$1"
+            local likely_cause="$2"
+            local fix_command="$3"
+            {
+              echo "### ❌ ${check_name}"
+              echo "- Likely cause: ${likely_cause}"
+              echo "- Fix command: \`${fix_command}\`"
+              echo
+            } >> "$summary_file"
+          }
+
+          if [[ "$COMPILE_PYTHON_OUTCOME" == "failure" ]]; then
+            add_fix "Compile Python scripts" "Python syntax or import-time errors in scripts/" "python -m py_compile scripts/*.py"
+          fi
+          if [[ "$DOCS_CONFLICT_GUARD_OUTCOME" == "failure" ]]; then
+            add_fix "Docs conflict guard" "Documentation anchors or expected structure drifted" "python scripts/docs_conflict_guard.py"
+          fi
+          if [[ "$CHECKLIST_LINK_AUDIT_OUTCOME" == "failure" ]]; then
+            add_fix "Checklist link audit" "Broken or stale links in checklist docs" "python scripts/checklist_link_audit.py"
+          fi
+          if [[ "$VERNE_CHECKLIST_AUDIT_OUTCOME" == "failure" ]]; then
+            add_fix "Verne checklist audit" "Checklist rows missing required fields or references" "python scripts/verne_checklist_audit.py"
+          fi
+          if [[ "$LOCALIZATION_AUDIT_OUTCOME" == "failure" ]]; then
+            add_fix "Localization audit" "Localization formatting/key issues in Flavour_Verne_A33 loc file" "python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml"
+          fi
+          if [[ "$EVENT_ID_AUDIT_OUTCOME" == "failure" ]]; then
+            add_fix "Event ID audit" "Duplicate/out-of-range IDs in Verne flavour events" "python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt"
+          fi
+          if [[ "$COUNTRY_SMOKE_RUNNER_OUTCOME" == "failure" ]]; then
+            add_fix "Country smoke runner" "Country profile assertions failed for verne profile" "python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
+          fi
+          if [[ "$BASH_SMOKE_CHECKS_OUTCOME" == "failure" ]]; then
+            add_fix "Bash smoke checks" "Shell smoke checks detected repo consistency issues" "bash scripts/verne_smoke_checks.sh"
+          fi
+
+          {
+            echo "## Technical status snapshot"
+            echo
+            echo "- Compile Python scripts: ${COMPILE_PYTHON_OUTCOME}"
+            echo "- Docs conflict guard: ${DOCS_CONFLICT_GUARD_OUTCOME}"
+            echo "- Checklist link audit: ${CHECKLIST_LINK_AUDIT_OUTCOME}"
+            echo "- Verne checklist audit: ${VERNE_CHECKLIST_AUDIT_OUTCOME}"
+            echo "- Localization audit: ${LOCALIZATION_AUDIT_OUTCOME}"
+            echo "- Event ID audit: ${EVENT_ID_AUDIT_OUTCOME}"
+            echo "- Country smoke runner: ${COUNTRY_SMOKE_RUNNER_OUTCOME}"
+            echo "- Bash smoke checks: ${BASH_SMOKE_CHECKS_OUTCOME}"
+          } >> "$summary_file"
+
+          cat "$summary_file" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload validation fix summary
+        id: upload_validation_fix_summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verne-validation-summary-ubuntu
+          path: verne-validation-summary-ubuntu.md
 
   validate-powershell:
     runs-on: windows-latest
     steps:
       - name: Checkout code
+        id: checkout
         uses: actions/checkout@v4
 
       - name: Run PowerShell smoke checks
+        id: powershell_smoke_checks
         run: powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1
+
+      - name: Build validation fix summary
+        id: build_validation_fix_summary
+        if: always()
+        shell: pwsh
+        env:
+          POWERSHELL_SMOKE_CHECKS_OUTCOME: ${{ steps.powershell_smoke_checks.outcome }}
+        run: |
+          $summaryFile = "verne-validation-summary-windows.md"
+          @(
+            "# Verne validation fixes (windows)"
+            ""
+            "## Action items first (copy/paste)"
+            ""
+          ) | Set-Content -Path $summaryFile
+
+          if ($env:POWERSHELL_SMOKE_CHECKS_OUTCOME -eq "failure") {
+            @(
+              "### ❌ PowerShell smoke checks"
+              "- Likely cause: PowerShell smoke checks found script or data consistency issues."
+              "- Fix command: ``powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1``"
+              ""
+            ) | Add-Content -Path $summaryFile
+          }
+
+          @(
+            "## Technical status snapshot"
+            ""
+            "- PowerShell smoke checks: $($env:POWERSHELL_SMOKE_CHECKS_OUTCOME)"
+          ) | Add-Content -Path $summaryFile
+
+          Get-Content -Path $summaryFile | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+
+      - name: Upload validation fix summary
+        id: upload_validation_fix_summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verne-validation-summary-windows
+          path: verne-validation-summary-windows.md

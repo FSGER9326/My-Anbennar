@@ -89,3 +89,17 @@ Repeat this loop before expanding to the next target.
 - If your next commit changes **more than 5-7 files** across unrelated systems, split it.
 - If you cannot explain the exact entry point and state carriers in two sentences, do one more scan pass first.
 - Prefer many small completed slices over one large partially-finished rewrite.
+
+## CI quick-fix commands (matches workflow summaries)
+
+When GitHub Actions reports a failed audit, start with the exact command shown in the job summary:
+
+- Compile Python scripts: `python -m py_compile scripts/*.py`
+- Docs conflict guard: `python scripts/docs_conflict_guard.py`
+- Checklist link audit: `python scripts/checklist_link_audit.py`
+- Verne checklist audit: `python scripts/verne_checklist_audit.py`
+- Localization audit: `python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml`
+- Event ID audit: `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt`
+- Country smoke runner: `python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json`
+- Bash smoke checks: `bash scripts/verne_smoke_checks.sh`
+- PowerShell smoke checks: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
