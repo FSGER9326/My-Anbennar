@@ -19,6 +19,7 @@ def run_profile(profile_path: Path) -> int:
     data = json.loads(profile_path.read_text(encoding="utf-8"))
     name = data.get("name", profile_path.stem)
     require = data.get("require_patterns", [])
+    require_all = data.get("require_all_patterns", [])
     forbid = data.get("forbid_patterns", [])
 
     print(f"Running smoke profile: {name}")
@@ -48,6 +49,39 @@ def run_profile(profile_path: Path) -> int:
                 matched = True
         if not matched:
             errors.append(f"require '{desc}': pattern not found in any listed file")
+
+    for item in require_all:
+        step += 1
+        desc = item["description"]
+        pattern_list = item["patterns"]
+        paths = [ROOT / p for p in item["paths"]]
+        print(f"[{step}] require_all: {desc}")
+        existing_paths: list[Path] = []
+        for p in paths:
+            if not p.exists():
+                errors.append(f"require_all '{desc}': missing file {p.relative_to(ROOT)}")
+                continue
+            existing_paths.append(p)
+
+        for sub_idx, pattern_raw in enumerate(pattern_list, start=1):
+            try:
+                pattern = re.compile(pattern_raw, re.MULTILINE)
+            except re.error as ex:
+                errors.append(
+                    f"profile '{name}' ({profile_path.relative_to(ROOT)}), section 'require_all', "
+                    f"item '{desc}', subpattern #{sub_idx}: invalid regex {ex}; pattern={pattern_raw!r}"
+                )
+                continue
+
+            matched = False
+            for p in existing_paths:
+                if pattern.search(text(p)):
+                    matched = True
+            if not matched:
+                errors.append(
+                    f"require_all '{desc}': subpattern #{sub_idx} not found in any listed file; "
+                    f"pattern={pattern_raw!r}"
+                )
 
     for item in forbid:
         step += 1
