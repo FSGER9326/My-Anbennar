@@ -26,6 +26,12 @@ It is not a replacement for repo-grounded scanning.
 - `eu4-wiki/Subject type modding - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Trade company modding - Europa Universalis 4 Wiki.html`
 - `eu4-wiki/Trade goods modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Estate modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Mercenaries modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Modifier modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Subject type modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Rebel modding - Europa Universalis 4 Wiki.html`
+- `eu4-wiki/Trade company modding - Europa Universalis 4 Wiki.html`
 
 ## How to use this index
 
@@ -39,6 +45,9 @@ If a referenced article is missing locally, record it here before adding new cro
 
 - _No current gaps tracked._
 
+
+
 ## Comparison notes
 
 - `eu4-baseline-vs-anbennar-comparison-notes.md`
+

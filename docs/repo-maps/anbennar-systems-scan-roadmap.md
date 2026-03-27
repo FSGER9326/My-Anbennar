@@ -163,6 +163,10 @@ Already documented:
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
 
@@ -172,12 +176,31 @@ Best next articles:
 2. Artificery-magic crossover and nation-specific invention usage
 3. Verne monument object-ID parity check for design names
 4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+2. Government mechanic activation map by reform file
+3. Artificery-magic crossover and nation-specific invention usage
+4. Verne monument object-ID parity check for design names
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+ 
 
 Recently completed in this pass:
 
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
