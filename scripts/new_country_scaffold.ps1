@@ -45,7 +45,8 @@ $readme = @(
     "",
     "Run generic audit once repo-map files exist:",
     "- PowerShell: ``powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\checklist_manifest_audit.ps1 -Manifest docs/theorycrafting/$Slug/checklist-status-manifest.json``",
-    "- Python: ``python scripts/checklist_manifest_audit.py --manifest docs/theorycrafting/$Slug/checklist-status-manifest.json --index-file docs/repo-maps/README.md --index-file docs/repo-maps/anbennar-systems-master-index.md --index-file docs/repo-maps/anbennar-systems-scan-roadmap.md``",
+    "- Python: ``python scripts/checklist_manifest_audit.py --manifest docs/theorycrafting/$Slug/checklist-status-manifest.json``",
+    "- Python override example: ``python scripts/checklist_manifest_audit.py --manifest docs/theorycrafting/$Slug/checklist-status-manifest.json --index-file docs/repo-maps/README.md``",
     ""
 ) -join "`n"
 

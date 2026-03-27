@@ -56,6 +56,14 @@ Generic version:
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\checklist_manifest_audit.ps1 -Manifest <path>`
 - Python: `python scripts/checklist_manifest_audit.py --manifest <path>`
+- Python (override index files): `python scripts/checklist_manifest_audit.py --manifest <path> --index-file <index-a> --index-file <index-b>`
+- Python (explicitly force built-in defaults): `python scripts/checklist_manifest_audit.py --manifest <path> --use-default-index-files`
+
+Python index-file behavior:
+
+- If you pass one or more `--index-file` values, only those files are used.
+- If you pass no `--index-file`, the legacy built-in default index list is used for compatibility.
+- `--use-default-index-files` is optional explicitness for scripts/wrappers that want to force legacy defaults.
 
 ### Markdown link audit
 

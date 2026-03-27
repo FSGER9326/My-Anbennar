@@ -13,6 +13,11 @@ import sys
 
 DEFAULT_STATUS = {"active", "draft", "archived", "needs_revalidation"}
 REQUIRED_FIELDS = ("id", "path", "category", "scanned", "mapped", "verified", "automation", "status")
+DEFAULT_INDEX_FILES = [
+    "docs/repo-maps/README.md",
+    "docs/repo-maps/anbennar-systems-master-index.md",
+    "docs/repo-maps/anbennar-systems-scan-roadmap.md",
+]
 
 
 def run_audit(root: Path, manifest: Path, index_files: list[Path], allowed_status: set[str], require_smoke_text: bool) -> tuple[int, str]:
@@ -110,12 +115,19 @@ def main() -> int:
     parser.add_argument(
         "--index-file",
         action="append",
-        default=[
-            "docs/repo-maps/README.md",
-            "docs/repo-maps/anbennar-systems-master-index.md",
-            "docs/repo-maps/anbennar-systems-scan-roadmap.md",
-        ],
-        help="Repeatable. Files where repo-map entries must be indexed.",
+        default=None,
+        help=(
+            "Repeatable. Override index files used for repo-map checks. "
+            "When omitted, default index files are used."
+        ),
+    )
+    parser.add_argument(
+        "--use-default-index-files",
+        action="store_true",
+        help=(
+            "Use only the built-in default index files, ignoring any explicit "
+            "--index-file values."
+        ),
     )
     parser.add_argument("--allow-status", action="append", default=list(DEFAULT_STATUS))
     parser.add_argument("--no-smoke-text-required", action="store_true")
@@ -123,7 +135,14 @@ def main() -> int:
 
     root = Path(__file__).resolve().parents[1]
     manifest = root / args.manifest
-    index_files = [root / p for p in args.index_file]
+    if args.use_default_index_files:
+        selected_index_files = DEFAULT_INDEX_FILES
+    elif args.index_file:
+        selected_index_files = args.index_file
+    else:
+        selected_index_files = DEFAULT_INDEX_FILES
+
+    index_files = [root / p for p in selected_index_files]
 
     code, msg = run_audit(root, manifest, index_files, set(args.allow_status), not args.no_smoke_text_required)
     print(msg)
