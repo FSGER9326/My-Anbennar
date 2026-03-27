@@ -42,6 +42,16 @@ System and case-study references:
 - [network-of-adventure-system.md](./network-of-adventure-system.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
+- [repo-rescan-playbook.md](./repo-rescan-playbook.md)
+- [anbennar-vs-eu4-mechanics-gap-register.md](./anbennar-vs-eu4-mechanics-gap-register.md)
+- [custom-estates-family-and-privilege-framework-base-vs-anbennar-reference.md](./custom-estates-family-and-privilege-framework-base-vs-anbennar-reference.md)
+- [religion-behavior-deltas-for-verne-reference.md](./religion-behavior-deltas-for-verne-reference.md)
+- [unit-system-deltas-base-vs-anbennar-reference.md](./unit-system-deltas-base-vs-anbennar-reference.md)
+- [rebel-system-deltas-base-vs-anbennar-reference.md](./rebel-system-deltas-base-vs-anbennar-reference.md)
+- [peace-treaty-layer-base-vs-anbennar-reference.md](./peace-treaty-layer-base-vs-anbennar-reference.md)
+- [diplomatic-actions-layer-base-vs-anbennar-reference.md](./diplomatic-actions-layer-base-vs-anbennar-reference.md)
+- [government-mechanics-library-base-vs-anbennar-reference.md](./government-mechanics-library-base-vs-anbennar-reference.md)
+- [automated-grep-checklists-by-mechanic-family.md](./automated-grep-checklists-by-mechanic-family.md)
 
 Suggested reading order:
 

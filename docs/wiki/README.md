@@ -15,6 +15,7 @@ Use it to track:
 - [upstream-update-adaptation-playbook.md](./upstream-update-adaptation-playbook.md)
 - [high-value-non-modding-eu4-wiki-topics.md](./high-value-non-modding-eu4-wiki-topics.md)
 - [noob-friendly-doc-naming-convention.md](./noob-friendly-doc-naming-convention.md)
+- [generalized-modding-lifecycle-playbook.md](./generalized-modding-lifecycle-playbook.md)
 
 ## Rule for future sessions
 
