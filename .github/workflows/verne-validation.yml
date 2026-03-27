@@ -11,6 +11,7 @@ on:
       - "decisions/**"
       - "docs/**"
       - "events/**"
+      - "localisation/**"
       - "missions/**"
       - "scripts/**"
   pull_request:
@@ -23,6 +24,7 @@ on:
       - "decisions/**"
       - "docs/**"
       - "events/**"
+      - "localisation/**"
       - "missions/**"
       - "scripts/**"
 

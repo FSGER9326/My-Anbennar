@@ -29,6 +29,10 @@ This now runs:
 
 ## Automation commands
 
+### CI trigger note
+
+Localisation-only edits now trigger the `verne-validation` workflow automatically on both pushes and pull requests to `main`.
+
 ### Verne smoke checks
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
