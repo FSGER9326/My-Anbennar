@@ -8,9 +8,21 @@ If you are new to GitHub and modding, read in this order:
 4. [docs/wiki/anbennar-base-vs-verne-change-ledger.md](./wiki/anbennar-base-vs-verne-change-ledger.md)
 5. [docs/implementation-crosswalk.md](./implementation-crosswalk.md)
 6. one matching article from [docs/repo-maps/README.md](./repo-maps/README.md)
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 3. [docs/wiki/anbennar-base-vs-verne-change-ledger.md](./wiki/anbennar-base-vs-verne-change-ledger.md)
 4. [docs/implementation-crosswalk.md](./implementation-crosswalk.md)
 5. one matching article from [docs/repo-maps/README.md](./repo-maps/README.md)
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 
 ## Tiny glossary (modding terms, not GitHub terms)
 

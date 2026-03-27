@@ -21,6 +21,10 @@ Run from repo root:
 
 1. `./scripts/verne_smoke_checks.sh`
    - fast wiring/ID/index checks
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
    - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
 2. `./scripts/verne_checklist_audit.py`
    - validates manifest structure + file existence + index consistency
@@ -37,6 +41,35 @@ Run from repo root:
 
 `verne_smoke_checks.sh` now calls the checklist audit script automatically.
 `verne_smoke_checks.ps1` does the same for the Windows/PowerShell workflow.
+=======
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+2. `./scripts/verne_checklist_audit.py`
+   - validates manifest structure + file existence + index consistency
+3. `./scripts/checklist_manifest_audit.py --manifest <path>`
+   - generic audit command for non-Verne country manifests
+4. `./scripts/checklist_link_audit.py`
+   - verifies local markdown checklist/workflow links are not broken
+5. `python scripts/auto_sync_pr_with_main.py`
+   - cross-platform sync helper (Windows/macOS/Linux) for merging `origin/main`, auto-resolving docs hotspots, and running guards
+6. `./scripts/auto_sync_pr_with_main.sh`
+   - shell version of the same flow (useful in bash environments)
+
+`verne_smoke_checks.sh` now calls the checklist audit script automatically.
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 
 ## Why this helps
 
@@ -81,7 +114,19 @@ To reduce repeated merge conflicts in docs index files:
 1. `.gitattributes` uses `merge=union` for known hotspot files (docs hubs/indexes).
 2. `./scripts/docs_conflict_guard.py` checks for leftover conflict markers and accidental duplicated section headings.
 3. `./scripts/verne_smoke_checks.sh` runs this guard automatically.
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 4. `.\scripts\docs_conflict_guard.ps1` and `.\scripts\verne_smoke_checks.ps1` provide the same checks for Windows/PowerShell use.
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 
 This does **not** remove all conflicts, but it catches common failure cases before PR merge.
 
@@ -89,6 +134,10 @@ This does **not** remove all conflicts, but it catches common failure cases befo
 
 Use this when GitHub shows merge conflicts on your open PR:
 
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 1. `./scripts/auto_sync_pr_with_main.sh`
    - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
 2. if it reports remaining manual conflicts, resolve only those files and rerun:
@@ -100,3 +149,34 @@ Use this when GitHub shows merge conflicts on your open PR:
 3. `git push`
 
 You do **not** need a new PR if you are pushing to the same branch.
+=======
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+1. `python scripts/auto_sync_pr_with_main.py` (recommended cross-platform)
+   - or `./scripts/auto_sync_pr_with_main.sh` in bash
+2. if it reports remaining manual conflicts, resolve only those files and rerun:
+   - `./scripts/docs_conflict_guard.py`
+   - `./scripts/verne_smoke_checks.sh`
+3. `git push`
+
+You do **not** need a new PR if you are pushing to the same branch.
+
+
+### PowerShell note (Windows)
+
+If you are in PowerShell, `.sh` files are not executed directly.
+Use `python scripts/auto_sync_pr_with_main.py` instead.
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
