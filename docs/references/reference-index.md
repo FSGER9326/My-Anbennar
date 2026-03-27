@@ -27,3 +27,11 @@ It is not a replacement for repo-grounded scanning.
 1. Start with repo implementation patterns in `docs/repo-maps/`.
 2. Use this index to locate syntax/engine behavior details.
 3. Return to repo files to validate final implementation assumptions.
+<<<<<<< ours
+=======
+
+
+## Comparison notes
+
+- `eu4-baseline-vs-anbennar-comparison-notes.md`
+>>>>>>> theirs

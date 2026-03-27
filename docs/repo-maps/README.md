@@ -22,6 +22,10 @@ Current maps:
 - [anbennar-systems-scan-roadmap.md](./anbennar-systems-scan-roadmap.md)
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+<<<<<<< ours
+=======
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+>>>>>>> theirs
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 - [port-of-adventure-system.md](./port-of-adventure-system.md)
 - [verne-launch-adventure-system.md](./verne-launch-adventure-system.md)
@@ -33,7 +37,11 @@ Suggested reading order:
 
 1. start with [anbennar-systems-master-index.md](./anbennar-systems-master-index.md)
 2. read [magic-systems-reference.md](./magic-systems-reference.md) for the biggest custom framework
+<<<<<<< ours
 3. read the deep references for magic succession/projects, high-magic risk, racial systems, artificery, adventurers, estate ecosystems, and custom government+GUI patterns
+=======
+3. read the deep references for magic succession/projects, high-magic risk, racial systems, artificery, adventurers, estate ecosystems, custom government+GUI patterns, and government-mechanic activation mapping
+>>>>>>> theirs
 4. read [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md) for the broader family map
 5. use the Verne-specific maps as examples of how one nation plugs into the wider repo
 6. use [anbennar-systems-scan-roadmap.md](./anbennar-systems-scan-roadmap.md) to extend this library methodically
