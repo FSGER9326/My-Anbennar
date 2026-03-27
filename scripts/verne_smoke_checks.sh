@@ -40,7 +40,4 @@ echo "[8/9] Run checklist markdown link audit"
 echo "[9/9] Run docs conflict guard"
 ./scripts/docs_conflict_guard.py
 
-echo "[8/8] Run checklist markdown link audit"
-./scripts/checklist_link_audit.py
-
 echo "All Verne smoke checks passed."

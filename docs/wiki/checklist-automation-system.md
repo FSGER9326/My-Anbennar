@@ -21,16 +21,22 @@ Run from repo root:
 
 1. `./scripts/verne_smoke_checks.sh`
    - fast wiring/ID/index checks
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
 2. `./scripts/verne_checklist_audit.py`
    - validates manifest structure + file existence + index consistency
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\verne_checklist_audit.ps1`
 3. `./scripts/checklist_manifest_audit.py --manifest <path>`
    - generic audit command for non-Verne country manifests
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\checklist_manifest_audit.ps1 -Manifest <path>`
 4. `./scripts/checklist_link_audit.py`
    - verifies local markdown checklist/workflow links are not broken
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\checklist_link_audit.ps1`
 5. `./scripts/auto_sync_pr_with_main.sh`
    - fetches `origin/main`, attempts conflict-safe merge, auto-resolves docs hotspots, then runs guards
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
 
 `verne_smoke_checks.sh` now calls the checklist audit script automatically.
+`verne_smoke_checks.ps1` does the same for the Windows/PowerShell workflow.
 
 ## Why this helps
 
@@ -75,6 +81,7 @@ To reduce repeated merge conflicts in docs index files:
 1. `.gitattributes` uses `merge=union` for known hotspot files (docs hubs/indexes).
 2. `./scripts/docs_conflict_guard.py` checks for leftover conflict markers and accidental duplicated section headings.
 3. `./scripts/verne_smoke_checks.sh` runs this guard automatically.
+4. `.\scripts\docs_conflict_guard.ps1` and `.\scripts\verne_smoke_checks.ps1` provide the same checks for Windows/PowerShell use.
 
 This does **not** remove all conflicts, but it catches common failure cases before PR merge.
 
@@ -83,9 +90,13 @@ This does **not** remove all conflicts, but it catches common failure cases befo
 Use this when GitHub shows merge conflicts on your open PR:
 
 1. `./scripts/auto_sync_pr_with_main.sh`
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
 2. if it reports remaining manual conflicts, resolve only those files and rerun:
    - `./scripts/docs_conflict_guard.py`
    - `./scripts/verne_smoke_checks.sh`
+   - PowerShell:
+     - `powershell -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1`
+     - `powershell -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
 3. `git push`
 
 You do **not** need a new PR if you are pushing to the same branch.
