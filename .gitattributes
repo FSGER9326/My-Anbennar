@@ -7,6 +7,7 @@
 automation/** text eol=lf
 docs/** text eol=lf
 scripts/** text eol=lf
+.githooks/** text eol=lf
 .github/workflows/** text eol=lf
 
 # Prefer additive auto-merge in documentation hotspot files to reduce manual

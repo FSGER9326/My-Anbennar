@@ -5,24 +5,30 @@ on:
     branches: [main]
     paths:
       - ".gitattributes"
+      - ".githooks/**"
+      - ".github/pull_request_template.md"
       - ".github/workflows/verne-validation.yml"
       - "automation/**"
       - "common/**"
       - "decisions/**"
       - "docs/**"
       - "events/**"
+      - "localisation/**"
       - "missions/**"
       - "scripts/**"
   pull_request:
     branches: [main]
     paths:
       - ".gitattributes"
+      - ".githooks/**"
+      - ".github/pull_request_template.md"
       - ".github/workflows/verne-validation.yml"
       - "automation/**"
       - "common/**"
       - "decisions/**"
       - "docs/**"
       - "events/**"
+      - "localisation/**"
       - "missions/**"
       - "scripts/**"
 
@@ -47,6 +53,7 @@ jobs:
       - name: Run Python automation checks
         run: |
           python scripts/docs_conflict_guard.py
+          python scripts/text_hygiene_guard.py
           python scripts/checklist_link_audit.py
           python scripts/verne_checklist_audit.py
           python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json

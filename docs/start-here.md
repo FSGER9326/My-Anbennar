@@ -14,7 +14,6 @@ If you are new to GitHub and modding, read in this order:
 - **Trigger**: a condition check (`can this happen?`).
 - **Effect**: an action (`do this change now`).
 - **On action**: automatic hook that runs when an event happens (for example a new heir).
-- **On action**: automatic hook that runs when an event happens (e.g. new heir).
 - **Modifier**: ongoing bonus/penalty applied to country/province/etc.
 - **Scripted trigger/effect**: reusable helper block to avoid copy-paste logic.
 - **Localization (loc)**: player-facing text strings.
@@ -42,7 +41,6 @@ Use one suffix consistently:
 - `-ledger.md` for tracking tables
 - `README.md` for folder entry pages
 
-
 ## What should we do right now? (Decision guide)
 
 If you feel lost, use this decision tree in order.
@@ -57,12 +55,11 @@ You are **ready to start implementation now** only if all are true:
 - scope is a small `v0.1` slice (not a full overhaul in one go).
 
 If any item is missing, do not implement yet - finish grounding first.
-If any item is missing, do not implement yet—finish grounding first.
 
 ### Step 2: Choose one of four modes
 
 1. **Scan + index mode** (use when anchors are still unclear)
-   - Create/expand one repo-map article for one target.
+   - Create or expand one repo-map article for one target.
    - Update index files in the same commit.
 
 2. **Implementation planning mode** (use when anchors are clear but risk is high)
@@ -85,6 +82,20 @@ If any item is missing, do not implement yet—finish grounding first.
 - Commit and update ledger/index in the same pass.
 
 Repeat this loop before expanding to the next target.
+
+### Step 4: If Git or automation feels confusing
+
+Run:
+
+- `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\repo_doctor.ps1`
+
+That will tell you:
+
+- what branch you are on
+- whether you are ahead or behind
+- whether the working tree is dirty
+- whether hooks are installed
+- whether a merge or rebase is already in progress
 
 ### Practical rule of thumb
 
