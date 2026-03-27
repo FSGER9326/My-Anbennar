@@ -21,6 +21,24 @@ Run from repo root:
 
 1. `./scripts/verne_smoke_checks.sh`
    - fast wiring/ID/index checks
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
+2. `./scripts/verne_checklist_audit.py`
+   - validates manifest structure + file existence + index consistency
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\verne_checklist_audit.ps1`
+3. `./scripts/checklist_manifest_audit.py --manifest <path>`
+   - generic audit command for non-Verne country manifests
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\checklist_manifest_audit.ps1 -Manifest <path>`
+4. `./scripts/checklist_link_audit.py`
+   - verifies local markdown checklist/workflow links are not broken
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\checklist_link_audit.ps1`
+5. PR/main sync helpers
+   - Python: `python scripts/auto_sync_pr_with_main.py`
+   - Bash: `./scripts/auto_sync_pr_with_main.sh`
+   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
+   - purpose: fetch `origin/main`, attempt conflict-safe merge into the current feature branch, auto-resolve docs hotspots, then run guards/checks
+
+`verne_smoke_checks.sh` now calls the checklist audit script automatically.
+`verne_smoke_checks.ps1` does the same for the Windows/PowerShell workflow.
 2. `./scripts/verne_checklist_audit.py`
    - validates manifest structure + file existence + index consistency
 3. `./scripts/checklist_manifest_audit.py --manifest <path>`
@@ -77,6 +95,24 @@ To reduce repeated merge conflicts in docs index files:
 1. `.gitattributes` uses `merge=union` for known hotspot files (docs hubs/indexes).
 2. `./scripts/docs_conflict_guard.py` checks for leftover conflict markers and accidental duplicated section headings.
 3. `./scripts/verne_smoke_checks.sh` runs this guard automatically.
+4. `.\scripts\docs_conflict_guard.ps1` and `.\scripts\verne_smoke_checks.ps1` provide the same checks for Windows/PowerShell use.
+
+This does **not** remove all conflicts, but it catches common failure cases before PR merge.
+
+## Fastest conflict-safe update flow (existing PR branch)
+
+Use this when GitHub shows merge conflicts on your open PR branch:
+
+1. run one sync helper:
+   - `python scripts/auto_sync_pr_with_main.py`
+   - or `./scripts/auto_sync_pr_with_main.sh`
+   - or `powershell -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
+2. if it reports remaining manual conflicts, resolve only those files and rerun:
+   - `./scripts/docs_conflict_guard.py`
+   - `./scripts/verne_smoke_checks.sh`
+   - PowerShell:
+     - `powershell -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1`
+     - `powershell -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
 
 This does **not** remove all conflicts, but it catches common failure cases before PR merge.
 
@@ -93,6 +129,11 @@ Use this when GitHub shows merge conflicts on your open PR:
 
 You do **not** need a new PR if you are pushing to the same branch.
 
+## Main branch note
+
+- If you are already on `main`, do **not** use the PR sync helpers.
+- On `main`, use a normal `git pull`, run checks, then `git push`.
+- The PR sync helpers are only for feature branches that already have, or will have, a PR.
 
 ### PowerShell note (Windows)
 
