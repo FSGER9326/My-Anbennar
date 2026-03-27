@@ -22,7 +22,7 @@ EVENT_BLOCK_START_RE = re.compile(
 EVENT_ID_RE = re.compile(r"^\s*id\s*=\s*([A-Za-z0-9_.-]+\.\d+)\s*$")
 
 
-def extract_event_ids_with_lines(text: str) -> list[tuple[str, int]]:
+def extract_event_id_locations(text: str) -> list[tuple[str, int]]:
     ids: list[tuple[str, int]] = []
     depth = 0
     in_event = False
@@ -48,6 +48,10 @@ def extract_event_ids_with_lines(text: str) -> list[tuple[str, int]]:
     return ids
 
 
+def extract_event_ids(text: str) -> list[str]:
+    return [event_id for event_id, _ in extract_event_id_locations(text)]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -71,7 +75,7 @@ def main() -> int:
 
         text = path.read_text(encoding="utf-8", errors="replace")
         namespaces = set(NAMESPACE_RE.findall(text))
-        ids = extract_event_ids_with_lines(text)
+        ids = extract_event_id_locations(text)
 
         if ids and not namespaces:
             errors.append(f"{path.relative_to(ROOT)}: contains event ids but no namespace declaration")
@@ -87,7 +91,7 @@ def main() -> int:
     for event_id, locations in sorted(seen_ids.items()):
         if len(locations) > 1:
             errors.append(
-                f"duplicate event id '{event_id}' found across files/lines: {', '.join(locations)}"
+                f"duplicate event id '{event_id}' found across files: {', '.join(locations)}"
             )
 
     if errors:
