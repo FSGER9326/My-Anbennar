@@ -28,7 +28,15 @@ def run_profile(profile_path: Path) -> int:
     for item in require:
         step += 1
         desc = item["description"]
-        pattern = re.compile(item["pattern"], re.MULTILINE)
+        pattern_raw = item["pattern"]
+        try:
+            pattern = re.compile(pattern_raw, re.MULTILINE)
+        except re.error as ex:
+            errors.append(
+                f"profile '{name}' ({profile_path.relative_to(ROOT)}), section 'require', "
+                f"item '{desc}': invalid regex {ex}; pattern={pattern_raw!r}"
+            )
+            continue
         paths = [ROOT / p for p in item["paths"]]
         print(f"[{step}] require: {desc}")
         matched = False
@@ -44,7 +52,15 @@ def run_profile(profile_path: Path) -> int:
     for item in forbid:
         step += 1
         desc = item["description"]
-        pattern = re.compile(item["pattern"], re.MULTILINE)
+        pattern_raw = item["pattern"]
+        try:
+            pattern = re.compile(pattern_raw, re.MULTILINE)
+        except re.error as ex:
+            errors.append(
+                f"profile '{name}' ({profile_path.relative_to(ROOT)}), section 'forbid', "
+                f"item '{desc}': invalid regex {ex}; pattern={pattern_raw!r}"
+            )
+            continue
         paths = [ROOT / p for p in item["paths"]]
         print(f"[{step}] forbid: {desc}")
         for p in paths:
