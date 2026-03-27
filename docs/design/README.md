@@ -4,7 +4,7 @@ This directory contains the structured working design for the Verne overhaul (EU
 
 It is derived from:
 
-- the original restructured master plan in [verne_overhaul_restructured_master_plan.md](/C:/Users/User/Downloads/verne_overhaul_restructured_master_plan.md)
+- the original restructured master plan in [verne_overhaul_restructured_master_plan.md](./verne_overhaul_restructured_master_plan.md)
 - an imported draft markdown set that was then patched inside the repo
 
 Important rule:
@@ -48,11 +48,11 @@ Each major mechanic is tagged with one of these statuses:
 
 ## Quick Index of Major Systems
 
-- Doctrine groups: 7 ADM, 7 DIP, 7 MIL plus policies ([doctrine-bible.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/doctrine-bible.md))
-- National ideas: traditions, 7 ideas, ambition ([doctrine-bible.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/doctrine-bible.md))
-- Reforms: 8 tiers, each with 3 choices ([reform-bible.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/reform-bible.md))
-- Missions: route families, projection scores, and first-wave rewrite specs ([mission-rewrite-spec.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/mission-rewrite-spec.md))
-- Dynasty: heir correction, marriage court, training decisions, and advisors ([dynasty-and-court.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/dynasty-and-court.md))
-- Orders: Chapterhouse, order companies, and upgrade direction ([orders-monuments-and-mercs.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/orders-monuments-and-mercs.md))
-- Disasters and pressure: maintenance mechanics and failure states ([pressure-disasters-and-corinite.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/pressure-disasters-and-corinite.md))
-- Engineering scaffolding: file map, helper catalogs, event namespaces, naming plan, and repo anchors ([implementation-scaffolding.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/implementation-scaffolding.md))
+- Doctrine groups: 7 ADM, 7 DIP, 7 MIL plus policies ([doctrine-bible.md](./doctrine-bible.md))
+- National ideas: traditions, 7 ideas, ambition ([doctrine-bible.md](./doctrine-bible.md))
+- Reforms: 8 tiers, each with 3 choices ([reform-bible.md](./reform-bible.md))
+- Missions: route families, projection scores, and first-wave rewrite specs ([mission-rewrite-spec.md](./mission-rewrite-spec.md))
+- Dynasty: heir correction, marriage court, training decisions, and advisors ([dynasty-and-court.md](./dynasty-and-court.md))
+- Orders: Chapterhouse, order companies, and upgrade direction ([orders-monuments-and-mercs.md](./orders-monuments-and-mercs.md))
+- Disasters and pressure: maintenance mechanics and failure states ([pressure-disasters-and-corinite.md](./pressure-disasters-and-corinite.md))
+- Engineering scaffolding: file map, helper catalogs, event namespaces, naming plan, and repo anchors ([implementation-scaffolding.md](./implementation-scaffolding.md))

@@ -159,14 +159,28 @@ Already documented:
 - [adventurer-systems-and-estate-patterns-reference.md](./adventurer-systems-and-estate-patterns-reference.md)
 - [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md)
 - [anbennar-systems-master-index.md](./anbennar-systems-master-index.md)
+- [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
+- [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+- [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
 
 Best next articles:
 
-1. Mage estate and magical politics reference
-2. Witch-king, lichdom, and magical infamy reference
-3. Government mechanics and custom GUI reference
-4. Custom estate patterns beyond Adventurers and Artificers
-5. Artificery-magic crossover and nation-specific invention usage
+1. Race- and religion-specific framework comparison matrix
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+
+Recently completed in this pass:
+
+- [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
+- [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+- [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
 
 ## Documentation Standard
 
@@ -179,3 +193,14 @@ Each future article should include:
 - at least two real code examples
 - notes on how the implementation differs from a simpler vanilla-style approach
 - safe extension or adaptation notes
+
+
+## Coordination rule for index files
+
+When adding a new repo-map article, update these three files in the same commit:
+
+1. `docs/repo-maps/README.md`
+2. `docs/repo-maps/anbennar-systems-master-index.md`
+3. `docs/repo-maps/anbennar-systems-scan-roadmap.md`
+
+This keeps the documentation registry consistent and avoids repeat conflict-only follow-up commits.
