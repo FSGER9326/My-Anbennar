@@ -49,6 +49,8 @@ jobs:
           python scripts/docs_conflict_guard.py
           python scripts/checklist_link_audit.py
           python scripts/verne_checklist_audit.py
+          python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml
+          python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt
           python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json
 
       - name: Run Bash smoke checks

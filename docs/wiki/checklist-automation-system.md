@@ -24,6 +24,8 @@ This now runs:
 2. the checklist status audit
 3. the markdown link audit
 4. the docs + automation conflict guard
+5. the Verne localisation audit
+6. the Verne event ID audit
 
 ## Automation commands
 
@@ -71,6 +73,28 @@ This now checks more than docs. It scans:
 - `.gitattributes`
 
 It also checks that key docs hub headings only appear once in hotspot files.
+
+### Localisation audit
+
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\localisation_audit.ps1 -File localisation/Flavour_Verne_A33_l_english.yml`
+- Python: `python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml`
+
+Checks for beginner mistakes in localisation files:
+
+- missing UTF-8 BOM
+- missing/invalid `l_english:`-style header
+- duplicate localisation keys across scanned files
+
+### Event ID audit
+
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\event_id_audit.ps1 -File events/Flavour_Verne_A33.txt`
+- Python: `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt`
+
+Checks for common event scripting mistakes:
+
+- event IDs in files that forgot `namespace = ...`
+- event IDs that use a namespace not declared in the same file
+- duplicate event IDs across scanned files
 
 ### New country scaffold
 
