@@ -30,12 +30,24 @@ def run_git(*args: str) -> subprocess.CompletedProcess[str]:
 
 
 def check_python_executable() -> CheckResult:
-    py = shutil.which("python3") or shutil.which("python")
+    # If this script is already running, Python is available even when PATH
+    # only exposes the Windows launcher (`py`) instead of `python`/`python3`.
+    current_interpreter = sys.executable
+    if current_interpreter:
+        return CheckResult(
+            name="Python executable availability",
+            ok=True,
+            detail=f"running via: {current_interpreter}",
+            fix="",
+            blocking=False,
+        )
+
+    py = shutil.which("python3") or shutil.which("python") or shutil.which("py")
     if py:
         return CheckResult(
             name="Python executable availability",
             ok=True,
-            detail=f"found: {py}",
+            detail=f"found on PATH: {py}",
             fix="",
             blocking=False,
         )
@@ -43,7 +55,7 @@ def check_python_executable() -> CheckResult:
     return CheckResult(
         name="Python executable availability",
         ok=False,
-        detail="python3/python not found on PATH",
+        detail="python3/python/py not found on PATH",
         fix="sudo apt-get update && sudo apt-get install -y python3",
         blocking=True,
     )
