@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "verne_monument_parity",
+      "path": "docs/repo-maps/verne-monument-object-id-parity-check-reference.md",
+      "category": "repo_map",
+      "scanned": true,
+      "mapped": true,
+      "verified": true,
+      "automation": "scripted_smoke_checks",
+      "status": "active"
+    },
+    {
+      "id": "verne_adventure_parity",
+      "path": "docs/repo-maps/verne-adventure-chain-mission-event-localization-parity-reference.md",
+      "category": "repo_map",
+      "scanned": true,
+      "mapped": true,
+      "verified": true,
+      "automation": "scripted_smoke_checks",
+      "status": "active"
+    },
+    {
+      "id": "verne_cross_nation_watchlist",
+      "path": "docs/repo-maps/verne-cross-nation-mission-interaction-watchlist.md",
+      "category": "repo_map",
+      "scanned": true,
+      "mapped": true,
+      "verified": true,
+      "automation": "scripted_smoke_checks",
+      "status": "active"
+    },
+    {
+      "id": "verne_helper_layer",
+      "path": "common/scripted_effects/verne_overhaul_effects.txt",
+      "category": "code_helper",
+      "scanned": true,
+      "mapped": true,
+      "verified": true,
+      "automation": "scripted_smoke_checks",
+      "status": "active"
+    },
+    {
+      "id": "verne_helper_triggers",
+      "path": "common/scripted_triggers/verne_overhaul_triggers.txt",
+      "category": "code_helper",
+      "scanned": true,
+      "mapped": true,
+      "verified": true,
+      "automation": "scripted_smoke_checks",
+      "status": "active"
+    }
+  ]
+}

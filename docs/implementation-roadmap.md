@@ -5,7 +5,7 @@ Turn the long theorycraft into a build order that is safe for beginner-guided Co
 
 Each milestone should leave the repo in a better, still-loadable state. Early work should favor helper files, exact object names, and a narrow first-wave doctrine slice over giant all-at-once rewrites.
 
-Use [`docs/codex-grounding-checklist.md`](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/codex-grounding-checklist.md) at the start of every coding milestone.
+Use [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) at the start of every coding milestone.
 
 ## Safety gate before every coding milestone
 Before editing files, the session should confirm four things:
@@ -29,19 +29,19 @@ Build the helper layer and naming spine before rewriting big mission or event ch
 - establish first-wave localization stubs
 
 ### Files to create early
-- [`common/event_modifiers/verne_overhaul_modifiers.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/event_modifiers/verne_overhaul_modifiers.txt)
-- [`common/scripted_triggers/verne_overhaul_triggers.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/scripted_triggers/verne_overhaul_triggers.txt)
-- [`common/scripted_effects/verne_overhaul_effects.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/scripted_effects/verne_overhaul_effects.txt)
-- [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+- [`common/event_modifiers/verne_overhaul_modifiers.txt`](../common/event_modifiers/verne_overhaul_modifiers.txt)
+- [`common/scripted_triggers/verne_overhaul_triggers.txt`](../common/scripted_triggers/verne_overhaul_triggers.txt)
+- [`common/scripted_effects/verne_overhaul_effects.txt`](../common/scripted_effects/verne_overhaul_effects.txt)
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 ### Files to inspect early
-- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
-- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
-- [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
-- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
-- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
-- [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
-- [`common/on_actions/00_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/00_on_actions.txt)
+- [`common/ideas/anb_country_ideas.txt`](../common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](../localisation/anb_powers_and_ideas_l_english.yml)
+- [`common/ideas/00_basic_ideas.txt`](../common/ideas/00_basic_ideas.txt)
+- [`common/great_projects/anb_monuments_missions.txt`](../common/great_projects/anb_monuments_missions.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](../common/mercenary_companies/0_anb_elite_mercenaries.txt)
+- [`events/Flavour_Verne_A33.txt`](../events/Flavour_Verne_A33.txt)
+- [`common/on_actions/00_on_actions.txt`](../common/on_actions/00_on_actions.txt)
 
 ### Done condition
 First-wave missions, reforms, dynasty events, and decisions can call shared Verne helpers instead of inlining repeated logic, and the roadmap records which existing shared files must be patched carefully instead of ignored.
@@ -59,15 +59,15 @@ Ship the first seven doctrine groups exactly as named in the theorycraft.
 - Estuary Companies Ideas
 
 ### Main files
-- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
-- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
-- [`common/ideas/verne_country_ideas_overhaul.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_country_ideas_overhaul.txt)
-- [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-- [`common/policies/verne_doctrine_policies.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/policies/verne_doctrine_policies.txt)
+- [`common/ideas/anb_country_ideas.txt`](../common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](../localisation/anb_powers_and_ideas_l_english.yml)
+- [`common/ideas/verne_country_ideas_overhaul.txt`](../common/ideas/verne_country_ideas_overhaul.txt)
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+- [`common/policies/verne_doctrine_policies.txt`](../common/policies/verne_doctrine_policies.txt)
 
 ### Safety checks
 - confirm whether `A33_ideas` is safest to patch in place or via a keyed override
-- confirm whether the Verne doctrine menu needs shared-file support in [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
+- confirm whether the Verne doctrine menu needs shared-file support in [`common/ideas/00_basic_ideas.txt`](../common/ideas/00_basic_ideas.txt)
 - audit generic `has_idea_group` consumers in shared policies, reforms, agendas, and decisions before declaring the menu replacement safe
 
 ### Done condition
@@ -82,7 +82,7 @@ Implement the reform package that makes Verne feel different before the late gam
 - Tier 3 triplet: Red Court Arcana / Dragonwake Ordinance / Battle-Mage Collegium
 
 ### Main file
-- [`common/government_reforms/verne_overhaul_reforms.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/government_reforms/verne_overhaul_reforms.txt)
+- [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt)
 
 ### Done condition
 Early and midgame Verne can diverge through real reform picks before late doctrine completion.
@@ -110,7 +110,7 @@ Rewrite the first ten priority missions so that overseas progress is no longer r
 10. The Lament's Regatta
 
 ### Main file
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 
 ### Supporting helpers
 - use `verne_overseas_projection`
@@ -131,14 +131,14 @@ Turn the dynastic fantasy into real scripted state support.
 - first court advisor archetypes
 
 ### Main files
-- [`events/verne_overhaul_dynasty_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_dynasty_events.txt)
-- [`events/verne_overhaul_advisor_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_advisor_events.txt)
-- [`decisions/verne_overhaul_decisions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions/verne_overhaul_decisions.txt)
-- [`common/on_actions/zz_verne_overhaul_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/zz_verne_overhaul_on_actions.txt)
+- [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt)
+- [`events/verne_overhaul_advisor_events.txt`](../events/verne_overhaul_advisor_events.txt)
+- [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)
+- [`common/on_actions/zz_verne_overhaul_on_actions.txt`](../common/on_actions/zz_verne_overhaul_on_actions.txt)
 
 ### Pattern anchors
-- mirror `on_new_heir` hook style from [`common/on_actions/00_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/00_on_actions.txt)
-- mirror Verne `define_heir` and `define_advisor` usage from [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
+- mirror `on_new_heir` hook style from [`common/on_actions/00_on_actions.txt`](../common/on_actions/00_on_actions.txt)
+- mirror Verne `define_heir` and `define_advisor` usage from [`events/Flavour_Verne_A33.txt`](../events/Flavour_Verne_A33.txt)
 
 ### Done condition
 The silver Verne dynasty is mechanically protected and cultivated instead of left to pure RNG.
@@ -154,12 +154,12 @@ Add the machinery that makes Verne powerful but demanding to maintain.
 - four Verne-specific disasters
 
 ### Main files
-- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
-- [`common/great_projects/verne_overhaul_monuments.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/verne_overhaul_monuments.txt)
-- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
-- [`common/mercenary_companies/verne_overhaul_orders.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/verne_overhaul_orders.txt)
-- [`common/disasters/verne_overhaul_disasters.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/disasters/verne_overhaul_disasters.txt)
-- [`events/verne_overhaul_disaster_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_disaster_events.txt)
+- [`common/great_projects/anb_monuments_missions.txt`](../common/great_projects/anb_monuments_missions.txt)
+- [`common/great_projects/verne_overhaul_monuments.txt`](../common/great_projects/verne_overhaul_monuments.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](../common/mercenary_companies/0_anb_elite_mercenaries.txt)
+- [`common/mercenary_companies/verne_overhaul_orders.txt`](../common/mercenary_companies/verne_overhaul_orders.txt)
+- [`common/disasters/verne_overhaul_disasters.txt`](../common/disasters/verne_overhaul_disasters.txt)
+- [`events/verne_overhaul_disaster_events.txt`](../events/verne_overhaul_disaster_events.txt)
 
 ### Safety checks
 - patch existing shared Verne monument and elite-merc anchors first where that is cleaner than inventing parallel content
@@ -183,18 +183,18 @@ Only after the first playable slice is stable:
 ## Safest file dependency order
 When in doubt, build in this order:
 
-1. [`common/event_modifiers/verne_overhaul_modifiers.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/event_modifiers/verne_overhaul_modifiers.txt)
-2. [`common/scripted_triggers/verne_overhaul_triggers.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/scripted_triggers/verne_overhaul_triggers.txt)
-3. [`common/scripted_effects/verne_overhaul_effects.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/scripted_effects/verne_overhaul_effects.txt)
-4. [`common/ideas/verne_country_ideas_overhaul.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_country_ideas_overhaul.txt)
-5. [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
-6. [`common/government_reforms/verne_overhaul_reforms.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/government_reforms/verne_overhaul_reforms.txt)
-7. [`common/mercenary_companies/verne_overhaul_orders.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/verne_overhaul_orders.txt)
-8. [`decisions/verne_overhaul_decisions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions/verne_overhaul_decisions.txt)
-9. [`events/verne_overhaul_dynasty_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_dynasty_events.txt)
-10. [`common/on_actions/zz_verne_overhaul_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/zz_verne_overhaul_on_actions.txt)
-11. [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
-12. [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
+1. [`common/event_modifiers/verne_overhaul_modifiers.txt`](../common/event_modifiers/verne_overhaul_modifiers.txt)
+2. [`common/scripted_triggers/verne_overhaul_triggers.txt`](../common/scripted_triggers/verne_overhaul_triggers.txt)
+3. [`common/scripted_effects/verne_overhaul_effects.txt`](../common/scripted_effects/verne_overhaul_effects.txt)
+4. [`common/ideas/verne_country_ideas_overhaul.txt`](../common/ideas/verne_country_ideas_overhaul.txt)
+5. [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)
+6. [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt)
+7. [`common/mercenary_companies/verne_overhaul_orders.txt`](../common/mercenary_companies/verne_overhaul_orders.txt)
+8. [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)
+9. [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt)
+10. [`common/on_actions/zz_verne_overhaul_on_actions.txt`](../common/on_actions/zz_verne_overhaul_on_actions.txt)
+11. [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
+12. [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 
 ## Beginner-safe rule
 Do not open with a giant mission rewrite.

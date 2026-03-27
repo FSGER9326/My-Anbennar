@@ -1,0 +1,38 @@
+{
+  "name": "verne",
+  "require_patterns": [
+    {
+      "description": "helper definitions exist",
+      "pattern": "verne_overhaul_enable_adventure_network_tier_1|verne_overhaul_apply_regatta_spire_swap|verne_overhaul_laments_regatta_anchor_state_ready|verne_overhaul_akasik_access_ready",
+      "paths": [
+        "common/scripted_effects/verne_overhaul_effects.txt",
+        "common/scripted_triggers/verne_overhaul_triggers.txt"
+      ]
+    },
+    {
+      "description": "mission/event call sites use helpers",
+      "pattern": "verne_overhaul_enable_adventure_network_tier_1|verne_overhaul_apply_regatta_spire_swap|verne_overhaul_laments_regatta_anchor_state_ready|verne_overhaul_akasik_access_ready",
+      "paths": [
+        "missions/Verne_Missions.txt",
+        "events/Flavour_Verne_A33.txt"
+      ]
+    },
+    {
+      "description": "helper preserves Port-of-Adventure unlock flag",
+      "pattern": "set_country_flag = verne_unlock_port_of_adventure_button",
+      "paths": ["common/scripted_effects/verne_overhaul_effects.txt"]
+    },
+    {
+      "description": "monument anchor IDs exist",
+      "pattern": "^kazakesh\\s*=|^aur_kes_akasik\\s*=|^kazakesh_stingport\\s*=",
+      "paths": ["common/great_projects/anb_monuments_sarhal.txt", "common/great_projects/anb_monuments_missions.txt"]
+    }
+  ],
+  "forbid_patterns": [
+    {
+      "description": "no stale inline duplicate logic in mission/event call sites",
+      "pattern": "destroy_great_project|add_great_project|set_country_flag = verne_unlock_port_of_adventure_button|name = \"verne_network_of_adventure_tier_1\"",
+      "paths": ["missions/Verne_Missions.txt", "events/Flavour_Verne_A33.txt"]
+    }
+  ]
+}

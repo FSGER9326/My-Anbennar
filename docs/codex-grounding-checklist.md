@@ -42,9 +42,9 @@ Minimum expectation for Verne work:
 For each major mechanic, name the exact existing pattern that will be copied.
 
 Examples:
-- `define_heir` pattern from [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
-- `define_advisor` pattern from [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
-- `on_new_heir` hook style from [`common/on_actions/00_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/00_on_actions.txt)
+- `define_heir` pattern from [`events/Flavour_Verne_A33.txt`](../events/Flavour_Verne_A33.txt)
+- `define_advisor` pattern from [`events/Flavour_Verne_A33.txt`](../events/Flavour_Verne_A33.txt)
+- `on_new_heir` hook style from [`common/on_actions/00_on_actions.txt`](../common/on_actions/00_on_actions.txt)
 - mission reward helper pattern from existing Anbennar mission files
 - merc-company unlock and upgrade pattern from existing elite merc files
 
@@ -56,14 +56,14 @@ If there is no good repo pattern, say that explicitly instead of pretending ther
 List every shared file that may be touched or whose behavior must be preserved.
 
 Typical Verne examples:
-- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
-- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
-- [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
-- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
-- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
-- [`missions/Verne_Missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/missions/Verne_Missions.txt)
-- [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
-- [`common/on_actions/00_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/00_on_actions.txt)
+- [`common/ideas/anb_country_ideas.txt`](../common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](../localisation/anb_powers_and_ideas_l_english.yml)
+- [`common/ideas/00_basic_ideas.txt`](../common/ideas/00_basic_ideas.txt)
+- [`common/great_projects/anb_monuments_missions.txt`](../common/great_projects/anb_monuments_missions.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](../common/mercenary_companies/0_anb_elite_mercenaries.txt)
+- [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
+- [`events/Flavour_Verne_A33.txt`](../events/Flavour_Verne_A33.txt)
+- [`common/on_actions/00_on_actions.txt`](../common/on_actions/00_on_actions.txt)
 
 ### 5. Safe Verne-only files for this task
 List the files that are safe places to add helper-layer or submod content.
@@ -117,7 +117,7 @@ If syntax or engine behavior is uncertain, verify it before coding.
 Use this trust order:
 
 1. existing Anbennar implementation in this repo
-2. local EU4 wiki snapshot pages listed in [`docs/eu4-local-reference-index.md`](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/eu4-local-reference-index.md)
+2. local EU4 wiki snapshot pages listed in [`docs/eu4-local-reference-index.md`](./eu4-local-reference-index.md)
 3. live EU4 wiki or other primary modding reference
 4. memory only if the above are not enough
 
