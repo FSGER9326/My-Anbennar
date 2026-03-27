@@ -62,6 +62,10 @@ def main() -> int:
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
     branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
     if branch == "main":
         print("ERROR: Current branch is 'main'.")
@@ -69,6 +73,14 @@ def main() -> int:
         print("If you are already on main, run a normal pull/check flow instead.")
         return 1
 
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -102,6 +114,22 @@ def main() -> int:
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+>>>>>>> theirs
+=======
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+>>>>>>> theirs
+=======
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+>>>>>>> theirs
+=======
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+>>>>>>> theirs
 =======
     branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
 >>>>>>> theirs

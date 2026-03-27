@@ -6,7 +6,19 @@ from pathlib import Path
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 import re
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -28,7 +40,19 @@ HOTSPOT_FILES = [
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
     Path("docs/start-here.md"),
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -48,10 +72,30 @@ HOTSPOT_FILES = [
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
     Path("docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md"),
     Path("docs/repo-maps/anbennar-systems-master-index.md"),
     Path("docs/repo-maps/anbennar-systems-scan-roadmap.md"),
     Path("docs/wiki/checklist-automation-system.md"),
+=======
+    Path("docs/repo-maps/anbennar-systems-master-index.md"),
+    Path("docs/repo-maps/anbennar-systems-scan-roadmap.md"),
+>>>>>>> theirs
+=======
+    Path("docs/repo-maps/anbennar-systems-master-index.md"),
+    Path("docs/repo-maps/anbennar-systems-scan-roadmap.md"),
+>>>>>>> theirs
+=======
+    Path("docs/repo-maps/anbennar-systems-master-index.md"),
+    Path("docs/repo-maps/anbennar-systems-scan-roadmap.md"),
+>>>>>>> theirs
+=======
+    Path("docs/repo-maps/anbennar-systems-master-index.md"),
+    Path("docs/repo-maps/anbennar-systems-scan-roadmap.md"),
+>>>>>>> theirs
 =======
     Path("docs/repo-maps/anbennar-systems-master-index.md"),
     Path("docs/repo-maps/anbennar-systems-scan-roadmap.md"),
@@ -83,6 +127,10 @@ HEADING_SINGLETON_RULES = {
     Path("docs/repo-maps/README.md"): [
         "Core indexes:",
     ],
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -128,6 +176,26 @@ CONFLICT_MARKERS = ("<<<<<<<", "=======", ">>>>>>>")
 
 CONFLICT_MARKERS = ("<<<<<<<", "=======", ">>>>>>>")
 >>>>>>> theirs
+=======
+}
+
+CONFLICT_MARKERS = ("<<<<<<<", "=======", ">>>>>>>")
+>>>>>>> theirs
+=======
+}
+
+CONFLICT_MARKERS = ("<<<<<<<", "=======", ">>>>>>>")
+>>>>>>> theirs
+=======
+}
+
+CONFLICT_MARKERS = ("<<<<<<<", "=======", ">>>>>>>")
+>>>>>>> theirs
+=======
+}
+
+CONFLICT_MARKERS = ("<<<<<<<", "=======", ">>>>>>>")
+>>>>>>> theirs
 
 
 def fail(msg: str) -> None:
@@ -137,6 +205,10 @@ def fail(msg: str) -> None:
 def main() -> int:
     failed = False
 
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -162,6 +234,14 @@ def main() -> int:
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
     for rel_path in HOTSPOT_FILES:
         path = REPO_ROOT / rel_path
         if not path.exists():
@@ -176,7 +256,19 @@ def main() -> int:
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -194,6 +286,18 @@ def main() -> int:
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
