@@ -42,6 +42,11 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 | Witch-king, lichdom, war wizard, magical infamy | High-risk ruler-magic state machine with infamy tiers and conversion helpers | `common/scripted_effects`, `common/scripted_triggers`, `events`, `decisions`, `common/event_modifiers`, `common/custom_gui` | Detailed |
 | Government mechanics + GUI wiring | Reusable government power bars/interactions with custom interfaces | `common/government_mechanics`, `interface/government_mechanics` | Detailed |
 | Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
+| Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
+
+| Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
+
+| Government mechanic activation map | How `government_abilities` in reforms wire mechanics into live gameplay | `common/government_reforms/*.txt`, `common/government_mechanics/*.txt` | Detailed |
 | Custom estate ecosystems | Organization/law privilege trees wired to larger systems | `common/estates`, `common/estate_privileges`, `events/estate_*.txt` | Detailed |
 | Custom estates | Mages, Adventurers, Artificers, Vampires, Commands, castes, and other non-vanilla estates | `common/estates`, `common/estate_privileges`, `events/estate_*.txt` | Overview |
 | Custom government mechanics | Large library of tag- and region-specific government power systems | `common/government_mechanics`, `interface/government_mechanics` | Overview |
@@ -71,11 +76,14 @@ To reduce future merge conflicts in this index:
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+ 
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
-- [anbennar-vs-eu4-mechanics-gap-register.md](./anbennar-vs-eu4-mechanics-gap-register.md)
-- [repo-rescan-playbook.md](./repo-rescan-playbook.md)
 
 ## Magic System Family
 

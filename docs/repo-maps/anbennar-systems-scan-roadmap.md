@@ -163,10 +163,12 @@ Already documented:
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
-- [anbennar-vs-eu4-mechanics-gap-register.md](./anbennar-vs-eu4-mechanics-gap-register.md)
-- [repo-rescan-playbook.md](./repo-rescan-playbook.md)
 
 Best next articles:
 
@@ -174,7 +176,20 @@ Best next articles:
 2. Artificery-magic crossover and nation-specific invention usage
 3. Verne monument object-ID parity check for design names
 4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
-5. Diplomacy + peace + rebels + units deep-diff set
+2. Government mechanic activation map by reform file
+3. Artificery-magic crossover and nation-specific invention usage
+4. Verne monument object-ID parity check for design names
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+2. Artificery-magic crossover and nation-specific invention usage
+3. Verne monument object-ID parity check for design names
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+ 
 
 Recently completed in this pass:
 
@@ -182,10 +197,13 @@ Recently completed in this pass:
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
-- [anbennar-vs-eu4-mechanics-gap-register.md](./anbennar-vs-eu4-mechanics-gap-register.md)
-- [repo-rescan-playbook.md](./repo-rescan-playbook.md)
 
 ## Documentation Standard
 
