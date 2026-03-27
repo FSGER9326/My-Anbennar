@@ -4,16 +4,16 @@ This file preserves the engineering-heavy sections from the restructured master 
 
 Use it together with:
 
-- [README.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/README.md)
-- [open-questions-and-design-lab.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/open-questions-and-design-lab.md)
-- [docs/codex-grounding-checklist.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/codex-grounding-checklist.md)
+- [README.md](./README.md)
+- [open-questions-and-design-lab.md](./open-questions-and-design-lab.md)
+- [docs/codex-grounding-checklist.md](../codex-grounding-checklist.md)
 
 This file is not a promise that every item is immediately safe to code. It is a preserved implementation blueprint.
 
 ## Source note
 Primary source for this file:
 
-- [verne_overhaul_restructured_master_plan.md](/C:/Users/User/Downloads/verne_overhaul_restructured_master_plan.md)
+- [verne_overhaul_restructured_master_plan.md](./verne_overhaul_restructured_master_plan.md)
 
 ## Immediate Next Engineering Slice
 

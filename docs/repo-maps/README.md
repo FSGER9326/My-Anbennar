@@ -11,7 +11,13 @@ Use these files when you want:
 
 Current maps:
 
+Core indexes:
+
 - [anbennar-systems-master-index.md](./anbennar-systems-master-index.md)
+- [anbennar-systems-scan-roadmap.md](./anbennar-systems-scan-roadmap.md)
+
+System and case-study references:
+
 - [magic-systems-reference.md](./magic-systems-reference.md)
 - [powerful-mage-and-succession-reference.md](./powerful-mage-and-succession-reference.md)
 - [magic-projects-reference.md](./magic-projects-reference.md)
@@ -19,16 +25,39 @@ Current maps:
 - [artificery-research-and-inventions-reference.md](./artificery-research-and-inventions-reference.md)
 - [adventurer-systems-and-estate-patterns-reference.md](./adventurer-systems-and-estate-patterns-reference.md)
 - [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md)
-- [anbennar-systems-scan-roadmap.md](./anbennar-systems-scan-roadmap.md)
+- [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
+- [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+- [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
+- [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 - [port-of-adventure-system.md](./port-of-adventure-system.md)
 - [verne-launch-adventure-system.md](./verne-launch-adventure-system.md)
 - [network-of-adventure-system.md](./network-of-adventure-system.md)
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
+- [repo-rescan-playbook.md](./repo-rescan-playbook.md)
+- [anbennar-vs-eu4-mechanics-gap-register.md](./anbennar-vs-eu4-mechanics-gap-register.md)
+- [custom-estates-family-and-privilege-framework-base-vs-anbennar-reference.md](./custom-estates-family-and-privilege-framework-base-vs-anbennar-reference.md)
+- [religion-behavior-deltas-for-verne-reference.md](./religion-behavior-deltas-for-verne-reference.md)
+- [unit-system-deltas-base-vs-anbennar-reference.md](./unit-system-deltas-base-vs-anbennar-reference.md)
+- [rebel-system-deltas-base-vs-anbennar-reference.md](./rebel-system-deltas-base-vs-anbennar-reference.md)
+- [peace-treaty-layer-base-vs-anbennar-reference.md](./peace-treaty-layer-base-vs-anbennar-reference.md)
+- [diplomatic-actions-layer-base-vs-anbennar-reference.md](./diplomatic-actions-layer-base-vs-anbennar-reference.md)
+- [government-mechanics-library-base-vs-anbennar-reference.md](./government-mechanics-library-base-vs-anbennar-reference.md)
+- [automated-grep-checklists-by-mechanic-family.md](./automated-grep-checklists-by-mechanic-family.md)
+- [verne-monument-object-id-parity-check-reference.md](./verne-monument-object-id-parity-check-reference.md)
+- [verne-adventure-chain-mission-event-localization-parity-reference.md](./verne-adventure-chain-mission-event-localization-parity-reference.md)
+- [verne-cross-nation-mission-interaction-watchlist.md](./verne-cross-nation-mission-interaction-watchlist.md)
 
 Suggested reading order:
 
 1. start with [anbennar-systems-master-index.md](./anbennar-systems-master-index.md)
 2. read [magic-systems-reference.md](./magic-systems-reference.md) for the biggest custom framework
-3. read the five second-wave deep references for magic succession, projects, racial systems, artificery, and adventurers
+3. read the deep references for magic succession/projects, high-magic risk, racial systems, artificery, adventurers, estate ecosystems, custom government+GUI patterns, and government-mechanic activation mapping
 4. read [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md) for the broader family map
 5. use the Verne-specific maps as examples of how one nation plugs into the wider repo
 6. use [anbennar-systems-scan-roadmap.md](./anbennar-systems-scan-roadmap.md) to extend this library methodically
+
+
+Merge-conflict prevention tip:
+
+- Add newly created repo-map articles to the end of this list first, then perform any reordering in a separate cleanup commit.

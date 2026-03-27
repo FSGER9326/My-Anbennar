@@ -87,11 +87,11 @@ Possible examples:
 
 ### Scripted Triggers and Effects
 - The original source proposed a large trigger/effect catalog.
-- That material is now preserved in [implementation-scaffolding.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/implementation-scaffolding.md).
+- That material is now preserved in [implementation-scaffolding.md](./implementation-scaffolding.md).
 
 ### Event Namespaces and Skeletons
 - The original source proposed dynasty, advisor, magic, cleansing, and order-event namespaces plus first skeleton objects.
-- That material is now preserved in [implementation-scaffolding.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/implementation-scaffolding.md).
+- That material is now preserved in [implementation-scaffolding.md](./implementation-scaffolding.md).
 
 ### Port of Adventure Modernization
 - Preserve the current Port of Adventure button, province modifier, mission flavor, and event flavor where possible.
@@ -134,4 +134,4 @@ This file keeps design fragments that are still useful but not yet fully absorbe
 Important limitation:
 
 - the first imported draft did not fully preserve every engineering-heavy section from the original source
-- the missing implementation-facing material is now preserved in [implementation-scaffolding.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/implementation-scaffolding.md)
+- the missing implementation-facing material is now preserved in [implementation-scaffolding.md](./implementation-scaffolding.md)
