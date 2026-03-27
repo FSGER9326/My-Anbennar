@@ -88,6 +88,7 @@ def main() -> int:
     if merge.returncode != 0:
         print("Merge reported conflicts. Attempting docs hotspot auto-resolution...")
         run_python_script("resolve_docs_conflicts.py")
+        run_python_script("resolve_content_conflicts.py", "--union-docs-only")
 
     remaining = run(["git", "diff", "--name-only", "--diff-filter=U"], check=True)
     unresolved = [line.strip() for line in remaining.stdout.splitlines() if line.strip()]
