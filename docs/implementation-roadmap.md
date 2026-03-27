@@ -5,10 +5,23 @@ Turn the long theorycraft into a build order that is safe for beginner-guided Co
 
 Each milestone should leave the repo in a better, still-loadable state. Early work should favor helper files, exact object names, and a narrow first-wave doctrine slice over giant all-at-once rewrites.
 
-## Milestone 0: Foundation Layer
-Build the helper layer and naming spine before rewriting big mission or event chains.
+Use [`docs/codex-grounding-checklist.md`](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/codex-grounding-checklist.md) at the start of every coding milestone.
+
+## Safety gate before every coding milestone
+Before editing files, the session should confirm four things:
+
+1. Which exact repo files were read first.
+2. Which existing implementation pattern will be mirrored.
+3. Which touched files are shared multi-country files versus safe Verne-only files.
+4. Which generic EU4 or Anbennar systems may still depend on vanilla/basic idea-group checks.
+
+If those four points are not known yet, the session is still in grounding mode and should not start coding.
+
+## Milestone 0: Foundation and Grounding Layer
+Build the helper layer and naming spine before rewriting big mission or event chains, and document the shared-file anchors that the overhaul must respect.
 
 ### Outcomes
+- map where Verne already exists in shared idea, localization, monument, mercenary, mission, and on_action files
 - create a Verne-specific modifier file
 - create a Verne-specific scripted trigger file
 - create a Verne-specific scripted effect file
@@ -21,8 +34,17 @@ Build the helper layer and naming spine before rewriting big mission or event ch
 - [`common/scripted_effects/verne_overhaul_effects.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/scripted_effects/verne_overhaul_effects.txt)
 - [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
 
+### Files to inspect early
+- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
+- [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
+- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
+- [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
+- [`common/on_actions/00_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/00_on_actions.txt)
+
 ### Done condition
-First-wave missions, reforms, dynasty events, and decisions can call shared Verne helpers instead of inlining repeated logic.
+First-wave missions, reforms, dynasty events, and decisions can call shared Verne helpers instead of inlining repeated logic, and the roadmap records which existing shared files must be patched carefully instead of ignored.
 
 ## Milestone 1: First-Wave Doctrine Slice
 Ship the first seven doctrine groups exactly as named in the theorycraft.
@@ -37,12 +59,19 @@ Ship the first seven doctrine groups exactly as named in the theorycraft.
 - Estuary Companies Ideas
 
 ### Main files
+- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
 - [`common/ideas/verne_country_ideas_overhaul.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_country_ideas_overhaul.txt)
 - [`common/ideas/verne_doctrine_groups.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_doctrine_groups.txt)
 - [`common/policies/verne_doctrine_policies.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/policies/verne_doctrine_policies.txt)
 
+### Safety checks
+- confirm whether `A33_ideas` is safest to patch in place or via a keyed override
+- confirm whether the Verne doctrine menu needs shared-file support in [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
+- audit generic `has_idea_group` consumers in shared policies, reforms, agendas, and decisions before declaring the menu replacement safe
+
 ### Done condition
-Verne has a usable first-wave doctrine menu, completion bonuses work, and first-wave policy pairings exist.
+Verne has a usable first-wave doctrine menu, completion bonuses work, first-wave policy pairings exist, and the replacement does not blindly strand Verne outside shared generic systems.
 
 ## Milestone 2: First Constitutional Slice
 Implement the reform package that makes Verne feel different before the late game.
@@ -107,6 +136,10 @@ Turn the dynastic fantasy into real scripted state support.
 - [`decisions/verne_overhaul_decisions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions/verne_overhaul_decisions.txt)
 - [`common/on_actions/zz_verne_overhaul_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/zz_verne_overhaul_on_actions.txt)
 
+### Pattern anchors
+- mirror `on_new_heir` hook style from [`common/on_actions/00_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/00_on_actions.txt)
+- mirror Verne `define_heir` and `define_advisor` usage from [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
+
 ### Done condition
 The silver Verne dynasty is mechanically protected and cultivated instead of left to pure RNG.
 
@@ -121,10 +154,16 @@ Add the machinery that makes Verne powerful but demanding to maintain.
 - four Verne-specific disasters
 
 ### Main files
+- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
 - [`common/great_projects/verne_overhaul_monuments.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/verne_overhaul_monuments.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
 - [`common/mercenary_companies/verne_overhaul_orders.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/verne_overhaul_orders.txt)
 - [`common/disasters/verne_overhaul_disasters.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/disasters/verne_overhaul_disasters.txt)
 - [`events/verne_overhaul_disaster_events.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_disaster_events.txt)
+
+### Safety checks
+- patch existing shared Verne monument and elite-merc anchors first where that is cleaner than inventing parallel content
+- only move fully into standalone Verne files if keyed overrides or new objects are clearly safer than editing the shared anchor
 
 ### Done condition
 Verne has thematic failure states tied to the same pillars that make it strong.
@@ -162,8 +201,10 @@ Do not open with a giant mission rewrite.
 
 The first productive sessions should be:
 
-1. helper layer
+1. grounding audit plus helper layer
 2. first-wave doctrine files
 3. first three reform triplets
 4. dynasty safeguard
 5. then mission rewrites
+
+Do not do blind same-name overrides on shared files without first naming the exact existing object being replaced and the reason that replacement is safe.

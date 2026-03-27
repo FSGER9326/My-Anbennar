@@ -5,11 +5,32 @@ This file turns the theorycraft into small Codex-sized work items.
 
 Each task should be possible to complete in one focused session. Early tasks should touch a small number of files and prefer helper layers over giant rewrites.
 
+Run [`docs/codex-grounding-checklist.md`](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/codex-grounding-checklist.md) before starting any backlog item that edits code.
+
 ## Working rules
 - Prefer 1 to 3 files per task when possible.
 - Finish localization stubs in the same task as the new objects.
 - Do not rewrite early missions before the helper layer and reform/precursor flags exist.
 - Preserve working Verne content where possible instead of replacing it blindly.
+- Treat shared multi-country files as normal for Verne work. Do not assume the real source lives in a tidy Verne-only file.
+
+## Phase 0: Grounding Audit
+
+### V-00 Map shared touchpoints and compatibility risks
+Target files:
+- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
+- [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
+- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
+- [`events/Flavour_Verne_A33.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/Flavour_Verne_A33.txt)
+- [`common/on_actions/00_on_actions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/on_actions/00_on_actions.txt)
+- [`docs/mod-spec.md`](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/mod-spec.md)
+
+Done when:
+- we know where Verne national ideas, idea localization, monuments, mercs, dynasty handling, and advisor spawning already live
+- we have written down which files are shared multi-country files
+- we have listed the first generic `has_idea_group` compatibility risks for doctrine replacement
 
 ## Phase A: Helper Layer
 
@@ -58,14 +79,25 @@ Done when:
 
 ## Phase B: Doctrine Slice
 
+### Doctrine safety gate
+Before V-05 through V-13, confirm all of the following:
+
+- where `A33_ideas` currently lives
+- where Verne idea localization currently lives
+- whether the doctrine-menu replacement needs support in [`common/ideas/00_basic_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/00_basic_ideas.txt)
+- which shared systems still expect vanilla/basic idea groups and therefore need alternate handling or a deferred compatibility note
+
 ### V-05 Replace Verne national ideas cleanly
 Target files:
+- [`common/ideas/anb_country_ideas.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/anb_country_ideas.txt)
+- [`localisation/anb_powers_and_ideas_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/anb_powers_and_ideas_l_english.yml)
 - [`common/ideas/verne_country_ideas_overhaul.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/ideas/verne_country_ideas_overhaul.txt)
 - [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - Verne traditions, seven national ideas, and ambition match the theorycraft summary
 - the national ideas are clearly separated from the doctrine menu
+- the task states whether the final implementation patches `A33_ideas` in place or overrides it from a Verne-specific file
 
 ### V-06 Add Silver Oaths Ideas
 Target files:
@@ -191,6 +223,7 @@ Done when:
 - a Verne-specific `on_new_heir` safeguard exists
 - incorrect heirs can be corrected into the silver Verne line
 - the logic uses the repo's existing heir-handling patterns cleanly
+- the event chain mirrors existing `define_heir` usage instead of inventing a new heir-definition style
 
 ### V-18 Add the five core dynastic decisions
 Target files:
@@ -304,17 +337,28 @@ Done when:
 
 ## Phase F: Order State and Pressure Layer
 
+### Order-state safety gate
+Before V-30 and V-31, confirm whether the cleanest first-wave implementation patches the existing shared Verne sections in:
+
+- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
+
+Use standalone Verne files only if they are clearly safer than editing the existing anchors.
+
 ### V-30 Add the Chapterhouse monument
 Target files:
+- [`common/great_projects/anb_monuments_missions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/anb_monuments_missions.txt)
 - [`common/great_projects/verne_overhaul_monuments.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/great_projects/verne_overhaul_monuments.txt)
 - [`localisation/verne_overhaul_l_english.yml`](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation/verne_overhaul_l_english.yml)
 
 Done when:
 - the Chapterhouse unlock sequence is real
 - monument tiers unlock order decisions progressively
+- the task states whether the Chapterhouse was patched into the shared Verne monument anchor or implemented as a new keyed object on purpose
 
 ### V-31 Add the first three order companies
 Target files:
+- [`common/mercenary_companies/0_anb_elite_mercenaries.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/0_anb_elite_mercenaries.txt)
 - [`common/mercenary_companies/verne_overhaul_orders.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/common/mercenary_companies/verne_overhaul_orders.txt)
 - [`events/verne_overhaul_orders.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/events/verne_overhaul_orders.txt)
 - [`decisions/verne_overhaul_decisions.txt`](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions/verne_overhaul_decisions.txt)
@@ -350,22 +394,23 @@ Done when:
 ## Recommended next task order
 If we are picking one task at a time, the safest next order is:
 
-1. V-01
-2. V-02
-3. V-03
-4. V-05
-5. V-06
-6. V-07
-7. V-08
-8. V-09
-9. V-10
-10. V-11
-11. V-12
-12. V-13
-13. V-14
-14. V-15
-15. V-16
-16. V-17
-17. V-20
+1. V-00
+2. V-01
+3. V-02
+4. V-03
+5. V-05
+6. V-06
+7. V-07
+8. V-08
+9. V-09
+10. V-10
+11. V-11
+12. V-12
+13. V-13
+14. V-14
+15. V-15
+16. V-16
+17. V-17
+18. V-20
 
 That sequence gets us from vague theorycraft to a real first playable Verne slice without taking giant blind swings.
