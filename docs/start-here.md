@@ -9,6 +9,15 @@ If you are new to GitHub and modding, read in this order:
 5. [docs/implementation-crosswalk.md](./implementation-crosswalk.md)
 6. one matching article from [docs/repo-maps/README.md](./repo-maps/README.md)
 
+## Default recommended workflow (run this first)
+
+Use the noob autopilot script as your default branch-sync + safety-check workflow before you push:
+
+- **macOS/Linux (bash):** `bash scripts/noob_autopilot.sh`
+- **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1`
+
+This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
+
 ## Tiny glossary (modding terms, not GitHub terms)
 
 - **Trigger**: a condition check (`can this happen?`).
