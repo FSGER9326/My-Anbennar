@@ -27,6 +27,8 @@ Run from repo root:
    - generic audit command for non-Verne country manifests
 4. `./scripts/checklist_link_audit.py`
    - verifies local markdown checklist/workflow links are not broken
+5. `./scripts/auto_sync_pr_with_main.sh`
+   - fetches `origin/main`, attempts conflict-safe merge, auto-resolves docs hotspots, then runs guards
 
 `verne_smoke_checks.sh` now calls the checklist audit script automatically.
 
@@ -75,3 +77,15 @@ To reduce repeated merge conflicts in docs index files:
 3. `./scripts/verne_smoke_checks.sh` runs this guard automatically.
 
 This does **not** remove all conflicts, but it catches common failure cases before PR merge.
+
+### Fastest conflict-safe update flow (existing PR)
+
+Use this when GitHub shows merge conflicts on your open PR:
+
+1. `./scripts/auto_sync_pr_with_main.sh`
+2. if it reports remaining manual conflicts, resolve only those files and rerun:
+   - `./scripts/docs_conflict_guard.py`
+   - `./scripts/verne_smoke_checks.sh`
+3. `git push`
+
+You do **not** need a new PR if you are pushing to the same branch.
