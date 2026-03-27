@@ -63,26 +63,8 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-=======
 - [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
 - [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
->>>>>>> theirs
-=======
-- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
-- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
->>>>>>> theirs
-=======
-- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
-- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
->>>>>>> theirs
-=======
-- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
-- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
->>>>>>> theirs
 
 ## Magic System Family
 
