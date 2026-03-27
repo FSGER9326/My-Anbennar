@@ -13,25 +13,46 @@ DEFAULT_FILES = [
     "events/Flavour_Verne_A33.txt",
 ]
 NAMESPACE_RE = re.compile(r"(?m)^\s*namespace\s*=\s*([A-Za-z0-9_.-]+)\s*$")
-EVENT_BLOCK_START_RE = re.compile(
-    r"^\s*(country_event|province_event|character_event|triggered_only_event)\s*=\s*\{\s*$"
+EVENT_ASSIGN_RE = re.compile(
+    r"^\s*(country_event|province_event|character_event|triggered_only_event)\s*=\s*(.*)$"
 )
 EVENT_ID_RE = re.compile(r"^\s*id\s*=\s*([A-Za-z0-9_.-]+\.\d+)\s*$")
 
 
 def extract_event_ids(text: str) -> list[str]:
+    # Supported event block formatting variants:
+    #   country_event = {
+    #   country_event =
+    #   {
+    # plus optional blank lines / comments between assignment and "{".
     ids: list[str] = []
     depth = 0
     in_event = False
+    waiting_for_event_open = False
     event_depth = -1
 
     for line in text.splitlines():
-        if EVENT_BLOCK_START_RE.match(line):
-            in_event = True
-            event_depth = depth + 1
+        line_no_comment = line.split("#", 1)[0]
+
+        if not in_event and waiting_for_event_open:
+            if "{" in line_no_comment:
+                in_event = True
+                waiting_for_event_open = False
+                event_depth = depth + 1
+            elif line_no_comment.strip():
+                waiting_for_event_open = False
+
+        if not in_event and not waiting_for_event_open:
+            assign_match = EVENT_ASSIGN_RE.match(line_no_comment)
+            if assign_match:
+                waiting_for_event_open = True
+                if "{" in assign_match.group(2):
+                    in_event = True
+                    waiting_for_event_open = False
+                    event_depth = depth + 1
 
         if in_event:
-            match = EVENT_ID_RE.match(line)
+            match = EVENT_ID_RE.match(line_no_comment)
             if match:
                 ids.append(match.group(1))
 
