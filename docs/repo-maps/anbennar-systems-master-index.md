@@ -31,10 +31,12 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 | Category | Why it matters | Main repo areas | Current doc status |
 |---|---|---|---|
 | Magic framework | Full custom system for magic access, schools, mana, study, patrons, projects, duels, lichdom, witch-kings, and war wizards | `common/custom_gui`, `common/scripted_effects`, `common/scripted_triggers`, `common/event_modifiers`, `events`, `decisions`, `localisation` | Detailed |
+| Powerful mage and succession handling | Reusable heir, ruler, consort, and inheritance patterns for magical continuity | `common/scripted_effects`, `events/Magic_*.txt`, `common/on_actions` | Detailed |
+| Magic projects | Shared project framework with dispatcher events, milestone handlers, and progress hooks | `common/scripted_effects`, `events/Magic_*.txt`, `common/custom_gui`, `common/on_actions` | Detailed |
 | Verne overseas systems | Example of mission plus GUI plus scripted helper plus variable tracking | `missions`, `events`, `common/scripted_effects`, `common/custom_gui`, `interface` | Detailed |
-| Racial population and military systems | Population tolerance, racial administration, racial military tech and UI sorting systems | `events/anb_racial_*`, `common/scripted_effects`, `common/scripted_triggers`, `common/custom_gui`, `localisation` | Overview |
-| Artificery | Custom research and invention layer with its own estate, points, and interface hooks | `events/Artifice*.txt`, `common/scripted_effects`, `common/scripted_triggers`, `common/estate_privileges`, `common/estates` | Overview |
-| Adventurer systems | Adventurer estate plus government mechanic plus spawnable/event content | `common/government_mechanics`, `events/estate_adventurers.txt`, `events/AdventurerSpawnables.txt` | Overview |
+| Racial population and military systems | Population tolerance, racial administration, racial military tech and UI sorting systems | `events/anb_racial_*`, `common/scripted_effects`, `common/scripted_triggers`, `common/custom_gui`, `localisation` | Detailed |
+| Artificery | Custom research and invention layer with its own estate, points, and interface hooks | `events/Artifice*.txt`, `common/scripted_effects`, `common/scripted_triggers`, `common/estate_privileges`, `common/estates` | Detailed |
+| Adventurer systems | Adventurer estate plus government mechanic plus spawnable/event content | `common/government_mechanics`, `events/estate_adventurers.txt`, `events/AdventurerSpawnables.txt` | Detailed |
 | Custom estates | Mages, Adventurers, Artificers, Vampires, Commands, castes, and other non-vanilla estates | `common/estates`, `common/estate_privileges`, `events/estate_*.txt` | Overview |
 | Custom government mechanics | Large library of tag- and region-specific government power systems | `common/government_mechanics`, `interface/government_mechanics` | Overview |
 | Custom GUI infrastructure | Shared pattern used by magic, province systems, racial UI, and other non-vanilla layers | `common/custom_gui`, `interface/*.gui`, `interface/*.gfx` | Overview |
@@ -46,6 +48,11 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 - [verne-launch-adventure-system.md](./verne-launch-adventure-system.md)
 - [network-of-adventure-system.md](./network-of-adventure-system.md)
 - [magic-systems-reference.md](./magic-systems-reference.md)
+- [powerful-mage-and-succession-reference.md](./powerful-mage-and-succession-reference.md)
+- [magic-projects-reference.md](./magic-projects-reference.md)
+- [racial-population-and-military-reference.md](./racial-population-and-military-reference.md)
+- [artificery-research-and-inventions-reference.md](./artificery-research-and-inventions-reference.md)
+- [adventurer-systems-and-estate-patterns-reference.md](./adventurer-systems-and-estate-patterns-reference.md)
 - [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md)
 - [anbennar-systems-scan-roadmap.md](./anbennar-systems-scan-roadmap.md)
 
@@ -87,6 +94,58 @@ Core anchors:
 - [decisions/MagicDecisions.txt](../../decisions/MagicDecisions.txt)
 - [common/event_modifiers/anb_magic_modifiers.txt](../../common/event_modifiers/anb_magic_modifiers.txt)
 
+Deep reference articles:
+
+- [powerful-mage-and-succession-reference.md](./powerful-mage-and-succession-reference.md)
+- [magic-projects-reference.md](./magic-projects-reference.md)
+
+## Powerful Mage And Succession Family
+
+This family is the cleanest reusable example of:
+
+- powerful mage ruler, heir, and consort generation
+- magical inheritance preservation
+- delayed succession repair through `on_new_heir`
+- government- and tag-specific mage-heir odds
+
+Core anchors:
+
+- [common/scripted_effects/anb_scripted_effects_for_magic_system.txt](../../common/scripted_effects/anb_scripted_effects_for_magic_system.txt)
+- [events/Magic_System_Events.txt](../../events/Magic_System_Events.txt)
+- [events/Magic_Ruler_Events.txt](../../events/Magic_Ruler_Events.txt)
+- [common/on_actions/00_on_actions.txt](../../common/on_actions/00_on_actions.txt)
+- [events/Theocracies.txt](../../events/Theocracies.txt)
+- [events/RintaSeekerEvents.txt](../../events/RintaSeekerEvents.txt)
+
+Deep reference article:
+
+- [powerful-mage-and-succession-reference.md](./powerful-mage-and-succession-reference.md)
+
+## Magic Projects Family
+
+Magic projects are a reusable framework made from:
+
+- a shared project-start helper
+- project flags and variables
+- a central dispatcher event
+- per-project namespaces
+- optional milestone branches
+- cleanup helpers
+- on-action progress trackers where needed
+
+Core anchors:
+
+- [common/scripted_effects/anb_scripted_effects_for_magic_system.txt](../../common/scripted_effects/anb_scripted_effects_for_magic_system.txt)
+- [common/scripted_effects/anb_scripted_effects_for_magic_project.txt](../../common/scripted_effects/anb_scripted_effects_for_magic_project.txt)
+- [events/Magic_System_Events.txt](../../events/Magic_System_Events.txt)
+- [events/Magic_Project_Events.txt](../../events/Magic_Project_Events.txt)
+- [common/custom_gui/magic_unique_projects.txt](../../common/custom_gui/magic_unique_projects.txt)
+- [common/on_actions/00_on_actions.txt](../../common/on_actions/00_on_actions.txt)
+
+Deep reference article:
+
+- [magic-projects-reference.md](./magic-projects-reference.md)
+
 ## Racial System Family
 
 The racial layer is another Anbennar-only system family that normal EU4 wiki articles will not explain.
@@ -118,6 +177,10 @@ Representative race-specific branches:
 - [events/anb_racial_pop_events_harpy.txt](../../events/anb_racial_pop_events_harpy.txt)
 - [events/anb_racial_pop_events_dwarven.txt](../../events/anb_racial_pop_events_dwarven.txt)
 
+Deep reference article:
+
+- [racial-population-and-military-reference.md](./racial-population-and-military-reference.md)
+
 ## Artificery Family
 
 Artificery is not just "magic but science flavored."
@@ -135,6 +198,10 @@ Core anchors:
 - [common/estates/99_artificers.txt](../../common/estates/99_artificers.txt)
 - [common/estate_privileges/estate_artifice_privileges.txt](../../common/estate_privileges/estate_artifice_privileges.txt)
 
+Deep reference article:
+
+- [artificery-research-and-inventions-reference.md](./artificery-research-and-inventions-reference.md)
+
 ## Adventurer Family
 
 Anbennar has both generic adventurer content and more bespoke government and estate implementations.
@@ -146,6 +213,10 @@ Core anchors:
 - [events/AdventurerSpawnables.txt](../../events/AdventurerSpawnables.txt)
 - [events/adventurers.txt](../../events/adventurers.txt)
 - [common/estates/98_adventurers.txt](../../common/estates/98_adventurers.txt)
+
+Deep reference article:
+
+- [adventurer-systems-and-estate-patterns-reference.md](./adventurer-systems-and-estate-patterns-reference.md)
 
 ## Custom Estate Layer
 
@@ -210,8 +281,8 @@ That is usually how you avoid reinventing the mechanic badly.
 
 The strongest next documentation targets after this first pass are:
 
-- Magic projects as a standalone article
-- Powerful mage generation and succession as a standalone article
-- Racial population and military systems as a standalone article
-- Artificery research and inventions as a standalone article
-- Adventurer estate plus adventurer unity as a standalone article
+- Mage estate and magical politics as a standalone article
+- Witch-king, lichdom, and magical infamy as a standalone article
+- Government mechanics and custom GUI infrastructure as a standalone article
+- Custom estate patterns beyond Adventurers and Artificers as a standalone article
+- Artificery-magic crossover and nation-specific invention usage as a standalone article

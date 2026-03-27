@@ -53,6 +53,7 @@ It now includes:
 - Verne overseas system maps
 - a master index of non-vanilla Anbennar systems
 - a first-pass magic systems reference
+- five deeper second-wave subsystem articles
 - a broader non-magic systems overview
 - a roadmap for future deep-scan articles
 

@@ -152,16 +152,21 @@ Already documented:
 - [verne-launch-adventure-system.md](./verne-launch-adventure-system.md)
 - [network-of-adventure-system.md](./network-of-adventure-system.md)
 - [magic-systems-reference.md](./magic-systems-reference.md)
+- [powerful-mage-and-succession-reference.md](./powerful-mage-and-succession-reference.md)
+- [magic-projects-reference.md](./magic-projects-reference.md)
+- [racial-population-and-military-reference.md](./racial-population-and-military-reference.md)
+- [artificery-research-and-inventions-reference.md](./artificery-research-and-inventions-reference.md)
+- [adventurer-systems-and-estate-patterns-reference.md](./adventurer-systems-and-estate-patterns-reference.md)
 - [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md)
 - [anbennar-systems-master-index.md](./anbennar-systems-master-index.md)
 
 Best next articles:
 
-1. Powerful Mage and succession handling
-2. Magic projects reference
-3. Racial population and military reference
-4. Artificery reference
-5. Adventurer systems reference
+1. Mage estate and magical politics reference
+2. Witch-king, lichdom, and magical infamy reference
+3. Government mechanics and custom GUI reference
+4. Custom estate patterns beyond Adventurers and Artificers
+5. Artificery-magic crossover and nation-specific invention usage
 
 ## Documentation Standard
 
