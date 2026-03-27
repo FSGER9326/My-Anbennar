@@ -47,6 +47,14 @@ Use this for the normal “did I break the tracked Verne layer?” check.
 
 Use this when you want to run a specific profile directly instead of the full Verne smoke bundle.
 
+Profile rule types (important for noobs):
+
+- `require_patterns`: **any-one** check. Each item has a single regex `pattern`; it passes if that regex appears in at least one listed file path.
+- `require_all_patterns`: **all-of** check. Each item has a regex list `patterns`; every entry in that list must match at least one listed file path.
+- `forbid_patterns`: negative check. The regex must not appear in any listed file path.
+
+Use `require_all_patterns` whenever you are tracking multiple helper names and you want to fail if even one helper disappears.
+
 ### Checklist manifest audit
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_checklist_audit.ps1`
