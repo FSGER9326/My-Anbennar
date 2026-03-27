@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Audit EU4 event IDs for common beginner mistakes."""
+"""Audit EU4 event IDs for common beginner mistakes.
+
+Checks include duplicate event IDs both within a single file and across files.
+"""
 from __future__ import annotations
 
 import argparse
@@ -19,13 +22,13 @@ EVENT_BLOCK_START_RE = re.compile(
 EVENT_ID_RE = re.compile(r"^\s*id\s*=\s*([A-Za-z0-9_.-]+\.\d+)\s*$")
 
 
-def extract_event_ids(text: str) -> list[str]:
-    ids: list[str] = []
+def extract_event_ids_with_lines(text: str) -> list[tuple[str, int]]:
+    ids: list[tuple[str, int]] = []
     depth = 0
     in_event = False
     event_depth = -1
 
-    for line in text.splitlines():
+    for line_no, line in enumerate(text.splitlines(), start=1):
         if EVENT_BLOCK_START_RE.match(line):
             in_event = True
             event_depth = depth + 1
@@ -33,7 +36,7 @@ def extract_event_ids(text: str) -> list[str]:
         if in_event:
             match = EVENT_ID_RE.match(line)
             if match:
-                ids.append(match.group(1))
+                ids.append((match.group(1), line_no))
 
         depth += line.count("{")
         depth -= line.count("}")
@@ -68,23 +71,24 @@ def main() -> int:
 
         text = path.read_text(encoding="utf-8", errors="replace")
         namespaces = set(NAMESPACE_RE.findall(text))
-        ids = extract_event_ids(text)
+        ids = extract_event_ids_with_lines(text)
 
         if ids and not namespaces:
             errors.append(f"{path.relative_to(ROOT)}: contains event ids but no namespace declaration")
 
-        for event_id in ids:
+        for event_id, line_no in ids:
             ns = event_id.split(".", 1)[0]
             if namespaces and ns not in namespaces:
                 errors.append(
                     f"{path.relative_to(ROOT)}: id '{event_id}' uses namespace '{ns}' not declared in file"
                 )
-            seen_ids[event_id].append(str(path.relative_to(ROOT)))
+            seen_ids[event_id].append(f"{path.relative_to(ROOT)}:{line_no}")
 
-    for event_id, where in sorted(seen_ids.items()):
-        unique_files = sorted(set(where))
-        if len(unique_files) > 1:
-            errors.append(f"duplicate event id '{event_id}' found across files: {', '.join(unique_files)}")
+    for event_id, locations in sorted(seen_ids.items()):
+        if len(locations) > 1:
+            errors.append(
+                f"duplicate event id '{event_id}' found across files/lines: {', '.join(locations)}"
+            )
 
     if errors:
         print("Event ID audit failed:")
