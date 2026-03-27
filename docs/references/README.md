@@ -28,3 +28,13 @@ Use this trust order:
 
 - Keep links relative so this folder works on all environments.
 - If a crosswalk references a wiki topic that is not yet snapshotted locally, mark that gap in `reference-index.md`.
+  
+## Index
+
+- [reference-index.md](./reference-index.md)
+- [eu4-baseline-vs-anbennar-comparison-notes.md](./eu4-baseline-vs-anbennar-comparison-notes.md)
+
+- [eu4-baseline-vs-anbennar-comparison-notes.md](./eu4-baseline-vs-anbennar-comparison-notes.md)
+ 
+
+- [eu4-baseline-vs-anbennar-comparison-notes.md](./eu4-baseline-vs-anbennar-comparison-notes.md)
