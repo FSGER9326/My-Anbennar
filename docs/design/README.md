@@ -26,6 +26,7 @@ Important rule:
 | [open-questions-and-design-lab.md](./open-questions-and-design-lab.md) | Unresolved design questions, conflicts, and items needing repo verification. |
 | [preserved-notes-and-edge-cases.md](./preserved-notes-and-edge-cases.md) | Stray notes, edge cases, variant concepts, and preserved fragments that did not fit elsewhere. |
 | [implementation-scaffolding.md](./implementation-scaffolding.md) | File map, naming plan, scripted trigger/effect catalog, event namespaces, constants, code-shaped skeletons, and repo-verified implementation anchors. |
+| [source-coverage-matrix.md](./source-coverage-matrix.md) | Maps the original master-plan domains into the current `docs/design/` file set and shows which areas still need deeper reconciliation. |
 
 ## Status Labels
 
@@ -42,6 +43,7 @@ Each major mechanic is tagged with one of these statuses:
 - **For theorycraft**: refer to canonical entries and open questions. `preserved-notes-and-edge-cases.md` keeps alternative ideas and loose fragments alive.
 - **For implementation**: use `IMPLEMENTATION_READY` items as design-ready specs, then ground them against the repo and the local EU4 wiki references before coding.
 - **For engineering-heavy work**: consult `implementation-scaffolding.md`, because that is where the trigger/effect catalogs, namespaces, naming plan, and repo-anchor notes are preserved.
+- **For source traceability**: consult `source-coverage-matrix.md` before assuming a topic has been fully reconciled out of the original master plan.
 - **For maintenance**: prefer updating these files rather than creating new scattered design notes.
 
 ## Quick Index of Major Systems
