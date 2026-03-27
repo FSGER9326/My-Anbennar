@@ -37,6 +37,9 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 | Racial population and military systems | Population tolerance, racial administration, racial military tech and UI sorting systems | `events/anb_racial_*`, `common/scripted_effects`, `common/scripted_triggers`, `common/custom_gui`, `localisation` | Detailed |
 | Artificery | Custom research and invention layer with its own estate, points, and interface hooks | `events/Artifice*.txt`, `common/scripted_effects`, `common/scripted_triggers`, `common/estate_privileges`, `common/estates` | Detailed |
 | Adventurer systems | Adventurer estate plus government mechanic plus spawnable/event content | `common/government_mechanics`, `events/estate_adventurers.txt`, `events/AdventurerSpawnables.txt` | Detailed |
+| Witch-king, lichdom, war wizard, magical infamy | High-risk ruler-magic state machine with infamy tiers and conversion helpers | `common/scripted_effects`, `common/scripted_triggers`, `events`, `decisions`, `common/event_modifiers`, `common/custom_gui` | Detailed |
+| Government mechanics + GUI wiring | Reusable government power bars/interactions with custom interfaces | `common/government_mechanics`, `interface/government_mechanics` | Detailed |
+| Custom estate ecosystems | Organization/law privilege trees wired to larger systems | `common/estates`, `common/estate_privileges`, `events/estate_*.txt` | Detailed |
 | Custom estates | Mages, Adventurers, Artificers, Vampires, Commands, castes, and other non-vanilla estates | `common/estates`, `common/estate_privileges`, `events/estate_*.txt` | Overview |
 | Custom government mechanics | Large library of tag- and region-specific government power systems | `common/government_mechanics`, `interface/government_mechanics` | Overview |
 | Custom GUI infrastructure | Shared pattern used by magic, province systems, racial UI, and other non-vanilla layers | `common/custom_gui`, `interface/*.gui`, `interface/*.gfx` | Overview |
@@ -55,6 +58,9 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 - [adventurer-systems-and-estate-patterns-reference.md](./adventurer-systems-and-estate-patterns-reference.md)
 - [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md)
 - [anbennar-systems-scan-roadmap.md](./anbennar-systems-scan-roadmap.md)
+- [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
+- [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+- [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 
 ## Magic System Family
 

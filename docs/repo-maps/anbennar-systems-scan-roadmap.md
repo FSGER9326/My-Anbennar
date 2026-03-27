@@ -159,14 +159,22 @@ Already documented:
 - [adventurer-systems-and-estate-patterns-reference.md](./adventurer-systems-and-estate-patterns-reference.md)
 - [anbennar-non-vanilla-systems-overview.md](./anbennar-non-vanilla-systems-overview.md)
 - [anbennar-systems-master-index.md](./anbennar-systems-master-index.md)
+- [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
+- [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+- [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 
 Best next articles:
 
-1. Mage estate and magical politics reference
-2. Witch-king, lichdom, and magical infamy reference
-3. Government mechanics and custom GUI reference
-4. Custom estate patterns beyond Adventurers and Artificers
-5. Artificery-magic crossover and nation-specific invention usage
+1. Mercenary/order and special unit framework reference
+2. Race- and religion-specific framework comparison matrix
+3. Government mechanic activation map by reform file
+4. Artificery-magic crossover and nation-specific invention usage
+
+Recently completed in this pass:
+
+- [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
+- [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
+- [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
 
 ## Documentation Standard
 

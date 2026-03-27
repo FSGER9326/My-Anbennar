@@ -21,3 +21,8 @@ Use this trust order:
 1. existing Anbennar repo pattern
 2. local reference snapshots in this folder
 3. live wiki or other primary source if the local snapshot is incomplete
+
+
+## Index
+
+- [reference-index.md](./reference-index.md)
