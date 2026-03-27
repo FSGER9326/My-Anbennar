@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "lorent_core_mapping",
+      "path": "docs/repo-maps/lorent-core-mapping.md",
+      "category": "repo_map",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
+    }
+  ]
+}

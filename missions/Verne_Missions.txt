@@ -1490,6 +1490,10 @@ A33_second_slot = {
 		}
 	}
 
+	# Commentary (plain-language):
+	# - This mission starts Verne's "Network of Adventure" loop.
+	# - It unlocks Port of Adventure expansion and sets up scaling progress checks used by later missions.
+	# - Playstyle meaning: Verne is encouraged to project overseas through ports/adventures, not only through classic land conquest.
 	A33_in_search_of_adventure = {
 		icon = mission_exploration
 		position = 5
@@ -1572,11 +1576,8 @@ A33_second_slot = {
 				}
 			}
 			custom_tooltip = verne_unlock_network_of_adventure
-			set_country_flag = verne_unlock_port_of_adventure_button
-			add_country_modifier = {
-				name = "verne_network_of_adventure_tier_1"
-				duration = -1
-			}
+			# Commentary: call shared helper so future network-init edits are centralized.
+			verne_overhaul_enable_adventure_network_tier_1 = yes
 			set_country_flag = verne_sarhali_adventures_unlocked
 			custom_tooltip = verne_unlock_sarhali_adventures
 			hidden_effect = {
@@ -1723,6 +1724,18 @@ A33_second_slot = {
 		effect = { country_event = { id = verne.114 } } 
 	}
 
+	# Commentary (plain-language):
+	# - "High-risk wiring node" means this mission connects multiple existing systems at once (mission trigger logic + monument states + event chain).
+	# - If one referenced object/condition is renamed or missing, mission progression can break for Verne.
+	# Base Anbennar pieces reused here:
+	# - New Hookfield spire = existing Kazakesh monument in province 5763 (New Hookfield, Dao Nako coast, Sarhal continent-region context).
+	# - Aur-Kes-Akasik completion = monument in province 383 (Desh-al-Deshak, Akasik region, Sarhal) upgraded to tier 3.
+	# Verne-specific gameplay + lore fit:
+	# - This mission rewards Verne's "adventure + overseas expedition" identity by converting far-sea exploration success into homeland prestige at Stingport.
+	# - Lore intent: Vernman daring/seafaring culture leads to symbolic trophies brought home, not only map-paint conquest.
+	# Province impact summary:
+	# - Source state touched: 5763 New Hookfield (Sarhal).
+	# - Destination payoff: 376 Stingport / Heartspier axis (Cannor-facing Verne core).
 	A33_laments_regatta = {
 		icon = mission_launch_a_flagship
 		position = 10
@@ -1753,27 +1766,10 @@ A33_second_slot = {
 
 		trigger = {
 			adm_power = 200
-			5763 = {
-				has_province_modifier = verne_port_of_adventure
-				has_great_project = {
-					type = kazakesh
-					tier = 3
-				}
-			}
-			akasik_region = {
-				type = all
-				OR = {
-					owned_by = ROOT
-					owned_by = A47
-					owner = { NOT = { liberty_desire = 10 } } 
-				}
-			}
-			383 = {
-				has_great_project = {
-					type = aur_kes_akasik
-					tier = 3
-				}
-			}
+			# Commentary: reuse shared trigger so anchor-state logic is maintained in one place.
+			verne_overhaul_laments_regatta_anchor_state_ready = yes
+			# Commentary: keep Akasik-access coupling centralized too.
+			verne_overhaul_akasik_access_ready = yes
 			OR = {
 				court_mage = 4
 				AND = {
