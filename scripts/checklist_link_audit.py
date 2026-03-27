@@ -9,7 +9,12 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 TARGET_DIRS = [ROOT / "docs/repo-maps", ROOT / "docs/wiki", ROOT / "docs/theorycrafting"]
 LINK_RE = re.compile(
-    r"\[[^\]]+\]\(((?![a-zA-Z][a-zA-Z0-9+.-]*:)(?:\./|\.\./|(?:\.\./)+)?[^)#/][^)#]*\.md(?:#[^)]+)?)\)"
+    r"\[[^\]]+\]\(("
+    r"(?![a-zA-Z][a-zA-Z0-9+.-]*:)"
+    r"(?:\./|\.\./)*"
+    r"[^)#/]+(?:/[^)#/]+)*\.md"
+    r"(?:#[^)]+)?"
+    r")\)"
 )
 
 
@@ -38,31 +43,35 @@ def heading_slugs(markdown_file: Path) -> set[str]:
 
 def run_self_test() -> int:
     """Regression fixture for markdown link matching behavior."""
-    fixture = """
-[same dir](README.md)
-[same dir explicit](./README.md)
-[up one](../foo/README.md)
-[up two](../../foo/README.md#heading-1)
-[same dir anchor](README.md#overview)
-[non-markdown](README.txt)
-[image](./img/logo.png)
-[web](https://example.com/README.md)
-[mail](mailto:test@example.com)
-"""
-    expected = [
-        "README.md",
-        "./README.md",
-        "../foo/README.md",
-        "../../foo/README.md#heading-1",
-        "README.md#overview",
+    cases = [
+        ("[same dir](README.md)", ["README.md"]),
+        ("[same dir anchor](README.md#overview)", ["README.md#overview"]),
+        ("[same dir explicit](./README.md)", ["./README.md"]),
+        ("[up one](../foo/README.md#intro)", ["../foo/README.md#intro"]),
+        ("[up two](../../foo/README.md#heading-1)", ["../../foo/README.md#heading-1"]),
+        ("[nested](guides/setup/README.md)", ["guides/setup/README.md"]),
+        ("[nested up](../guides/setup/README.md)", ["../guides/setup/README.md"]),
+        ("[non-markdown](README.txt)", []),
+        ("[image](./img/logo.png)", []),
+        ("[web](https://example.com/README.md)", []),
+        ("[mail](mailto:test@example.com)", []),
     ]
-    found = LINK_RE.findall(fixture)
-    if found != expected:
+
+    failures: list[tuple[str, list[str], list[str]]] = []
+    for fixture, expected in cases:
+        found = LINK_RE.findall(fixture)
+        if found != expected:
+            failures.append((fixture, expected, found))
+
+    if failures:
         print("Checklist link audit self-test failed:")
-        print(f" - expected: {expected}")
-        print(f" - found:    {found}")
+        for fixture, expected, found in failures:
+            print(f" - fixture:  {fixture}")
+            print(f"   expected: {expected}")
+            print(f"   found:    {found}")
         return 1
-    print("Checklist link audit self-test passed.")
+
+    print(f"Checklist link audit self-test passed ({len(cases)} fixtures).")
     return 0
 
 
