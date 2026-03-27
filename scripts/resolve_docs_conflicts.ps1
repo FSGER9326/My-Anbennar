@@ -5,12 +5,15 @@ if (Get-Variable PSNativeCommandUseErrorActionPreference -ErrorAction SilentlyCo
 
 $hotspots = @(
     "docs/README.md",
+    "docs/start-here.md",
     "docs/implementation-crosswalk.md",
     "docs/references/README.md",
     "docs/references/reference-index.md",
     "docs/repo-maps/README.md",
+    "docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md",
     "docs/repo-maps/anbennar-systems-master-index.md",
-    "docs/repo-maps/anbennar-systems-scan-roadmap.md"
+    "docs/repo-maps/anbennar-systems-scan-roadmap.md",
+    "docs/wiki/checklist-automation-system.md"
 )
 
 function Invoke-Git {

@@ -38,6 +38,15 @@ if (-not [string]::IsNullOrWhiteSpace($statusCheck.Output)) {
     exit 1
 }
 
+$branchCheck = Invoke-GitCommand -Arguments @("branch", "--show-current")
+$branch = $branchCheck.Output.Trim()
+if ($branch -eq "main") {
+    Write-Output "ERROR: Current branch is 'main'."
+    Write-Output "This sync helper is for feature/PR branches only."
+    Write-Output "If you are already on main, run a normal pull/check flow instead."
+    exit 1
+}
+
 Write-Output "Fetching latest refs..."
 $fetch = Invoke-GitCommand -Arguments @("fetch", "origin")
 if ($fetch.Code -ne 0) {
@@ -70,8 +79,6 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 & (Join-Path $PSScriptRoot "verne_smoke_checks.ps1")
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-$branchCheck = Invoke-GitCommand -Arguments @("branch", "--show-current")
-$branch = $branchCheck.Output.Trim()
 Write-Output "Creating merge commit..."
 $commit = Invoke-GitCommand -Arguments @("commit", "-m", "Merge $BaseRef into $branch with docs guard automation")
 if (-not [string]::IsNullOrWhiteSpace($commit.Output)) { Write-Output $commit.Output }

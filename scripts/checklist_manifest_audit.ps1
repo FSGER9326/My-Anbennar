@@ -16,6 +16,19 @@ $manifestPath = Join-Path $root $Manifest
 $requireSmokeText = -not $NoSmokeTextRequired
 $requiredFields = @("id", "path", "category", "scanned", "mapped", "verified", "automation", "status")
 
+function Get-RelativeRepoPath {
+    param(
+        [Parameter(Mandatory = $true)][string]$Root,
+        [Parameter(Mandatory = $true)][string]$FullPath
+    )
+
+    if ($FullPath.StartsWith($Root, [System.StringComparison]::OrdinalIgnoreCase)) {
+        return $FullPath.Substring($Root.Length).TrimStart('\', '/').Replace('\', '/')
+    }
+
+    return $FullPath.Replace('\', '/')
+}
+
 if (-not (Test-Path $manifestPath)) {
     Write-Output "ERROR: missing manifest: $manifestPath"
     exit 1
@@ -72,10 +85,10 @@ foreach ($item in $items) {
     }
 
     if ([string]$item.category -eq "repo_map") {
-            $filename = [System.IO.Path]::GetFileName($path)
+        $filename = [System.IO.Path]::GetFileName($path)
         for ($i = 0; $i -lt $indexFiles.Count; $i++) {
             if ($indexTexts[$i] -notlike "*$filename*") {
-                $indexRel = [System.IO.Path]::GetRelativePath($root, $indexFiles[$i])
+                $indexRel = Get-RelativeRepoPath -Root $root -FullPath $indexFiles[$i]
                 $errors.Add("${itemId}: '$filename' not found in $indexRel")
             }
         }

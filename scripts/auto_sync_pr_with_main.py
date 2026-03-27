@@ -57,6 +57,13 @@ def main() -> int:
         print("ERROR: Working tree is not clean. Commit or stash first.")
         return 1
 
+    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+    if branch == "main":
+        print("ERROR: Current branch is 'main'.")
+        print("This sync helper is for feature/PR branches only.")
+        print("If you are already on main, run a normal pull/check flow instead.")
+        return 1
+
     print("Fetching latest refs...")
     run(["git", "fetch", "origin"], check=True)
 
@@ -75,7 +82,6 @@ def main() -> int:
 
     run_smoke_checks()
 
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
     msg = f"Merge {base_ref} into {branch} with docs guard automation"
     print("Creating merge commit...")
     run(["git", "commit", "-m", msg], check=True)

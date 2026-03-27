@@ -8,27 +8,12 @@ If you are new to GitHub and modding, read in this order:
 4. [docs/wiki/anbennar-base-vs-verne-change-ledger.md](./wiki/anbennar-base-vs-verne-change-ledger.md)
 5. [docs/implementation-crosswalk.md](./implementation-crosswalk.md)
 6. one matching article from [docs/repo-maps/README.md](./repo-maps/README.md)
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-3. [docs/wiki/anbennar-base-vs-verne-change-ledger.md](./wiki/anbennar-base-vs-verne-change-ledger.md)
-4. [docs/implementation-crosswalk.md](./implementation-crosswalk.md)
-5. one matching article from [docs/repo-maps/README.md](./repo-maps/README.md)
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
 
 ## Tiny glossary (modding terms, not GitHub terms)
 
 - **Trigger**: a condition check (`can this happen?`).
 - **Effect**: an action (`do this change now`).
-- **On action**: automatic hook that runs when an event happens (e.g. new heir).
+- **On action**: automatic hook that runs when an event happens (for example a new heir).
 - **Modifier**: ongoing bonus/penalty applied to country/province/etc.
 - **Scripted trigger/effect**: reusable helper block to avoid copy-paste logic.
 - **Localization (loc)**: player-facing text strings.
@@ -56,7 +41,6 @@ Use one suffix consistently:
 - `-ledger.md` for tracking tables
 - `README.md` for folder entry pages
 
-
 ## What should we do right now? (Decision guide)
 
 If you feel lost, use this decision tree in order.
@@ -70,7 +54,7 @@ You are **ready to start implementation now** only if all are true:
 - there is at least one smoke-test checklist item for the touched IDs,
 - scope is a small `v0.1` slice (not a full overhaul in one go).
 
-If any item is missing, do not implement yet—finish grounding first.
+If any item is missing, do not implement yet - finish grounding first.
 
 ### Step 2: Choose one of four modes
 

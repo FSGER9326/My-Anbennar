@@ -11,6 +11,19 @@ $linkRegex = [regex]"\[[^\]]+\]\((\.?\.?/[^)]+\.md)\)"
 $errors = New-Object System.Collections.Generic.List[string]
 $checked = 0
 
+function Get-RelativeRepoPath {
+    param(
+        [Parameter(Mandatory = $true)][string]$Root,
+        [Parameter(Mandatory = $true)][string]$FullPath
+    )
+
+    if ($FullPath.StartsWith($Root, [System.StringComparison]::OrdinalIgnoreCase)) {
+        return $FullPath.Substring($Root.Length).TrimStart('\', '/').Replace('\', '/')
+    }
+
+    return $FullPath.Replace('\', '/')
+}
+
 foreach ($base in $targetDirs) {
     if (-not (Test-Path $base)) {
         continue
@@ -24,7 +37,7 @@ foreach ($base in $targetDirs) {
             $rel = $match.Groups[1].Value
             $target = [System.IO.Path]::GetFullPath((Join-Path $md.DirectoryName $rel))
             if (-not (Test-Path $target)) {
-                $relMd = [System.IO.Path]::GetRelativePath($root, $md.FullName)
+                $relMd = Get-RelativeRepoPath -Root $root -FullPath $md.FullName
                 $errors.Add("$relMd -> missing link target: $rel")
             }
         }
