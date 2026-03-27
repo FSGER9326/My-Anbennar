@@ -8,7 +8,9 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET_DIRS = [ROOT / "docs/repo-maps", ROOT / "docs/wiki", ROOT / "docs/theorycrafting"]
-LINK_RE = re.compile(r"\[[^\]]+\]\((\.?\.?/[^)#]+\.md(?:#[^)]+)?)\)")
+LINK_RE = re.compile(
+    r"\[[^\]]+\]\(((?![a-zA-Z][a-zA-Z0-9+.-]*:)(?:\./|\.\./|(?:\.\./)+)?[^)#/][^)#]*\.md(?:#[^)]+)?)\)"
+)
 
 
 def slugify_heading(heading: str) -> str:
@@ -34,7 +36,40 @@ def heading_slugs(markdown_file: Path) -> set[str]:
     return slugs
 
 
+def run_self_test() -> int:
+    """Regression fixture for markdown link matching behavior."""
+    fixture = """
+[same dir](README.md)
+[same dir explicit](./README.md)
+[up one](../foo/README.md)
+[up two](../../foo/README.md#heading-1)
+[same dir anchor](README.md#overview)
+[non-markdown](README.txt)
+[image](./img/logo.png)
+[web](https://example.com/README.md)
+[mail](mailto:test@example.com)
+"""
+    expected = [
+        "README.md",
+        "./README.md",
+        "../foo/README.md",
+        "../../foo/README.md#heading-1",
+        "README.md#overview",
+    ]
+    found = LINK_RE.findall(fixture)
+    if found != expected:
+        print("Checklist link audit self-test failed:")
+        print(f" - expected: {expected}")
+        print(f" - found:    {found}")
+        return 1
+    print("Checklist link audit self-test passed.")
+    return 0
+
+
 def main() -> int:
+    if len(sys.argv) > 1 and sys.argv[1] == "--self-test":
+        return run_self_test()
+
     errors: list[str] = []
     checked = 0
     slug_cache: dict[Path, set[str]] = {}
