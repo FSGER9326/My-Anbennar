@@ -1,157 +1,116 @@
 #!/usr/bin/env python3
-"""Cross-platform PR sync helper.
-
-Usage:
-  python scripts/auto_sync_pr_with_main.py [base_ref]
-Default base_ref: origin/main
-"""
-
+"""Sync a feature branch with main and run repository automation checks."""
 from __future__ import annotations
 
-import shutil
+from pathlib import Path
 import subprocess
 import sys
 
-
-def run(cmd: list[str], check: bool = True) -> subprocess.CompletedProcess[str]:
-    proc = subprocess.run(cmd, text=True, capture_output=True)
-    if check and proc.returncode != 0:
-        if proc.stdout:
-            print(proc.stdout)
-        if proc.stderr:
-            print(proc.stderr, file=sys.stderr)
-        raise SystemExit(proc.returncode)
-    return proc
+ROOT = Path(__file__).resolve().parents[1]
+BASE_REF = sys.argv[1] if len(sys.argv) > 1 else "origin/main"
 
 
-def has_uncommitted_changes() -> bool:
-    proc = run(["git", "status", "--porcelain"], check=True)
-    return bool(proc.stdout.strip())
+def run(cmd: list[str], *, check: bool = False) -> subprocess.CompletedProcess[str]:
+    result = subprocess.run(
+        cmd,
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if check and result.returncode != 0:
+        raise subprocess.CalledProcessError(
+            result.returncode,
+            cmd,
+            output=result.stdout,
+            stderr=result.stderr,
+        )
+    return result
 
 
-def unresolved_files() -> list[str]:
-    proc = run(["git", "diff", "--name-only", "--diff-filter=U"], check=True)
-    return [x for x in proc.stdout.splitlines() if x.strip()]
+def print_output(result: subprocess.CompletedProcess[str]) -> None:
+    text = "\n".join(part for part in (result.stdout.strip(), result.stderr.strip()) if part)
+    if text:
+        print(text)
 
 
-def run_smoke_checks() -> None:
-    print("Running docs conflict guard...")
-    run([sys.executable, "scripts/docs_conflict_guard.py"], check=True)
+def current_branch() -> str:
+    result = run(["git", "branch", "--show-current"], check=True)
+    return result.stdout.strip()
 
-    bash = shutil.which("bash")
-    if bash:
-        print("Running full Verne smoke checks via bash...")
-        run([bash, "scripts/verne_smoke_checks.sh"], check=True)
-        return
 
-    print("WARNING: bash not found; running reduced Python checks only.")
-    run([sys.executable, "scripts/verne_checklist_audit.py"], check=True)
-    run([sys.executable, "scripts/checklist_link_audit.py"], check=True)
-    print("Reduced checks passed. Install bash to run full Verne smoke suite.")
+def has_merge_head() -> bool:
+    result = run(["git", "rev-parse", "-q", "--verify", "MERGE_HEAD"])
+    return result.returncode == 0
+
+
+def ensure_clean_worktree() -> None:
+    result = run(["git", "status", "--porcelain"], check=True)
+    if result.stdout.strip():
+        print("ERROR: Working tree is not clean. Commit or stash first.")
+        raise SystemExit(1)
+
+
+def run_python_script(script: str, *args: str) -> None:
+    result = run([sys.executable, str(ROOT / "scripts" / script), *args])
+    print_output(result)
+    if result.returncode != 0:
+        raise SystemExit(result.returncode)
 
 
 def main() -> int:
-    base_ref = sys.argv[1] if len(sys.argv) > 1 else "origin/main"
+    ensure_clean_worktree()
 
-    if has_uncommitted_changes():
-        print("ERROR: Working tree is not clean. Commit or stash first.")
-        return 1
-
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
+    branch = current_branch()
     if branch == "main":
         print("ERROR: Current branch is 'main'.")
         print("This sync helper is for feature/PR branches only.")
         print("If you are already on main, run a normal pull/check flow instead.")
         return 1
 
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
     print("Fetching latest refs...")
-    run(["git", "fetch", "origin"], check=True)
+    fetch = run(["git", "fetch", "origin"])
+    print_output(fetch)
+    if fetch.returncode != 0:
+        return fetch.returncode
 
-    print(f"Merging {base_ref} into current branch (no auto-commit)...")
-    merge_proc = run(["git", "merge", "--no-commit", "--no-ff", base_ref], check=False)
-    if merge_proc.returncode != 0:
+    print(f"Merging {BASE_REF} into current branch (no auto-commit)...")
+    merge = run(["git", "merge", "--no-commit", "--no-ff", BASE_REF])
+    print_output(merge)
+
+    if merge.returncode != 0:
         print("Merge reported conflicts. Attempting docs hotspot auto-resolution...")
-        run([sys.executable, "scripts/resolve_docs_conflicts.py"], check=False)
+        run_python_script("resolve_docs_conflicts.py")
 
-    remaining = unresolved_files()
-    if remaining:
+    remaining = run(["git", "diff", "--name-only", "--diff-filter=U"], check=True)
+    unresolved = [line.strip() for line in remaining.stdout.splitlines() if line.strip()]
+    if unresolved:
         print("ERROR: Some conflicts remain. Resolve manually, then run:")
         print(f"  {sys.executable} scripts/docs_conflict_guard.py")
-        print("  bash scripts/verne_smoke_checks.sh   # or Git Bash equivalent")
+        print(f"  {sys.executable} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json")
         return 1
 
-    run_smoke_checks()
+    print("Running conflict guard and smoke checks...")
+    run_python_script("docs_conflict_guard.py")
+    run_python_script("verne_checklist_audit.py")
+    run_python_script("checklist_link_audit.py")
+    run_python_script("country_smoke_runner.py", "--profile", "automation/country_profiles/verne.json")
 
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-=======
-    branch = run(["git", "branch", "--show-current"], check=True).stdout.strip()
->>>>>>> theirs
-    msg = f"Merge {base_ref} into {branch} with docs guard automation"
+    if not has_merge_head():
+        print("Already up to date. No merge commit needed.")
+        return 0
+
     print("Creating merge commit...")
-    run(["git", "commit", "-m", msg], check=True)
+    commit = run(
+        ["git", "commit", "-m", f"Merge {BASE_REF} into {branch} with docs guard automation"]
+    )
+    print_output(commit)
+    if commit.returncode != 0:
+        return commit.returncode
 
     print("Done. Push your branch to update the existing PR.")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    sys.exit(main())

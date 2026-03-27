@@ -1,6 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$markers = @("<<<<<<<", "=======", ">>>>>>>")
 
 $hotspotFiles = @(
     "docs/README.md",
@@ -33,11 +34,10 @@ $headingSingletonRules = @{
     )
     "docs/wiki/checklist-automation-system.md" = @(
         "## Automation commands",
-        "## Merge-conflict prevention (docs hotspots)"
+        "## Merge-conflict prevention",
+        "## Feature-branch sync"
     )
 }
-
-$failed = $false
 
 function Get-RelativeRepoPath {
     param(
@@ -52,14 +52,45 @@ function Get-RelativeRepoPath {
     return $FullPath.Replace('\', '/')
 }
 
-$allDocs = Get-ChildItem -Path (Join-Path $repoRoot "docs") -Recurse -Filter *.md
-foreach ($doc in $allDocs) {
-    $relDocPath = Get-RelativeRepoPath -Root $repoRoot -FullPath $doc.FullName
-    $text = Get-Content $doc.FullName -Raw -Encoding UTF8
+function Get-GuardFiles {
+    $files = New-Object System.Collections.Generic.HashSet[string]([System.StringComparer]::OrdinalIgnoreCase)
 
-    foreach ($marker in @("<<<<<<<", "=======", ">>>>>>>")) {
+    foreach ($doc in Get-ChildItem -Path (Join-Path $repoRoot "docs") -Recurse -Filter *.md) {
+        [void]$files.Add($doc.FullName)
+    }
+
+    foreach ($pattern in @("*.py", "*.ps1", "*.sh")) {
+        foreach ($script in Get-ChildItem -Path (Join-Path $repoRoot "scripts") -Filter $pattern) {
+            [void]$files.Add($script.FullName)
+        }
+    }
+
+    $workflowRoot = Join-Path $repoRoot ".github\workflows"
+    if (Test-Path $workflowRoot) {
+        foreach ($pattern in @("*.yml", "*.yaml")) {
+            foreach ($workflow in Get-ChildItem -Path $workflowRoot -Filter $pattern) {
+                [void]$files.Add($workflow.FullName)
+            }
+        }
+    }
+
+    [void]$files.Add((Join-Path $repoRoot ".gitattributes"))
+    return @($files)
+}
+
+$failed = $false
+
+foreach ($path in Get-GuardFiles) {
+    if (-not (Test-Path $path)) {
+        continue
+    }
+
+    $relPath = Get-RelativeRepoPath -Root $repoRoot -FullPath $path
+    $text = Get-Content $path -Raw -Encoding UTF8
+
+    foreach ($marker in $markers) {
         if ($text -match "(?m)^$([regex]::Escape($marker))") {
-            Write-Output "ERROR: merge conflict marker '$marker' found in $relDocPath"
+            Write-Output "ERROR: merge conflict marker '$marker' found in $relPath"
             $failed = $true
         }
     }
@@ -89,10 +120,10 @@ foreach ($relPath in $hotspotFiles) {
 if ($failed) {
     Write-Output ""
     Write-Output "How to fix quickly:"
-    Write-Output "1) Keep both sides only when both add unique content."
-    Write-Output "2) Remove duplicate repeated sections in docs index files."
-    Write-Output "3) Re-run: powershell -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1"
-    exit 1
+    Write-Output "1) Remove leftover conflict markers first."
+    Write-Output "2) Keep docs hub headings unique in hotspot files."
+    Write-Output "3) Re-run: powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1"
+    throw "Docs/automation conflict guard failed."
 }
 
-Write-Output "Docs conflict guard passed."
+Write-Output "Docs/automation conflict guard passed."

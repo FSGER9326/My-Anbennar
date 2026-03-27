@@ -32,6 +32,11 @@ function Invoke-GitCommand {
     }
 }
 
+function Test-MergeHead {
+    $result = Invoke-GitCommand -Arguments @("rev-parse", "-q", "--verify", "MERGE_HEAD")
+    return ($result.Code -eq 0)
+}
+
 $statusCheck = Invoke-GitCommand -Arguments @("status", "--porcelain")
 if (-not [string]::IsNullOrWhiteSpace($statusCheck.Output)) {
     Write-Output "ERROR: Working tree is not clean. Commit or stash first."
@@ -68,16 +73,19 @@ $remainingCheck = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-
 $remaining = $remainingCheck.Output
 if (-not [string]::IsNullOrWhiteSpace($remaining)) {
     Write-Output "ERROR: Some conflicts remain. Resolve manually, then run:"
-    Write-Output "  powershell -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1"
-    Write-Output "  powershell -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1"
+    Write-Output "  powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1"
+    Write-Output "  powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1"
     exit 1
 }
 
 Write-Output "Running conflict guard and smoke checks..."
 & (Join-Path $PSScriptRoot "docs_conflict_guard.ps1")
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 & (Join-Path $PSScriptRoot "verne_smoke_checks.ps1")
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+if (-not (Test-MergeHead)) {
+    Write-Output "Already up to date. No merge commit needed."
+    exit 0
+}
 
 Write-Output "Creating merge commit..."
 $commit = Invoke-GitCommand -Arguments @("commit", "-m", "Merge $BaseRef into $branch with docs guard automation")

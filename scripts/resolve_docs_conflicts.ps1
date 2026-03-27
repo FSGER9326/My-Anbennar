@@ -3,7 +3,11 @@ if (Get-Variable PSNativeCommandUseErrorActionPreference -ErrorAction SilentlyCo
     $PSNativeCommandUseErrorActionPreference = $false
 }
 
+$repoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+Set-Location $repoRoot
+
 $hotspots = @(
+    ".gitattributes",
     "docs/README.md",
     "docs/start-here.md",
     "docs/implementation-crosswalk.md",
@@ -15,6 +19,32 @@ $hotspots = @(
     "docs/repo-maps/anbennar-systems-scan-roadmap.md",
     "docs/wiki/checklist-automation-system.md"
 )
+
+$canonicalGitattributes = @'
+# Normalize repository text files consistently.
+* text=auto
+
+# Keep docs, automation, and workflow files on LF so merges stay predictable
+# across desktop Codex, cloud Codex, GitHub, and local Windows tooling.
+.gitattributes text eol=lf
+automation/** text eol=lf
+docs/** text eol=lf
+scripts/** text eol=lf
+.github/workflows/** text eol=lf
+
+# Prefer additive auto-merge in documentation hotspot files to reduce manual
+# conflict resolution in shared indexes and hub docs.
+docs/README.md merge=union
+docs/start-here.md merge=union
+docs/implementation-crosswalk.md merge=union
+docs/references/README.md merge=union
+docs/references/reference-index.md merge=union
+docs/repo-maps/README.md merge=union
+docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md merge=union
+docs/repo-maps/anbennar-systems-master-index.md merge=union
+docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
+docs/wiki/checklist-automation-system.md merge=union
+'@
 
 function Invoke-Git {
     param(
@@ -100,6 +130,12 @@ function Resolve-File {
         [Parameter(Mandatory = $true)][string]$Path
     )
 
+    if ($Path -eq ".gitattributes") {
+        Write-Utf8NoBom -Path (Join-Path $repoRoot $Path) -Content $canonicalGitattributes
+        $add = Invoke-Git -Arguments @("add", $Path)
+        return ($add.Code -eq 0)
+    }
+
     $ours = Get-StageText -Path $Path -Stage 2
     $theirs = Get-StageText -Path $Path -Stage 3
     if ([string]::IsNullOrEmpty($ours) -and [string]::IsNullOrEmpty($theirs)) {
@@ -107,7 +143,7 @@ function Resolve-File {
     }
 
     $merged = Dedupe-ConsecutiveLines -Text (($ours.TrimEnd("`r", "`n")) + "`n`n" + ($theirs.TrimEnd("`r", "`n")) + "`n")
-    Write-Utf8NoBom -Path $Path -Content $merged
+    Write-Utf8NoBom -Path (Join-Path $repoRoot $Path) -Content $merged
 
     $add = Invoke-Git -Arguments @("add", $Path)
     return ($add.Code -eq 0)
@@ -116,7 +152,7 @@ function Resolve-File {
 $unmerged = Get-UnmergedFiles
 if ($unmerged.Count -eq 0) {
     Write-Output "No unmerged files found."
-    exit 0
+    return
 }
 
 $target = @($unmerged | Where-Object { $hotspots -contains $_ })
@@ -149,7 +185,7 @@ if ($remaining.Count -gt 0) {
     foreach ($file in $remaining) {
         Write-Output "- $file"
     }
-    exit 1
+    throw "Some merge conflicts remain after hotspot auto-resolution."
 }
 
-Write-Output "All conflicts resolved."
+Write-Output "All hotspot conflicts resolved."

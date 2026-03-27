@@ -1,86 +1,23 @@
-# Auto detect text files and perform LF normalization
+# Normalize repository text files consistently.
 * text=auto
 
-# Prefer additive auto-merge in docs index hotspots to reduce manual conflicts.
+# Keep docs, automation, and workflow files on LF so merges stay predictable
+# across desktop Codex, cloud Codex, GitHub, and local Windows tooling.
+.gitattributes text eol=lf
+automation/** text eol=lf
+docs/** text eol=lf
+scripts/** text eol=lf
+.github/workflows/** text eol=lf
+
+# Prefer additive auto-merge in documentation hotspot files to reduce manual
+# conflict resolution in shared indexes and hub docs.
 docs/README.md merge=union
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
 docs/start-here.md merge=union
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
 docs/implementation-crosswalk.md merge=union
 docs/references/README.md merge=union
 docs/references/reference-index.md merge=union
 docs/repo-maps/README.md merge=union
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
 docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md merge=union
 docs/repo-maps/anbennar-systems-master-index.md merge=union
 docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
 docs/wiki/checklist-automation-system.md merge=union
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs
-=======
-docs/repo-maps/anbennar-systems-master-index.md merge=union
-docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
->>>>>>> theirs

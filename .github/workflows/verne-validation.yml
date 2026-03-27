@@ -1,85 +1,64 @@
-name: Verne Overhaul Validation
+name: Verne Automation Validation
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'My-Anbennar/common/**'
-      - 'My-Anbennar/events/**'
-      - 'My-Anbennar/decisions/**'
-      - 'My-Anbennar/missions/**'
+      - ".gitattributes"
+      - ".github/workflows/verne-validation.yml"
+      - "automation/**"
+      - "common/**"
+      - "decisions/**"
+      - "docs/**"
+      - "events/**"
+      - "missions/**"
+      - "scripts/**"
   pull_request:
-    branches: [ main ]
+    branches: [main]
+    paths:
+      - ".gitattributes"
+      - ".github/workflows/verne-validation.yml"
+      - "automation/**"
+      - "common/**"
+      - "decisions/**"
+      - "docs/**"
+      - "events/**"
+      - "missions/**"
+      - "scripts/**"
 
 jobs:
-  validate:
+  validate-python-and-bash:
     runs-on: ubuntu-latest
-    name: Validate EU4 Mod Files
-    
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: Check file structure
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ripgrep
+        run: sudo apt-get update && sudo apt-get install -y ripgrep
+
+      - name: Compile Python scripts
+        run: python -m py_compile scripts/*.py
+
+      - name: Run Python automation checks
         run: |
-          echo "=== Verne Overhaul File Structure Check ===" 
-          echo ""
-          echo "Checking key directories exist..."
-          
-          directories=(
-            "My-Anbennar/common/ideas"
-            "My-Anbennar/common/government_reforms"
-            "My-Anbennar/common/great_projects"
-            "My-Anbennar/common/mercenary_companies"
-            "My-Anbennar/common/policies"
-            "My-Anbennar/events"
-            "My-Anbennar/decisions"
-            "My-Anbennar/missions"
-            "My-Anbennar/localisation"
-          )
-          
-          for dir in "${directories[@]}"; do
-            if [ -d "$dir" ]; then
-              count=$(find "$dir" -type f | wc -l)
-              echo "✓ $dir ($count files)"
-            else
-              echo "○ $dir"
-            fi
-          done
-      
-      - name: Validate EU4 script syntax
-        run: |
-          echo ""
-          echo "=== Basic EU4 Syntax Validation ==="
-          echo ""
-          echo "Checking for syntax issues..."
-          
-          errors=0
-          for file in My-Anbennar/common/**/*.txt My-Anbennar/events/**/*.txt My-Anbennar/decisions/**/*.txt; do
-            if [ -f "$file" ]; then
-              open_braces=$(grep -o '{' "$file" 2>/dev/null | wc -l)
-              close_braces=$(grep -o '}' "$file" 2>/dev/null | wc -l)
-              
-              if [ "$open_braces" -ne "$close_braces" ]; then
-                echo "⚠ $file - Brace mismatch"
-                ((errors++))
-              fi
-            fi
-          done
-          
-          if [ $errors -eq 0 ]; then
-            echo "✓ No obvious syntax errors found"
-          fi
-      
-      - name: Generate summary report
-        run: |
-          echo ""
-          echo "╔════════════════════════════════════════╗"
-          echo "║  VERNE OVERHAUL VALIDATION COMPLETE   ║"
-          echo "╚════════════════════════════════════════╝"
-          echo ""
-          echo "Repository: My-Anbennar"
-          echo "Validation Date: $(date)"
-          echo ""
-          echo "✓ Workflow executed successfully"
-          echo ""
+          python scripts/docs_conflict_guard.py
+          python scripts/checklist_link_audit.py
+          python scripts/verne_checklist_audit.py
+          python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json
+
+      - name: Run Bash smoke checks
+        run: bash scripts/verne_smoke_checks.sh
+
+  validate-powershell:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run PowerShell smoke checks
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1

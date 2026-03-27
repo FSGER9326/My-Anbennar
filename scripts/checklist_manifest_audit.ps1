@@ -31,14 +31,14 @@ function Get-RelativeRepoPath {
 
 if (-not (Test-Path $manifestPath)) {
     Write-Output "ERROR: missing manifest: $manifestPath"
-    exit 1
+    throw "Checklist manifest audit failed."
 }
 
 $data = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $items = @($data.items)
 if ($items.Count -eq 0) {
     Write-Output "ERROR: manifest has no items"
-    exit 1
+    throw "Checklist manifest audit failed."
 }
 
 $indexFiles = @()
@@ -114,7 +114,7 @@ if ($errors.Count -gt 0) {
     foreach ($error in $errors) {
         Write-Output " - $error"
     }
-    exit 1
+    throw "Checklist manifest audit failed."
 }
 
 $active = @($items | Where-Object { $_.status -eq "active" }).Count

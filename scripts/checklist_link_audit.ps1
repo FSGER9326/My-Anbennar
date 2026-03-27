@@ -49,7 +49,7 @@ if ($errors.Count -gt 0) {
     foreach ($error in $errors) {
         Write-Output " - $error"
     }
-    exit 1
+    throw "Checklist link audit failed."
 }
 
 Write-Output "Checklist link audit passed: $checked local markdown links checked."

@@ -1,141 +1,133 @@
-# Checklist Automation System (Plain-Language)
+# Checklist Automation System
 
-Goal: make checklists executable, not just readable.
+Goal: make the repo safer to update without needing to remember a pile of manual steps.
 
-## What this system does
+## What this system covers
 
-Instead of relying only on markdown instructions, we now keep a machine-readable manifest:
+- smoke checks for the active Verne implementation layer
+- checklist manifest audits for repo-map tracking
+- markdown link audits for internal docs
+- conflict-marker detection in docs, scripts, workflows, and `.gitattributes`
+- feature-branch sync helpers for updating an open PR branch with `main`
+- theorycraft scaffold generation for future country projects
 
-- `docs/repo-maps/checklist-status-manifest.json`
+## Safest everyday command
 
-Each item records flags:
+If you only run one thing before pushing docs or Verne changes, run:
 
-- `scanned`
-- `mapped`
-- `verified`
-- plus `status` and automation mode.
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
+- Bash: `bash scripts/verne_smoke_checks.sh`
+
+This now runs:
+
+1. the Verne JSON smoke profile
+2. the checklist status audit
+3. the markdown link audit
+4. the docs + automation conflict guard
 
 ## Automation commands
 
-Run from repo root:
+### Verne smoke checks
 
-1. `./scripts/verne_smoke_checks.sh`
-   - fast wiring/ID/index checks
-   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
-2. `./scripts/verne_checklist_audit.py`
-   - validates manifest structure + file existence + index consistency
-   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\verne_checklist_audit.ps1`
-3. `./scripts/checklist_manifest_audit.py --manifest <path>`
-   - generic audit command for non-Verne country manifests
-   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\checklist_manifest_audit.ps1 -Manifest <path>`
-4. `./scripts/checklist_link_audit.py`
-   - verifies local markdown checklist/workflow links are not broken
-   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\checklist_link_audit.ps1`
-5. PR/main sync helpers
-   - Python: `python scripts/auto_sync_pr_with_main.py`
-   - Bash: `./scripts/auto_sync_pr_with_main.sh`
-   - PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
-   - purpose: fetch `origin/main`, attempt conflict-safe merge into the current feature branch, auto-resolve docs hotspots, then run guards/checks
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
+- Bash: `bash scripts/verne_smoke_checks.sh`
 
-`verne_smoke_checks.sh` now calls the checklist audit script automatically.
-`verne_smoke_checks.ps1` does the same for the Windows/PowerShell workflow.
-2. `./scripts/verne_checklist_audit.py`
-   - validates manifest structure + file existence + index consistency
-3. `./scripts/checklist_manifest_audit.py --manifest <path>`
-   - generic audit command for non-Verne country manifests
-4. `./scripts/checklist_link_audit.py`
-   - verifies local markdown checklist/workflow links are not broken
-5. `python scripts/auto_sync_pr_with_main.py`
-   - cross-platform sync helper (Windows/macOS/Linux) for merging `origin/main`, auto-resolving docs hotspots, and running guards
-6. `./scripts/auto_sync_pr_with_main.sh`
-   - shell version of the same flow (useful in bash environments)
+Use this for the normal “did I break the tracked Verne layer?” check.
 
-`verne_smoke_checks.sh` now calls the checklist audit script automatically.
+### Generic country smoke profile
 
-## Why this helps
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\country_smoke_runner.ps1 -Profile automation/country_profiles/verne.json`
+- Python: `python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json`
 
-- prevents checklist drift,
-- gives clear active/verified state per tracked item,
-- makes AI/human sessions easier to hand off safely.
+Use this when you want to run a specific profile directly instead of the full Verne smoke bundle.
 
-## Workflow rule
+### Checklist manifest audit
 
-When adding a new Verne repo-map/checklist item:
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_checklist_audit.ps1`
+- Python: `python scripts/verne_checklist_audit.py`
 
-1. add the markdown file,
-2. register in the 3 repo-map index files,
-3. add/update manifest entry with flags,
-4. run `./scripts/verne_smoke_checks.sh`.
+Generic version:
 
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\checklist_manifest_audit.ps1 -Manifest <path>`
+- Python: `python scripts/checklist_manifest_audit.py --manifest <path>`
 
-## Reuse for another country
+### Markdown link audit
 
-Create a starter pack with:
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\checklist_link_audit.ps1`
+- Python: `python scripts/checklist_link_audit.py`
 
-- `./scripts/new_country_scaffold.sh <country-slug> <TAG>`
+### Conflict guard
 
-This creates a theorycrafting folder with plan + manifest templates so you can move from theorycrafting to implementation without rebuilding process from scratch.
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1`
+- Python: `python scripts/docs_conflict_guard.py`
 
+This now checks more than docs. It scans:
 
-## How "keep working" decides next task
+- `docs/**/*.md`
+- `scripts/*.py`
+- `scripts/*.ps1`
+- `scripts/*.sh`
+- `.github/workflows/*`
+- `.gitattributes`
 
-When told to keep working by playbook:
+It also checks that key docs hub headings only appear once in hotspot files.
 
-1. run automation checks,
-2. find the highest-priority item still incomplete (manifest/roadmap),
-3. ship one safe slice,
-4. rerun checks and report what changed + why it matters.
+### New country scaffold
 
-This keeps progress iterative (high quantity) while preserving safety (high quality).
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\new_country_scaffold.ps1 -Slug <country-slug> -Tag <TAG>`
+- Bash: `bash scripts/new_country_scaffold.sh <country-slug> <TAG>`
 
-## Merge-conflict prevention (docs hotspots)
+Use this to start a new theorycrafting folder without rebuilding the checklist structure by hand.
 
-To reduce repeated merge conflicts in docs index files:
+## Merge-conflict prevention
 
-1. `.gitattributes` uses `merge=union` for known hotspot files (docs hubs/indexes).
-2. `./scripts/docs_conflict_guard.py` checks for leftover conflict markers and accidental duplicated section headings.
-3. `./scripts/verne_smoke_checks.sh` runs this guard automatically.
-4. `.\scripts\docs_conflict_guard.ps1` and `.\scripts\verne_smoke_checks.ps1` provide the same checks for Windows/PowerShell use.
+The repo now uses a few layers together:
 
-This does **not** remove all conflicts, but it catches common failure cases before PR merge.
+1. `.gitattributes` uses `merge=union` for shared docs hub files that are prone to concurrent edits.
+2. `resolve_docs_conflicts.*` can auto-resolve a small hotspot list when you merge `main` into a PR branch.
+3. `docs_conflict_guard.*` catches leftover conflict markers and duplicate hotspot headings before you push.
+4. `verne_smoke_checks.*` runs the guard automatically as part of the normal smoke flow.
 
-## Fastest conflict-safe update flow (existing PR branch)
+Important limitation:
 
-Use this when GitHub shows merge conflicts on your open PR branch:
+- auto-resolution is only meant for known docs hotspots and `.gitattributes`
+- real content conflicts in gameplay files still need a human decision
 
-1. run one sync helper:
-   - `python scripts/auto_sync_pr_with_main.py`
-   - or `./scripts/auto_sync_pr_with_main.sh`
-   - or `powershell -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
-2. if it reports remaining manual conflicts, resolve only those files and rerun:
-   - `./scripts/docs_conflict_guard.py`
-   - `./scripts/verne_smoke_checks.sh`
-   - PowerShell:
-     - `powershell -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1`
-     - `powershell -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
+## Feature-branch sync
 
-This does **not** remove all conflicts, but it catches common failure cases before PR merge.
+Use this when GitHub says your open PR branch is behind `main` or has merge conflicts.
 
-### Fastest conflict-safe update flow (existing PR)
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
+- Python: `python scripts/auto_sync_pr_with_main.py`
+- Bash: `bash scripts/auto_sync_pr_with_main.sh`
 
-Use this when GitHub shows merge conflicts on your open PR:
+What the sync helper does:
 
-1. `python scripts/auto_sync_pr_with_main.py` (recommended cross-platform)
-   - or `./scripts/auto_sync_pr_with_main.sh` in bash
-2. if it reports remaining manual conflicts, resolve only those files and rerun:
-   - `./scripts/docs_conflict_guard.py`
-   - `./scripts/verne_smoke_checks.sh`
-3. `git push`
-
-You do **not** need a new PR if you are pushing to the same branch.
+1. refuses to run if your working tree is dirty
+2. refuses to run on `main`
+3. fetches `origin`
+4. merges `origin/main` into your current feature branch without auto-committing first
+5. tries hotspot auto-resolution if the merge conflicts
+6. runs the guard + smoke checks
+7. creates the merge commit if there is actually something to commit
 
 ## Main branch note
 
-- If you are already on `main`, do **not** use the PR sync helpers.
-- On `main`, use a normal `git pull`, run checks, then `git push`.
-- The PR sync helpers are only for feature branches that already have, or will have, a PR.
+Do **not** use the PR sync helpers while already on `main`.
 
-### PowerShell note (Windows)
+On `main`, use the simpler flow:
 
-If you are in PowerShell, `.sh` files are not executed directly.
-Use `python scripts/auto_sync_pr_with_main.py` instead.
+1. `git pull`
+2. run the smoke checks
+3. `git push`
+
+## Obvious blindspots this fixes
+
+These were the easiest ways the old automation could still fail:
+
+- broken Python helper files passing unnoticed because the guard only scanned docs
+- workflow paths pointing at `My-Anbennar/...` even though the repo root is already `My-Anbennar`
+- shell scripts depending on executable bits instead of calling `python`/`bash` explicitly
+- missing Windows-native scaffold/profile entrypoints
+- sync helpers trying to create a merge commit even when already up to date
+- duplicated smoke logic drifting across multiple scripts instead of using the JSON profile as the source of truth
