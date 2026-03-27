@@ -123,6 +123,18 @@ Checks for common event scripting mistakes:
 
 Use this to start a new theorycrafting folder without rebuilding the checklist structure by hand.
 
+### Scaffolded per-country smoke profile workflow
+
+When you scaffold a new country (`new_country_scaffold.sh` or `new_country_scaffold.ps1`), automation now also creates `automation/country_profiles/<slug>.json` from a template.
+
+Quick follow-up workflow:
+
+1. Open the new profile and replace `TODO_REGEX_REQUIRED` / `TODO_REGEX_FORBIDDEN` with checks for your country files.
+2. Run: `python scripts/country_smoke_runner.py --profile automation/country_profiles/<slug>.json`.
+3. Run: `python scripts/checklist_manifest_audit.py --manifest docs/theorycrafting/<slug>/checklist-status-manifest.json ...`.
+
+This gives each country an immediate smoke-check entrypoint instead of waiting until later docs-only setup.
+
 ## Merge-conflict prevention
 
 The repo now uses a few layers together:

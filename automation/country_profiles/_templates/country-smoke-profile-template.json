@@ -1,0 +1,27 @@
+{
+  "_comment": "Template profile copied by scripts/new_country_scaffold.*. Placeholders are auto-replaced.",
+  "name": "<country>",
+  "_comment_require": "Each require_patterns item passes when its regex appears in at least one listed file.",
+  "require_patterns": [
+    {
+      "description": "TODO: required country anchor exists",
+      "pattern": "TODO_REGEX_REQUIRED",
+      "paths": [
+        "common/country_tags/00_countries.txt",
+        "common/countries/<TAG> - <country>.txt"
+      ]
+    }
+  ],
+  "_comment_forbid": "Each forbid_patterns item fails when its regex appears in any listed file.",
+  "forbid_patterns": [
+    {
+      "description": "TODO: no temporary scaffold placeholders remain",
+      "pattern": "TODO_REGEX_FORBIDDEN",
+      "paths": [
+        "<country_plan_path>",
+        "<country_manifest_path>",
+        "<country_readme_path>"
+      ]
+    }
+  ]
+}
