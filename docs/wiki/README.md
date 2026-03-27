@@ -16,6 +16,39 @@ Use it to track:
 - [high-value-non-modding-eu4-wiki-topics.md](./high-value-non-modding-eu4-wiki-topics.md)
 - [noob-friendly-doc-naming-convention.md](./noob-friendly-doc-naming-convention.md)
 - [generalized-modding-lifecycle-playbook.md](./generalized-modding-lifecycle-playbook.md)
+- [fluff-and-art-production-playbook.md](./fluff-and-art-production-playbook.md)
+- [checklist-automation-system.md](./checklist-automation-system.md)
+
+
+## Current priority order (when unsure)
+
+1. **Grounding first**: confirm repo-map anchor coverage for the exact target.
+2. **Plan second**: define `v0.1` scope + touched-file list + smoke checks.
+3. **Implement third**: one thin slice at a time.
+4. **Theory-craft only when blocked**: design discussion should unblock concrete implementation decisions.
+5. **Naming/structure cleanup last**: doc organization cleanups should not block active mechanic work.
+
+This ordering is intentional: correctness and momentum first, large-scale doc polish second.
+
+
+## Session-output standard (for every work session)
+
+End each session with:
+
+1. **What changed** (files and features)
+2. **Why it matters** (gameplay/maintenance impact)
+3. **Risk notes** (what could break)
+4. **Checks run** (exact commands)
+
+Minimum automation check for Verne work:
+- `./scripts/verne_smoke_checks.sh`
+- `./scripts/verne_checklist_audit.py`
+- `./scripts/checklist_link_audit.py`
+
+Generic scaling command for a new country workflow:
+- `./scripts/new_country_scaffold.sh <country-slug> <TAG>`
+
+This keeps collaboration understandable for contributors who did not write the change.
 
 ## Rule for future sessions
 

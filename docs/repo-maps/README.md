@@ -52,6 +52,9 @@ System and case-study references:
 - [diplomatic-actions-layer-base-vs-anbennar-reference.md](./diplomatic-actions-layer-base-vs-anbennar-reference.md)
 - [government-mechanics-library-base-vs-anbennar-reference.md](./government-mechanics-library-base-vs-anbennar-reference.md)
 - [automated-grep-checklists-by-mechanic-family.md](./automated-grep-checklists-by-mechanic-family.md)
+- [verne-monument-object-id-parity-check-reference.md](./verne-monument-object-id-parity-check-reference.md)
+- [verne-adventure-chain-mission-event-localization-parity-reference.md](./verne-adventure-chain-mission-event-localization-parity-reference.md)
+- [verne-cross-nation-mission-interaction-watchlist.md](./verne-cross-nation-mission-interaction-watchlist.md)
 
 Suggested reading order:
 

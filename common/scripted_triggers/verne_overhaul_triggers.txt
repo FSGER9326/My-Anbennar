@@ -1,0 +1,44 @@
+# Verne Overhaul - reusable scripted triggers
+# Purpose: provide human-readable checks for common Verne progression states.
+
+verne_overhaul_is_verne_or_subject = {
+	OR = {
+		is_or_was_tag = { tag = A33 }
+		overlord = { is_or_was_tag = { tag = A33 } }
+	}
+}
+
+verne_overhaul_has_adventure_network_started = {
+	OR = {
+		has_country_flag = verne_unlock_port_of_adventure_button
+		has_country_modifier = verne_network_of_adventure_tier_1
+	}
+}
+
+verne_overhaul_laments_regatta_anchor_state_ready = {
+	5763 = {
+		has_province_modifier = verne_port_of_adventure
+		has_great_project = {
+			type = kazakesh
+			tier = 3
+		}
+	}
+	383 = {
+		has_great_project = {
+			type = aur_kes_akasik
+			tier = 3
+		}
+	}
+}
+
+
+verne_overhaul_akasik_access_ready = {
+	akasik_region = {
+		type = all
+		OR = {
+			owned_by = ROOT
+			owned_by = A47
+			owner = { NOT = { liberty_desire = 10 } }
+		}
+	}
+}

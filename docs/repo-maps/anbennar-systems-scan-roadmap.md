@@ -211,6 +211,9 @@ Already documented:
 - [government-mechanics-library-base-vs-anbennar-reference.md](./government-mechanics-library-base-vs-anbennar-reference.md)
 - [automated-grep-checklists-by-mechanic-family.md](./automated-grep-checklists-by-mechanic-family.md)
 - [repo-rescan-playbook.md](./repo-rescan-playbook.md)
+- [verne-monument-object-id-parity-check-reference.md](./verne-monument-object-id-parity-check-reference.md)
+- [verne-adventure-chain-mission-event-localization-parity-reference.md](./verne-adventure-chain-mission-event-localization-parity-reference.md)
+- [verne-cross-nation-mission-interaction-watchlist.md](./verne-cross-nation-mission-interaction-watchlist.md)
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
@@ -222,6 +225,10 @@ Best next articles:
 
 1. Race- and religion-specific framework comparison matrix
 2. Artificery-magic crossover and nation-specific invention usage
+3. Neighbor-mission coupling audit expansion (all Western Cannor tags touching Verne)
+4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
+5. Add object-ID-level appendices to the new deep-diff references
+6. Build quick smoke-test scripts for high-risk IDs in each family
 3. Verne monument object-ID parity check for design names
 4. Full reform-to-mechanic exhaustive matrix (all custom IDs)
 5. Add object-ID-level appendices to the new deep-diff references
@@ -259,6 +266,9 @@ Recently completed in this pass:
 - [government-mechanics-library-base-vs-anbennar-reference.md](./government-mechanics-library-base-vs-anbennar-reference.md)
 - [automated-grep-checklists-by-mechanic-family.md](./automated-grep-checklists-by-mechanic-family.md)
 - [repo-rescan-playbook.md](./repo-rescan-playbook.md)
+- [verne-monument-object-id-parity-check-reference.md](./verne-monument-object-id-parity-check-reference.md)
+- [verne-adventure-chain-mission-event-localization-parity-reference.md](./verne-adventure-chain-mission-event-localization-parity-reference.md)
+- [verne-cross-nation-mission-interaction-watchlist.md](./verne-cross-nation-mission-interaction-watchlist.md)
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)
 
 - [government-mechanic-activation-map-by-reform-reference.md](./government-mechanic-activation-map-by-reform-reference.md)

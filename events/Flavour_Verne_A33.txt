@@ -638,7 +638,7 @@ country_event = { #The Blood of a Rider - E4
 			custom_tooltip = verne_alvar_IV_condition_yes
 			define_heir = {
 				name = "Cela"
-				dynasty = "síl Verne"
+				dynasty = "sÃ­l Verne"
 				female = yes
 				adm = 2
 				dip = 4
@@ -653,7 +653,7 @@ country_event = { #The Blood of a Rider - E4
 			tooltip = {
 				define_heir = {
 					name = "Cela"
-					dynasty = "Síl Verne"
+					dynasty = "SÃ­l Verne"
 					female = yes
 					adm = 2
 					dip = 4
@@ -856,7 +856,7 @@ country_event = { #A Vernman Union - D5
 					adm = 5
 					dip = 2
 					mil = 3
-					dynasty = "síl Verne"
+					dynasty = "sÃ­l Verne"
 					culture = tefori
 				}
 			}
@@ -1282,6 +1282,11 @@ country_event = { #Incendiary Nebulizers
 	}
 }
 
+# Commentary (plain-language):
+# - verne.123 -> verne.126 is one story+mechanic chain in base Anbennar's existing Verne content.
+# - It starts with the Regatta narrative, then applies expedition risks/costs, then performs the actual monument transfer state.
+# - Region context: expedition logic runs through Sarhal anchors (New Hookfield 5763 and Akasik 383) and pays off in Verne core at Stingport 376.
+# - Nation identity + lore effect: Verne's adventurous maritime culture is translated into a permanent home-region prestige symbol.
 country_event = { #The Lament's Regatta - B10
 	id = verne.123
 	title = verne.123.t
@@ -1384,6 +1389,11 @@ country_event = { #Report from New Hookfield
 		}
 	}
 }
+# Commentary (plain-language):
+# - This is the exact mechanical swap step.
+# - Script action: remove Kazakesh at New Hookfield (province 5763, Sarhal), set progress flags, add Kazakesh_Stingport at Stingport (province 376, Cannor-side Verne core).
+# - Why this matters for Verne: the overseas expedition arc becomes a concrete homeland power/identity marker.
+# - Lore-fit note: symbolic relocation of a legendary spire supports Verne's "bring world wonders home" narrative.
 country_event = { #The Wyvern's Sting
 	id = verne.126
 	title = verne.126.t
@@ -1395,23 +1405,8 @@ country_event = { #The Wyvern's Sting
 	option = {
 		name = verne.126.a
 		ai_chance = { factor = 1 }
-		5763 = {
-			destroy_great_project = {
-				type = kazakesh
-			}
-			change_trade_goods = tropical_wood
-			set_province_flag = verne_moved_this_spire
-		}
-		hide_ambient_object = LF_Spire_F_1
-		show_ambient_object = LF_Spire_stolen
-		set_country_flag = verne_moved_spire
-		376 = {
-			add_great_project = {
-				type = kazakesh_stingport
-				instant = yes
-			}
-			change_trade_goods = precursor_relics
-		}
+		# Commentary: call shared helper so monument-swap logic is defined once.
+		verne_overhaul_apply_regatta_spire_swap = yes
 		hidden_effect = {
 			country_event = {
 				id = verne.127
