@@ -7,6 +7,7 @@ $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $base = Join-Path $repoRoot ("docs/theorycrafting/" + $Slug)
+$profileDirectory = Join-Path $repoRoot "automation/country_profiles"
 $profilePath = Join-Path $repoRoot ("automation/country_profiles/" + $Slug + ".json")
 
 function Get-DisplayName {
@@ -17,6 +18,7 @@ function Get-DisplayName {
 
 $displayName = Get-DisplayName -Value $Slug
 New-Item -ItemType Directory -Force -Path $base | Out-Null
+New-Item -ItemType Directory -Force -Path $profileDirectory | Out-Null
 
 $planTemplate = Join-Path $repoRoot "docs/theorycrafting/_templates/country-overhaul-plan-template.md"
 $manifestTemplate = Join-Path $repoRoot "docs/theorycrafting/_templates/country-checklist-status-manifest-template.json"

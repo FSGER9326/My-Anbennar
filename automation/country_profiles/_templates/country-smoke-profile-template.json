@@ -12,6 +12,20 @@
       ]
     }
   ],
+  "_comment_require_all": "Optional: use require_all_patterns when every helper/checkpoint regex listed must exist somewhere in the listed paths.",
+  "require_all_patterns": [
+    {
+      "description": "TODO: every key helper for <country> exists",
+      "patterns": [
+        "TODO_REGEX_REQUIRED_ALL_1",
+        "TODO_REGEX_REQUIRED_ALL_2"
+      ],
+      "paths": [
+        "missions/<TAG>_Missions.txt",
+        "events/Flavour_<country>.txt"
+      ]
+    }
+  ],
   "_comment_forbid": "Each forbid_patterns item fails when its regex appears in any listed file.",
   "forbid_patterns": [
     {

@@ -10,7 +10,9 @@ slug="$1"
 tag="$2"
 base="docs/theorycrafting/${slug}"
 profile="automation/country_profiles/${slug}.json"
+profile_dir="automation/country_profiles"
 mkdir -p "$base"
+mkdir -p "$profile_dir"
 
 cp docs/theorycrafting/_templates/country-overhaul-plan-template.md "$base/country-overhaul-plan.md"
 cp docs/theorycrafting/_templates/country-checklist-status-manifest-template.json "$base/checklist-status-manifest.json"
@@ -24,11 +26,21 @@ country_plan_path="docs/theorycrafting/${slug}/country-overhaul-plan.md"
 country_manifest_path="docs/theorycrafting/${slug}/checklist-status-manifest.json"
 country_readme_path="docs/theorycrafting/${slug}/README.md"
 
-sed -i "s|<country>|${slug}|g" "$profile"
-sed -i "s|<TAG>|${tag}|g" "$profile"
-sed -i "s|<country_plan_path>|${country_plan_path}|g" "$profile"
-sed -i "s|<country_manifest_path>|${country_manifest_path}|g" "$profile"
-sed -i "s|<country_readme_path>|${country_readme_path}|g" "$profile"
+escape_sed_replacement() {
+  sed -e 's/[&|]/\\&/g' <<<"$1"
+}
+
+slug_escaped="$(escape_sed_replacement "$slug")"
+tag_escaped="$(escape_sed_replacement "$tag")"
+country_plan_path_escaped="$(escape_sed_replacement "$country_plan_path")"
+country_manifest_path_escaped="$(escape_sed_replacement "$country_manifest_path")"
+country_readme_path_escaped="$(escape_sed_replacement "$country_readme_path")"
+
+sed -i "s|<country>|${slug_escaped}|g" "$profile"
+sed -i "s|<TAG>|${tag_escaped}|g" "$profile"
+sed -i "s|<country_plan_path>|${country_plan_path_escaped}|g" "$profile"
+sed -i "s|<country_manifest_path>|${country_manifest_path_escaped}|g" "$profile"
+sed -i "s|<country_readme_path>|${country_readme_path_escaped}|g" "$profile"
 
 cat > "$base/README.md" <<EOT
 # ${slug^} Theorycrafting
