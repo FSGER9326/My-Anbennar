@@ -26,6 +26,8 @@ Current maps:
 - [port-of-adventure-system.md](./port-of-adventure-system.md)
 - [verne-launch-adventure-system.md](./verne-launch-adventure-system.md)
 - [network-of-adventure-system.md](./network-of-adventure-system.md)
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
 
 Suggested reading order:
 

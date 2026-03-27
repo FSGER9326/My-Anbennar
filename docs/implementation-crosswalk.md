@@ -127,6 +127,10 @@ Notes:
 
 Design doc: `docs/design/orders-monuments-and-mercs.md`; `docs/design/dynasty-and-court.md`
 
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 Repo pattern: `docs/repo-maps/custom-estate-and-privilege-ecosystems-reference.md`; `docs/repo-maps/adventurer-systems-and-estate-patterns-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Estate modding - Europa Universalis 4 Wiki.html`
@@ -139,6 +143,35 @@ Notes:
 
 - Strong reusable patterns exist (organization swaps, invalid cleanup, scaled modifiers).
 - Must confirm whether Verne should extend Mages/Adventurers/Artificers vs introducing new custom estate actors.
+=======
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+Repo pattern: `docs/repo-maps/verne-wyvernrider-estate-ecosystem-reference.md`; `docs/repo-maps/custom-estate-and-privilege-ecosystems-reference.md`; `docs/repo-maps/adventurer-systems-and-estate-patterns-reference.md`
+
+EU4 reference: `docs/references/eu4-wiki/Estate modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
+
+Lore doc: `docs/lore/verne-identity-and-court-culture.md`
+
+Status: IMPLEMENTATION_READY
+
+Notes:
+
+- Verne already has a concrete mutual-exclusion estate lane implementation (`estate_adventurers_ride_of_the_worthy` vs `estate_nobles_noble_wyvernriders`) with a shared estate-action wrapper.
+- Adapt this privilege-switch + action-counter pattern for additional court/order institutions before introducing new estate frameworks.
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 
 ---
 
@@ -164,9 +197,33 @@ Notes:
 
 Design doc: `docs/design/orders-monuments-and-mercs.md`
 
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 Repo pattern: `docs/repo-maps/verne-launch-adventure-system.md`; `docs/repo-maps/custom-estate-and-privilege-ecosystems-reference.md` (partial)
 
 EU4 reference: `docs/references/eu4-wiki/Mercenaries modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Modifier modding - Europa Universalis 4 Wiki.html`
+=======
+Repo pattern: `docs/repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md`; `docs/repo-maps/verne-wyvernrider-estate-ecosystem-reference.md`; `docs/repo-maps/verne-launch-adventure-system.md`
+
+EU4 reference: `docs/references/eu4-wiki/Mercenaries modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Modifier modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Trade goods modding - Europa Universalis 4 Wiki.html`
+>>>>>>> theirs
+=======
+Repo pattern: `docs/repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md`; `docs/repo-maps/verne-wyvernrider-estate-ecosystem-reference.md`; `docs/repo-maps/verne-launch-adventure-system.md`
+
+EU4 reference: `docs/references/eu4-wiki/Mercenaries modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Modifier modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Trade goods modding - Europa Universalis 4 Wiki.html`
+>>>>>>> theirs
+=======
+Repo pattern: `docs/repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md`; `docs/repo-maps/verne-wyvernrider-estate-ecosystem-reference.md`; `docs/repo-maps/verne-launch-adventure-system.md`
+
+EU4 reference: `docs/references/eu4-wiki/Mercenaries modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Modifier modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Trade goods modding - Europa Universalis 4 Wiki.html`
+>>>>>>> theirs
+=======
+Repo pattern: `docs/repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md`; `docs/repo-maps/verne-wyvernrider-estate-ecosystem-reference.md`; `docs/repo-maps/verne-launch-adventure-system.md`
+
+EU4 reference: `docs/references/eu4-wiki/Mercenaries modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Modifier modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Trade goods modding - Europa Universalis 4 Wiki.html`
+>>>>>>> theirs
 
 Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
@@ -174,8 +231,28 @@ Status: NEEDS_REPO_CHECK
 
 Notes:
 
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 - Existing Verne mission content references custom mercenary templates and wyvern-focused military progression.
 - A dedicated repo-map deep dive for reusable merc/order frameworks is still pending.
+=======
+- Repo grounding now covers real Verne merc templates, order events, mission flags, and monument relocation mechanics.
+- Keep Chapterhouse/name-level mappings marked `NEEDS_REPO_CHECK` until direct object-ID parity is confirmed.
+>>>>>>> theirs
+=======
+- Repo grounding now covers real Verne merc templates, order events, mission flags, and monument relocation mechanics.
+- Keep Chapterhouse/name-level mappings marked `NEEDS_REPO_CHECK` until direct object-ID parity is confirmed.
+>>>>>>> theirs
+=======
+- Repo grounding now covers real Verne merc templates, order events, mission flags, and monument relocation mechanics.
+- Keep Chapterhouse/name-level mappings marked `NEEDS_REPO_CHECK` until direct object-ID parity is confirmed.
+>>>>>>> theirs
+=======
+- Repo grounding now covers real Verne merc templates, order events, mission flags, and monument relocation mechanics.
+- Keep Chapterhouse/name-level mappings marked `NEEDS_REPO_CHECK` until direct object-ID parity is confirmed.
+>>>>>>> theirs
 
 ---
 

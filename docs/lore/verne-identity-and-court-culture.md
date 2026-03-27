@@ -75,3 +75,23 @@ Avoid tone drift into generic pirate or generic chivalric language detached from
 - [../design/reform-bible.md](../design/reform-bible.md)
 - [../repo-maps/custom-estate-and-privilege-ecosystems-reference.md](../repo-maps/custom-estate-and-privilege-ecosystems-reference.md)
 - [../implementation-crosswalk.md](../implementation-crosswalk.md)
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+- [../repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md](../repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [../repo-maps/verne-wyvernrider-estate-ecosystem-reference.md](../repo-maps/verne-wyvernrider-estate-ecosystem-reference.md)
+>>>>>>> theirs
+=======
+- [../repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md](../repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [../repo-maps/verne-wyvernrider-estate-ecosystem-reference.md](../repo-maps/verne-wyvernrider-estate-ecosystem-reference.md)
+>>>>>>> theirs
+=======
+- [../repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md](../repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [../repo-maps/verne-wyvernrider-estate-ecosystem-reference.md](../repo-maps/verne-wyvernrider-estate-ecosystem-reference.md)
+>>>>>>> theirs
+=======
+- [../repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md](../repo-maps/verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [../repo-maps/verne-wyvernrider-estate-ecosystem-reference.md](../repo-maps/verne-wyvernrider-estate-ecosystem-reference.md)
+>>>>>>> theirs

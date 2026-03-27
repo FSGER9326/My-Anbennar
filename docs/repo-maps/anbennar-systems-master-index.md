@@ -34,6 +34,8 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 | Powerful mage and succession handling | Reusable heir, ruler, consort, and inheritance patterns for magical continuity | `common/scripted_effects`, `events/Magic_*.txt`, `common/on_actions` | Detailed |
 | Magic projects | Shared project framework with dispatcher events, milestone handlers, and progress hooks | `common/scripted_effects`, `events/Magic_*.txt`, `common/custom_gui`, `common/on_actions` | Detailed |
 | Verne overseas systems | Example of mission plus GUI plus scripted helper plus variable tracking | `missions`, `events`, `common/scripted_effects`, `common/custom_gui`, `interface` | Detailed |
+| Verne wyvern orders and monument coupling | Nation-specific mercenary/order/monument bundle with mission and event wiring | `missions/Verne_Missions.txt`, `events/Flavour_Verne_A33.txt`, `common/mercenary_companies`, `common/great_projects` | Detailed |
+| Verne wyvernrider estate ecosystem | Mutual-exclusion estate lanes with shared action wrapper and compatibility guards | `common/estate_privileges`, `decisions/VerneDecisions.txt`, `events/Flavour_Verne_A33.txt` | Detailed |
 | Racial population and military systems | Population tolerance, racial administration, racial military tech and UI sorting systems | `events/anb_racial_*`, `common/scripted_effects`, `common/scripted_triggers`, `common/custom_gui`, `localisation` | Detailed |
 | Artificery | Custom research and invention layer with its own estate, points, and interface hooks | `events/Artifice*.txt`, `common/scripted_effects`, `common/scripted_triggers`, `common/estate_privileges`, `common/estates` | Detailed |
 | Adventurer systems | Adventurer estate plus government mechanic plus spawnable/event content | `common/government_mechanics`, `events/estate_adventurers.txt`, `events/AdventurerSpawnables.txt` | Detailed |
@@ -61,6 +63,26 @@ That means the safest way to extend Anbennar is usually to adapt an existing mul
 - [witch-king-lichdom-war-wizard-infamy-reference.md](./witch-king-lichdom-war-wizard-infamy-reference.md)
 - [custom-government-mechanics-and-gui-patterns-reference.md](./custom-government-mechanics-and-gui-patterns-reference.md)
 - [custom-estate-and-privilege-ecosystems-reference.md](./custom-estate-and-privilege-ecosystems-reference.md)
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+=======
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
+>>>>>>> theirs
+=======
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
+>>>>>>> theirs
+=======
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
+>>>>>>> theirs
+=======
+- [verne-wyvern-orders-mercs-and-monuments-reference.md](./verne-wyvern-orders-mercs-and-monuments-reference.md)
+- [verne-wyvernrider-estate-ecosystem-reference.md](./verne-wyvernrider-estate-ecosystem-reference.md)
+>>>>>>> theirs
 
 ## Magic System Family
 
