@@ -2,14 +2,14 @@
   "name": "verne",
   "require_patterns": [
     {
-      "description": "helper layer: preserves Port-of-Adventure unlock flag",
+      "description": "helper layer (legacy compatibility): preserves Port-of-Adventure unlock flag",
       "pattern": "set_country_flag = verne_unlock_port_of_adventure_button",
       "paths": [
         "common/scripted_effects/verne_overhaul_effects.txt"
       ]
     },
     {
-      "description": "helper layer: monument anchor IDs exist",
+      "description": "helper layer (legacy compatibility): monument anchor IDs exist",
       "pattern": "^kazakesh\\s*=|^aur_kes_akasik\\s*=|^kazakesh_stingport\\s*=",
       "paths": [
         "common/great_projects/anb_monuments_sarhal.txt",
@@ -17,64 +17,85 @@
       ]
     },
     {
-      "description": "foundation layer: Verne overhaul modifier objects exist",
+      "description": "foundation layer (legacy compatibility): Verne overhaul modifier objects exist",
       "pattern": "^verne_[a-z0-9_]+\\s*=\\s*\\{",
       "paths": [
         "common/event_modifiers/verne_overhaul_modifiers.txt"
       ]
     },
     {
-      "description": "foundation layer: Verne overhaul localisation file keeps l_english header",
+      "description": "foundation layer (legacy compatibility): Verne overhaul localisation file keeps l_english header",
       "pattern": "^l_english\\s*:\\s*$",
       "paths": [
         "localisation/verne_overhaul_l_english.yml"
       ]
     },
     {
-      "description": "foundation layer: Verne overhaul localisation keys are present",
+      "description": "foundation layer (legacy compatibility): Verne overhaul localisation keys are present",
       "pattern": "^\\s*(?:desc_)?verne_[a-z0-9_]+\\s*:\\s*0\\b",
       "paths": [
         "localisation/verne_overhaul_l_english.yml"
       ]
     },
     {
-      "description": "foundation layer: Verne doctrine group objects exist",
+      "description": "overhaul-required checks: Verne doctrine group objects exist",
       "pattern": "^verne_[a-z0-9_]+\\s*=\\s*\\{",
       "paths": [
         "common/ideas/verne_doctrine_groups.txt"
       ]
     },
     {
-      "description": "foundation layer: silver wake doctrine sentinel ID exists",
+      "description": "overhaul-required checks: silver wake doctrine sentinel ID exists",
       "pattern": "verne_doctrine_silver_wake",
       "paths": [
         "common/ideas/verne_doctrine_groups.txt"
       ]
     },
     {
-      "description": "foundation layer: Verne overhaul reform objects exist",
+      "description": "overhaul-required checks: Verne overhaul reform objects exist",
       "pattern": "^verne_[a-z0-9_]+\\s*=\\s*\\{",
       "paths": [
         "common/government_reforms/verne_overhaul_reforms.txt"
       ]
     },
     {
-      "description": "foundation layer: Verne dynasty event objects exist",
+      "description": "overhaul-required checks: court of silver oaths reform sentinel ID exists",
+      "pattern": "verne_court_of_silver_oaths_reform",
+      "paths": [
+        "common/government_reforms/verne_overhaul_reforms.txt"
+      ]
+    },
+    {
+      "description": "overhaul-required checks: Verne dynasty event objects exist",
       "pattern": "^(?:country_event|province_event)\\s*=\\s*\\{",
       "paths": [
         "events/verne_overhaul_dynasty_events.txt"
       ]
     },
     {
-      "description": "foundation layer: Verne dynasty event file declares namespace sentinel",
+      "description": "overhaul-required checks: Verne dynasty event file declares namespace sentinel",
       "pattern": "^\\s*namespace\\s*=\\s*[A-Za-z0-9_.-]+\\s*$",
       "paths": [
         "events/verne_overhaul_dynasty_events.txt"
       ]
     },
     {
-      "description": "foundation layer: Verne on_actions hooks exist",
+      "description": "overhaul-required checks: Verne dynasty event ID sentinel exists",
+      "pattern": "^\\s*id\\s*=\\s*verne_overhaul_dynasty\\.1\\s*$",
+      "paths": [
+        "events/verne_overhaul_dynasty_events.txt"
+      ]
+    },
+    {
+      "description": "overhaul-required checks: Verne on_actions hooks exist",
       "pattern": "^[a-z0-9_]+\\s*=\\s*\\{",
+      "paths": [
+        "common/on_actions/zz_verne_overhaul_on_actions.txt"
+      ]
+    },
+    {
+      "description": "overhaul-required checks: Verne on_actions sentinel hook exists",
+      "pattern": "^\\s*on_new_heir\\s*=\\s*\\{",
       "paths": [
         "common/on_actions/zz_verne_overhaul_on_actions.txt"
       ]
@@ -82,7 +103,7 @@
   ],
   "require_all_patterns": [
     {
-      "description": "helper layer: helper definitions exist (ALL patterns must match somewhere in paths)",
+      "description": "helper layer (legacy compatibility): helper definitions exist (ALL patterns must match somewhere in paths)",
       "patterns": [
         "verne_overhaul_enable_adventure_network_tier_1",
         "verne_overhaul_apply_regatta_spire_swap",
@@ -95,7 +116,7 @@
       ]
     },
     {
-      "description": "helper layer: mission/event call sites use helpers (ALL patterns must match somewhere in paths)",
+      "description": "helper layer (legacy compatibility): mission/event call sites use helpers (ALL patterns must match somewhere in paths)",
       "patterns": [
         "verne_overhaul_enable_adventure_network_tier_1",
         "verne_overhaul_apply_regatta_spire_swap",
@@ -108,10 +129,10 @@
       ]
     },
     {
-      "description": "foundation layer: doctrine+reform sentinel IDs must exist (ALL patterns must match somewhere in paths)",
+      "description": "overhaul-required checks: doctrine+reform sentinel IDs must exist (ALL patterns must match somewhere in paths)",
       "patterns": [
         "verne_doctrine_silver_wake",
-        "verne_overhaul_admiralty_council_reform"
+        "verne_court_of_silver_oaths_reform"
       ],
       "paths": [
         "common/ideas/verne_doctrine_groups.txt",
@@ -121,7 +142,7 @@
   ],
   "forbid_patterns": [
     {
-      "description": "helper layer: no stale inline duplicate logic in mission/event call sites",
+      "description": "helper layer (legacy compatibility): no stale inline duplicate logic in mission/event call sites",
       "pattern": "destroy_great_project|add_great_project|set_country_flag = verne_unlock_port_of_adventure_button|name = \"verne_network_of_adventure_tier_1\"",
       "paths": [
         "missions/Verne_Missions.txt",
@@ -129,7 +150,7 @@
       ]
     },
     {
-      "description": "foundation layer: no unresolved merge markers in new Verne foundation files",
+      "description": "foundation layer (legacy compatibility): no unresolved merge markers in new Verne foundation files",
       "pattern": "^<<<<<<<|^=======|^>>>>>>>",
       "paths": [
         "common/event_modifiers/verne_overhaul_modifiers.txt",
@@ -137,21 +158,21 @@
       ]
     },
     {
-      "description": "foundation layer: no placeholder TODO keys in localisation foundation file",
+      "description": "foundation layer (legacy compatibility): no placeholder TODO keys in localisation foundation file",
       "pattern": "^\\s*(?:desc_)?(?:TODO|todo|placeholder|replace_me|verne_todo|verne_overhaul_todo)[a-z0-9_]*\\s*:",
       "paths": [
         "localisation/verne_overhaul_l_english.yml"
       ]
     },
     {
-      "description": "foundation layer: no TODO placeholders left in modifier foundation file",
+      "description": "foundation layer (legacy compatibility): no TODO placeholders left in modifier foundation file",
       "pattern": "#\\s*TODO\\b|\\bTODO\\b",
       "paths": [
         "common/event_modifiers/verne_overhaul_modifiers.txt"
       ]
     },
     {
-      "description": "foundation layer: no inconsistent Verne overhaul prefix typos",
+      "description": "foundation layer (legacy compatibility): no inconsistent Verne overhaul prefix typos",
       "pattern": "verne_overhual_|vern_overhaul_|verne-overhaul_|verneOverhaul_|verneoverhaul_",
       "paths": [
         "common/event_modifiers/verne_overhaul_modifiers.txt",
@@ -159,7 +180,7 @@
       ]
     },
     {
-      "description": "foundation layer: no placeholder doctrine/reform keys in new Verne doctrine and reform files",
+      "description": "overhaul-required checks: no placeholder doctrine/reform keys in new Verne doctrine and reform files",
       "pattern": "^\\s*(?:TODO|todo|placeholder|replace_me|verne_todo|verne_overhaul_todo)[a-z0-9_]*\\s*=",
       "paths": [
         "common/ideas/verne_doctrine_groups.txt",
@@ -167,7 +188,7 @@
       ]
     },
     {
-      "description": "foundation layer: no unresolved merge markers in Verne doctrine/reform/event/on_actions files",
+      "description": "overhaul-required checks: no unresolved merge markers in Verne doctrine/reform/event/on_actions files",
       "pattern": "^<<<<<<<|^=======|^>>>>>>>",
       "paths": [
         "common/ideas/verne_doctrine_groups.txt",
@@ -177,7 +198,7 @@
       ]
     },
     {
-      "description": "foundation layer: no placeholder TODO keys in Verne doctrine/reform/event/on_actions files",
+      "description": "overhaul-required checks: no placeholder TODO keys in Verne doctrine/reform/event/on_actions files",
       "pattern": "^\\s*(?:TODO|todo|placeholder|replace_me|verne_todo|verne_overhaul_todo)[a-z0-9_]*\\s*(?:=|:)",
       "paths": [
         "common/ideas/verne_doctrine_groups.txt",

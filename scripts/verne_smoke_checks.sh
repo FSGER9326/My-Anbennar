@@ -2,13 +2,14 @@
 set -euo pipefail
 
 PYTHON_BIN="${PYTHON_BIN:-python3}"
+VERNE_SMOKE_PROFILE="${VERNE_SMOKE_PROFILE:-automation/country_profiles/verne.json}"
 
 if ! command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
   PYTHON_BIN="python"
 fi
 
 echo "[1/6] Run Verne smoke profile"
-"${PYTHON_BIN}" scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json
+"${PYTHON_BIN}" scripts/country_smoke_runner.py --profile "${VERNE_SMOKE_PROFILE}"
 
 echo "[2/6] Run checklist status audit"
 "${PYTHON_BIN}" scripts/verne_checklist_audit.py
