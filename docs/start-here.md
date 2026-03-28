@@ -48,11 +48,13 @@ Run pre-PR gate before opening any PR.
 
 Run the merge-readiness diagnostic first:
 
-- `bash scripts/pr_merge_readiness.sh`
+- **macOS/Linux (bash):** `bash scripts/pr_merge_readiness.sh`
+- **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\pr_merge_readiness.ps1`
 
 Then run full gate checks (same script, full mode):
 
-- `bash scripts/pr_merge_readiness.sh --full-checks`
+- **macOS/Linux (bash):** `bash scripts/pr_merge_readiness.sh --full-checks`
+- **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\pr_merge_readiness.ps1 -FullChecks`
 
 If the diagnostic reports merge conflicts, use the safe sync helper it points to (usually `bash scripts/noob_autopilot.sh --prefer-main`), then rerun readiness.
 
