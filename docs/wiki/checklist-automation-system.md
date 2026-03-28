@@ -218,6 +218,8 @@ Noob autopilot fallback flags for stubborn conflicts:
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main`
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
 
+If your branch is already in a merge-conflict state, start directly with one of those fallback commands (they are conflict-state aware).
+
 What the sync helper does:
 
 1. if unresolved merge files already exist **and** the worktree is conflict-only (no extra staged/unstaged edits), it returns `EXIT_MODE=needs_manual_conflict` immediately (so autopilot can apply `--prefer-main` / `--prefer-branch`).

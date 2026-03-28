@@ -33,6 +33,19 @@ Hard rule for any branch with an open PR: run this sync helper first, follow the
 
 Personal habit mantra: **sync first, then push.**
 
+## If your branch already has merge conflicts right now
+
+Use one of these immediately (do not start hand-editing random files first):
+
+- **Safest default (prefer `main` when unsure):**
+  - bash: `bash scripts/noob_autopilot.sh --prefer-main`
+  - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main`
+- **Keep your in-progress branch side:**
+  - bash: `bash scripts/noob_autopilot.sh --prefer-branch`
+  - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
+
+These commands detect conflict-only merge state, apply the selected strategy to unresolved files, then rerun docs guard + smoke checks before finish.
+
 Run pre-PR gate before opening any PR.
 
 - **macOS/Linux (bash):** `bash scripts/pre_pr_gate.sh`
