@@ -81,3 +81,13 @@ verne_overhaul_in_search_network_or_monument_route = {
 		}
 	}
 }
+
+
+verne_overhaul_lands_of_adventure_entry_route = {
+	OR = {
+		mission_completed = A33_the_vernissage
+		verne_overhaul_in_search_colonizer_route = yes
+		verne_overhaul_in_search_subject_projection_route = yes
+		verne_overhaul_in_search_network_or_monument_route = yes
+	}
+}

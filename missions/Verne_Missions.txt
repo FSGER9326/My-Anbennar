@@ -1603,16 +1603,23 @@ A33_second_slot = {
 		}
 	}
 
+	# Route-intent commentary:
+	# - Prior behavior forced this mission to wait for both A33_the_vernissage and A33_in_search_of_adventure.
+	# - That made the overseas adventure route depend on an internal-development node even when the player had already proven expedition reach through alternate routes.
+	# - Refactor: keep A33_in_search_of_adventure as the structural gate, then allow either vernissage completion or any validated expedition-capacity route.
 	A33_the_lands_of_adventure = {
 		icon = mission_aelantir
 		position = 7
 		required_missions = {
-			A33_the_vernissage
 			A33_in_search_of_adventure
 		}
 		provinces_to_highlight = { } 
 
 		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = verne_overhaul_tt_lands_of_adventure_route_gate
+				verne_overhaul_lands_of_adventure_entry_route = yes
+			}
 			estate_influence = {
 				estate = estate_adventurers
 				influence = 50

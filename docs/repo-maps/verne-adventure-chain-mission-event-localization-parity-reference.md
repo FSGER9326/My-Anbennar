@@ -79,3 +79,30 @@ When mission/event logic is moved from inline blocks into scripted helpers, run 
    - Expectation: no matches in these two files after helper migration.
 
 If all four checks pass, refactor risk is usually acceptable for this chain.
+
+
+## Route-note: `A33_the_lands_of_adventure` gate refactor (2026-03-28)
+
+### Intent
+
+Keep the adventure route focused on overseas projection proof instead of forcing every run through the internal-development `A33_the_vernissage` gate.
+
+### Prior behavior
+
+- `A33_the_lands_of_adventure` required **both**:
+  - `A33_the_vernissage`, and
+  - `A33_in_search_of_adventure`.
+- Result: even players already satisfying expedition-capacity route checks still had to clear the vernissage branch first.
+
+### New behavior
+
+- Structural mission dependency is now only `A33_in_search_of_adventure`.
+- Trigger-level route gate now accepts:
+  - completed `A33_the_vernissage` (legacy path preserved), **or**
+  - any validated expedition-capacity route (`colonizer`, `subject/ally projection`, `network/monument`).
+
+### Why this is safer for future edits
+
+- Route logic is centralized in scripted trigger `verne_overhaul_lands_of_adventure_entry_route`.
+- Mission wiring and localization tooltip now state route intent directly, reducing accidental re-railroading in future refactors.
+
