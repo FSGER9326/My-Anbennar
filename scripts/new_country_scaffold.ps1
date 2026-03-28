@@ -40,17 +40,24 @@ New-Item -ItemType Directory -Force -Path $base | Out-Null
 New-Item -ItemType Directory -Force -Path $profileDir | Out-Null
 
 $planTemplate = Join-Path $repoRoot "docs/theorycrafting/_templates/country-overhaul-plan-template.md"
+$dossierTemplate = Join-Path $repoRoot "docs/theorycrafting/_templates/country-dossier-template.md"
 $manifestTemplate = Join-Path $repoRoot "docs/theorycrafting/_templates/country-checklist-status-manifest-template.json"
 
 Copy-Item $planTemplate (Join-Path $base "country-overhaul-plan.md") -Force
+Copy-Item $dossierTemplate (Join-Path $base "country-dossier.md") -Force
 Copy-Item $manifestTemplate (Join-Path $base "checklist-status-manifest.json") -Force
 
 $planPath = Join-Path $base "country-overhaul-plan.md"
+$dossierPath = Join-Path $base "country-dossier.md"
 $manifestPath = Join-Path $base "checklist-status-manifest.json"
 
 $planText = Get-Content $planPath -Raw -Encoding UTF8
 $planText = $planText.Replace("<Country Name>", $displayName)
 [System.IO.File]::WriteAllText($planPath, $planText, [System.Text.UTF8Encoding]::new($false))
+
+$dossierText = Get-Content $dossierPath -Raw -Encoding UTF8
+$dossierText = $dossierText.Replace("<Country Name>", $displayName)
+[System.IO.File]::WriteAllText($dossierPath, $dossierText, [System.Text.UTF8Encoding]::new($false))
 
 $manifestText = Get-Content $manifestPath -Raw -Encoding UTF8
 $manifestText = $manifestText.Replace("<country>", $Slug)
@@ -168,6 +175,7 @@ $readmeLines = @(
     "",
     "Start here:",
     "- country-overhaul-plan.md",
+    "- country-dossier.md",
     "- checklist-status-manifest.json",
     "- ../../../automation/country_profiles/$Slug.json",
     "",
