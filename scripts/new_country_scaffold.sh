@@ -53,10 +53,12 @@ sync_ps1="scripts/sync_${slug}_with_main.ps1"
 mkdir -p "$base" "$profile_dir"
 
 cp docs/theorycrafting/_templates/country-overhaul-plan-template.md "$base/country-overhaul-plan.md"
+cp docs/theorycrafting/_templates/country-dossier-template.md "$base/country-dossier.md"
 cp docs/theorycrafting/_templates/country-checklist-status-manifest-template.json "$base/checklist-status-manifest.json"
 
 # lightweight placeholder replacement
 sed -i "s/<Country Name>/${slug^}/g" "$base/country-overhaul-plan.md"
+sed -i "s/<Country Name>/${slug^}/g" "$base/country-dossier.md"
 sed -i "s/<country>/${slug}/g" "$base/checklist-status-manifest.json"
 
 cat > "$profile_path" <<EOT
@@ -170,6 +172,7 @@ Tag: ${tag}
 
 Start here:
 - country-overhaul-plan.md
+- country-dossier.md
 - checklist-status-manifest.json
 - ../../../automation/country_profiles/${slug}.json
 
