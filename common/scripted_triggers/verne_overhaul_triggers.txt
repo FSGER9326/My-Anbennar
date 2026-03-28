@@ -42,4 +42,3 @@ verne_overhaul_akasik_access_ready = {
 		}
 	}
 }
-
