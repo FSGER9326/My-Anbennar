@@ -45,6 +45,13 @@
       ]
     },
     {
+      "description": "foundation layer: silver wake doctrine sentinel ID exists",
+      "pattern": "verne_doctrine_silver_wake",
+      "paths": [
+        "common/ideas/verne_doctrine_groups.txt"
+      ]
+    },
+    {
       "description": "foundation layer: Verne overhaul reform objects exist",
       "pattern": "^verne_[a-z0-9_]+\\s*=\\s*\\{",
       "paths": [
@@ -96,7 +103,7 @@
     {
       "description": "foundation layer: doctrine+reform sentinel IDs must exist (ALL patterns must match somewhere in paths)",
       "patterns": [
-        "verne_doctrine_way_of_the_wave",
+        "verne_doctrine_silver_wake",
         "verne_overhaul_admiralty_council_reform"
       ],
       "paths": [
