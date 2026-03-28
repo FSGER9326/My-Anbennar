@@ -57,11 +57,6 @@ l_english:
  verne_proto_pathfinders:0 "Prototype Pathfinders"
  verne_proto_pathfinders_desc:0 "Dedicated pathfinder crews improve expedition routing and practical long-range reach."
 
- verne_doctrine_way_of_the_wave:0 "Way of the Wave"
- verne_doctrine_way_of_the_wave_desc:0 "This doctrine codifies Vernman seamanship into a practical maritime discipline for sustained overseas reach."
-
- verne_waveborne_coordination:0 "Waveborne Coordination"
- verne_waveborne_coordination_desc:0 "Standardized naval drills and signal practice improve fleet cohesion in rough seas."
 
  verne_court_of_silver_oaths_reform:0 "Court of Silver Oaths"
  verne_court_of_silver_oaths_reform_desc:0 "A disciplined oath-court tightens administrative trust and keeps corruption low without overextending state capacity."
@@ -72,8 +67,6 @@ l_english:
  verne_ducal_muster_of_armoc_reform:0 "Ducal Muster of Armoc"
  verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's musters standardize levies and fort-readiness, providing reliable military depth for a cautious expansion phase."
 
- verne_overhaul_admiralty_council_reform:0 "Overhaul Admiralty Council"
- verne_overhaul_admiralty_council_reform_desc:0 "A standing admiralty council maintains practical fleet standards and keeps naval planning consistent."
 
  # --- v0.1 doctrine policy prototype ---
  verne_proto_doctrine_expedition_act:0 "Expedition Charter Act"

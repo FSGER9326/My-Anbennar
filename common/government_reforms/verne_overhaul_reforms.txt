@@ -39,15 +39,3 @@ verne_ducal_muster_of_armoc_reform = {
 		factor = 1
 	}
 }
-
-verne_overhaul_admiralty_council_reform = {
-	icon = "naval"
-	valid_for_nation_designer = no
-	modifiers = {
-		naval_forcelimit_modifier = 0.05
-		naval_tradition = 0.25
-	}
-	ai = {
-		factor = 1
-	}
-}

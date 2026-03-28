@@ -32,19 +32,3 @@ verne_proto_adventure_ideas = {
 		range = 0.15
 	}
 }
-
-verne_doctrine_way_of_the_wave = {
-	category = DIP
-
-	start = {
-		naval_forcelimit_modifier = 0.1
-	}
-
-	bonus = {
-		global_ship_trade_power = 0.1
-	}
-
-	verne_waveborne_coordination = {
-		ship_durability = 0.05
-	}
-}
