@@ -22,6 +22,7 @@ These files answer:
 
 ### Working rules
 - [codex-grounding-checklist.md](./codex-grounding-checklist.md)
+- [automation/pre-pr-artifact-flow.md](./automation/pre-pr-artifact-flow.md)
 - [references/reference-index.md](./references/reference-index.md)
 
 These files keep implementation grounded in:
