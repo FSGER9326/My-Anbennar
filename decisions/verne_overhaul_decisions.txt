@@ -1,0 +1,24 @@
+# ===============================================
+# Verne overhaul decision scaffold
+# Status: scaffolded only (no-op/safe placeholder)
+# ===============================================
+
+country_decisions = {
+	verne_placeholder_overhaul_decision = {
+		potential = {
+			always = no
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			# Intentionally empty placeholder.
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

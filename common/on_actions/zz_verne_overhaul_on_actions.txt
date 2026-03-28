@@ -1,0 +1,14 @@
+# ===============================================
+# Verne overhaul on_actions scaffold
+# Status: scaffolded only (no-op/safe placeholder)
+# ===============================================
+
+on_startup = {
+	effect = {
+		# Explicit no-op guard to keep this scaffold safe until milestones are implemented.
+		if = {
+			limit = { always = no }
+			set_country_flag = verne_overhaul_unused_scaffold_flag
+		}
+	}
+}
