@@ -7,6 +7,7 @@ Use it as the main non-code workspace for planning, design, grounding, and local
 ## What lives here
 
 ### New? Start here
+- [wiki/current-work-queue.md](./wiki/current-work-queue.md)
 - [start-here.md](./start-here.md)
 
 ### Planning

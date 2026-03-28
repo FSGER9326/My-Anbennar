@@ -15,6 +15,7 @@ This repository contains the Verne overhaul work inside an Anbennar/EU4 mod work
 
 If you want the current design-and-build layer, start here:
 
+- [current-work-queue.md](docs/wiki/current-work-queue.md)
 - [mod-spec.md](docs/mod-spec.md)
 - [implementation-roadmap.md](docs/implementation-roadmap.md)
 - [first-wave-backlog.md](docs/first-wave-backlog.md)

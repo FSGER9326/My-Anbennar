@@ -1,5 +1,11 @@
 # Start Here (Noob-Friendly)
 
+## Session start rule (read before any coding)
+
+Before every coding session, open [docs/wiki/current-work-queue.md](./wiki/current-work-queue.md) and pick work **only** from the **Now** section.
+
+Do not begin coding from backlog ideas, chat suggestions, or old notes unless they were first promoted into **Now** in the queue.
+
 If you are new to GitHub and modding, read in this order:
 
 1. [docs/README.md](./README.md)
