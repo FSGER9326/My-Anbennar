@@ -46,5 +46,9 @@
       "pattern": "destroy_great_project|add_great_project|set_country_flag = verne_unlock_port_of_adventure_button|name = \"verne_network_of_adventure_tier_1\"",
       "paths": ["missions/Verne_Missions.txt", "events/Flavour_Verne_A33.txt"]
     }
+  ],
+  "structural_checks": [
+    "common/scripted_effects/verne_overhaul_effects.txt",
+    "common/scripted_triggers/verne_overhaul_triggers.txt"
   ]
 }
