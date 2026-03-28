@@ -29,6 +29,29 @@ This now runs:
 
 ## Automation commands
 
+### Noob preflight + autopilot
+
+Run this before heavy automation if you are unsure your local setup is ready.
+
+- PowerShell preflight only: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_doctor.ps1`
+- Bash preflight only: `bash scripts/noob_doctor.sh`
+
+Full noob autopilot wrappers (now includes doctor as step 0):
+
+- PowerShell autopilot: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1`
+- Bash autopilot: `bash scripts/noob_autopilot.sh`
+
+`noob_doctor` checks and reports:
+
+1. Python executable availability
+2. git repo presence
+3. current branch name
+4. dirty working tree
+5. remote `origin` reachability
+6. unresolved merge-conflict state
+
+For each failed check it prints one concrete fix command, and it exits non-zero if blocking issues exist.
+
 ### CI trigger note
 
 Localisation-only edits now trigger the `verne-validation` workflow automatically on both pushes and pull requests to `main`.
@@ -175,3 +198,24 @@ These were the easiest ways the old automation could still fail:
 - missing Windows-native scaffold/profile entrypoints
 - sync helpers trying to create a merge commit even when already up to date
 - duplicated smoke logic drifting across multiple scripts instead of using the JSON profile as the source of truth
+
+## Troubleshooting for noobs
+
+If automation fails immediately, run the doctor first:
+
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_doctor.ps1`
+- Bash: `bash scripts/noob_doctor.sh`
+
+Interpretation guide:
+
+- If it says Python is missing, install Python 3 and reopen your terminal.
+- If it says this is not a git repo, `cd /workspace/My-Anbennar`.
+- If it says branch is unknown, create/switch to a feature branch.
+- If it says working tree is dirty, commit/stash before running heavy automation.
+- If it says origin is unreachable, fix remote/auth/network and retry.
+- If it says unresolved merge conflicts exist, run the shown command to list conflicted files and resolve those first.
+
+Recommended noob-safe flow:
+
+1. `noob_doctor` preflight
+2. `noob_autopilot` (this always runs `noob_doctor` as step 0)
