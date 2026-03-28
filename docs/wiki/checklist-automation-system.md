@@ -29,6 +29,8 @@ This handles sync/merge + conflict flow and then runs the full validation chain,
 
 Use this section only when you need manual control, troubleshooting, or platform-specific alternatives.
 
+## Automation commands
+
 ### CI trigger note
 
 Localisation-only edits now trigger the `verne-validation` workflow automatically on both pushes and pull requests to `main`.
@@ -198,6 +200,7 @@ It also documents fast-path exceptions so this rule improves safety without bloc
 
 Run this before implementation when branch/PR context is available:
 
+- `python scripts/validate_conflict_hotspots.py`
 - `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block`
 
 Result meaning:
@@ -211,11 +214,11 @@ Required action for `block` overlaps:
 2. pick a different task outside the hotspot, **or**
 3. mark current task blocked/waiting.
 
-`bash scripts/pre_pr_gate.sh` now executes this as step 1 when on a feature branch with authenticated `gh`, and exits early on `block` overlaps.
+`pre_pr_gate` now validates `automation/conflict_hotspots.yaml` first, then runs the overlap planning check (bash + PowerShell variants) when on a feature branch with authenticated `gh`, and exits early on `block` overlaps.
 
 This is intentionally prevention-only: no merge-resolution automation behavior was changed.
 
-### Merge-conflict prevention
+## Merge-conflict prevention
 
 The repo now uses a few layers together:
 
@@ -248,7 +251,7 @@ Final verification command:
 
 - `python scripts/docs_conflict_guard.py`
 
-### Feature-branch sync
+## Feature-branch sync
 
 Use this when GitHub says your open PR branch is behind `main` or has merge conflicts.
 
