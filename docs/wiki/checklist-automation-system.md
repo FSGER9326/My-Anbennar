@@ -231,7 +231,7 @@ What the orchestrator does:
 2. **resolve_conflicts** (docs/content conflict scripts + optional side preference fallback)
 3. **validate** (country smoke profile + docs guard + localisation/event audits; skipped if conflicts remain)
 4. **summarize** (prints command log + unresolved status + validation status)
-5. **ready_to_push** (prints push command only if conflict-free + validation-clean)
+5. **ready_to_push** (creates merge commit when needed, then prints push command)
 
 ## Main branch note
 

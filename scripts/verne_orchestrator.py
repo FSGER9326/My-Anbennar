@@ -216,6 +216,14 @@ class Orchestrator:
             capture_output=True,
             check=False,
         )
+        if self.has_merge_head():
+            commit_message = f"Merge {self.args.base_ref} into {branch} via verne_orchestrator"
+            print("Creating merge commit...")
+            commit = self.run(["git", "commit", "-m", commit_message], allow_failure=True)
+            if not commit.ok:
+                print("NOT READY: merge commit failed. Resolve commit issues and rerun.")
+                return commit.returncode
+
         print("READY: clean conflict state and validations passed.")
         print("Habit reminder: sync first, then push.")
         if upstream.returncode == 0 and upstream.stdout.strip():
