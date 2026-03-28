@@ -16,7 +16,7 @@ def _run(cmd: list[str], cwd: pathlib.Path) -> subprocess.CompletedProcess[str]:
 
 
 def _init_repo(path: pathlib.Path) -> None:
-    _run(["git", "init"], path)
+    _run(["git", "init", "-b", "main"], path)
     _run(["git", "config", "user.email", "tests@example.com"], path)
     _run(["git", "config", "user.name", "Test Runner"], path)
 
@@ -28,6 +28,7 @@ class TestAutoSyncShellConflictModes(unittest.TestCase):
         (self.repo / "scripts").mkdir(parents=True, exist_ok=True)
         shutil.copy2(SCRIPT_SOURCE, self.repo / "scripts" / "auto_sync_pr_with_main.sh")
         _init_repo(self.repo)
+        self.default_branch = "main"
 
     def tearDown(self):
         self.tempdir.cleanup()
@@ -39,11 +40,11 @@ class TestAutoSyncShellConflictModes(unittest.TestCase):
         _run(["git", "checkout", "-b", "feature"], self.repo)
         (self.repo / "file.txt").write_text("feature\n", encoding="utf-8")
         _run(["git", "commit", "-am", "feature change"], self.repo)
-        _run(["git", "checkout", "master"], self.repo)
+        _run(["git", "checkout", self.default_branch], self.repo)
         (self.repo / "file.txt").write_text("master\n", encoding="utf-8")
-        _run(["git", "commit", "-am", "master change"], self.repo)
+        _run(["git", "commit", "-am", f"{self.default_branch} change"], self.repo)
         _run(["git", "checkout", "feature"], self.repo)
-        _run(["git", "merge", "master"], self.repo)
+        _run(["git", "merge", self.default_branch], self.repo)
 
     def test_conflict_only_state_returns_structured_mode(self):
         self._create_conflict_state()
