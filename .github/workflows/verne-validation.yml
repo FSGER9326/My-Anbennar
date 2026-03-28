@@ -152,7 +152,6 @@ jobs:
           [[ "$status" == "success" ]]
 
   gate-2-content:
-    needs: gate-1-structure
     runs-on: ubuntu-latest
     outputs:
       gate_status: ${{ steps.finalize.outputs.gate_status }}
@@ -262,7 +261,6 @@ jobs:
           [[ "$status" == "success" ]]
 
   gate-3-sync-health:
-    needs: gate-2-content
     runs-on: ubuntu-latest
     outputs:
       gate_status: ${{ steps.finalize.outputs.gate_status }}
@@ -322,7 +320,7 @@ jobs:
             base_ref="${{ github.base_ref }}"
             git fetch --no-tags origin "$base_ref"
             run_sync_check "branch_sync_sanity" "Branch sync sanity" "git rev-list --left-right --count HEAD...origin/${base_ref}" "retry"
-            run_sync_check "conflict_simulation" "Conflict simulation" "git merge --no-commit --no-ff origin/${base_ref} && git merge --abort" "retry"
+            run_sync_check "conflict_simulation" "Conflict simulation" "if git merge --no-commit --no-ff origin/${base_ref}; then git merge --abort; exit 0; else git merge --abort || true; exit 1; fi" "retry"
           fi
 
           python - <<'PY'
