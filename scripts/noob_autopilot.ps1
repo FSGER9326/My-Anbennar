@@ -43,10 +43,42 @@ function Fail-WithNextCommand {
         [string]$NextCommand
     )
 
+    Write-PostFailSummary
     Write-Output "ERROR: $Message"
     Write-Output "Next command:"
     Write-Output $NextCommand
     exit 1
+}
+
+function Write-PostFailSummary {
+    Write-Output ""
+    Write-Output "Quick triage summary (priority order):"
+
+    $mergeConflicts = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
+    if (-not [string]::IsNullOrWhiteSpace($mergeConflicts.Output)) {
+        Write-Output "1) merge conflicts -> git diff --name-only --diff-filter=U ; Why first: unresolved merges can invalidate every later check."
+    }
+
+    $docsGuard = & python "scripts/docs_conflict_guard.py" 2>&1
+    if ($LASTEXITCODE -ne 0) {
+        Write-Output "2) conflict markers -> python scripts/docs_conflict_guard.py ; Why first: marker leftovers break parsing and hide real logic errors."
+    }
+
+    $smoke = & powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\verne_smoke_checks.ps1" 2>&1
+    if ($LASTEXITCODE -ne 0) {
+        Write-Output "3) syntax/structure checks -> powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1 ; Why first: structural failures must clear before deeper content audits."
+    }
+
+    $locAudit = & python "scripts/localisation_audit.py" 2>&1
+    $locExit = $LASTEXITCODE
+    $eventAudit = & python "scripts/event_id_audit.py" 2>&1
+    $eventExit = $LASTEXITCODE
+    if ($locExit -ne 0) {
+        Write-Output "4) localisation/event ID checks -> python scripts/localisation_audit.py ; Why first: broken localisation keys block text integrity checks before ID cleanup."
+    }
+    elseif ($eventExit -ne 0) {
+        Write-Output "4) localisation/event ID checks -> python scripts/event_id_audit.py ; Why first: duplicate/missing event IDs can break runtime event flow even after syntax passes."
+    }
 }
 
 $branchResult = Invoke-GitCommand -Arguments @("branch", "--show-current")
