@@ -1600,6 +1600,10 @@ A33_second_slot = {
 		provinces_to_highlight = { } 
 
 		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = verne_overhaul_requires_adventure_network_started_tt
+				verne_overhaul_has_adventure_network_started = yes
+			}
 			estate_influence = {
 				estate = estate_adventurers
 				influence = 50

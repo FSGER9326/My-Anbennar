@@ -14,6 +14,19 @@ Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before
 - Preserve working Verne content where possible instead of replacing it blindly.
 - Treat shared multi-country files as normal for Verne work. Do not assume the real source lives in a tidy Verne-only file.
 
+## Implementation Log
+
+### 2026-03-28 micro-slice: Adventure Network helper gate on a Verne mission
+- Backlog target chosen: helper-driven gameplay gate for the Verne adventure arc (contained mission-scope slice).
+- Done criteria:
+  - `A33_the_lands_of_adventure` now explicitly checks `verne_overhaul_has_adventure_network_started` through a custom trigger tooltip.
+  - Localization for the new tooltip key exists in `localisation/verne_overhaul_l_english.yml`.
+  - No new inline duplicate logic was introduced; the mission callsite reuses the existing `verne_overhaul_*` helper naming style.
+- Touched paths:
+  - `missions/Verne_Missions.txt`
+  - `localisation/verne_overhaul_l_english.yml`
+  - `docs/first-wave-backlog.md`
+
 ## Phase 0: Grounding Audit
 
 ### V-00 Map shared touchpoints and compatibility risks
