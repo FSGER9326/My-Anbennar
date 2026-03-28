@@ -16,19 +16,3 @@ verne_proto_doctrine_ideas = {
 		monthly_splendor = 0.5
 	}
 }
-
-verne_proto_adventure_ideas = {
-	category = DIP
-
-	start = {
-		colonists = 1
-	}
-
-	bonus = {
-		global_tariffs = 0.1
-	}
-
-	verne_proto_pathfinders = {
-		range = 0.15
-	}
-}
