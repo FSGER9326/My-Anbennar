@@ -102,7 +102,7 @@ class Orchestrator:
             print("Sync failed before merge state was created. Stopping.")
             raise SystemExit(sync_step.returncode)
 
-    def stage_resolve_conflicts(self) -> None:
+    def stage_resolve_conflicts(self) -> bool:
         print("\n=== Stage: resolve_conflicts ===")
         unresolved_before = self.unresolved_files()
         if unresolved_before:
@@ -130,6 +130,9 @@ class Orchestrator:
 
         if unresolved and (self.args.prefer_main or self.args.prefer_branch):
             self.apply_fallback_preference(unresolved)
+
+        unresolved_after = self.unresolved_files()
+        return not unresolved_after
 
     def stage_validate(self) -> bool:
         print("\n=== Stage: validate ===")
@@ -252,8 +255,14 @@ def main() -> int:
     args = parse_args()
     orchestrator = Orchestrator(args)
     orchestrator.stage_sync()
-    orchestrator.stage_resolve_conflicts()
-    validation_ok = orchestrator.stage_validate()
+    conflicts_cleared = orchestrator.stage_resolve_conflicts()
+
+    if not conflicts_cleared:
+        print("\nSkipping validate stage because merge conflicts are still unresolved.")
+        validation_ok = False
+    else:
+        validation_ok = orchestrator.stage_validate()
+
     orchestrator.stage_summarize(validation_ok)
     return orchestrator.stage_ready_to_push(validation_ok)
 
