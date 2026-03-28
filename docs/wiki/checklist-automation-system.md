@@ -73,6 +73,17 @@ Python index-file behavior:
 - If you pass no `--index-file`, the legacy built-in default index list is used for compatibility.
 - `--use-default-index-files` is optional explicitness for scripts/wrappers that want to force legacy defaults.
 
+### What manifest coverage now means
+
+Manifest coverage now tracks **roadmap file-family progress**, not just helper-layer success.
+
+- The manifest includes first-wave helper families (`modifiers`, `triggers`, `effects`, and overhaul localisation).
+- It also includes first-wave doctrine files, reform files, and integration files (`decisions`, `events`, `on_actions`) pulled from `docs/first-wave-backlog.md`.
+- `status` is intentional:
+  - `draft` = planned backlog target file not created yet.
+  - `active` = current implementation file that already exists and is part of the live tracked layer.
+- `scanned` / `mapped` / `verified` should be set conservatively. For newly-added planned targets, start these as `false` until real grounding passes are done.
+
 ### Markdown link audit
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\checklist_link_audit.ps1`
