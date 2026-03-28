@@ -30,6 +30,9 @@ class StepResult:
 class Orchestrator:
     def __init__(self, args: argparse.Namespace) -> None:
         self.args = args
+        # Fast preset defaults to main-side preference unless caller overrides.
+        if self.args.mode == "fast" and not self.args.prefer_main and not self.args.prefer_branch:
+            self.args.prefer_main = True
         self.results: list[StepResult] = []
 
     def run(self, cmd: list[str], *, allow_failure: bool = False) -> StepResult:
@@ -82,6 +85,10 @@ class Orchestrator:
 
     def stage_sync(self) -> None:
         print("\n=== Stage: sync ===")
+        if self.has_merge_head():
+            print("Merge already in progress; skipping new sync merge and continuing.")
+            return
+
         # Existing sync logic (fetch/merge/no-commit + initial guardrails).
         sync_step = self.run([
             sys.executable,
@@ -121,7 +128,7 @@ class Orchestrator:
             for path in unresolved:
                 print(f" - {path}")
 
-        if self.args.mode == "fast" and unresolved:
+        if unresolved and (self.args.prefer_main or self.args.prefer_branch):
             self.apply_fallback_preference(unresolved)
 
     def stage_validate(self) -> bool:
