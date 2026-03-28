@@ -1,0 +1,22 @@
+namespace = verne_overhaul_dynasty
+
+# ===============================================
+# Verne overhaul dynasty event scaffold
+# Status: scaffolded only (no-op/safe placeholder)
+# ===============================================
+
+country_event = {
+	id = verne_overhaul_dynasty.1
+	title = verne_overhaul_dynasty.1.t
+	desc = verne_overhaul_dynasty.1.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+
+	trigger = {
+		always = no
+	}
+
+	option = {
+		name = verne_overhaul_dynasty.1.a
+	}
+}

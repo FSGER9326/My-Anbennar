@@ -1,0 +1,22 @@
+# ===============================================
+# Verne overhaul doctrine policy scaffold
+# Status: scaffolded only (no-op/safe placeholder)
+# ===============================================
+
+verne_placeholder_doctrine_policy = {
+	monarch_power = ADM
+
+	potential = {
+		always = no
+	}
+
+	allow = {
+		always = no
+	}
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 0
+	}
+}
