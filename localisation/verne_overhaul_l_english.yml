@@ -41,6 +41,8 @@ l_english:
  verne_overhaul_tt_needs_6_ports_of_adventure:0 "Requires §Y6§! total Ports of Adventure in the active network."
  verne_overhaul_tt_needs_11_ports_of_adventure:0 "Requires §Y11§! total Ports of Adventure in the active network."
  verne_overhaul_tt_needs_20_ports_of_adventure:0 "Requires §Y20§! total Ports of Adventure in the active network."
+ verne_overhaul_tt_in_search_akasik_or_projection:0 "Either clear §YAkasik§! of Gnollish rule, project influence there via a §Ysubject/ally§!, or prove sustained reach through your §Yadventure network/monuments§!."
+ verne_overhaul_tt_in_search_expedition_capacity:0 "Field expedition capability through classic §YColonizer+Explorer§! staffing, §Ysubject/ally projection§!, or an established §Ynetwork/monument§! route."
 
  # --- v0.1 doctrine + reform prototypes ---
  verne_proto_doctrine_ideas:0 "Verne Prototype Doctrine"

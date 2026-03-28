@@ -1504,12 +1504,25 @@ A33_second_slot = {
 		}
 
 		trigger = {
-			akasik_region = {
-				type = all
-				NOT = { owner = { culture_is_gnollish = yes } } 
+			custom_trigger_tooltip = {
+				tooltip = verne_overhaul_tt_in_search_akasik_or_projection
+				OR = {
+					akasik_region = {
+						type = all
+						NOT = { owner = { culture_is_gnollish = yes } }
+					}
+					verne_overhaul_in_search_subject_projection_route = yes
+					verne_overhaul_in_search_network_or_monument_route = yes
+				}
 			}
-			num_of_colonists = 1
-			num_of_explorers = 1
+			custom_trigger_tooltip = {
+				tooltip = verne_overhaul_tt_in_search_expedition_capacity
+				OR = {
+					verne_overhaul_in_search_colonizer_route = yes
+					verne_overhaul_in_search_subject_projection_route = yes
+					verne_overhaul_in_search_network_or_monument_route = yes
+				}
+			}
 			OR = {
 				has_personal_deity = corin
 				religion = corinite
