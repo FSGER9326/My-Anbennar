@@ -17,7 +17,8 @@ $hotspots = @(
     "docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md",
     "docs/repo-maps/anbennar-systems-master-index.md",
     "docs/repo-maps/anbennar-systems-scan-roadmap.md",
-    "docs/wiki/checklist-automation-system.md"
+    "docs/wiki/checklist-automation-system.md",
+    "docs/wiki/current-work-queue.md"
 )
 
 $canonicalGitattributes = @'
@@ -44,6 +45,7 @@ docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md merge=union
 docs/repo-maps/anbennar-systems-master-index.md merge=union
 docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
 docs/wiki/checklist-automation-system.md merge=union
+docs/wiki/current-work-queue.md merge=union
 '@
 
 function Invoke-Git {

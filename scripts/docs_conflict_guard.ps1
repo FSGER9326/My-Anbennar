@@ -13,7 +13,8 @@ $hotspotFiles = @(
     "docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md",
     "docs/repo-maps/anbennar-systems-master-index.md",
     "docs/repo-maps/anbennar-systems-scan-roadmap.md",
-    "docs/wiki/checklist-automation-system.md"
+    "docs/wiki/checklist-automation-system.md",
+    "docs/wiki/current-work-queue.md"
 )
 
 $headingSingletonRules = @{
@@ -36,6 +37,11 @@ $headingSingletonRules = @{
         "## Automation commands",
         "## Merge-conflict prevention",
         "## Feature-branch sync"
+    )
+    "docs/wiki/current-work-queue.md" = @(
+        "## Now (max 1 item)",
+        "## Next (max 3 items)",
+        "## Parked"
     )
 }
 
