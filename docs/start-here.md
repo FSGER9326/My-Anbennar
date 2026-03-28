@@ -16,6 +16,15 @@ Use the noob autopilot script as your default branch-sync + safety-check workflo
 - **macOS/Linux (bash):** `bash scripts/noob_autopilot.sh`
 - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1`
 
+If merge conflicts still remain after docs auto-resolution, rerun with a one-flag fallback:
+
+- **Prefer main side (safest if unsure):**
+  - bash: `bash scripts/noob_autopilot.sh --prefer-main`
+  - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main`
+- **Prefer your branch side:**
+  - bash: `bash scripts/noob_autopilot.sh --prefer-branch`
+  - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
+
 This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
 
 Run pre-PR gate before opening any PR.

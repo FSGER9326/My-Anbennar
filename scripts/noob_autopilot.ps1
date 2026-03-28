@@ -1,3 +1,9 @@
+param(
+    [string]$BaseRef = "origin/main",
+    [ValidateSet("manual", "prefer-main", "prefer-branch")]
+    [string]$ResolutionStrategy = "manual"
+)
+
 $ErrorActionPreference = "Stop"
 if (Get-Variable PSNativeCommandUseErrorActionPreference -ErrorAction SilentlyContinue) {
     $PSNativeCommandUseErrorActionPreference = $false
@@ -62,7 +68,7 @@ if ($fetch.Code -ne 0) {
 Write-Output "[STEP 3/7] Run auto_sync_pr_with_main (PowerShell)"
 $syncScript = Join-Path $scriptDir "auto_sync_pr_with_main.ps1"
 $syncLog = New-TemporaryFile
-& $syncScript *> $syncLog.FullName
+& $syncScript -BaseRef $BaseRef *> $syncLog.FullName
 $syncExit = $LASTEXITCODE
 if ($null -eq $syncExit) {
     $syncExit = 0
@@ -87,13 +93,27 @@ if (-not [string]::IsNullOrWhiteSpace($unresolved.Output)) {
 
 $unresolvedAfter = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
 if (-not [string]::IsNullOrWhiteSpace($unresolvedAfter.Output)) {
-    $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
-    Fail-WithNextCommand -Message "Unresolved merge conflicts remain." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\resolve_docs_conflicts.ps1"
+    if ($ResolutionStrategy -eq "manual") {
+        $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
+        Fail-WithNextCommand -Message "Unresolved merge conflicts remain." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main"
+    }
+
+    Write-Output "Applying $ResolutionStrategy strategy to unresolved files..."
+    $remainingList = ($unresolvedAfter.Output -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+    foreach ($file in $remainingList) {
+        if ($ResolutionStrategy -eq "prefer-main") {
+            & git checkout --theirs -- $file
+        }
+        else {
+            & git checkout --ours -- $file
+        }
+        & git add -- $file
+    }
 }
 
 if ($syncExit -ne 0) {
     $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
-    Fail-WithNextCommand -Message "auto_sync_pr_with_main.ps1 failed." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1"
+    Fail-WithNextCommand -Message "auto_sync_pr_with_main.ps1 failed." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main"
 }
 
 Write-Output "[STEP 5/7] Run docs_conflict_guard"

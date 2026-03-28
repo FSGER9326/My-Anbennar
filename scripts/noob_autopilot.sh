@@ -10,6 +10,48 @@ if ! command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
   PYTHON_BIN="python"
 fi
 
+RESOLUTION_STRATEGY="manual"
+BASE_REF="origin/main"
+
+usage() {
+  cat <<USAGE
+Usage: bash scripts/noob_autopilot.sh [--base-ref <ref>] [--prefer-main|--prefer-branch]
+
+Options:
+  --base-ref <ref>     Merge source (default: origin/main)
+  --prefer-main        If unresolved conflicts remain, auto-resolve using main's side
+  --prefer-branch      If unresolved conflicts remain, auto-resolve using your branch side
+
+Default mode is manual-safe: unresolved conflicts stop with a clear next command.
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --base-ref)
+      BASE_REF="${2:-}"
+      shift 2
+      ;;
+    --prefer-main)
+      RESOLUTION_STRATEGY="prefer-main"
+      shift
+      ;;
+    --prefer-branch)
+      RESOLUTION_STRATEGY="prefer-branch"
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "ERROR: unknown argument: $1"
+      usage
+      exit 1
+      ;;
+  esac
+done
+
 fail_with_next() {
   local message="$1"
   local next_cmd="$2"
@@ -34,7 +76,7 @@ fi
 echo "[STEP 3/7] Run auto_sync_pr_with_main (bash)"
 SYNC_LOG="$(mktemp)"
 set +e
-bash "${SCRIPT_DIR}/auto_sync_pr_with_main.sh" >"${SYNC_LOG}" 2>&1
+bash "${SCRIPT_DIR}/auto_sync_pr_with_main.sh" "${BASE_REF}" >"${SYNC_LOG}" 2>&1
 SYNC_EXIT=$?
 set -e
 if [[ ${SYNC_EXIT} -eq 0 ]]; then
@@ -56,12 +98,24 @@ fi
 
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
   rm -f "${SYNC_LOG}"
-  fail_with_next "Unresolved merge conflicts remain." "${PYTHON_BIN} scripts/resolve_docs_conflicts.py"
+  if [[ "${RESOLUTION_STRATEGY}" == "manual" ]]; then
+    fail_with_next "Unresolved merge conflicts remain." "bash scripts/noob_autopilot.sh --prefer-main"
+  fi
+  echo "Applying ${RESOLUTION_STRATEGY} strategy to unresolved files..."
+  while IFS= read -r f; do
+    [[ -z "${f}" ]] && continue
+    if [[ "${RESOLUTION_STRATEGY}" == "prefer-main" ]]; then
+      git checkout --theirs -- "${f}"
+    else
+      git checkout --ours -- "${f}"
+    fi
+    git add -- "${f}"
+  done < <(git diff --name-only --diff-filter=U)
 fi
 
 if [[ ${SYNC_EXIT} -ne 0 ]]; then
   rm -f "${SYNC_LOG}"
-  fail_with_next "auto_sync_pr_with_main.sh failed." "bash scripts/auto_sync_pr_with_main.sh"
+  fail_with_next "auto_sync_pr_with_main.sh failed." "bash scripts/noob_autopilot.sh --prefer-main"
 fi
 
 echo "[STEP 5/7] Run docs_conflict_guard"
