@@ -49,6 +49,7 @@ The `repo-maps/` folder records how existing Anbennar systems are actually imple
 - [wiki/README.md](./wiki/README.md)
 - [wiki/high-value-non-modding-eu4-wiki-topics.md](./wiki/high-value-non-modding-eu4-wiki-topics.md)
 - [wiki/noob-friendly-doc-naming-convention.md](./wiki/noob-friendly-doc-naming-convention.md)
+- [wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md)
 
 Use this for long-term change tracking, upstream-update adaptation, and beginner-friendly conventions.
 

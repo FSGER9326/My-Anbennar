@@ -13,8 +13,9 @@ If you are new to GitHub and modding, read in this order:
 3. [docs/wiki/fluff-and-art-production-playbook.md](./wiki/fluff-and-art-production-playbook.md)
 4. [docs/wiki/anbennar-base-vs-verne-change-ledger.md](./wiki/anbennar-base-vs-verne-change-ledger.md)
 5. [docs/wiki/verne-id-ledger.md](./wiki/verne-id-ledger.md)
-6. [docs/implementation-crosswalk.md](./implementation-crosswalk.md)
-7. one matching article from [docs/repo-maps/README.md](./repo-maps/README.md)
+6. [docs/wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md)
+7. [docs/implementation-crosswalk.md](./implementation-crosswalk.md)
+8. one matching article from [docs/repo-maps/README.md](./repo-maps/README.md)
 
 ## Default recommended workflow (run this first)
 
