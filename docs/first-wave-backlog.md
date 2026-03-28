@@ -14,6 +14,32 @@ Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before
 - Preserve working Verne content where possible instead of replacing it blindly.
 - Treat shared multi-country files as normal for Verne work. Do not assume the real source lives in a tidy Verne-only file.
 
+## v0.1 Beginner-Safe Slice (Execute First)
+
+This is the first implementation scope. Do **only** this thin slice before broader system work.
+
+Target files for v0.1:
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt) — add one doctrine group prototype (single group only).
+- [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt) — add one initial reform entry (single reform only).
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml) — add matching localization for the prototype IDs.
+
+Scope guardrails:
+- Keep this v0.1 pass to **~3 touched gameplay files + 1 localization file maximum** for beginner-safe iteration.
+- Do not expand into mission-tree rewrites during this pass.
+- Do not add deferred helper-heavy systems during this pass.
+
+Post-v0.1 (explicitly deferred):
+- Broad mission rewrites and mission reward rebalance.
+- Cross-system doctrine integration passes (global compat rewiring, policy web expansion, and wide event coupling).
+- Additional reform tiers/chains beyond the first single reform prototype.
+
+Done when (v0.1 checks):
+- Doctrine prototype ID exists in `common/ideas/verne_doctrine_groups.txt`.
+- Initial reform ID exists in `common/government_reforms/verne_overhaul_reforms.txt`.
+- Matching localization keys exist in `localisation/verne_overhaul_l_english.yml` for every new v0.1 ID.
+- No duplicate key names are introduced across newly added v0.1 entries.
+- Helper naming parity is consistent (`verne_` prefix and shared suffix patterns where applicable).
+
 ## Phase 0: Grounding Audit
 
 ### V-00 Map shared touchpoints and compatibility risks
