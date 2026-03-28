@@ -50,6 +50,11 @@ if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
   exit ${EXIT_NEEDS_MANUAL_CONFLICT}
 fi
 
+if [[ ${MERGE_EXIT} -ne 0 ]] && ! git rev-parse -q --verify MERGE_HEAD >/dev/null 2>&1; then
+  echo "ERROR: Merge failed before creating a merge state. Check base ref and rerun."
+  exit 1
+fi
+
 echo "Running conflict guard and smoke checks..."
 if ! "${PYTHON_BIN}" scripts/docs_conflict_guard.py; then
   echo "EXIT_MODE=guard_failed"

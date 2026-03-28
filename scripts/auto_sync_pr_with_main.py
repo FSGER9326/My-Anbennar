@@ -101,6 +101,9 @@ def main() -> int:
         print("    bash scripts/verne_smoke_checks.sh")
         print("EXIT_MODE=needs_manual_conflict")
         return EXIT_NEEDS_MANUAL_CONFLICT
+    if merge.returncode != 0 and not has_merge_head():
+        print("ERROR: Merge failed before creating a merge state. Check base ref and rerun.")
+        return 1
 
     print("Running conflict guard and smoke checks...")
     guard_rc = run_python_script("docs_conflict_guard.py")

@@ -86,6 +86,11 @@ if (-not [string]::IsNullOrWhiteSpace($remaining)) {
     exit $EXIT_NEEDS_MANUAL_CONFLICT
 }
 
+if ($mergeExit -ne 0 -and -not (Test-MergeHead)) {
+    Write-Output "ERROR: Merge failed before creating a merge state. Check base ref and rerun."
+    exit 1
+}
+
 Write-Output "Running conflict guard and smoke checks..."
 & (Join-Path $PSScriptRoot "docs_conflict_guard.ps1")
 if ($LASTEXITCODE -ne 0) {
