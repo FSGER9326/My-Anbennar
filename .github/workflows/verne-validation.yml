@@ -38,219 +38,392 @@ permissions:
   contents: read
 
 jobs:
-  merge-conflict-guard:
+  gate-1-structure:
     runs-on: ubuntu-latest
+    outputs:
+      gate_status: ${{ steps.finalize.outputs.gate_status }}
     steps:
       - name: Checkout code
-        id: checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Verify branch merges cleanly with base
-        id: verify_clean_merge
-        if: github.event_name == "pull_request"
-        shell: bash
-        run: |
-          set -euo pipefail
-          base_ref="${{ github.base_ref }}"
-          git fetch --no-tags origin "${base_ref}"
-
-          if ! git merge --no-commit --no-ff "origin/${base_ref}"; then
-            echo "::error::Merge conflict detected with origin/${base_ref}. Rebase or merge the latest base branch into this PR branch."
-            git merge --abort || true
-            exit 1
-          fi
-
-          git merge --abort
-
-      - name: Skip merge conflict check for non-PR events
-        if: github.event_name != "pull_request"
-        run: echo "Skipping merge-conflict-guard outside pull_request events."
-
-  validate-python-and-bash:
-    needs: merge-conflict-guard
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        id: checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
-        id: setup_python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install ripgrep
-        id: install_ripgrep
         run: sudo apt-get update && sudo apt-get install -y ripgrep
 
-      - name: Compile Python scripts
-        id: compile_python
-        run: python -m py_compile scripts/*.py
-
-      - name: Run docs conflict guard
-        id: docs_conflict_guard
-        run: python scripts/docs_conflict_guard.py
-
-      - name: Run checklist link audit
-        id: checklist_link_audit
-        run: python scripts/checklist_link_audit.py
-
-      - name: Run verne checklist audit
-        id: verne_checklist_audit
-        run: python scripts/verne_checklist_audit.py
-
-      - name: Run localization audit
-        id: localization_audit
-        run: python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml
-
-      - name: Run event ID audit
-        id: event_id_audit
+      - name: Run structure validation gate
+        id: run_gate
+        shell: bash
         run: |
-          python scripts/event_id_audit.py \
-            --file events/Flavour_Verne_A33.txt \
-            --file events/verne_overhaul_dynasty_events.txt
+          set +e
+          gate="gate-1-structure"
+          mkdir -p artifacts/$gate logs/$gate
 
-      - name: Run country smoke runner
-        id: country_smoke_runner
-        run: python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json
+          run_check() {
+            local key="$1"
+            local label="$2"
+            local command="$3"
+            local logfile="logs/$gate/${key}.log"
+            bash -lc "$command" >"$logfile" 2>&1
+            local status="success"
+            if [[ $? -ne 0 ]]; then
+              status="failure"
+            fi
+            printf '%s|%s|%s|%s\n' "$key" "$label" "$status" "$command" >> "artifacts/$gate/results.tsv"
+          }
 
-      - name: Run Bash smoke checks
-        id: bash_smoke_checks
-        run: bash scripts/verne_smoke_checks.sh
+          : > "artifacts/$gate/results.tsv"
+          run_check "compile_python" "Compile Python scripts" "python -m py_compile scripts/*.py"
+          run_check "docs_conflict_guard" "Docs conflict guard" "python scripts/docs_conflict_guard.py"
+          run_check "checklist_link_audit" "Checklist link audit" "python scripts/checklist_link_audit.py"
+          run_check "verne_checklist_audit" "Verne checklist audit (manifest)" "python scripts/verne_checklist_audit.py"
 
-      - name: Build validation fix summary
-        id: build_validation_fix_summary
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
+
+          gate = "gate-1-structure"
+          base = pathlib.Path("artifacts") / gate
+          logs = pathlib.Path("logs") / gate
+          rows = []
+          for line in (base / "results.tsv").read_text(encoding="utf-8").splitlines():
+              key, label, status, command = line.split("|", 3)
+              text = (logs / f"{key}.log").read_text(encoding="utf-8", errors="replace")
+              file_counts = {}
+              for match in re.findall(r"([A-Za-z0-9_./-]+\.(?:txt|md|yml|yaml|py|json|sh|ps1))", text):
+                  file_counts[match] = file_counts.get(match, 0) + 1
+              rows.append({
+                  "id": key,
+                  "label": label,
+                  "status": status,
+                  "command": command,
+                  "log": str(logs / f"{key}.log"),
+                  "failure_file_counts": file_counts,
+              })
+
+          overall = "success" if all(r["status"] == "success" for r in rows) else "failure"
+          report = {"gate": gate, "overall_status": overall, "checks": rows}
+          (base / "validation_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+
+          lines = [f"# {gate} report", "", f"Overall status: **{overall}**", "", "## Summary", "", "| Check | Status | Command |", "|---|---|---|"]
+          for r in rows:
+              icon = "✅" if r["status"] == "success" else "❌"
+              lines.append(f"| {r['label']} | {icon} {r['status']} | `{r['command']}` |")
+
+          lines += ["", "## Per-file failure counts", "", "| File | Count |", "|---|---|"]
+          combined = {}
+          for r in rows:
+              for file, count in r["failure_file_counts"].items():
+                  combined[file] = combined.get(file, 0) + count
+          if combined:
+              for file, count in sorted(combined.items(), key=lambda x: (-x[1], x[0])):
+                  lines.append(f"| `{file}` | {count} |")
+          else:
+              lines.append("| _none_ | 0 |")
+
+          (base / "validation_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - name: Publish gate summary
         if: always()
         shell: bash
-        env:
-          COMPILE_PYTHON_OUTCOME: ${{ steps.compile_python.outcome }}
-          DOCS_CONFLICT_GUARD_OUTCOME: ${{ steps.docs_conflict_guard.outcome }}
-          CHECKLIST_LINK_AUDIT_OUTCOME: ${{ steps.checklist_link_audit.outcome }}
-          VERNE_CHECKLIST_AUDIT_OUTCOME: ${{ steps.verne_checklist_audit.outcome }}
-          LOCALIZATION_AUDIT_OUTCOME: ${{ steps.localization_audit.outcome }}
-          EVENT_ID_AUDIT_OUTCOME: ${{ steps.event_id_audit.outcome }}
-          COUNTRY_SMOKE_RUNNER_OUTCOME: ${{ steps.country_smoke_runner.outcome }}
-          BASH_SMOKE_CHECKS_OUTCOME: ${{ steps.bash_smoke_checks.outcome }}
-        run: |
-          summary_file="verne-validation-summary-ubuntu.md"
-          {
-            echo "# Verne validation fixes (ubuntu)"
-            echo
-            echo "## Action items first (copy/paste)"
-            echo
-          } > "$summary_file"
+        run: cat artifacts/gate-1-structure/validation_report.md >> "$GITHUB_STEP_SUMMARY"
 
-          add_fix() {
-            local check_name="$1"
-            local likely_cause="$2"
-            local fix_command="$3"
-            {
-              echo "### ❌ ${check_name}"
-              echo "- Likely cause: ${likely_cause}"
-              echo "- Fix command: \`${fix_command}\`"
-              echo
-            } >> "$summary_file"
-          }
-
-          if [[ "$COMPILE_PYTHON_OUTCOME" == "failure" ]]; then
-            add_fix "Compile Python scripts" "Python syntax or import-time errors in scripts/" "python -m py_compile scripts/*.py"
-          fi
-          if [[ "$DOCS_CONFLICT_GUARD_OUTCOME" == "failure" ]]; then
-            add_fix "Docs conflict guard" "Documentation anchors or expected structure drifted" "python scripts/docs_conflict_guard.py"
-          fi
-          if [[ "$CHECKLIST_LINK_AUDIT_OUTCOME" == "failure" ]]; then
-            add_fix "Checklist link audit" "Broken or stale links in checklist docs" "python scripts/checklist_link_audit.py"
-          fi
-          if [[ "$VERNE_CHECKLIST_AUDIT_OUTCOME" == "failure" ]]; then
-            add_fix "Verne checklist audit" "Checklist rows missing required fields or references" "python scripts/verne_checklist_audit.py"
-          fi
-          if [[ "$LOCALIZATION_AUDIT_OUTCOME" == "failure" ]]; then
-            add_fix "Localization audit" "Localization formatting/key issues in Flavour_Verne_A33 loc file" "python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml"
-          fi
-          if [[ "$EVENT_ID_AUDIT_OUTCOME" == "failure" ]]; then
-            add_fix "Event ID audit" "Duplicate IDs or missing/mismatched namespace in tracked Verne event files" "python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt --file events/verne_overhaul_dynasty_events.txt"
-          fi
-          if [[ "$COUNTRY_SMOKE_RUNNER_OUTCOME" == "failure" ]]; then
-            add_fix "Country smoke runner" "Country profile assertions failed for verne profile" "python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
-          fi
-          if [[ "$BASH_SMOKE_CHECKS_OUTCOME" == "failure" ]]; then
-            add_fix "Bash smoke checks" "Shell smoke checks detected repo consistency issues" "bash scripts/verne_smoke_checks.sh"
-          fi
-
-          {
-            echo "## Technical status snapshot"
-            echo
-            echo "- Compile Python scripts: ${COMPILE_PYTHON_OUTCOME}"
-            echo "- Docs conflict guard: ${DOCS_CONFLICT_GUARD_OUTCOME}"
-            echo "- Checklist link audit: ${CHECKLIST_LINK_AUDIT_OUTCOME}"
-            echo "- Verne checklist audit: ${VERNE_CHECKLIST_AUDIT_OUTCOME}"
-            echo "- Localization audit: ${LOCALIZATION_AUDIT_OUTCOME}"
-            echo "- Event ID audit: ${EVENT_ID_AUDIT_OUTCOME}"
-            echo "- Country smoke runner: ${COUNTRY_SMOKE_RUNNER_OUTCOME}"
-            echo "- Bash smoke checks: ${BASH_SMOKE_CHECKS_OUTCOME}"
-          } >> "$summary_file"
-
-          cat "$summary_file" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Upload validation fix summary
-        id: upload_validation_fix_summary
+      - name: Upload gate artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: verne-validation-summary-ubuntu
-          path: verne-validation-summary-ubuntu.md
+          name: gate-1-structure-artifacts
+          path: |
+            artifacts/gate-1-structure/validation_report.json
+            artifacts/gate-1-structure/validation_report.md
+            logs/gate-1-structure/*.log
 
-  validate-powershell:
-    needs: merge-conflict-guard
-    runs-on: windows-latest
+      - name: Finalize gate status
+        id: finalize
+        shell: bash
+        run: |
+          status=$(python -c 'import json;print(json.load(open("artifacts/gate-1-structure/validation_report.json"))["overall_status"])')
+          echo "gate_status=$status" >> "$GITHUB_OUTPUT"
+          [[ "$status" == "success" ]]
+
+  gate-2-content:
+    needs: gate-1-structure
+    runs-on: ubuntu-latest
+    outputs:
+      gate_status: ${{ steps.finalize.outputs.gate_status }}
     steps:
       - name: Checkout code
-        id: checkout
         uses: actions/checkout@v4
 
-      - name: Run PowerShell smoke checks
-        id: powershell_smoke_checks
-        run: powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      - name: Build validation fix summary
-        id: build_validation_fix_summary
-        if: always()
-        shell: pwsh
-        env:
-          POWERSHELL_SMOKE_CHECKS_OUTCOME: ${{ steps.powershell_smoke_checks.outcome }}
+      - name: Run content validation gate
+        id: run_gate
+        shell: bash
         run: |
-          $summaryFile = "verne-validation-summary-windows.md"
-          @(
-            "# Verne validation fixes (windows)"
-            ""
-            "## Action items first (copy/paste)"
-            ""
-          ) | Set-Content -Path $summaryFile
+          set +e
+          gate="gate-2-content"
+          mkdir -p artifacts/$gate logs/$gate
 
-          if ($env:POWERSHELL_SMOKE_CHECKS_OUTCOME -eq "failure") {
-            @(
-              "### ❌ PowerShell smoke checks"
-              "- Likely cause: PowerShell smoke checks found script or data consistency issues."
-              "- Fix command: ``powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1``"
-              ""
-            ) | Add-Content -Path $summaryFile
+          run_check() {
+            local key="$1"
+            local label="$2"
+            local command="$3"
+            local logfile="logs/$gate/${key}.log"
+            bash -lc "$command" >"$logfile" 2>&1
+            local status="success"
+            if [[ $? -ne 0 ]]; then
+              status="failure"
+            fi
+            printf '%s|%s|%s|%s\n' "$key" "$label" "$status" "$command" >> "artifacts/$gate/results.tsv"
           }
 
-          @(
-            "## Technical status snapshot"
-            ""
-            "- PowerShell smoke checks: $($env:POWERSHELL_SMOKE_CHECKS_OUTCOME)"
-          ) | Add-Content -Path $summaryFile
+          : > "artifacts/$gate/results.tsv"
+          run_check "country_smoke_runner" "Country smoke runner (verne profile)" "python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
+          run_check "localization_audit" "Localization audit" "python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml"
+          run_check "event_id_audit" "Event ID audit" "python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt --file events/verne_overhaul_dynasty_events.txt"
 
-          Get-Content -Path $summaryFile | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
 
-      - name: Upload validation fix summary
-        id: upload_validation_fix_summary
+          gate = "gate-2-content"
+          base = pathlib.Path("artifacts") / gate
+          logs = pathlib.Path("logs") / gate
+          rows = []
+          for line in (base / "results.tsv").read_text(encoding="utf-8").splitlines():
+              key, label, status, command = line.split("|", 3)
+              text = (logs / f"{key}.log").read_text(encoding="utf-8", errors="replace")
+              file_counts = {}
+              for match in re.findall(r"([A-Za-z0-9_./-]+\.(?:txt|md|yml|yaml|py|json|sh|ps1))", text):
+                  file_counts[match] = file_counts.get(match, 0) + 1
+              rows.append({
+                  "id": key,
+                  "label": label,
+                  "status": status,
+                  "command": command,
+                  "log": str(logs / f"{key}.log"),
+                  "failure_file_counts": file_counts,
+              })
+
+          overall = "success" if all(r["status"] == "success" for r in rows) else "failure"
+          report = {"gate": gate, "overall_status": overall, "checks": rows}
+          (base / "validation_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+
+          lines = [f"# {gate} report", "", f"Overall status: **{overall}**", "", "## Summary", "", "| Check | Status | Command |", "|---|---|---|"]
+          for r in rows:
+              icon = "✅" if r["status"] == "success" else "❌"
+              lines.append(f"| {r['label']} | {icon} {r['status']} | `{r['command']}` |")
+
+          lines += ["", "## Per-file failure counts", "", "| File | Count |", "|---|---|"]
+          combined = {}
+          for r in rows:
+              for file, count in r["failure_file_counts"].items():
+                  combined[file] = combined.get(file, 0) + count
+          if combined:
+              for file, count in sorted(combined.items(), key=lambda x: (-x[1], x[0])):
+                  lines.append(f"| `{file}` | {count} |")
+          else:
+              lines.append("| _none_ | 0 |")
+
+          (base / "validation_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - name: Publish gate summary
+        if: always()
+        shell: bash
+        run: cat artifacts/gate-2-content/validation_report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload gate artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: verne-validation-summary-windows
-          path: verne-validation-summary-windows.md
+          name: gate-2-content-artifacts
+          path: |
+            artifacts/gate-2-content/validation_report.json
+            artifacts/gate-2-content/validation_report.md
+            logs/gate-2-content/*.log
+
+      - name: Finalize gate status
+        id: finalize
+        shell: bash
+        run: |
+          status=$(python -c 'import json;print(json.load(open("artifacts/gate-2-content/validation_report.json"))["overall_status"])')
+          echo "gate_status=$status" >> "$GITHUB_OUTPUT"
+          [[ "$status" == "success" ]]
+
+  gate-3-sync-health:
+    needs: gate-2-content
+    runs-on: ubuntu-latest
+    outputs:
+      gate_status: ${{ steps.finalize.outputs.gate_status }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run sync health gate with transient retry
+        id: run_gate
+        shell: bash
+        env:
+          RETRY_TRANSIENT_FAILURES: "true"
+        run: |
+          set +e
+          gate="gate-3-sync-health"
+          mkdir -p artifacts/$gate logs/$gate
+          : > "artifacts/$gate/results.tsv"
+
+          run_sync_check() {
+            local key="$1"
+            local label="$2"
+            local command="$3"
+            local allow_retry="$4"
+            local max_attempts=1
+            if [[ "$RETRY_TRANSIENT_FAILURES" == "true" && "$allow_retry" == "retry" ]]; then
+              max_attempts=2
+            fi
+            local attempt=1
+            local status="failure"
+            local logfile="logs/$gate/${key}.log"
+            : > "$logfile"
+
+            while [[ $attempt -le $max_attempts ]]; do
+              echo "attempt=${attempt}" >> "$logfile"
+              bash -lc "$command" >>"$logfile" 2>&1
+              rc=$?
+              if [[ $rc -eq 0 ]]; then
+                status="success"
+                break
+              fi
+              if [[ $attempt -lt $max_attempts ]]; then
+                printf '{"check":"%s","attempt":%d,"reason":"transient-sync-condition"}\n' "$key" "$attempt" >> "artifacts/$gate/auto_fix_log.jsonl"
+                sleep 2
+              fi
+              attempt=$((attempt + 1))
+            done
+
+            printf '%s|%s|%s|%s\n' "$key" "$label" "$status" "$command" >> "artifacts/$gate/results.tsv"
+          }
+
+          if [[ "${{ github.event_name }}" != "pull_request" ]]; then
+            echo "skip_non_pr|Skip sync checks outside pull_request|success|echo skipping on non-PR event" >> "artifacts/$gate/results.tsv"
+            echo "Skipping sync-health checks outside pull_request events." > "logs/$gate/skip_non_pr.log"
+          else
+            base_ref="${{ github.base_ref }}"
+            git fetch --no-tags origin "$base_ref"
+            run_sync_check "branch_sync_sanity" "Branch sync sanity" "git rev-list --left-right --count HEAD...origin/${base_ref}" "retry"
+            run_sync_check "conflict_simulation" "Conflict simulation" "git merge --no-commit --no-ff origin/${base_ref} && git merge --abort" "retry"
+          fi
+
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
+
+          gate = "gate-3-sync-health"
+          base = pathlib.Path("artifacts") / gate
+          logs = pathlib.Path("logs") / gate
+          rows = []
+          for line in (base / "results.tsv").read_text(encoding="utf-8").splitlines():
+              key, label, status, command = line.split("|", 3)
+              log_path = logs / f"{key}.log"
+              text = log_path.read_text(encoding="utf-8", errors="replace") if log_path.exists() else ""
+              file_counts = {}
+              for match in re.findall(r"([A-Za-z0-9_./-]+\.(?:txt|md|yml|yaml|py|json|sh|ps1))", text):
+                  file_counts[match] = file_counts.get(match, 0) + 1
+              rows.append({
+                  "id": key,
+                  "label": label,
+                  "status": status,
+                  "command": command,
+                  "log": str(log_path),
+                  "failure_file_counts": file_counts,
+              })
+
+          overall = "success" if all(r["status"] == "success" for r in rows) else "failure"
+          report = {"gate": gate, "overall_status": overall, "checks": rows}
+          (base / "validation_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+
+          auto_fix_path = base / "auto_fix_log.json"
+          jsonl_path = base / "auto_fix_log.jsonl"
+          if jsonl_path.exists():
+              entries = [json.loads(line) for line in jsonl_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+              auto_fix_path.write_text(json.dumps(entries, indent=2), encoding="utf-8")
+              jsonl_path.unlink()
+
+          lines = [f"# {gate} report", "", f"Overall status: **{overall}**", "", "## Summary", "", "| Check | Status | Command |", "|---|---|---|"]
+          for r in rows:
+              icon = "✅" if r["status"] == "success" else "❌"
+              lines.append(f"| {r['label']} | {icon} {r['status']} | `{r['command']}` |")
+
+          lines += ["", "## Per-file failure counts", "", "| File | Count |", "|---|---|"]
+          combined = {}
+          for r in rows:
+              for file, count in r["failure_file_counts"].items():
+                  combined[file] = combined.get(file, 0) + count
+          if combined:
+              for file, count in sorted(combined.items(), key=lambda x: (-x[1], x[0])):
+                  lines.append(f"| `{file}` | {count} |")
+          else:
+              lines.append("| _none_ | 0 |")
+
+          if auto_fix_path.exists():
+              lines += ["", "## Auto-fix retry log", "", "- `auto_fix_log.json` generated with transient retry metadata."]
+
+          (base / "validation_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - name: Publish gate summary
+        if: always()
+        shell: bash
+        run: cat artifacts/gate-3-sync-health/validation_report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload gate artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-3-sync-health-artifacts
+          path: |
+            artifacts/gate-3-sync-health/validation_report.json
+            artifacts/gate-3-sync-health/validation_report.md
+            artifacts/gate-3-sync-health/auto_fix_log.json
+            logs/gate-3-sync-health/*.log
+          if-no-files-found: ignore
+
+      - name: Finalize gate status
+        id: finalize
+        shell: bash
+        run: |
+          status=$(python -c 'import json;print(json.load(open("artifacts/gate-3-sync-health/validation_report.json"))["overall_status"])')
+          echo "gate_status=$status" >> "$GITHUB_OUTPUT"
+          [[ "$status" == "success" ]]
+
+  required-gates:
+    name: required-gates
+    runs-on: ubuntu-latest
+    needs:
+      - gate-1-structure
+      - gate-2-content
+      - gate-3-sync-health
+    if: always()
+    steps:
+      - name: Assert all gates passed by gate output
+        shell: bash
+        run: |
+          echo "gate-1-structure=${{ needs.gate-1-structure.outputs.gate_status }}"
+          echo "gate-2-content=${{ needs.gate-2-content.outputs.gate_status }}"
+          echo "gate-3-sync-health=${{ needs.gate-3-sync-health.outputs.gate_status }}"
+
+          [[ "${{ needs.gate-1-structure.outputs.gate_status }}" == "success" ]] || exit 1
+          [[ "${{ needs.gate-2-content.outputs.gate_status }}" == "success" ]] || exit 1
+          [[ "${{ needs.gate-3-sync-health.outputs.gate_status }}" == "success" ]] || exit 1
