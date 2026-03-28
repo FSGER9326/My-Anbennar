@@ -20,6 +20,9 @@ Write-Output "[5/6] Run Verne localisation audit"
 & (Join-Path $scriptDir "localisation_audit.ps1") -File "localisation/Flavour_Verne_A33_l_english.yml"
 
 Write-Output "[6/6] Run Verne event ID audit"
-& (Join-Path $scriptDir "event_id_audit.ps1") -File "events/Flavour_Verne_A33.txt"
+& (Join-Path $scriptDir "event_id_audit.ps1") -File @(
+    "events/Flavour_Verne_A33.txt",
+    "events/verne_overhaul_dynasty_events.txt"
+)
 
 Write-Output "All Verne smoke checks passed."

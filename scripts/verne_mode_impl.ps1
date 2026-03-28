@@ -13,7 +13,10 @@ Write-Output "[2/4] Run localisation audit"
 & (Join-Path $scriptDir "localisation_audit.ps1") -File "localisation/Flavour_Verne_A33_l_english.yml"
 
 Write-Output "[3/4] Run event ID audit"
-& (Join-Path $scriptDir "event_id_audit.ps1") -File "events/Flavour_Verne_A33.txt"
+& (Join-Path $scriptDir "event_id_audit.ps1") -File @(
+    "events/Flavour_Verne_A33.txt",
+    "events/verne_overhaul_dynasty_events.txt"
+)
 
 Write-Output "[4/4] Run conflict guard"
 & (Join-Path $scriptDir "docs_conflict_guard.ps1")
