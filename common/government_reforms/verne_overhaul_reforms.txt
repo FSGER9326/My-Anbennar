@@ -1,0 +1,14 @@
+# Verne overhaul v0.1 reform prototype (single reform only)
+# Keep this file intentionally tiny for beginner-safe iteration.
+
+verne_foundational_court_reform = {
+	icon = "crown"
+	valid_for_nation_designer = no
+	modifiers = {
+		yearly_corruption = -0.05
+		reform_progress_growth = 0.05
+	}
+	ai = {
+		factor = 1
+	}
+}

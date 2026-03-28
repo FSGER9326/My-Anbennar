@@ -1,0 +1,18 @@
+# Verne overhaul v0.1 doctrine prototype (single group only)
+# Keep this file intentionally tiny for beginner-safe iteration.
+
+verne_proto_doctrine_ideas = {
+	category = ADM
+
+	start = {
+		advisor_cost = -0.05
+	}
+
+	bonus = {
+		global_tax_modifier = 0.05
+	}
+
+	verne_proto_doctrine_charter = {
+		monthly_splendor = 0.5
+	}
+}

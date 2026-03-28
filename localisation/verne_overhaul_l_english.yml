@@ -41,3 +41,13 @@ l_english:
  verne_overhaul_tt_needs_6_ports_of_adventure:0 "Requires §Y6§! total Ports of Adventure in the active network."
  verne_overhaul_tt_needs_11_ports_of_adventure:0 "Requires §Y11§! total Ports of Adventure in the active network."
  verne_overhaul_tt_needs_20_ports_of_adventure:0 "Requires §Y20§! total Ports of Adventure in the active network."
+
+ # --- v0.1 doctrine + reform prototypes ---
+ verne_proto_doctrine_ideas:0 "Verne Prototype Doctrine"
+ verne_proto_doctrine_ideas_desc:0 "A cautious first doctrine draft used to validate overhaul wiring before wider doctrine rollout."
+
+ verne_proto_doctrine_charter:0 "Prototype Doctrine Charter"
+ verne_proto_doctrine_charter_desc:0 "Court-backed chartering practices give Verne a stable baseline for early doctrine experimentation."
+
+ verne_foundational_court_reform:0 "Foundational Verne Court"
+ verne_foundational_court_reform_desc:0 "A practical starting reform that improves administrative discipline while the wider overhaul is still in early testing."
