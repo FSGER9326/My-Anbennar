@@ -12,12 +12,15 @@ If you are new to GitHub and modding, read in this order:
 
 ## Default recommended workflow (run this first)
 
-Use the noob autopilot script as your default branch-sync + safety-check workflow before you push:
+Use the noob autopilot script as your default branch-sync + safety-check workflow before you push.
+
+By default this now uses **fast mode** (tries scripted resolution and main-side fallback first):
 
 - **macOS/Linux (bash):** `bash scripts/noob_autopilot.sh`
 - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1`
+- **Direct Python (same orchestrator):** `python scripts/verne_orchestrator.py`
 
-If merge conflicts still remain after docs auto-resolution, rerun with a one-flag fallback:
+If merge conflicts still remain after scripted resolution, rerun with an explicit one-flag fallback:
 
 - **Prefer main side (safest if unsure):**
   - bash: `bash scripts/noob_autopilot.sh --prefer-main`
@@ -26,7 +29,7 @@ If merge conflicts still remain after docs auto-resolution, rerun with a one-fla
   - bash: `bash scripts/noob_autopilot.sh --prefer-branch`
   - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
 
-This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
+This runs a guided staged flow: `sync -> resolve_conflicts -> validate -> summarize -> ready_to_push`.
 
 Hard rule for any branch with an open PR: run this sync helper first, follow the exact `Next command` if it reports unresolved conflicts, and only push after it finishes successfully.
 

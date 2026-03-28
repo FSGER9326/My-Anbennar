@@ -205,12 +205,19 @@ Final verification command:
 
 Use this when GitHub says your open PR branch is behind `main` or has merge conflicts.
 
+Recommended unified entrypoint (cross-platform):
+
+- Python: `python scripts/verne_orchestrator.py`
+- Bash wrapper: `bash scripts/noob_autopilot.sh`
+- PowerShell wrapper: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1`
+
+Low-level sync helper (mostly for advanced/manual flows):
+
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
 - Python: `python scripts/auto_sync_pr_with_main.py`
 - Bash: `bash scripts/auto_sync_pr_with_main.sh`
-- Noob autopilot (recommended): `bash scripts/noob_autopilot.sh`
 
-Noob autopilot fallback flags for stubborn conflicts:
+Noob autopilot fallback flags for stubborn conflicts (or when you want deterministic side choice):
 
 - Prefer main side for unresolved files: `bash scripts/noob_autopilot.sh --prefer-main`
 - Prefer branch side for unresolved files: `bash scripts/noob_autopilot.sh --prefer-branch`
@@ -218,15 +225,13 @@ Noob autopilot fallback flags for stubborn conflicts:
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main`
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
 
-What the sync helper does:
+What the orchestrator does:
 
-1. refuses to run if your working tree is dirty
-2. refuses to run on `main`
-3. fetches `origin`
-4. merges `origin/main` into your current feature branch without auto-committing first
-5. tries hotspot auto-resolution if the merge conflicts
-6. runs the guard + smoke checks
-7. creates the merge commit if there is actually something to commit
+1. **sync** (fetch + merge via existing sync helper, with merge-in-progress detection)
+2. **resolve_conflicts** (docs/content conflict scripts + optional side preference fallback)
+3. **validate** (country smoke profile + docs guard + localisation/event audits)
+4. **summarize** (prints command log + unresolved status + validation status)
+5. **ready_to_push** (prints push command only if conflict-free + validation-clean)
 
 ## Main branch note
 
