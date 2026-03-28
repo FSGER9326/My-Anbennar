@@ -189,7 +189,11 @@ class Orchestrator:
         print("\n=== Stage: ready_to_push ===")
         unresolved = self.unresolved_files()
         if unresolved:
-            print("NOT READY: unresolved conflicts remain. Resolve and rerun.")
+            print("NOT READY: unresolved conflicts remain.")
+            if not (self.args.prefer_main or self.args.prefer_branch):
+                print("Tip: rerun with --prefer-main for aggressive conflict fallback.")
+            else:
+                print("Tip: review remaining paths manually, then rerun validation.")
             return 1
         if not validation_ok:
             print("NOT READY: validation failed. Fix issues and rerun.")
@@ -226,8 +230,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--mode",
         choices=("strict", "fast"),
-        default="strict",
-        help="strict=stop on first validation failure; fast=attempt fallback auto-resolution + keep validating.",
+        default="fast",
+        help="strict=stop on first validation failure; fast=prefer automatic conflict handling and keep validating.",
     )
 
     strategy = parser.add_mutually_exclusive_group()

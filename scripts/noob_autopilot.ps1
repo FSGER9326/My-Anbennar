@@ -1,7 +1,7 @@
 param(
     [string]$BaseRef = "origin/main",
     [ValidateSet("strict", "fast")]
-    [string]$Mode = "strict",
+    [string]$Mode = "fast",
     [switch]$PreferMain,
     [switch]$PreferBranch,
     [ValidateSet("manual", "prefer-main", "prefer-branch")]
