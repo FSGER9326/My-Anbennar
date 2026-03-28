@@ -188,6 +188,13 @@ Example:
 
 When GitHub Actions reports a failed audit, start with the exact command shown in the job summary:
 
+Triage order used by `noob_autopilot` and `pre_pr_gate` failure summaries:
+
+1. **Merge conflicts first** (blocks all later checks): `git diff --name-only --diff-filter=U`
+2. **Conflict markers second** (must clear parser blockers): `python scripts/docs_conflict_guard.py`
+3. **Syntax/structure checks third** (stabilize file structure): `bash scripts/verne_smoke_checks.sh`
+4. **Localisation/event ID checks fourth** (content integrity after structure passes): `python scripts/localisation_audit.py` then `python scripts/event_id_audit.py`
+
 - Compile Python scripts: `python -m py_compile scripts/*.py`
 - Docs conflict guard: `python scripts/docs_conflict_guard.py`
 - Checklist link audit: `python scripts/checklist_link_audit.py`
