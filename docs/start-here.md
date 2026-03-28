@@ -44,6 +44,21 @@ Run pre-PR gate before opening any PR.
 - **macOS/Linux (bash):** `bash scripts/pre_pr_gate.sh`
 - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\pre_pr_gate.ps1`
 
+## If your PR is not merging on GitHub
+
+Run this sequence locally, in order, before pushing again:
+
+1. Sync and auto-resolve docs conflicts:
+   - `bash scripts/noob_autopilot.sh`
+2. If it reports unresolved conflicts, rerun with one fallback:
+   - safest default: `bash scripts/noob_autopilot.sh --prefer-main`
+3. Run pre-PR checks:
+   - `bash scripts/pre_pr_gate.sh`
+4. If docs were touched, run link audit explicitly:
+   - `python scripts/checklist_link_audit.py`
+
+If any command fails, copy the exact error into your next AI prompt and ask for a fix commit.
+
 ## Daily use (quick command shortcuts)
 
 Pick one mode so you can run the right checks without thinking:
