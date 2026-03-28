@@ -18,6 +18,17 @@ Use the noob autopilot script as your default branch-sync + safety-check workflo
 
 This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
 
+## Daily use (quick command shortcuts)
+
+Pick one mode so you can run the right checks without thinking:
+
+- **Implementation mode (script/event/loc changes)**
+  - **macOS/Linux (bash):** `bash scripts/verne_mode_impl.sh`
+  - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_impl.ps1`
+- **Docs mode (checklist/docs changes)**
+  - **macOS/Linux (bash):** `bash scripts/verne_mode_docs.sh`
+  - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_docs.ps1`
+
 ## Tiny glossary (modding terms, not GitHub terms)
 
 - **Trigger**: a condition check (`can this happen?`).
