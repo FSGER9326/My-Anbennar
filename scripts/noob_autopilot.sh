@@ -12,6 +12,9 @@ fi
 
 RESOLUTION_STRATEGY="manual"
 BASE_REF="origin/main"
+EXIT_NEEDS_MANUAL_CONFLICT=20
+EXIT_GUARD_FAILED=21
+EXIT_SMOKE_FAILED=22
 
 usage() {
   cat <<USAGE
@@ -79,29 +82,17 @@ set +e
 bash "${SCRIPT_DIR}/auto_sync_pr_with_main.sh" "${BASE_REF}" >"${SYNC_LOG}" 2>&1
 SYNC_EXIT=$?
 set -e
+cat "${SYNC_LOG}"
+
+echo "[STEP 4/7] Handle sync result"
 if [[ ${SYNC_EXIT} -eq 0 ]]; then
   echo "auto_sync_pr_with_main completed."
-fi
-
-echo "[STEP 4/7] Resolve unresolved merge conflicts (docs hotspots only, when needed)"
-if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
-  set +e
-  "${PYTHON_BIN}" "${SCRIPT_DIR}/resolve_docs_conflicts.py"
-  RESOLVE_EXIT=$?
-  set -e
-
-  if [[ ${RESOLVE_EXIT} -ne 0 ]]; then
-    rm -f "${SYNC_LOG}"
-    fail_with_next "Automatic docs conflict resolution failed." "${PYTHON_BIN} scripts/resolve_docs_conflicts.py"
-  fi
-fi
-
-if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
-  rm -f "${SYNC_LOG}"
+elif [[ ${SYNC_EXIT} -eq ${EXIT_NEEDS_MANUAL_CONFLICT} ]]; then
   if [[ "${RESOLUTION_STRATEGY}" == "manual" ]]; then
-    fail_with_next "Unresolved merge conflicts remain." "bash scripts/noob_autopilot.sh --prefer-main"
+    rm -f "${SYNC_LOG}"
+    fail_with_next "Sync paused: unresolved conflicts need manual attention." "bash scripts/noob_autopilot.sh --prefer-main"
   fi
-  echo "Applying ${RESOLUTION_STRATEGY} strategy to unresolved files..."
+  echo "Sync mode: needs_manual_conflict. Applying ${RESOLUTION_STRATEGY} strategy..."
   while IFS= read -r f; do
     [[ -z "${f}" ]] && continue
     if [[ "${RESOLUTION_STRATEGY}" == "prefer-main" ]]; then
@@ -111,20 +102,24 @@ if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
     fi
     git add -- "${f}"
   done < <(git diff --name-only --diff-filter=U)
-fi
-
-if [[ ${SYNC_EXIT} -ne 0 ]]; then
+elif [[ ${SYNC_EXIT} -eq ${EXIT_GUARD_FAILED} ]]; then
   rm -f "${SYNC_LOG}"
-  fail_with_next "auto_sync_pr_with_main.sh failed." "bash scripts/noob_autopilot.sh --prefer-main"
+  fail_with_next "Sync mode: guard_failed (docs conflict guard did not pass)." "${PYTHON_BIN} scripts/docs_conflict_guard.py"
+elif [[ ${SYNC_EXIT} -eq ${EXIT_SMOKE_FAILED} ]]; then
+  rm -f "${SYNC_LOG}"
+  fail_with_next "Sync mode: smoke_failed (smoke checks did not pass)." "bash scripts/verne_smoke_checks.sh"
+else
+  rm -f "${SYNC_LOG}"
+  fail_with_next "auto_sync_pr_with_main.sh failed unexpectedly (exit ${SYNC_EXIT})." "bash scripts/auto_sync_pr_with_main.sh ${BASE_REF}"
 fi
 
-echo "[STEP 5/7] Run docs_conflict_guard"
+echo "[STEP 5/7] Run docs_conflict_guard (post-sync confirmation)"
 if ! "${PYTHON_BIN}" "${SCRIPT_DIR}/docs_conflict_guard.py"; then
   rm -f "${SYNC_LOG}"
   fail_with_next "docs_conflict_guard failed." "${PYTHON_BIN} scripts/docs_conflict_guard.py"
 fi
 
-echo "[STEP 6/7] Run verne_smoke_checks"
+echo "[STEP 6/7] Run verne_smoke_checks (post-sync confirmation)"
 if ! bash "${SCRIPT_DIR}/verne_smoke_checks.sh"; then
   rm -f "${SYNC_LOG}"
   fail_with_next "verne_smoke_checks failed." "bash scripts/verne_smoke_checks.sh"

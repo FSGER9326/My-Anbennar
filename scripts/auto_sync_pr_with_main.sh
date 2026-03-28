@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
+# Flow parity contract: bash/python/powershell sync scripts share resolver order and exit modes (ok|needs_manual_conflict|guard_failed|smoke_failed).
+
+EXIT_OK=0
+EXIT_NEEDS_MANUAL_CONFLICT=20
+EXIT_GUARD_FAILED=21
+EXIT_SMOKE_FAILED=22
 
 BASE_REF="${1:-origin/main}"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
@@ -30,7 +36,8 @@ git merge --no-commit --no-ff "${BASE_REF}"
 MERGE_EXIT=$?
 set -e
 
-if [[ ${MERGE_EXIT} -ne 0 ]]; then
+UNRESOLVED_NOW="$(git diff --name-only --diff-filter=U || true)"
+if [[ ${MERGE_EXIT} -ne 0 || -n "${UNRESOLVED_NOW}" ]]; then
   echo "Merge reported conflicts. Attempting docs hotspot auto-resolution..."
   "${PYTHON_BIN}" scripts/resolve_docs_conflicts.py || true
   "${PYTHON_BIN}" scripts/resolve_content_conflicts.py --union-docs-only || true
@@ -40,19 +47,28 @@ if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
   echo "ERROR: Some conflicts remain. Resolve manually, then run:"
   echo "  ${PYTHON_BIN} scripts/docs_conflict_guard.py"
   echo "  bash scripts/verne_smoke_checks.sh"
-  exit 1
+  echo "EXIT_MODE=needs_manual_conflict"
+  exit ${EXIT_NEEDS_MANUAL_CONFLICT}
 fi
 
 echo "Running conflict guard and smoke checks..."
-"${PYTHON_BIN}" scripts/docs_conflict_guard.py
-bash scripts/verne_smoke_checks.sh
+if ! "${PYTHON_BIN}" scripts/docs_conflict_guard.py; then
+  echo "EXIT_MODE=guard_failed"
+  exit ${EXIT_GUARD_FAILED}
+fi
+if ! bash scripts/verne_smoke_checks.sh; then
+  echo "EXIT_MODE=smoke_failed"
+  exit ${EXIT_SMOKE_FAILED}
+fi
 
 if ! git rev-parse -q --verify MERGE_HEAD >/dev/null 2>&1; then
   echo "Already up to date. No merge commit needed."
-  exit 0
+  echo "EXIT_MODE=ok"
+  exit ${EXIT_OK}
 fi
 
 echo "Creating merge commit..."
 git commit -m "Merge ${BASE_REF} into ${BRANCH} with docs guard automation"
 
 echo "Done. Push your branch to update the existing PR."
+echo "EXIT_MODE=ok"

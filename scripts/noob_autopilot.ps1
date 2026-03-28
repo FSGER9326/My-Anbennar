@@ -4,6 +4,10 @@ param(
     [string]$ResolutionStrategy = "manual"
 )
 
+$EXIT_NEEDS_MANUAL_CONFLICT = 20
+$EXIT_GUARD_FAILED = 21
+$EXIT_SMOKE_FAILED = 22
+
 $ErrorActionPreference = "Stop"
 if (Get-Variable PSNativeCommandUseErrorActionPreference -ErrorAction SilentlyContinue) {
     $PSNativeCommandUseErrorActionPreference = $false
@@ -73,32 +77,19 @@ $syncExit = $LASTEXITCODE
 if ($null -eq $syncExit) {
     $syncExit = 0
 }
+Get-Content -Path $syncLog.FullName
+
+Write-Output "[STEP 4/7] Handle sync result"
 if ($syncExit -eq 0) {
     Write-Output "auto_sync_pr_with_main completed."
 }
-
-Write-Output "[STEP 4/7] Resolve unresolved merge conflicts (docs hotspots only, when needed)"
-$unresolved = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
-if (-not [string]::IsNullOrWhiteSpace($unresolved.Output)) {
-    & (Join-Path $scriptDir "resolve_docs_conflicts.ps1")
-    $resolveExit = $LASTEXITCODE
-    if ($null -eq $resolveExit) {
-        $resolveExit = 0
-    }
-    if ($resolveExit -ne 0) {
-        $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
-    Fail-WithNextCommand -Message "Automatic docs conflict resolution failed." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\resolve_docs_conflicts.ps1"
-    }
-}
-
-$unresolvedAfter = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
-if (-not [string]::IsNullOrWhiteSpace($unresolvedAfter.Output)) {
+elseif ($syncExit -eq $EXIT_NEEDS_MANUAL_CONFLICT) {
     if ($ResolutionStrategy -eq "manual") {
         $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
-        Fail-WithNextCommand -Message "Unresolved merge conflicts remain." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main"
+        Fail-WithNextCommand -Message "Sync paused: unresolved conflicts need manual attention." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main"
     }
-
-    Write-Output "Applying $ResolutionStrategy strategy to unresolved files..."
+    Write-Output "Sync mode: needs_manual_conflict. Applying $ResolutionStrategy strategy..."
+    $unresolvedAfter = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
     $remainingList = ($unresolvedAfter.Output -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ })
     foreach ($file in $remainingList) {
         if ($ResolutionStrategy -eq "prefer-main") {
@@ -110,13 +101,20 @@ if (-not [string]::IsNullOrWhiteSpace($unresolvedAfter.Output)) {
         & git add -- $file
     }
 }
-
-if ($syncExit -ne 0) {
+elseif ($syncExit -eq $EXIT_GUARD_FAILED) {
     $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
-    Fail-WithNextCommand -Message "auto_sync_pr_with_main.ps1 failed." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main"
+    Fail-WithNextCommand -Message "Sync mode: guard_failed (docs conflict guard did not pass)." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1"
+}
+elseif ($syncExit -eq $EXIT_SMOKE_FAILED) {
+    $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
+    Fail-WithNextCommand -Message "Sync mode: smoke_failed (smoke checks did not pass)." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1"
+}
+else {
+    $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
+    Fail-WithNextCommand -Message "auto_sync_pr_with_main.ps1 failed unexpectedly (exit $syncExit)." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1 -BaseRef $BaseRef"
 }
 
-Write-Output "[STEP 5/7] Run docs_conflict_guard"
+Write-Output "[STEP 5/7] Run docs_conflict_guard (post-sync confirmation)"
 & (Join-Path $scriptDir "docs_conflict_guard.ps1")
 $guardExit = $LASTEXITCODE
 if ($null -eq $guardExit) {
@@ -127,7 +125,7 @@ if ($guardExit -ne 0) {
     Fail-WithNextCommand -Message "docs_conflict_guard failed." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1"
 }
 
-Write-Output "[STEP 6/7] Run verne_smoke_checks"
+Write-Output "[STEP 6/7] Run verne_smoke_checks (post-sync confirmation)"
 & (Join-Path $scriptDir "verne_smoke_checks.ps1")
 $smokeExit = $LASTEXITCODE
 if ($null -eq $smokeExit) {

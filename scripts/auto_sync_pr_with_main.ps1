@@ -1,6 +1,12 @@
 param(
     [string]$BaseRef = "origin/main"
 )
+# Flow parity contract: bash/python/powershell sync scripts share resolver order and exit modes (ok|needs_manual_conflict|guard_failed|smoke_failed).
+
+$EXIT_OK = 0
+$EXIT_NEEDS_MANUAL_CONFLICT = 20
+$EXIT_GUARD_FAILED = 21
+$EXIT_SMOKE_FAILED = 22
 
 $ErrorActionPreference = "Stop"
 if (Get-Variable PSNativeCommandUseErrorActionPreference -ErrorAction SilentlyContinue) {
@@ -69,6 +75,14 @@ if ($mergeExit -ne 0) {
     & (Join-Path $PSScriptRoot "resolve_docs_conflicts.ps1")
     & python (Join-Path $PSScriptRoot "resolve_content_conflicts.py") --union-docs-only
 }
+else {
+    $unresolvedNow = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
+    if (-not [string]::IsNullOrWhiteSpace($unresolvedNow.Output)) {
+    Write-Output "Merge reported conflicts. Attempting docs hotspot auto-resolution..."
+    & (Join-Path $PSScriptRoot "resolve_docs_conflicts.ps1")
+    & python (Join-Path $PSScriptRoot "resolve_content_conflicts.py") --union-docs-only
+    }
+}
 
 $remainingCheck = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
 $remaining = $remainingCheck.Output
@@ -76,16 +90,26 @@ if (-not [string]::IsNullOrWhiteSpace($remaining)) {
     Write-Output "ERROR: Some conflicts remain. Resolve manually, then run:"
     Write-Output "  powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1"
     Write-Output "  powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1"
-    exit 1
+    Write-Output "EXIT_MODE=needs_manual_conflict"
+    exit $EXIT_NEEDS_MANUAL_CONFLICT
 }
 
 Write-Output "Running conflict guard and smoke checks..."
 & (Join-Path $PSScriptRoot "docs_conflict_guard.ps1")
+if ($LASTEXITCODE -ne 0) {
+    Write-Output "EXIT_MODE=guard_failed"
+    exit $EXIT_GUARD_FAILED
+}
 & (Join-Path $PSScriptRoot "verne_smoke_checks.ps1")
+if ($LASTEXITCODE -ne 0) {
+    Write-Output "EXIT_MODE=smoke_failed"
+    exit $EXIT_SMOKE_FAILED
+}
 
 if (-not (Test-MergeHead)) {
     Write-Output "Already up to date. No merge commit needed."
-    exit 0
+    Write-Output "EXIT_MODE=ok"
+    exit $EXIT_OK
 }
 
 Write-Output "Creating merge commit..."
@@ -94,3 +118,4 @@ if (-not [string]::IsNullOrWhiteSpace($commit.Output)) { Write-Output $commit.Ou
 if ($commit.Code -ne 0) { exit $commit.Code }
 
 Write-Output "Done. Push your branch to update the existing PR."
+Write-Output "EXIT_MODE=ok"
