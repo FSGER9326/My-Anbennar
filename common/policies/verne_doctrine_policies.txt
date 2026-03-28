@@ -1,26 +1,22 @@
 # ===============================================
-# Verne overhaul doctrine policies
+# Verne overhaul doctrine policy scaffold
+# Status: scaffolded only (no-op/safe placeholder)
 # ===============================================
 
-verne_proto_doctrine_expedition_act = {
-	monarch_power = DIP
+verne_placeholder_doctrine_policy = {
+	monarch_power = ADM
 
 	potential = {
-		has_idea_group = verne_proto_doctrine_ideas
-		has_idea_group = verne_proto_adventure_ideas
+		always = no
 	}
 
 	allow = {
-		full_idea_group = verne_proto_doctrine_ideas
-		full_idea_group = verne_proto_adventure_ideas
+		always = no
 	}
-
-	colonists = 1
-	global_colonial_growth = 10
 
 	effect = {}
 	removed_effect = {}
 	ai_will_do = {
-		factor = 1
+		factor = 0
 	}
 }
