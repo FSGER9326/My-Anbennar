@@ -52,6 +52,17 @@ class Orchestrator:
         )
         return [line.strip() for line in proc.stdout.splitlines() if line.strip()]
 
+
+    def has_merge_head(self) -> bool:
+        proc = subprocess.run(
+            ["git", "rev-parse", "-q", "--verify", "MERGE_HEAD"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        return proc.returncode == 0
+
     def apply_fallback_preference(self, files: list[str]) -> None:
         if not files:
             return
@@ -72,14 +83,26 @@ class Orchestrator:
     def stage_sync(self) -> None:
         print("\n=== Stage: sync ===")
         # Existing sync logic (fetch/merge/no-commit + initial guardrails).
-        self.run([
+        sync_step = self.run([
             sys.executable,
             str(SCRIPTS / "auto_sync_pr_with_main.py"),
+            "--base-ref",
             self.args.base_ref,
+            "--sync-only",
         ], allow_failure=True)
+
+        if not sync_step.ok and not self.has_merge_head():
+            print("Sync failed before merge state was created. Stopping.")
+            raise SystemExit(sync_step.returncode)
 
     def stage_resolve_conflicts(self) -> None:
         print("\n=== Stage: resolve_conflicts ===")
+        unresolved_before = self.unresolved_files()
+        if unresolved_before:
+            print(f"Starting with {len(unresolved_before)} unresolved files.")
+        else:
+            print("No unresolved files detected; running resolver scripts as safety checks.")
+
         # Docs conflict hotspots first.
         self.run([sys.executable, str(SCRIPTS / "resolve_docs_conflicts.py")], allow_failure=True)
 

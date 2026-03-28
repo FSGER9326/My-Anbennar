@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 from pathlib import Path
+import argparse
 import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_REF = sys.argv[1] if len(sys.argv) > 1 else "origin/main"
 
 
 def run(cmd: list[str], *, check: bool = False) -> subprocess.CompletedProcess[str]:
@@ -65,7 +65,18 @@ def run_shell_script(script: str, *args: str) -> None:
         raise SystemExit(result.returncode)
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Sync a feature branch with main and run repository checks.")
+    parser.add_argument("legacy_base_ref", nargs="?", help="Backward-compatible positional base ref.")
+    parser.add_argument("--base-ref", dest="base_ref", default=None, help="Merge source (default: origin/main).")
+    parser.add_argument("--sync-only", action="store_true", help="Only fetch + merge (no resolve/validate/commit).")
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
+    base_ref = args.base_ref or args.legacy_base_ref or "origin/main"
+
     ensure_clean_worktree()
 
     branch = current_branch()
@@ -81,9 +92,16 @@ def main() -> int:
     if fetch.returncode != 0:
         return fetch.returncode
 
-    print(f"Merging {BASE_REF} into current branch (no auto-commit)...")
-    merge = run(["git", "merge", "--no-commit", "--no-ff", BASE_REF])
+    print(f"Merging {base_ref} into current branch (no auto-commit)...")
+    merge = run(["git", "merge", "--no-commit", "--no-ff", base_ref])
     print_output(merge)
+
+    if args.sync_only:
+        if merge.returncode != 0:
+            print("Merge reported conflicts. Continue with resolve_conflicts stage.")
+            return 1
+        print("Sync-only mode complete.")
+        return 0
 
     if merge.returncode != 0:
         print("Merge reported conflicts. Attempting docs hotspot auto-resolution...")
@@ -109,7 +127,7 @@ def main() -> int:
 
     print("Creating merge commit...")
     commit = run(
-        ["git", "commit", "-m", f"Merge {BASE_REF} into {branch} with docs guard automation"]
+        ["git", "commit", "-m", f"Merge {base_ref} into {branch} with docs guard automation"]
     )
     print_output(commit)
     if commit.returncode != 0:
