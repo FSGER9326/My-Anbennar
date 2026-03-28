@@ -64,21 +64,37 @@ fail_with_next() {
   exit 1
 }
 
+conflict_only_state() {
+  local status_lines
+  status_lines="$(git status --porcelain)"
+  [[ -z "${status_lines}" ]] && return 1
+  awk '
+    {
+      code = substr($0, 1, 2)
+      if (code != "UU" && code != "AA" && code != "DD" && code != "AU" &&
+          code != "UA" && code != "DU" && code != "UD") {
+        exit 1
+      }
+    }
+    END { exit 0 }
+  ' <<<"${status_lines}"
+}
+
 BRANCH="$(git branch --show-current)"
 
 echo "[STEP 1/7] Verify clean working tree"
-if [[ -n "$(git status --porcelain)" && -z "$(git diff --name-only --diff-filter=U)" ]]; then
+if [[ -n "$(git status --porcelain)" ]] && ! conflict_only_state; then
   fail_with_next "Working tree is not clean." "git status --short"
 fi
 
 echo "[STEP 2/7] Fetch latest origin"
-if [[ -z "$(git diff --name-only --diff-filter=U)" ]] && ! git fetch origin; then
+if ! conflict_only_state && ! git fetch origin; then
   fail_with_next "Could not fetch from origin." "git fetch origin"
 fi
 
 echo "[STEP 3/7] Run auto_sync_pr_with_main (bash)"
 SYNC_LOG="$(mktemp)"
-if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
+if conflict_only_state; then
   echo "Existing unresolved merge conflicts detected; skipping merge step." >"${SYNC_LOG}"
   echo "EXIT_MODE=needs_manual_conflict" >>"${SYNC_LOG}"
   SYNC_EXIT=${EXIT_NEEDS_MANUAL_CONFLICT}

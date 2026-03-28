@@ -26,13 +26,14 @@ class TestEnsureCleanWorktree(unittest.TestCase):
         self.module = _load_module()
 
     def test_existing_unresolved_conflicts_returns_structured_mode(self):
-        unresolved = subprocess.CompletedProcess(
-            args=["git", "diff", "--name-only", "--diff-filter=U"],
-            returncode=0,
-            stdout="missions/verne.txt\n",
-            stderr="",
-        )
-        with patch.object(self.module, "run", return_value=unresolved):
+        def fake_run(cmd: list[str], *, check: bool = False):
+            if cmd == ["git", "diff", "--name-only", "--diff-filter=U"]:
+                return subprocess.CompletedProcess(cmd, 0, "missions/verne.txt\n", "")
+            if cmd == ["git", "status", "--porcelain"]:
+                return subprocess.CompletedProcess(cmd, 0, "UU missions/verne.txt\n", "")
+            raise AssertionError(f"Unexpected command: {cmd}")
+
+        with patch.object(self.module, "run", side_effect=fake_run):
             output = io.StringIO()
             with contextlib.redirect_stdout(output):
                 with self.assertRaises(SystemExit) as ctx:
@@ -42,6 +43,28 @@ class TestEnsureCleanWorktree(unittest.TestCase):
         rendered = output.getvalue()
         self.assertIn("Existing unresolved merge conflicts detected.", rendered)
         self.assertIn("EXIT_MODE=needs_manual_conflict", rendered)
+
+    def test_unresolved_plus_other_edits_stops_as_dirty_tree(self):
+        def fake_run(cmd: list[str], *, check: bool = False):
+            if cmd == ["git", "diff", "--name-only", "--diff-filter=U"]:
+                return subprocess.CompletedProcess(cmd, 0, "missions/verne.txt\n", "")
+            if cmd == ["git", "status", "--porcelain"]:
+                return subprocess.CompletedProcess(
+                    cmd,
+                    0,
+                    "UU missions/verne.txt\n M docs/start-here.md\n",
+                    "",
+                )
+            raise AssertionError(f"Unexpected command: {cmd}")
+
+        with patch.object(self.module, "run", side_effect=fake_run):
+            output = io.StringIO()
+            with contextlib.redirect_stdout(output):
+                with self.assertRaises(SystemExit) as ctx:
+                    self.module.ensure_clean_worktree()
+
+        self.assertEqual(1, ctx.exception.code)
+        self.assertIn("Working tree has non-conflict changes", output.getvalue())
 
 
 class TestMainMergeFailureHandling(unittest.TestCase):

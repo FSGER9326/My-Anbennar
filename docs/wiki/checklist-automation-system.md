@@ -220,7 +220,8 @@ Noob autopilot fallback flags for stubborn conflicts:
 
 What the sync helper does:
 
-1. if unresolved merge files already exist, it returns `EXIT_MODE=needs_manual_conflict` immediately (so autopilot can apply `--prefer-main` / `--prefer-branch`).
+1. if unresolved merge files already exist **and** the worktree is conflict-only (no extra staged/unstaged edits), it returns `EXIT_MODE=needs_manual_conflict` immediately (so autopilot can apply `--prefer-main` / `--prefer-branch`).
+   - if unresolved files are mixed with unrelated local edits, it fails as a normal dirty-tree safety stop.
 2. refuses to run on `main`
 3. fetches `origin`
 4. merges `origin/main` into your current feature branch without auto-committing first

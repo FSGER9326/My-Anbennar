@@ -15,6 +15,19 @@ if ! command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
 fi
 
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
+  if git status --porcelain | awk '
+    {
+      code = substr($0, 1, 2)
+      if (code != "UU" && code != "AA" && code != "DD" && code != "AU" &&
+          code != "UA" && code != "DU" && code != "UD") {
+        exit 0
+      }
+    }
+    END { exit 1 }
+  '; then
+    echo "ERROR: Working tree has non-conflict changes. Commit or stash first."
+    exit 1
+  fi
   echo "ERROR: Existing unresolved merge conflicts detected."
   echo "EXIT_MODE=needs_manual_conflict"
   exit ${EXIT_NEEDS_MANUAL_CONFLICT}

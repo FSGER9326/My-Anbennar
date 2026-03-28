@@ -46,6 +46,14 @@ function Test-MergeHead {
 $statusCheck = Invoke-GitCommand -Arguments @("status", "--porcelain")
 $unresolvedCheck = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
 if (-not [string]::IsNullOrWhiteSpace($unresolvedCheck.Output)) {
+    $statusLines = $statusCheck.Output -split "`n" | ForEach-Object { $_.TrimEnd() } | Where-Object { $_ }
+    $validUnmerged = @("UU", "AA", "DD", "AU", "UA", "DU", "UD")
+    foreach ($line in $statusLines) {
+        if ($line.Length -lt 2 -or ($line.Substring(0, 2) -notin $validUnmerged)) {
+            Write-Output "ERROR: Working tree has non-conflict changes. Commit or stash first."
+            exit 1
+        }
+    }
     Write-Output "ERROR: Existing unresolved merge conflicts detected."
     Write-Output "EXIT_MODE=needs_manual_conflict"
     exit $EXIT_NEEDS_MANUAL_CONFLICT

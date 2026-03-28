@@ -51,12 +51,17 @@ def has_merge_head() -> bool:
 
 def ensure_clean_worktree() -> None:
     unresolved = run(["git", "diff", "--name-only", "--diff-filter=U"], check=True)
+    status = run(["git", "status", "--porcelain"], check=True)
+    status_lines = [line for line in status.stdout.splitlines() if line.strip()]
+    unmerged_codes = {"UU", "AA", "DD", "AU", "UA", "DU", "UD"}
     if unresolved.stdout.strip():
+        if any(line[:2] not in unmerged_codes for line in status_lines):
+            print("ERROR: Working tree has non-conflict changes. Commit or stash first.")
+            raise SystemExit(1)
         print("ERROR: Existing unresolved merge conflicts detected.")
         print("EXIT_MODE=needs_manual_conflict")
         raise SystemExit(EXIT_NEEDS_MANUAL_CONFLICT)
-    result = run(["git", "status", "--porcelain"], check=True)
-    if result.stdout.strip():
+    if status.stdout.strip():
         print("ERROR: Working tree is not clean. Commit or stash first.")
         raise SystemExit(1)
 

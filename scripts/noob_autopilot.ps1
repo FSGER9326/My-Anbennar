@@ -53,18 +53,36 @@ function Fail-WithNextCommand {
     exit 1
 }
 
+function Test-ConflictOnlyState {
+    $status = Invoke-GitCommand -Arguments @("status", "--porcelain")
+    if ([string]::IsNullOrWhiteSpace($status.Output)) {
+        return $false
+    }
+
+    $lines = $status.Output -split "`n" | ForEach-Object { $_.TrimEnd() } | Where-Object { $_ }
+    foreach ($line in $lines) {
+        if ($line.Length -lt 2) {
+            return $false
+        }
+        $code = $line.Substring(0, 2)
+        if ($code -notin @("UU", "AA", "DD", "AU", "UA", "DU", "UD")) {
+            return $false
+        }
+    }
+    return $true
+}
+
 $branchResult = Invoke-GitCommand -Arguments @("branch", "--show-current")
 $branch = $branchResult.Output.Trim()
 
 Write-Output "[STEP 1/7] Verify clean working tree"
-$statusResult = Invoke-GitCommand -Arguments @("status", "--porcelain")
-$unresolvedAtStart = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
-if (-not [string]::IsNullOrWhiteSpace($statusResult.Output) -and [string]::IsNullOrWhiteSpace($unresolvedAtStart.Output)) {
+$conflictOnlyStart = Test-ConflictOnlyState
+if ((-not $conflictOnlyStart) -and -not [string]::IsNullOrWhiteSpace((Invoke-GitCommand -Arguments @("status", "--porcelain")).Output)) {
     Fail-WithNextCommand -Message "Working tree is not clean." -NextCommand "git status --short"
 }
 
 Write-Output "[STEP 2/7] Fetch latest origin"
-if ([string]::IsNullOrWhiteSpace($unresolvedAtStart.Output)) {
+if (-not $conflictOnlyStart) {
     $fetch = Invoke-GitCommand -Arguments @("fetch", "origin")
     if ($fetch.Code -ne 0) {
         if (-not [string]::IsNullOrWhiteSpace($fetch.Output)) { Write-Output $fetch.Output }
@@ -75,7 +93,7 @@ if ([string]::IsNullOrWhiteSpace($unresolvedAtStart.Output)) {
 Write-Output "[STEP 3/7] Run auto_sync_pr_with_main (PowerShell)"
 $syncScript = Join-Path $scriptDir "auto_sync_pr_with_main.ps1"
 $syncLog = New-TemporaryFile
-if (-not [string]::IsNullOrWhiteSpace($unresolvedAtStart.Output)) {
+if ($conflictOnlyStart) {
     @(
         "Existing unresolved merge conflicts detected; skipping merge step."
         "EXIT_MODE=needs_manual_conflict"
