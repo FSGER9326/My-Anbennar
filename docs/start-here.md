@@ -138,7 +138,7 @@ When GitHub Actions reports a failed audit, start with the exact command shown i
 - Checklist link audit: `python scripts/checklist_link_audit.py`
 - Verne checklist audit: `python scripts/verne_checklist_audit.py`
 - Localization audit: `python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml`
-- Event ID audit: `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt`
+- Event ID audit: `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt --file events/verne_overhaul_dynasty_events.txt`
 - Country smoke runner: `python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json`
 - Bash smoke checks: `bash scripts/verne_smoke_checks.sh`
 - PowerShell smoke checks: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`

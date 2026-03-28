@@ -11,6 +11,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FILES = [
     "events/Flavour_Verne_A33.txt",
+    "events/verne_overhaul_dynasty_events.txt",
 ]
 NAMESPACE_RE = re.compile(r"(?m)^\s*namespace\s*=\s*([A-Za-z0-9_.-]+)\s*$")
 EVENT_ASSIGN_RE = re.compile(

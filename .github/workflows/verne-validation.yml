@@ -108,7 +108,10 @@ jobs:
 
       - name: Run event ID audit
         id: event_id_audit
-        run: python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt
+        run: |
+          python scripts/event_id_audit.py \
+            --file events/Flavour_Verne_A33.txt \
+            --file events/verne_overhaul_dynasty_events.txt
 
       - name: Run country smoke runner
         id: country_smoke_runner
@@ -168,7 +171,7 @@ jobs:
             add_fix "Localization audit" "Localization formatting/key issues in Flavour_Verne_A33 loc file" "python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml"
           fi
           if [[ "$EVENT_ID_AUDIT_OUTCOME" == "failure" ]]; then
-            add_fix "Event ID audit" "Duplicate/out-of-range IDs in Verne flavour events" "python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt"
+            add_fix "Event ID audit" "Duplicate IDs or missing/mismatched namespace in tracked Verne event files" "python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt --file events/verne_overhaul_dynasty_events.txt"
           fi
           if [[ "$COUNTRY_SMOKE_RUNNER_OUTCOME" == "failure" ]]; then
             add_fix "Country smoke runner" "Country profile assertions failed for verne profile" "python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"

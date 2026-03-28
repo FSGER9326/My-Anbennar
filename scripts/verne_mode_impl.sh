@@ -16,7 +16,9 @@ echo "[2/4] Run localisation audit"
 "${PYTHON_BIN}" scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml
 
 echo "[3/4] Run event ID audit"
-"${PYTHON_BIN}" scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt
+"${PYTHON_BIN}" scripts/event_id_audit.py \
+  --file events/Flavour_Verne_A33.txt \
+  --file events/verne_overhaul_dynasty_events.txt
 
 echo "[4/4] Run conflict guard"
 "${PYTHON_BIN}" scripts/docs_conflict_guard.py

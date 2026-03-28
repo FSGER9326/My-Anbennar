@@ -23,6 +23,8 @@ echo "[5/6] Run Verne localisation audit"
 "${PYTHON_BIN}" scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml
 
 echo "[6/6] Run Verne event ID audit"
-"${PYTHON_BIN}" scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt
+"${PYTHON_BIN}" scripts/event_id_audit.py \
+  --file events/Flavour_Verne_A33.txt \
+  --file events/verne_overhaul_dynasty_events.txt
 
 echo "All Verne smoke checks passed."

@@ -66,6 +66,13 @@
       ]
     },
     {
+      "description": "foundation layer: Verne dynasty event file declares namespace sentinel",
+      "pattern": "^\\s*namespace\\s*=\\s*[A-Za-z0-9_.-]+\\s*$",
+      "paths": [
+        "events/verne_overhaul_dynasty_events.txt"
+      ]
+    },
+    {
       "description": "foundation layer: Verne on_actions hooks exist",
       "pattern": "^[a-z0-9_]+\\s*=\\s*\\{",
       "paths": [

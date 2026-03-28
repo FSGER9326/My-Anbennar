@@ -140,14 +140,16 @@ Checks for beginner mistakes in localisation files:
 
 ### Event ID audit
 
-- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\event_id_audit.ps1 -File events/Flavour_Verne_A33.txt`
-- Python: `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt`
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\event_id_audit.ps1 -File events/Flavour_Verne_A33.txt -File events/verne_overhaul_dynasty_events.txt`
+- Python: `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt --file events/verne_overhaul_dynasty_events.txt`
 
 Checks for common event scripting mistakes:
 
 - event IDs in files that forgot `namespace = ...`
 - event IDs that use a namespace not declared in the same file
 - duplicate event IDs across scanned files
+
+Coverage note: the default Verne smoke/CI audit now checks both `events/Flavour_Verne_A33.txt` and `events/verne_overhaul_dynasty_events.txt`, and the Verne smoke profile includes an explicit namespace sentinel for the dynasty file so namespace regressions fail fast.
 
 ### New country scaffold
 
