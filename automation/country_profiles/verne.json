@@ -2,19 +2,34 @@
   "name": "verne",
   "require_patterns": [
     {
-      "description": "helper preserves Port-of-Adventure unlock flag",
+      "description": "helper layer: preserves Port-of-Adventure unlock flag",
       "pattern": "set_country_flag = verne_unlock_port_of_adventure_button",
       "paths": ["common/scripted_effects/verne_overhaul_effects.txt"]
     },
     {
-      "description": "monument anchor IDs exist",
+      "description": "helper layer: monument anchor IDs exist",
       "pattern": "^kazakesh\\s*=|^aur_kes_akasik\\s*=|^kazakesh_stingport\\s*=",
       "paths": ["common/great_projects/anb_monuments_sarhal.txt", "common/great_projects/anb_monuments_missions.txt"]
+    },
+    {
+      "description": "foundation layer: Verne overhaul modifier objects exist",
+      "pattern": "^verne_overhaul_[a-z0-9_]+\\s*=\\s*\\{",
+      "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt"]
+    },
+    {
+      "description": "foundation layer: Verne overhaul localisation file keeps l_english header",
+      "pattern": "^l_english\\s*:\\s*$",
+      "paths": ["localisation/verne_overhaul_l_english.yml"]
+    },
+    {
+      "description": "foundation layer: Verne overhaul localisation keys are present",
+      "pattern": "^\\s*(?:desc_)?verne_overhaul_[a-z0-9_]+\\s*:\\s*0\\s+\"",
+      "paths": ["localisation/verne_overhaul_l_english.yml"]
     }
   ],
   "require_all_patterns": [
     {
-      "description": "helper definitions exist (ALL patterns must match somewhere in paths)",
+      "description": "helper layer: helper definitions exist (ALL patterns must match somewhere in paths)",
       "patterns": [
         "verne_overhaul_enable_adventure_network_tier_1",
         "verne_overhaul_apply_regatta_spire_swap",
@@ -27,7 +42,7 @@
       ]
     },
     {
-      "description": "mission/event call sites use helpers (ALL patterns must match somewhere in paths)",
+      "description": "helper layer: mission/event call sites use helpers (ALL patterns must match somewhere in paths)",
       "patterns": [
         "verne_overhaul_enable_adventure_network_tier_1",
         "verne_overhaul_apply_regatta_spire_swap",
@@ -42,9 +57,24 @@
   ],
   "forbid_patterns": [
     {
-      "description": "no stale inline duplicate logic in mission/event call sites",
+      "description": "helper layer: no stale inline duplicate logic in mission/event call sites",
       "pattern": "destroy_great_project|add_great_project|set_country_flag = verne_unlock_port_of_adventure_button|name = \"verne_network_of_adventure_tier_1\"",
       "paths": ["missions/Verne_Missions.txt", "events/Flavour_Verne_A33.txt"]
+    },
+    {
+      "description": "foundation layer: no unresolved merge markers in new Verne foundation files",
+      "pattern": "<<<<<<<|=======|>>>>>>>",
+      "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt", "localisation/verne_overhaul_l_english.yml"]
+    },
+    {
+      "description": "foundation layer: no placeholder TODO keys in release foundation files",
+      "pattern": "^\\s*(?:desc_)?(?:TODO|todo|placeholder|replace_me|verne_overhaul_todo)[a-z0-9_]*\\s*:",
+      "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt", "localisation/verne_overhaul_l_english.yml"]
+    },
+    {
+      "description": "foundation layer: no inconsistent Verne overhaul prefix typos",
+      "pattern": "verne_overhual_|vern_overhaul_|verne-overhaul_",
+      "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt", "localisation/verne_overhaul_l_english.yml"]
     }
   ]
 }

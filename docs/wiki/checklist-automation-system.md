@@ -55,6 +55,10 @@ Profile rule types (important for noobs):
 
 Use `require_all_patterns` whenever you are tracking multiple helper names and you want to fail if even one helper disappears.
 
+#### Verne phase-0 foundation guarantees
+
+The Verne profile now also enforces a phase-0 foundation layer: it requires baseline objects in `common/event_modifiers/verne_overhaul_modifiers.txt` and `localisation/verne_overhaul_l_english.yml`, and blocks common anti-patterns there (merge markers, placeholder TODO keys, and inconsistent `verne_overhaul_` prefix typos).
+
 ### Checklist manifest audit
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_checklist_audit.ps1`
