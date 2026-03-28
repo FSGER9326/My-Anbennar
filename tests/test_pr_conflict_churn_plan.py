@@ -109,14 +109,24 @@ class TestMainOutput(unittest.TestCase):
         self.module = _load_module()
 
     def test_main_prints_merge_conflict_recovery_section(self):
-        fake_candidate = self.module.Candidate(
+        fake_candidate_1 = self.module.Candidate(
             name="feature-1",
             title="Feature 1",
             base="main",
             files={"scripts/example.py"},
         )
+        fake_candidate_2 = self.module.Candidate(
+            name="feature-2",
+            title="Feature 2",
+            base="main",
+            files={"scripts/another_example.py"},
+        )
         out = io.StringIO()
-        with patch.object(self.module, "build_candidates", return_value=[fake_candidate]):
+        with patch.object(
+            self.module,
+            "build_candidates",
+            return_value=[fake_candidate_1, fake_candidate_2],
+        ):
             with patch.object(self.module, "compute_overlaps", return_value=[]):
                 with redirect_stdout(out):
                     code = self.module.main(["--base", "main", "--branches", "feature-1"])
@@ -124,6 +134,9 @@ class TestMainOutput(unittest.TestCase):
         self.assertEqual(0, code)
         text = out.getvalue()
         self.assertIn("## Merge-conflict recovery (copy/paste)", text)
+        self.assertIn("git fetch origin main:main", text)
+        self.assertIn("Branch step 1: `feature-2`", text)
+        self.assertIn("git checkout feature-2", text)
         self.assertIn("git rebase main", text)
 
 

@@ -272,13 +272,20 @@ def main(argv: Iterable[str]) -> int:
     print("4. Keep PRs single-topic (smoke/profile, crosswalk dedupe, wrapper scripts).")
     print("5. Avoid parallel edits to `docs/implementation-crosswalk.md`, `docs/start-here.md`, and `scripts/*`.")
     print("\n## Merge-conflict recovery (copy/paste)")
-    print("If a branch still conflicts, run these steps for each remaining branch:")
-    print("1. `git fetch origin main:main`")
-    print("2. `git checkout <branch-name>`")
-    print("3. `git rebase main`")
-    print("4. Resolve conflicts, then `git add <resolved-files>` and `git rebase --continue`.")
-    print("5. `git push --force-with-lease`")
-    print("6. Rerun this planner: `python scripts/pr_conflict_churn_plan.py --base main`")
+    if len(ordered) <= 1:
+        print("Only one branch detected, so no downstream rebases are needed.")
+    else:
+        print("Run this sequence for each downstream branch:")
+        print(f"1. `git fetch origin {args.base}:{args.base}`")
+        for idx, candidate in enumerate(ordered[1:], start=2):
+            print(f"\n### Branch step {idx - 1}: `{candidate.name}`")
+            print(f"- `git checkout {candidate.name}`")
+            print(f"- `git rebase {args.base}`")
+            print("- Resolve conflicts, then:")
+            print("  - `git add <resolved-files>`")
+            print("  - `git rebase --continue`")
+            print("- `git push --force-with-lease`")
+        print(f"\n2. Rerun planner: `python scripts/pr_conflict_churn_plan.py --base {args.base}`")
 
     return 0
 
