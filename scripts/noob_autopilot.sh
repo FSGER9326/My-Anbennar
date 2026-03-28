@@ -124,7 +124,7 @@ if ! "${PYTHON_BIN}" "${SCRIPT_DIR}/docs_conflict_guard.py"; then
   fail_with_next "docs_conflict_guard failed." "${PYTHON_BIN} scripts/docs_conflict_guard.py"
 fi
 
-echo "[STEP 6/7] Run verne_smoke_checks"
+echo "[STEP 6/7] Run full smoke checks (verne_smoke_checks)"
 if ! bash "${SCRIPT_DIR}/verne_smoke_checks.sh"; then
   rm -f "${SYNC_LOG}"
   fail_with_next "verne_smoke_checks failed." "bash scripts/verne_smoke_checks.sh"
@@ -134,11 +134,14 @@ rm -f "${SYNC_LOG}"
 
 echo "[STEP 7/7] Done"
 echo "Habit reminder: sync first, then push."
+echo "Final instruction: run the push command shown below."
 UPSTREAM="$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || true)"
 if [[ -n "${UPSTREAM}" ]]; then
-  echo "Success. Push with:"
+  echo "Success after sync/merge handling + conflict guard + full smoke checks."
+  echo "Push with:"
   echo "git push"
 else
-  echo "Success. Push with:"
+  echo "Success after sync/merge handling + conflict guard + full smoke checks."
+  echo "Push with:"
   echo "git push --set-upstream origin ${BRANCH}"
 fi

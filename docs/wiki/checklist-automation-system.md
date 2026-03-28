@@ -2,6 +2,12 @@
 
 Goal: make the repo safer to update without needing to remember a pile of manual steps.
 
+> [!IMPORTANT]
+> ## You only need this command
+> `bash scripts/noob_autopilot.sh`
+>
+> Run this before pushing. It performs branch sync/merge handling, conflict guarding, and the full smoke bundle.
+
 ## What this system covers
 
 - smoke checks for the active Verne implementation layer
@@ -11,23 +17,17 @@ Goal: make the repo safer to update without needing to remember a pile of manual
 - feature-branch sync helpers for updating an open PR branch with `main`
 - theorycraft scaffold generation for future country projects
 
-## Safest everyday command
+## Default command (noob-safe)
 
 If you only run one thing before pushing docs or Verne changes, run:
 
-- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
-- Bash: `bash scripts/verne_smoke_checks.sh`
+- `bash scripts/noob_autopilot.sh`
 
-This now runs:
+This handles sync/merge + conflict flow and then runs the full validation chain, including the Verne smoke bundle.
 
-1. the Verne JSON smoke profile
-2. the checklist status audit
-3. the markdown link audit
-4. the docs + automation conflict guard
-5. the Verne localisation audit
-6. the Verne event ID audit
+## Advanced/manual fallback commands
 
-## Automation commands
+Use this section only when you need manual control, troubleshooting, or platform-specific alternatives.
 
 ### CI trigger note
 
@@ -168,7 +168,9 @@ Use that section as the default commit-shaping guard so each commit stays one sy
 
 It also documents fast-path exceptions so this rule improves safety without blocking tightly-coupled work.
 
-## Merge-conflict prevention
+## Advanced/manual fallback (continued)
+
+### Merge-conflict prevention
 
 The repo now uses a few layers together:
 
@@ -201,14 +203,14 @@ Final verification command:
 
 - `python scripts/docs_conflict_guard.py`
 
-## Feature-branch sync
+### Feature-branch sync
 
 Use this when GitHub says your open PR branch is behind `main` or has merge conflicts.
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
 - Python: `python scripts/auto_sync_pr_with_main.py`
 - Bash: `bash scripts/auto_sync_pr_with_main.sh`
-- Noob autopilot (recommended): `bash scripts/noob_autopilot.sh`
+- Noob autopilot (default): `bash scripts/noob_autopilot.sh`
 
 Noob autopilot fallback flags for stubborn conflicts:
 
@@ -217,6 +219,17 @@ Noob autopilot fallback flags for stubborn conflicts:
 - PowerShell equivalents:
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main`
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
+
+### Optional power-user shortcuts (mode scripts)
+
+These are optional convenience wrappers for manual daily use:
+
+- Implementation shortcut:
+  - bash: `bash scripts/verne_mode_impl.sh`
+  - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_impl.ps1`
+- Docs shortcut:
+  - bash: `bash scripts/verne_mode_docs.sh`
+  - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_docs.ps1`
 
 What the sync helper does:
 
@@ -228,7 +241,7 @@ What the sync helper does:
 6. runs the guard + smoke checks
 7. creates the merge commit if there is actually something to commit
 
-## Main branch note
+### Main branch note
 
 Do **not** use the PR sync helpers while already on `main`.
 
