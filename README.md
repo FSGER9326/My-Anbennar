@@ -4,21 +4,21 @@ This repository contains the Verne overhaul work inside an Anbennar/EU4 mod work
 
 ## Main areas
 
-- [docs/README.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/README.md): project planning, design docs, grounding rules, and local reference material
-- [common](/C:/Users/User/Documents/GitHub/My-Anbennar/common): core scripted objects such as ideas, reforms, modifiers, mercs, triggers, and effects
-- [missions](/C:/Users/User/Documents/GitHub/My-Anbennar/missions): mission trees
-- [events](/C:/Users/User/Documents/GitHub/My-Anbennar/events): event content
-- [decisions](/C:/Users/User/Documents/GitHub/My-Anbennar/decisions): decision content
-- [localisation](/C:/Users/User/Documents/GitHub/My-Anbennar/localisation): localization files
+- [docs/README.md](docs/README.md): project planning, design docs, grounding rules, and local reference material
+- [common](common): core scripted objects such as ideas, reforms, modifiers, mercs, triggers, and effects
+- [missions](missions): mission trees
+- [events](events): event content
+- [decisions](decisions): decision content
+- [localisation](localisation): localization files
 
 ## Current project docs
 
 If you want the current design-and-build layer, start here:
 
-- [mod-spec.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/mod-spec.md)
-- [implementation-roadmap.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/implementation-roadmap.md)
-- [first-wave-backlog.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/first-wave-backlog.md)
-- [design/README.md](/C:/Users/User/Documents/GitHub/My-Anbennar/docs/design/README.md)
+- [mod-spec.md](docs/mod-spec.md)
+- [implementation-roadmap.md](docs/implementation-roadmap.md)
+- [first-wave-backlog.md](docs/first-wave-backlog.md)
+- [design/README.md](docs/design/README.md)
 
 ## Working rule
 
