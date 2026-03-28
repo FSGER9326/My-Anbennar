@@ -42,6 +42,7 @@ Run pre-PR gate before opening any PR.
 Pick one mode so you can run the right checks without thinking:
 
 - **Implementation mode (script/event/loc changes)**
+  - Runs backlog compiler plan generation first (`scripts/backlog_compiler.py --plan`) before coding checks.
   - **macOS/Linux (bash):** `bash scripts/verne_mode_impl.sh`
   - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_impl.ps1`
 - **Docs mode (checklist/docs changes)**
