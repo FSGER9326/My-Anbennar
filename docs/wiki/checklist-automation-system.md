@@ -220,13 +220,21 @@ Noob autopilot fallback flags for stubborn conflicts:
 
 What the sync helper does:
 
-1. refuses to run if your working tree is dirty
+1. if unresolved merge files already exist, it returns `EXIT_MODE=needs_manual_conflict` immediately (so autopilot can apply `--prefer-main` / `--prefer-branch`).
 2. refuses to run on `main`
 3. fetches `origin`
 4. merges `origin/main` into your current feature branch without auto-committing first
 5. tries hotspot auto-resolution if the merge conflicts
-6. runs the guard + smoke checks
-7. creates the merge commit if there is actually something to commit
+6. checks unresolved files once; if any remain, returns `EXIT_MODE=needs_manual_conflict`
+7. runs the guard + smoke checks (returns `guard_failed` / `smoke_failed` when needed)
+8. creates the merge commit only when a merge state exists and is valid
+
+Structured exit modes used by all three sync scripts:
+
+- `ok` (`0`): sync + checks succeeded (or branch already up to date)
+- `needs_manual_conflict` (`20`): unresolved merge conflicts require manual strategy
+- `guard_failed` (`21`): docs conflict guard failed
+- `smoke_failed` (`22`): smoke checks failed
 
 ## Main branch note
 

@@ -27,6 +27,7 @@ If merge conflicts still remain after docs auto-resolution, rerun with a one-fla
   - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
 
 This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
+If your branch is **already** in a conflicted merge state, the autopilot script now detects that first and jumps directly to conflict-resolution mode (instead of failing as a generic dirty tree).
 
 Hard rule for any branch with an open PR: run this sync helper first, follow the exact `Next command` if it reports unresolved conflicts, and only push after it finishes successfully.
 
