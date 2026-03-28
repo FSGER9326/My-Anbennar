@@ -271,6 +271,14 @@ def main(argv: Iterable[str]) -> int:
     print("3. Drop merged commits (`git rebase -i main`) or recreate via cherry-pick.")
     print("4. Keep PRs single-topic (smoke/profile, crosswalk dedupe, wrapper scripts).")
     print("5. Avoid parallel edits to `docs/implementation-crosswalk.md`, `docs/start-here.md`, and `scripts/*`.")
+    print("\n## Merge-conflict recovery (copy/paste)")
+    print("If a branch still conflicts, run these steps for each remaining branch:")
+    print("1. `git fetch origin main:main`")
+    print("2. `git checkout <branch-name>`")
+    print("3. `git rebase main`")
+    print("4. Resolve conflicts, then `git add <resolved-files>` and `git rebase --continue`.")
+    print("5. `git push --force-with-lease`")
+    print("6. Rerun this planner: `python scripts/pr_conflict_churn_plan.py --base main`")
 
     return 0
 

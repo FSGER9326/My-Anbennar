@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import importlib.util
+import io
 import pathlib
 import subprocess
 import sys
 import unittest
+from contextlib import redirect_stdout
 from unittest.mock import patch
 
 
@@ -100,6 +102,29 @@ class TestBuildCandidates(unittest.TestCase):
         self.assertIn("git fetch origin feature-1:feature-1", msg)
         self.assertIn("git branch --all", msg)
         self.assertIn(self.module.FALLBACK_USAGE, msg)
+
+
+class TestMainOutput(unittest.TestCase):
+    def setUp(self):
+        self.module = _load_module()
+
+    def test_main_prints_merge_conflict_recovery_section(self):
+        fake_candidate = self.module.Candidate(
+            name="feature-1",
+            title="Feature 1",
+            base="main",
+            files={"scripts/example.py"},
+        )
+        out = io.StringIO()
+        with patch.object(self.module, "build_candidates", return_value=[fake_candidate]):
+            with patch.object(self.module, "compute_overlaps", return_value=[]):
+                with redirect_stdout(out):
+                    code = self.module.main(["--base", "main", "--branches", "feature-1"])
+
+        self.assertEqual(0, code)
+        text = out.getvalue()
+        self.assertIn("## Merge-conflict recovery (copy/paste)", text)
+        self.assertIn("git rebase main", text)
 
 
 if __name__ == "__main__":
