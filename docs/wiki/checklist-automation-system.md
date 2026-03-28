@@ -208,6 +208,7 @@ Use this when GitHub says your open PR branch is behind `main` or has merge conf
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
 - Python: `python scripts/auto_sync_pr_with_main.py`
 - Bash: `bash scripts/auto_sync_pr_with_main.sh`
+- PowerShell direct conflict helper: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\resolve_branch_conflicts.ps1 -BaseRef origin/main`
 - Direct merge-conflict helper (bash): `bash scripts/resolve_branch_conflicts.sh [base-ref]`
   - Optional flags:
     - `--skip-missing-base` = exit 0 instead of failing if the base ref is unavailable in the local clone.
