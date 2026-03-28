@@ -19,6 +19,7 @@ Use it to track:
 - [fluff-and-art-production-playbook.md](./fluff-and-art-production-playbook.md)
 - [checklist-automation-system.md](./checklist-automation-system.md)
 - [verne-id-ledger.md](./verne-id-ledger.md)
+- [verne-canonical-vs-legacy-file-registry.md](./verne-canonical-vs-legacy-file-registry.md)
 
 
 ## Current priority order (when unsure)
