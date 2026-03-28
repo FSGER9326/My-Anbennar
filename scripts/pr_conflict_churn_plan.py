@@ -20,6 +20,9 @@ HOTSPOTS = {
     "docs/start-here.md",
 }
 HOTSPOT_PREFIXES = ("scripts/",)
+FALLBACK_USAGE = (
+    "python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b"
+)
 
 
 @dataclass
@@ -140,14 +143,44 @@ def build_candidates(base: str, explicit_branches: list[str] | None) -> list[Can
             for b in explicit_branches
         ]
     else:
-        rows = run_gh_open_prs(base)
+        try:
+            rows = run_gh_open_prs(base)
+        except FileNotFoundError as exc:
+            raise RuntimeError(
+                "GitHub CLI (`gh`) is not installed or not on your PATH.\n"
+                "Fallback: run with explicit branches instead, for example:\n"
+                f"  {FALLBACK_USAGE}"
+            ) from exc
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(
+                "GitHub CLI returned unreadable PR data. "
+                "Run `gh auth status` (or `gh auth login`) and try again.\n"
+                "Fallback: run with explicit branches instead, for example:\n"
+                f"  {FALLBACK_USAGE}"
+            ) from exc
+        except RuntimeError as exc:
+            raise RuntimeError(
+                f"{exc}\n"
+                "Try fallback usage with explicit branches:\n"
+                f"  {FALLBACK_USAGE}"
+            ) from exc
 
     candidates: list[Candidate] = []
     for row in rows:
         branch = row["headRefName"]
         if branch == base:
             continue
-        files = changed_files(base, branch)
+        try:
+            files = changed_files(base, branch)
+        except RuntimeError as exc:
+            raise RuntimeError(
+                f"Could not compare `{branch}` against `{base}`.\n"
+                "Make sure both branches exist locally, then retry.\n"
+                "Helpful commands:\n"
+                f"  git fetch origin {base}:{base}\n"
+                f"  git fetch origin {branch}:{branch}\n"
+                f"  {FALLBACK_USAGE}"
+            ) from exc
         candidates.append(
             Candidate(
                 name=branch,
