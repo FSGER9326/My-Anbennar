@@ -5,6 +5,12 @@ A33_first_slot = {
 	has_country_shield = yes
 	potential = { tag = A33 } 
 
+	# Commentary (plain-language): Establishes Verne's early cultural-religious modernization gate and grants renaissance/state consolidation rewards.
+	# Base vs new: base-patched
+	# Playstyle effect: Encourages a combined faith, institution, and court-quality opening instead of a pure conquest rush.
+	# Risk note: keep mission key A33_the_vernman_renaissance and tooltip keys verne_A1_tt_* stable.
+	# Province context: 288 (Heartspier) and 291 (Calasandur) in Cannor; both are scripted institution/reward anchors.
+	# Lore-fit note: inferred-from-repo
 	A33_the_vernman_renaissance = {
 		icon = continue_the_renaissance
 		position = 2
@@ -134,6 +140,12 @@ A33_first_slot = {
 		}
 	}
 
+	# Commentary (plain-language): Converts Heartspier's development into a naval-commercial launch point and activates dual Port of Adventure nodes.
+	# Base vs new: base-patched
+	# Playstyle effect: Pushes Verne toward maritime expansion, trade scaling, and overseas staging through early infrastructure investment.
+	# Risk note: keep mission key A33_the_grand_port_of_heartspier, modifier keys verne_new_armada/verne_the_wyverns_gulf, and province IDs 288/376 stable.
+	# Province context: 288 (Heartspier) and 376 (Moorhalls) as Wyvern Gulf-adjacent port infrastructure anchors in Cannor.
+	# Lore-fit note: inferred-from-repo
 	A33_the_grand_port_of_heartspier = {
 		icon = renaissance_city
 		position = 3

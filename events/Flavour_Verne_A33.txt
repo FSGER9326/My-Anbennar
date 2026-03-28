@@ -3,6 +3,11 @@
 namespace = verne
 
 # Corinite Adventurers
+# Commentary (plain-language): Handles Verne's age-of-reformation Corinite conversion fork and seeds conversion pressure in owned states.
+# Base vs new: base-reused
+# Playstyle effect: Offers a high-impact faith identity pivot that trades short-term stability risk for religious momentum and reform alignment.
+# Risk note: keep event id verne.12, namespace verne, and province flag corinite_verne stable.
+# Lore-fit note: official-canon
 country_event = { #Corinite convert event
 	id = verne.12
 	title = verne.12.t
@@ -178,6 +183,11 @@ country_event = { #Corinite convert event
 	}
 }
 
+# Commentary (plain-language): Spawns a hidden wyvern-rider conquistador whose quality scales with Verne army tradition.
+# Base vs new: base-reused
+# Playstyle effect: Rewards sustained military professionalism with stronger exploration-capable mounted leadership.
+# Risk note: keep event id verne.13, trait key wyvern_rider_personality, and saved name keys root_name_male/root_name_female stable.
+# Lore-fit note: inferred-from-repo
 country_event = { #Wyvern rider generator event
 	id = verne.13
 	title = verne.13.t
