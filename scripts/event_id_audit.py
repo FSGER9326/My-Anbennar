@@ -4,37 +4,28 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
+import json
 from pathlib import Path
 import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_FILES = [
-    "events/Flavour_Verne_A33.txt",
-    "events/verne_overhaul_dynasty_events.txt",
-]
+DEFAULT_FILES = ["events/Flavour_Verne_A33.txt", "events/verne_overhaul_dynasty_events.txt"]
 NAMESPACE_RE = re.compile(r"(?m)^\s*namespace\s*=\s*([A-Za-z0-9_.-]+)\s*$")
-EVENT_ASSIGN_RE = re.compile(
-    r"^\s*(country_event|province_event|character_event|triggered_only_event)\s*=\s*(.*)$"
-)
+EVENT_ASSIGN_RE = re.compile(r"^\s*(country_event|province_event|character_event|triggered_only_event)\s*=\s*(.*)$")
 EVENT_ID_RE = re.compile(r"^\s*id\s*=\s*([A-Za-z0-9_.-]+\.\d+)\s*$")
+CHECK_NAME = "event_id_audit"
 
 
-def extract_event_ids(text: str) -> list[str]:
-    # Supported event block formatting variants:
-    #   country_event = {
-    #   country_event =
-    #   {
-    # plus optional blank lines / comments between assignment and "{".
-    ids: list[str] = []
+def extract_event_ids(text: str) -> list[tuple[str, int]]:
+    ids: list[tuple[str, int]] = []
     depth = 0
     in_event = False
     waiting_for_event_open = False
     event_depth = -1
 
-    for line in text.splitlines():
+    for line_no, line in enumerate(text.splitlines(), start=1):
         line_no_comment = line.split("#", 1)[0]
-
         if not in_event and waiting_for_event_open:
             if "{" in line_no_comment:
                 in_event = True
@@ -55,37 +46,36 @@ def extract_event_ids(text: str) -> list[str]:
         if in_event:
             match = EVENT_ID_RE.match(line_no_comment)
             if match:
-                ids.append(match.group(1))
+                ids.append((match.group(1), line_no))
 
         depth += line.count("{")
         depth -= line.count("}")
-
         if in_event and depth < event_depth:
             in_event = False
             event_depth = -1
-
     return ids
+
+
+def _issue(file: str, line: int | None, code: str, message: str, suggested_fix_command: str, severity: str = "error") -> dict[str, object]:
+    return {"check": CHECK_NAME, "severity": severity, "file": file, "line": line, "code": code, "message": message, "suggested_fix_command": suggested_fix_command}
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--file",
-        action="append",
-        dest="files",
-        help="Event script path relative to repo root (repeatable).",
-    )
+    parser.add_argument("--file", action="append", dest="files", help="Event script path relative to repo root (repeatable).")
+    parser.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args()
 
     file_list = args.files if args.files else DEFAULT_FILES
     targets = [ROOT / p for p in file_list]
 
-    errors: list[str] = []
-    seen_ids: dict[str, list[str]] = defaultdict(list)
+    issues: list[dict[str, object]] = []
+    seen_ids: dict[str, list[tuple[str, int]]] = defaultdict(list)
 
     for path in targets:
+        rel = path.relative_to(ROOT).as_posix()
         if not path.exists():
-            errors.append(f"missing file: {path.relative_to(ROOT)}")
+            issues.append(_issue(rel, None, "MISSING_EVENT_FILE", "event script file is missing", f"git restore --source=HEAD -- {rel}"))
             continue
 
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -93,25 +83,29 @@ def main() -> int:
         ids = extract_event_ids(text)
 
         if ids and not namespaces:
-            errors.append(f"{path.relative_to(ROOT)}: contains event ids but no namespace declaration")
+            issues.append(_issue(rel, ids[0][1], "MISSING_NAMESPACE", "contains event ids but no namespace declaration", f"sed -i '1inamespace = your_namespace' {rel}"))
 
-        for event_id in ids:
+        for event_id, line_no in ids:
             ns = event_id.split(".", 1)[0]
             if namespaces and ns not in namespaces:
-                errors.append(
-                    f"{path.relative_to(ROOT)}: id '{event_id}' uses namespace '{ns}' not declared in file"
-                )
-            seen_ids[event_id].append(str(path.relative_to(ROOT)))
+                issues.append(_issue(rel, line_no, "UNDECLARED_NAMESPACE_IN_ID", f"id '{event_id}' uses namespace '{ns}' not declared in file", "Update id namespace or add matching namespace declaration"))
+            seen_ids[event_id].append((rel, line_no))
 
     for event_id, where in sorted(seen_ids.items()):
-        unique_files = sorted(set(where))
-        if len(unique_files) > 1:
-            errors.append(f"duplicate event id '{event_id}' found across files: {', '.join(unique_files)}")
+        files = sorted({f for f, _ in where})
+        if len(files) > 1:
+            first_file, first_line = where[0]
+            issues.append(_issue(first_file, first_line, "DUPLICATE_EVENT_ID", f"duplicate event id '{event_id}' found across files: {', '.join(files)}", "Rename one of the duplicated event IDs to a unique numeric suffix"))
 
-    if errors:
+    if args.format == "json":
+        print(json.dumps({"check": CHECK_NAME, "status": "failed" if issues else "passed", "scanned_files": len(targets), "checked_ids": len(seen_ids), "issues": issues}, indent=2))
+        return 1 if issues else 0
+
+    if issues:
         print("Event ID audit failed:")
-        for error in errors:
-            print(f" - {error}")
+        for e in issues:
+            where = f"{e['file']}:{e['line']}" if e["line"] else e["file"]
+            print(f" - [{e['code']}] {where} - {e['message']}")
         return 1
 
     print(f"Event ID audit passed: {len(targets)} file(s) scanned, {len(seen_ids)} ids checked.")
