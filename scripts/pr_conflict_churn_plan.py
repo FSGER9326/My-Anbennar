@@ -34,6 +34,11 @@ class Candidate:
             f in HOTSPOTS or f.startswith(HOTSPOT_PREFIXES) for f in self.files
         )
 
+    def hotspot_files(self) -> list[str]:
+        return sorted(
+            f for f in self.files if f in HOTSPOTS or f.startswith(HOTSPOT_PREFIXES)
+        )
+
 
 @dataclass
 class Overlap:
@@ -64,7 +69,13 @@ def run_gh_open_prs(base: str | None) -> list[dict]:
     if base:
         cmd += ["--base", base]
 
-    result = subprocess.run(cmd, text=True, capture_output=True)
+    try:
+        result = subprocess.run(cmd, text=True, capture_output=True)
+    except FileNotFoundError as exc:
+        raise RuntimeError(
+            "GitHub CLI (`gh`) is not installed. "
+            "Install/authenticate gh or pass --branches explicitly."
+        ) from exc
     if result.returncode != 0:
         raise RuntimeError(
             "Could not load open PRs from GitHub CLI. "
@@ -191,6 +202,8 @@ def main(argv: Iterable[str]) -> int:
                     "topic": classify_topic(c),
                     "file_count": len(c.files),
                     "touches_hotspot": c.touches_hotspot(),
+                    "files_changed": sorted(c.files),
+                    "hotspot_files": c.hotspot_files(),
                 }
                 for c in ordered
             ],
@@ -203,6 +216,27 @@ def main(argv: Iterable[str]) -> int:
         return 0
 
     print(f"# PR Conflict-Churn Plan (base: `{args.base}`)\n")
+    print("## Per-PR changed files (GitHub `Files changed` equivalent)")
+    for c in ordered:
+        print(f"\n### `{c.name}` — {c.title}")
+        if not c.files:
+            print("- _No changed files detected._")
+            continue
+        for name in sorted(c.files):
+            marker = " ⚠️ hotspot" if name in HOTSPOTS or name.startswith(HOTSPOT_PREFIXES) else ""
+            print(f"- `{name}`{marker}")
+
+    print("\n## Hotspot-touching PR branches")
+    hotspot_branches = [c for c in ordered if c.touches_hotspot()]
+    if not hotspot_branches:
+        print("No hotspot branches detected.")
+    else:
+        for c in hotspot_branches:
+            print(
+                f"- `{c.name}`: "
+                + ", ".join(f"`{name}`" for name in c.hotspot_files())
+            )
+
     print("## Suggested merge/rebase order")
     for idx, c in enumerate(ordered, start=1):
         topic = classify_topic(c)
