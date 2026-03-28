@@ -59,6 +59,13 @@ Use `require_all_patterns` whenever you are tracking multiple helper names and y
 
 The Verne profile now also enforces a phase-0 foundation layer: it requires baseline objects in `common/event_modifiers/verne_overhaul_modifiers.txt` and `localisation/verne_overhaul_l_english.yml`, and blocks common anti-patterns there (merge markers, placeholder TODO keys, and inconsistent Verne prefix typos).
 
+It now also gates new doctrine/reform foundation files:
+
+- `common/ideas/verne_doctrine_groups.txt` must contain at least one `verne_... = {` object.
+- `common/government_reforms/verne_overhaul_reforms.txt` must contain at least one `verne_... = {` object.
+- Both files must include explicit sentinel IDs (`verne_doctrine_way_of_the_wave` and `verne_overhaul_admiralty_council_reform`) so empty stubs fail CI.
+- Both files forbid placeholder keys such as `TODO...` and `replace_me...`.
+
 ### Checklist manifest audit
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_checklist_audit.ps1`
