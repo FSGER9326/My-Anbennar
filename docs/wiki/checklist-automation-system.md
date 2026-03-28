@@ -218,6 +218,22 @@ Noob autopilot fallback flags for stubborn conflicts:
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main`
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
 
+## Pre-PR gate merge-awareness
+
+`scripts/pre_pr_gate.sh` now performs merge-awareness checks before validation:
+
+1. It fails fast when unresolved merge entries exist in the index (`git diff --name-only --diff-filter=U`).
+2. It attempts a best-effort sync from `origin/main` (or `$BASE_REF` if set) before running audits.
+3. If sync introduces conflicts, it runs both hotspot resolvers:
+   - `python scripts/resolve_docs_conflicts.py`
+   - `python scripts/resolve_content_conflicts.py`
+4. If unresolved entries still remain, the gate exits with clear conflict instructions instead of producing misleading audit results.
+
+Override base ref example:
+
+- `BASE_REF=origin/main bash scripts/pre_pr_gate.sh`
+- `BASE_REF=upstream/main bash scripts/pre_pr_gate.sh`
+
 What the sync helper does:
 
 1. refuses to run if your working tree is dirty

@@ -12,12 +12,35 @@ fi
 ARTIFACT_DIR="artifacts/validation"
 mkdir -p "${ARTIFACT_DIR}"
 
+BASE_REF="${BASE_REF:-origin/main}"
+
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
   echo "Pre-PR gate cannot run with unresolved git merge conflicts."
   echo "Try: python3 scripts/resolve_docs_conflicts.py"
   echo "Or:  python3 scripts/resolve_content_conflicts.py"
   exit 1
 fi
+
+attempt_branch_sync() {
+  if ! git rev-parse --verify "${BASE_REF}" >/dev/null 2>&1; then
+    echo "[sync] Skip: base ref '${BASE_REF}' is unavailable in this clone."
+    return 0
+  fi
+
+  echo "[sync] Attempt merge sync from ${BASE_REF}"
+  if ! bash scripts/auto_sync_pr_with_main.sh "${BASE_REF}"; then
+    echo "[sync] Auto sync reported conflicts; attempting hotspot resolvers"
+    python3 scripts/resolve_docs_conflicts.py || true
+    python3 scripts/resolve_content_conflicts.py || true
+
+    if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
+      echo "[sync] Unresolved conflicts remain after auto-resolvers."
+      return 1
+    fi
+  fi
+
+  return 0
+}
 
 run_audits() {
   echo "[1/6] Docs conflict guard"
@@ -84,6 +107,8 @@ PY
     fi
   done
 }
+
+attempt_branch_sync || exit 1
 
 run_audits
 aggregate_reports || true
