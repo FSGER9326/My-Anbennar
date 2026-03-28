@@ -20,7 +20,6 @@ HOTSPOTS = {
     "docs/start-here.md",
 }
 HOTSPOT_PREFIXES = ("scripts/",)
-FALLBACK_USAGE = "python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b"
 
 
 @dataclass
@@ -65,11 +64,21 @@ def run_gh_open_prs(base: str | None) -> list[dict]:
     if base:
         cmd += ["--base", base]
 
-    result = subprocess.run(cmd, text=True, capture_output=True)
+    try:
+        result = subprocess.run(cmd, text=True, capture_output=True)
+    except FileNotFoundError as exc:
+        raise RuntimeError(
+            "GitHub CLI (`gh`) is not installed or not on your PATH.\n"
+            "Run with explicit branches instead, for example:\n"
+            "  python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b"
+        ) from exc
+
     if result.returncode != 0:
         raise RuntimeError(
             "Could not load open PRs from GitHub CLI. "
             "Either install/authenticate gh or pass --branches explicitly. "
+            "Try:\n"
+            "  python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b\n"
             f"Details: {result.stderr.strip()}"
         )
     return json.loads(result.stdout)
@@ -130,43 +139,14 @@ def build_candidates(base: str, explicit_branches: list[str] | None) -> list[Can
             for b in explicit_branches
         ]
     else:
-        try:
-            rows = run_gh_open_prs(base)
-        except FileNotFoundError as exc:
-            raise RuntimeError(
-                "GitHub CLI (`gh`) is not installed or not on your PATH.\n"
-                "Run with explicit branches instead, for example:\n"
-                f"  {FALLBACK_USAGE}"
-            ) from exc
-        except json.JSONDecodeError as exc:
-            raise RuntimeError(
-                "GitHub CLI returned unreadable PR data. "
-                "Check `gh auth status` and try again.\n"
-                "Or run with explicit branches:\n"
-                f"  {FALLBACK_USAGE}"
-            ) from exc
-        except RuntimeError as exc:
-            raise RuntimeError(
-                f"{exc}\n"
-                "Try:\n"
-                f"  {FALLBACK_USAGE}"
-            ) from exc
+        rows = run_gh_open_prs(base)
 
     candidates: list[Candidate] = []
     for row in rows:
         branch = row["headRefName"]
         if branch == base:
             continue
-        try:
-            files = changed_files(base, branch)
-        except RuntimeError as exc:
-            raise RuntimeError(
-                f"Could not compare `{branch}` against `{base}`.\n"
-                "Make sure both branches exist locally:\n"
-                f"  git fetch origin {base}:{base}\n"
-                f"  git fetch origin {branch}:{branch}\n"
-                f"  {FALLBACK_USAGE}"
-            ) from exc
+        files = changed_files(base, branch)
         candidates.append(
             Candidate(
                 name=branch,
