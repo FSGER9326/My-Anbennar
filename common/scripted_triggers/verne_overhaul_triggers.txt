@@ -42,3 +42,42 @@ verne_overhaul_akasik_access_ready = {
 		}
 	}
 }
+
+verne_overhaul_in_search_colonizer_route = {
+	num_of_colonists = 1
+	num_of_explorers = 1
+}
+
+verne_overhaul_in_search_subject_projection_route = {
+	OR = {
+		any_subject_country = { capital_scope = { region = akasik_region } }
+		any_ally = {
+			OR = {
+				capital_scope = { region = akasik_region }
+				any_subject_country = {
+					num_of_owned_provinces_with = {
+						value = 5
+						region = akasik_region
+					}
+				}
+				num_of_owned_provinces_with = {
+					value = 15
+					region = akasik_region
+				}
+			}
+		}
+	}
+}
+
+verne_overhaul_in_search_network_or_monument_route = {
+	OR = {
+		verne_overhaul_has_adventure_network_started = yes
+		any_owned_province = { has_province_modifier = verne_port_of_adventure }
+		383 = {
+			has_great_project = {
+				type = aur_kes_akasik
+				tier = 2
+			}
+		}
+	}
+}
