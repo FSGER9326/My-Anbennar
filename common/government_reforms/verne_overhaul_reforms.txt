@@ -1,12 +1,39 @@
-# Verne overhaul v0.1 reform prototype (single reform only)
-# Keep this file intentionally tiny for beginner-safe iteration.
+# Verne overhaul v0.2 reform prototype set (tier 1 triplet)
+# Keep modifiers conservative while preserving distinct identities.
 
-verne_foundational_court_reform = {
+verne_court_of_silver_oaths_reform = {
 	icon = "crown"
 	valid_for_nation_designer = no
 	modifiers = {
-		yearly_corruption = -0.05
-		reform_progress_growth = 0.05
+		yearly_corruption = -0.03
+		reform_progress_growth = 0.03
+		diplomatic_reputation = 1
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+verne_charter_of_great_captains_reform = {
+	icon = "trade"
+	valid_for_nation_designer = no
+	modifiers = {
+		trade_efficiency = 0.05
+		naval_tradition = 0.25
+		naval_forcelimit_modifier = 0.05
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+verne_ducal_muster_of_armoc_reform = {
+	icon = "officers"
+	valid_for_nation_designer = no
+	modifiers = {
+		land_forcelimit_modifier = 0.05
+		manpower_recovery_speed = 0.05
+		defensiveness = 0.05
 	}
 	ai = {
 		factor = 1
