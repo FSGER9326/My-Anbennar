@@ -141,6 +141,7 @@ if ($smokeExit -ne 0) {
 $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
 
 Write-Output "[STEP 7/7] Done"
+Write-Output "Habit reminder: sync first, then push."
 $upstream = Invoke-GitCommand -Arguments @("rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}")
 if ($upstream.Code -eq 0 -and -not [string]::IsNullOrWhiteSpace($upstream.Output)) {
     Write-Output "Success. Push with:"

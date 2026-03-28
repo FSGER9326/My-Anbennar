@@ -27,6 +27,10 @@ If merge conflicts still remain after docs auto-resolution, rerun with a one-fla
 
 This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
 
+Hard rule for any branch with an open PR: run this sync helper first, follow the exact `Next command` if it reports unresolved conflicts, and only push after it finishes successfully.
+
+Personal habit mantra: **sync first, then push.**
+
 Run pre-PR gate before opening any PR.
 
 - **macOS/Linux (bash):** `bash scripts/pre_pr_gate.sh`

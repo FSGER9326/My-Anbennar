@@ -133,6 +133,7 @@ fi
 rm -f "${SYNC_LOG}"
 
 echo "[STEP 7/7] Done"
+echo "Habit reminder: sync first, then push."
 UPSTREAM="$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || true)"
 if [[ -n "${UPSTREAM}" ]]; then
   echo "Success. Push with:"
