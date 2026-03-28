@@ -165,3 +165,23 @@ Use the helper script to detect overlap and propose merge order:
   - `python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b branch-c`
 
 After merging the first PR, rerun the script and repeat for remaining branches.
+
+## What to do next when conflicts remain (missions/events/localisation)
+
+If a merge still leaves conflict markers in gameplay content files, use this quick rule:
+
+1. **Run docs-only cleanup first** when conflicts are only in docs hotspots or `.gitattributes`:
+   - `python scripts/resolve_content_conflicts.py --union-docs-only`
+2. **Prefer `--prefer-theirs`** when upstream `main` contains deliberate fixes you want to keep as the baseline (for example, validated IDs, corrected scopes, or audited localisation keys).
+3. **Prefer `--prefer-ours`** when your feature branch has the intended new Verne implementation and upstream changes are older or generic placeholders.
+4. **Stop automation and inspect conflict blocks manually** when both sides changed logic/text meaning (not just formatting/order), especially for mission triggers/effects, event options, or localisation wording tied to script keys.
+
+### Concrete examples
+
+- `missions/Verne_Missions.txt`: if both sides changed `potential`/`allow` logic for the same mission node, do **manual block-by-block review** so you do not silently drop required triggers.
+- `events/Flavour_Verne_A33.txt`: if one side adds a new event option and the other changes `country_event` effects or event IDs, do **manual review** first; only use `--prefer-theirs`/`--prefer-ours` if you are sure one side is strictly obsolete.
+- `localisation/Flavour_Verne_A33_l_english.yml`: if both sides edit the same localisation key text, use **manual review** to keep the intended player-facing wording and avoid mismatches with script keys.
+
+Final verification command after resolving conflicts:
+
+- `python scripts/docs_conflict_guard.py`

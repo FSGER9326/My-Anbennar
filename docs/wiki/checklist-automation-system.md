@@ -152,6 +152,25 @@ Important limitation:
 - auto-resolution is only meant for known docs hotspots and `.gitattributes`
 - real content conflicts in gameplay files still need a human decision
 
+### What to do next when conflicts remain (missions/events/localisation)
+
+Use this decision order:
+
+1. Run `python scripts/resolve_content_conflicts.py --union-docs-only` **when the unresolved set is docs hotspots / `.gitattributes` only** and you want safe union-style docs cleanup.
+2. Use `--prefer-theirs` **when upstream `main` is the authoritative baseline** (for example, latest audited fixes, corrected IDs, or validated trigger/effect structure).
+3. Use `--prefer-ours` **when your branch holds the intended in-progress feature slice** and upstream edits are older scaffolding or superseded text.
+4. Stop and manually inspect each conflict block **when both sides changed behavior or meaning** (mission requirements, event outcomes, localisation phrasing tied to keys).
+
+Concrete file examples:
+
+- `missions/Verne_Missions.txt`: conflicting edits to the same mission `trigger`/`effect` block should be reviewed line-by-line before choosing a side.
+- `events/Flavour_Verne_A33.txt`: simultaneous changes to option effects and event IDs should be merged manually to preserve both correctness and flow.
+- `localisation/Flavour_Verne_A33_l_english.yml`: conflicting text for the same key should be manually reconciled to match the final scripted behavior.
+
+Final verification command:
+
+- `python scripts/docs_conflict_guard.py`
+
 ## Feature-branch sync
 
 Use this when GitHub says your open PR branch is behind `main` or has merge conflicts.
