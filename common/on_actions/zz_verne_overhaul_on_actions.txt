@@ -3,12 +3,7 @@
 # Status: scaffolded only (no-op/safe placeholder)
 # ===============================================
 
-on_startup = {
-	effect = {
-		# Explicit no-op guard to keep this scaffold safe until milestones are implemented.
-		if = {
-			limit = { always = no }
-			set_country_flag = verne_overhaul_unused_scaffold_flag
-		}
-	}
+on_new_heir = {
+	# Intentionally empty placeholder hook for V-17 dynasty safeguard wiring.
+	events = { }
 }

@@ -18,7 +18,7 @@ Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before
 - [x] `common/policies/verne_doctrine_policies.txt` scaffolded with a safe no-op placeholder policy object (`verne_placeholder_doctrine_policy`).
 - [x] `decisions/verne_overhaul_decisions.txt` scaffolded with a safe no-op placeholder decision object (`verne_placeholder_overhaul_decision`).
 - [x] `events/verne_overhaul_dynasty_events.txt` scaffolded with namespace + a safe no-op placeholder event object (`verne_overhaul_dynasty.1`).
-- [x] `common/on_actions/zz_verne_overhaul_on_actions.txt` scaffolded with a guarded no-op placeholder `on_startup` hook.
+- [x] `common/on_actions/zz_verne_overhaul_on_actions.txt` scaffolded with a no-op placeholder `on_new_heir` hook shell.
 - [ ] Feature-complete implementation for V-13 / V-17 / V-18 is still pending (current scaffolds are intentionally inert).
 
 ## v0.1 Beginner-Safe Slice (Execute First)
