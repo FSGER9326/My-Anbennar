@@ -58,24 +58,36 @@ $branch = $branchResult.Output.Trim()
 
 Write-Output "[STEP 1/7] Verify clean working tree"
 $statusResult = Invoke-GitCommand -Arguments @("status", "--porcelain")
-if (-not [string]::IsNullOrWhiteSpace($statusResult.Output)) {
+$unresolvedAtStart = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
+if (-not [string]::IsNullOrWhiteSpace($statusResult.Output) -and [string]::IsNullOrWhiteSpace($unresolvedAtStart.Output)) {
     Fail-WithNextCommand -Message "Working tree is not clean." -NextCommand "git status --short"
 }
 
 Write-Output "[STEP 2/7] Fetch latest origin"
-$fetch = Invoke-GitCommand -Arguments @("fetch", "origin")
-if ($fetch.Code -ne 0) {
-    if (-not [string]::IsNullOrWhiteSpace($fetch.Output)) { Write-Output $fetch.Output }
-    Fail-WithNextCommand -Message "Could not fetch from origin." -NextCommand "git fetch origin"
+if ([string]::IsNullOrWhiteSpace($unresolvedAtStart.Output)) {
+    $fetch = Invoke-GitCommand -Arguments @("fetch", "origin")
+    if ($fetch.Code -ne 0) {
+        if (-not [string]::IsNullOrWhiteSpace($fetch.Output)) { Write-Output $fetch.Output }
+        Fail-WithNextCommand -Message "Could not fetch from origin." -NextCommand "git fetch origin"
+    }
 }
 
 Write-Output "[STEP 3/7] Run auto_sync_pr_with_main (PowerShell)"
 $syncScript = Join-Path $scriptDir "auto_sync_pr_with_main.ps1"
 $syncLog = New-TemporaryFile
-& $syncScript -BaseRef $BaseRef *> $syncLog.FullName
-$syncExit = $LASTEXITCODE
-if ($null -eq $syncExit) {
-    $syncExit = 0
+if (-not [string]::IsNullOrWhiteSpace($unresolvedAtStart.Output)) {
+    @(
+        "Existing unresolved merge conflicts detected; skipping merge step."
+        "EXIT_MODE=needs_manual_conflict"
+    ) | Set-Content -Path $syncLog.FullName
+    $syncExit = $EXIT_NEEDS_MANUAL_CONFLICT
+}
+else {
+    & $syncScript -BaseRef $BaseRef *> $syncLog.FullName
+    $syncExit = $LASTEXITCODE
+    if ($null -eq $syncExit) {
+        $syncExit = 0
+    }
 }
 Get-Content -Path $syncLog.FullName
 

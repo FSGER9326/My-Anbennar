@@ -14,6 +14,12 @@ if ! command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
   PYTHON_BIN="python"
 fi
 
+if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
+  echo "ERROR: Existing unresolved merge conflicts detected."
+  echo "EXIT_MODE=needs_manual_conflict"
+  exit ${EXIT_NEEDS_MANUAL_CONFLICT}
+fi
+
 if [[ -n "$(git status --porcelain)" ]]; then
   echo "ERROR: Working tree is not clean. Commit or stash first."
   exit 1

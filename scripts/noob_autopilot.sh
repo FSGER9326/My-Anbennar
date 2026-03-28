@@ -67,21 +67,27 @@ fail_with_next() {
 BRANCH="$(git branch --show-current)"
 
 echo "[STEP 1/7] Verify clean working tree"
-if [[ -n "$(git status --porcelain)" ]]; then
+if [[ -n "$(git status --porcelain)" && -z "$(git diff --name-only --diff-filter=U)" ]]; then
   fail_with_next "Working tree is not clean." "git status --short"
 fi
 
 echo "[STEP 2/7] Fetch latest origin"
-if ! git fetch origin; then
+if [[ -z "$(git diff --name-only --diff-filter=U)" ]] && ! git fetch origin; then
   fail_with_next "Could not fetch from origin." "git fetch origin"
 fi
 
 echo "[STEP 3/7] Run auto_sync_pr_with_main (bash)"
 SYNC_LOG="$(mktemp)"
-set +e
-bash "${SCRIPT_DIR}/auto_sync_pr_with_main.sh" "${BASE_REF}" >"${SYNC_LOG}" 2>&1
-SYNC_EXIT=$?
-set -e
+if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
+  echo "Existing unresolved merge conflicts detected; skipping merge step." >"${SYNC_LOG}"
+  echo "EXIT_MODE=needs_manual_conflict" >>"${SYNC_LOG}"
+  SYNC_EXIT=${EXIT_NEEDS_MANUAL_CONFLICT}
+else
+  set +e
+  bash "${SCRIPT_DIR}/auto_sync_pr_with_main.sh" "${BASE_REF}" >"${SYNC_LOG}" 2>&1
+  SYNC_EXIT=$?
+  set -e
+fi
 cat "${SYNC_LOG}"
 
 echo "[STEP 4/7] Handle sync result"
