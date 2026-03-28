@@ -66,6 +66,17 @@ It now also gates new doctrine/reform foundation files:
 - Both files must include explicit sentinel IDs (`verne_doctrine_way_of_the_wave` and `verne_overhaul_admiralty_council_reform`) so empty stubs fail CI.
 - Both files forbid placeholder keys such as `TODO...` and `replace_me...`.
 
+#### What now fails automatically
+
+The default Verne smoke flow now blocks PRs when any of these tracked files are missing their baseline structure checks or still contain scaffolding/conflict leftovers:
+
+- `common/ideas/verne_doctrine_groups.txt`
+- `common/government_reforms/verne_overhaul_reforms.txt`
+- `events/verne_overhaul_dynasty_events.txt`
+- `common/on_actions/zz_verne_overhaul_on_actions.txt`
+
+Specifically, CI now fails on unresolved merge markers (`<<<<<<<`, `=======`, `>>>>>>>`) and placeholder TODO-style keys (`TODO...`, `placeholder...`, `replace_me...`, `verne_todo...`, `verne_overhaul_todo...`) in those files.
+
 ### Checklist manifest audit
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_checklist_audit.ps1`

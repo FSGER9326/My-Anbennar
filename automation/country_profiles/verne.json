@@ -50,6 +50,20 @@
       "paths": [
         "common/government_reforms/verne_overhaul_reforms.txt"
       ]
+    },
+    {
+      "description": "foundation layer: Verne dynasty event objects exist",
+      "pattern": "^(?:country_event|province_event)\\s*=\\s*\\{",
+      "paths": [
+        "events/verne_overhaul_dynasty_events.txt"
+      ]
+    },
+    {
+      "description": "foundation layer: Verne on_actions hooks exist",
+      "pattern": "^[a-z0-9_]+\\s*=\\s*\\{",
+      "paths": [
+        "common/on_actions/zz_verne_overhaul_on_actions.txt"
+      ]
     }
   ],
   "require_all_patterns": [
@@ -136,6 +150,26 @@
       "paths": [
         "common/ideas/verne_doctrine_groups.txt",
         "common/government_reforms/verne_overhaul_reforms.txt"
+      ]
+    },
+    {
+      "description": "foundation layer: no unresolved merge markers in Verne doctrine/reform/event/on_actions files",
+      "pattern": "^<<<<<<<|^=======|^>>>>>>>",
+      "paths": [
+        "common/ideas/verne_doctrine_groups.txt",
+        "common/government_reforms/verne_overhaul_reforms.txt",
+        "events/verne_overhaul_dynasty_events.txt",
+        "common/on_actions/zz_verne_overhaul_on_actions.txt"
+      ]
+    },
+    {
+      "description": "foundation layer: no placeholder TODO keys in Verne doctrine/reform/event/on_actions files",
+      "pattern": "^\\s*(?:TODO|todo|placeholder|replace_me|verne_todo|verne_overhaul_todo)[a-z0-9_]*\\s*(?:=|:)",
+      "paths": [
+        "common/ideas/verne_doctrine_groups.txt",
+        "common/government_reforms/verne_overhaul_reforms.txt",
+        "events/verne_overhaul_dynasty_events.txt",
+        "common/on_actions/zz_verne_overhaul_on_actions.txt"
       ]
     }
   ],
