@@ -20,6 +20,22 @@ HOTSPOTS = {
     "docs/start-here.md",
 }
 HOTSPOT_PREFIXES = ("scripts/",)
+FALLBACK_USAGE = (
+    "python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b"
+)
+
+
+def quick_fixes(*extra_lines: str) -> str:
+    lines = [
+        "Quick fixes:",
+        "  1) Run with explicit branches (works without GitHub CLI):",
+        f"     {FALLBACK_USAGE}",
+        "  2) Or authenticate GitHub CLI and retry:",
+        "     gh auth status",
+        "     gh auth login",
+    ]
+    lines.extend(extra_lines)
+    return "\n".join(lines)
 
 
 @dataclass
@@ -129,14 +145,41 @@ def build_candidates(base: str, explicit_branches: list[str] | None) -> list[Can
             for b in explicit_branches
         ]
     else:
-        rows = run_gh_open_prs(base)
+        try:
+            rows = run_gh_open_prs(base)
+        except FileNotFoundError as exc:
+            raise RuntimeError(
+                "GitHub CLI (`gh`) is not installed or not on your PATH.\n"
+                f"{quick_fixes()}"
+            ) from exc
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(
+                "GitHub CLI returned unreadable PR data. "
+                f"{quick_fixes()}"
+            ) from exc
+        except RuntimeError as exc:
+            raise RuntimeError(
+                f"{exc}\n"
+                f"{quick_fixes()}"
+            ) from exc
 
     candidates: list[Candidate] = []
     for row in rows:
         branch = row["headRefName"]
         if branch == base:
             continue
-        files = changed_files(base, branch)
+        try:
+            files = changed_files(base, branch)
+        except RuntimeError as exc:
+            raise RuntimeError(
+                f"Could not compare `{branch}` against `{base}`.\n"
+                "Make sure both branches exist locally, then retry.\n"
+                "Helpful commands:\n"
+                f"  git fetch origin {base}:{base}\n"
+                f"  git fetch origin {branch}:{branch}\n"
+                "  git branch --all\n"
+                f"{quick_fixes()}"
+            ) from exc
         candidates.append(
             Candidate(
                 name=branch,
