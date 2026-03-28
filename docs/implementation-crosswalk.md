@@ -7,9 +7,9 @@ This file is the bridge layer between:
 3. EU4 engine/scripting references
 4. Verne lore support docs
 
-Use it before coding to decide what should be adapted vs newly invented.
-
 Maintenance note: this file is canonical and should remain deduplicated.
+
+Use it before coding to decide what should be adapted vs newly invented.
 
 ---
 
@@ -187,7 +187,6 @@ Notes:
 Conflict-resolution note:
 
 - Keep this file focused on per-system mapping only; place shared reference inventory updates in `docs/references/reference-index.md` to reduce future merge conflicts.
-
 
 - If a row is blocked by uncertain implementation details, keep `NEEDS_REPO_CHECK` until a concrete repo-map article resolves it.
 - If a row is blocked by unresolved design conflicts, keep `NEEDS_DESIGN` and link the design open-questions entry.
