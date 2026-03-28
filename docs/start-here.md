@@ -52,12 +52,17 @@ Use one suffix consistently:
 
 ## Object-home rule (overhaul-only reusable objects)
 
-To avoid object sprawl, all **new Verne overhaul reusable modifiers** must be created in:
+To avoid object sprawl, these are the **only allowed homes** for **new Verne overhaul reusable objects**:
 
 - `common/event_modifiers/verne_overhaul_modifiers.txt`
 - `localisation/verne_overhaul_l_english.yml`
 
-Prefix policy for these objects:
+Enforcement rule:
+
+- If it is a reusable overhaul helper object, add it to these files (not unrelated legacy files).
+- If it is gameplay-facing and intentionally exposed, it may use `verne_` naming but its reusable helper layer still belongs in the overhaul homes above.
+
+Prefix policy for reusable object IDs:
 
 - `verne_overhaul_` for reusable helper objects (default).
 - `verne_` only for gameplay-facing IDs when intentionally player-visible.

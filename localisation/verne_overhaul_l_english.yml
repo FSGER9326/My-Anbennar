@@ -1,5 +1,8 @@
 ﻿l_english:
 
+# Object-home rule:
+# - This is the ONLY allowed file for NEW localization of Verne overhaul reusable objects.
+# - Keep reusable-object loc here instead of scattering keys into unrelated loc files.
 # verne_overhaul naming map
 # - verne_overhaul_* : reusable helper objects (default)
 # - verne_*          : gameplay-facing object IDs only

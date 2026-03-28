@@ -1,4 +1,7 @@
 # Verne overhaul reusable modifier home (v0.1)
+# Object-home rule:
+# - This is the ONLY allowed file for NEW Verne overhaul reusable modifiers.
+# - Do not place new overhaul reusable modifiers in unrelated modifier files.
 # Prefix policy:
 # - verne_overhaul_ = reusable helper modifiers (default for this file)
 # - verne_          = gameplay-facing IDs only when deliberately exposed to players
