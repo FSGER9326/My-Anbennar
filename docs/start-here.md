@@ -123,3 +123,27 @@ When GitHub Actions reports a failed audit, start with the exact command shown i
 - Country smoke runner: `python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json`
 - Bash smoke checks: `bash scripts/verne_smoke_checks.sh`
 - PowerShell smoke checks: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
+
+## Keeping PRs low-conflict (stacking strategy)
+
+When you have multiple open PRs, use this order to minimize conflict churn:
+
+1. Merge foundational/base-doc automation first (often crosswalk dedupe).
+2. Rebase every downstream branch onto the new `main`.
+3. Drop commits that are already merged (interactive rebase) or recreate branch with cherry-pick.
+4. Keep each PR single-topic:
+   - smoke/profile changes
+   - crosswalk dedupe
+   - wrapper scripts
+5. Avoid parallel PRs touching hotspots unless necessary:
+   - `docs/implementation-crosswalk.md`
+   - `docs/start-here.md`
+   - `scripts/*`
+
+Use the helper script to detect overlap and propose merge order:
+
+- `python scripts/pr_conflict_churn_plan.py --base main`
+- If you do not have GitHub CLI available, provide branches directly:
+  - `python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b branch-c`
+
+After merging the first PR, rerun the script and repeat for remaining branches.
