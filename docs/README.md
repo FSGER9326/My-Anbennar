@@ -4,6 +4,8 @@ This folder holds the working project documentation for the Verne overhaul.
 
 Use it as the main non-code workspace for planning, design, grounding, and local reference material.
 
+> **Session-first rule:** open [wiki/current-work-queue.md](./wiki/current-work-queue.md) before any coding and pick from **Now**.
+
 ## What lives here
 
 ### New? Start here

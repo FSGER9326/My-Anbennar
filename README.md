@@ -2,6 +2,8 @@
 
 This repository contains the Verne overhaul work inside an Anbennar/EU4 mod workspace.
 
+> **Start every session here:** [docs/wiki/current-work-queue.md](docs/wiki/current-work-queue.md)
+
 ## Main areas
 
 - [docs/README.md](docs/README.md): project planning, design docs, grounding rules, and local reference material
