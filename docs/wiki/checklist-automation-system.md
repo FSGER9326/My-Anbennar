@@ -63,8 +63,30 @@ It now also gates new doctrine/reform foundation files:
 
 - `common/ideas/verne_doctrine_groups.txt` must contain at least one `verne_... = {` object.
 - `common/government_reforms/verne_overhaul_reforms.txt` must contain at least one `verne_... = {` object.
-- Both files must include explicit sentinel IDs (`verne_doctrine_way_of_the_wave` and `verne_overhaul_admiralty_council_reform`) so empty stubs fail CI.
+- Both files must include explicit sentinel IDs (`verne_doctrine_silver_wake` and `verne_court_of_silver_oaths_reform`) so empty stubs fail CI.
 - Both files forbid placeholder keys such as `TODO...` and `replace_me...`.
+
+#### Overhaul-required checks
+
+The Verne smoke profile now has an explicit **overhaul-required checks** layer for these files:
+
+- `common/ideas/verne_doctrine_groups.txt`
+- `common/government_reforms/verne_overhaul_reforms.txt`
+- `events/verne_overhaul_dynasty_events.txt`
+- `common/on_actions/zz_verne_overhaul_on_actions.txt`
+
+For those files, CI now enforces both:
+
+1. **Structure sentinels** (object/header shape + named sentinels)
+   - doctrine object + `verne_doctrine_silver_wake`
+   - reform object + `verne_court_of_silver_oaths_reform`
+   - dynasty event object + namespace + `id = verne_overhaul_dynasty.1`
+   - on_actions hook object + `on_new_heir`
+2. **Safety forbids**
+   - unresolved merge markers (`<<<<<<<`, `=======`, `>>>>>>>`)
+   - placeholder key prefixes (`TODO...`, `placeholder...`, `replace_me...`, `verne_todo...`, `verne_overhaul_todo...`)
+
+Legacy helper-layer smoke checks are still retained, but now explicitly labelled as **legacy compatibility** in the profile descriptions so it is easier to distinguish old-guard checks from overhaul-required gates.
 
 #### What now fails automatically
 

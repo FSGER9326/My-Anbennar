@@ -2,10 +2,11 @@ $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$verneSmokeProfile = if ($env:VERNE_SMOKE_PROFILE) { $env:VERNE_SMOKE_PROFILE } else { "automation/country_profiles/verne.json" }
 Set-Location $repoRoot
 
 Write-Output "[1/6] Run Verne smoke profile"
-& (Join-Path $scriptDir "country_smoke_runner.ps1") -Profile "automation/country_profiles/verne.json"
+& (Join-Path $scriptDir "country_smoke_runner.ps1") -Profile $verneSmokeProfile
 
 Write-Output "[2/6] Run checklist status audit"
 & (Join-Path $scriptDir "verne_checklist_audit.ps1")
