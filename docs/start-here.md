@@ -223,6 +223,24 @@ Required action on `block`:
 2. choose another task with no block overlap, **or**
 3. mark the task blocked/waiting and do not open a parallel hotspot PR.
 
+### Hotspot lane policy (required)
+
+Treat these as explicit hotspot families with **one active PR lane each**:
+
+- `missions core`
+- `automation/workflows`
+- `docs wiki hubs`
+
+Planning rule:
+
+1. only one active PR per hotspot family at a time;
+2. when a candidate task touches a family with an already-open PR, mark it **blocked/waiting**;
+3. only unblock by either:
+   - stacking on the existing PR branch for that family, or
+   - waiting until that family lane is free.
+
+Do not open parallel PRs in the same hotspot family unless the overlap is intentional and explicitly stacked.
+
 `pre_pr_gate` (bash and PowerShell) now validates the hotspot registry first, then runs this overlap planning check (when branch + GitHub CLI auth are available) so conflicts are prevented before coding/validation churn.
 
 ## Advanced/manual fallback: keeping PRs low-conflict (stacking strategy)
