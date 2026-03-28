@@ -3,6 +3,7 @@ set -euo pipefail
 
 BASE_REF="origin/main"
 DRY_RUN="false"
+NO_PUSH="false"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -14,9 +15,13 @@ while [[ $# -gt 0 ]]; do
       DRY_RUN="true"
       shift
       ;;
+    --no-push)
+      NO_PUSH="true"
+      shift
+      ;;
     *)
       echo "ERROR: Unknown argument: $1"
-      echo "Usage: bash scripts/resolve_pr_merge_conflicts.sh [--base origin/main] [--dry-run]"
+      echo "Usage: bash scripts/resolve_pr_merge_conflicts.sh [--base origin/main] [--dry-run] [--no-push]"
       exit 1
       ;;
   esac
@@ -37,13 +42,28 @@ if [[ -n "$(git status --porcelain)" ]]; then
 fi
 
 echo "Fetching latest refs..."
-git fetch origin
+if ! git remote get-url origin >/dev/null 2>&1; then
+  echo "ERROR: No 'origin' remote configured."
+  echo "Add your GitHub remote first, then retry."
+  echo "Example:"
+  echo "  git remote add origin <your-repo-url>"
+  exit 1
+fi
+if ! git fetch origin; then
+  echo "ERROR: Failed to fetch from origin."
+  echo "Check network/auth and retry."
+  exit 1
+fi
 
 if [[ "${DRY_RUN}" == "true" ]]; then
   echo "Dry run mode."
   echo "Would run:"
   echo "  git rebase ${BASE_REF}"
-  echo "  git push --force-with-lease"
+  if [[ "${NO_PUSH}" == "true" ]]; then
+    echo "  # push skipped (--no-push)"
+  else
+    echo "  git push --force-with-lease"
+  fi
   exit 0
 fi
 
@@ -63,6 +83,13 @@ if [[ ${REB_EXIT} -ne 0 ]]; then
   echo "After rebase finishes, push:"
   echo "  git push --force-with-lease"
   exit 2
+fi
+
+if [[ "${NO_PUSH}" == "true" ]]; then
+  echo "Rebase completed. Push skipped (--no-push)."
+  echo "When ready, run:"
+  echo "  git push --force-with-lease"
+  exit 0
 fi
 
 echo "Rebase completed. Updating PR branch on GitHub..."
