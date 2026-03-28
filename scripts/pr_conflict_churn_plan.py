@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Plan low-conflict PR merge/rebase order.
-
-The script inspects open PR branches (via `gh pr list`) or a user-specified branch list,
-compares changed files, and highlights overlap hotspots so you can merge foundational
-work first and keep downstream PRs narrow.
-"""
+"""Plan low-conflict PR merge/rebase order and hotspot overlap risk."""
 
 from __future__ import annotations
 
@@ -13,16 +8,28 @@ import json
 import subprocess
 import sys
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Iterable
 
-HOTSPOTS = {
-    "docs/implementation-crosswalk.md",
-    "docs/start-here.md",
-}
-HOTSPOT_PREFIXES = ("scripts/",)
 FALLBACK_USAGE = (
     "python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b"
 )
+DEFAULT_REGISTRY = "automation/conflict_hotspots.yaml"
+
+
+@dataclass
+class HotspotRegistry:
+    single_writer_files: set[str]
+    single_writer_prefixes: tuple[str, ...]
+    advisory_hotspots: set[str]
+    advisory_prefixes: tuple[str, ...]
+
+    def classify_file(self, path: str) -> str:
+        if path in self.single_writer_files or path.startswith(self.single_writer_prefixes):
+            return "block"
+        if path in self.advisory_hotspots or path.startswith(self.advisory_prefixes):
+            return "warn"
+        return "none"
 
 
 @dataclass
@@ -32,22 +39,21 @@ class Candidate:
     base: str
     files: set[str] = field(default_factory=set)
 
-    def touches_hotspot(self) -> bool:
-        return any(
-            f in HOTSPOTS or f.startswith(HOTSPOT_PREFIXES) for f in self.files
-        )
-
-    def hotspot_files(self) -> list[str]:
-        return sorted(
-            f for f in self.files if f in HOTSPOTS or f.startswith(HOTSPOT_PREFIXES)
-        )
-
 
 @dataclass
 class Overlap:
     left: str
     right: str
-    files: list[str]
+    block_files: list[str]
+    warn_files: list[str]
+    neutral_files: list[str]
+
+    def severity(self) -> str:
+        if self.block_files:
+            return "block"
+        if self.warn_files:
+            return "warn"
+        return "none"
 
 
 def run_git(args: list[str]) -> str:
@@ -104,7 +110,7 @@ def classify_topic(candidate: Candidate) -> str:
         return "wrapper scripts"
     if "smoke" in lowered or "profile" in lowered or any("smoke" in f for f in files):
         return "smoke/profile changes"
-    if any(f in HOTSPOTS for f in files):
+    if any(f.startswith("docs/") for f in files):
         return "docs/base automation"
     return "other"
 
@@ -121,14 +127,33 @@ def score(candidate: Candidate) -> tuple[int, int, str]:
     return (topic_rank, len(candidate.files), candidate.name)
 
 
-def compute_overlaps(candidates: list[Candidate]) -> list[Overlap]:
+def compute_overlaps(candidates: list[Candidate], registry: HotspotRegistry) -> list[Overlap]:
     overlaps: list[Overlap] = []
     for i, left in enumerate(candidates):
         for right in candidates[i + 1 :]:
             inter = sorted(left.files & right.files)
-            if inter:
-                overlaps.append(Overlap(left.name, right.name, inter))
-    overlaps.sort(key=lambda o: (-len(o.files), o.left, o.right))
+            if not inter:
+                continue
+            block_files = [f for f in inter if registry.classify_file(f) == "block"]
+            warn_files = [f for f in inter if registry.classify_file(f) == "warn"]
+            neutral_files = [f for f in inter if registry.classify_file(f) == "none"]
+            overlaps.append(
+                Overlap(
+                    left=left.name,
+                    right=right.name,
+                    block_files=block_files,
+                    warn_files=warn_files,
+                    neutral_files=neutral_files,
+                )
+            )
+    overlaps.sort(
+        key=lambda o: (
+            0 if o.severity() == "block" else 1 if o.severity() == "warn" else 2,
+            -(len(o.block_files) + len(o.warn_files) + len(o.neutral_files)),
+            o.left,
+            o.right,
+        )
+    )
     return overlaps
 
 
@@ -193,6 +218,52 @@ def build_candidates(base: str, explicit_branches: list[str] | None) -> list[Can
     return candidates
 
 
+def parse_simple_yaml_lists(path: Path) -> dict[str, list[str]]:
+    """Minimal YAML parser for top-level `key:`, `- value` list style used in hotspots."""
+    raw = path.read_text(encoding="utf-8").splitlines()
+    result: dict[str, list[str]] = {}
+    current_key: str | None = None
+    for idx, line in enumerate(raw, start=1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if not line.startswith(" ") and stripped.endswith(":"):
+            current_key = stripped[:-1]
+            result.setdefault(current_key, [])
+            continue
+        if stripped.startswith("-"):
+            if current_key is None:
+                raise RuntimeError(f"Invalid YAML at line {idx}: list item without key")
+            value = stripped[1:].strip()
+            if value.startswith(("'", '"')) and value.endswith(("'", '"')) and len(value) >= 2:
+                value = value[1:-1]
+            result[current_key].append(value)
+            continue
+        raise RuntimeError(f"Unsupported YAML structure at line {idx}: {line}")
+    return result
+
+
+def load_registry(path: str) -> HotspotRegistry:
+    yaml_path = Path(path)
+    if not yaml_path.exists():
+        raise RuntimeError(f"Hotspot registry not found: {path}")
+    parsed = parse_simple_yaml_lists(yaml_path)
+
+    single_writer_files = set(parsed.get("single_writer_files", []))
+    single_writer_prefixes = tuple(parsed.get("single_writer_prefixes", []))
+
+    advisory_entries = parsed.get("advisory_hotspots", [])
+    advisory_hotspots = {v for v in advisory_entries if not v.endswith("/")}
+    advisory_prefixes = tuple(v for v in advisory_entries if v.endswith("/"))
+
+    return HotspotRegistry(
+        single_writer_files=single_writer_files,
+        single_writer_prefixes=single_writer_prefixes,
+        advisory_hotspots=advisory_hotspots,
+        advisory_prefixes=advisory_prefixes,
+    )
+
+
 def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", default="main", help="Base branch to diff against (default: main)")
@@ -204,15 +275,151 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser.add_argument(
         "--json",
         action="store_true",
-        help="Emit machine-readable JSON instead of markdown report.",
+        help="Emit machine-readable JSON plus markdown report.",
     )
+    parser.add_argument(
+        "--fail-on-block",
+        action="store_true",
+        help="Exit non-zero when block overlaps are found.",
+    )
+    parser.add_argument(
+        "--focus-branch",
+        help="Limit fail-on-block/warn summaries to overlaps involving this branch.",
+    )
+    parser.add_argument(
+        "--hotspot-registry",
+        default=DEFAULT_REGISTRY,
+        help=f"Hotspot registry YAML path (default: {DEFAULT_REGISTRY})",
+    )
+    parser.add_argument("--json-output", help="Write JSON summary to file.")
+    parser.add_argument("--markdown-output", help="Write markdown summary to file.")
     return parser.parse_args(list(argv))
+
+
+def build_payload(
+    args: argparse.Namespace,
+    ordered: list[Candidate],
+    overlaps: list[Overlap],
+    registry: HotspotRegistry,
+) -> dict:
+    relevant = [
+        o
+        for o in overlaps
+        if not args.focus_branch or args.focus_branch in (o.left, o.right)
+    ]
+    block_overlaps = [o for o in relevant if o.block_files]
+    warn_overlaps = [o for o in relevant if not o.block_files and o.warn_files]
+
+    payload = {
+        "base": args.base,
+        "focus_branch": args.focus_branch,
+        "registry": {
+            "path": args.hotspot_registry,
+            "single_writer_files": sorted(registry.single_writer_files),
+            "single_writer_prefixes": sorted(registry.single_writer_prefixes),
+            "advisory_hotspots": sorted(registry.advisory_hotspots),
+            "advisory_prefixes": sorted(registry.advisory_prefixes),
+        },
+        "summary": {
+            "branches_analyzed": len(ordered),
+            "overlap_pairs": len(overlaps),
+            "relevant_overlap_pairs": len(relevant),
+            "block_pairs": len(block_overlaps),
+            "warn_pairs": len(warn_overlaps),
+            "has_blockers": len(block_overlaps) > 0,
+        },
+        "order": [
+            {
+                "branch": c.name,
+                "title": c.title,
+                "topic": classify_topic(c),
+                "file_count": len(c.files),
+                "files_changed": sorted(c.files),
+            }
+            for c in ordered
+        ],
+        "overlaps": [
+            {
+                "left": o.left,
+                "right": o.right,
+                "severity": o.severity(),
+                "block_files": o.block_files,
+                "warn_files": o.warn_files,
+                "neutral_files": o.neutral_files,
+            }
+            for o in overlaps
+        ],
+        "relevant_overlaps": [
+            {
+                "left": o.left,
+                "right": o.right,
+                "severity": o.severity(),
+                "block_files": o.block_files,
+                "warn_files": o.warn_files,
+                "neutral_files": o.neutral_files,
+            }
+            for o in relevant
+        ],
+    }
+    return payload
+
+
+def build_markdown(payload: dict) -> str:
+    lines: list[str] = [f"# PR Conflict-Churn Plan (base: `{payload['base']}`)", ""]
+    if payload.get("focus_branch"):
+        lines.append(f"Focus branch: `{payload['focus_branch']}`")
+        lines.append("")
+
+    summary = payload["summary"]
+    lines += [
+        "## Overlap summary",
+        f"- Branches analyzed: **{summary['branches_analyzed']}**",
+        f"- Overlap pairs: **{summary['overlap_pairs']}**",
+        f"- Relevant overlap pairs: **{summary['relevant_overlap_pairs']}**",
+        f"- Block overlaps: **{summary['block_pairs']}**",
+        f"- Advisory overlaps: **{summary['warn_pairs']}**",
+        "",
+        "## Merge/rebase order",
+    ]
+
+    for idx, entry in enumerate(payload["order"], start=1):
+        lines.append(
+            f"{idx}. `{entry['branch']}` — {entry['title']} "
+            f"(topic: **{entry['topic']}**, files: {entry['file_count']})"
+        )
+
+    lines += ["", "## Overlaps"]
+    relevant = payload["relevant_overlaps"]
+    if not relevant:
+        lines.append("No relevant overlaps detected.")
+        return "\n".join(lines) + "\n"
+
+    for overlap in relevant:
+        left = overlap["left"]
+        right = overlap["right"]
+        severity = overlap["severity"].upper()
+        lines.append(f"- `{left}` ↔ `{right}` — **{severity}**")
+        if overlap["block_files"]:
+            lines.append("  - block:")
+            for name in overlap["block_files"]:
+                lines.append(f"    - `{name}`")
+        if overlap["warn_files"]:
+            lines.append("  - warn:")
+            for name in overlap["warn_files"]:
+                lines.append(f"    - `{name}`")
+        if overlap["neutral_files"]:
+            lines.append("  - neutral:")
+            for name in overlap["neutral_files"]:
+                lines.append(f"    - `{name}`")
+
+    return "\n".join(lines) + "\n"
 
 
 def main(argv: Iterable[str]) -> int:
     args = parse_args(argv)
 
     try:
+        registry = load_registry(args.hotspot_registry)
         candidates = build_candidates(args.base, args.branches)
     except RuntimeError as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -223,78 +430,25 @@ def main(argv: Iterable[str]) -> int:
         return 0
 
     ordered = sorted(candidates, key=score)
-    overlaps = compute_overlaps(ordered)
+    overlaps = compute_overlaps(ordered, registry)
+    payload = build_payload(args, ordered, overlaps, registry)
+
+    markdown = build_markdown(payload)
+    json_blob = json.dumps(payload, indent=2)
+
+    if args.json_output:
+        Path(args.json_output).write_text(json_blob + "\n", encoding="utf-8")
+    if args.markdown_output:
+        Path(args.markdown_output).write_text(markdown, encoding="utf-8")
 
     if args.json:
-        payload = {
-            "base": args.base,
-            "order": [
-                {
-                    "branch": c.name,
-                    "title": c.title,
-                    "topic": classify_topic(c),
-                    "file_count": len(c.files),
-                    "touches_hotspot": c.touches_hotspot(),
-                    "files_changed": sorted(c.files),
-                    "hotspot_files": c.hotspot_files(),
-                }
-                for c in ordered
-            ],
-            "overlaps": [
-                {"left": o.left, "right": o.right, "files": o.files}
-                for o in overlaps
-            ],
-        }
-        print(json.dumps(payload, indent=2))
-        return 0
+        print(json_blob)
+        print()
 
-    print(f"# PR Conflict-Churn Plan (base: `{args.base}`)\n")
-    print("## Per-PR changed files (GitHub `Files changed` equivalent)")
-    for c in ordered:
-        print(f"\n### `{c.name}` — {c.title}")
-        if not c.files:
-            print("- _No changed files detected._")
-            continue
-        for name in sorted(c.files):
-            marker = " ⚠️ hotspot" if name in HOTSPOTS or name.startswith(HOTSPOT_PREFIXES) else ""
-            print(f"- `{name}`{marker}")
+    print(markdown, end="")
 
-    print("\n## Hotspot-touching PR branches")
-    hotspot_branches = [c for c in ordered if c.touches_hotspot()]
-    if not hotspot_branches:
-        print("No hotspot branches detected.")
-    else:
-        for c in hotspot_branches:
-            print(
-                f"- `{c.name}`: "
-                + ", ".join(f"`{name}`" for name in c.hotspot_files())
-            )
-
-    print("## Suggested merge/rebase order")
-    for idx, c in enumerate(ordered, start=1):
-        topic = classify_topic(c)
-        hotspot = "hotspot" if c.touches_hotspot() else "no-hotspot"
-        print(
-            f"{idx}. `{c.name}` — {c.title}  "
-            f"(topic: **{topic}**, files: {len(c.files)}, {hotspot})"
-        )
-
-    print("\n## Overlapping files between PR branches")
-    if not overlaps:
-        print("No overlaps detected.")
-    else:
-        for overlap in overlaps:
-            print(f"- `{overlap.left}` ↔ `{overlap.right}` ({len(overlap.files)} files)")
-            for name in overlap.files:
-                marker = " ⚠️ hotspot" if name in HOTSPOTS or name.startswith(HOTSPOT_PREFIXES) else ""
-                print(f"  - `{name}`{marker}")
-
-    print("\n## Downstream cleanup checklist")
-    print("1. Merge the first (most foundational) PR into `main`.")
-    print("2. For each remaining branch, rebase onto updated `main`.")
-    print("3. Drop merged commits (`git rebase -i main`) or recreate via cherry-pick.")
-    print("4. Keep PRs single-topic (smoke/profile, crosswalk dedupe, wrapper scripts).")
-    print("5. Avoid parallel edits to `docs/implementation-crosswalk.md`, `docs/start-here.md`, and `scripts/*`.")
+    if args.fail_on_block and payload["summary"]["has_blockers"]:
+        return 1
 
     return 0
 

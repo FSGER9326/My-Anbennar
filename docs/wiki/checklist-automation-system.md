@@ -33,6 +33,8 @@ Use this section only when you need manual control, troubleshooting, or platform
 
 Localisation-only edits now trigger the `verne-validation` workflow automatically on both pushes and pull requests to `main`.
 
+On pull requests, `verne-validation` gate 3 also runs the overlap planner (`scripts/pr_conflict_churn_plan.py`) with `--focus-branch` + `--fail-on-block`, and publishes both JSON + markdown overlap summaries in job artifacts and step summary.
+
 ### Verne smoke checks
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
@@ -191,6 +193,27 @@ Use that section as the default commit-shaping guard so each commit stays one sy
 It also documents fast-path exceptions so this rule improves safety without blocking tightly-coupled work.
 
 ## Advanced/manual fallback (continued)
+
+### Pre-coding overlap planning check (prevention-only)
+
+Run this before implementation when branch/PR context is available:
+
+- `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block`
+
+Result meaning:
+
+- `block`: overlap on single-writer file/prefix from `automation/conflict_hotspots.yaml`; stop and coordinate.
+- `warn`: advisory hotspot overlap; proceed only with explicit coordination and a narrow scope.
+
+Required action for `block` overlaps:
+
+1. stack onto the existing branch touching that hotspot, **or**
+2. pick a different task outside the hotspot, **or**
+3. mark current task blocked/waiting.
+
+`bash scripts/pre_pr_gate.sh` now executes this as step 1 when on a feature branch with authenticated `gh`, and exits early on `block` overlaps.
+
+This is intentionally prevention-only: no merge-resolution automation behavior was changed.
 
 ### Merge-conflict prevention
 
