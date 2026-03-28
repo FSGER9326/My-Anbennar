@@ -27,8 +27,40 @@ on:
       - "localisation/**"
       - "missions/**"
       - "scripts/**"
+  merge_group:
+    branches: [main]
+
+concurrency:
+  group: verne-validation-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
+  merge-conflict-guard:
+    if: github.event_name == "pull_request"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify branch merges cleanly with base
+        id: verify_clean_merge
+        shell: bash
+        run: |
+          set -euo pipefail
+          base_ref="${{ github.base_ref }}"
+          git fetch --no-tags origin "${base_ref}"
+
+          if ! git merge --no-commit --no-ff "origin/${base_ref}"; then
+            echo "::error::Merge conflict detected with origin/${base_ref}. Rebase or merge the latest base branch into this PR branch."
+            git merge --abort || true
+            exit 1
+          fi
+
+          git merge --abort
+
   validate-python-and-bash:
     runs-on: ubuntu-latest
     steps:
