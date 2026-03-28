@@ -216,6 +216,7 @@ Done when:
 - Court of Silver Oaths exists
 - Charter of Great Captains exists
 - Ducal Muster of Armoc exists
+- Default/safest pick for first tests: Court of Silver Oaths (most stable general-purpose governance baseline).
 
 ### V-15 Add Tier 2 reform triplet
 Target files:

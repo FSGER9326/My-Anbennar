@@ -49,5 +49,11 @@ l_english:
  verne_proto_doctrine_charter:0 "Prototype Doctrine Charter"
  verne_proto_doctrine_charter_desc:0 "Court-backed chartering practices give Verne a stable baseline for early doctrine experimentation."
 
- verne_foundational_court_reform:0 "Foundational Verne Court"
- verne_foundational_court_reform_desc:0 "A practical starting reform that improves administrative discipline while the wider overhaul is still in early testing."
+ verne_court_of_silver_oaths_reform:0 "Court of Silver Oaths"
+ verne_court_of_silver_oaths_reform_desc:0 "A disciplined oath-court tightens administrative trust and keeps corruption low without overextending state capacity."
+
+ verne_charter_of_great_captains_reform:0 "Charter of Great Captains"
+ verne_charter_of_great_captains_reform_desc:0 "The ducal charter gives proven captains formal authority, improving maritime professionalism and practical commercial reach."
+
+ verne_ducal_muster_of_armoc_reform:0 "Ducal Muster of Armoc"
+ verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's musters standardize levies and fort-readiness, providing reliable military depth for a cautious expansion phase."
