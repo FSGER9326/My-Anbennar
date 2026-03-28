@@ -9,6 +9,8 @@ This file is the bridge layer between:
 
 Use it before coding to decide what should be adapted vs newly invented.
 
+Maintenance note: this file is canonical and should remain deduplicated.
+
 ---
 
 ## [VERNE-MAG-001] Court Magic Access, Succession, and High-Magic Risk
@@ -75,9 +77,6 @@ Design doc: `docs/design/mission-rewrite-spec.md`; `docs/design/open-questions-a
 Repo pattern: `docs/repo-maps/racial-population-and-military-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
 
 Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
@@ -114,18 +113,6 @@ Design doc: `docs/design/reform-bible.md`
 Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
-Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`
-
-EU4 reference: `docs/references/eu4-wiki/Modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-
-Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
-
-EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
-
-Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
-
-EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
-
 
 Lore doc: `docs/lore/verne-identity-and-court-culture.md`
 
@@ -135,11 +122,6 @@ Notes:
 
 - Use existing government power/interactions architecture for any new Verne state meters.
 - Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
-
-- Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
-
-- Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
-
 - Keep first iteration minimal (one bar + one interaction) before multi-action expansion.
 
 ---
@@ -170,11 +152,6 @@ Design doc: `docs/design/pressure-disasters-and-corinite.md`
 Repo pattern: `docs/repo-maps/witch-king-lichdom-war-wizard-infamy-reference.md`; `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
-
-EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
-
 
 Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
