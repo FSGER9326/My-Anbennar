@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MARKERS = ("<<<<<<<", "=======", ">>>>>>>")
 
 HOTSPOT_FILES = [
+    "README.md",
     "docs/README.md",
     "docs/start-here.md",
     "docs/implementation-crosswalk.md",
@@ -24,6 +25,10 @@ HOTSPOT_FILES = [
 ]
 
 HEADING_SINGLETON_RULES: dict[str, list[str]] = {
+    "README.md": [
+        "## Main areas",
+        "## Current project docs",
+    ],
     "docs/README.md": [
         "### Repo grounding maps",
         "### Local references",

@@ -4,6 +4,7 @@ $repoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $markers = @("<<<<<<<", "=======", ">>>>>>>")
 
 $hotspotFiles = @(
+    "README.md",
     "docs/README.md",
     "docs/start-here.md",
     "docs/implementation-crosswalk.md",
@@ -18,6 +19,10 @@ $hotspotFiles = @(
 )
 
 $headingSingletonRules = @{
+    "README.md" = @(
+        "## Main areas",
+        "## Current project docs"
+    )
     "docs/README.md" = @(
         "### Repo grounding maps",
         "### Local references",

@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 HOTSPOTS = [
     ".gitattributes",
+    "README.md",
     "docs/README.md",
     "docs/start-here.md",
     "docs/implementation-crosswalk.md",
@@ -36,6 +37,7 @@ scripts/** text eol=lf
 
 # Prefer additive auto-merge in documentation hotspot files to reduce manual
 # conflict resolution in shared indexes and hub docs.
+README.md merge=union
 docs/README.md merge=union
 docs/start-here.md merge=union
 docs/implementation-crosswalk.md merge=union
