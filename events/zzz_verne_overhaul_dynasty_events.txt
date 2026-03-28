@@ -1,0 +1,3 @@
+# Deprecated compatibility shim (post-authority-unification).
+# Canonical implementation lives in: events/verne_overhaul_dynasty_events.txt
+# Intentionally empty to avoid duplicate namespace/event IDs.

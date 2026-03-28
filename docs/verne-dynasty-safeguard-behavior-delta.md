@@ -15,13 +15,13 @@ After authority unification, the project now needs a single canonical implementa
 - Canonical trigger definitions: `common/scripted_triggers/verne_overhaul_triggers.txt`
 - Canonical localization source for dynasty safeguard text: `localisation/verne_overhaul_scaffold_l_english.yml`
 
-Legacy split `zzz_` dynasty files were removed in this pass.
+Legacy split `zzz_` dynasty files are retained as inert compatibility shims in this pass (comments-only, no objects).
 
 ## Behavioral delta vs previous scaffold/split state
 
 1. **`on_new_heir` is now live in canonical on_actions**
    - Before: placeholder no-op in canonical file, active logic in split file.
-   - Now: canonical file dispatches hidden safeguard event.
+   - Now: canonical file dispatches hidden safeguard event while split files are inert stubs.
 
 2. **Safeguard chain now has two stages**
    - `verne_overhaul_dynasty.1`: policy gate (when to correct).

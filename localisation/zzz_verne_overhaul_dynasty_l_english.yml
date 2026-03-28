@@ -1,0 +1,4 @@
+l_english:
+ # Deprecated compatibility shim (post-authority-unification).
+ # Canonical dynasty safeguard localisation lives in:
+ # localisation/verne_overhaul_scaffold_l_english.yml
