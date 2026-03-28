@@ -205,6 +205,25 @@ Triage order used by `noob_autopilot` and `pre_pr_gate` failure summaries:
 - Bash smoke checks: `bash scripts/verne_smoke_checks.sh`
 - PowerShell smoke checks: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
 
+## Pre-coding overlap check (required for shared hotspots)
+
+Before coding on a feature branch with PR context, run:
+
+- `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block`
+
+Interpretation:
+
+- `block` overlap = single-writer conflict surface (must not proceed in parallel).
+- `warn` overlap = advisory hotspot (high churn; coordinate and keep PR narrow).
+
+Required action on `block`:
+
+1. stack onto the existing hotspot branch, **or**
+2. choose another task with no block overlap, **or**
+3. mark the task blocked/waiting and do not open a parallel hotspot PR.
+
+`bash scripts/pre_pr_gate.sh` now runs this overlap planning check first (when branch + GitHub CLI auth are available) so conflicts are prevented before coding/validation churn.
+
 ## Advanced/manual fallback: keeping PRs low-conflict (stacking strategy)
 
 When you have multiple open PRs, use this order to minimize conflict churn:
@@ -224,6 +243,8 @@ When you have multiple open PRs, use this order to minimize conflict churn:
 Use the helper script to detect overlap and propose merge order:
 
 - `python scripts/pr_conflict_churn_plan.py --base main`
+- Focus your own branch and fail fast on single-writer conflicts:
+  - `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block`
 - If you do not have GitHub CLI available, provide branches directly:
   - `python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b branch-c`
 

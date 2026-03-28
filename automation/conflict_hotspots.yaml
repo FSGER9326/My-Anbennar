@@ -1,0 +1,19 @@
+single_writer_files:
+  - docs/start-here.md
+  - docs/wiki/checklist-automation-system.md
+  - automation/conflict_hotspots.yaml
+
+single_writer_prefixes:
+  - .github/workflows/
+  - scripts/
+  - docs/wiki/
+  - automation/
+
+advisory_hotspots:
+  - docs/README.md
+  - docs/implementation-crosswalk.md
+  - docs/repo-maps/
+  - docs/theorycraft/
+  - localisation/
+  - events/
+  - missions/

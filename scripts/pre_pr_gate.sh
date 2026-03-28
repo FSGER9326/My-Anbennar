@@ -9,6 +9,51 @@ if ! command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
   PYTHON_BIN="python"
 fi
 
+
+run_overlap_planning_check() {
+  local current_branch
+  current_branch="$(git branch --show-current)"
+
+  if [[ -z "${current_branch}" || "${current_branch}" == "main" ]]; then
+    echo "[plan] Overlap check skipped (not on a feature branch)."
+    return 0
+  fi
+
+  if ! command -v gh >/dev/null 2>&1; then
+    echo "[plan] Overlap check skipped (gh CLI unavailable)."
+    return 0
+  fi
+
+  if ! gh auth status >/dev/null 2>&1; then
+    echo "[plan] Overlap check skipped (gh not authenticated)."
+    return 0
+  fi
+
+  if ! git rev-parse --verify main >/dev/null 2>&1; then
+    echo "[plan] Overlap check skipped (missing local main branch)."
+    return 0
+  fi
+
+  local tmp_output
+  tmp_output="$(mktemp)"
+  if ! "${PYTHON_BIN}" scripts/pr_conflict_churn_plan.py --base main --json --focus-branch "${current_branch}" --fail-on-block >"${tmp_output}"; then
+    echo
+    echo "Single-writer overlap detected for branch '${current_branch}'."
+    echo "Required action: stack onto the existing branch, choose another task, or mark blocked."
+    cat "${tmp_output}"
+    rm -f "${tmp_output}"
+    return 1
+  fi
+
+  if rg -q '"warn_pairs"\s*:\s*[1-9]' "${tmp_output}"; then
+    echo "[plan] Advisory overlap warning detected; review below before coding."
+    cat "${tmp_output}"
+  else
+    echo "[plan] Overlap check passed (no relevant block/warn overlap)."
+  fi
+  rm -f "${tmp_output}"
+}
+
 print_post_fail_summary() {
   local tmp_file
   local loc_rc=0
@@ -55,9 +100,10 @@ run_step() {
   fi
 }
 
-run_step "[1/4] Docs conflict guard" "${PYTHON_BIN} scripts/docs_conflict_guard.py"
-run_step "[2/4] Checklist link audit" "${PYTHON_BIN} scripts/checklist_link_audit.py"
-run_step "[3/4] Verne checklist audit" "${PYTHON_BIN} scripts/verne_checklist_audit.py"
-run_step "[4/4] Verne country smoke runner" "${PYTHON_BIN} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
+run_step "[1/5] Branch overlap planning check" "run_overlap_planning_check"
+run_step "[2/5] Docs conflict guard" "${PYTHON_BIN} scripts/docs_conflict_guard.py"
+run_step "[3/5] Checklist link audit" "${PYTHON_BIN} scripts/checklist_link_audit.py"
+run_step "[4/5] Verne checklist audit" "${PYTHON_BIN} scripts/verne_checklist_audit.py"
+run_step "[5/5] Verne country smoke runner" "${PYTHON_BIN} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
 
 echo "Pre-PR gate passed. Safe to open a PR."
