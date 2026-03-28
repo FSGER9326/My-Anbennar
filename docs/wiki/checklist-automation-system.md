@@ -57,7 +57,7 @@ Use `require_all_patterns` whenever you are tracking multiple helper names and y
 
 #### Verne phase-0 foundation guarantees
 
-The Verne profile now also enforces a phase-0 foundation layer: it requires baseline objects in `common/event_modifiers/verne_overhaul_modifiers.txt` and `localisation/verne_overhaul_l_english.yml`, and blocks common anti-patterns there (merge markers, placeholder TODO keys, and inconsistent `verne_overhaul_` prefix typos).
+The Verne profile now also enforces a phase-0 foundation layer: it requires baseline objects in `common/event_modifiers/verne_overhaul_modifiers.txt` and `localisation/verne_overhaul_l_english.yml`, and blocks common anti-patterns there (merge markers, placeholder TODO keys, and inconsistent Verne prefix typos).
 
 ### Checklist manifest audit
 

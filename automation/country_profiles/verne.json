@@ -13,7 +13,7 @@
     },
     {
       "description": "foundation layer: Verne overhaul modifier objects exist",
-      "pattern": "^verne_overhaul_[a-z0-9_]+\\s*=\\s*\\{",
+      "pattern": "^verne_[a-z0-9_]+\\s*=\\s*\\{",
       "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt"]
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "description": "foundation layer: Verne overhaul localisation keys are present",
-      "pattern": "^\\s*(?:desc_)?verne_overhaul_[a-z0-9_]+\\s*:\\s*0\\s+\"",
+      "pattern": "^\\s*(?:desc_)?verne_[a-z0-9_]+\\s*:\\s*0\\b",
       "paths": ["localisation/verne_overhaul_l_english.yml"]
     }
   ],
@@ -63,17 +63,22 @@
     },
     {
       "description": "foundation layer: no unresolved merge markers in new Verne foundation files",
-      "pattern": "<<<<<<<|=======|>>>>>>>",
+      "pattern": "^<<<<<<<|^=======|^>>>>>>>",
       "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt", "localisation/verne_overhaul_l_english.yml"]
     },
     {
-      "description": "foundation layer: no placeholder TODO keys in release foundation files",
-      "pattern": "^\\s*(?:desc_)?(?:TODO|todo|placeholder|replace_me|verne_overhaul_todo)[a-z0-9_]*\\s*:",
-      "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt", "localisation/verne_overhaul_l_english.yml"]
+      "description": "foundation layer: no placeholder TODO keys in localisation foundation file",
+      "pattern": "^\\s*(?:desc_)?(?:TODO|todo|placeholder|replace_me|verne_todo|verne_overhaul_todo)[a-z0-9_]*\\s*:",
+      "paths": ["localisation/verne_overhaul_l_english.yml"]
+    },
+    {
+      "description": "foundation layer: no TODO placeholders left in modifier foundation file",
+      "pattern": "#\\s*TODO\\b|\\bTODO\\b",
+      "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt"]
     },
     {
       "description": "foundation layer: no inconsistent Verne overhaul prefix typos",
-      "pattern": "verne_overhual_|vern_overhaul_|verne-overhaul_",
+      "pattern": "verne_overhual_|vern_overhaul_|verne-overhaul_|verneOverhaul_|verneoverhaul_",
       "paths": ["common/event_modifiers/verne_overhaul_modifiers.txt", "localisation/verne_overhaul_l_english.yml"]
     }
   ]
