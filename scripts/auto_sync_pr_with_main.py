@@ -88,9 +88,7 @@ def main() -> int:
     merge = run(["git", "merge", "--no-commit", "--no-ff", BASE_REF])
     print_output(merge)
 
-    unresolved_now = run(["git", "diff", "--name-only", "--diff-filter=U"], check=True)
-    has_unresolved_now = any(line.strip() for line in unresolved_now.stdout.splitlines())
-    if merge.returncode != 0 or has_unresolved_now:
+    if merge.returncode != 0:
         print("Merge reported conflicts. Attempting docs hotspot auto-resolution...")
         run_python_script("resolve_docs_conflicts.py")
         run_python_script("resolve_content_conflicts.py", "--union-docs-only")

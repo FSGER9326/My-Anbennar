@@ -36,8 +36,7 @@ git merge --no-commit --no-ff "${BASE_REF}"
 MERGE_EXIT=$?
 set -e
 
-UNRESOLVED_NOW="$(git diff --name-only --diff-filter=U || true)"
-if [[ ${MERGE_EXIT} -ne 0 || -n "${UNRESOLVED_NOW}" ]]; then
+if [[ ${MERGE_EXIT} -ne 0 ]]; then
   echo "Merge reported conflicts. Attempting docs hotspot auto-resolution..."
   "${PYTHON_BIN}" scripts/resolve_docs_conflicts.py || true
   "${PYTHON_BIN}" scripts/resolve_content_conflicts.py --union-docs-only || true

@@ -75,14 +75,6 @@ if ($mergeExit -ne 0) {
     & (Join-Path $PSScriptRoot "resolve_docs_conflicts.ps1")
     & python (Join-Path $PSScriptRoot "resolve_content_conflicts.py") --union-docs-only
 }
-else {
-    $unresolvedNow = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
-    if (-not [string]::IsNullOrWhiteSpace($unresolvedNow.Output)) {
-    Write-Output "Merge reported conflicts. Attempting docs hotspot auto-resolution..."
-    & (Join-Path $PSScriptRoot "resolve_docs_conflicts.ps1")
-    & python (Join-Path $PSScriptRoot "resolve_content_conflicts.py") --union-docs-only
-    }
-}
 
 $remainingCheck = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
 $remaining = $remainingCheck.Output
