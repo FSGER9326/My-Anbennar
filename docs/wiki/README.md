@@ -18,6 +18,7 @@ Use it to track:
 - [generalized-modding-lifecycle-playbook.md](./generalized-modding-lifecycle-playbook.md)
 - [fluff-and-art-production-playbook.md](./fluff-and-art-production-playbook.md)
 - [checklist-automation-system.md](./checklist-automation-system.md)
+- [verne-id-ledger.md](./verne-id-ledger.md)
 
 
 ## Current priority order (when unsure)
