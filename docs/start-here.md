@@ -28,8 +28,6 @@ If merge conflicts still remain after docs auto-resolution, rerun with a one-fla
 
 This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
 
-This flow now also compiles the backlog plan queue (`python scripts/backlog_compiler.py --plan`) so you start sessions with a fresh `Now/Next/Later` work list.
-
 Hard rule for any branch with an open PR: run this sync helper first, follow the exact `Next command` if it reports unresolved conflicts, and only push after it finishes successfully.
 
 Personal habit mantra: **sync first, then push.**
@@ -44,7 +42,6 @@ Run pre-PR gate before opening any PR.
 Pick one mode so you can run the right checks without thinking:
 
 - **Implementation mode (script/event/loc changes)**
-  - Runs backlog compiler plan generation first (`scripts/backlog_compiler.py --plan`) before coding checks.
   - **macOS/Linux (bash):** `bash scripts/verne_mode_impl.sh`
   - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_impl.ps1`
 - **Docs mode (checklist/docs changes)**

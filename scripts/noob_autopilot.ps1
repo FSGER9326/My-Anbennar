@@ -52,28 +52,20 @@ function Fail-WithNextCommand {
 $branchResult = Invoke-GitCommand -Arguments @("branch", "--show-current")
 $branch = $branchResult.Output.Trim()
 
-Write-Output "[STEP 1/8] Verify clean working tree"
+Write-Output "[STEP 1/7] Verify clean working tree"
 $statusResult = Invoke-GitCommand -Arguments @("status", "--porcelain")
 if (-not [string]::IsNullOrWhiteSpace($statusResult.Output)) {
     Fail-WithNextCommand -Message "Working tree is not clean." -NextCommand "git status --short"
 }
 
-Write-Output "[STEP 2/8] Fetch latest origin"
+Write-Output "[STEP 2/7] Fetch latest origin"
 $fetch = Invoke-GitCommand -Arguments @("fetch", "origin")
 if ($fetch.Code -ne 0) {
     if (-not [string]::IsNullOrWhiteSpace($fetch.Output)) { Write-Output $fetch.Output }
     Fail-WithNextCommand -Message "Could not fetch from origin." -NextCommand "git fetch origin"
 }
 
-Write-Output "[STEP 3/8] Compile backlog plan queue before coding sessions"
-& (Join-Path $scriptDir "backlog_compiler.ps1") -Plan
-$planExit = $LASTEXITCODE
-if ($null -eq $planExit) { $planExit = 0 }
-if ($planExit -ne 0) {
-    Fail-WithNextCommand -Message "backlog_compiler plan failed." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\backlog_compiler.ps1 -Plan"
-}
-
-Write-Output "[STEP 4/8] Run auto_sync_pr_with_main (PowerShell)"
+Write-Output "[STEP 3/7] Run auto_sync_pr_with_main (PowerShell)"
 $syncScript = Join-Path $scriptDir "auto_sync_pr_with_main.ps1"
 $syncLog = New-TemporaryFile
 & $syncScript -BaseRef $BaseRef *> $syncLog.FullName
@@ -85,7 +77,7 @@ if ($syncExit -eq 0) {
     Write-Output "auto_sync_pr_with_main completed."
 }
 
-Write-Output "[STEP 5/8] Resolve unresolved merge conflicts (docs hotspots only, when needed)"
+Write-Output "[STEP 4/7] Resolve unresolved merge conflicts (docs hotspots only, when needed)"
 $unresolved = Invoke-GitCommand -Arguments @("diff", "--name-only", "--diff-filter=U")
 if (-not [string]::IsNullOrWhiteSpace($unresolved.Output)) {
     & (Join-Path $scriptDir "resolve_docs_conflicts.ps1")
@@ -124,7 +116,7 @@ if ($syncExit -ne 0) {
     Fail-WithNextCommand -Message "auto_sync_pr_with_main.ps1 failed." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main"
 }
 
-Write-Output "[STEP 6/8] Run docs_conflict_guard"
+Write-Output "[STEP 5/7] Run docs_conflict_guard"
 & (Join-Path $scriptDir "docs_conflict_guard.ps1")
 $guardExit = $LASTEXITCODE
 if ($null -eq $guardExit) {
@@ -135,7 +127,7 @@ if ($guardExit -ne 0) {
     Fail-WithNextCommand -Message "docs_conflict_guard failed." -NextCommand "powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\docs_conflict_guard.ps1"
 }
 
-Write-Output "[STEP 7/8] Run verne_smoke_checks"
+Write-Output "[STEP 6/7] Run verne_smoke_checks"
 & (Join-Path $scriptDir "verne_smoke_checks.ps1")
 $smokeExit = $LASTEXITCODE
 if ($null -eq $smokeExit) {
@@ -148,7 +140,7 @@ if ($smokeExit -ne 0) {
 
 $syncLog | Remove-Item -Force -ErrorAction SilentlyContinue
 
-Write-Output "[STEP 8/8] Done"
+Write-Output "[STEP 7/7] Done"
 Write-Output "Habit reminder: sync first, then push."
 $upstream = Invoke-GitCommand -Arguments @("rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}")
 if ($upstream.Code -eq 0 -and -not [string]::IsNullOrWhiteSpace($upstream.Output)) {
