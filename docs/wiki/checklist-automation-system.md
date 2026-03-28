@@ -159,6 +159,15 @@ Use this when GitHub says your open PR branch is behind `main` or has merge conf
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\auto_sync_pr_with_main.ps1`
 - Python: `python scripts/auto_sync_pr_with_main.py`
 - Bash: `bash scripts/auto_sync_pr_with_main.sh`
+- Noob autopilot (recommended): `bash scripts/noob_autopilot.sh`
+
+Noob autopilot fallback flags for stubborn conflicts:
+
+- Prefer main side for unresolved files: `bash scripts/noob_autopilot.sh --prefer-main`
+- Prefer branch side for unresolved files: `bash scripts/noob_autopilot.sh --prefer-branch`
+- PowerShell equivalents:
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
 
 What the sync helper does:
 
