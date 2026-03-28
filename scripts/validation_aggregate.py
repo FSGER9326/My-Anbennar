@@ -33,7 +33,24 @@ def aggregate(inputs: list[Path]) -> dict[str, object]:
     issues: list[dict[str, object]] = []
 
     for p in inputs:
-        data = json.loads(p.read_text(encoding="utf-8"))
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as exc:
+            data = {
+                "check": p.stem,
+                "status": "failed",
+                "issues": [
+                    {
+                        "check": p.stem,
+                        "severity": "error",
+                        "file": str(p),
+                        "line": None,
+                        "code": "INVALID_AUDIT_JSON",
+                        "message": f"unable to parse audit JSON: {exc}",
+                        "suggested_fix_command": f"python3 {p}",
+                    }
+                ],
+            }
         try:
             source = p.relative_to(ROOT).as_posix()
         except ValueError:

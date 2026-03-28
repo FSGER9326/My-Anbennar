@@ -58,6 +58,14 @@ def run_self_test() -> int:
         ("[same dir](README.md)", ["README.md"]),
         ("[same dir anchor](README.md#overview)", ["README.md#overview"]),
         ("[same dir explicit](./README.md)", ["./README.md"]),
+        ("[up one](../foo/README.md#intro)", ["../foo/README.md#intro"]),
+        ("[up two](../../foo/README.md#heading-1)", ["../../foo/README.md#heading-1"]),
+        ("[nested](guides/setup/README.md)", ["guides/setup/README.md"]),
+        ("[nested up](../guides/setup/README.md)", ["../guides/setup/README.md"]),
+        ("[non-markdown](README.txt)", []),
+        ("[image](./img/logo.png)", []),
+        ("[web](https://example.com/README.md)", []),
+        ("[mail](mailto:test@example.com)", []),
     ]
     for fixture, expected in cases:
         if LINK_RE.findall(fixture) != expected:
