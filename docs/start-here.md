@@ -37,10 +37,10 @@ Run pre-PR gate before opening any PR.
 - **macOS/Linux (bash):** `bash scripts/pre_pr_gate.sh`
 - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\pre_pr_gate.ps1`
 
-When validations are clean, this same command now also generates:
+If you want one command that runs validations **and** produces PR artifacts (`automation/reports/validation_report.json` + `automation/pr/PR_DRAFT.md`):
 
-- `automation/reports/validation_report.json`
-- `automation/pr/PR_DRAFT.md`
+- **macOS/Linux (bash):** `bash scripts/pre_pr_with_draft.sh`
+- **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\pre_pr_with_draft.ps1`
 
 ## Daily use (quick command shortcuts)
 
