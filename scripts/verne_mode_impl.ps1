@@ -6,19 +6,22 @@ Set-Location $repoRoot
 
 Write-Output "When to use this mode: implementation slices (script/event/loc edits) before commit/push."
 
-Write-Output "[1/4] Run country smoke profile"
+Write-Output "[0/5] Compile backlog plan queue"
+& (Join-Path $scriptDir "backlog_compiler.ps1") -Plan
+
+Write-Output "[1/5] Run country smoke profile"
 & (Join-Path $scriptDir "country_smoke_runner.ps1") -Profile "automation/country_profiles/verne.json"
 
-Write-Output "[2/4] Run localisation audit"
+Write-Output "[2/5] Run localisation audit"
 & (Join-Path $scriptDir "localisation_audit.ps1") -File "localisation/Flavour_Verne_A33_l_english.yml"
 
-Write-Output "[3/4] Run event ID audit"
+Write-Output "[3/5] Run event ID audit"
 & (Join-Path $scriptDir "event_id_audit.ps1") -File @(
     "events/Flavour_Verne_A33.txt",
     "events/verne_overhaul_dynasty_events.txt"
 )
 
-Write-Output "[4/4] Run conflict guard"
+Write-Output "[4/5] Run conflict guard"
 & (Join-Path $scriptDir "docs_conflict_guard.ps1")
 
 Write-Output "Verne implementation mode checks passed."
