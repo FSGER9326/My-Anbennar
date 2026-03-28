@@ -218,6 +218,22 @@ Required action for `block` overlaps:
 
 This is intentionally prevention-only: no merge-resolution automation behavior was changed.
 
+### Infrastructure branch bundling rule
+
+For shared infrastructure edits, keep one active branch/PR lane at a time across:
+
+- `.github/workflows/**`
+- `scripts/**`
+- `automation/**` (including profile JSON files)
+
+Execution policy:
+
+1. Bundle coupled workflow/script/profile changes into a **single infrastructure PR**.
+2. Avoid concurrent PRs touching those same surfaces.
+3. Add or revise docs guidance only **after** script/workflow behavior is stable (command names, flags, outputs, and gate ordering verified).
+
+This keeps automation docs synchronized with actual behavior and prevents repeated hotspot conflicts.
+
 ## Merge-conflict prevention
 
 The repo now uses a few layers together:

@@ -241,6 +241,22 @@ When you have multiple open PRs, use this order to minimize conflict churn:
    - `docs/start-here.md`
    - `scripts/*`
 
+### Infrastructure branch rule (profiles/scripts/workflows/automation)
+
+When work touches any of these shared infrastructure surfaces, treat it as one coordinated infrastructure lane:
+
+- `automation/**` (including country profiles)
+- `scripts/**`
+- `.github/workflows/**`
+
+Required sequencing:
+
+1. **Bundle related profile/script/workflow changes on one infrastructure branch/PR** instead of splitting them across parallel PRs.
+2. **Do not open concurrent PRs** that touch those paths while the infrastructure PR is still open.
+3. **Stabilize script behavior first**, then land or update accompanying docs (`docs/start-here.md`, `docs/wiki/*`, runbooks) once behavior and command interface are confirmed.
+
+Reason: these files are single-writer/high-churn hotspots; splitting them across parallel PRs causes avoidable merge conflicts and stale guidance.
+
 Use the helper script to detect overlap and propose merge order:
 
 - `python scripts/pr_conflict_churn_plan.py --base main`
