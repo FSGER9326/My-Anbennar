@@ -84,7 +84,15 @@ def run_gh_open_prs(base: str | None) -> list[dict]:
             f"  {FALLBACK_USAGE}\n"
             f"Details: {result.stderr.strip()}"
         )
-    return json.loads(result.stdout)
+    try:
+        return json.loads(result.stdout)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(
+            "GitHub CLI returned unreadable PR data. "
+            "Run `gh auth status` (or `gh auth login`) and try again.\n"
+            "Fallback: run with explicit branches instead, for example:\n"
+            f"  {FALLBACK_USAGE}"
+        ) from exc
 
 
 def changed_files(base: str, branch: str) -> set[str]:
