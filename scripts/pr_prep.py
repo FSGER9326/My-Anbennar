@@ -4,11 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import subprocess
 import sys
 from collections import defaultdict
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -51,7 +51,10 @@ def load_validation_report(path: Path) -> dict[str, Any]:
 
 def has_unresolved_high(validation_report: dict[str, Any]) -> tuple[bool, list[str]]:
     reasons: list[str] = []
-    for issue in validation_report.get("unresolved_issues", []):
+    issues = list(validation_report.get("unresolved_issues", []))
+    issues.extend(validation_report.get("issues", []))
+    issues.extend(validation_report.get("findings", []))
+    for issue in issues:
         if str(issue.get("severity", "")).lower() == "high" and not issue.get("resolved", False):
             reasons.append(issue.get("title", "unresolved high-severity issue"))
     for check in validation_report.get("checks", []):
@@ -74,6 +77,8 @@ def collect_changed_files() -> list[str]:
             continue
         if " -> " in path:
             path = path.split(" -> ", 1)[1]
+        if path.endswith("/"):
+            continue
         if path.startswith(ignored_prefixes):
             continue
         changed.append(path)
@@ -201,6 +206,19 @@ def write_pr_draft(
     output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def infer_ci_artifact_urls() -> list[str]:
+    urls: list[str] = []
+    github_server = os.getenv("GITHUB_SERVER_URL", "").strip()
+    github_repo = os.getenv("GITHUB_REPOSITORY", "").strip()
+    github_run_id = os.getenv("GITHUB_RUN_ID", "").strip()
+    if github_server and github_repo and github_run_id:
+        urls.append(f"{github_server}/{github_repo}/actions/runs/{github_run_id}")
+    extra = os.getenv("PR_PREP_ARTIFACT_URLS", "").strip()
+    if extra:
+        urls.extend([part.strip() for part in extra.split(",") if part.strip()])
+    return urls
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Prepare PR draft markdown from repo state.")
     parser.add_argument(
@@ -263,7 +281,9 @@ def main() -> int:
             print(f"- {msg}")
 
     output_path = Path(args.output)
-    write_pr_draft(output_path, groups, args.why, validation_report, args.artifact_url)
+    artifact_urls = list(args.artifact_url)
+    artifact_urls.extend(infer_ci_artifact_urls())
+    write_pr_draft(output_path, groups, args.why, validation_report, artifact_urls)
     print(f"PR draft written: {output_path}")
     return 0
 
