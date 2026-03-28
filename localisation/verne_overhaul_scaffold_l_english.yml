@@ -9,6 +9,6 @@ l_english:
  verne_placeholder_overhaul_decision:0 "Draft the Verne Overhaul Ledger"
  verne_placeholder_overhaul_decision_desc:0 "Scaffold-only decision shell with no gameplay effect until the milestone implementation pass."
 
- verne_overhaul_dynasty.1.t:0 "A Dynastic Matter Deferred"
- verne_overhaul_dynasty.1.d:0 "The court records this matter for later implementation. Nothing changes for now."
- verne_overhaul_dynasty.1.a:0 "File it for future action"
+ verne_overhaul_dynasty.1.t:0 "Dynastic Safeguard"
+ verne_overhaul_dynasty.1.d:0 "Succession checks found an invalid or off-lineage heir state, so court protocol applied the configured safeguard path."
+ verne_overhaul_dynasty.1.a:0 "Maintain succession stability"

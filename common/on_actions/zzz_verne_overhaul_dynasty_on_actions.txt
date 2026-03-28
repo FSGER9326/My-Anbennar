@@ -1,3 +1,0 @@
-on_new_heir = {
-	country_event = { id = verne_overhaul_dynasty.1 days = 1 }
-}

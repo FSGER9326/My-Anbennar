@@ -1,4 +1,0 @@
-l_english:
- verne_overhaul_dynasty.1.t:0 "Dynastic Safeguard"
- verne_overhaul_dynasty.1.d:0 "Succession checks found an invalid or missing heir entry, so court protocol has selected a valid fallback successor to secure the line."
- verne_overhaul_dynasty.1.a:0 "Ensure succession stability."

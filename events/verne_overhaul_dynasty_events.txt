@@ -1,19 +1,160 @@
 namespace = verne_overhaul_dynasty
 
 # ===============================================
-# Verne overhaul dynasty event scaffold
-# Status: scaffolded only (no-op/safe placeholder)
+# Verne overhaul dynasty safeguard chain (canonical)
 # ===============================================
 
 country_event = {
 	id = verne_overhaul_dynasty.1
 	title = verne_overhaul_dynasty.1.t
 	desc = verne_overhaul_dynasty.1.d
-	picture = DIPLOMACY_eventPicture
+	picture = GOOD_WITH_MONARCH_eventPicture
+
 	is_triggered_only = yes
+	hidden = yes
 
 	trigger = {
-		always = no
+		verne_overhaul_should_run_heir_safeguard_trigger = yes
+	}
+
+	immediate = {
+		# Intent: always repair empty/placeholder heirs; optionally repair off-lineage heirs.
+		if = {
+			limit = { verne_overhaul_heir_requires_forced_correction_trigger = yes }
+			country_event = { id = verne_overhaul_dynasty.2 }
+		}
+		else_if = {
+			limit = {
+				verne_overhaul_wrong_dynasty_heir_trigger = yes
+				has_country_modifier = verne_dynasty_exalted_lineage
+			}
+			# Intent: exalted lineage is a hard lock on succession drift.
+			country_event = { id = verne_overhaul_dynasty.2 }
+		}
+		else_if = {
+			limit = {
+				verne_overhaul_wrong_dynasty_heir_trigger = yes
+				has_country_modifier = verne_dynasty_protected_court
+			}
+			# Intent: protected courts strongly prefer correction, but still permit occasional drift.
+			random_list = {
+				70 = { country_event = { id = verne_overhaul_dynasty.2 } }
+				30 = { }
+			}
+		}
+		else_if = {
+			limit = { verne_overhaul_wrong_dynasty_heir_trigger = yes }
+			# Intent: baseline safeguard catches only a minority of drift when no protection regime is active.
+			random_list = {
+				25 = { country_event = { id = verne_overhaul_dynasty.2 } }
+				75 = { }
+			}
+		}
+	}
+
+	option = {
+		name = verne_overhaul_dynasty.1.a
+	}
+}
+
+country_event = {
+	id = verne_overhaul_dynasty.2
+	title = verne_overhaul_dynasty.1.t
+	desc = verne_overhaul_dynasty.1.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+	hidden = yes
+
+	trigger = {
+		verne_overhaul_should_run_heir_safeguard_trigger = yes
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_saved_name = {
+				key = root_name_male
+				type = advisor
+				scope = ROOT
+			}
+			set_saved_name = {
+				key = root_name_female
+				type = advisor
+				female = yes
+				scope = ROOT
+			}
+		}
+
+		if = {
+			limit = { verne_overhaul_placeholder_heir_trigger = yes }
+			# Intent: remove invalid placeholder heirs before redefining a lawful successor.
+			kill_heir = { allow_new_heir = no }
+		}
+
+		if = {
+			limit = { has_country_modifier = verne_dynasty_exalted_lineage }
+			random_list = {
+				60 = {
+					define_heir = {
+						adm = 4
+						dip = 4
+						mil = 4
+						claim = 70
+						culture = tefori
+						dynasty = "síl Verne"
+						name = root_name_male
+					}
+				}
+				40 = {
+					define_heir = {
+						adm = 4
+						dip = 4
+						mil = 4
+						claim = 70
+						culture = tefori
+						dynasty = "síl Verne"
+						female = yes
+						name = root_name_female
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				60 = {
+					define_heir = {
+						adm = 3
+						dip = 3
+						mil = 3
+						claim = 60
+						culture = tefori
+						dynasty = "síl Verne"
+						name = root_name_male
+					}
+				}
+				40 = {
+					define_heir = {
+						adm = 3
+						dip = 3
+						mil = 3
+						claim = 60
+						culture = tefori
+						dynasty = "síl Verne"
+						female = yes
+						name = root_name_female
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_country_modifier = verne_marriage_court_protocol
+				legitimacy = 75
+			}
+			# Intent: reward stable marriage-court governance when succession correction succeeds.
+			add_prestige = 5
+		}
 	}
 
 	option = {

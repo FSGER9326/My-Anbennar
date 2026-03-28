@@ -1,9 +1,9 @@
 # ===============================================
-# Verne overhaul on_actions scaffold
-# Status: scaffolded only (no-op/safe placeholder)
+# Verne overhaul on_actions (canonical)
 # ===============================================
 
 on_new_heir = {
-	# Intentionally empty placeholder hook for V-17 dynasty safeguard wiring.
-	events = { }
+	# Intent: run a hidden Verne-specific safeguard check after heir generation.
+	# The event itself decides whether to keep, probabilistically correct, or force-correct the heir state.
+	country_event = { id = verne_overhaul_dynasty.1 days = 1 }
 }

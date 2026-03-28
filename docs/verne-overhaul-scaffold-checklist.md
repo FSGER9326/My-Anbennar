@@ -11,8 +11,10 @@ Status date: 2026-03-28
 
 ## Not feature-complete yet
 - [ ] V-13 first-wave policy layer implementation
-- [ ] V-17 dynasty safeguard chain implementation
+- [x] V-17 dynasty safeguard chain implementation (canonicalized to non-`zzz_` files)
 - [ ] V-18 core dynastic decisions implementation
 
 ## Safety expectation
-All above scaffolds are intentionally inert and should remain no-op until milestone implementation work starts.
+Remaining unchecked scaffold items should stay inert/no-op until their milestone implementation starts.
+
+The V-17 dynasty safeguard is now intentionally live in canonical files.
