@@ -1,5 +1,11 @@
 # Start Here (Noob-Friendly)
 
+> [!IMPORTANT]
+> ## You only need this command
+> `bash scripts/noob_autopilot.sh`
+>
+> Run this before you push. It handles sync/merge flow, conflict safety checks, and full smoke checks in one go.
+
 If you are new to GitHub and modding, read in this order:
 
 1. [docs/README.md](./README.md)
@@ -12,12 +18,21 @@ If you are new to GitHub and modding, read in this order:
 
 ## Default recommended workflow (run this first)
 
-Use the noob autopilot script as your default branch-sync + safety-check workflow before you push:
+Use this as your one default branch-sync + safety-check command before every push:
 
-- **macOS/Linux (bash):** `bash scripts/noob_autopilot.sh`
-- **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1`
+- `bash scripts/noob_autopilot.sh`
 
-If merge conflicts still remain after docs auto-resolution, rerun with a one-flag fallback:
+This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
+
+Hard rule for any branch with an open PR: run this sync helper first, follow the exact `Next command` if it reports unresolved conflicts, and only push after it finishes successfully.
+
+Personal habit mantra: **sync first, then push.**
+
+## Advanced/manual fallback commands
+
+Use these only when the default autopilot flow tells you to, or when you intentionally want manual control.
+
+### Conflict resolution fallback flags
 
 - **Prefer main side (safest if unsure):**
   - bash: `bash scripts/noob_autopilot.sh --prefer-main`
@@ -26,27 +41,21 @@ If merge conflicts still remain after docs auto-resolution, rerun with a one-fla
   - bash: `bash scripts/noob_autopilot.sh --prefer-branch`
   - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`
 
-This runs a guided linear flow with step labels, conflict handling, docs guards, and smoke checks.
-
-Hard rule for any branch with an open PR: run this sync helper first, follow the exact `Next command` if it reports unresolved conflicts, and only push after it finishes successfully.
-
-Personal habit mantra: **sync first, then push.**
-
-Run pre-PR gate before opening any PR.
+### Pre-PR gate (manual)
 
 - **macOS/Linux (bash):** `bash scripts/pre_pr_gate.sh`
 - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\pre_pr_gate.ps1`
 
-## Daily use (quick command shortcuts)
+### Optional power-user shortcuts (mode scripts)
 
-Pick one mode so you can run the right checks without thinking:
+Keep these for fast manual runs if you already know what changed:
 
-- **Implementation mode (script/event/loc changes)**
-  - **macOS/Linux (bash):** `bash scripts/verne_mode_impl.sh`
-  - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_impl.ps1`
-- **Docs mode (checklist/docs changes)**
-  - **macOS/Linux (bash):** `bash scripts/verne_mode_docs.sh`
-  - **Windows PowerShell:** `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_docs.ps1`
+- **Implementation mode (script/event/loc changes):**
+  - bash: `bash scripts/verne_mode_impl.sh`
+  - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_impl.ps1`
+- **Docs mode (checklist/docs changes):**
+  - bash: `bash scripts/verne_mode_docs.sh`
+  - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_mode_docs.ps1`
 
 ## Tiny glossary (modding terms, not GitHub terms)
 
@@ -175,7 +184,7 @@ Example:
 
 - `verne: add silver-oaths doctrine prototype + loc + smoke sentinel`
 
-## CI quick-fix commands (matches workflow summaries)
+## Advanced/manual fallback: CI quick-fix commands
 
 When GitHub Actions reports a failed audit, start with the exact command shown in the job summary:
 
@@ -189,7 +198,7 @@ When GitHub Actions reports a failed audit, start with the exact command shown i
 - Bash smoke checks: `bash scripts/verne_smoke_checks.sh`
 - PowerShell smoke checks: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
 
-## Keeping PRs low-conflict (stacking strategy)
+## Advanced/manual fallback: keeping PRs low-conflict (stacking strategy)
 
 When you have multiple open PRs, use this order to minimize conflict churn:
 
@@ -213,7 +222,7 @@ Use the helper script to detect overlap and propose merge order:
 
 After merging the first PR, rerun the script and repeat for remaining branches.
 
-## What to do next when conflicts remain (missions/events/localisation)
+## Advanced/manual fallback: what to do next when conflicts remain (missions/events/localisation)
 
 If a merge still leaves conflict markers in gameplay content files, use this quick rule:
 
