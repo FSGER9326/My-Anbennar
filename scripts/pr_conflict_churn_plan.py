@@ -20,22 +20,6 @@ HOTSPOTS = {
     "docs/start-here.md",
 }
 HOTSPOT_PREFIXES = ("scripts/",)
-FALLBACK_USAGE = (
-    "python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b"
-)
-
-
-def quick_fixes(*extra_lines: str) -> str:
-    lines = [
-        "Quick fixes:",
-        "  1) Run with explicit branches (works without GitHub CLI):",
-        f"     {FALLBACK_USAGE}",
-        "  2) Or authenticate GitHub CLI and retry:",
-        "     gh auth status",
-        "     gh auth login",
-    ]
-    lines.extend(extra_lines)
-    return "\n".join(lines)
 
 
 @dataclass
@@ -80,11 +64,21 @@ def run_gh_open_prs(base: str | None) -> list[dict]:
     if base:
         cmd += ["--base", base]
 
-    result = subprocess.run(cmd, text=True, capture_output=True)
+    try:
+        result = subprocess.run(cmd, text=True, capture_output=True)
+    except FileNotFoundError as exc:
+        raise RuntimeError(
+            "GitHub CLI (`gh`) is not installed or not on your PATH.\n"
+            "Run with explicit branches instead, for example:\n"
+            "  python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b"
+        ) from exc
+
     if result.returncode != 0:
         raise RuntimeError(
             "Could not load open PRs from GitHub CLI. "
             "Either install/authenticate gh or pass --branches explicitly. "
+            "Try:\n"
+            "  python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b\n"
             f"Details: {result.stderr.strip()}"
         )
     return json.loads(result.stdout)
@@ -145,41 +139,14 @@ def build_candidates(base: str, explicit_branches: list[str] | None) -> list[Can
             for b in explicit_branches
         ]
     else:
-        try:
-            rows = run_gh_open_prs(base)
-        except FileNotFoundError as exc:
-            raise RuntimeError(
-                "GitHub CLI (`gh`) is not installed or not on your PATH.\n"
-                f"{quick_fixes()}"
-            ) from exc
-        except json.JSONDecodeError as exc:
-            raise RuntimeError(
-                "GitHub CLI returned unreadable PR data. "
-                f"{quick_fixes()}"
-            ) from exc
-        except RuntimeError as exc:
-            raise RuntimeError(
-                f"{exc}\n"
-                f"{quick_fixes()}"
-            ) from exc
+        rows = run_gh_open_prs(base)
 
     candidates: list[Candidate] = []
     for row in rows:
         branch = row["headRefName"]
         if branch == base:
             continue
-        try:
-            files = changed_files(base, branch)
-        except RuntimeError as exc:
-            raise RuntimeError(
-                f"Could not compare `{branch}` against `{base}`.\n"
-                "Make sure both branches exist locally, then retry.\n"
-                "Helpful commands:\n"
-                f"  git fetch origin {base}:{base}\n"
-                f"  git fetch origin {branch}:{branch}\n"
-                "  git branch --all\n"
-                f"{quick_fixes()}"
-            ) from exc
+        files = changed_files(base, branch)
         candidates.append(
             Candidate(
                 name=branch,
@@ -271,21 +238,6 @@ def main(argv: Iterable[str]) -> int:
     print("3. Drop merged commits (`git rebase -i main`) or recreate via cherry-pick.")
     print("4. Keep PRs single-topic (smoke/profile, crosswalk dedupe, wrapper scripts).")
     print("5. Avoid parallel edits to `docs/implementation-crosswalk.md`, `docs/start-here.md`, and `scripts/*`.")
-    print("\n## Merge-conflict recovery (copy/paste)")
-    if len(ordered) <= 1:
-        print("Only one branch detected, so no downstream rebases are needed.")
-    else:
-        print("Run this sequence for each downstream branch:")
-        print(f"1. `git fetch origin {args.base}:{args.base}`")
-        for idx, candidate in enumerate(ordered[1:], start=2):
-            print(f"\n### Branch step {idx - 1}: `{candidate.name}`")
-            print(f"- `git checkout {candidate.name}`")
-            print(f"- `git rebase {args.base}`")
-            print("- Resolve conflicts, then:")
-            print("  - `git add <resolved-files>`")
-            print("  - `git rebase --continue`")
-            print("- `git push --force-with-lease`")
-        print(f"\n2. Rerun planner: `python scripts/pr_conflict_churn_plan.py --base {args.base}`")
 
     return 0
 
