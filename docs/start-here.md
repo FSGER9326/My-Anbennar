@@ -46,16 +46,15 @@ Run pre-PR gate before opening any PR.
 
 ## If your PR is not merging on GitHub
 
-Run this sequence locally, in order, before pushing again:
+Run the merge-readiness diagnostic first:
 
-1. Sync and auto-resolve docs conflicts:
-   - `bash scripts/noob_autopilot.sh`
-2. If it reports unresolved conflicts, rerun with one fallback:
-   - safest default: `bash scripts/noob_autopilot.sh --prefer-main`
-3. Run pre-PR checks:
-   - `bash scripts/pre_pr_gate.sh`
-4. If docs were touched, run link audit explicitly:
-   - `python scripts/checklist_link_audit.py`
+- `bash scripts/pr_merge_readiness.sh`
+
+Then run full gate checks (same script, full mode):
+
+- `bash scripts/pr_merge_readiness.sh --full-checks`
+
+If the diagnostic reports merge conflicts, use the safe sync helper it points to (usually `bash scripts/noob_autopilot.sh --prefer-main`), then rerun readiness.
 
 If any command fails, copy the exact error into your next AI prompt and ask for a fix commit.
 
