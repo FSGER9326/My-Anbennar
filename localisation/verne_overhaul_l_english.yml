@@ -41,14 +41,3 @@ l_english:
  verne_overhaul_tt_needs_6_ports_of_adventure:0 "Requires §Y6§! total Ports of Adventure in the active network."
  verne_overhaul_tt_needs_11_ports_of_adventure:0 "Requires §Y11§! total Ports of Adventure in the active network."
  verne_overhaul_tt_needs_20_ports_of_adventure:0 "Requires §Y20§! total Ports of Adventure in the active network."
-
- # --- Scaffold placeholders (safe/no-op) ---
- verne_placeholder_doctrine_policy:0 "Doctrine Placeholder Act"
- verne_placeholder_doctrine_policy_desc:0 "Scaffold-only policy shell reserved for future Verne doctrine milestone implementation."
-
- verne_placeholder_overhaul_decision:0 "Draft the Verne Overhaul Ledger"
- verne_placeholder_overhaul_decision_desc:0 "Scaffold-only decision shell with no gameplay effect until the milestone implementation pass."
-
- verne_overhaul_dynasty.1.t:0 "A Dynastic Matter Deferred"
- verne_overhaul_dynasty.1.d:0 "The court records this matter for later implementation. Nothing changes for now."
- verne_overhaul_dynasty.1.a:0 "File it for future action"
