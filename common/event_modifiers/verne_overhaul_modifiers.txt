@@ -1,0 +1,43 @@
+# Verne overhaul reusable modifier home (v0.1)
+# Prefix policy:
+# - verne_overhaul_ = reusable helper modifiers (default for this file)
+# - verne_          = gameplay-facing IDs only when deliberately exposed to players
+
+# === Adventure / projection bucket ===
+verne_overhaul_adventure_projection_focus = {
+	land_forcelimit_modifier = 0.10
+	morale_of_armies = 0.05
+	global_manpower_modifier = 0.05
+}
+
+verne_overhaul_adventure_projection_logistics = {
+	supply_limit_modifier = 0.15
+	movement_speed = 0.05
+	reinforce_speed = 0.10
+}
+
+# === Dynasty / court bucket ===
+verne_overhaul_dynasty_court_patronage = {
+	legitimacy = 0.50
+	yearly_prestige = 0.50
+	diplomatic_reputation = 1
+}
+
+verne_overhaul_dynasty_court_protocol = {
+	diplomatic_upkeep = 1
+	improve_relation_modifier = 0.15
+	advisor_cost = -0.05
+}
+
+# === Pressure / disaster-prep bucket ===
+verne_overhaul_pressure_disaster_preparedness = {
+	global_unrest = -1
+	stability_cost_modifier = -0.10
+	national_manpower_recovery_speed = 0.10
+}
+
+verne_overhaul_pressure_supply_buffer = {
+	war_exhaustion = -0.03
+	fort_defence = 0.10
+	garrison_size = 0.10
+}

@@ -1,0 +1,24 @@
+﻿l_english:
+
+# verne_overhaul naming map
+# - verne_overhaul_* : reusable helper objects (default)
+# - verne_*          : gameplay-facing object IDs only
+
+# reusable modifiers (v0.1)
+ verne_overhaul_adventure_projection_focus:0 "Adventure Projection Focus"
+ desc_verne_overhaul_adventure_projection_focus:0 "A reusable expedition baseline for early force projection and campaign endurance."
+
+ verne_overhaul_adventure_projection_logistics:0 "Adventure Projection Logistics"
+ desc_verne_overhaul_adventure_projection_logistics:0 "Reusable logistics support for long marches, replenishment, and controlled expansion tempo."
+
+ verne_overhaul_dynasty_court_patronage:0 "Dynasty Court Patronage"
+ desc_verne_overhaul_dynasty_court_patronage:0 "Reusable court patronage profile for legitimacy, prestige, and trusted representation."
+
+ verne_overhaul_dynasty_court_protocol:0 "Dynasty Court Protocol"
+ desc_verne_overhaul_dynasty_court_protocol:0 "Reusable court protocol profile for diplomatic bandwidth and efficient administration."
+
+ verne_overhaul_pressure_disaster_preparedness:0 "Pressure Disaster Preparedness"
+ desc_verne_overhaul_pressure_disaster_preparedness:0 "Reusable emergency posture tuned for unrest control and rapid institutional recovery."
+
+ verne_overhaul_pressure_supply_buffer:0 "Pressure Supply Buffer"
+ desc_verne_overhaul_pressure_supply_buffer:0 "Reusable wartime buffer for attritional pressure, fort readiness, and reserve depth."

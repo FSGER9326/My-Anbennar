@@ -50,6 +50,18 @@ Use one suffix consistently:
 - `-ledger.md` for tracking tables
 - `README.md` for folder entry pages
 
+## Object-home rule (overhaul-only reusable objects)
+
+To avoid object sprawl, all **new Verne overhaul reusable modifiers** must be created in:
+
+- `common/event_modifiers/verne_overhaul_modifiers.txt`
+- `localisation/verne_overhaul_l_english.yml`
+
+Prefix policy for these objects:
+
+- `verne_overhaul_` for reusable helper objects (default).
+- `verne_` only for gameplay-facing IDs when intentionally player-visible.
+
 
 ## What should we do right now? (Decision guide)
 
