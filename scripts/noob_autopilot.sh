@@ -63,17 +63,22 @@ fail_with_next() {
 
 BRANCH="$(git branch --show-current)"
 
-echo "[STEP 1/7] Verify clean working tree"
+echo "[STEP 1/8] Verify clean working tree"
 if [[ -n "$(git status --porcelain)" ]]; then
   fail_with_next "Working tree is not clean." "git status --short"
 fi
 
-echo "[STEP 2/7] Fetch latest origin"
+echo "[STEP 2/8] Fetch latest origin"
 if ! git fetch origin; then
   fail_with_next "Could not fetch from origin." "git fetch origin"
 fi
 
-echo "[STEP 3/7] Run auto_sync_pr_with_main (bash)"
+echo "[STEP 3/8] Compile backlog plan queue before coding sessions"
+if ! "${PYTHON_BIN}" "${SCRIPT_DIR}/backlog_compiler.py" --plan; then
+  fail_with_next "backlog_compiler plan failed." "${PYTHON_BIN} scripts/backlog_compiler.py --plan"
+fi
+
+echo "[STEP 4/8] Run auto_sync_pr_with_main (bash)"
 SYNC_LOG="$(mktemp)"
 set +e
 bash "${SCRIPT_DIR}/auto_sync_pr_with_main.sh" "${BASE_REF}" >"${SYNC_LOG}" 2>&1
@@ -83,7 +88,7 @@ if [[ ${SYNC_EXIT} -eq 0 ]]; then
   echo "auto_sync_pr_with_main completed."
 fi
 
-echo "[STEP 4/7] Resolve unresolved merge conflicts (docs hotspots only, when needed)"
+echo "[STEP 5/8] Resolve unresolved merge conflicts (docs hotspots only, when needed)"
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
   set +e
   "${PYTHON_BIN}" "${SCRIPT_DIR}/resolve_docs_conflicts.py"
@@ -118,13 +123,13 @@ if [[ ${SYNC_EXIT} -ne 0 ]]; then
   fail_with_next "auto_sync_pr_with_main.sh failed." "bash scripts/noob_autopilot.sh --prefer-main"
 fi
 
-echo "[STEP 5/7] Run docs_conflict_guard"
+echo "[STEP 6/8] Run docs_conflict_guard"
 if ! "${PYTHON_BIN}" "${SCRIPT_DIR}/docs_conflict_guard.py"; then
   rm -f "${SYNC_LOG}"
   fail_with_next "docs_conflict_guard failed." "${PYTHON_BIN} scripts/docs_conflict_guard.py"
 fi
 
-echo "[STEP 6/7] Run verne_smoke_checks"
+echo "[STEP 7/8] Run verne_smoke_checks"
 if ! bash "${SCRIPT_DIR}/verne_smoke_checks.sh"; then
   rm -f "${SYNC_LOG}"
   fail_with_next "verne_smoke_checks failed." "bash scripts/verne_smoke_checks.sh"
@@ -132,7 +137,7 @@ fi
 
 rm -f "${SYNC_LOG}"
 
-echo "[STEP 7/7] Done"
+echo "[STEP 8/8] Done"
 echo "Habit reminder: sync first, then push."
 UPSTREAM="$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || true)"
 if [[ -n "${UPSTREAM}" ]]; then

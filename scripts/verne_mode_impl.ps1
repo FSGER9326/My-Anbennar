@@ -7,7 +7,7 @@ Set-Location $repoRoot
 Write-Output "When to use this mode: implementation slices (script/event/loc edits) before commit/push."
 
 Write-Output "[0/5] Compile backlog plan queue"
-python scripts/backlog_compiler.py --plan
+& (Join-Path $scriptDir "backlog_compiler.ps1") -Plan
 
 Write-Output "[1/5] Run country smoke profile"
 & (Join-Path $scriptDir "country_smoke_runner.ps1") -Profile "automation/country_profiles/verne.json"
