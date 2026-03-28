@@ -78,6 +78,7 @@ jobs:
 
           : > "artifacts/$gate/results.tsv"
           run_check "compile_python" "Compile Python scripts" "python -m py_compile scripts/*.py"
+          run_check "validate_conflict_hotspots" "Conflict hotspot registry audit" "python scripts/validate_conflict_hotspots.py"
           run_check "docs_conflict_guard" "Docs conflict guard" "python scripts/docs_conflict_guard.py"
           run_check "checklist_link_audit" "Checklist link audit" "python scripts/checklist_link_audit.py"
           run_check "verne_checklist_audit" "Verne checklist audit (manifest)" "python scripts/verne_checklist_audit.py"

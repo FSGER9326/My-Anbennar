@@ -100,10 +100,11 @@ run_step() {
   fi
 }
 
-run_step "[1/5] Branch overlap planning check" "run_overlap_planning_check"
-run_step "[2/5] Docs conflict guard" "${PYTHON_BIN} scripts/docs_conflict_guard.py"
-run_step "[3/5] Checklist link audit" "${PYTHON_BIN} scripts/checklist_link_audit.py"
-run_step "[4/5] Verne checklist audit" "${PYTHON_BIN} scripts/verne_checklist_audit.py"
-run_step "[5/5] Verne country smoke runner" "${PYTHON_BIN} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
+run_step "[1/6] Conflict hotspot registry audit" "${PYTHON_BIN} scripts/validate_conflict_hotspots.py"
+run_step "[2/6] Branch overlap planning check" "run_overlap_planning_check"
+run_step "[3/6] Docs conflict guard" "${PYTHON_BIN} scripts/docs_conflict_guard.py"
+run_step "[4/6] Checklist link audit" "${PYTHON_BIN} scripts/checklist_link_audit.py"
+run_step "[5/6] Verne checklist audit" "${PYTHON_BIN} scripts/verne_checklist_audit.py"
+run_step "[6/6] Verne country smoke runner" "${PYTHON_BIN} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
 
 echo "Pre-PR gate passed. Safe to open a PR."

@@ -209,6 +209,7 @@ Triage order used by `noob_autopilot` and `pre_pr_gate` failure summaries:
 
 Before coding on a feature branch with PR context, run:
 
+- `python scripts/validate_conflict_hotspots.py`
 - `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block`
 
 Interpretation:
@@ -222,7 +223,7 @@ Required action on `block`:
 2. choose another task with no block overlap, **or**
 3. mark the task blocked/waiting and do not open a parallel hotspot PR.
 
-`bash scripts/pre_pr_gate.sh` now runs this overlap planning check first (when branch + GitHub CLI auth are available) so conflicts are prevented before coding/validation churn.
+`pre_pr_gate` (bash and PowerShell) now validates the hotspot registry first, then runs this overlap planning check (when branch + GitHub CLI auth are available) so conflicts are prevented before coding/validation churn.
 
 ## Advanced/manual fallback: keeping PRs low-conflict (stacking strategy)
 
