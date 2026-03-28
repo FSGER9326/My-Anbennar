@@ -149,6 +149,7 @@ Use the helper script to detect overlap and propose merge order:
 
 - `python scripts/pr_conflict_churn_plan.py --base main`
 - If you do not have GitHub CLI available, provide branches directly:
-  - `python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b branch-c`
+  - `python scripts/pr_conflict_churn_plan.py --base main --branches branch-a branch-b`
+  - The script now prints this fallback guidance automatically if `gh` is missing.
 
 After merging the first PR, rerun the script and repeat for remaining branches.
