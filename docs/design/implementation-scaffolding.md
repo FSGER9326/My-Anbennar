@@ -72,7 +72,7 @@ The first implementation wave should proceed in this order:
   Purpose: heir training, Red Court, anti-corruption, order founding, advisor patronage
 
 #### On-actions and modifiers
-- `common/on_actions/zz_verne_overhaul_on_actions.txt`
+- `common/on_actions/verne_overhaul_on_actions.txt`
   Purpose: `on_new_heir` hook plus optional ruler, marriage, or disaster support hooks
 - `common/event_modifiers/verne_overhaul_modifiers.txt`
   Purpose: permanent and timed country/province modifiers used by the overhaul

@@ -134,7 +134,7 @@ Turn the dynastic fantasy into real scripted state support.
 - [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt)
 - [`events/verne_overhaul_advisor_events.txt`](../events/verne_overhaul_advisor_events.txt)
 - [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)
-- [`common/on_actions/zz_verne_overhaul_on_actions.txt`](../common/on_actions/zz_verne_overhaul_on_actions.txt)
+- [`common/on_actions/verne_overhaul_on_actions.txt`](../common/on_actions/verne_overhaul_on_actions.txt)
 
 ### Pattern anchors
 - mirror `on_new_heir` hook style from [`common/on_actions/00_on_actions.txt`](../common/on_actions/00_on_actions.txt)
@@ -192,7 +192,7 @@ When in doubt, build in this order:
 7. [`common/mercenary_companies/verne_overhaul_orders.txt`](../common/mercenary_companies/verne_overhaul_orders.txt)
 8. [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)
 9. [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt)
-10. [`common/on_actions/zz_verne_overhaul_on_actions.txt`](../common/on_actions/zz_verne_overhaul_on_actions.txt)
+10. [`common/on_actions/verne_overhaul_on_actions.txt`](../common/on_actions/verne_overhaul_on_actions.txt)
 11. [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt)
 12. [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml)
 

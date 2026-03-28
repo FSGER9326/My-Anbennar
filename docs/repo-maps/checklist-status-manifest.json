@@ -133,7 +133,7 @@
     },
     {
       "id": "verne_integration_on_actions",
-      "path": "common/on_actions/zz_verne_overhaul_on_actions.txt",
+      "path": "common/on_actions/verne_overhaul_on_actions.txt",
       "category": "integration",
       "scanned": false,
       "mapped": false,

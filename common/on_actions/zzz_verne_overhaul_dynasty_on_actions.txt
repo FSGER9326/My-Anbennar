@@ -1,3 +1,7 @@
-on_new_heir = {
-	country_event = { id = verne_overhaul_dynasty.1 days = 1 }
-}
+# RETIRED FILE (inactive)
+# Former duplicate dynasty safeguard on_actions implementation.
+#
+# Authoritative owner moved to:
+# - common/on_actions/verne_overhaul_on_actions.txt
+#
+# This file intentionally defines no on_actions blocks.
