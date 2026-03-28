@@ -64,6 +64,13 @@
       "paths": [
         "common/on_actions/zz_verne_overhaul_on_actions.txt"
       ]
+    },
+    {
+      "description": "foundation layer: Verne doctrine policy IDs exist",
+      "pattern": "^verne_proto_doctrine_expedition_act\\s*=\\s*\\{",
+      "paths": [
+        "common/policies/verne_doctrine_policies.txt"
+      ]
     }
   ],
   "require_all_patterns": [
