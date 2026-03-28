@@ -51,3 +51,7 @@ l_english:
 
  verne_foundational_court_reform:0 "Foundational Verne Court"
  verne_foundational_court_reform_desc:0 "A practical starting reform that improves administrative discipline while the wider overhaul is still in early testing."
+
+ verne_overhaul_dynasty.1.t:0 "Dynastic Safeguard"
+ verne_overhaul_dynasty.1.d:0 "Succession checks found an invalid or missing heir entry, so court protocol has selected a valid fallback successor to secure the line."
+ verne_overhaul_dynasty.1.a:0 "Ensure succession stability."
