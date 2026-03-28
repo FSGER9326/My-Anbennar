@@ -4,6 +4,7 @@ set -euo pipefail
 BASE_REF="origin/main"
 SYNC_MODE="merge"
 AUTO_PUSH="false"
+DEBUG_ONLY="false"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 
 while [[ $# -gt 0 ]]; do
@@ -20,6 +21,10 @@ while [[ $# -gt 0 ]]; do
       AUTO_PUSH="true"
       shift
       ;;
+    --debug)
+      DEBUG_ONLY="true"
+      shift
+      ;;
     *)
       # Backward compatibility for old positional usage: first arg = base ref.
       if [[ "$BASE_REF" == "origin/main" ]]; then
@@ -27,7 +32,7 @@ while [[ $# -gt 0 ]]; do
         shift
       else
         echo "ERROR: Unknown argument: $1"
-        echo "Usage: bash scripts/auto_sync_pr_with_main.sh [--base origin/main] [--mode merge|rebase] [--push]"
+        echo "Usage: bash scripts/auto_sync_pr_with_main.sh [--base origin/main] [--mode merge|rebase] [--push] [--debug]"
         exit 1
       fi
       ;;
@@ -58,6 +63,31 @@ fi
 
 echo "Fetching latest refs..."
 git fetch origin
+
+if [[ "$DEBUG_ONLY" == "true" ]]; then
+  echo "=== PR Sync Debug Info ==="
+  echo "Current branch: ${BRANCH}"
+  echo "Base ref: ${BASE_REF}"
+  MERGE_BASE="$(git merge-base HEAD "${BASE_REF}")"
+  echo "Merge base: ${MERGE_BASE}"
+  COUNTS="$(git rev-list --left-right --count HEAD..."${BASE_REF}")"
+  AHEAD="$(echo "${COUNTS}" | awk '{print $1}')"
+  BEHIND="$(echo "${COUNTS}" | awk '{print $2}')"
+  echo "Ahead/Behind vs ${BASE_REF}: ahead=${AHEAD}, behind=${BEHIND}"
+  echo
+  echo "Potential conflict files (merge-tree preview):"
+  set +e
+  git merge-tree "${MERGE_BASE}" HEAD "${BASE_REF}" | grep '^<<<<<<< ' | sed 's/^<<<<<<< //' | sort -u
+  MERGE_TREE_EXIT=$?
+  set -e
+  if [[ ${MERGE_TREE_EXIT} -ne 0 ]]; then
+    echo "  (No conflict markers found in merge-tree preview.)"
+  fi
+  echo
+  echo "Suggested next command:"
+  echo "  bash scripts/auto_sync_pr_with_main.sh --mode rebase --push"
+  exit 0
+fi
 
 if [[ "$SYNC_MODE" == "merge" ]]; then
   echo "Merging ${BASE_REF} into current branch (no auto-commit)..."
