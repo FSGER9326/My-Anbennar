@@ -82,5 +82,25 @@ class TestRunGhOpenPrs(unittest.TestCase):
         self.assertEqual("feature-1", rows[0]["headRefName"])
 
 
+class TestBuildCandidates(unittest.TestCase):
+    def setUp(self):
+        self.module = _load_module()
+
+    def test_branch_compare_failure_has_actionable_guidance(self):
+        with patch.object(
+            self.module,
+            "changed_files",
+            side_effect=RuntimeError("git merge-base failed"),
+        ):
+            with self.assertRaises(RuntimeError) as ctx:
+                self.module.build_candidates("main", ["feature-1"])
+
+        msg = str(ctx.exception)
+        self.assertIn("Could not compare `feature-1` against `main`", msg)
+        self.assertIn("git fetch origin main:main", msg)
+        self.assertIn("git fetch origin feature-1:feature-1", msg)
+        self.assertIn(self.module.FALLBACK_USAGE, msg)
+
+
 if __name__ == "__main__":
     unittest.main()

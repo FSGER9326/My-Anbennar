@@ -157,7 +157,17 @@ def build_candidates(base: str, explicit_branches: list[str] | None) -> list[Can
         branch = row["headRefName"]
         if branch == base:
             continue
-        files = changed_files(base, branch)
+        try:
+            files = changed_files(base, branch)
+        except RuntimeError as exc:
+            raise RuntimeError(
+                f"Could not compare `{branch}` against `{base}`.\n"
+                "Make sure both branches exist locally, then retry.\n"
+                "Helpful commands:\n"
+                f"  git fetch origin {base}:{base}\n"
+                f"  git fetch origin {branch}:{branch}\n"
+                f"  {FALLBACK_USAGE}"
+            ) from exc
         candidates.append(
             Candidate(
                 name=branch,
