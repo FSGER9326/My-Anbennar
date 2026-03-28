@@ -1,0 +1,30 @@
+{
+  "policy_name": "anbennar_auto_fix_allowlist",
+  "version": 1,
+  "issue_code_map": {
+    "LINE_ENDINGS_MIXED": {
+      "action": "normalize_line_endings"
+    },
+    "CONFLICT_MARKERS_HOTSPOT": {
+      "action": "remove_conflict_markers_hotspot",
+      "hotspots": [
+        "missions/",
+        "events/",
+        "localisation/",
+        "docs/"
+      ]
+    },
+    "HEADING_SINGLETON": {
+      "action": "enforce_heading_singleton",
+      "heading": "# Verne Checklist"
+    },
+    "PLACEHOLDER_KEY": {
+      "action": "replace_placeholder_keys",
+      "replacements": {
+        "TODO_KEY": "anb.todo_key",
+        "PLACEHOLDER_KEY": "anb.placeholder_key",
+        "REPLACE_ME": "anb.replace_me"
+      }
+    }
+  }
+}
