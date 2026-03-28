@@ -243,7 +243,7 @@ Done when:
 ### V-17 Add the dynasty safeguard chain
 Target files:
 - [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt)
-- [`common/on_actions/zz_verne_overhaul_on_actions.txt`](../common/on_actions/zz_verne_overhaul_on_actions.txt)
+- [`common/on_actions/verne_overhaul_on_actions.txt`](../common/on_actions/verne_overhaul_on_actions.txt)
 - [`common/scripted_triggers/verne_overhaul_triggers.txt`](../common/scripted_triggers/verne_overhaul_triggers.txt)
 
 Done when:

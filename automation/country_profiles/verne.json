@@ -90,14 +90,14 @@
       "description": "overhaul-required checks: Verne on_actions hooks exist",
       "pattern": "^[a-z0-9_]+\\s*=\\s*\\{",
       "paths": [
-        "common/on_actions/zz_verne_overhaul_on_actions.txt"
+        "common/on_actions/verne_overhaul_on_actions.txt"
       ]
     },
     {
       "description": "overhaul-required checks: Verne on_actions sentinel hook exists",
       "pattern": "^\\s*on_new_heir\\s*=\\s*\\{",
       "paths": [
-        "common/on_actions/zz_verne_overhaul_on_actions.txt"
+        "common/on_actions/verne_overhaul_on_actions.txt"
       ]
     }
   ],
@@ -194,7 +194,7 @@
         "common/ideas/verne_doctrine_groups.txt",
         "common/government_reforms/verne_overhaul_reforms.txt",
         "events/verne_overhaul_dynasty_events.txt",
-        "common/on_actions/zz_verne_overhaul_on_actions.txt"
+        "common/on_actions/verne_overhaul_on_actions.txt"
       ]
     },
     {
@@ -204,7 +204,7 @@
         "common/ideas/verne_doctrine_groups.txt",
         "common/government_reforms/verne_overhaul_reforms.txt",
         "events/verne_overhaul_dynasty_events.txt",
-        "common/on_actions/zz_verne_overhaul_on_actions.txt"
+        "common/on_actions/verne_overhaul_on_actions.txt"
       ]
     }
   ],

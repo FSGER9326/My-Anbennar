@@ -17,6 +17,8 @@ Goal: make the repo safer to update without needing to remember a pile of manual
 - feature-branch sync helpers for updating an open PR branch with `main`
 - theorycraft scaffold generation for future country projects
 
+## Automation commands
+
 ## Default command (noob-safe)
 
 If you only run one thing before pushing docs or Verne changes, run:
@@ -77,7 +79,7 @@ The Verne smoke profile now has an explicit **overhaul-required checks** layer f
 - `common/ideas/verne_doctrine_groups.txt`
 - `common/government_reforms/verne_overhaul_reforms.txt`
 - `events/verne_overhaul_dynasty_events.txt`
-- `common/on_actions/zz_verne_overhaul_on_actions.txt`
+- `common/on_actions/verne_overhaul_on_actions.txt`
 
 For those files, CI now enforces both:
 
@@ -99,7 +101,7 @@ The default Verne smoke flow now blocks PRs when any of these tracked files are 
 - `common/ideas/verne_doctrine_groups.txt`
 - `common/government_reforms/verne_overhaul_reforms.txt`
 - `events/verne_overhaul_dynasty_events.txt`
-- `common/on_actions/zz_verne_overhaul_on_actions.txt`
+- `common/on_actions/verne_overhaul_on_actions.txt`
 
 Specifically, CI now fails on unresolved merge markers (`<<<<<<<`, `=======`, `>>>>>>>`) and placeholder TODO-style keys (`TODO...`, `placeholder...`, `replace_me...`, `verne_todo...`, `verne_overhaul_todo...`) in those files.
 

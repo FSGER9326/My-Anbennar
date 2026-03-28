@@ -1,64 +1,7 @@
-namespace = verne_overhaul_dynasty
-
-country_event = {
-	id = verne_overhaul_dynasty.1
-	title = verne_overhaul_dynasty.1.t
-	desc = verne_overhaul_dynasty.1.d
-	picture = GOOD_WITH_MONARCH_eventPicture
-
-	is_triggered_only = yes
-	hidden = yes
-
-	trigger = {
-		verne_overhaul_should_run_heir_safeguard_trigger = yes
-	}
-
-	immediate = {
-		hidden_effect = {
-			set_saved_name = {
-				key = root_name_male
-				type = advisor
-				scope = ROOT
-			}
-			set_saved_name = {
-				key = root_name_female
-				type = advisor
-				female = yes
-				scope = ROOT
-			}
-		}
-
-		if = {
-			limit = { verne_overhaul_placeholder_heir_trigger = yes }
-			kill_heir = { allow_new_heir = no }
-		}
-
-		random_list = {
-			60 = {
-				define_heir = {
-					adm = 3
-					dip = 3
-					mil = 3
-					culture = tefori
-					dynasty = "síl Verne"
-					name = root_name_male
-				}
-			}
-			40 = {
-				define_heir = {
-					adm = 3
-					dip = 3
-					mil = 3
-					culture = tefori
-					dynasty = "síl Verne"
-					female = yes
-					name = root_name_female
-				}
-			}
-		}
-	}
-
-	option = {
-		name = verne_overhaul_dynasty.1.a
-	}
-}
+# RETIRED FILE (inactive)
+# Former duplicate dynasty safeguard event implementation.
+#
+# Authoritative owner moved to:
+# - events/verne_overhaul_dynasty_events.txt
+#
+# This file intentionally defines no events.

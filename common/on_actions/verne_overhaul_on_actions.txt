@@ -1,0 +1,10 @@
+# ===============================================
+# Verne overhaul on_actions (authoritative)
+# ===============================================
+# Ownership note:
+# - This file is now the single source of truth for Verne overhaul on_actions hooks.
+# - Legacy scaffold/duplicate files in common/on_actions/zz*_verne_overhaul*_on_actions.txt are retired.
+
+on_new_heir = {
+	country_event = { id = verne_overhaul_dynasty.1 days = 1 }
+}
