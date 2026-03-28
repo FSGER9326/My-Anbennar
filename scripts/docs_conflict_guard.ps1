@@ -70,6 +70,8 @@ function Get-GuardFiles {
         [void]$files.Add($doc.FullName)
     }
 
+    [void]$files.Add((Join-Path $repoRoot "README.md"))
+
     foreach ($pattern in @("*.py", "*.ps1", "*.sh")) {
         foreach ($script in Get-ChildItem -Path (Join-Path $repoRoot "scripts") -Filter $pattern) {
             [void]$files.Add($script.FullName)

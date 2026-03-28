@@ -63,6 +63,8 @@ def iter_guard_files() -> list[Path]:
     for doc in (ROOT / "docs").rglob("*.md"):
         files[doc] = None
 
+    files[ROOT / "README.md"] = None
+
     for pattern in ("*.py", "*.ps1", "*.sh"):
         for script in (ROOT / "scripts").glob(pattern):
             files[script] = None
