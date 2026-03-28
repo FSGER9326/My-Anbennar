@@ -67,32 +67,14 @@ def run_gh_open_prs(base: str | None) -> list[dict]:
     if base:
         cmd += ["--base", base]
 
-    try:
-        result = subprocess.run(cmd, text=True, capture_output=True)
-    except FileNotFoundError as exc:
-        raise RuntimeError(
-            "GitHub CLI (`gh`) is not installed or not on your PATH.\n"
-            "Fallback: run with explicit branches instead, for example:\n"
-            f"  {FALLBACK_USAGE}"
-        ) from exc
-
+    result = subprocess.run(cmd, text=True, capture_output=True)
     if result.returncode != 0:
         raise RuntimeError(
             "Could not load open PRs from GitHub CLI. "
             "Either install/authenticate gh or pass --branches explicitly. "
-            "Try:\n"
-            f"  {FALLBACK_USAGE}\n"
             f"Details: {result.stderr.strip()}"
         )
-    try:
-        return json.loads(result.stdout)
-    except json.JSONDecodeError as exc:
-        raise RuntimeError(
-            "GitHub CLI returned unreadable PR data. "
-            "Run `gh auth status` (or `gh auth login`) and try again.\n"
-            "Fallback: run with explicit branches instead, for example:\n"
-            f"  {FALLBACK_USAGE}"
-        ) from exc
+    return json.loads(result.stdout)
 
 
 def changed_files(base: str, branch: str) -> set[str]:
@@ -150,7 +132,27 @@ def build_candidates(base: str, explicit_branches: list[str] | None) -> list[Can
             for b in explicit_branches
         ]
     else:
-        rows = run_gh_open_prs(base)
+        try:
+            rows = run_gh_open_prs(base)
+        except FileNotFoundError as exc:
+            raise RuntimeError(
+                "GitHub CLI (`gh`) is not installed or not on your PATH.\n"
+                "Fallback: run with explicit branches instead, for example:\n"
+                f"  {FALLBACK_USAGE}"
+            ) from exc
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(
+                "GitHub CLI returned unreadable PR data. "
+                "Run `gh auth status` (or `gh auth login`) and try again.\n"
+                "Fallback: run with explicit branches instead, for example:\n"
+                f"  {FALLBACK_USAGE}"
+            ) from exc
+        except RuntimeError as exc:
+            raise RuntimeError(
+                f"{exc}\n"
+                "Try fallback usage with explicit branches:\n"
+                f"  {FALLBACK_USAGE}"
+            ) from exc
 
     candidates: list[Candidate] = []
     for row in rows:

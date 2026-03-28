@@ -19,7 +19,7 @@ def _load_module():
     return module
 
 
-class TestRunGhOpenPrs(unittest.TestCase):
+class TestBuildCandidatesGhHandling(unittest.TestCase):
     def setUp(self):
         self.module = _load_module()
 
@@ -30,7 +30,7 @@ class TestRunGhOpenPrs(unittest.TestCase):
             side_effect=FileNotFoundError("gh not found"),
         ):
             with self.assertRaises(RuntimeError) as ctx:
-                self.module.run_gh_open_prs("main")
+                self.module.build_candidates("main", None)
 
         msg = str(ctx.exception)
         self.assertIn("GitHub CLI (`gh`) is not installed", msg)
@@ -45,7 +45,7 @@ class TestRunGhOpenPrs(unittest.TestCase):
         )
         with patch.object(self.module.subprocess, "run", return_value=result):
             with self.assertRaises(RuntimeError) as ctx:
-                self.module.run_gh_open_prs("main")
+                self.module.build_candidates("main", None)
 
         msg = str(ctx.exception)
         self.assertIn("Could not load open PRs from GitHub CLI", msg)
@@ -61,7 +61,7 @@ class TestRunGhOpenPrs(unittest.TestCase):
         )
         with patch.object(self.module.subprocess, "run", return_value=result):
             with self.assertRaises(RuntimeError) as ctx:
-                self.module.run_gh_open_prs("main")
+                self.module.build_candidates("main", None)
 
         msg = str(ctx.exception)
         self.assertIn("GitHub CLI returned unreadable PR data", msg)
@@ -72,14 +72,13 @@ class TestRunGhOpenPrs(unittest.TestCase):
         result = subprocess.CompletedProcess(
             args=["gh", "pr", "list"],
             returncode=0,
-            stdout='[{"headRefName":"feature-1","title":"Feature","baseRefName":"main"}]',
+            stdout='[{"headRefName":"main","title":"Base","baseRefName":"main"}]',
             stderr="",
         )
         with patch.object(self.module.subprocess, "run", return_value=result):
-            rows = self.module.run_gh_open_prs("main")
+            rows = self.module.build_candidates("main", None)
 
-        self.assertEqual(1, len(rows))
-        self.assertEqual("feature-1", rows[0]["headRefName"])
+        self.assertEqual([], rows)
 
 
 class TestBuildCandidates(unittest.TestCase):
