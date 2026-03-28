@@ -59,3 +59,34 @@ l_english:
 
  verne_ducal_muster_of_armoc_reform:0 "Ducal Muster of Armoc"
  verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's musters standardize levies and fort-readiness, providing reliable military depth for a cautious expansion phase."
+
+ # --- v0.2 verne doctrine group: silver wake ---
+ verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
+ verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
+
+ verne_doctrine_silver_wake_start:0 "Foundations of the Silver Wake"
+ verne_doctrine_silver_wake_start_desc:0 "Our first duty is to keep dependable crews at sea in every season, so that doctrine remains a daily practice rather than a ceremonial boast."
+
+ verne_doctrine_silver_wake_bonus:0 "Silver Wake Finisher"
+ verne_doctrine_silver_wake_bonus_desc:0 "By unifying crown ledgers and captaincy custom, Verne can move goods more efficiently across every established route."
+
+ verne_doctrine_silver_wake_harbor_ledgers:0 "Harbor Ledgers"
+ verne_doctrine_silver_wake_harbor_ledgers_desc:0 "Standardized port ledgers reduce leakages and help ducal tax officers track maritime revenue with fewer disputes."
+
+ verne_doctrine_silver_wake_tide_charts:0 "Tide Charts of Verne"
+ verne_doctrine_silver_wake_tide_charts_desc:0 "Shared coastal charting routines let each new generation of officers inherit practical seamanship rather than relearn it."
+
+ verne_doctrine_silver_wake_marine_rotations:0 "Marine Rotations"
+ verne_doctrine_silver_wake_marine_rotations_desc:0 "Crew rotations and dockside rationing plans lower long-term upkeep strain on the fleet payroll."
+
+ verne_doctrine_silver_wake_convoy_discipline:0 "Convoy Discipline"
+ verne_doctrine_silver_wake_convoy_discipline_desc:0 "Procurement rules and common hull standards make escort squadrons cheaper to field and easier to replace."
+
+ verne_doctrine_silver_wake_prize_law:0 "Prize Law Codex"
+ verne_doctrine_silver_wake_prize_law_desc:0 "A clearer legal path for captured ships encourages captains to seize enemy vessels intact whenever possible."
+
+ verne_doctrine_silver_wake_captains_compact:0 "Captains' Compact"
+ verne_doctrine_silver_wake_captains_compact_desc:0 "Recognized captaincy privileges create a disciplined officer corps that foreign courts increasingly trust."
+
+ verne_doctrine_silver_wake_quayside_arbitration:0 "Quayside Arbitration"
+ verne_doctrine_silver_wake_quayside_arbitration_desc:0 "Fast harbor arbitration settles merchant conflicts before they spill into wider unrest at home."
