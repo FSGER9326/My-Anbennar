@@ -209,6 +209,9 @@ Use this when GitHub says your open PR branch is behind `main` or has merge conf
 - Python: `python scripts/auto_sync_pr_with_main.py`
 - Bash: `bash scripts/auto_sync_pr_with_main.sh`
 - Direct merge-conflict helper (bash): `bash scripts/resolve_branch_conflicts.sh [base-ref]`
+  - Optional flags:
+    - `--skip-missing-base` = exit 0 instead of failing if the base ref is unavailable in the local clone.
+    - `--no-fetch` = do not fetch `origin` automatically when the base ref is missing locally.
 - Noob autopilot (recommended): `bash scripts/noob_autopilot.sh`
 
 Noob autopilot fallback flags for stubborn conflicts:

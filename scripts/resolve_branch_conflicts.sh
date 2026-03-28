@@ -4,7 +4,26 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "${REPO_ROOT}"
 
-BASE_REF="${1:-origin/main}"
+BASE_REF="origin/main"
+SKIP_MISSING_BASE=0
+NO_FETCH=0
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --skip-missing-base)
+      SKIP_MISSING_BASE=1
+      shift
+      ;;
+    --no-fetch)
+      NO_FETCH=1
+      shift
+      ;;
+    *)
+      BASE_REF="$1"
+      shift
+      ;;
+  esac
+done
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 if ! command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
   PYTHON_BIN="python"
@@ -23,12 +42,16 @@ fi
 
 if git rev-parse --verify "${BASE_REF}" >/dev/null 2>&1; then
   :
-elif git remote get-url origin >/dev/null 2>&1; then
+elif [[ ${NO_FETCH} -eq 0 ]] && git remote get-url origin >/dev/null 2>&1; then
   echo "Fetching origin before conflict resolution..."
   git fetch origin
 fi
 
 if ! git rev-parse --verify "${BASE_REF}" >/dev/null 2>&1; then
+  if [[ ${SKIP_MISSING_BASE} -eq 1 ]]; then
+    echo "Skip: Base ref '${BASE_REF}' is unavailable in this clone."
+    exit 0
+  fi
   echo "ERROR: Base ref '${BASE_REF}' is unavailable."
   echo "Tip: pass an explicit base (for example: upstream/main)."
   exit 1
