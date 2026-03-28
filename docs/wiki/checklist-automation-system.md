@@ -158,6 +158,16 @@ Coverage note: the default Verne smoke/CI audit now checks both `events/Flavour_
 
 Use this to start a new theorycrafting folder without rebuilding the checklist structure by hand.
 
+## Safe checkpoint commit rule
+
+Before implementation-heavy pushes, follow the noob-safe checkpoint slicing rule from the Start Here guide:
+
+- [Safe checkpoint commit rule (Start Here)](../start-here.md#safe-checkpoint-commit-rule)
+
+Use that section as the default commit-shaping guard so each commit stays one system slice with helper->object->loc->smoke sentinel->ledger structure.
+
+It also documents fast-path exceptions so this rule improves safety without blocking tightly-coupled work.
+
 ## Merge-conflict prevention
 
 The repo now uses a few layers together:

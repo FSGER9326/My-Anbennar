@@ -129,6 +129,52 @@ Repeat this loop before expanding to the next target.
 - If you cannot explain the exact entry point and state carriers in two sentences, do one more scan pass first.
 - Prefer many small completed slices over one large partially-finished rewrite.
 
+## Safe checkpoint commit rule
+
+Hard default for noobs and automation-heavy workflows:
+
+- One commit should usually touch **one system slice** only (for example: doctrine **OR** reform **OR** one mission node), not all at once.
+
+This is a **safety default**, not a productivity tax. If a change is tightly coupled and must ship together, keep one larger commit but explain why in the commit body.
+
+Why this helps:
+
+- makes merge conflicts smaller and easier to resolve,
+- makes smoke-check failures easier to diagnose,
+- keeps rollback simple when one slice breaks.
+
+### Recommended checkpoint template
+
+When you package a normal slice commit, include these parts in order:
+
+1. helper logic
+2. gameplay object
+3. localization
+4. smoke profile sentinel
+5. docs ledger update
+
+### Fast-path exceptions (when bigger commits are okay)
+
+Use one combined commit when at least one is true:
+
+1. a single mechanic cannot work without paired files (script + loc + one sentinel),
+2. you are doing a pure mechanical refactor/rename across one family,
+3. the branch is a private spike and you will squash before PR.
+
+If you use an exception, add one line in the commit body:
+
+- `checkpoint-exception: required paired change for <system>`
+
+### Example noob commit message format
+
+Use:
+
+- `verne: add <slice> + loc + smoke sentinel`
+
+Example:
+
+- `verne: add silver-oaths doctrine prototype + loc + smoke sentinel`
+
 ## CI quick-fix commands (matches workflow summaries)
 
 When GitHub Actions reports a failed audit, start with the exact command shown in the job summary:
