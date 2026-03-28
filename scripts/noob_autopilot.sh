@@ -69,14 +69,15 @@ conflict_only_state() {
   status_lines="$(git status --porcelain)"
   [[ -z "${status_lines}" ]] && return 1
   awk '
+    BEGIN { bad = 0 }
     {
       code = substr($0, 1, 2)
       if (code != "UU" && code != "AA" && code != "DD" && code != "AU" &&
           code != "UA" && code != "DU" && code != "UD") {
-        exit 1
+        bad = 1
       }
     }
-    END { exit 0 }
+    END { exit bad }
   ' <<<"${status_lines}"
 }
 

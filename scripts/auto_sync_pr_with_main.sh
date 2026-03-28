@@ -16,14 +16,15 @@ fi
 
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
   if git status --porcelain | awk '
+    BEGIN { non_conflict = 0 }
     {
       code = substr($0, 1, 2)
       if (code != "UU" && code != "AA" && code != "DD" && code != "AU" &&
           code != "UA" && code != "DU" && code != "UD") {
-        exit 0
+        non_conflict = 1
       }
     }
-    END { exit 1 }
+    END { exit non_conflict ? 0 : 1 }
   '; then
     echo "ERROR: Working tree has non-conflict changes. Commit or stash first."
     exit 1
