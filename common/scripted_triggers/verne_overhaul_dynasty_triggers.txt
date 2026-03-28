@@ -1,0 +1,29 @@
+# Verne Overhaul - dynasty safeguard triggers
+# Separated into its own file to minimize merge conflicts on broader overhaul trigger files.
+
+verne_overhaul_is_verne_trigger = {
+	is_or_was_tag = { tag = A33 }
+}
+
+verne_overhaul_no_heir_trigger = {
+	NOT = { has_heir = yes }
+}
+
+verne_overhaul_placeholder_heir_trigger = {
+	has_heir = yes
+	heir_adm = 0
+	heir_dip = 0
+	heir_mil = 0
+}
+
+verne_overhaul_invalid_heir_state_trigger = {
+	OR = {
+		verne_overhaul_no_heir_trigger = yes
+		verne_overhaul_placeholder_heir_trigger = yes
+	}
+}
+
+verne_overhaul_should_run_heir_safeguard_trigger = {
+	verne_overhaul_is_verne_trigger = yes
+	verne_overhaul_invalid_heir_state_trigger = yes
+}
