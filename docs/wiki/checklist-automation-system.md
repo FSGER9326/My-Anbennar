@@ -236,11 +236,11 @@ Important limitation:
 
 ### What to do next when conflicts remain (missions/events/localisation)
 
-Use this decision order:
+Use this decision order (only supported helper commands):
 
-1. Run `python scripts/resolve_content_conflicts.py --union-docs-only` **when the unresolved set is docs hotspots / `.gitattributes` only** and you want safe union-style docs cleanup.
-2. Use `--prefer-theirs` **when upstream `main` is the authoritative baseline** (for example, latest audited fixes, corrected IDs, or validated trigger/effect structure).
-3. Use `--prefer-ours` **when your branch holds the intended in-progress feature slice** and upstream edits are older scaffolding or superseded text.
+1. Run `python scripts/resolve_docs_conflicts.py` **when unresolved files are only docs hotspots / `.gitattributes`**.
+2. Run `bash scripts/noob_autopilot.sh --prefer-main` (PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-main`) **when upstream `main` is the authoritative baseline**.
+3. Run `bash scripts/noob_autopilot.sh --prefer-branch` (PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\noob_autopilot.ps1 -ResolutionStrategy prefer-branch`) **when your branch holds the intended in-progress feature slice**.
 4. Stop and manually inspect each conflict block **when both sides changed behavior or meaning** (mission requirements, event outcomes, localisation phrasing tied to keys).
 
 Concrete file examples:
