@@ -38,6 +38,15 @@ Two parallel tasks must not touch the same:
 - localisation file
 - single-writer hotspot
 
+Explicit single-writer helper rule for gameplay PRs:
+- Allow only **one active gameplay PR touching helper surfaces** at a time for:
+  - `common/scripted_triggers/verne_overhaul_triggers.txt`
+  - `common/scripted_effects/verne_overhaul_effects.txt`
+  - `localisation/verne_overhaul_l_english.yml`
+- If a gameplay PR already owns any helper surface above, other gameplay PRs must either:
+  - avoid these helper files entirely, or
+  - stack on that same branch/PR instead of running in parallel.
+
 Single-writer and hotspot policy is defined in `automation/conflict_hotspots.yaml`; treat it as the current source of truth.
 
 ## How to choose safe parallel tasks
@@ -51,6 +60,8 @@ Single-writer and hotspot policy is defined in `automation/conflict_hotspots.yam
 ## Practical default split
 
 - **Lane A (gameplay):** one focused implementation slice.
+  - Keep helper-only or helper-heavy changes isolated where possible.
+  - Avoid simultaneous helper + mission edits across parallel gameplay PRs; if helper files are touched, do not run another PR touching mission files in parallel unless intentionally stacked.
 - **Lane B (lore/docs):** documentation updates that do not touch gameplay files.
 - **Lane C (reference):** optional repo-map/crosswalk refresh.
 - **Automation lane:** run as a separate serial task when needed.

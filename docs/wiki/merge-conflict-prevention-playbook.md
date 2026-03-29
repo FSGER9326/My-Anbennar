@@ -14,6 +14,15 @@ Purpose: keep merge conflicts rare by planning for overlap up front, then use a 
    - mark the task blocked/waiting.
 4. Keep PRs narrow and single-topic where possible (docs vs automation vs gameplay content).
 
+Practical gameplay helper hotspots (treat as single-writer in active parallel work planning):
+- `common/scripted_triggers/verne_overhaul_triggers.txt`
+- `common/scripted_effects/verne_overhaul_effects.txt`
+- `localisation/verne_overhaul_l_english.yml`
+
+Gameplay coordination rule:
+- Avoid running simultaneous gameplay PRs where one PR edits helper hotspots above and another edits missions.
+- If a helper-touching gameplay PR is already active, either stack mission work on that same branch or defer mission edits until helper work merges.
+
 ## Automation layers used by this repo
 
 1. `.gitattributes` uses `merge=union` for selected shared docs hub files.
@@ -22,6 +31,7 @@ Purpose: keep merge conflicts rare by planning for overlap up front, then use a 
 4. `verne_smoke_checks.*` runs conflict guard automatically as part of the normal smoke flow.
 
 Important limitation: docs auto-resolution is only for known docs hotspots and `.gitattributes`; gameplay conflicts still require human review.
+Automation files remain a serial lane and should stay unchanged during gameplay-only parallelization slices unless the task is explicitly an automation lane task.
 
 ## Conflict resolution decision order
 
