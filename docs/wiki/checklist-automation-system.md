@@ -17,22 +17,6 @@ The automation stack coordinates:
 - conflict marker and hotspot heading guards,
 - localisation and event ID audits.
 
-## Heavy automation expansion tracks
-
-To support an automation-heavy workflow, treat docs and mapping outputs as automation inputs, not endpoint prose.
-
-Current direction:
-
-- **Repo/system mapping automation:** keep ownership maps and crosswalks machine-checkable and aligned with canonical paths.
-- **Lore/playstyle mapping automation:** structure lore/design docs so mechanics, canon-status, and implementation intent can be parsed consistently.
-- **Prose-to-modfile automation:** prefer guarded generation workflows that emit draft modfiles and then pass localisation/event/checklist/link audits before merge.
-
-Safety constraints:
-
-- automation/onboarding/workflow changes remain mostly serial
-- generated output still requires canonical-path review and normal smoke checks
-- do not run parallel tasks that touch the same mission/helper/localisation files or single-writer hotspots
-
 ## Operational command index
 
 ### Primary entrypoint
@@ -75,5 +59,4 @@ Safety constraints:
 
 - Minimal newcomer flow (no extra workflow prose): [../start-here.md](../start-here.md)
 - Conflict decision playbook: [merge-conflict-prevention-playbook.md](./merge-conflict-prevention-playbook.md)
-- Parallel lane model (safe task splitting): [parallelization-lanes-playbook.md](./parallelization-lanes-playbook.md)
 - Automation blindspots history: [checklist-automation-blindspots-changelog.md](./checklist-automation-blindspots-changelog.md)
