@@ -59,4 +59,5 @@ The automation stack coordinates:
 
 - Minimal newcomer flow (no extra workflow prose): [../start-here.md](../start-here.md)
 - Conflict decision playbook: [merge-conflict-prevention-playbook.md](./merge-conflict-prevention-playbook.md)
+- Parallel lane model (safe task splitting): [parallelization-lanes-playbook.md](./parallelization-lanes-playbook.md)
 - Automation blindspots history: [checklist-automation-blindspots-changelog.md](./checklist-automation-blindspots-changelog.md)
