@@ -58,10 +58,12 @@ Use this for long-term change tracking, upstream-update adaptation, and beginner
 
 ## Suggested use order
 
-1. Check real repo files.
-2. Check the grounding checklist.
-3. Check the relevant design doc.
-4. Check local EU4 wiki snapshots if syntax or engine rules are unclear.
+Use this sequence to avoid bouncing between overlapping docs:
+
+1. **Start point:** [start-here.md](./start-here.md) for the minimal entry flow.
+2. **Command/index layer:** [wiki/checklist-automation-system.md](./wiki/checklist-automation-system.md) for operational commands only.
+3. **Ownership truth layer:** [wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md) for canonical-vs-legacy file ownership.
+4. **Then deep-dive by need:** design docs, planning docs, and references.
 
 ## Documentation organization recommendations
 
