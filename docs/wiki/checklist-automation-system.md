@@ -218,6 +218,12 @@ Required action for `block` overlaps:
 
 `pre_pr_gate` now validates `automation/conflict_hotspots.yaml` first, then runs the overlap planning check (bash + PowerShell variants) when on a feature branch with authenticated `gh`, and exits early on `block` overlaps.
 
+If `gh` is unavailable (or not authenticated), run the overlap planner manually with explicit branch names:
+
+- `python scripts/pr_conflict_churn_plan.py --base main --json --branches <your-branch> <other-branch> --fail-on-block`
+
+Use this fallback to keep overlap planning prevention-oriented without requiring `gh` installation/authentication.
+
 This is intentionally prevention-only: no merge-resolution automation behavior was changed.
 
 ## Merge-conflict prevention
