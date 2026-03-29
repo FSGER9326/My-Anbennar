@@ -7,9 +7,11 @@ Each task should be possible to complete in one focused session. Early tasks sho
 
 Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before starting any backlog item that edits code.
 
-## Implementation status snapshot (2026-03-29)
-- **Policies:** scaffold only in [`common/policies/verne_doctrine_policies.txt`](../common/policies/verne_doctrine_policies.txt) (`verne_placeholder_doctrine_policy` no-op placeholder).
-- **Decisions:** scaffold only in [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt) (`verne_placeholder_overhaul_decision` no-op placeholder).
+## Current implementation status (2026-03-29)
+- **Helpers:** live (`common/event_modifiers/verne_overhaul_modifiers.txt`, `common/scripted_triggers/verne_overhaul_triggers.txt`, `common/scripted_effects/verne_overhaul_effects.txt`).
+- **Doctrine groups:** partial (single group live: `verne_doctrine_silver_wake` in [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt)).
+- **Reforms:** partial (tier-1 triplet live in [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt)).
+- **Policies/decisions:** scaffold-only until gameplay lane lands (`verne_placeholder_doctrine_policy` in [`common/policies/verne_doctrine_policies.txt`](../common/policies/verne_doctrine_policies.txt); `verne_placeholder_overhaul_decision` in [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt)).
 - **Planning rule:** do not mark first-wave as complete while policies/decisions remain scaffold-only.
 
 ## Current live surface (implemented objects only)
@@ -25,6 +27,12 @@ Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before
 - Preserve working Verne content where possible instead of replacing it blindly.
 - Treat shared multi-country files as normal for Verne work. Do not assume the real source lives in a tidy Verne-only file.
 - Tooltip/custom-tooltip mission keys for overhaul helpers are standardized to the `verne_overhaul_tt_*` namespace; avoid introducing new `verne_unlock_*` keys.
+
+## Known unresolved debt (tooltip prefix mismatch)
+- Rule target remains `verne_overhaul_tt_*`, but current ownership is still split.
+- Overhaul mission flow currently references `verne_overhaul_tt_*` keys in [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt).
+- Legacy flavor localization still defines `verne_unlock_*` tooltip keys in [`localisation/Flavour_Verne_A33_l_english.yml`](../localisation/Flavour_Verne_A33_l_english.yml).
+- Keep this as tracked debt; do not fold key-renaming churn into unrelated gameplay tasks.
 
 ## v0.1 Beginner-Safe Slice (Execute First)
 

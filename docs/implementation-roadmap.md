@@ -7,10 +7,11 @@ Each milestone should leave the repo in a better, still-loadable state. Early wo
 
 Use [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) at the start of every coding milestone.
 
-## Implementation status snapshot (2026-03-29)
-- **Policies:** scaffold only (`common/policies/verne_doctrine_policies.txt` currently exposes `verne_placeholder_doctrine_policy` as a no-op placeholder).
-- **Decisions:** scaffold only (`decisions/verne_overhaul_decisions.txt` currently exposes `verne_placeholder_overhaul_decision` as a no-op placeholder).
-- **Implication:** first-wave doctrine/reform/dynasty work is partially live, but first-wave policy/decision implementation is **not complete**.
+## Current implementation status (2026-03-29)
+- **Helpers:** live (`common/event_modifiers/verne_overhaul_modifiers.txt`, `common/scripted_triggers/verne_overhaul_triggers.txt`, `common/scripted_effects/verne_overhaul_effects.txt`).
+- **Doctrine groups:** partial (single group live: `verne_doctrine_silver_wake` in `common/ideas/verne_doctrine_groups.txt`).
+- **Reforms:** partial (tier-1 triplet live in `common/government_reforms/verne_overhaul_reforms.txt`).
+- **Policies/decisions:** scaffold-only until gameplay lane lands (`verne_placeholder_doctrine_policy` in `common/policies/verne_doctrine_policies.txt`; `verne_placeholder_overhaul_decision` in `decisions/verne_overhaul_decisions.txt`).
 
 ## Current live surface (implemented objects only)
 - Doctrine group: [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt) → `verne_doctrine_silver_wake`.
@@ -18,6 +19,12 @@ Use [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) at the
 - Dynasty safeguard hook: [`common/on_actions/verne_overhaul_on_actions.txt`](../common/on_actions/verne_overhaul_on_actions.txt) → `on_new_heir` dispatch to `verne_overhaul_dynasty.1`.
 - Dynasty safeguard event: [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt) → `country_event id = verne_overhaul_dynasty.1`.
 - Shared trigger support: [`common/scripted_triggers/verne_overhaul_triggers.txt`](../common/scripted_triggers/verne_overhaul_triggers.txt) → `verne_overhaul_should_run_heir_safeguard_trigger` (+ dependent dynasty safeguard triggers).
+
+## Known unresolved naming debt (tooltip prefix mismatch)
+- Backlog rule standardizes overhaul helper tooltip keys to `verne_overhaul_tt_*`, but naming is still split across live files.
+- Current mission/tooling path uses `verne_overhaul_tt_*` keys in [`missions/Verne_Missions.txt`](../missions/Verne_Missions.txt).
+- Legacy flavor localization still owns `verne_unlock_*` tooltip keys in [`localisation/Flavour_Verne_A33_l_english.yml`](../localisation/Flavour_Verne_A33_l_english.yml).
+- This mismatch remains unresolved debt and should be unified in a dedicated naming-cleanup pass instead of ad hoc renames during unrelated gameplay edits.
 
 ## Safety gate before every coding milestone
 Before editing files, the session should confirm four things:
