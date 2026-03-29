@@ -17,7 +17,7 @@ The automation stack coordinates:
 - conflict marker and hotspot heading guards,
 - localisation and event ID audits.
 
-## Operational command index
+## Automation commands
 
 ### Primary entrypoint
 
@@ -47,6 +47,8 @@ The automation stack coordinates:
 - Event ID audit:
   - `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt --file events/verne_overhaul_dynasty_events.txt`
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\event_id_audit.ps1 -File events/Flavour_Verne_A33.txt -File events/verne_overhaul_dynasty_events.txt`
+## Feature-branch sync
+
 - Feature-branch sync helper:
   - `bash scripts/auto_sync_pr_with_main.sh`
   - `python scripts/auto_sync_pr_with_main.py`
@@ -54,6 +56,12 @@ The automation stack coordinates:
 - Overlap planning:
   - `python scripts/validate_conflict_hotspots.py`
   - `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block`
+
+## Merge-conflict prevention
+
+- Run `python scripts/docs_conflict_guard.py` after branch sync and before PR updates.
+- Use `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block` when touching hotspot docs/workflow files.
+- Follow [merge-conflict-prevention-playbook.md](./merge-conflict-prevention-playbook.md) for manual conflict decisions.
 
 ## Related references
 
