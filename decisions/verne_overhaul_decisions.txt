@@ -1,24 +1,54 @@
 # ===============================================
-# Verne overhaul decision scaffold
-# Status: scaffolded only (no-op/safe placeholder)
+# Verne overhaul dynasty decisions
+# Status: implemented dynasty control surface (no longer scaffold-only)
 # ===============================================
 
 country_decisions = {
-	verne_placeholder_overhaul_decision = {
+	verne_overhaul_enforce_dynastic_safeguard = {
+		major = yes
+
 		potential = {
-			always = no
+			verne_overhaul_is_verne_trigger = yes
 		}
 
 		allow = {
-			always = no
+			verne_overhaul_invalid_heir_state_trigger = yes
 		}
 
 		effect = {
-			# Intentionally empty placeholder.
+			country_event = { id = verne_overhaul_dynasty.1 }
+			custom_tooltip = verne_overhaul_enforce_dynastic_safeguard_tt
 		}
 
 		ai_will_do = {
-			factor = 0
+			factor = 10
+		}
+	}
+
+	verne_overhaul_proclaim_exalted_lineage = {
+		major = yes
+
+		potential = {
+			verne_overhaul_is_verne_trigger = yes
+		}
+
+		allow = {
+			NOT = { verne_overhaul_invalid_heir_state_trigger = yes }
+			NOT = { has_country_modifier = verne_dynasty_exalted_lineage }
+			legitimacy = 75
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = verne_dynasty_exalted_lineage
+				duration = 3650
+			}
+			add_prestige = 10
+			custom_tooltip = verne_overhaul_proclaim_exalted_lineage_tt
+		}
+
+		ai_will_do = {
+			factor = 1
 		}
 	}
 }
