@@ -8,7 +8,7 @@ country_decisions = {
 		major = yes
 
 		potential = {
-			verne_overhaul_is_verne_trigger = yes
+			tag = A33
 		}
 
 		allow = {
@@ -29,7 +29,7 @@ country_decisions = {
 		major = yes
 
 		potential = {
-			verne_overhaul_is_verne_trigger = yes
+			tag = A33
 		}
 
 		allow = {
