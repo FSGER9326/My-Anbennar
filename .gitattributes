@@ -21,3 +21,10 @@ docs/repo-maps/anbennar-vs-eu4-mechanics-gap-register.md merge=union
 docs/repo-maps/anbennar-systems-master-index.md merge=union
 docs/repo-maps/anbennar-systems-scan-roadmap.md merge=union
 docs/wiki/checklist-automation-system.md merge=union
+
+# Codex lane/agent scaffolding is intentionally additive and maintained as
+# shared repo-operating infrastructure; prefer union merge behavior to reduce
+# add/add and concurrent-edit conflicts during branch sync.
+AGENTS.md merge=union
+.codex/agents/*.toml merge=union
+docs/wiki/parallelization-lanes-playbook.md merge=union
