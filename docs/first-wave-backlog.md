@@ -9,7 +9,7 @@ Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before
 
 ## Implementation status snapshot (2026-03-29)
 - **Policies:** scaffold only in [`common/policies/verne_doctrine_policies.txt`](../common/policies/verne_doctrine_policies.txt) (`verne_placeholder_doctrine_policy` no-op placeholder).
-- **Decisions:** scaffold only in [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt) (`verne_placeholder_overhaul_decision` no-op placeholder).
+- **Decisions:** implemented dynasty lane in [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt) (`verne_overhaul_enforce_dynastic_safeguard`, `verne_overhaul_proclaim_exalted_lineage`; no longer scaffold-only).
 - **Planning rule:** do not mark first-wave as complete while policies/decisions remain scaffold-only.
 
 ## Current live surface (implemented objects only)
