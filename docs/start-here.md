@@ -6,11 +6,17 @@
 
 This page is intentionally minimal: run the default command, then escalate only if the command tells you to.
 
-## Minimal newcomer flow
+## What should we do right now? (Decision guide)
 
 1. Run `bash scripts/noob_autopilot.sh`.
 2. If it passes, proceed with your normal push/PR flow.
 3. If it reports conflicts, overlap risk, or failing checks, use the escalation links below.
+
+## Tiny glossary (modding terms, not GitHub terms)
+
+- **Hotspot file:** a frequently edited file where parallel edits are likely to conflict.
+- **Single-writer file:** a file designated to one lane/author at a time to prevent merge churn.
+- **Smoke checks:** fast structural checks that catch broken links, keys, or references early.
 
 ## Escalation links only
 
