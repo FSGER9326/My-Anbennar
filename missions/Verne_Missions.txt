@@ -1600,11 +1600,11 @@ A33_second_slot = {
 					add_siberian_construction = 100
 				}
 			}
-			custom_tooltip = verne_unlock_network_of_adventure
+			custom_tooltip = verne_overhaul_tt_unlock_network_of_adventure
 			# Commentary: call shared helper so future network-init edits are centralized.
 			verne_overhaul_enable_adventure_network_tier_1 = yes
 			set_country_flag = verne_sarhali_adventures_unlocked
-			custom_tooltip = verne_unlock_sarhali_adventures
+			custom_tooltip = verne_overhaul_tt_unlock_sarhali_adventures
 			hidden_effect = {
 				2388 = { add_permanent_claim = ROOT } 
 				2495 = { add_permanent_claim = ROOT } 

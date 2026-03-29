@@ -13,6 +13,7 @@ Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before
 - Do not rewrite early missions before the helper layer and reform/precursor flags exist.
 - Preserve working Verne content where possible instead of replacing it blindly.
 - Treat shared multi-country files as normal for Verne work. Do not assume the real source lives in a tidy Verne-only file.
+- Tooltip/custom-tooltip mission keys for overhaul helpers are standardized to the `verne_overhaul_tt_*` namespace; avoid introducing new `verne_unlock_*` keys.
 
 ## v0.1 Beginner-Safe Slice (Execute First)
 
