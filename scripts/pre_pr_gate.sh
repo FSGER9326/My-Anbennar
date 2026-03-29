@@ -20,12 +20,14 @@ run_overlap_planning_check() {
   fi
 
   if ! command -v gh >/dev/null 2>&1; then
-    echo "[plan] Overlap check skipped (gh CLI unavailable)."
+    echo "[plan] Overlap check skipped (gh CLI unavailable). Manual fallback:"
+    echo "[plan]   ${PYTHON_BIN} scripts/pr_conflict_churn_plan.py --base main --json --branches \"${current_branch}\" \"<other-branch>\" --fail-on-block"
     return 0
   fi
 
   if ! gh auth status >/dev/null 2>&1; then
-    echo "[plan] Overlap check skipped (gh not authenticated)."
+    echo "[plan] Overlap check skipped (gh not authenticated). Manual fallback:"
+    echo "[plan]   ${PYTHON_BIN} scripts/pr_conflict_churn_plan.py --base main --json --branches \"${current_branch}\" \"<other-branch>\" --fail-on-block"
     return 0
   fi
 
