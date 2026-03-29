@@ -18,6 +18,8 @@ Use it to track:
 - [generalized-modding-lifecycle-playbook.md](./generalized-modding-lifecycle-playbook.md)
 - [fluff-and-art-production-playbook.md](./fluff-and-art-production-playbook.md)
 - [checklist-automation-system.md](./checklist-automation-system.md)
+- [merge-conflict-prevention-playbook.md](./merge-conflict-prevention-playbook.md)
+- [checklist-automation-blindspots-changelog.md](./checklist-automation-blindspots-changelog.md)
 - [verne-id-ledger.md](./verne-id-ledger.md)
 - [verne-canonical-vs-legacy-file-registry.md](./verne-canonical-vs-legacy-file-registry.md)
 
