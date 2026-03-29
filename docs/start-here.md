@@ -20,5 +20,7 @@ This page is intentionally minimal: run the default command, then escalate only 
   [docs/wiki/merge-conflict-prevention-playbook.md](./wiki/merge-conflict-prevention-playbook.md)
 - Verne canonical file ownership truth:
   [docs/wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md)
+- Parallel lane model for safe multi-tasking:
+  [docs/wiki/parallelization-lanes-playbook.md](./wiki/parallelization-lanes-playbook.md)
 - Full docs hub:
   [docs/README.md](./README.md)

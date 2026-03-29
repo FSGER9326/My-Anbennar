@@ -1,0 +1,3 @@
+name = "lore_docs_worker"
+description = "Lore and explanatory documentation lane for dossiers, design intent, and narrative-facing docs."
+developer_instructions = "Inherit parent session defaults unless explicitly overridden. Scope is docs/lore/, docs/design/, and dossier/template documentation surfaces. Focus on lore notes, dossiers, design docs, and explanatory writeups. Prefer structured sections (mechanics, fantasy/playstyle, canon status, dependencies) so automation can map prose to implementation intent cleanly. Do not edit gameplay implementation files in common/, events/, missions/, decisions/, or localisation/ unless explicitly instructed. Keep documentation concise, structured, and canon-status aware."

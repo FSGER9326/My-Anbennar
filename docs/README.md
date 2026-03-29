@@ -21,6 +21,7 @@ These files answer:
 - what the next concrete tasks are
 
 ### Working rules
+- [../AGENTS.md](../AGENTS.md)
 - [codex-grounding-checklist.md](./codex-grounding-checklist.md)
 - [automation/pre-pr-artifact-flow.md](./automation/pre-pr-artifact-flow.md)
 - [references/reference-index.md](./references/reference-index.md)
@@ -51,6 +52,7 @@ The `repo-maps/` folder records how existing Anbennar systems are actually imple
 - [wiki/noob-friendly-doc-naming-convention.md](./wiki/noob-friendly-doc-naming-convention.md)
 - [wiki/checklist-automation-system.md](./wiki/checklist-automation-system.md)
 - [wiki/merge-conflict-prevention-playbook.md](./wiki/merge-conflict-prevention-playbook.md)
+- [wiki/parallelization-lanes-playbook.md](./wiki/parallelization-lanes-playbook.md)
 - [wiki/checklist-automation-blindspots-changelog.md](./wiki/checklist-automation-blindspots-changelog.md)
 - [wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md)
 
