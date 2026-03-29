@@ -207,8 +207,14 @@ Run this before implementation when branch/PR context is available:
 
 Result meaning:
 
-- `block`: overlap on single-writer file/prefix from `automation/conflict_hotspots.yaml`; stop and coordinate.
-- `warn`: advisory hotspot overlap; proceed only with explicit coordination and a narrow scope.
+- `block`: overlap on a **true single-writer surface** from `automation/conflict_hotspots.yaml`; stop and coordinate.
+- `warn`: overlap on an advisory hotspot; proceed only with explicit coordination and a narrow scope.
+
+Boundary policy (narrowed on purpose):
+
+- Broad trees such as `scripts/`, `docs/wiki/`, and `automation/` are now advisory by default so parallel cleanup/docs work does not hard-block each other.
+- `block` severity is reserved for small, high-churn coordination surfaces (for example workflow files and explicit orchestrator entrypoints such as `pre_pr_gate` / `noob_autopilot` wrappers).
+- If a path starts generating repeated hard conflicts, promote that exact file (or a small prefix) to single-writer instead of re-expanding whole directory trees.
 
 Required action for `block` overlaps:
 
