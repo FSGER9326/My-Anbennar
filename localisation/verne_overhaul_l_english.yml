@@ -91,6 +91,24 @@ l_english:
  verne_battle_mage_collegium_reform:0 "Battle-Mage Collegium"
  verne_battle_mage_collegium_reform_desc:0 "Evocation doctrine and officer training are fused into a single war-collegium, giving Verne a harder striking field army and a deeper mage-officer bench."
 
+ verne_charter_of_the_vernissage_reform:0 "Charter of the Vernissage"
+ verne_charter_of_the_vernissage_reform_desc:0 "The Vernissage is elevated into a state-bearing court institution, turning magnificence, administration, and prestige into a deliberate machine of rule."
+
+ verne_hall_of_distant_horizons_reform:0 "Hall of Distant Horizons"
+ verne_hall_of_distant_horizons_reform_desc:0 "Verne's overseas doctrine is formalized around long-range movement, diplomatic reach, and practical infrastructure for sustained projection abroad."
+
+ verne_vernissage_secretariat_reform:0 "Vernissage Secretariat"
+ verne_vernissage_secretariat_reform_desc:0 "What began as spectacle becomes bureaucracy: a secretariat of exhibitions, correspondence, and worldly administration that binds prestige to practical governance."
+
+ verne_wyvern_marshalate_reform:0 "Wyvern Marshalate"
+ verne_wyvern_marshalate_reform_desc:0 "The wyvern-rider corps is raised into a true marshalate, organizing noble riders, officer tradition, and disciplined reinforcement under ducal authority."
+
+ verne_crimson_eyrie_commandery_reform:0 "Crimson Eyrie Commandery"
+ verne_crimson_eyrie_commandery_reform_desc:0 "Verne's wyvern infrastructure and martial orders are folded into a commandery system that lowers upkeep and expands state-directed mounted force."
+
+ verne_sea_nest_ascendancy_reform:0 "Sea-Nest Ascendancy"
+ verne_sea_nest_ascendancy_reform_desc:0 "Wyvern doctrine and sea power are fused into an expeditionary air-sea state, emphasizing maneuver, fleet reach, and fast-strike projection."
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
