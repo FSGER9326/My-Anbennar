@@ -297,6 +297,11 @@ A33_first_slot = {
 		}
 
 		effect = {
+			# Commentary: expanding the Vernissage should deepen the mature network state, not just add colonial utility.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
 			add_treasury = -3000
 			hidden_effect = { 292 = { remove_province_modifier = verne_vernissage_tier1 } } 
 			292 = {
@@ -2416,6 +2421,11 @@ A33_third_slot = {
 		}
 
 		effect = {
+			# Commentary: the kingdom mission now explicitly advances Verne's court-state and imperial-governance maturity.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
 			if = {
 				limit = { NOT = { is_elector = yes } } 
 				if = {
@@ -3498,6 +3508,11 @@ A33_fourth_slot = {
 		}
 
 		effect = {
+			# Commentary: Union of Crowns is a mid-tree empire-consolidation milestone and should deepen the world-network state.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
 			if = {
 				limit = {
 					mountainway_area = {
@@ -3838,6 +3853,11 @@ A33_fourth_slot = {
 		}
 
 		effect = {
+			# Commentary: Corin's Devout Protectors should visibly tie the mission tree into the faith-state and legitimacy architecture.
+			add_country_modifier = {
+				name = "verne_dynasty_protected_court"
+				duration = 7300
+			}
 			custom_tooltip = verne_D9_effect_tt1
 			set_global_flag = verne_only_dotf
 			custom_tooltip = verne_D9_effect_tt2
@@ -3944,6 +3964,10 @@ A33_fourth_slot = {
 		}
 
 		effect = {
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
 			custom_tooltip = verne_D12_effect_tt
 			set_country_flag = 30_trade_power_for_propogate_religion
 			set_country_flag = verne_refunding_holy_order_15
