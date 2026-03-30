@@ -1493,6 +1493,9 @@ A33_second_slot = {
 			}
 			set_country_flag = verne_akasi_bulwari_adventures_unlocked
 			set_country_flag = verne_unlocked_adventure_system
+			# Commentary: seed the early Silver Oaths state package so the new first-wave layer is reachable from existing mission flow.
+			verne_overhaul_seed_silver_oaths_path = yes
+			custom_tooltip = verne_overhaul_tt_seed_silver_oaths
 			custom_tooltip = verne_B4_effect_tt
 			hidden_effect = {
 				383 = { add_permanent_claim = ROOT } 
@@ -1603,6 +1606,9 @@ A33_second_slot = {
 			custom_tooltip = verne_overhaul_tt_unlock_network_of_adventure
 			# Commentary: call shared helper so future network-init edits are centralized.
 			verne_overhaul_enable_adventure_network_tier_1 = yes
+			# Commentary: this mission is the safest early place to seed the Khenak/expedition branch without broad mission rewrites.
+			verne_overhaul_seed_khenak_foundry_path = yes
+			custom_tooltip = verne_overhaul_tt_seed_khenak_foundry
 			set_country_flag = verne_sarhali_adventures_unlocked
 			custom_tooltip = verne_overhaul_tt_unlock_sarhali_adventures
 			hidden_effect = {
