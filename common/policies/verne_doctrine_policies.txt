@@ -1,105 +1,194 @@
 # ===============================================
 # Verne overhaul doctrine policies
-# Status: first-wave live policy layer (no longer scaffold-only)
-# Scope: compact policy package for the currently implemented Silver Wake doctrine slice
+# Status: expanded first-wave live policy layer
+# Scope: cross-doctrine policies for the doctrine families currently implemented in-repo
 # ===============================================
 
-verne_silver_wake_oath_harbormasters_act = {
+verne_articles_of_the_silver_admiralty = {
 	monarch_power = DIP
 
 	potential = {
 		has_idea_group = verne_doctrine_silver_wake
-		has_reform = verne_court_of_silver_oaths_reform
+		has_idea_group = verne_doctrine_imperial_sea_court
 	}
 
 	allow = {
 		full_idea_group = verne_doctrine_silver_wake
-		has_reform = verne_court_of_silver_oaths_reform
+		full_idea_group = verne_doctrine_imperial_sea_court
 	}
 
 	diplomatic_reputation = 1
-	reform_progress_growth = 0.05
+	morale_of_navies = 0.05
 
 	effect = {}
 	removed_effect = {}
-	ai_will_do = {
-		factor = 1
-	}
+	ai_will_do = { factor = 1 }
 }
 
-verne_silver_wake_captains_charter_act = {
+verne_charter_of_overseas_audiences = {
 	monarch_power = DIP
 
 	potential = {
 		has_idea_group = verne_doctrine_silver_wake
-		has_reform = verne_charter_of_great_captains_reform
+		has_idea_group = verne_doctrine_vernissage
 	}
 
 	allow = {
 		full_idea_group = verne_doctrine_silver_wake
-		has_reform = verne_charter_of_great_captains_reform
+		full_idea_group = verne_doctrine_vernissage
 	}
 
-	trade_efficiency = 0.05
-	naval_tradition = 0.25
+	envoy_travel_time = -0.10
+	improve_relation_modifier = 0.10
 
 	effect = {}
 	removed_effect = {}
-	ai_will_do = {
-		factor = 1
-	}
+	ai_will_do = { factor = 1 }
 }
 
-verne_silver_wake_ducal_convoy_ordinance_act = {
+verne_ordinance_of_noble_service = {
 	monarch_power = MIL
 
 	potential = {
 		has_idea_group = verne_doctrine_silver_wake
-		has_reform = verne_ducal_muster_of_armoc_reform
+		has_idea_group = verne_doctrine_dragonwake
 	}
 
 	allow = {
 		full_idea_group = verne_doctrine_silver_wake
-		has_reform = verne_ducal_muster_of_armoc_reform
+		full_idea_group = verne_doctrine_dragonwake
 	}
 
-	manpower_recovery_speed = 0.05
-	defensiveness = 0.05
+	army_tradition = 0.25
+	yearly_legitimacy = 0.50
 
 	effect = {}
 	removed_effect = {}
-	ai_will_do = {
-		factor = 1
-	}
+	ai_will_do = { factor = 1 }
 }
 
-verne_silver_wake_quayside_discipline_act = {
-	monarch_power = ADM
+verne_heartspier_shipping_code = {
+	monarch_power = DIP
 
 	potential = {
-		has_idea_group = verne_doctrine_silver_wake
-		OR = {
-			has_reform = verne_court_of_silver_oaths_reform
-			has_reform = verne_charter_of_great_captains_reform
-			has_reform = verne_ducal_muster_of_armoc_reform
-		}
+		has_idea_group = verne_doctrine_estuary_companies
+		has_idea_group = verne_doctrine_grand_regatta
 	}
 
 	allow = {
-		full_idea_group = verne_doctrine_silver_wake
-		OR = {
-			has_reform = verne_court_of_silver_oaths_reform
-			has_reform = verne_charter_of_great_captains_reform
-			has_reform = verne_ducal_muster_of_armoc_reform
-		}
+		full_idea_group = verne_doctrine_estuary_companies
+		full_idea_group = verne_doctrine_grand_regatta
 	}
 
-	global_unrest = -1
-	sailor_maintenance_modifer = -0.05
+	light_ship_power = 0.10
+	trade_efficiency = 0.05
 
 	effect = {}
 	removed_effect = {}
-	ai_will_do = {
-		factor = 1
+	ai_will_do = { factor = 1 }
+}
+
+verne_convoys_of_state = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_doctrine_estuary_companies
+		has_idea_group = verne_doctrine_imperial_sea_court
 	}
+
+	allow = {
+		full_idea_group = verne_doctrine_estuary_companies
+		full_idea_group = verne_doctrine_imperial_sea_court
+	}
+
+	global_ship_trade_power = 0.15
+	diplomatic_reputation = 1
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_accords_of_the_eastern_princes = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_doctrine_vernissage
+		has_idea_group = verne_doctrine_eastern_correspondence
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_vernissage
+		full_idea_group = verne_doctrine_eastern_correspondence
+	}
+
+	range = 0.10
+	diplomatic_reputation = 1
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_regatta_of_distant_harbours = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_doctrine_vernissage
+		has_idea_group = verne_doctrine_grand_regatta
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_vernissage
+		full_idea_group = verne_doctrine_grand_regatta
+	}
+
+	movement_speed_in_fleet_modifier = 0.10
+	global_sailors_modifier = 0.10
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_articles_of_remote_command = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_doctrine_vernissage
+		has_idea_group = verne_doctrine_overseas_commandery
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_vernissage
+		full_idea_group = verne_doctrine_overseas_commandery
+	}
+
+	trade_range_modifier = 0.15
+	governing_capacity_modifier = 0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_capitular_articles_of_the_wake = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = verne_doctrine_dragonwake
+		has_idea_group = verne_doctrine_crimson_wake_order
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_dragonwake
+		full_idea_group = verne_doctrine_crimson_wake_order
+	}
+
+	mercenary_cost = -0.05
+	cavalry_power = 0.10
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
 }

@@ -121,6 +121,44 @@ verne_doctrine_imperial_sea_court = {
 	}
 }
 
+verne_doctrine_estuary_companies = {
+	category = ADM
+
+	start = {
+		build_cost = -0.05
+	}
+
+	bonus = {
+		build_cost = -0.05
+		goods_produced_modifier = 0.05
+		light_ship_power = 0.10
+	}
+
+	verne_doctrine_estuary_companies_harbor_assessors = {
+		trade_efficiency = 0.05
+	}
+
+	verne_doctrine_estuary_companies_licensed_wharves = {
+		global_ship_trade_power = 0.10
+	}
+
+	verne_doctrine_estuary_companies_bonded_warehouses = {
+		goods_produced_modifier = 0.05
+	}
+
+	verne_doctrine_estuary_companies_river_sea_taxation = {
+		interest = -1
+	}
+
+	verne_doctrine_estuary_companies_captains_accounts = {
+		global_ship_cost = -0.05
+	}
+
+	verne_doctrine_estuary_companies_crowned_investors = {
+		development_cost = -0.05
+	}
+}
+
 verne_doctrine_grand_regatta = {
 	category = DIP
 

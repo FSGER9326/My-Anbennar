@@ -231,6 +231,21 @@ l_english:
  verne_doctrine_imperial_sea_court_thrones_across_the_waves:0 "Thrones Across the Waves"
  verne_doctrine_imperial_sea_court_thrones_across_the_waves_desc:0 "Imperial sea power turns commercial shipping into an extension of courtly influence and rank."
 
+ verne_doctrine_estuary_companies:0 "Estuary Companies Ideas"
+ verne_doctrine_estuary_companies_desc:0 "Port finance, estuarine commerce, and disciplined maritime investment are woven into a doctrine of fiscal ship-state power."
+ verne_doctrine_estuary_companies_harbor_assessors:0 "Harbor Assessors"
+ verne_doctrine_estuary_companies_harbor_assessors_desc:0 "Professional assessors and dockside accountants tighten the state's commercial returns."
+ verne_doctrine_estuary_companies_licensed_wharves:0 "Licensed Wharves"
+ verne_doctrine_estuary_companies_licensed_wharves_desc:0 "Licensed wharves convert private initiative into public shipping strength and better harbor throughput."
+ verne_doctrine_estuary_companies_bonded_warehouses:0 "Bonded Warehouses"
+ verne_doctrine_estuary_companies_bonded_warehouses_desc:0 "Warehousing and bonded storage turn estuarine control into reliable output and commercial density."
+ verne_doctrine_estuary_companies_river_sea_taxation:0 "River-Sea Taxation"
+ verne_doctrine_estuary_companies_river_sea_taxation_desc:0 "The state learns to tax the river-sea nexus with enough precision to lower borrowing strain."
+ verne_doctrine_estuary_companies_captains_accounts:0 "Captains' Accounts"
+ verne_doctrine_estuary_companies_captains_accounts_desc:0 "Detailed accounting keeps shipping costs lower and makes every voyage more legible to the state."
+ verne_doctrine_estuary_companies_crowned_investors:0 "Crowned Investors"
+ verne_doctrine_estuary_companies_crowned_investors_desc:0 "Royal and ducal investment in estuarine commerce turns capital accumulation into a direct tool of state growth."
+
  verne_doctrine_overseas_commandery:0 "Overseas Commandery Ideas"
  verne_doctrine_overseas_commandery_desc:0 "Strategic footholds, island stations, and loyal captains are woven into a doctrine of durable overseas command."
  verne_doctrine_overseas_commandery_fortified_havens:0 "Fortified Havens"
@@ -288,3 +303,30 @@ l_english:
 
  verne_silver_wake_quayside_discipline_act:0 "Quayside Discipline Act"
  verne_silver_wake_quayside_discipline_act_desc:0 "This general Silver Wake statute extends dockside discipline across the realm, reducing unrest and keeping sailor administration from slipping into wasteful disorder."
+
+ verne_articles_of_the_silver_admiralty:0 "Articles of the Silver Admiralty"
+ verne_articles_of_the_silver_admiralty_desc:0 "Silver Oaths statecraft and the Imperial Sea Court together produce a disciplined maritime code of legitimacy, fleet poise, and naval authority."
+
+ verne_charter_of_overseas_audiences:0 "Charter of Overseas Audiences"
+ verne_charter_of_overseas_audiences_desc:0 "Courtly diplomacy and Vernissage projection combine to speed contact abroad and improve Verne's standing in distant halls."
+
+ verne_ordinance_of_noble_service:0 "Ordinance of Noble Service"
+ verne_ordinance_of_noble_service_desc:0 "Silver Oaths administration and Dragonwake martial custom are fused into a service code that honors noble arms while strengthening dynastic legitimacy."
+
+ verne_heartspier_shipping_code:0 "Heartspier Shipping Code"
+ verne_heartspier_shipping_code_desc:0 "Port-finance discipline and Regatta seamanship combine into a shipping code that sharpens light-ship performance and maritime commerce."
+
+ verne_convoys_of_state:0 "Convoys of State"
+ verne_convoys_of_state_desc:0 "The sea court and Heartspier's companies together transform convoys into instruments of both commerce and state prestige."
+
+ verne_accords_of_the_eastern_princes:0 "Accords of the Eastern Princes"
+ verne_accords_of_the_eastern_princes_desc:0 "Vernissage prestige and eastern correspondence join into a diplomatic network that extends Verne's reach and authority abroad."
+
+ verne_regatta_of_distant_harbours:0 "Regatta of Distant Harbours"
+ verne_regatta_of_distant_harbours_desc:0 "The Vernissage and the Grand Regatta together turn world-facing maritime display into faster fleets and deeper sailor culture."
+
+ verne_articles_of_remote_command:0 "Articles of Remote Command"
+ verne_articles_of_remote_command_desc:0 "Overseas commandery doctrine and Vernissage projection produce a stronger legal and logistical framework for distant rule."
+
+ verne_capitular_articles_of_the_wake:0 "Capitular Articles of the Wake"
+ verne_capitular_articles_of_the_wake_desc:0 "Dragonwake nobility and the Crimson Wake orders together produce a harsher mounted service tradition built on commanderies, subsidies, and elite riders."
