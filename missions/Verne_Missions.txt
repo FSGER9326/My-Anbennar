@@ -1847,7 +1847,18 @@ A33_second_slot = {
 			}
 		}
 
-		effect = { country_event = { id = verne.123 } } 
+		effect = {
+			# Commentary: the first-wave Regatta is a maritime prestige threshold and should advance both network and overseas reach.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
+			country_event = { id = verne.123 }
+		} 
 	}
 
 	A33_new_verne = {
@@ -4343,6 +4354,9 @@ A33_fifth_sloth = {
 		}
 
 		effect = {
+			# Commentary: this is the wyvern-state founding mission in the overhaul flow.
+			verne_overhaul_seed_dragonwake_path = yes
+			custom_tooltip = verne_overhaul_tt_seed_dragonwake
 			country_event = { id = verne.103 } 
 			enable_mythical_cavalry = { mount = wyvern } 
 			if = {
@@ -4525,6 +4539,11 @@ A33_fifth_sloth = {
 		}
 
 		effect = {
+			# Commentary: nest expansion is one of the cleanest places to advance the dynastic-magic machine in a reusable way.
+			change_variable = {
+				which = verne_dynastic_magic_machine
+				value = 1
+			}
 			add_treasury = -1500
 			add_adm_power = -200
 			if = {
