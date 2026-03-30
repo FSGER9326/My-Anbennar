@@ -42,6 +42,117 @@ verne_doctrine_silver_wake = {
 	}
 }
 
+verne_doctrine_red_court = {
+	category = ADM
+
+	start = {
+		mages_loyalty_modifier = 0.05
+	}
+
+	bonus = {
+		mages_loyalty_modifier = 0.05
+	}
+
+	verne_doctrine_red_court_scarlet_curriculum = {
+		advisor_pool = 1
+	}
+
+	verne_doctrine_red_court_magisteries = {
+		monthly_adm_power = 1
+	}
+
+	verne_doctrine_red_court_record_offices = {
+		reform_progress_growth = 0.10
+	}
+
+	verne_doctrine_red_court_secretariat = {
+		possible_policy = 1
+	}
+
+	verne_doctrine_red_court_wards = {
+		advisor_cost = -0.05
+	}
+
+	verne_doctrine_red_court_bloodline_examinations = {
+		advisor_pool = 1
+	}
+}
+
+verne_doctrine_estuary_companies = {
+	category = ADM
+
+	start = {
+		build_cost = -0.05
+	}
+
+	bonus = {
+		build_cost = -0.05
+		goods_produced_modifier = 0.05
+		light_ship_power = 0.10
+	}
+
+	verne_doctrine_estuary_companies_harbor_assessors = {
+		trade_efficiency = 0.05
+	}
+
+	verne_doctrine_estuary_companies_licensed_wharves = {
+		global_ship_trade_power = 0.10
+	}
+
+	verne_doctrine_estuary_companies_bonded_warehouses = {
+		goods_produced_modifier = 0.05
+	}
+
+	verne_doctrine_estuary_companies_river_sea_taxation = {
+		interest = -1
+	}
+
+	verne_doctrine_estuary_companies_captains_accounts = {
+		global_ship_cost = -0.05
+	}
+
+	verne_doctrine_estuary_companies_crowned_investors = {
+		development_cost = -0.05
+	}
+}
+
+verne_doctrine_khenak_foundry = {
+	category = ADM
+
+	start = {
+		build_cost = -0.05
+	}
+
+	bonus = {
+		production_efficiency = 0.05
+		defensiveness = 0.05
+	}
+
+	verne_doctrine_khenak_foundry_apprenticeships = {
+		production_efficiency = 0.05
+	}
+
+	verne_doctrine_khenak_foundry_powder_magazines = {
+		defensiveness = 0.05
+	}
+
+	verne_doctrine_khenak_foundry_iron_roads = {
+		development_cost = -0.05
+	}
+
+	verne_doctrine_khenak_foundry_state_artillery_parks = {
+		artillery_cost = -0.10
+	}
+
+	verne_doctrine_khenak_foundry_master_gunfounders = {
+		artillery_fire = 0.05
+	}
+
+	verne_doctrine_khenak_foundry_furnaces = {
+		manpower_modifier = 0.10
+	}
+}
+
 verne_doctrine_vernissage = {
 	category = DIP
 
@@ -118,44 +229,6 @@ verne_doctrine_imperial_sea_court = {
 	verne_doctrine_imperial_sea_court_thrones_across_the_waves = {
 		global_ship_trade_power = 0.10
 		light_ship_power = 0.10
-	}
-}
-
-verne_doctrine_estuary_companies = {
-	category = ADM
-
-	start = {
-		build_cost = -0.05
-	}
-
-	bonus = {
-		build_cost = -0.05
-		goods_produced_modifier = 0.05
-		light_ship_power = 0.10
-	}
-
-	verne_doctrine_estuary_companies_harbor_assessors = {
-		trade_efficiency = 0.05
-	}
-
-	verne_doctrine_estuary_companies_licensed_wharves = {
-		global_ship_trade_power = 0.10
-	}
-
-	verne_doctrine_estuary_companies_bonded_warehouses = {
-		goods_produced_modifier = 0.05
-	}
-
-	verne_doctrine_estuary_companies_river_sea_taxation = {
-		interest = -1
-	}
-
-	verne_doctrine_estuary_companies_captains_accounts = {
-		global_ship_cost = -0.05
-	}
-
-	verne_doctrine_estuary_companies_crowned_investors = {
-		development_cost = -0.05
 	}
 }
 
@@ -344,5 +417,116 @@ verne_doctrine_crimson_wake_order = {
 
 	verne_doctrine_crimson_wake_order_permanent_commanderies = {
 		merc_maintenance_modifier = -0.05
+	}
+}
+
+verne_doctrine_battle_evocation = {
+	category = MIL
+
+	start = {
+		leader_land_fire = 1
+	}
+
+	bonus = {
+		morale_of_armies = 0.05
+		artillery_fire = 0.05
+	}
+
+	verne_doctrine_battle_evocation_field_evocations = {
+		morale_of_armies = 0.05
+	}
+
+	verne_doctrine_battle_evocation_battlemagi = {
+		possible_war_wizard = 1
+	}
+
+	verne_doctrine_battle_evocation_spell_guided_batteries = {
+		artillery_fire = 0.05
+	}
+
+	verne_doctrine_battle_evocation_stormline_doctrine = {
+		siege_ability = 0.05
+	}
+
+	verne_doctrine_battle_evocation_war_court_coordination = {
+		artillery_fire = 0.05
+	}
+
+	verne_doctrine_battle_evocation_prince_in_the_van = {
+		morale_of_armies = 0.05
+	}
+}
+
+verne_doctrine_red_brass = {
+	category = MIL
+
+	start = {
+		artillery_cost = -0.10
+	}
+
+	bonus = {
+		land_forcelimit_modifier = 0.10
+		artillery_fire = 0.05
+	}
+
+	verne_doctrine_red_brass_foundry_calibration = {
+		artillery_fire = 0.05
+	}
+
+	verne_doctrine_red_brass_powder_discipline = {
+		defensiveness = 0.05
+	}
+
+	verne_doctrine_red_brass_siege_engineers = {
+		siege_ability = 0.05
+	}
+
+	verne_doctrine_red_brass_hull_guns = {
+		heavy_ship_cost = -0.10
+	}
+
+	verne_doctrine_red_brass_gunnery_instructors = {
+		military_tech_cost_modifier = -0.05
+	}
+
+	verne_doctrine_red_brass_ironwilled_crews = {
+		ship_durability = 0.10
+	}
+}
+
+verne_doctrine_sea_lance = {
+	category = MIL
+
+	start = {
+		movement_speed_in_fleet_modifier = 0.05
+	}
+
+	bonus = {
+		movement_speed_in_fleet_modifier = 0.05
+		transport_power = 0.10
+	}
+
+	verne_doctrine_sea_lance_deck_lance_escorts = {
+		morale_of_navies = 0.05
+	}
+
+	verne_doctrine_sea_lance_sea_nest_coordination = {
+		leader_land_manuever = 1
+	}
+
+	verne_doctrine_sea_lance_aerial_spotters = {
+		siege_ability = 0.05
+	}
+
+	verne_doctrine_sea_lance_strike_convoys = {
+		land_attrition = -0.10
+	}
+
+	verne_doctrine_sea_lance_wakeborne_assaults = {
+		naval_attrition = -0.10
+	}
+
+	verne_doctrine_sea_lance_oceanic_pursuit = {
+		naval_forcelimit_modifier = 0.10
 	}
 }
