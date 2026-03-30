@@ -11,9 +11,11 @@ Goal:
 
 ## Executive Summary
 
-The repo is **not starting from zero**.
-A first-pass Verne overhaul implementation already exists across:
+The repo is no longer in a "mostly prototype" state for the Verne overhaul's core systems.
+A substantial systems pass has now been implemented across:
+- `common/ideas/anb_country_ideas.txt`
 - `common/ideas/verne_doctrine_groups.txt`
+- `common/policies/verne_doctrine_policies.txt`
 - `common/government_reforms/verne_overhaul_reforms.txt`
 - `common/scripted_triggers/verne_overhaul_triggers.txt`
 - `common/scripted_effects/verne_overhaul_effects.txt`
@@ -21,112 +23,159 @@ A first-pass Verne overhaul implementation already exists across:
 - `events/verne_overhaul_dynasty_events.txt`
 - `common/on_actions/verne_overhaul_on_actions.txt`
 - `missions/Verne_Missions.txt`
+- `localisation/verne_overhaul_l_english.yml`
 
-However, the current implementation is **mixed quality**:
-- some parts are already useful and reasonably grounded,
-- some parts are clearly scaffold/prototype,
-- some parts diverge significantly from the canonical design docs.
+The repo is still not "finished," but the biggest reality change is:
 
-So the real task is **reconciliation**, not raw greenfield creation.
+> Verne now has a serious overhaul backbone in-repo, and future work should treat it as an expanding live system rather than a sketch.
 
 ---
 
 ## Current State by System
 
-### 1. Doctrine groups
+### 1. National ideas
 
-**Repo status:** prototype / incomplete / divergent
+**Repo status:** implemented and substantially reconciled
+
+Files:
+- `common/ideas/anb_country_ideas.txt`
+- `localisation/anb_powers_and_ideas_l_english.yml`
+
+Observed state:
+- A33/Verne national ideas, traditions, and ambition have been updated toward the canonical overhaul design
+- shared idea keys were preserved, avoiding unnecessary compatibility churn
+- existing flavor text remained broadly compatible with the newer, stronger mechanical package
+
+Assessment:
+- this layer is no longer a major blocker
+- future work here should be polishing, not structural rescue
+
+---
+
+### 2. Doctrine groups
+
+**Repo status:** substantially expanded
 
 File:
 - `common/ideas/verne_doctrine_groups.txt`
 
 Observed state:
-- only a single doctrine group appears implemented in the current file snapshot:
+- doctrine implementation is no longer just `verne_doctrine_silver_wake`
+- the file now includes broad doctrine coverage across court, maritime, diplomatic, overseas, magical, industrial, religious, and elite-military lanes
+- implemented families now include at least:
   - `verne_doctrine_silver_wake`
-- its identity and effects do **not** match the canonical doctrine set described in `docs/design/doctrine-bible.md`
-- naming scheme diverges from the canonical `verne_<name>_ideas` plan
+  - `verne_doctrine_red_court`
+  - `verne_doctrine_estuary_companies`
+  - `verne_doctrine_khenak_foundry`
+  - `verne_doctrine_corinite_stewardship`
+  - `verne_doctrine_imperial_chancery`
+  - `verne_doctrine_vernissage`
+  - `verne_doctrine_imperial_sea_court`
+  - `verne_doctrine_grand_regatta`
+  - `verne_doctrine_overseas_commandery`
+  - `verne_doctrine_eastern_correspondence`
+  - `verne_doctrine_apostolic_sea_lanes`
+  - `verne_doctrine_pearlescent_concord`
+  - `verne_doctrine_dragonwake`
+  - `verne_doctrine_crimson_wake_order`
+  - `verne_doctrine_battle_evocation`
+  - `verne_doctrine_red_brass`
+  - `verne_doctrine_sea_lance`
+  - `verne_doctrine_apostolic_valour`
+  - `verne_doctrine_silver_banner`
 
 Assessment:
-- current file should be treated as an **early prototype**, not canonical implementation
-- doctrine implementation remains a major gap
-
-Best next action:
-- replace/expand doctrine implementation based on the canonical doctrine bible
-- do this in a structured batch, not ad hoc
+- doctrine implementation is now one of the strongest expansion areas on the branch
+- remaining work is likely completeness/balance review rather than raw absence
 
 ---
 
-### 2. Government reforms
+### 3. Doctrine policies
 
-**Repo status:** prototype / partial
+**Repo status:** actively implemented, no longer scaffold-only
+
+File:
+- `common/policies/verne_doctrine_policies.txt`
+
+Observed state:
+- the original placeholder scaffold has been replaced
+- the file now contains multiple waves of real cross-doctrine policy objects
+- implemented policies include first-wave Silver Wake pairings and broader second-wave military/magical/faith/chancery pairings
+
+Assessment:
+- this layer is now genuinely real
+- future work should focus on coverage review and balance tuning rather than replacing placeholders
+
+---
+
+### 4. Government reforms
+
+**Repo status:** fully expanded through the canonical ladder
 
 File:
 - `common/government_reforms/verne_overhaul_reforms.txt`
 
 Observed state:
-- current file contains a **v0.2 tier-1 triplet prototype**
-- reform names are close in spirit to canonical design, but numeric packages are simplified and do not match the reform bible
-- only a minimal slice is present
+- the reform ladder has been expanded from a Tier 1 prototype into a full Tier 1-8 Verne-exclusive ladder
+- this now covers:
+  - foundations of the Vernman state
+  - sea-state formation
+  - red-court transformation
+  - court magnificence / overseas doctrine
+  - wyvern military state
+  - maritime hegemony
+  - faith empire / world court
+  - final synthesis
 
 Assessment:
-- useful as a scaffold
-- not yet aligned with canonical reform packages in `docs/design/reform-bible.md`
-
-Best next action:
-- reconcile Tier 1 first
-- then expand to Tier 2/3 with canonical packages
+- the reform file is now one of the clearest examples of major systemic overhaul progress
+- likely next work is balance and mission/reward integration, not missing content
 
 ---
 
-### 3. Scripted triggers
+### 5. Scripted triggers
 
-**Repo status:** useful partial implementation
+**Repo status:** useful and materially expanded
 
 File:
 - `common/scripted_triggers/verne_overhaul_triggers.txt`
 
 Observed state:
-- includes some good reusable mission and state triggers
-- includes real dynasty safeguard triggers
-- naming does not fully match the newer implementation scaffolding plan
-- only a subset of the planned trigger catalog exists
+- continues to contain dynasty safeguard triggers
+- now also contains more reusable first-wave and path-state checks
+- supports the new early-state and helper-flag model much better than before
 
 Assessment:
-- this is a good foundation
-- should be extended rather than discarded
-
-Best next action:
-- preserve working triggers
-- add missing canonical helper triggers using the design naming plan where practical
-- avoid duplicate near-synonyms unless migration requires them
+- still a support layer rather than a marquee feature, but no longer notably underbuilt relative to the first-wave mission work
 
 ---
 
-### 4. Scripted effects
+### 6. Scripted effects
 
-**Repo status:** very partial
+**Repo status:** meaningfully expanded
 
 File:
 - `common/scripted_effects/verne_overhaul_effects.txt`
 
 Observed state:
-- currently contains only a small number of helper effects
-- includes a useful helper for enabling the adventure network
-- includes the Regatta spire swap helper
-- does not yet reflect the broader helper-effect catalog in `implementation-scaffolding.md`
+- now includes reusable first-wave seed and activation effects for:
+  - Silver Oaths path
+  - Khenak path
+  - Dragonwake path
+  - dynasty protection
+  - marriage-court support
+  - adventure network state
+- still contains shared special-case helpers like the Regatta spire swap
 
 Assessment:
-- valuable pattern established
-- still far below intended helper-layer coverage
-
-Best next action:
-- expand helper effects around first-wave mission rewards and path flags
+- this is now a real helper layer, not just a stub file
+- more effects may still be useful later, but it is no longer obviously skeletal
 
 ---
 
-### 5. Dynasty safeguard
+### 7. Dynasty safeguard
 
-**Repo status:** implemented and meaningful
+**Repo status:** implemented and integrated better than before
 
 Files:
 - `decisions/verne_overhaul_decisions.txt`
@@ -134,107 +183,108 @@ Files:
 - `common/on_actions/verne_overhaul_on_actions.txt`
 
 Observed state:
-- this is the strongest current implementation slice
-- there is a real `on_new_heir` hook
-- a real safeguard event exists
-- it uses `define_heir` and replaces placeholder/invalid heirs
-- this aligns well with the design docs and scaffolding intent
+- the original safeguard system remains intact
+- decision-side integration has improved by connecting it to helper-state activation
+- the dynasty/court layer now feels more like part of the wider overhaul state machine
 
 Assessment:
-- this is a legitimate implemented system, not just scaffolding
-- should be preserved and iterated carefully
-
-Best next action:
-- audit localisation/tooltips around it
-- optionally extend toward the fuller dynastic-state progression later
+- this remains one of the strongest functional slices in the repo
 
 ---
 
-### 6. Mission tree
+### 8. Mission tree
 
-**Repo status:** heavily implemented, mixed canonical alignment
+**Repo status:** heavily implemented and substantially more aligned to canonical systems
 
 File:
 - `missions/Verne_Missions.txt`
 
 Observed state:
-- mission tree is already large and deeply customized
-- several missions now call shared scripted triggers/effects
-- some missions have helpful commentary and grounded reuse notes
-- the current mission file clearly predates or only partially matches the newer route-family / projection-score design language
-- some first-wave design themes already overlap with implementation (`Across the Pond`, `In Search of Adventure`, `Lament's Regatta`, etc.)
+- the mission tree remains the highest-risk file in the project
+- however, a large number of missions have now been patched to interact with the canonical score/state model instead of staying entirely legacy-reward driven
+- integrated missions now include broad portions of:
+  - early first-wave missions
+  - overseas opening and expansion missions
+  - imperial / kingdom / Corinite mid-tree missions
+  - late hegemonic nodes
+
+Notable integrated mission families now include:
+- `Old Friends, Old Rivals`
+- `Alvar's Reform`
+- `The Grand Port of Heartspier`
+- `The Riches of the Khenak`
+- `The Vernissage`
+- `Expand the Vernissage`
+- `Across the Pond`
+- `In Search of Adventure`
+- `The Lands of Adventure`
+- `Lament's Regatta`
+- `New Verne`
+- `Binding the Beast`
+- `Expand the Wyvern Nests`
+- `Kingdom of Verne`
+- `A Union of Crowns`
+- `Corin's Devout Protectors`
+- `Holy Corinite Empire`
+- `Born of Valour`
+- `With Sword and Shield`
+- `The Verne Halann`
+- `All Roads Lead to Verne`
+- `Type 2 Wyverns`
+- `A Crimson Sea`
 
 Assessment:
-- this is the most important file to **preserve and reconcile**, not casually rewrite from scratch
-- current implementation contains a lot of real work and should be treated as the operational baseline
-
-Best next action:
-- audit the first-wave mission set against `docs/design/mission-rewrite-spec.md`
-- identify which missions are:
-  - already close to canonical,
-  - partially aligned,
-  - still conceptually outdated
+- the mission tree is still not fully rewritten to the canonical design
+- but it is no longer accurate to describe it as only lightly aligned
+- future work should focus on structured audit/closure, not broad blind rewrites
 
 ---
 
-## Key Mismatch
+## Key Reality Shift
 
-The single biggest project reality is:
+The single biggest project reality is now:
 
-> The repo already contains a partial Verne overhaul implementation, but the design docs now describe a more structured and more canonical target state.
+> Verne's overhaul backbone exists across multiple systems, and the main challenge is no longer "create the systems" but "finish coverage, refine integration, and preserve coherence while scaling outward."
 
-That means future work needs to answer this question every time:
+That means future work should increasingly ask:
 
-**Are we preserving and refining an existing implementation, or replacing a prototype that no longer matches the design?**
-
-Right now, the answer differs by subsystem:
-- dynasty safeguard: preserve and extend
-- triggers/effects: preserve and expand
-- reforms: prototype, reconcile
-- doctrine groups: prototype, likely replace/expand
-- missions: preserve and reconcile carefully
+**Which large remaining gaps matter most to gameplay visibility, and which are now only polish/balance problems?**
 
 ---
 
 ## Best Next Coding Slice
 
-The most practical next implementation slice is:
+The most practical next implementation slice is now:
 
-### Mission/reform/doctrine reconciliation for the earliest Verne state
+### Mission audit / completion pass against the canonical rewrite spec
 
 Specifically:
-1. reconcile **Tier 1 reforms** to canonical values,
-2. create/repair the **early precursor flag layer**,
-3. audit the earliest mission cluster against canonical design:
-   - `Old Friends, Old Rivals`
-   - `Alvar's Reform`
-   - `The Grand Port of Heartspier`
-   - `Across the Pond`
-   - `In Search of Adventure`
-4. defer full doctrine-system replacement until the early mission/reform state is nailed down.
+1. map the currently touched mission set against `docs/design/mission-rewrite-spec.md`
+2. mark each mission as:
+   - canonically aligned enough
+   - partially aligned
+   - still legacy-heavy
+3. close the biggest remaining gaps in grouped batches
+4. only after that, consider deeper polish passes on balance, doctrine completeness, or late-game event layering
 
 Why this slice first:
-- it matches the implementation dependency order in the design docs,
-- it affects early gameplay identity immediately,
-- it avoids trying to rewrite the entire mission tree or all 21 doctrine groups in one pass.
+- the systems backbone is now strong enough to support more of the tree
+- more gameplay-visible value now comes from mission integration than from endlessly adding backend systems
+- it provides the clearest reviewable bridge between design docs and actual player experience
 
 ---
 
 ## Recommended Work Order
 
 ### Near-term
-1. audit + patch Tier 1 reforms
-2. add precursor path flags/effects
-3. patch early missions to consume precursor flags instead of brittle late-doctrine assumptions
+1. mission rewrite-spec audit and closure pass
+2. doctrine/policy completeness review (identify what canonical pairs or doctrine families still remain)
+3. balance sanity pass for NI / reforms / doctrines / policies
 
 ### After that
-4. build proper first-wave doctrine groups
-5. add first-wave policies
-6. extend helper effects so missions stop carrying huge custom reward logic inline
-
-### Later
-7. continue mission reconciliation deeper into the tree
-8. refine order companies / disasters / advisor layers
+4. deeper late-tree mission integration
+5. dynastic-state and Red Court event-layer enrichment
+6. optional cleanup / deduplication passes where old legacy rewards and new score-model rewards overlap too messily
 
 ---
 
@@ -242,6 +292,6 @@ Why this slice first:
 
 For Verne in this repo, prefer:
 
-- **preserve and patch** when a working implementation already exists,
-- **replace only the clearly prototype layers**,
-- and always treat `missions/Verne_Missions.txt` as a high-risk file that needs targeted, grounded edits rather than broad rewrites.
+- **preserve and deepen** when an overhaul system is already substantially implemented,
+- **batch integration work into coherent reviewable chunks** rather than scattered one-offs,
+- and treat `missions/Verne_Missions.txt` as the main remaining high-value integration surface, with systems files now largely serving as support infrastructure rather than the primary bottleneck.
