@@ -127,6 +127,15 @@ l_english:
  verne_knights_of_the_crimson_scale_reform:0 "Knights of the Crimson Scale"
  verne_knights_of_the_crimson_scale_reform_desc:0 "Corinite militancy and knightly tradition are reorganized into an order-minded state arm that joins piety, warlike prestige, and disciplined service."
 
+ verne_throne_of_the_wyvern_kings_reform:0 "Throne of the Wyvern-Kings"
+ verne_throne_of_the_wyvern_kings_reform_desc:0 "Verne's final dynastic synthesis crowns military excellence, naval confidence, and war-mage kingship in a single supreme throne-state."
+
+ verne_the_crimson_world_order_reform:0 "The Crimson World-Order"
+ verne_the_crimson_world_order_reform_desc:0 "Global commerce, imperial administration, and diplomatic reach are fused into a singular world-order centered on Verne's maritime empire."
+
+ verne_storm_crowned_hegemony_reform:0 "Storm-Crowned Hegemony"
+ verne_storm_crowned_hegemony_reform_desc:0 "This final hegemonic form exalts Verne as a storm-crowned military and oceanic power, joining land supremacy with fleet-borne dominion."
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."

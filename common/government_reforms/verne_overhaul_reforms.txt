@@ -1,7 +1,5 @@
 # Verne overhaul reform ladder
-# Current implemented slice: Tier 1-7 (foundations, sea-state formation, red-court transformation,
-# court magnificence + overseas doctrine, wyvern military state, maritime hegemony,
-# faith empire + world court)
+# Current implemented slice: Tier 1-8 (full canonical ladder)
 # Reconciled toward the canonical reform bible while keeping the rollout structured.
 
 # ===============================================
@@ -334,6 +332,54 @@ verne_knights_of_the_crimson_scale_reform = {
 		army_tradition = 0.50
 		prestige_from_land = 0.10
 		global_missionary_strength = 0.01
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+# ===============================================
+# Tier 8 - Final Synthesis
+# ===============================================
+
+verne_throne_of_the_wyvern_kings_reform = {
+	icon = "crown"
+	valid_for_nation_designer = no
+	modifiers = {
+		all_power_cost = -0.05
+		morale_of_armies = 0.10
+		morale_of_navies = 0.10
+		leader_land_shock = 1
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+verne_the_crimson_world_order_reform = {
+	icon = "trade"
+	valid_for_nation_designer = no
+	modifiers = {
+		merchants = 1
+		trade_efficiency = 0.15
+		governing_capacity_modifier = 0.15
+		diplomatic_relations = 1
+		province_warscore_cost = -0.10
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+verne_storm_crowned_hegemony_reform = {
+	icon = "naval_supplies"
+	valid_for_nation_designer = no
+	modifiers = {
+		morale_of_armies = 0.10
+		naval_forcelimit_modifier = 0.15
+		leader_land_fire = 1
+		morale_of_navies = 0.10
+		prestige = 1
 	}
 	ai = {
 		factor = 1
