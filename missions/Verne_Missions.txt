@@ -1154,6 +1154,9 @@ A33_second_slot = {
 		}
 
 		effect = {
+			# Commentary: this is the cleanest early industrial-state anchor for the Khenak branch helper state.
+			verne_overhaul_seed_khenak_foundry_path = yes
+			custom_tooltip = verne_overhaul_tt_seed_khenak_foundry
 			add_treasury = -200
 			add_country_modifier = {
 				name = "verne_redbrass_surpluss"
@@ -2181,6 +2184,9 @@ A33_third_slot = {
 		}
 
 		effect = {
+			# Commentary: this diplomatic state-building mission now reinforces the early reform/court foundation for the overhaul helper layer.
+			set_country_flag = verne_unlock_tier1_reforms
+			custom_tooltip = verne_overhaul_tt_seed_silver_oaths
 			damespearl_area = { add_permanent_claim = ROOT }
 			365 = { add_claim = ROOT }
 			if = {
