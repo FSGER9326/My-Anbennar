@@ -2975,6 +2975,15 @@ A33_third_slot = {
 		}
 
 		effect = {
+			# Commentary: Born of Valour is a late overseas-identity consolidation node and should deepen both mature network and projection state.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
 			set_estate_privilege = estate_adventurers_alvari_accord
 			remove_estate_privilege = estate_adventurers_seas_of_valour
 			if = {
@@ -3138,6 +3147,15 @@ A33_third_slot = {
 		}
 
 		effect = {
+			# Commentary: Verne of Halann marks world-projecting maturity and should visibly advance the late score model.
+			change_variable = {
+				which = verne_world_network
+				value = 2
+			}
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
 			country_event = { id = verne.133 }
 			custom_tooltip = verne_C14_effect_tt
 		} 
@@ -3923,6 +3941,11 @@ A33_fourth_slot = {
 		}
 
 		effect = {
+			# Commentary: Sword and Shield is an obvious late faith-war milestone and should deepen world-network maturity.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
 			add_country_modifier = {
 				name = "verne_apostles_of_corin"
 				duration = -1
