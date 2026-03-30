@@ -15,6 +15,38 @@ verne_overhaul_has_adventure_network_started = {
 	}
 }
 
+verne_overhaul_has_first_wave_reform_foundation = {
+	OR = {
+		has_reform = verne_court_of_silver_oaths_reform
+		has_reform = verne_charter_of_great_captains_reform
+		has_reform = verne_ducal_muster_of_armoc_reform
+		has_country_flag = verne_unlock_tier1_reforms
+	}
+}
+
+verne_overhaul_has_silver_oaths_path_seeded = {
+	has_country_flag = verne_seed_silver_oaths
+}
+
+verne_overhaul_has_khenak_foundry_seeded = {
+	has_country_flag = verne_seed_khenak_foundry
+}
+
+verne_overhaul_has_dragonwake_path_seeded = {
+	has_country_flag = verne_seed_dragonwake
+}
+
+verne_overhaul_dynasty_machine_started = {
+	OR = {
+		has_country_flag = verne_dynasty_protected
+		has_country_flag = verne_marriage_court_active
+		check_variable = {
+			which = verne_dynastic_magic_machine
+			value = 1
+		}
+	}
+}
+
 verne_overhaul_laments_regatta_anchor_state_ready = {
 	5763 = {
 		has_province_modifier = verne_port_of_adventure
@@ -30,7 +62,6 @@ verne_overhaul_laments_regatta_anchor_state_ready = {
 		}
 	}
 }
-
 
 verne_overhaul_akasik_access_ready = {
 	akasik_region = {

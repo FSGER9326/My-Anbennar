@@ -1,22 +1,105 @@
 # ===============================================
-# Verne overhaul doctrine policy scaffold
-# Status: scaffolded only (no-op/safe placeholder)
+# Verne overhaul doctrine policies
+# Status: first-wave live policy layer (no longer scaffold-only)
+# Scope: compact policy package for the currently implemented Silver Wake doctrine slice
 # ===============================================
 
-verne_placeholder_doctrine_policy = {
-	monarch_power = ADM
+verne_silver_wake_oath_harbormasters_act = {
+	monarch_power = DIP
 
 	potential = {
-		always = no
+		has_idea_group = verne_doctrine_silver_wake
+		has_reform = verne_court_of_silver_oaths_reform
 	}
 
 	allow = {
-		always = no
+		full_idea_group = verne_doctrine_silver_wake
+		has_reform = verne_court_of_silver_oaths_reform
 	}
+
+	diplomatic_reputation = 1
+	reform_progress_growth = 0.05
 
 	effect = {}
 	removed_effect = {}
 	ai_will_do = {
-		factor = 0
+		factor = 1
+	}
+}
+
+verne_silver_wake_captains_charter_act = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_doctrine_silver_wake
+		has_reform = verne_charter_of_great_captains_reform
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_silver_wake
+		has_reform = verne_charter_of_great_captains_reform
+	}
+
+	trade_efficiency = 0.05
+	naval_tradition = 0.25
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+verne_silver_wake_ducal_convoy_ordinance_act = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = verne_doctrine_silver_wake
+		has_reform = verne_ducal_muster_of_armoc_reform
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_silver_wake
+		has_reform = verne_ducal_muster_of_armoc_reform
+	}
+
+	manpower_recovery_speed = 0.05
+	defensiveness = 0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+verne_silver_wake_quayside_discipline_act = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = verne_doctrine_silver_wake
+		OR = {
+			has_reform = verne_court_of_silver_oaths_reform
+			has_reform = verne_charter_of_great_captains_reform
+			has_reform = verne_ducal_muster_of_armoc_reform
+		}
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_silver_wake
+		OR = {
+			has_reform = verne_court_of_silver_oaths_reform
+			has_reform = verne_charter_of_great_captains_reform
+			has_reform = verne_ducal_muster_of_armoc_reform
+		}
+	}
+
+	global_unrest = -1
+	sailor_maintenance_modifer = -0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
 	}
 }

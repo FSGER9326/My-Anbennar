@@ -1,9 +1,59 @@
 # ===============================================
-# Verne overhaul dynasty decisions
-# Status: implemented dynasty control surface (no longer scaffold-only)
+# Verne overhaul decisions
+# Status: implemented dynasty + first-wave state control surface
 # ===============================================
 
 country_decisions = {
+	verne_overhaul_formalize_silver_oaths = {
+		major = yes
+
+		potential = {
+			tag = A33
+			NOT = { has_country_flag = verne_seed_silver_oaths }
+		}
+
+		allow = {
+			has_reform = verne_court_of_silver_oaths_reform
+			stability = 1
+			legitimacy = 60
+		}
+
+		effect = {
+			verne_overhaul_seed_silver_oaths_path = yes
+			add_prestige = 5
+			custom_tooltip = verne_overhaul_tt_seed_silver_oaths
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	verne_overhaul_open_marriage_court = {
+		major = yes
+
+		potential = {
+			tag = A33
+			NOT = { has_country_flag = verne_marriage_court_active }
+		}
+
+		allow = {
+			verne_overhaul_has_first_wave_reform_foundation = yes
+			NOT = { verne_overhaul_invalid_heir_state_trigger = yes }
+			legitimacy = 70
+		}
+
+		effect = {
+			verne_overhaul_activate_marriage_court = yes
+			add_prestige = 10
+			custom_tooltip = verne_overhaul_tt_activate_marriage_court
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	verne_overhaul_enforce_dynastic_safeguard = {
 		major = yes
 
@@ -17,6 +67,7 @@ country_decisions = {
 
 		effect = {
 			country_event = { id = verne_overhaul_dynasty.1 }
+			verne_overhaul_activate_dynasty_protection = yes
 			custom_tooltip = verne_overhaul_enforce_dynastic_safeguard_tt
 		}
 

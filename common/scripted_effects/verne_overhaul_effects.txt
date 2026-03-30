@@ -10,6 +10,47 @@ verne_overhaul_enable_adventure_network_tier_1 = {
 	}
 }
 
+verne_overhaul_seed_silver_oaths_path = {
+	set_country_flag = verne_seed_silver_oaths
+	set_country_flag = verne_unlock_tier1_reforms
+	set_variable = {
+		which = verne_world_network
+		value = 1
+	}
+}
+
+verne_overhaul_seed_khenak_foundry_path = {
+	set_country_flag = verne_seed_khenak_foundry
+	change_variable = {
+		which = verne_world_network
+		value = 1
+	}
+}
+
+verne_overhaul_seed_dragonwake_path = {
+	set_country_flag = verne_seed_dragonwake
+	change_variable = {
+		which = verne_dynastic_magic_machine
+		value = 1
+	}
+}
+
+verne_overhaul_activate_dynasty_protection = {
+	set_country_flag = verne_dynasty_protected
+	add_country_modifier = {
+		name = "verne_dynasty_protected_court"
+		duration = 3650
+	}
+}
+
+verne_overhaul_activate_marriage_court = {
+	set_country_flag = verne_marriage_court_active
+	add_country_modifier = {
+		name = "verne_marriage_court_protocol"
+		duration = 3650
+	}
+}
+
 verne_overhaul_apply_regatta_spire_swap = {
 	# Performs the exact New Hookfield -> Stingport monument transfer used by the Regatta chain.
 	5763 = {

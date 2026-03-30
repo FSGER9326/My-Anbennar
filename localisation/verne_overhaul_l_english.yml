@@ -44,6 +44,18 @@ l_english:
  verne_overhaul_tt_in_search_akasik_or_projection:0 "Either clear §YAkasik§! of Gnollish rule, project influence there via a §Ysubject/ally§!, or prove sustained reach through your §Yadventure network/monuments§!."
  verne_overhaul_tt_in_search_expedition_capacity:0 "Field expedition capability through classic §YColonizer+Explorer§! staffing, §Ysubject/ally projection§!, or an established §Ynetwork/monument§! route."
 
+ verne_overhaul_tt_seed_silver_oaths:0 "Seeds the §YSilver Oaths§! path and establishes Verne's first reform foundation."
+ verne_overhaul_tt_seed_khenak_foundry:0 "Seeds the §YKhenak Foundry§! industrial path for later Verne overhaul content."
+ verne_overhaul_tt_seed_dragonwake:0 "Seeds the §YDragonwake§! martial-dynastic path for later Verne overhaul content."
+ verne_overhaul_tt_activate_dynasty_protection:0 "Activates the first durable §Ydynasty protection§! state for the Verne overhaul."
+ verne_overhaul_tt_activate_marriage_court:0 "Activates the §YMarriage Court§! support state for later dynastic progression."
+
+ verne_overhaul_formalize_silver_oaths:0 "Formalize the Silver Oaths"
+ verne_overhaul_formalize_silver_oaths_desc:0 "By formally codifying the Silver Oaths, Verne anchors its first reform foundation in dynastic legitimacy, court discipline, and practical statecraft."
+
+ verne_overhaul_open_marriage_court:0 "Open the Marriage Court"
+ verne_overhaul_open_marriage_court_desc:0 "With the first reform foundation secured, the ducal court can now turn toward managed marriages, line continuity, and a more deliberate dynastic machine."
+
  # --- v0.1 doctrine + reform prototypes ---
  verne_proto_doctrine_ideas:0 "Verne Prototype Doctrine"
  verne_proto_doctrine_ideas_desc:0 "A cautious first doctrine draft used to validate overhaul wiring before wider doctrine rollout."
@@ -52,13 +64,13 @@ l_english:
  verne_proto_doctrine_charter_desc:0 "Court-backed chartering practices give Verne a stable baseline for early doctrine experimentation."
 
  verne_court_of_silver_oaths_reform:0 "Court of Silver Oaths"
- verne_court_of_silver_oaths_reform_desc:0 "A disciplined oath-court tightens administrative trust and keeps corruption low without overextending state capacity."
+ verne_court_of_silver_oaths_reform_desc:0 "A disciplined oath-court binds dynastic legitimacy, diplomatic trust, and orderly administration into Verne's first true state foundation."
 
  verne_charter_of_great_captains_reform:0 "Charter of Great Captains"
- verne_charter_of_great_captains_reform_desc:0 "The ducal charter gives proven captains formal authority, improving maritime professionalism and practical commercial reach."
+ verne_charter_of_great_captains_reform_desc:0 "The ducal charter raises proven captains into a formal state estate, blending expeditionary prestige, frontier initiative, and practical command."
 
  verne_ducal_muster_of_armoc_reform:0 "Ducal Muster of Armoc"
- verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's musters standardize levies and fort-readiness, providing reliable military depth for a cautious expansion phase."
+ verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's muster tradition turns noble military identity into a disciplined ducal war machine built around recovery, prestige, and mounted force."
 
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
@@ -90,3 +102,16 @@ l_english:
 
  verne_doctrine_silver_wake_quayside_arbitration:0 "Quayside Arbitration"
  verne_doctrine_silver_wake_quayside_arbitration_desc:0 "Fast harbor arbitration settles merchant conflicts before they spill into wider unrest at home."
+
+ # --- v0.3 first-wave verne doctrine policies ---
+ verne_silver_wake_oath_harbormasters_act:0 "Act of the Oathbound Harbormasters"
+ verne_silver_wake_oath_harbormasters_act_desc:0 "Silver Wake discipline paired with the Court of Silver Oaths creates a harbor administration that is both trusted abroad and orderly at home."
+
+ verne_silver_wake_captains_charter_act:0 "Captains' Charter Act"
+ verne_silver_wake_captains_charter_act_desc:0 "Where the Silver Wake and the Charter of Great Captains meet, Verne rewards practical convoy leadership, disciplined commerce, and steady seamanship."
+
+ verne_silver_wake_ducal_convoy_ordinance_act:0 "Ducal Convoy Ordinance"
+ verne_silver_wake_ducal_convoy_ordinance_act_desc:0 "Armoc's muster traditions are applied to convoy security, producing a fleet-backed state that recovers manpower reliably and hardens its key strongpoints."
+
+ verne_silver_wake_quayside_discipline_act:0 "Quayside Discipline Act"
+ verne_silver_wake_quayside_discipline_act_desc:0 "This general Silver Wake statute extends dockside discipline across the realm, reducing unrest and keeping sailor administration from slipping into wasteful disorder."
