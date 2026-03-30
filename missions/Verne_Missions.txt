@@ -3091,6 +3091,11 @@ A33_third_slot = {
 		}
 
 		effect = {
+			# Commentary: this is one of the clearest mature hegemonic nodes and should significantly deepen the world-network state.
+			change_variable = {
+				which = verne_world_network
+				value = 2
+			}
 			add_country_modifier = {
 				name = "verne_grand_fleet_tier2"
 				duration = -1
@@ -4068,7 +4073,14 @@ A33_fourth_slot = {
 			}
 		}
 
-		effect = { country_event = { id = verne.120 } } 
+		effect = {
+			# Commentary: Type 2 Wyverns should clearly advance the dynastic-magic machine and late military-mage state.
+			change_variable = {
+				which = verne_dynastic_magic_machine
+				value = 2
+			}
+			country_event = { id = verne.120 }
+		} 
 	}
 }
 A33_fifth_sloth = {
@@ -4911,6 +4923,15 @@ A33_fifth_sloth = {
 		}
 
 		effect = {
+			# Commentary: Crimson Sea is a late overseas-faith dominance mission and should materially advance both global scores.
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
 			custom_tooltip = verne_E9_effect_tt5
 			set_country_flag = verne_aur_kes_akasik_enabled
 			if = {
