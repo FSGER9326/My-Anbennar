@@ -195,6 +195,10 @@ A33_first_slot = {
 			# Commentary: Grand Port of Heartspier is the first real sea-state mission and now seeds the estuary-finance path.
 			set_country_flag = verne_seed_estuary_companies
 			custom_tooltip = verne_overhaul_tt_seed_estuary_companies
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
 			add_country_modifier = {
 				name = "verne_new_armada"
 				duration = 9125
@@ -1296,6 +1300,10 @@ A33_second_slot = {
 		}
 
 		effect = {
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
 			add_mil_power = -100
 			if = {
 				limit = {
@@ -1567,6 +1575,14 @@ A33_second_slot = {
 		}
 
 		effect = {
+			change_variable = {
+				which = verne_overseas_projection
+				value = 2
+			}
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
 			add_treasury = -200
 			add_manpower = -5
 			add_sailors = -5000
@@ -4375,6 +4391,10 @@ A33_fifth_sloth = {
 			# Commentary: this is the wyvern-state founding mission in the overhaul flow.
 			verne_overhaul_seed_dragonwake_path = yes
 			custom_tooltip = verne_overhaul_tt_seed_dragonwake
+			change_variable = {
+				which = verne_dynastic_magic_machine
+				value = 1
+			}
 			country_event = { id = verne.103 } 
 			enable_mythical_cavalry = { mount = wyvern } 
 			if = {
