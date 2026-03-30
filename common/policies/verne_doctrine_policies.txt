@@ -192,3 +192,85 @@ verne_capitular_articles_of_the_wake = {
 	removed_effect = {}
 	ai_will_do = { factor = 1 }
 }
+
+verne_storm_crowned_doctrine = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = verne_doctrine_dragonwake
+		has_idea_group = verne_doctrine_battle_evocation
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_dragonwake
+		full_idea_group = verne_doctrine_battle_evocation
+	}
+
+	leader_land_shock = 1
+	possible_war_wizard = 1
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_sea_nest_command_statutes = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = verne_doctrine_crimson_wake_order
+		has_idea_group = verne_doctrine_sea_lance
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_crimson_wake_order
+		full_idea_group = verne_doctrine_sea_lance
+	}
+
+	movement_speed_in_fleet_modifier = 0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_protocols_of_controlled_devastation = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = verne_doctrine_battle_evocation
+		has_idea_group = verne_doctrine_red_court
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_battle_evocation
+		full_idea_group = verne_doctrine_red_court
+	}
+
+	artillery_fire = 0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_foundry_war_ordinances = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = verne_doctrine_red_brass
+		has_idea_group = verne_doctrine_khenak_foundry
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_red_brass
+		full_idea_group = verne_doctrine_khenak_foundry
+	}
+
+	artillery_cost = -0.10
+	defensiveness = 0.10
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
