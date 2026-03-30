@@ -1,532 +1,246 @@
 # Verne overhaul doctrine groups
-# Current implemented slice: major first-wave and synergistic expansion groups
+# Current implemented slice: broad canonical doctrine coverage across court, maritime, overseas, magical, industrial, and faith-imperial lanes.
 # Keep doctrine families coherent and aligned to the reform/mission ladder already live in-repo.
 
 verne_doctrine_silver_wake = {
 	category = ADM
-
-	start = {
-		global_sailors_modifier = 0.10
-	}
-
-	bonus = {
-		trade_efficiency = 0.10
-	}
-
-	verne_doctrine_silver_wake_harbor_ledgers = {
-		global_tax_modifier = 0.05
-	}
-
-	verne_doctrine_silver_wake_tide_charts = {
-		naval_tradition = 0.5
-	}
-
-	verne_doctrine_silver_wake_marine_rotations = {
-		sailor_maintenance_modifer = -0.10
-	}
-
-	verne_doctrine_silver_wake_convoy_discipline = {
-		light_ship_cost = -0.10
-	}
-
-	verne_doctrine_silver_wake_prize_law = {
-		captured_ships_gained = 0.10
-	}
-
-	verne_doctrine_silver_wake_captains_compact = {
-		diplomatic_reputation = 1
-	}
-
-	verne_doctrine_silver_wake_quayside_arbitration = {
-		global_unrest = -1
-	}
+	start = { global_sailors_modifier = 0.10 }
+	bonus = { trade_efficiency = 0.10 }
+	verne_doctrine_silver_wake_harbor_ledgers = { global_tax_modifier = 0.05 }
+	verne_doctrine_silver_wake_tide_charts = { naval_tradition = 0.5 }
+	verne_doctrine_silver_wake_marine_rotations = { sailor_maintenance_modifer = -0.10 }
+	verne_doctrine_silver_wake_convoy_discipline = { light_ship_cost = -0.10 }
+	verne_doctrine_silver_wake_prize_law = { captured_ships_gained = 0.10 }
+	verne_doctrine_silver_wake_captains_compact = { diplomatic_reputation = 1 }
+	verne_doctrine_silver_wake_quayside_arbitration = { global_unrest = -1 }
 }
 
 verne_doctrine_red_court = {
 	category = ADM
-
-	start = {
-		mages_loyalty_modifier = 0.05
-	}
-
-	bonus = {
-		mages_loyalty_modifier = 0.05
-	}
-
-	verne_doctrine_red_court_scarlet_curriculum = {
-		advisor_pool = 1
-	}
-
-	verne_doctrine_red_court_magisteries = {
-		monthly_adm_power = 1
-	}
-
-	verne_doctrine_red_court_record_offices = {
-		reform_progress_growth = 0.10
-	}
-
-	verne_doctrine_red_court_secretariat = {
-		possible_policy = 1
-	}
-
-	verne_doctrine_red_court_wards = {
-		advisor_cost = -0.05
-	}
-
-	verne_doctrine_red_court_bloodline_examinations = {
-		advisor_pool = 1
-	}
+	start = { mages_loyalty_modifier = 0.05 }
+	bonus = { mages_loyalty_modifier = 0.05 }
+	verne_doctrine_red_court_scarlet_curriculum = { advisor_pool = 1 }
+	verne_doctrine_red_court_magisteries = { monthly_adm_power = 1 }
+	verne_doctrine_red_court_record_offices = { reform_progress_growth = 0.10 }
+	verne_doctrine_red_court_secretariat = { possible_policy = 1 }
+	verne_doctrine_red_court_wards = { advisor_cost = -0.05 }
+	verne_doctrine_red_court_bloodline_examinations = { advisor_pool = 1 }
 }
 
 verne_doctrine_estuary_companies = {
 	category = ADM
-
-	start = {
-		build_cost = -0.05
-	}
-
-	bonus = {
-		build_cost = -0.05
-		goods_produced_modifier = 0.05
-		light_ship_power = 0.10
-	}
-
-	verne_doctrine_estuary_companies_harbor_assessors = {
-		trade_efficiency = 0.05
-	}
-
-	verne_doctrine_estuary_companies_licensed_wharves = {
-		global_ship_trade_power = 0.10
-	}
-
-	verne_doctrine_estuary_companies_bonded_warehouses = {
-		goods_produced_modifier = 0.05
-	}
-
-	verne_doctrine_estuary_companies_river_sea_taxation = {
-		interest = -1
-	}
-
-	verne_doctrine_estuary_companies_captains_accounts = {
-		global_ship_cost = -0.05
-	}
-
-	verne_doctrine_estuary_companies_crowned_investors = {
-		development_cost = -0.05
-	}
+	start = { build_cost = -0.05 }
+	bonus = { build_cost = -0.05 goods_produced_modifier = 0.05 light_ship_power = 0.10 }
+	verne_doctrine_estuary_companies_harbor_assessors = { trade_efficiency = 0.05 }
+	verne_doctrine_estuary_companies_licensed_wharves = { global_ship_trade_power = 0.10 }
+	verne_doctrine_estuary_companies_bonded_warehouses = { goods_produced_modifier = 0.05 }
+	verne_doctrine_estuary_companies_river_sea_taxation = { interest = -1 }
+	verne_doctrine_estuary_companies_captains_accounts = { global_ship_cost = -0.05 }
+	verne_doctrine_estuary_companies_crowned_investors = { development_cost = -0.05 }
 }
 
 verne_doctrine_khenak_foundry = {
 	category = ADM
+	start = { build_cost = -0.05 }
+	bonus = { production_efficiency = 0.05 defensiveness = 0.05 }
+	verne_doctrine_khenak_foundry_apprenticeships = { production_efficiency = 0.05 }
+	verne_doctrine_khenak_foundry_powder_magazines = { defensiveness = 0.05 }
+	verne_doctrine_khenak_foundry_iron_roads = { development_cost = -0.05 }
+	verne_doctrine_khenak_foundry_state_artillery_parks = { artillery_cost = -0.10 }
+	verne_doctrine_khenak_foundry_master_gunfounders = { artillery_fire = 0.05 }
+	verne_doctrine_khenak_foundry_furnaces = { manpower_modifier = 0.10 }
+}
 
-	start = {
-		build_cost = -0.05
-	}
+verne_doctrine_corinite_stewardship = {
+	category = ADM
+	start = { missionaries = 1 }
+	bonus = { yearly_legitimacy = 0.50 global_missionary_strength = 0.01 }
+	verne_doctrine_corinite_stewardship_offices_of_instruction = { global_missionary_strength = 0.01 }
+	verne_doctrine_corinite_stewardship_record_keepers = { stability_cost_modifier = -0.10 }
+	verne_doctrine_corinite_stewardship_tithes_of_the_crown = { yearly_legitimacy = 0.50 }
+	verne_doctrine_corinite_stewardship_concord_of_oaths = { tolerance_own = 1 }
+	verne_doctrine_corinite_stewardship_pilgrim_administration = { diplomatic_reputation = 1 }
+	verne_doctrine_corinite_stewardship_emperors_example = { clergy_loyalty_modifier = 0.10 }
+}
 
-	bonus = {
-		production_efficiency = 0.05
-		defensiveness = 0.05
-	}
-
-	verne_doctrine_khenak_foundry_apprenticeships = {
-		production_efficiency = 0.05
-	}
-
-	verne_doctrine_khenak_foundry_powder_magazines = {
-		defensiveness = 0.05
-	}
-
-	verne_doctrine_khenak_foundry_iron_roads = {
-		development_cost = -0.05
-	}
-
-	verne_doctrine_khenak_foundry_state_artillery_parks = {
-		artillery_cost = -0.10
-	}
-
-	verne_doctrine_khenak_foundry_master_gunfounders = {
-		artillery_fire = 0.05
-	}
-
-	verne_doctrine_khenak_foundry_furnaces = {
-		manpower_modifier = 0.10
-	}
+verne_doctrine_imperial_chancery = {
+	category = ADM
+	start = { governing_capacity_modifier = 0.10 }
+	bonus = { governing_capacity_modifier = 0.05 }
+	verne_doctrine_imperial_chancery_crownland_surveyors = { state_maintenance_modifier = -0.10 }
+	verne_doctrine_imperial_chancery_imperial_proctors = { global_unrest = -1 }
+	verne_doctrine_imperial_chancery_measured_autonomies = { autonomy_change_time = -0.10 }
+	verne_doctrine_imperial_chancery_unified_seals = { diplomatic_annexation_cost = -0.10 }
+	verne_doctrine_imperial_chancery_auditors = { reform_progress_growth = 0.10 }
+	verne_doctrine_imperial_chancery_absolutes = { administrative_efficiency = 0.05 }
 }
 
 verne_doctrine_vernissage = {
 	category = DIP
-
-	start = {
-		range = 0.15
-	}
-
-	bonus = {
-		colonists = 1
-		range = 0.10
-	}
-
-	verne_doctrine_vernissage_captains = {
-		global_colonial_growth = 10
-	}
-
-	verne_doctrine_vernissage_ports_of_adventure = {
-		envoy_travel_time = -0.10
-	}
-
-	verne_doctrine_vernissage_heartspier_scale = {
-		improve_relation_modifier = 0.10
-	}
-
-	verne_doctrine_vernissage_eastern_princes = {
-		trade_steering = 0.10
-	}
-
-	verne_doctrine_vernissage_expedition_ledgers = {
-		navy_tradition = 0.50
-	}
-
-	verne_doctrine_vernissage_regatta_laurels = {
-		global_sailors_modifier = 0.10
-	}
-
-	verne_doctrine_vernissage_worlds_on_display = {
-		merchants = 1
-	}
+	start = { range = 0.15 }
+	bonus = { colonists = 1 range = 0.10 }
+	verne_doctrine_vernissage_captains = { global_colonial_growth = 10 }
+	verne_doctrine_vernissage_ports_of_adventure = { envoy_travel_time = -0.10 }
+	verne_doctrine_vernissage_heartspier_scale = { improve_relation_modifier = 0.10 }
+	verne_doctrine_vernissage_eastern_princes = { trade_steering = 0.10 }
+	verne_doctrine_vernissage_expedition_ledgers = { navy_tradition = 0.50 }
+	verne_doctrine_vernissage_regatta_laurels = { global_sailors_modifier = 0.10 }
+	verne_doctrine_vernissage_worlds_on_display = { merchants = 1 }
 }
 
 verne_doctrine_imperial_sea_court = {
 	category = DIP
-
-	start = {
-		diplomatic_reputation = 1
-	}
-
-	bonus = {
-		morale_of_navies = 0.10
-		naval_tradition_from_trade = 0.25
-	}
-
-	verne_doctrine_imperial_sea_court_oath_harbours = {
-		diplomatic_relations = 1
-	}
-
-	verne_doctrine_imperial_sea_court_pearl_wreathed_audiences = {
-		improve_relation_modifier = 0.10
-	}
-
-	verne_doctrine_imperial_sea_court_admirals_of_ceremony = {
-		naval_tradition_from_trade = 0.25
-	}
-
-	verne_doctrine_imperial_sea_court_convoys_of_prestige = {
-		prestige = 0.50
-	}
-
-	verne_doctrine_imperial_sea_court_embassies_of_the_wake = {
-		envoy_travel_time = -0.10
-	}
-
-	verne_doctrine_imperial_sea_court_thrones_across_the_waves = {
-		global_ship_trade_power = 0.10
-		light_ship_power = 0.10
-	}
+	start = { diplomatic_reputation = 1 }
+	bonus = { morale_of_navies = 0.10 naval_tradition_from_trade = 0.25 }
+	verne_doctrine_imperial_sea_court_oath_harbours = { diplomatic_relations = 1 }
+	verne_doctrine_imperial_sea_court_pearl_wreathed_audiences = { improve_relation_modifier = 0.10 }
+	verne_doctrine_imperial_sea_court_admirals_of_ceremony = { naval_tradition_from_trade = 0.25 }
+	verne_doctrine_imperial_sea_court_convoys_of_prestige = { prestige = 0.50 }
+	verne_doctrine_imperial_sea_court_embassies_of_the_wake = { envoy_travel_time = -0.10 }
+	verne_doctrine_imperial_sea_court_thrones_across_the_waves = { global_ship_trade_power = 0.10 light_ship_power = 0.10 }
 }
 
 verne_doctrine_grand_regatta = {
 	category = DIP
-
-	start = {
-		global_sailors_modifier = 0.10
-	}
-
-	bonus = {
-		global_sailors_modifier = 0.10
-		movement_speed_in_fleet_modifier = 0.05
-	}
-
-	verne_doctrine_grand_regatta_racing_harbours = {
-		prestige = 0.50
-	}
-
-	verne_doctrine_grand_regatta_laurels_of_the_helm = {
-		movement_speed_in_fleet_modifier = 0.05
-	}
-
-	verne_doctrine_grand_regatta_master_tidemaps = {
-		sailors_recovery_speed = 0.10
-	}
-
-	verne_doctrine_grand_regatta_sailors_guilds = {
-		navy_tradition = 0.25
-	}
-
-	verne_doctrine_grand_regatta_longwake_navigation = {
-		morale_of_navies = 0.05
-	}
-
-	verne_doctrine_grand_regatta_regatta_drills = {
-		trade_efficiency = 0.10
-	}
-
-	verne_doctrine_grand_regatta_sea_lords_festivals = {
-		light_ship_power = 0.10
-	}
+	start = { global_sailors_modifier = 0.10 }
+	bonus = { global_sailors_modifier = 0.10 movement_speed_in_fleet_modifier = 0.05 }
+	verne_doctrine_grand_regatta_racing_harbours = { prestige = 0.50 }
+	verne_doctrine_grand_regatta_laurels_of_the_helm = { movement_speed_in_fleet_modifier = 0.05 }
+	verne_doctrine_grand_regatta_master_tidemaps = { sailors_recovery_speed = 0.10 }
+	verne_doctrine_grand_regatta_sailors_guilds = { navy_tradition = 0.25 }
+	verne_doctrine_grand_regatta_longwake_navigation = { morale_of_navies = 0.05 }
+	verne_doctrine_grand_regatta_regatta_drills = { trade_efficiency = 0.10 }
+	verne_doctrine_grand_regatta_sea_lords_festivals = { light_ship_power = 0.10 }
 }
 
 verne_doctrine_overseas_commandery = {
 	category = DIP
-
-	start = {
-		range = 0.10
-	}
-
-	bonus = {
-		range = 0.10
-		trade_range_modifier = 0.10
-	}
-
-	verne_doctrine_overseas_commandery_fortified_havens = {
-		hostile_fleet_attrition = 1
-	}
-
-	verne_doctrine_overseas_commandery_ducal_factors_abroad = {
-		trade_range_modifier = 0.10
-	}
-
-	verne_doctrine_overseas_commandery_charters = {
-		naval_forcelimit_modifier = 0.10
-	}
-
-	verne_doctrine_overseas_commandery_loyal_captains = {
-		liberty_desire_from_subject_development = -0.10
-	}
-
-	verne_doctrine_overseas_commandery_island_magazines = {
-		governing_capacity_modifier = 0.10
-	}
-
-	verne_doctrine_overseas_commandery_long_hand_of_verne = {
-		diplomatic_annexation_cost = -0.10
-	}
+	start = { range = 0.10 }
+	bonus = { range = 0.10 trade_range_modifier = 0.10 }
+	verne_doctrine_overseas_commandery_fortified_havens = { hostile_fleet_attrition = 1 }
+	verne_doctrine_overseas_commandery_ducal_factors_abroad = { trade_range_modifier = 0.10 }
+	verne_doctrine_overseas_commandery_charters = { naval_forcelimit_modifier = 0.10 }
+	verne_doctrine_overseas_commandery_loyal_captains = { liberty_desire_from_subject_development = -0.10 }
+	verne_doctrine_overseas_commandery_island_magazines = { governing_capacity_modifier = 0.10 }
+	verne_doctrine_overseas_commandery_long_hand_of_verne = { diplomatic_annexation_cost = -0.10 }
 }
 
 verne_doctrine_eastern_correspondence = {
 	category = DIP
+	start = { envoy_travel_time = -0.10 }
+	bonus = { improve_relation_modifier = 0.05 }
+	verne_doctrine_eastern_correspondence_translators_of_the_wake = { improve_relation_modifier = 0.10 }
+	verne_doctrine_eastern_correspondence_embassy_hosts = { prestige = 0.50 }
+	verne_doctrine_eastern_correspondence_pearl_road_agents = { trade_steering = 0.05 }
+	verne_doctrine_eastern_correspondence_courtly_interpreters = { diplomatic_reputation = 1 }
+	verne_doctrine_eastern_correspondence_overseas_correspondents = { merchants = 1 }
+	verne_doctrine_eastern_correspondence_princes_exchanges = { years_of_nationalism = -5 }
+}
 
-	start = {
-		envoy_travel_time = -0.10
-	}
+verne_doctrine_apostolic_sea_lanes = {
+	category = DIP
+	start = { missionaries = 1 }
+	bonus = { trade_efficiency = 0.05 morale_of_navies = 0.05 }
+	verne_doctrine_apostolic_sea_lanes_pilgrim_convoys = { morale_of_navies = 0.05 }
+	verne_doctrine_apostolic_sea_lanes_sacred_harbours = { trade_efficiency = 0.05 }
+	verne_doctrine_apostolic_sea_lanes_chartmakers = { naval_forcelimit_modifier = 0.10 }
+	verne_doctrine_apostolic_sea_lanes_bannered_convictions = { diplomatic_relations = 1 }
+	verne_doctrine_apostolic_sea_lanes_preachers = { global_missionary_strength = 0.01 }
+	verne_doctrine_apostolic_sea_lanes_wake_of_corin = { prestige = 0.50 }
+}
 
-	bonus = {
-		improve_relation_modifier = 0.05
-	}
-
-	verne_doctrine_eastern_correspondence_translators_of_the_wake = {
-		improve_relation_modifier = 0.10
-	}
-
-	verne_doctrine_eastern_correspondence_embassy_hosts = {
-		prestige = 0.50
-	}
-
-	verne_doctrine_eastern_correspondence_pearl_road_agents = {
-		trade_steering = 0.05
-	}
-
-	verne_doctrine_eastern_correspondence_courtly_interpreters = {
-		diplomatic_reputation = 1
-	}
-
-	verne_doctrine_eastern_correspondence_overseas_correspondents = {
-		merchants = 1
-	}
-
-	verne_doctrine_eastern_correspondence_princes_exchanges = {
-		years_of_nationalism = -5
-	}
+verne_doctrine_pearlescent_concord = {
+	category = DIP
+	start = { diplomatic_relations = 1 }
+	bonus = { improve_relation_modifier = 0.05 }
+	verne_doctrine_pearlescent_concord_crowned_mediators = { diplomatic_reputation = 1 }
+	verne_doctrine_pearlescent_concord_wedding_fleets = { prestige = 0.50 }
+	verne_doctrine_pearlescent_concord_trusted_envoys = { improve_relation_modifier = 0.10 }
+	verne_doctrine_pearlescent_concord_oath_bound_vassals = { liberty_desire_in_subjects = -10 }
+	verne_doctrine_pearlescent_concord_feasts_of_reconciliation = { envoy_travel_time = -0.10 }
+	verne_doctrine_pearlescent_concord_princes_word = { diplomatic_annexation_cost = -0.10 }
 }
 
 verne_doctrine_dragonwake = {
 	category = MIL
-
-	start = {
-		cav_to_inf_ratio = 0.10
-		cavalry_cost = -0.05
-	}
-
-	bonus = {
-		morale_of_armies = 0.10
-		cavalry_power = 0.05
-	}
-
-	verne_doctrine_dragonwake_sky_lance_discipline = {
-		cavalry_power = 0.10
-	}
-
-	verne_doctrine_dragonwake_muster = {
-		army_tradition = 0.25
-	}
-
-	verne_doctrine_dragonwake_aerial_reconnaissance = {
-		leader_land_manuever = 1
-	}
-
-	verne_doctrine_dragonwake_storm_crowned_nobility = {
-		yearly_army_professionalism = 0.005
-	}
-
-	verne_doctrine_dragonwake_red_wake_shock = {
-		leader_land_shock = 1
-	}
-
-	verne_doctrine_dragonwake_knights_of_the_crimson_wing = {
-		army_tradition = 0.25
-	}
+	start = { cav_to_inf_ratio = 0.10 cavalry_cost = -0.05 }
+	bonus = { morale_of_armies = 0.10 cavalry_power = 0.05 }
+	verne_doctrine_dragonwake_sky_lance_discipline = { cavalry_power = 0.10 }
+	verne_doctrine_dragonwake_muster = { army_tradition = 0.25 }
+	verne_doctrine_dragonwake_aerial_reconnaissance = { leader_land_manuever = 1 }
+	verne_doctrine_dragonwake_storm_crowned_nobility = { yearly_army_professionalism = 0.005 }
+	verne_doctrine_dragonwake_red_wake_shock = { leader_land_shock = 1 }
+	verne_doctrine_dragonwake_knights_of_the_crimson_wing = { army_tradition = 0.25 }
 }
 
 verne_doctrine_crimson_wake_order = {
 	category = MIL
-
-	start = {
-		mercenary_cost = -0.05
-	}
-
-	bonus = {
-		mercenary_cost = -0.05
-	}
-
-	verne_doctrine_crimson_wake_order_muster_houses = {
-		merc_maintenance_modifier = -0.05
-	}
-
-	verne_doctrine_crimson_wake_order_bannered_retinues = {
-		free_leader_pool = 1
-	}
-
-	verne_doctrine_crimson_wake_order_oath_trained_lances = {
-		cav_to_inf_ratio = 0.10
-	}
-
-	verne_doctrine_crimson_wake_order_ducal_subsidies = {
-		reinforce_cost_modifier = -0.10
-	}
-
-	verne_doctrine_crimson_wake_order_marshal_chaplains = {
-		army_tradition = 0.25
-	}
-
-	verne_doctrine_crimson_wake_order_permanent_commanderies = {
-		merc_maintenance_modifier = -0.05
-	}
+	start = { mercenary_cost = -0.05 }
+	bonus = { mercenary_cost = -0.05 }
+	verne_doctrine_crimson_wake_order_muster_houses = { merc_maintenance_modifier = -0.05 }
+	verne_doctrine_crimson_wake_order_bannered_retinues = { free_leader_pool = 1 }
+	verne_doctrine_crimson_wake_order_oath_trained_lances = { cav_to_inf_ratio = 0.10 }
+	verne_doctrine_crimson_wake_order_ducal_subsidies = { reinforce_cost_modifier = -0.10 }
+	verne_doctrine_crimson_wake_order_marshal_chaplains = { army_tradition = 0.25 }
+	verne_doctrine_crimson_wake_order_permanent_commanderies = { merc_maintenance_modifier = -0.05 }
 }
 
 verne_doctrine_battle_evocation = {
 	category = MIL
-
-	start = {
-		leader_land_fire = 1
-	}
-
-	bonus = {
-		morale_of_armies = 0.05
-		artillery_fire = 0.05
-	}
-
-	verne_doctrine_battle_evocation_field_evocations = {
-		morale_of_armies = 0.05
-	}
-
-	verne_doctrine_battle_evocation_battlemagi = {
-		possible_war_wizard = 1
-	}
-
-	verne_doctrine_battle_evocation_spell_guided_batteries = {
-		artillery_fire = 0.05
-	}
-
-	verne_doctrine_battle_evocation_stormline_doctrine = {
-		siege_ability = 0.05
-	}
-
-	verne_doctrine_battle_evocation_war_court_coordination = {
-		artillery_fire = 0.05
-	}
-
-	verne_doctrine_battle_evocation_prince_in_the_van = {
-		morale_of_armies = 0.05
-	}
+	start = { leader_land_fire = 1 }
+	bonus = { morale_of_armies = 0.05 artillery_fire = 0.05 }
+	verne_doctrine_battle_evocation_field_evocations = { morale_of_armies = 0.05 }
+	verne_doctrine_battle_evocation_battlemagi = { possible_war_wizard = 1 }
+	verne_doctrine_battle_evocation_spell_guided_batteries = { artillery_fire = 0.05 }
+	verne_doctrine_battle_evocation_stormline_doctrine = { siege_ability = 0.05 }
+	verne_doctrine_battle_evocation_war_court_coordination = { artillery_fire = 0.05 }
+	verne_doctrine_battle_evocation_prince_in_the_van = { morale_of_armies = 0.05 }
 }
 
 verne_doctrine_red_brass = {
 	category = MIL
-
-	start = {
-		artillery_cost = -0.10
-	}
-
-	bonus = {
-		land_forcelimit_modifier = 0.10
-		artillery_fire = 0.05
-	}
-
-	verne_doctrine_red_brass_foundry_calibration = {
-		artillery_fire = 0.05
-	}
-
-	verne_doctrine_red_brass_powder_discipline = {
-		defensiveness = 0.05
-	}
-
-	verne_doctrine_red_brass_siege_engineers = {
-		siege_ability = 0.05
-	}
-
-	verne_doctrine_red_brass_hull_guns = {
-		heavy_ship_cost = -0.10
-	}
-
-	verne_doctrine_red_brass_gunnery_instructors = {
-		military_tech_cost_modifier = -0.05
-	}
-
-	verne_doctrine_red_brass_ironwilled_crews = {
-		ship_durability = 0.10
-	}
+	start = { artillery_cost = -0.10 }
+	bonus = { land_forcelimit_modifier = 0.10 artillery_fire = 0.05 }
+	verne_doctrine_red_brass_foundry_calibration = { artillery_fire = 0.05 }
+	verne_doctrine_red_brass_powder_discipline = { defensiveness = 0.05 }
+	verne_doctrine_red_brass_siege_engineers = { siege_ability = 0.05 }
+	verne_doctrine_red_brass_hull_guns = { heavy_ship_cost = -0.10 }
+	verne_doctrine_red_brass_gunnery_instructors = { military_tech_cost_modifier = -0.05 }
+	verne_doctrine_red_brass_ironwilled_crews = { ship_durability = 0.10 }
 }
 
 verne_doctrine_sea_lance = {
 	category = MIL
+	start = { movement_speed_in_fleet_modifier = 0.05 }
+	bonus = { movement_speed_in_fleet_modifier = 0.05 transport_power = 0.10 }
+	verne_doctrine_sea_lance_deck_lance_escorts = { morale_of_navies = 0.05 }
+	verne_doctrine_sea_lance_sea_nest_coordination = { leader_land_manuever = 1 }
+	verne_doctrine_sea_lance_aerial_spotters = { siege_ability = 0.05 }
+	verne_doctrine_sea_lance_strike_convoys = { land_attrition = -0.10 }
+	verne_doctrine_sea_lance_wakeborne_assaults = { naval_attrition = -0.10 }
+	verne_doctrine_sea_lance_oceanic_pursuit = { naval_forcelimit_modifier = 0.10 }
+}
 
-	start = {
-		movement_speed_in_fleet_modifier = 0.05
-	}
+verne_doctrine_apostolic_valour = {
+	category = MIL
+	start = { morale_of_armies = 0.05 }
+	bonus = { morale_of_armies = 0.05 army_tradition = 0.25 }
+	verne_doctrine_apostolic_valour_bannered_devotion = { prestige_from_land = 0.10 }
+	verne_doctrine_apostolic_valour_march_sermons = { global_missionary_strength = 0.01 }
+	verne_doctrine_apostolic_valour_sacred_drill = { army_tradition = 0.25 }
+	verne_doctrine_apostolic_valour_righteous_charges = { discipline = 0.025 }
+	verne_doctrine_apostolic_valour_commanderies = { prestige_from_land = 0.10 }
+	verne_doctrine_apostolic_valour_emperors_sword = { war_exhaustion = -0.02 }
+}
 
-	bonus = {
-		movement_speed_in_fleet_modifier = 0.05
-		transport_power = 0.10
-	}
-
-	verne_doctrine_sea_lance_deck_lance_escorts = {
-		morale_of_navies = 0.05
-	}
-
-	verne_doctrine_sea_lance_sea_nest_coordination = {
-		leader_land_manuever = 1
-	}
-
-	verne_doctrine_sea_lance_aerial_spotters = {
-		siege_ability = 0.05
-	}
-
-	verne_doctrine_sea_lance_strike_convoys = {
-		land_attrition = -0.10
-	}
-
-	verne_doctrine_sea_lance_wakeborne_assaults = {
-		naval_attrition = -0.10
-	}
-
-	verne_doctrine_sea_lance_oceanic_pursuit = {
-		naval_forcelimit_modifier = 0.10
-	}
+verne_doctrine_silver_banner = {
+	category = MIL
+	start = { discipline = 0.025 }
+	bonus = { discipline = 0.025 army_tradition = 0.25 }
+	verne_doctrine_silver_banner_drillmasters = { yearly_army_professionalism = 0.005 }
+	verne_doctrine_silver_banner_parade_standards = { army_tradition = 0.25 }
+	verne_doctrine_silver_banner_veteran_cadres = { infantry_combat_ability = 0.10 }
+	verne_doctrine_silver_banner_chosen_captains = { cavalry_combat_ability = 0.10 }
+	verne_doctrine_silver_banner_silver_line = { land_forcelimit_modifier = 0.10 }
+	verne_doctrine_silver_banner_reserve_companies = { reinforce_speed = 0.10 }
 }
