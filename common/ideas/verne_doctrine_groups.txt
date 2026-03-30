@@ -1,5 +1,5 @@
 # Verne overhaul doctrine groups
-# Current implemented slice: Silver Wake + first synergistic expansion groups
+# Current implemented slice: major first-wave and synergistic expansion groups
 # Keep doctrine families coherent and aligned to the reform/mission ladder already live in-repo.
 
 verne_doctrine_silver_wake = {
@@ -83,41 +83,41 @@ verne_doctrine_vernissage = {
 	}
 }
 
-verne_doctrine_dragonwake = {
-	category = MIL
+verne_doctrine_imperial_sea_court = {
+	category = DIP
 
 	start = {
-		cav_to_inf_ratio = 0.10
-		cavalry_cost = -0.05
+		diplomatic_reputation = 1
 	}
 
 	bonus = {
-		morale_of_armies = 0.10
-		cavalry_power = 0.05
+		morale_of_navies = 0.10
+		naval_tradition_from_trade = 0.25
 	}
 
-	verne_doctrine_dragonwake_sky_lance_discipline = {
-		cavalry_power = 0.10
+	verne_doctrine_imperial_sea_court_oath_harbours = {
+		diplomatic_relations = 1
 	}
 
-	verne_doctrine_dragonwake_muster = {
-		army_tradition = 0.25
+	verne_doctrine_imperial_sea_court_pearl_wreathed_audiences = {
+		improve_relation_modifier = 0.10
 	}
 
-	verne_doctrine_dragonwake_aerial_reconnaissance = {
-		leader_land_manuever = 1
+	verne_doctrine_imperial_sea_court_admirals_of_ceremony = {
+		naval_tradition_from_trade = 0.25
 	}
 
-	verne_doctrine_dragonwake_storm_crowned_nobility = {
-		yearly_army_professionalism = 0.005
+	verne_doctrine_imperial_sea_court_convoys_of_prestige = {
+		prestige = 0.50
 	}
 
-	verne_doctrine_dragonwake_red_wake_shock = {
-		leader_land_shock = 1
+	verne_doctrine_imperial_sea_court_embassies_of_the_wake = {
+		envoy_travel_time = -0.10
 	}
 
-	verne_doctrine_dragonwake_knights_of_the_crimson_wing = {
-		army_tradition = 0.25
+	verne_doctrine_imperial_sea_court_thrones_across_the_waves = {
+		global_ship_trade_power = 0.10
+		light_ship_power = 0.10
 	}
 }
 
@@ -159,5 +159,152 @@ verne_doctrine_grand_regatta = {
 
 	verne_doctrine_grand_regatta_sea_lords_festivals = {
 		light_ship_power = 0.10
+	}
+}
+
+verne_doctrine_overseas_commandery = {
+	category = DIP
+
+	start = {
+		range = 0.10
+	}
+
+	bonus = {
+		range = 0.10
+		trade_range_modifier = 0.10
+	}
+
+	verne_doctrine_overseas_commandery_fortified_havens = {
+		hostile_fleet_attrition = 1
+	}
+
+	verne_doctrine_overseas_commandery_ducal_factors_abroad = {
+		trade_range_modifier = 0.10
+	}
+
+	verne_doctrine_overseas_commandery_charters = {
+		naval_forcelimit_modifier = 0.10
+	}
+
+	verne_doctrine_overseas_commandery_loyal_captains = {
+		liberty_desire_from_subject_development = -0.10
+	}
+
+	verne_doctrine_overseas_commandery_island_magazines = {
+		governing_capacity_modifier = 0.10
+	}
+
+	verne_doctrine_overseas_commandery_long_hand_of_verne = {
+		diplomatic_annexation_cost = -0.10
+	}
+}
+
+verne_doctrine_eastern_correspondence = {
+	category = DIP
+
+	start = {
+		envoy_travel_time = -0.10
+	}
+
+	bonus = {
+		improve_relation_modifier = 0.05
+	}
+
+	verne_doctrine_eastern_correspondence_translators_of_the_wake = {
+		improve_relation_modifier = 0.10
+	}
+
+	verne_doctrine_eastern_correspondence_embassy_hosts = {
+		prestige = 0.50
+	}
+
+	verne_doctrine_eastern_correspondence_pearl_road_agents = {
+		trade_steering = 0.05
+	}
+
+	verne_doctrine_eastern_correspondence_courtly_interpreters = {
+		diplomatic_reputation = 1
+	}
+
+	verne_doctrine_eastern_correspondence_overseas_correspondents = {
+		merchants = 1
+	}
+
+	verne_doctrine_eastern_correspondence_princes_exchanges = {
+		years_of_nationalism = -5
+	}
+}
+
+verne_doctrine_dragonwake = {
+	category = MIL
+
+	start = {
+		cav_to_inf_ratio = 0.10
+		cavalry_cost = -0.05
+	}
+
+	bonus = {
+		morale_of_armies = 0.10
+		cavalry_power = 0.05
+	}
+
+	verne_doctrine_dragonwake_sky_lance_discipline = {
+		cavalry_power = 0.10
+	}
+
+	verne_doctrine_dragonwake_muster = {
+		army_tradition = 0.25
+	}
+
+	verne_doctrine_dragonwake_aerial_reconnaissance = {
+		leader_land_manuever = 1
+	}
+
+	verne_doctrine_dragonwake_storm_crowned_nobility = {
+		yearly_army_professionalism = 0.005
+	}
+
+	verne_doctrine_dragonwake_red_wake_shock = {
+		leader_land_shock = 1
+	}
+
+	verne_doctrine_dragonwake_knights_of_the_crimson_wing = {
+		army_tradition = 0.25
+	}
+}
+
+verne_doctrine_crimson_wake_order = {
+	category = MIL
+
+	start = {
+		mercenary_cost = -0.05
+	}
+
+	bonus = {
+		mercenary_cost = -0.05
+	}
+
+	verne_doctrine_crimson_wake_order_muster_houses = {
+		merc_maintenance_modifier = -0.05
+	}
+
+	verne_doctrine_crimson_wake_order_bannered_retinues = {
+		free_leader_pool = 1
+	}
+
+	verne_doctrine_crimson_wake_order_oath_trained_lances = {
+		cav_to_inf_ratio = 0.10
+	}
+
+	verne_doctrine_crimson_wake_order_ducal_subsidies = {
+		reinforce_cost_modifier = -0.10
+	}
+
+	verne_doctrine_crimson_wake_order_marshal_chaplains = {
+		army_tradition = 0.25
+	}
+
+	verne_doctrine_crimson_wake_order_permanent_commanderies = {
+		merc_maintenance_modifier = -0.05
 	}
 }
