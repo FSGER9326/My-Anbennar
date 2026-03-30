@@ -1,0 +1,24 @@
+# Verne overhaul v0.1 prototype doctrine policy (split file to reduce merge conflicts)
+
+verne_proto_doctrine_expedition_act = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_proto_doctrine_ideas
+		has_idea_group = verne_proto_adventure_ideas
+	}
+
+	allow = {
+		full_idea_group = verne_proto_doctrine_ideas
+		full_idea_group = verne_proto_adventure_ideas
+	}
+
+	colonists = 1
+	global_colonial_growth = 10
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+	}
+}

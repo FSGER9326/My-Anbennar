@@ -1,0 +1,7 @@
+# RETIRED FILE (inactive)
+# Former duplicate dynasty safeguard on_actions implementation.
+#
+# Authoritative owner moved to:
+# - common/on_actions/verne_overhaul_on_actions.txt
+#
+# This file intentionally defines no on_actions blocks.

@@ -58,6 +58,13 @@ def run_python_script(script: str, *args: str) -> None:
         raise SystemExit(result.returncode)
 
 
+def run_shell_script(script: str, *args: str) -> None:
+    result = run(["bash", str(ROOT / "scripts" / script), *args])
+    print_output(result)
+    if result.returncode != 0:
+        raise SystemExit(result.returncode)
+
+
 def main() -> int:
     ensure_clean_worktree()
 
@@ -81,20 +88,20 @@ def main() -> int:
     if merge.returncode != 0:
         print("Merge reported conflicts. Attempting docs hotspot auto-resolution...")
         run_python_script("resolve_docs_conflicts.py")
+        run_python_script("resolve_content_conflicts.py", "--union-docs-only")
 
     remaining = run(["git", "diff", "--name-only", "--diff-filter=U"], check=True)
     unresolved = [line.strip() for line in remaining.stdout.splitlines() if line.strip()]
     if unresolved:
         print("ERROR: Some conflicts remain. Resolve manually, then run:")
-        print(f"  {sys.executable} scripts/docs_conflict_guard.py")
-        print(f"  {sys.executable} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json")
+        print(f"    {sys.executable} scripts/docs_conflict_guard.py")
+        print("    bash scripts/verne_smoke_checks.sh")
         return 1
 
     print("Running conflict guard and smoke checks...")
     run_python_script("docs_conflict_guard.py")
-    run_python_script("verne_checklist_audit.py")
-    run_python_script("checklist_link_audit.py")
-    run_python_script("country_smoke_runner.py", "--profile", "automation/country_profiles/verne.json")
+    # Keep parity with shell + PowerShell sync entrypoints by delegating to the shared smoke bundle.
+    run_shell_script("verne_smoke_checks.sh")
 
     if not has_merge_head():
         print("Already up to date. No merge commit needed.")

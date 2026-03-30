@@ -1,0 +1,12 @@
+l_english:
+ # Verne overhaul split localization file for low-conflict merges.
+
+ # --- v0.1 adventure prototype ideas ---
+ verne_proto_adventure_ideas:0 "Verne Prototype Adventure"
+ verne_proto_adventure_ideas_desc:0 "A Verne-only adventure framework focused on controlled overseas reach and dependable charter logistics."
+ verne_proto_pathfinders:0 "Prototype Pathfinders"
+ verne_proto_pathfinders_desc:0 "Dedicated pathfinder crews improve expedition routing and practical long-range reach."
+
+ # --- v0.1 doctrine policy prototype ---
+ verne_proto_doctrine_expedition_act:0 "Expedition Charter Act"
+ desc_verne_proto_doctrine_expedition_act:0 "By combining our prototype doctrine charter with Verne's prototype adventure institutions, we can launch expeditions faster and maintain steadier colonial growth."

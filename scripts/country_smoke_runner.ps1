@@ -17,6 +17,91 @@ function Read-Text {
     return Get-Content $Path -Raw -Encoding UTF8
 }
 
+function Strip-Comment {
+    param([Parameter(Mandatory = $true)][string]$Line)
+    $inQuote = $false
+    $builder = New-Object System.Text.StringBuilder
+    foreach ($ch in $Line.ToCharArray()) {
+        if ($ch -eq '"') {
+            $inQuote = -not $inQuote
+            [void]$builder.Append($ch)
+            continue
+        }
+        if (($ch -eq '#') -and (-not $inQuote)) {
+            break
+        }
+        [void]$builder.Append($ch)
+    }
+    return $builder.ToString()
+}
+
+function Is-Dangerous-ForTopLevelDuplicates {
+    param([Parameter(Mandatory = $true)][string]$RelativePath)
+    if (-not $RelativePath.EndsWith(".txt")) {
+        return $false
+    }
+    return @(
+        "common/scripted_effects/",
+        "common/scripted_triggers/",
+        "common/decisions/",
+        "common/modifiers/"
+    ) | ForEach-Object { $RelativePath.Contains($_) } | Where-Object { $_ } | Select-Object -First 1
+}
+
+function Get-StructuralErrors {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path,
+        [Parameter(Mandatory = $true)][string]$RelativePath
+    )
+
+    $lines = Get-Content $Path -Encoding UTF8
+    $errors = New-Object System.Collections.Generic.List[string]
+    $depth = 0
+    $topLevelKeys = @{}
+    $checkDuplicates = [bool](Is-Dangerous-ForTopLevelDuplicates -RelativePath $RelativePath)
+    $lineNumber = 0
+
+    foreach ($rawLine in $lines) {
+        $lineNumber += 1
+        if ($rawLine.StartsWith("<<<<<<<") -or $rawLine.StartsWith("=======") -or $rawLine.StartsWith(">>>>>>>")) {
+            $errors.Add(
+                "In $RelativePath around line $lineNumber: found a git merge conflict marker (<<<<<<<, =======, or >>>>>>>). Please resolve the conflict and remove markers."
+            )
+        }
+
+        $line = Strip-Comment -Line $rawLine
+        $opens = ([regex]::Matches($line, "\{")).Count
+        $closes = ([regex]::Matches($line, "\}")).Count
+
+        if ($checkDuplicates -and $depth -eq 0) {
+            $m = [regex]::Match($line, "^\s*([A-Za-z0-9_.:\-]+)\s*=\s*\{")
+            if ($m.Success) {
+                $key = $m.Groups[1].Value
+                if (-not $topLevelKeys.ContainsKey($key)) {
+                    $topLevelKeys[$key] = $lineNumber
+                } else {
+                    $firstSeen = $topLevelKeys[$key]
+                    $errors.Add(
+                        "In $RelativePath around line $lineNumber: duplicate top-level key '$key'. It was first defined around line $firstSeen. This can silently overwrite logic in scripted files."
+                    )
+                }
+            }
+        }
+
+        $depth += ($opens - $closes)
+        if ($depth -lt 0) {
+            $errors.Add("In $RelativePath around line $lineNumber: found '}' without matching '{' earlier in the file.")
+            $depth = 0
+        }
+    }
+
+    if ($depth -ne 0) {
+        $errors.Add("In $RelativePath: braces look unbalanced (net open braces: $depth). Check for a missing '{' or '}' near the end of the file.")
+    }
+
+    return $errors
+}
+
 $data = Get-Content $profilePath -Raw -Encoding UTF8 | ConvertFrom-Json
 $name = if ($data.name) { [string]$data.name } else { [System.IO.Path]::GetFileNameWithoutExtension($profilePath) }
 
@@ -48,6 +133,41 @@ foreach ($item in @($data.require_patterns)) {
     }
 }
 
+foreach ($item in @($data.require_all_patterns)) {
+    $step += 1
+    $desc = [string]$item.description
+    $patterns = @($item.patterns)
+    $existingPaths = New-Object System.Collections.Generic.List[string]
+
+    Write-Output "[$step] require_all: $desc"
+    foreach ($pathRel in @($item.paths)) {
+        $path = Join-Path $repoRoot ([string]$pathRel)
+        if (-not (Test-Path $path)) {
+            $errors.Add("require_all '$desc': missing file $pathRel")
+            continue
+        }
+        $existingPaths.Add($path)
+    }
+
+    $subIdx = 0
+    foreach ($patternRaw in $patterns) {
+        $subIdx += 1
+        $regex = New-Object System.Text.RegularExpressions.Regex([string]$patternRaw, [System.Text.RegularExpressions.RegexOptions]::Multiline)
+        $matched = $false
+
+        foreach ($path in $existingPaths) {
+            if ($regex.IsMatch((Read-Text -Path $path))) {
+                $matched = $true
+                break
+            }
+        }
+
+        if (-not $matched) {
+            $errors.Add("require_all '$desc': subpattern #$subIdx not found in any listed file; pattern='$patternRaw'")
+        }
+    }
+}
+
 foreach ($item in @($data.forbid_patterns)) {
     $step += 1
     $desc = [string]$item.description
@@ -63,6 +183,22 @@ foreach ($item in @($data.forbid_patterns)) {
 
         if ($regex.IsMatch((Read-Text -Path $path))) {
             $errors.Add("forbid '$desc': forbidden pattern found in $pathRel")
+        }
+    }
+}
+
+if (@($data.structural_checks).Count -gt 0) {
+    $step += 1
+    Write-Output "[$step] structural: lightweight scripted-file checks"
+    foreach ($pathRel in @($data.structural_checks)) {
+        $path = Join-Path $repoRoot ([string]$pathRel)
+        if (-not (Test-Path $path)) {
+            $errors.Add("structural check: missing file $pathRel")
+            continue
+        }
+        $relativePath = [System.IO.Path]::GetRelativePath($repoRoot, $path).Replace("\", "/")
+        foreach ($structuralError in @(Get-StructuralErrors -Path $path -RelativePath $relativePath)) {
+            $errors.Add($structuralError)
         }
     }
 }

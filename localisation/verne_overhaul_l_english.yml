@@ -1,0 +1,92 @@
+l_english:
+ # ===============================================
+ # Verne overhaul reusable layer
+ # Ownership: Verne overhaul reusable layer (v0.1)
+ # Scope: dedicated localization namespace for overhaul helpers/modifiers
+ # ===============================================
+
+ # --- v0.1 reusable modifiers ---
+ verne_adventure_projection_foothold:0 "Adventure Projection Foothold"
+ verne_adventure_projection_foothold_desc:0 "The court has committed resources to secure an early Vernman foothold abroad."
+
+ verne_adventure_projection_network:0 "Adventure Projection Network"
+ verne_adventure_projection_network_desc:0 "Our maritime-adventure web is now organized as a reusable strategic network."
+
+ verne_reward_old_friends_old_rivals:0 "Old Friends, Old Rivals"
+ verne_reward_old_friends_old_rivals_desc:0 "This reward package anchors early diplomatic and trade momentum in the Verne overhaul flow."
+
+ verne_dynasty_protected_court:0 "Dynasty-Protected Court"
+ verne_dynasty_protected_court_desc:0 "Court protocol and succession planning are actively safeguarding the Verne line."
+
+ verne_dynasty_exalted_lineage:0 "Exalted Verne Lineage"
+ verne_dynasty_exalted_lineage_desc:0 "The ruling line has entered a consolidated exalted phase with stronger central authority."
+
+ verne_marriage_court_protocol:0 "Marriage Court Protocol"
+ verne_marriage_court_protocol_desc:0 "Formalized marriage-court institutions improve dynastic continuity and diplomatic positioning."
+
+ verne_tarnished_courtly_reputation:0 "Tarnished Courtly Reputation"
+ verne_tarnished_courtly_reputation_desc:0 "Court scandals weaken confidence in state discipline and raise governance friction."
+
+ verne_fading_ducal_authority:0 "Fading Ducal Authority"
+ verne_fading_ducal_authority_desc:0 "Ducal authority is visibly weakening, emboldening challengers across the realm."
+
+ verne_empty_boasts_of_the_wake:0 "Empty Boasts of the Wake"
+ verne_empty_boasts_of_the_wake_desc:0 "Grand maritime rhetoric outpaces practical readiness, undermining naval confidence."
+
+ # --- Overhaul helper-facing tooltip namespace stubs ---
+ verne_overhaul_tt_unlock_network_of_adventure:0 "Unlocks the reusable §YNetwork of Adventure§! helper state and related expansion tools."
+ verne_overhaul_tt_unlock_sarhali_adventures:0 "Unlocks Sarhali §YAdventures§! for the overhaul mission flow."
+ verne_overhaul_tt_port_of_adventure_button:0 "Enables the overhaul-facing §YPort of Adventure§! province action in valid coastal centers of trade."
+ verne_overhaul_tt_port_of_adventure_button_effect:0 "Sends §Y100§! colonists to establish a frontier foothold in a random province of the selected region."
+ verne_overhaul_tt_needs_6_ports_of_adventure:0 "Requires §Y6§! total Ports of Adventure in the active network."
+ verne_overhaul_tt_needs_11_ports_of_adventure:0 "Requires §Y11§! total Ports of Adventure in the active network."
+ verne_overhaul_tt_needs_20_ports_of_adventure:0 "Requires §Y20§! total Ports of Adventure in the active network."
+ verne_overhaul_tt_in_search_akasik_or_projection:0 "Either clear §YAkasik§! of Gnollish rule, project influence there via a §Ysubject/ally§!, or prove sustained reach through your §Yadventure network/monuments§!."
+ verne_overhaul_tt_in_search_expedition_capacity:0 "Field expedition capability through classic §YColonizer+Explorer§! staffing, §Ysubject/ally projection§!, or an established §Ynetwork/monument§! route."
+
+ # --- v0.1 doctrine + reform prototypes ---
+ verne_proto_doctrine_ideas:0 "Verne Prototype Doctrine"
+ verne_proto_doctrine_ideas_desc:0 "A cautious first doctrine draft used to validate overhaul wiring before wider doctrine rollout."
+
+ verne_proto_doctrine_charter:0 "Prototype Doctrine Charter"
+ verne_proto_doctrine_charter_desc:0 "Court-backed chartering practices give Verne a stable baseline for early doctrine experimentation."
+
+ verne_court_of_silver_oaths_reform:0 "Court of Silver Oaths"
+ verne_court_of_silver_oaths_reform_desc:0 "A disciplined oath-court tightens administrative trust and keeps corruption low without overextending state capacity."
+
+ verne_charter_of_great_captains_reform:0 "Charter of Great Captains"
+ verne_charter_of_great_captains_reform_desc:0 "The ducal charter gives proven captains formal authority, improving maritime professionalism and practical commercial reach."
+
+ verne_ducal_muster_of_armoc_reform:0 "Ducal Muster of Armoc"
+ verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's musters standardize levies and fort-readiness, providing reliable military depth for a cautious expansion phase."
+
+ # --- v0.2 verne doctrine group: silver wake ---
+ verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
+ verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
+
+ verne_doctrine_silver_wake_start:0 "Foundations of the Silver Wake"
+ verne_doctrine_silver_wake_start_desc:0 "Our first duty is to keep dependable crews at sea in every season, so that doctrine remains a daily practice rather than a ceremonial boast."
+
+ verne_doctrine_silver_wake_bonus:0 "Silver Wake Finisher"
+ verne_doctrine_silver_wake_bonus_desc:0 "By unifying crown ledgers and captaincy custom, Verne can move goods more efficiently across every established route."
+
+ verne_doctrine_silver_wake_harbor_ledgers:0 "Harbor Ledgers"
+ verne_doctrine_silver_wake_harbor_ledgers_desc:0 "Standardized port ledgers reduce leakages and help ducal tax officers track maritime revenue with fewer disputes."
+
+ verne_doctrine_silver_wake_tide_charts:0 "Tide Charts of Verne"
+ verne_doctrine_silver_wake_tide_charts_desc:0 "Shared coastal charting routines let each new generation of officers inherit practical seamanship rather than relearn it."
+
+ verne_doctrine_silver_wake_marine_rotations:0 "Marine Rotations"
+ verne_doctrine_silver_wake_marine_rotations_desc:0 "Crew rotations and dockside rationing plans lower long-term upkeep strain on the fleet payroll."
+
+ verne_doctrine_silver_wake_convoy_discipline:0 "Convoy Discipline"
+ verne_doctrine_silver_wake_convoy_discipline_desc:0 "Procurement rules and common hull standards make escort squadrons cheaper to field and easier to replace."
+
+ verne_doctrine_silver_wake_prize_law:0 "Prize Law Codex"
+ verne_doctrine_silver_wake_prize_law_desc:0 "A clearer legal path for captured ships encourages captains to seize enemy vessels intact whenever possible."
+
+ verne_doctrine_silver_wake_captains_compact:0 "Captains' Compact"
+ verne_doctrine_silver_wake_captains_compact_desc:0 "Recognized captaincy privileges create a disciplined officer corps that foreign courts increasingly trust."
+
+ verne_doctrine_silver_wake_quayside_arbitration:0 "Quayside Arbitration"
+ verne_doctrine_silver_wake_quayside_arbitration_desc:0 "Fast harbor arbitration settles merchant conflicts before they spill into wider unrest at home."

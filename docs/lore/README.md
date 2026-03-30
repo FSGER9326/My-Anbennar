@@ -20,6 +20,7 @@ Each lore file should carry a status tag:
 
 - [verne-identity-and-court-culture.md](./verne-identity-and-court-culture.md)
 - [verne-religion-rivals-and-overseas-imaginary.md](./verne-religion-rivals-and-overseas-imaginary.md)
+- [verne-lore-mechanics-bridge-notes.md](./verne-lore-mechanics-bridge-notes.md)
 
 ## How to use with implementation docs
 

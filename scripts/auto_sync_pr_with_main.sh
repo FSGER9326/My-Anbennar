@@ -33,6 +33,7 @@ set -e
 if [[ ${MERGE_EXIT} -ne 0 ]]; then
   echo "Merge reported conflicts. Attempting docs hotspot auto-resolution..."
   "${PYTHON_BIN}" scripts/resolve_docs_conflicts.py || true
+  "${PYTHON_BIN}" scripts/resolve_content_conflicts.py --union-docs-only || true
 fi
 
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then

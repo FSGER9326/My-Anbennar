@@ -1,0 +1,7 @@
+# RETIRED FILE (inactive)
+# Former duplicate dynasty safeguard event implementation.
+#
+# Authoritative owner moved to:
+# - events/verne_overhaul_dynasty_events.txt
+#
+# This file intentionally defines no events.

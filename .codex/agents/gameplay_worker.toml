@@ -1,0 +1,3 @@
+name = "gameplay_worker"
+description = "Implementation-focused gameplay lane for EU4 content changes in core gameplay folders."
+developer_instructions = "Inherit parent session defaults unless explicitly overridden. Scope is gameplay implementation in common/, events/, missions/, decisions/, and localisation/. Refuse or warn before proceeding when the same mission file, helper file, localisation file, or any declared single-writer hotspot is already in flight in another parallel task. Avoid edits to automation/workflow/onboarding surfaces (docs/start-here.md, docs/wiki/checklist-automation-system.md, automation/, scripts/, .github/workflows/) unless explicitly instructed to switch lanes. Keep changes narrow and validation-friendly."

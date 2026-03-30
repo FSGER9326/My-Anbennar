@@ -1,8 +1,10 @@
 # Checklist Automation System
 
-Goal: make the repo safer to update without needing to remember a pile of manual steps.
+Goal: provide the **system overview** and a compact **operational command index** for checklist automation.
 
-## What this system covers
+> [!IMPORTANT]
+> **Default operation command:**
+> `bash scripts/noob_autopilot.sh`
 
 - smoke checks for the active Verne implementation layer
 - checklist manifest audits for repo-map tracking
@@ -25,13 +27,23 @@ If you feel lost before you even start, run:
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\repo_doctor.ps1`
 - Python: `python scripts/repo_doctor.py`
+## System overview
+
+The automation stack coordinates:
+
+- branch sync wrappers for active PR branches,
+- overlap-planning checks for conflict-prone hotspots,
+- Verne smoke/profile checks,
+- checklist manifest and markdown link audits,
+- conflict marker and hotspot heading guards,
+- localisation and event ID audits.
 
 ## Automation commands
 
-### Verne smoke checks
+### Primary entrypoint
 
-- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1`
-- Bash: `bash scripts/verne_smoke_checks.sh`
+- `bash scripts/noob_autopilot.sh`
+- `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\noob_autopilot.ps1`
 
 This is the normal "did I break the tracked Verne layer?" check.
 
@@ -41,8 +53,30 @@ It runs:
 2. the checklist status audit
 3. the markdown link audit
 4. the docs + automation conflict guard
+### Focused operations
 
-### Generic country smoke profile
+- Verne smoke checks:
+  - `bash scripts/verne_smoke_checks.sh`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\verne_smoke_checks.ps1`
+- Country profile smoke runner:
+  - `python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\country_smoke_runner.ps1 -Profile automation/country_profiles/verne.json`
+- Checklist manifest audit:
+  - `python scripts/verne_checklist_audit.py`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\verne_checklist_audit.ps1`
+- Markdown link audit:
+  - `python scripts/checklist_link_audit.py`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\checklist_link_audit.ps1`
+- Conflict guard:
+  - `python scripts/docs_conflict_guard.py`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\docs_conflict_guard.ps1`
+- Localisation audit:
+  - `python scripts/localisation_audit.py --file localisation/Flavour_Verne_A33_l_english.yml`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\localisation_audit.ps1 -File localisation/Flavour_Verne_A33_l_english.yml`
+- Event ID audit:
+  - `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt --file events/verne_overhaul_dynasty_events.txt`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\event_id_audit.ps1 -File events/Flavour_Verne_A33.txt -File events/verne_overhaul_dynasty_events.txt`
+## Feature-branch sync
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\country_smoke_runner.ps1 -Profile automation/country_profiles/verne.json`
 - Python: `python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json`
@@ -118,6 +152,13 @@ This decides which checks to run based on which files changed, so you do not hav
 - Bash: `bash scripts/new_country_scaffold.sh <country-slug> <TAG>`
 
 Use this to start a new theorycrafting folder without rebuilding the checklist structure by hand.
+- Feature-branch sync helper:
+  - `bash scripts/auto_sync_pr_with_main.sh`
+  - `python scripts/auto_sync_pr_with_main.py`
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\auto_sync_pr_with_main.ps1`
+- Overlap planning:
+  - `python scripts/validate_conflict_hotspots.py`
+  - `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block`
 
 ### Install Git hooks
 
@@ -142,7 +183,9 @@ Manual fallback:
 
 ## Merge-conflict prevention
 
-The repo now uses a few layers together:
+- Run `python scripts/docs_conflict_guard.py` after branch sync and before PR updates.
+- Use `python scripts/pr_conflict_churn_plan.py --base main --json --focus-branch <your-branch> --fail-on-block` when touching hotspot docs/workflow files.
+- Follow [merge-conflict-prevention-playbook.md](./merge-conflict-prevention-playbook.md) for manual conflict decisions.
 
 1. `.gitattributes` uses `merge=union` for shared docs hub files that are prone to concurrent edits.
 2. `resolve_docs_conflicts.*` can auto-resolve a small hotspot list when you merge `main` into a PR branch.
@@ -197,3 +240,9 @@ These were the easiest ways the old automation could still fail:
 - docs or localisation quietly accumulating mojibake and duplicate lines
 - no local hook installation path, so checks were easy to forget
 - GitHub PRs having no built-in checklist or risk prompt
+## Related references
+
+- Minimal newcomer flow (no extra workflow prose): [../start-here.md](../start-here.md)
+- Conflict decision playbook: [merge-conflict-prevention-playbook.md](./merge-conflict-prevention-playbook.md)
+- Parallel lane model (safe task splitting): [parallelization-lanes-playbook.md](./parallelization-lanes-playbook.md)
+- Automation blindspots history: [checklist-automation-blindspots-changelog.md](./checklist-automation-blindspots-changelog.md)

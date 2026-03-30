@@ -1,0 +1,57 @@
+# ===============================================
+# Verne overhaul reusable layer
+# Ownership: Verne overhaul reusable layer (v0.1)
+# Scope: roadmap-aligned shared modifiers for V-01/V-04 helper work
+# ===============================================
+
+# --- Adventure / projection reusable modifiers ---
+verne_adventure_projection_foothold = {
+	colonial_range = 0.10
+	global_settler_increase = 15
+}
+
+verne_adventure_projection_network = {
+	global_tariffs = 0.05
+	trade_range_modifier = 0.15
+	naval_forcelimit_modifier = 0.10
+}
+
+# Mission-reward home for early-network rollout (V-01 helper target).
+verne_reward_old_friends_old_rivals = {
+	prestige = 0.5
+	global_trade_power = 0.05
+}
+
+# --- Dynasty / court reusable modifiers ---
+verne_dynasty_protected_court = {
+	legitimacy = 0.5
+	heir_chance = 0.25
+}
+
+verne_dynasty_exalted_lineage = {
+	legitimacy = 1
+	yearly_absolutism = 0.2
+	advisor_cost = -0.05
+}
+
+verne_marriage_court_protocol = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.10
+	same_dynasty_bonus = 0.1
+}
+
+# --- Pressure placeholders (V-01 first-wave constants) ---
+verne_tarnished_courtly_reputation = {
+	stability_cost_modifier = 0.10
+	diplomatic_reputation = -1
+}
+
+verne_fading_ducal_authority = {
+	national_unrest = 1
+	legitimacy = -1
+}
+
+verne_empty_boasts_of_the_wake = {
+	morale_of_navies = -0.05
+	global_ship_recruit_speed = -0.10
+}

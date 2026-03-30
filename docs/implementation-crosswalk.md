@@ -1,5 +1,7 @@
 # Verne Implementation Crosswalk
 
+_Maintenance note: deduplicated after merge-noise cleanup to remove repeated entries while preserving status and unique guidance._
+
 This file is the bridge layer between:
 
 1. Verne design docs
@@ -23,6 +25,8 @@ Lore doc: `docs/lore/verne-identity-and-court-culture.md`
 
 Status: IMPLEMENTATION_READY
 
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
+
 Notes:
 
 - Copy helper-based infamy/succession patterns; do not reinvent variable threshold logic.
@@ -41,6 +45,8 @@ EU4 reference: `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.htm
 Lore doc: `docs/lore/verne-identity-and-court-culture.md`
 
 Status: NEEDS_REPO_CHECK
+
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
 
 Notes:
 
@@ -61,6 +67,8 @@ Lore doc: `docs/lore/verne-identity-and-court-culture.md`
 
 Status: IMPLEMENTATION_READY
 
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
+
 Notes:
 
 - Reuse Artificer estate organization and points/invention lifecycle patterns.
@@ -75,13 +83,12 @@ Design doc: `docs/design/mission-rewrite-spec.md`; `docs/design/open-questions-a
 Repo pattern: `docs/repo-maps/racial-population-and-military-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Triggers - Europa Universalis 4 Wiki.html` (if added to local references) and `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
 
 Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
 Status: NEEDS_REPO_CHECK
+
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
 
 Notes:
 
@@ -101,6 +108,8 @@ Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
 Status: IMPLEMENTATION_READY
 
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
+
 Notes:
 
 - Verne already has concrete mission-backed patterns; adapt existing helper flow rather than authoring a parallel expedition framework.
@@ -114,32 +123,17 @@ Design doc: `docs/design/reform-bible.md`
 Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
-Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`
-
-EU4 reference: `docs/references/eu4-wiki/Modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`
-
-Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
-
-EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
-
-Repo pattern: `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`; `docs/repo-maps/government-mechanic-activation-map-by-reform-reference.md`
-
-EU4 reference: `docs/references/eu4-wiki/Government modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Effects - Europa Universalis 4 Wiki.html`; `docs/references/eu4-baseline-vs-anbennar-comparison-notes.md`
-
 
 Lore doc: `docs/lore/verne-identity-and-court-culture.md`
 
 Status: IMPLEMENTATION_READY
 
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
+
 Notes:
 
 - Use existing government power/interactions architecture for any new Verne state meters.
 - Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
-
-- Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
-
-- Use reform-driven `government_abilities` wiring first, then attach mission/event hooks.
-
 - Keep first iteration minimal (one bar + one interaction) before multi-action expansion.
 
 ---
@@ -156,6 +150,8 @@ Lore doc: `docs/lore/verne-identity-and-court-culture.md`
 
 Status: IMPLEMENTATION_READY
 
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
+
 Notes:
 
 - Verne already has a concrete mutual-exclusion estate lane implementation (`estate_adventurers_ride_of_the_worthy` vs `estate_nobles_noble_wyvernriders`) with a shared estate-action wrapper.
@@ -170,15 +166,13 @@ Design doc: `docs/design/pressure-disasters-and-corinite.md`
 Repo pattern: `docs/repo-maps/witch-king-lichdom-war-wizard-infamy-reference.md`; `docs/repo-maps/custom-government-mechanics-and-gui-patterns-reference.md`
 
 EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html`; `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
-EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
-
-EU4 reference: `docs/references/eu4-wiki/Disaster modding - Europa Universalis 4 Wiki.html` (if added to local references); `docs/references/eu4-wiki/Event modding - Europa Universalis 4 Wiki.html`
 
 
 Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
 Status: NEEDS_DESIGN
+
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
 
 Notes:
 
@@ -198,6 +192,8 @@ Lore doc: `docs/lore/verne-religion-rivals-and-overseas-imaginary.md`
 
 Status: NEEDS_REPO_CHECK
 
+Freshness: Last reviewed: 2026-03-29; Reviewer: Codex (AI-assisted reality-sync pass)
+
 Notes:
 
 - Repo grounding now covers real Verne merc templates, order events, mission flags, and monument relocation mechanics.
@@ -211,7 +207,15 @@ Conflict-resolution note:
 
 - Keep this file focused on per-system mapping only; place shared reference inventory updates in `docs/references/reference-index.md` to reduce future merge conflicts.
 
+Freshness protocol (lightweight, process-only):
 
-- If a row is blocked by uncertain implementation details, keep `NEEDS_REPO_CHECK` until a concrete repo-map article resolves it.
-- If a row is blocked by unresolved design conflicts, keep `NEEDS_DESIGN` and link the design open-questions entry.
+- Every crosswalk block must expose visible freshness metadata directly under `Status:` using this format: `Freshness: Last reviewed: YYYY-MM-DD; Reviewer: <name/handle>`.
+- `Last reviewed` is updated whenever status or guidance meaningfully changes, or when a reviewer confirms the block is still accurate after spot-checking the linked design/repo-map/lore docs.
+- Review trigger: run a crosswalk freshness pass at least once per quarter (Jan/Apr/Jul/Oct) **or** at milestone boundaries (e.g., before opening a major implementation PR or after a reality-sync batch lands), whichever happens first.
+- No new tooling is required; this is a manual governance check intended to stay low-overhead and easy to maintain.
+
+Status trust policy:
+
+- If a row is blocked by uncertain implementation details, keep `NEEDS_REPO_CHECK` until a concrete repo-map article resolves it and refresh metadata is updated.
+- If a row is blocked by unresolved design conflicts, keep `NEEDS_DESIGN` and link the design open-questions entry, then refresh metadata after each review checkpoint.
 - Always preserve separation of concerns: design intent vs implementation facts vs lore voice.

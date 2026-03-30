@@ -1,0 +1,14 @@
+l_english:
+ # Verne dynasty safeguard localisation (authoritative)
+ verne_overhaul_dynasty.1.t:0 "Dynastic Safeguard"
+ verne_overhaul_dynasty.1.d:0 "Succession checks found an invalid or missing heir entry, so court protocol has selected a valid fallback successor to secure the line."
+ verne_overhaul_dynasty.1.a:0 "Ensure succession stability."
+
+ # Verne dynasty decision surface
+ verne_overhaul_enforce_dynastic_safeguard_title:0 "Enforce Dynastic Safeguard"
+ verne_overhaul_enforce_dynastic_safeguard_desc:0 "Invoke the ducal succession protocol to correct an invalid or missing heir and secure the line of síl Verne."
+ verne_overhaul_enforce_dynastic_safeguard_tt:0 "Triggers the dynastic safeguard event, generating a valid Verne heir if succession data is missing or invalid."
+
+ verne_overhaul_proclaim_exalted_lineage_title:0 "Proclaim Exalted Lineage"
+ verne_overhaul_proclaim_exalted_lineage_desc:0 "With succession secure, proclaim the prestige of the ducal house and formalize courtly authority around the Verne line."
+ verne_overhaul_proclaim_exalted_lineage_tt:0 "Gain §YExalted Lineage§! for 10 years and gain §G10§! Prestige."

@@ -1,0 +1,17 @@
+# Verne overhaul v0.1 adventure prototype (split file to reduce merge conflicts)
+
+verne_proto_adventure_ideas = {
+	category = DIP
+
+	start = {
+		colonists = 1
+	}
+
+	bonus = {
+		global_tariffs = 0.1
+	}
+
+	verne_proto_pathfinders = {
+		range = 0.15
+	}
+}

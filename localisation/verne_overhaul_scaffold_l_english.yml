@@ -1,0 +1,10 @@
+l_english:
+ # ===============================================
+ # Verne overhaul scaffold placeholders (merge-safe split file)
+ # ===============================================
+
+ verne_placeholder_doctrine_policy:0 "Doctrine Placeholder Act"
+ verne_placeholder_doctrine_policy_desc:0 "Scaffold-only policy shell reserved for future Verne doctrine milestone implementation."
+
+ verne_placeholder_overhaul_decision:0 "Draft the Verne Overhaul Ledger"
+ verne_placeholder_overhaul_decision_desc:0 "Scaffold-only decision shell with no gameplay effect until the milestone implementation pass."

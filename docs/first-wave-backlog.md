@@ -7,12 +7,50 @@ Each task should be possible to complete in one focused session. Early tasks sho
 
 Run [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) before starting any backlog item that edits code.
 
+## Implementation status snapshot (2026-03-29)
+- **Policies:** scaffold only in [`common/policies/verne_doctrine_policies.txt`](../common/policies/verne_doctrine_policies.txt) (`verne_placeholder_doctrine_policy` no-op placeholder).
+- **Decisions:** implemented dynasty lane in [`decisions/verne_overhaul_decisions.txt`](../decisions/verne_overhaul_decisions.txt) (`verne_overhaul_enforce_dynastic_safeguard`, `verne_overhaul_proclaim_exalted_lineage`; no longer scaffold-only).
+- **Planning rule:** do not mark first-wave as complete while policies/decisions remain scaffold-only.
+
+## Current live surface (implemented objects only)
+- Doctrine: [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt) → `verne_doctrine_silver_wake`.
+- Reforms: [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt) → `verne_court_of_silver_oaths_reform`, `verne_charter_of_great_captains_reform`, `verne_ducal_muster_of_armoc_reform`.
+- Dynasty on_action dispatch: [`common/on_actions/verne_overhaul_on_actions.txt`](../common/on_actions/verne_overhaul_on_actions.txt) → `on_new_heir` -> `verne_overhaul_dynasty.1`.
+- Dynasty event: [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt) → `verne_overhaul_dynasty.1`.
+
 ## Working rules
 - Prefer 1 to 3 files per task when possible.
 - Finish localization stubs in the same task as the new objects.
 - Do not rewrite early missions before the helper layer and reform/precursor flags exist.
 - Preserve working Verne content where possible instead of replacing it blindly.
 - Treat shared multi-country files as normal for Verne work. Do not assume the real source lives in a tidy Verne-only file.
+- Tooltip/custom-tooltip mission keys for overhaul helpers are standardized to the `verne_overhaul_tt_*` namespace; avoid introducing new `verne_unlock_*` keys.
+
+## v0.1 Beginner-Safe Slice (Execute First)
+
+This is the first implementation scope. Do **only** this thin slice before broader system work.
+
+Target files for v0.1:
+- [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt) — add one doctrine group prototype (single group only).
+- [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt) — add one initial reform entry (single reform only).
+- [`localisation/verne_overhaul_l_english.yml`](../localisation/verne_overhaul_l_english.yml) — add matching localization for the prototype IDs.
+
+Scope guardrails:
+- Keep this v0.1 pass to **~3 touched gameplay files + 1 localization file maximum** for beginner-safe iteration.
+- Do not expand into mission-tree rewrites during this pass.
+- Do not add deferred helper-heavy systems during this pass.
+
+Post-v0.1 (explicitly deferred):
+- Broad mission rewrites and mission reward rebalance.
+- Cross-system doctrine integration passes (global compat rewiring, policy web expansion, and wide event coupling).
+- Additional reform tiers/chains beyond the first single reform prototype.
+
+Done when (v0.1 checks):
+- Doctrine prototype ID exists in `common/ideas/verne_doctrine_groups.txt`.
+- Initial reform ID exists in `common/government_reforms/verne_overhaul_reforms.txt`.
+- Matching localization keys exist in `localisation/verne_overhaul_l_english.yml` for every new v0.1 ID.
+- No duplicate key names are introduced across newly added v0.1 entries.
+- Helper naming parity is consistent (`verne_` prefix and shared suffix patterns where applicable).
 
 ## Phase 0: Grounding Audit
 
@@ -178,6 +216,7 @@ Done when:
 - the first-wave exact policy packages exist
 - names follow the Verne flavor families from the theorycraft
 - the policy layer feels like a real system, not filler
+- status is no longer scaffold-only (`verne_placeholder_doctrine_policy` removed/replaced by non-placeholder policy objects)
 
 ## Phase C: Reform Slice
 
@@ -190,6 +229,7 @@ Done when:
 - Court of Silver Oaths exists
 - Charter of Great Captains exists
 - Ducal Muster of Armoc exists
+- Default/safest pick for first tests: Court of Silver Oaths (most stable general-purpose governance baseline).
 
 ### V-15 Add Tier 2 reform triplet
 Target files:
@@ -216,7 +256,7 @@ Done when:
 ### V-17 Add the dynasty safeguard chain
 Target files:
 - [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt)
-- [`common/on_actions/zz_verne_overhaul_on_actions.txt`](../common/on_actions/zz_verne_overhaul_on_actions.txt)
+- [`common/on_actions/verne_overhaul_on_actions.txt`](../common/on_actions/verne_overhaul_on_actions.txt)
 - [`common/scripted_triggers/verne_overhaul_triggers.txt`](../common/scripted_triggers/verne_overhaul_triggers.txt)
 
 Done when:
@@ -237,6 +277,7 @@ Done when:
 - Present the Heir at the Vernissage exists
 - Drill the Battle-Mage Court exists
 - Elevate a Storm-Crowned Prince exists
+- status is no longer scaffold-only (`verne_placeholder_overhaul_decision` removed/replaced by non-placeholder decision objects)
 
 ### V-19 Add the first advisor archetype package
 Target files:

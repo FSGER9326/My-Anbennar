@@ -48,6 +48,31 @@ docs/wiki/checklist-automation-system.md merge=union
 """
 
 
+def canonical_gitattributes_lines() -> list[str]:
+    return [line for line in CANONICAL_GITATTRIBUTES.splitlines() if line.strip()]
+
+
+def merge_gitattributes(ours: str, theirs: str) -> str:
+    canonical_lines = canonical_gitattributes_lines()
+    canonical_set = set(canonical_lines)
+
+    custom_lines: list[str] = []
+    seen_custom: set[str] = set()
+
+    for source in (ours, theirs):
+        for line in source.splitlines():
+            stripped = line.strip()
+            if not stripped or stripped in canonical_set or stripped in seen_custom:
+                continue
+            seen_custom.add(stripped)
+            custom_lines.append(stripped)
+
+    # Full replacement is risky in evolving repos because contributors may add
+    # valid custom attributes outside the hotspot canon that we still need.
+    merged_lines = canonical_lines + custom_lines
+    return "\n".join(merged_lines).rstrip("\n") + "\n"
+
+
 def run_git(*args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         ["git", *args],
@@ -89,7 +114,11 @@ def resolve_file(path: str) -> bool:
     target = ROOT / path
 
     if path == ".gitattributes":
-        write_text(target, CANONICAL_GITATTRIBUTES)
+        ours = stage_text(path, 2)
+        theirs = stage_text(path, 3)
+        if not ours and not theirs:
+            return False
+        write_text(target, merge_gitattributes(ours, theirs))
         return run_git("add", path).returncode == 0
 
     ours = stage_text(path, 2)

@@ -21,7 +21,9 @@ These files answer:
 - what the next concrete tasks are
 
 ### Working rules
+- [../AGENTS.md](../AGENTS.md)
 - [codex-grounding-checklist.md](./codex-grounding-checklist.md)
+- [automation/pre-pr-artifact-flow.md](./automation/pre-pr-artifact-flow.md)
 - [references/reference-index.md](./references/reference-index.md)
 
 These files keep implementation grounded in:
@@ -48,15 +50,22 @@ The `repo-maps/` folder records how existing Anbennar systems are actually imple
 - [wiki/README.md](./wiki/README.md)
 - [wiki/high-value-non-modding-eu4-wiki-topics.md](./wiki/high-value-non-modding-eu4-wiki-topics.md)
 - [wiki/noob-friendly-doc-naming-convention.md](./wiki/noob-friendly-doc-naming-convention.md)
+- [wiki/checklist-automation-system.md](./wiki/checklist-automation-system.md)
+- [wiki/merge-conflict-prevention-playbook.md](./wiki/merge-conflict-prevention-playbook.md)
+- [wiki/parallelization-lanes-playbook.md](./wiki/parallelization-lanes-playbook.md)
+- [wiki/checklist-automation-blindspots-changelog.md](./wiki/checklist-automation-blindspots-changelog.md)
+- [wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md)
 
 Use this for long-term change tracking, upstream-update adaptation, and beginner-friendly conventions.
 
 ## Suggested use order
 
-1. Check real repo files.
-2. Check the grounding checklist.
-3. Check the relevant design doc.
-4. Check local EU4 wiki snapshots if syntax or engine rules are unclear.
+Use this sequence to avoid bouncing between overlapping docs:
+
+1. **Start point:** [start-here.md](./start-here.md) for the minimal entry flow.
+2. **Command/index layer:** [wiki/checklist-automation-system.md](./wiki/checklist-automation-system.md) for operational commands only.
+3. **Ownership truth layer:** [wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md) for canonical-vs-legacy file ownership.
+4. **Then deep-dive by need:** design docs, planning docs, and references.
 
 ## Documentation organization recommendations
 

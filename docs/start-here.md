@@ -1,4 +1,4 @@
-# Start Here (Noob-Friendly)
+# Start Here
 
 If you are new to GitHub and modding, read in this order:
 
@@ -41,18 +41,25 @@ Use one suffix consistently:
 - `-ledger.md` for tracking tables
 - `README.md` for folder entry pages
 
+> [!IMPORTANT]
+> **One-command path (default):**
+> `bash scripts/noob_autopilot.sh`
+
+This page is intentionally minimal: run the default command, then escalate only if the command tells you to.
+
 ## What should we do right now? (Decision guide)
 
-If you feel lost, use this decision tree in order.
+1. Run `bash scripts/noob_autopilot.sh`.
+2. If it passes, proceed with your normal push/PR flow.
+3. If it reports conflicts, overlap risk, or failing checks, use the escalation links below.
 
-### Step 1: Check readiness to implement
+## Tiny glossary (modding terms, not GitHub terms)
 
-You are **ready to start implementation now** only if all are true:
+- **Hotspot file:** a frequently edited file where parallel edits are likely to conflict.
+- **Single-writer file:** a file designated to one lane/author at a time to prevent merge churn.
+- **Smoke checks:** fast structural checks that catch broken links, keys, or references early.
 
-- the target mechanic has a repo-map reference with concrete anchors,
-- the change ledger has a row for the target,
-- there is at least one smoke-test checklist item for the touched IDs,
-- scope is a small `v0.1` slice (not a full overhaul in one go).
+## Escalation links only
 
 If any item is missing, do not implement yet - finish grounding first.
 
@@ -102,3 +109,13 @@ That will tell you:
 - If your next commit changes **more than 5-7 files** across unrelated systems, split it.
 - If you cannot explain the exact entry point and state carriers in two sentences, do one more scan pass first.
 - Prefer many small completed slices over one large partially-finished rewrite.
+- Command reference and operational index:
+  [docs/wiki/checklist-automation-system.md](./wiki/checklist-automation-system.md)
+- Conflict decisions and mitigation flow:
+  [docs/wiki/merge-conflict-prevention-playbook.md](./wiki/merge-conflict-prevention-playbook.md)
+- Verne canonical file ownership truth:
+  [docs/wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md)
+- Parallel lane model for safe multi-tasking:
+  [docs/wiki/parallelization-lanes-playbook.md](./wiki/parallelization-lanes-playbook.md)
+- Full docs hub:
+  [docs/README.md](./README.md)

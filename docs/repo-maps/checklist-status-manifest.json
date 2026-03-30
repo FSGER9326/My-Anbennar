@@ -32,14 +32,14 @@
       "status": "active"
     },
     {
-      "id": "verne_helper_layer",
-      "path": "common/scripted_effects/verne_overhaul_effects.txt",
+      "id": "verne_helper_modifiers",
+      "path": "common/event_modifiers/verne_overhaul_modifiers.txt",
       "category": "code_helper",
-      "scanned": true,
-      "mapped": true,
-      "verified": true,
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
       "automation": "scripted_smoke_checks",
-      "status": "active"
+      "status": "draft"
     },
     {
       "id": "verne_helper_triggers",
@@ -50,6 +50,96 @@
       "verified": true,
       "automation": "scripted_smoke_checks",
       "status": "active"
+    },
+    {
+      "id": "verne_helper_effects",
+      "path": "common/scripted_effects/verne_overhaul_effects.txt",
+      "category": "code_helper",
+      "scanned": true,
+      "mapped": true,
+      "verified": true,
+      "automation": "scripted_smoke_checks",
+      "status": "active"
+    },
+    {
+      "id": "verne_helper_localisation",
+      "path": "localisation/verne_overhaul_l_english.yml",
+      "category": "code_helper",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
+    },
+    {
+      "id": "verne_doctrine_groups",
+      "path": "common/ideas/verne_doctrine_groups.txt",
+      "category": "doctrine",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
+    },
+    {
+      "id": "verne_doctrine_policies",
+      "path": "common/policies/verne_doctrine_policies.txt",
+      "category": "doctrine",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
+    },
+    {
+      "id": "verne_reforms",
+      "path": "common/government_reforms/verne_overhaul_reforms.txt",
+      "category": "reform",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
+    },
+    {
+      "id": "verne_integration_decisions",
+      "path": "decisions/verne_overhaul_decisions.txt",
+      "category": "integration",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
+    },
+    {
+      "id": "verne_integration_dynasty_events",
+      "path": "events/verne_overhaul_dynasty_events.txt",
+      "category": "integration",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
+    },
+    {
+      "id": "verne_integration_advisor_events",
+      "path": "events/verne_overhaul_advisor_events.txt",
+      "category": "integration",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
+    },
+    {
+      "id": "verne_integration_on_actions",
+      "path": "common/on_actions/verne_overhaul_on_actions.txt",
+      "category": "integration",
+      "scanned": false,
+      "mapped": false,
+      "verified": false,
+      "automation": "scripted_smoke_checks",
+      "status": "draft"
     }
   ]
 }

@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+"""Audit EU4 event IDs for common beginner mistakes."""
+from __future__ import annotations
+
+import argparse
+from collections import defaultdict
+from pathlib import Path
+import re
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_FILES = [
+    "events/Flavour_Verne_A33.txt",
+    "events/verne_overhaul_dynasty_events.txt",
+]
+NAMESPACE_RE = re.compile(r"(?m)^\s*namespace\s*=\s*([A-Za-z0-9_.-]+)\s*$")
+EVENT_ASSIGN_RE = re.compile(
+    r"^\s*(country_event|province_event|character_event|triggered_only_event)\s*=\s*(.*)$"
+)
+EVENT_ID_RE = re.compile(r"^\s*id\s*=\s*([A-Za-z0-9_.-]+\.\d+)\s*$")
+
+
+def extract_event_ids(text: str) -> list[str]:
+    # Supported event block formatting variants:
+    #   country_event = {
+    #   country_event =
+    #   {
+    # plus optional blank lines / comments between assignment and "{".
+    ids: list[str] = []
+    depth = 0
+    in_event = False
+    waiting_for_event_open = False
+    event_depth = -1
+
+    for line in text.splitlines():
+        line_no_comment = line.split("#", 1)[0]
+
+        if not in_event and waiting_for_event_open:
+            if "{" in line_no_comment:
+                in_event = True
+                waiting_for_event_open = False
+                event_depth = depth + 1
+            elif line_no_comment.strip():
+                waiting_for_event_open = False
+
+        if not in_event and not waiting_for_event_open:
+            assign_match = EVENT_ASSIGN_RE.match(line_no_comment)
+            if assign_match:
+                waiting_for_event_open = True
+                if "{" in assign_match.group(2):
+                    in_event = True
+                    waiting_for_event_open = False
+                    event_depth = depth + 1
+
+        if in_event:
+            match = EVENT_ID_RE.match(line_no_comment)
+            if match:
+                ids.append(match.group(1))
+
+        depth += line.count("{")
+        depth -= line.count("}")
+
+        if in_event and depth < event_depth:
+            in_event = False
+            event_depth = -1
+
+    return ids
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--file",
+        action="append",
+        dest="files",
+        help="Event script path relative to repo root (repeatable).",
+    )
+    args = parser.parse_args()
+
+    file_list = args.files if args.files else DEFAULT_FILES
+    targets = [ROOT / p for p in file_list]
+
+    errors: list[str] = []
+    seen_ids: dict[str, list[str]] = defaultdict(list)
+
+    for path in targets:
+        if not path.exists():
+            errors.append(f"missing file: {path.relative_to(ROOT)}")
+            continue
+
+        text = path.read_text(encoding="utf-8", errors="replace")
+        namespaces = set(NAMESPACE_RE.findall(text))
+        ids = extract_event_ids(text)
+
+        if ids and not namespaces:
+            errors.append(f"{path.relative_to(ROOT)}: contains event ids but no namespace declaration")
+
+        for event_id in ids:
+            ns = event_id.split(".", 1)[0]
+            if namespaces and ns not in namespaces:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: id '{event_id}' uses namespace '{ns}' not declared in file"
+                )
+            seen_ids[event_id].append(str(path.relative_to(ROOT)))
+
+    for event_id, where in sorted(seen_ids.items()):
+        unique_files = sorted(set(where))
+        if len(unique_files) > 1:
+            errors.append(f"duplicate event id '{event_id}' found across files: {', '.join(unique_files)}")
+
+    if errors:
+        print("Event ID audit failed:")
+        for error in errors:
+            print(f" - {error}")
+        return 1
+
+    print(f"Event ID audit passed: {len(targets)} file(s) scanned, {len(seen_ids)} ids checked.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

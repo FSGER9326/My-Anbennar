@@ -1,0 +1,7 @@
+# RETIRED FILE (inactive)
+# Former dynasty safeguard trigger definitions.
+#
+# Authoritative owner moved to:
+# - common/scripted_triggers/verne_overhaul_triggers.txt
+#
+# This file intentionally defines no scripted triggers.
