@@ -1,5 +1,6 @@
 # Verne overhaul doctrine groups
-# Keep one doctrine group per iteration for beginner-safe expansion.
+# Current implemented slice: Silver Wake + first synergistic expansion groups
+# Keep doctrine families coherent and aligned to the reform/mission ladder already live in-repo.
 
 verne_doctrine_silver_wake = {
 	category = ADM
@@ -38,5 +39,125 @@ verne_doctrine_silver_wake = {
 
 	verne_doctrine_silver_wake_quayside_arbitration = {
 		global_unrest = -1
+	}
+}
+
+verne_doctrine_vernissage = {
+	category = DIP
+
+	start = {
+		range = 0.15
+	}
+
+	bonus = {
+		colonists = 1
+		range = 0.10
+	}
+
+	verne_doctrine_vernissage_captains = {
+		global_colonial_growth = 10
+	}
+
+	verne_doctrine_vernissage_ports_of_adventure = {
+		envoy_travel_time = -0.10
+	}
+
+	verne_doctrine_vernissage_heartspier_scale = {
+		improve_relation_modifier = 0.10
+	}
+
+	verne_doctrine_vernissage_eastern_princes = {
+		trade_steering = 0.10
+	}
+
+	verne_doctrine_vernissage_expedition_ledgers = {
+		navy_tradition = 0.50
+	}
+
+	verne_doctrine_vernissage_regatta_laurels = {
+		global_sailors_modifier = 0.10
+	}
+
+	verne_doctrine_vernissage_worlds_on_display = {
+		merchants = 1
+	}
+}
+
+verne_doctrine_dragonwake = {
+	category = MIL
+
+	start = {
+		cav_to_inf_ratio = 0.10
+		cavalry_cost = -0.05
+	}
+
+	bonus = {
+		morale_of_armies = 0.10
+		cavalry_power = 0.05
+	}
+
+	verne_doctrine_dragonwake_sky_lance_discipline = {
+		cavalry_power = 0.10
+	}
+
+	verne_doctrine_dragonwake_muster = {
+		army_tradition = 0.25
+	}
+
+	verne_doctrine_dragonwake_aerial_reconnaissance = {
+		leader_land_manuever = 1
+	}
+
+	verne_doctrine_dragonwake_storm_crowned_nobility = {
+		yearly_army_professionalism = 0.005
+	}
+
+	verne_doctrine_dragonwake_red_wake_shock = {
+		leader_land_shock = 1
+	}
+
+	verne_doctrine_dragonwake_knights_of_the_crimson_wing = {
+		army_tradition = 0.25
+	}
+}
+
+verne_doctrine_grand_regatta = {
+	category = DIP
+
+	start = {
+		global_sailors_modifier = 0.10
+	}
+
+	bonus = {
+		global_sailors_modifier = 0.10
+		movement_speed_in_fleet_modifier = 0.05
+	}
+
+	verne_doctrine_grand_regatta_racing_harbours = {
+		prestige = 0.50
+	}
+
+	verne_doctrine_grand_regatta_laurels_of_the_helm = {
+		movement_speed_in_fleet_modifier = 0.05
+	}
+
+	verne_doctrine_grand_regatta_master_tidemaps = {
+		sailors_recovery_speed = 0.10
+	}
+
+	verne_doctrine_grand_regatta_sailors_guilds = {
+		navy_tradition = 0.25
+	}
+
+	verne_doctrine_grand_regatta_longwake_navigation = {
+		morale_of_navies = 0.05
+	}
+
+	verne_doctrine_grand_regatta_regatta_drills = {
+		trade_efficiency = 0.10
+	}
+
+	verne_doctrine_grand_regatta_sea_lords_festivals = {
+		light_ship_power = 0.10
 	}
 }
