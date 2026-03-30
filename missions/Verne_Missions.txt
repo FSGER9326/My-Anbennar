@@ -1035,6 +1035,9 @@ A33_second_slot = {
 		}
 
 		effect = {
+			# Commentary: Alvar's Reforms is the state-foundation mission, so it now activates the durable dynasty-protection helper state.
+			verne_overhaul_activate_dynasty_protection = yes
+			custom_tooltip = verne_overhaul_tt_activate_dynasty_protection
 			if = {
 				limit = {
 					has_estate_privilege = estate_adventurers_generous_quest_rewards
@@ -1101,12 +1104,17 @@ A33_second_slot = {
 				limit = { has_ruler_flag = verne_is_alvar_IV } 
 				custom_tooltip = verne_alvar_IV_condition_yes
 				add_reform_progress_medium_effect = yes
+				# Commentary: completing this state-founding mission now marks the first reform foundation as live for the overhaul helper layer.
+				set_country_flag = verne_unlock_tier1_reforms
+				custom_tooltip = verne_overhaul_tt_seed_silver_oaths
 				take_estate_land_share_massive = { estate = all } 
 			}
 			else = {
 				custom_tooltip = verne_alvar_IV_condition_no
 				tooltip = {
 					add_reform_progress_medium_effect = yes
+					set_country_flag = verne_unlock_tier1_reforms
+					custom_tooltip = verne_overhaul_tt_seed_silver_oaths
 					take_estate_land_share_massive = { estate = all } 
 				}
 			}
