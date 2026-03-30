@@ -73,6 +73,24 @@ l_english:
  verne_ducal_muster_of_armoc_reform:0 "Ducal Muster of Armoc"
  verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's muster tradition turns noble military identity into a disciplined ducal war machine built around recovery, prestige, and mounted force."
 
+ verne_admiralty_of_the_crimson_wake_reform:0 "Admiralty of the Crimson Wake"
+ verne_admiralty_of_the_crimson_wake_reform_desc:0 "Verne's sea-state is entrusted to a disciplined admirality that binds convoy command, trade projection, and fleet confidence into a single maritime doctrine of rule."
+
+ verne_estuary_companies_of_heartspier_reform:0 "Estuary Companies of Heartspier"
+ verne_estuary_companies_of_heartspier_reform_desc:0 "Heartspier's estuarine financiers and port companies turn maritime administration into commercial leverage, cheaper building, and steadier credit."
+
+ verne_regatta_discipline_reform:0 "Regatta Discipline"
+ verne_regatta_discipline_reform_desc:0 "The Regatta becomes more than prestige spectacle: it codifies sailor culture, maritime readiness, and practical seamanship across the Vernman coast."
+
+ verne_red_court_arcana_reform:0 "Red Court Arcana"
+ verne_red_court_arcana_reform_desc:0 "The Red Court is formalized as a state-bearing institution, integrating mage influence, advisor depth, and dynastic shaping into the machinery of rule."
+
+ verne_dragonwake_ordinance_reform:0 "Dragonwake Ordinance"
+ verne_dragonwake_ordinance_reform_desc:0 "Wyvern service and martial dynastic training are codified into an ordinance that prizes shock leadership, officer tradition, and battlefield discipline."
+
+ verne_battle_mage_collegium_reform:0 "Battle-Mage Collegium"
+ verne_battle_mage_collegium_reform_desc:0 "Evocation doctrine and officer training are fused into a single war-collegium, giving Verne a harder striking field army and a deeper mage-officer bench."
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
