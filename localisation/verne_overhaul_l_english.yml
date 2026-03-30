@@ -49,6 +49,7 @@ l_english:
  verne_overhaul_tt_seed_dragonwake:0 "Seeds the §YDragonwake§! martial-dynastic path for later Verne overhaul content."
  verne_overhaul_tt_activate_dynasty_protection:0 "Activates the first durable §Ydynasty protection§! state for the Verne overhaul."
  verne_overhaul_tt_activate_marriage_court:0 "Activates the §YMarriage Court§! support state for later dynastic progression."
+ verne_overhaul_tt_seed_estuary_companies:0 "Seeds the §YEstuary Companies§! maritime-finance path for the Verne overhaul."
 
  verne_overhaul_formalize_silver_oaths:0 "Formalize the Silver Oaths"
  verne_overhaul_formalize_silver_oaths_desc:0 "By formally codifying the Silver Oaths, Verne anchors its first reform foundation in dynastic legitimacy, court discipline, and practical statecraft."

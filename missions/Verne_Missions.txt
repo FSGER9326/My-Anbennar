@@ -192,6 +192,9 @@ A33_first_slot = {
 		}
 
 		effect = {
+			# Commentary: Grand Port of Heartspier is the first real sea-state mission and now seeds the estuary-finance path.
+			set_country_flag = verne_seed_estuary_companies
+			custom_tooltip = verne_overhaul_tt_seed_estuary_companies
 			add_country_modifier = {
 				name = "verne_new_armada"
 				duration = 9125
@@ -252,6 +255,11 @@ A33_first_slot = {
 		}
 
 		effect = {
+			# Commentary: The Vernissage now explicitly advances Verne's international network state.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
 			add_treasury = -1000
 			add_dip_power = -200
 			country_event = {
