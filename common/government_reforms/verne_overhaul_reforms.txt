@@ -1,6 +1,7 @@
 # Verne overhaul reform ladder
-# Current implemented slice: Tier 1-5 (foundations, sea-state formation, red-court transformation,
-# court magnificence + overseas doctrine, wyvern military state)
+# Current implemented slice: Tier 1-7 (foundations, sea-state formation, red-court transformation,
+# court magnificence + overseas doctrine, wyvern military state, maritime hegemony,
+# faith empire + world court)
 # Reconciled toward the canonical reform bible while keeping the rollout structured.
 
 # ===============================================
@@ -237,6 +238,102 @@ verne_sea_nest_ascendancy_reform = {
 		movement_speed_in_fleet_modifier = 0.10
 		leader_land_manuever = 1
 		naval_forcelimit_modifier = 0.10
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+# ===============================================
+# Tier 6 - Maritime Hegemony
+# ===============================================
+
+verne_secretariat_of_the_grand_regatta_reform = {
+	icon = "trade"
+	valid_for_nation_designer = no
+	modifiers = {
+		trade_steering = 0.15
+		trade_efficiency = 0.10
+		navy_tradition = 0.50
+		envoy_travel_time = -0.10
+		global_ship_trade_power = 0.10
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+verne_imperial_sea_court_reform = {
+	icon = "court"
+	valid_for_nation_designer = no
+	modifiers = {
+		diplomatic_reputation = 1
+		diplomatic_relations = 1
+		morale_of_navies = 0.10
+		prestige = 1
+		naval_tradition_from_trade = 0.50
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+verne_overseas_commanderies_reform = {
+	icon = "exploration"
+	valid_for_nation_designer = no
+	modifiers = {
+		global_tariffs = 0.10
+		governing_capacity_modifier = 0.10
+		diplomatic_annexation_cost = -0.10
+		range = 0.15
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+# ===============================================
+# Tier 7 - Faith Empire and World Court
+# ===============================================
+
+verne_apostolic_court_of_corin_reform = {
+	icon = "cross"
+	valid_for_nation_designer = no
+	modifiers = {
+		missionaries = 1
+		diplomatic_reputation = 1
+		enforce_religion_cost = -0.33
+		tolerance_own = 1
+		global_missionary_strength = 0.02
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+verne_vernman_court_of_the_world_reform = {
+	icon = "court"
+	valid_for_nation_designer = no
+	modifiers = {
+		prestige = 1
+		improve_relation_modifier = 0.20
+		merchants = 1
+		free_leader_pool = 1
+		yearly_innovativeness = 0.25
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+verne_knights_of_the_crimson_scale_reform = {
+	icon = "military_orders"
+	valid_for_nation_designer = no
+	modifiers = {
+		morale_of_armies = 0.10
+		army_tradition = 0.50
+		prestige_from_land = 0.10
+		global_missionary_strength = 0.01
 	}
 	ai = {
 		factor = 1

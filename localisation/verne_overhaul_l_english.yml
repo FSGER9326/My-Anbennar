@@ -109,6 +109,24 @@ l_english:
  verne_sea_nest_ascendancy_reform:0 "Sea-Nest Ascendancy"
  verne_sea_nest_ascendancy_reform_desc:0 "Wyvern doctrine and sea power are fused into an expeditionary air-sea state, emphasizing maneuver, fleet reach, and fast-strike projection."
 
+ verne_secretariat_of_the_grand_regatta_reform:0 "Secretariat of the Grand Regatta"
+ verne_secretariat_of_the_grand_regatta_reform_desc:0 "The Grand Regatta becomes an institution of maritime reputation, commercial coordination, and world-facing logistics rather than merely a display of splendor."
+
+ verne_imperial_sea_court_reform:0 "Imperial Sea Court"
+ verne_imperial_sea_court_reform_desc:0 "Verne's diplomatic and naval prestige are fused into an imperial sea court that projects legitimacy abroad as reliably as fleets project force."
+
+ verne_overseas_commanderies_reform:0 "Overseas Commanderies"
+ verne_overseas_commanderies_reform_desc:0 "Strategic enclaves abroad are formalized into commanderies, giving Verne a more durable subject-and-enclave model for overseas power."
+
+ verne_apostolic_court_of_corin_reform:0 "Apostolic Court of Corin"
+ verne_apostolic_court_of_corin_reform_desc:0 "The Verne court becomes an apostolic institution of Corinite rule, blending missionary strength, diplomatic authority, and religious enforcement."
+
+ verne_vernman_court_of_the_world_reform:0 "Vernman Court of the World"
+ verne_vernman_court_of_the_world_reform_desc:0 "Prestige, commerce, diplomacy, and worldly attraction are drawn into one great cosmopolitan court that seeks to make Verne the center of Halann's gaze."
+
+ verne_knights_of_the_crimson_scale_reform:0 "Knights of the Crimson Scale"
+ verne_knights_of_the_crimson_scale_reform_desc:0 "Corinite militancy and knightly tradition are reorganized into an order-minded state arm that joins piety, warlike prestige, and disciplined service."
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
