@@ -274,3 +274,108 @@ verne_foundry_war_ordinances = {
 	removed_effect = {}
 	ai_will_do = { factor = 1 }
 }
+
+verne_audit_of_chartered_harbours = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = verne_doctrine_estuary_companies
+		has_idea_group = verne_doctrine_imperial_chancery
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_estuary_companies
+		full_idea_group = verne_doctrine_imperial_chancery
+	}
+
+	yearly_corruption = -0.05
+	build_cost = -0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_concord_of_seals_and_oaths = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_doctrine_imperial_chancery
+		has_idea_group = verne_doctrine_pearlescent_concord
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_imperial_chancery
+		full_idea_group = verne_doctrine_pearlescent_concord
+	}
+
+	diplomatic_annexation_cost = -0.10
+	liberty_desire_in_subjects = -5
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_pilgrim_convoy_articles = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_doctrine_corinite_stewardship
+		has_idea_group = verne_doctrine_apostolic_sea_lanes
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_corinite_stewardship
+		full_idea_group = verne_doctrine_apostolic_sea_lanes
+	}
+
+	global_missionary_strength = 0.01
+	morale_of_navies = 0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_capitular_ordinance_of_corin = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = verne_doctrine_corinite_stewardship
+		has_idea_group = verne_doctrine_apostolic_valour
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_corinite_stewardship
+		full_idea_group = verne_doctrine_apostolic_valour
+	}
+
+	morale_of_armies = 0.05
+	yearly_legitimacy = 0.50
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_articles_of_the_silver_line = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = verne_doctrine_dragonwake
+		has_idea_group = verne_doctrine_silver_banner
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_dragonwake
+		full_idea_group = verne_doctrine_silver_banner
+	}
+
+	discipline = 0.025
+	cavalry_combat_ability = 0.10
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
