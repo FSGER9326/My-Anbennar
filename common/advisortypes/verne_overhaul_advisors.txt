@@ -1,0 +1,72 @@
+# Verne overhaul advisors
+# Compact first-pass advisor package for Verne's courtly, maritime, industrial, magical, and wyvern-state identity.
+
+verne_harbormaster_of_the_silver_wake = {
+	monarch_power = DIP
+	skill_scaled_modifier = {
+		trade_efficiency = 0.05
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = A33
+		}
+	}
+}
+
+verne_curator_of_the_vernissage = {
+	monarch_power = DIP
+	skill_scaled_modifier = {
+		improve_relation_modifier = 0.05
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = A33
+		}
+	}
+}
+
+verne_master_of_the_khenak_foundries = {
+	monarch_power = ADM
+	skill_scaled_modifier = {
+		production_efficiency = 0.05
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = A33
+		}
+	}
+}
+
+verne_magister_of_the_red_court = {
+	monarch_power = ADM
+	skill_scaled_modifier = {
+		reform_progress_growth = 0.05
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = A33
+		}
+	}
+}
+
+verne_wyvern_marshal = {
+	monarch_power = MIL
+	skill_scaled_modifier = {
+		army_tradition = 0.25
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = A33
+		}
+	}
+}

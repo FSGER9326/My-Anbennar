@@ -136,6 +136,22 @@ l_english:
  verne_storm_crowned_hegemony_reform:0 "Storm-Crowned Hegemony"
  verne_storm_crowned_hegemony_reform_desc:0 "This final hegemonic form exalts Verne as a storm-crowned military and oceanic power, joining land supremacy with fleet-borne dominion."
 
+ # --- Verne overhaul advisor layer ---
+ verne_harbormaster_of_the_silver_wake:0 "Harbormaster of the Silver Wake"
+ verne_harbormaster_of_the_silver_wake_desc:0 "A senior harbour administrator of the Silver Wake tradition, equally concerned with ledgers, pilots, convoy discipline, and the political theater of maritime trust."
+
+ verne_curator_of_the_vernissage:0 "Curator of the Vernissage"
+ verne_curator_of_the_vernissage_desc:0 "This courtly organizer shapes exhibitions, audiences, and diplomatic encounters into instruments of prestige and statecraft."
+
+ verne_master_of_the_khenak_foundries:0 "Master of the Khenak Foundries"
+ verne_master_of_the_khenak_foundries_desc:0 "A hard practical mind of furnaces, powder, and iron accounts, charged with turning foundry discipline into state strength."
+
+ verne_magister_of_the_red_court:0 "Magister of the Red Court"
+ verne_magister_of_the_red_court_desc:0 "A senior Red Court official who binds arcane administration, dynastic cultivation, and court procedure into one scarlet machine."
+
+ verne_wyvern_marshal:0 "Wyvern Marshal"
+ verne_wyvern_marshal_desc:0 "Part knight-captain, part ducal war planner, the Wyvern Marshal stands at the meeting point of noble service, aerial doctrine, and battlefield prestige."
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
