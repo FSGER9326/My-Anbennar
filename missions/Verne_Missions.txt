@@ -1971,6 +1971,15 @@ A33_second_slot = {
 		}
 
 		effect = {
+			# Commentary: New Verne is a late overseas consolidation milestone and should further mature the world-network state.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
 			add_permanent_power_projection = {
 				type = 10_permanent_power_projection
 				amount = 10
@@ -2885,6 +2894,15 @@ A33_third_slot = {
 		}
 
 		effect = {
+			# Commentary: Lands of Adventure is a mature network threshold and should advance both world-network and overseas reach.
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
 			if = {
 				limit = { in_golden_age = yes } 
 				extend_golden_age = 600
