@@ -76,7 +76,7 @@ It runs:
 - Event ID audit:
   - `python scripts/event_id_audit.py --file events/Flavour_Verne_A33.txt --file events/verne_overhaul_dynasty_events.txt`
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\event_id_audit.ps1 -File events/Flavour_Verne_A33.txt -File events/verne_overhaul_dynasty_events.txt`
-## Feature-branch sync
+### Direct profile runner
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\country_smoke_runner.ps1 -Profile automation/country_profiles/verne.json`
 - Python: `python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json`

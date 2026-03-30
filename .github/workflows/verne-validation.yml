@@ -31,10 +31,18 @@ on:
       - "localisation/**"
       - "missions/**"
       - "scripts/**"
+  workflow_dispatch:
+
+concurrency:
+  group: verne-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate-python-and-bash:
     runs-on: ubuntu-latest
+    env:
+      VALIDATION_REPORT: automation/reports/validation_report.json
+      PR_DRAFT_OUTPUT: automation/pr/PR_DRAFT.md
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -50,16 +58,46 @@ jobs:
       - name: Compile Python scripts
         run: python -m py_compile scripts/*.py
 
-      - name: Run Python automation checks
-        run: |
-          python scripts/docs_conflict_guard.py
-          python scripts/text_hygiene_guard.py
-          python scripts/checklist_link_audit.py
-          python scripts/verne_checklist_audit.py
-          python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json
+      - name: Run pre-PR validation + draft generation
+        run: bash scripts/pre_pr_with_draft.sh
 
-      - name: Run Bash smoke checks
-        run: bash scripts/verne_smoke_checks.sh
+      - name: Run text hygiene guard
+        run: python scripts/text_hygiene_guard.py
+
+      - name: Append workflow artifact URL to validation report
+        run: |
+          python scripts/write_validation_report.py \
+            --output "$VALIDATION_REPORT" \
+            --overall-status pass \
+            --check "docs_conflict_guard|python scripts/docs_conflict_guard.py|pass|high" \
+            --check "checklist_link_audit|python scripts/checklist_link_audit.py|pass|high" \
+            --check "verne_checklist_audit|python scripts/verne_checklist_audit.py|pass|high" \
+            --check "country_smoke_runner|python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json|pass|high" \
+            --check "text_hygiene_guard|python scripts/text_hygiene_guard.py|pass|medium" \
+            --artifact "validation-report|$VALIDATION_REPORT" \
+            --artifact "pr-draft|$PR_DRAFT_OUTPUT" \
+            --artifact "workflow-run|${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Publish validation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: verne-validation-artifacts
+          path: |
+            automation/reports/validation_report.json
+            automation/pr/PR_DRAFT.md
+
+      - name: Write GitHub Actions summary
+        run: |
+          echo "## Verne validation summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Pre-PR gate: PASS" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Text hygiene guard: PASS" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Validation report: \
+            \
+            \
+            automation/reports/validation_report.json" >> "$GITHUB_STEP_SUMMARY"
+          echo "- PR draft artifact: automation/pr/PR_DRAFT.md" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> "$GITHUB_STEP_SUMMARY"
 
   validate-powershell:
     runs-on: windows-latest
@@ -69,3 +107,25 @@ jobs:
 
       - name: Run PowerShell smoke checks
         run: powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verne_smoke_checks.ps1
+
+  validate-cwtools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run CWTools EU4 validation
+        uses: cwtools/cwtools-action@v1.1.0
+        with:
+          game: eu4
+          locLanguages: "english"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload CWTools output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cwtools-output
+          path: output.json
+          if-no-files-found: warn

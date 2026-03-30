@@ -38,7 +38,7 @@ if (Get-Command git -ErrorAction SilentlyContinue) {
     $errors++
 }
 
-foreach ($tool in @("powershell", "python", "python3", "bash")) {
+foreach ($tool in @("powershell", "python", "python3", "py", "bash")) {
     $command = Get-Command $tool -ErrorAction SilentlyContinue
     if ($command) {
         Write-Status -Level "OK" -Label $tool -Message $command.Source
@@ -46,6 +46,16 @@ foreach ($tool in @("powershell", "python", "python3", "bash")) {
         Write-Status -Level "WARN" -Label $tool -Message "not found on PATH"
         $warnings++
     }
+}
+
+$realPython = Get-ChildItem "$env:LOCALAPPDATA\Programs\Python" -Recurse -Filter python.exe -ErrorAction SilentlyContinue |
+    Where-Object { $_.FullName -notlike '*WindowsApps*' } |
+    Select-Object -First 1
+if ($realPython) {
+    Write-Status -Level "OK" -Label "python-install" -Message $realPython.FullName
+} else {
+    Write-Status -Level "WARN" -Label "python-install" -Message "no non-WindowsApps python.exe found under LocalAppData"
+    $warnings++
 }
 
 $branchResult = Invoke-Git -Arguments @("branch", "--show-current")

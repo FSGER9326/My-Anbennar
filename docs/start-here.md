@@ -53,7 +53,7 @@ This page is intentionally minimal: run the default command, then escalate only 
 2. If it passes, proceed with your normal push/PR flow.
 3. If it reports conflicts, overlap risk, or failing checks, use the escalation links below.
 
-## Tiny glossary (modding terms, not GitHub terms)
+## Workflow glossary
 
 - **Hotspot file:** a frequently edited file where parallel edits are likely to conflict.
 - **Single-writer file:** a file designated to one lane/author at a time to prevent merge churn.

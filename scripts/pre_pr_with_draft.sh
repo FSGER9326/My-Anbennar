@@ -17,23 +17,15 @@ echo "[1/3] Run pre-PR gate"
 bash scripts/pre_pr_gate.sh
 
 echo "[2/3] Write machine-readable validation report"
-cat > "${VALIDATION_REPORT}" <<JSON
-{
-  "generated_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-  "overall_status": "pass",
-  "checks": [
-    {"name":"docs_conflict_guard","command":"${PYTHON_BIN} scripts/docs_conflict_guard.py","status":"pass","severity":"high"},
-    {"name":"checklist_link_audit","command":"${PYTHON_BIN} scripts/checklist_link_audit.py","status":"pass","severity":"high"},
-    {"name":"verne_checklist_audit","command":"${PYTHON_BIN} scripts/verne_checklist_audit.py","status":"pass","severity":"high"},
-    {"name":"country_smoke_runner","command":"${PYTHON_BIN} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json","status":"pass","severity":"high"}
-  ],
-  "unresolved_issues": [],
-  "artifacts": [
-    {"name":"validation-report","path":"${VALIDATION_REPORT}"},
-    {"name":"pr-draft","path":"${PR_DRAFT_OUTPUT}"}
-  ]
-}
-JSON
+"${PYTHON_BIN}" scripts/write_validation_report.py \
+  --output "${VALIDATION_REPORT}" \
+  --overall-status "pass" \
+  --check "docs_conflict_guard|${PYTHON_BIN} scripts/docs_conflict_guard.py|pass|high" \
+  --check "checklist_link_audit|${PYTHON_BIN} scripts/checklist_link_audit.py|pass|high" \
+  --check "verne_checklist_audit|${PYTHON_BIN} scripts/verne_checklist_audit.py|pass|high" \
+  --check "country_smoke_runner|${PYTHON_BIN} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json|pass|high" \
+  --artifact "validation-report|${VALIDATION_REPORT}" \
+  --artifact "pr-draft|${PR_DRAFT_OUTPUT}"
 
 echo "[3/3] Generate PR draft"
 "${PYTHON_BIN}" scripts/pr_prep.py --validation-report "${VALIDATION_REPORT}" --output "${PR_DRAFT_OUTPUT}"

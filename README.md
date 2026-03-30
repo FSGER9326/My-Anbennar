@@ -28,3 +28,8 @@ Implementation should follow this order:
 2. check the relevant design doc
 3. use the grounding checklist before editing shared systems
 4. use the local EU4 wiki snapshots only as reference, not as a replacement for repo patterns
+
+## Local automation note (Windows)
+
+This repo’s local validation scripts expect a real Python install.
+If `python` points to the Microsoft Store alias or is missing on PATH, use `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\repo_doctor.ps1` first and then use the real Python install under `%LOCALAPPDATA%\Programs\Python\...` until your shell PATH catches up.

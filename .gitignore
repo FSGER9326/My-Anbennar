@@ -1,1 +1,4 @@
 docs/wiki/current-work-queue.md
+automation/reports/*.json
+scripts/__pycache__/
+*.pyc

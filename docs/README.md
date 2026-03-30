@@ -26,6 +26,12 @@ These files answer:
 - [automation/pre-pr-artifact-flow.md](./automation/pre-pr-artifact-flow.md)
 - [references/reference-index.md](./references/reference-index.md)
 
+### Automation / validation
+- [automation/pre-pr-artifact-flow.md](./automation/pre-pr-artifact-flow.md)
+- [wiki/checklist-automation-system.md](./wiki/checklist-automation-system.md)
+
+These are the best entry points when you want to understand the repo’s local smoke checks, PR artifact flow, or CI validation stack.
+
 These files keep implementation grounded in:
 
 - the real Anbennar repo
@@ -45,6 +51,8 @@ The `repo-maps/` folder records how existing Anbennar systems are actually imple
 ### Local references
 - [references/README.md](./references/README.md)
 - [references/eu4-wiki](./references/eu4-wiki)
+- [references/eu4-modding-tools-shortlist.md](./references/eu4-modding-tools-shortlist.md)
+- [references/eu4-modding-tools-shortlist.md](./references/eu4-modding-tools-shortlist.md)
 
 ### Maintenance wiki
 - [wiki/README.md](./wiki/README.md)
