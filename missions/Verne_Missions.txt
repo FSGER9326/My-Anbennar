@@ -1231,13 +1231,21 @@ A33_second_slot = {
 				name = "verne_restoring_the_borders"
 				duration = 9125
 			}
-			galeinn_area = { add_local_autonomy = -50 } 
+			galeinn_area = { add_local_autonomy = -50 }
 			define_advisor = {
 				type = army_organiser
 				cost_multiplier = 0.50
 				skill = 2
 			}
 			add_estate_nobles_loyalty_effect = yes
+			if = {
+				limit = { verne_overhaul_has_khenak_foundry_seeded = yes }
+				add_country_modifier = {
+					name = verne_rogue_duchy_khenak_integration
+					duration = 3650
+				}
+				add_treasury = 100
+			}
 		}
 	}
 

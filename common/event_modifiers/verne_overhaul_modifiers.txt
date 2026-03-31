@@ -127,3 +127,8 @@ verne_dragonwake_cadet_muster = {
 	cavalry_power = 0.10
 	reinforce_speed = 0.10
 }
+
+verne_rogue_duchy_khenak_integration = {
+	production_efficiency = 0.10
+	build_cost = -0.05
+}

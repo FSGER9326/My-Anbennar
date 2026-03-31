@@ -245,6 +245,8 @@ l_english:
  verne_silver_wake_convoy_levy_desc:0 "The Silver Wake's maritime service has been mobilized for intensive operations, projecting Verne's naval strength across the seas."
  verne_dragonwake_cadet_muster:0 "Dragonwake Cadet Muster"
  verne_dragonwake_cadet_muster_desc:0 "A new generation of wyvern riders has been mustered, bringing fresh discipline and shock potential to Verne's military tradition."
+ verne_rogue_duchy_khenak_integration:0 "Rogue Duchy Integration"
+ verne_rogue_duchy_khenak_integration_desc:0 "The Rogue Duchy's conquest has been integrated into the Khenak industrial system, boosting production and reducing construction costs."
 
  verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
  verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."
