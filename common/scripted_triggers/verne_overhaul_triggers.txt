@@ -155,6 +155,34 @@ verne_overhaul_has_early_akasik_access_route = {
 	}
 }
 
+verne_overhaul_has_chosen_adventurer_support = {
+	AND = {
+		has_estate_privilege = estate_adventurers_generous_quest_rewards
+		has_estate_privilege = estate_adventurers_heroes_in_the_army
+		any_hired_mercenary_company = { template = merc_vernmen_adventurers }
+	}
+}
+
+verne_overhaul_has_foreign_doctrine_support = {
+	AND = {
+		NOT = { has_estate_privilege = estate_adventurers_heroes_in_the_army }
+		OR = {
+			reverse_has_opinion = {
+				who = A30
+				value = 100
+			}
+			reverse_has_opinion = {
+				who = A01
+				value = 100
+			}
+			reverse_has_opinion = {
+				who = A46
+				value = 100
+			}
+		}
+	}
+}
+
 # Dynasty safeguard triggers (authoritative)
 # Ownership note:
 # - These triggers were consolidated from zzz_verne_overhaul_dynasty_triggers.txt.

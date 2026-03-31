@@ -1034,28 +1034,8 @@ A33_second_slot = {
 
 		trigger = {
 			OR = {
-				AND = {
-					has_estate_privilege = estate_adventurers_generous_quest_rewards
-					has_estate_privilege = estate_adventurers_heroes_in_the_army
-					any_hired_mercenary_company = { template = merc_vernmen_adventurers } 
-				}
-				AND = {
-					NOT = { has_estate_privilege = estate_adventurers_heroes_in_the_army } 
-					OR = {
-						reverse_has_opinion = {
-							who = A30
-							value = 100
-						}
-						reverse_has_opinion = {
-							who = A01
-							value = 100
-						}
-						reverse_has_opinion = {
-							who = A46
-							value = 100
-						}
-					}
-				}
+				verne_overhaul_has_chosen_adventurer_support = yes
+				verne_overhaul_has_foreign_doctrine_support = yes
 			}
 		}
 
@@ -1064,11 +1044,7 @@ A33_second_slot = {
 			verne_overhaul_activate_dynasty_protection = yes
 			custom_tooltip = verne_overhaul_tt_activate_dynasty_protection
 			if = {
-				limit = {
-					has_estate_privilege = estate_adventurers_generous_quest_rewards
-					has_estate_privilege = estate_adventurers_heroes_in_the_army
-					any_hired_mercenary_company = { template = merc_vernmen_adventurers } 
-				}
+				limit = { verne_overhaul_has_chosen_adventurer_support = yes }
 				custom_tooltip = verne_B1_1_effect_ttyes
 				add_country_modifier = {
 					name = "verne_exaltation_of_adventurers"
@@ -1089,23 +1065,7 @@ A33_second_slot = {
 				}
 			}
 			if = {
-				limit = {
-					NOT = { has_estate_privilege = estate_adventurers_heroes_in_the_army } 
-					OR = {
-						reverse_has_opinion = {
-							who = A30
-							value = 100
-						}
-						reverse_has_opinion = {
-							who = A01
-							value = 100
-						}
-						reverse_has_opinion = {
-							who = A46
-							value = 100
-						}
-					}
-				}
+				limit = { verne_overhaul_has_foreign_doctrine_support = yes }
 				custom_tooltip = verne_B1_2_effect_ttyes
 				add_country_modifier = {
 					name = "verne_foreign_doctrines"
