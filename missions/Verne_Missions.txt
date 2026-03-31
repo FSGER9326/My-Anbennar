@@ -4994,3 +4994,91 @@ A33_sixth_slot = {
 		}
 	}
 }
+
+# ===============================================
+# Verne overhaul: Adventure Network expansion (Lane 6 from blueprint)
+# Status: extends existing adventure network system
+# Scope: builds on A33_across_the_pond chain with new buildup missions
+# ===============================================
+
+A33_seventh_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	A33_charter_the_expedition_fleet = {
+		icon = mission_fleet
+		position = 14
+		required_missions = { A33_across_the_pond }
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = verne_overhaul_tt_in_search_expedition_capacity
+				verne_overhaul_has_expedition_capacity = yes
+			}
+			sailors = 3000
+			treasury = 200
+		}
+
+		effect = {
+			add_treasury = -200
+			add_sailors = -3000
+			add_country_modifier = {
+				name = verne_off_to_adventure
+				duration = 3650
+			}
+			set_country_flag = verne_unlocked_adventure_system
+			change_variable = { which = verne_overseas_projection value = 1 }
+		}
+	}
+
+	A33_ports_of_adventure_program = {
+		icon = mission_fleet_arrival
+		position = 16
+		required_missions = {
+			A33_charter_the_expedition_fleet
+			A33_in_search_of_adventure
+		}
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = verne_needs_6_ports_of_adventure_tt
+				292 = {
+					check_variable = { which = verne_network_of_adventure value = 6 }
+				}
+			}
+		}
+
+		effect = {
+			change_variable = { which = verne_overseas_projection value = 1 }
+			add_country_modifier = {
+				name = verne_network_of_adventure_tier_1
+				duration = 3650
+			}
+		}
+	}
+
+	A33_expedition_supply_chain = {
+		icon = mission_market
+		position = 18
+		required_missions = { A33_the_lands_of_adventure }
+
+		trigger = {
+			verne_overhaul_has_adventure_network_started = yes
+			num_of_merchants = 5
+			treasury = 500
+		}
+
+		effect = {
+			add_treasury = -500
+			change_variable = { which = verne_world_network value = 1 }
+			add_country_modifier = {
+				name = verne_expedition_supply_chain
+				duration = 3650
+			}
+			add_merchants = 1
+		}
+	}
+}

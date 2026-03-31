@@ -170,3 +170,9 @@ verne_liliac_unity_through_diplomacy = {
 	legitimacy = 1
 	yearly_power_projection = 0.5
 }
+
+verne_expedition_supply_chain = {
+	trade_efficiency = 0.05
+	merchants = 1
+	global_tariffs = 0.05
+}

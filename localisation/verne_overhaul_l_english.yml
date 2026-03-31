@@ -710,3 +710,11 @@ l_english:
  A33_avenge_liliac_wars_desc:0 "The Liliac War left Verne's martial pride wounded. Claims on the contested territories, military alliances, and the willingness to fight — these are the instruments of a Verne willing to right old wrongs."
  A33_unity_through_diplomacy_title:0 "Unity Through Diplomacy"
  A33_unity_through_diplomacy_desc:0 "Whether through diplomatic recovery or martial vengeance, Verne's Liliac legacy has been transformed. The Silver Court now stands as a beacon of diplomatic pragmatism, turning past humiliation into present authority."
+
+ # --- Adventure Network expansion missions (Lane 6) ---
+ A33_charter_the_expedition_fleet_title:0 "Charter the Expedition Fleet"
+ A33_charter_the_expedition_fleet_desc:0 "If Verne is to become the home of adventurers, we must make voyages routine: sailors, supply, and the institutional capacity to go again."
+ A33_ports_of_adventure_program_title:0 "Ports of Adventure Program"
+ A33_ports_of_adventure_program_desc:0 "A true network is not one daring voyage—it is a web of harbors, guild charters, and reliable staging points."
+ A33_expedition_supply_chain_title:0 "Expedition Supply Chain"
+ A33_expedition_supply_chain_desc:0 "Verne's adventurers need more than brave hearts — they need merchants, contracts, and steady logistical support to sustain overseas operations."
