@@ -1863,14 +1863,7 @@ A33_second_slot = {
 
 		effect = {
 			# Commentary: the first-wave Regatta is a maritime prestige threshold and should advance both network and overseas reach.
-			change_variable = {
-				which = verne_world_network
-				value = 1
-			}
-			change_variable = {
-				which = verne_overseas_projection
-				value = 1
-			}
+			verne_overhaul_advance_mature_overseas_state = yes
 			country_event = { id = verne.123 }
 		} 
 	}
@@ -1986,14 +1979,7 @@ A33_second_slot = {
 
 		effect = {
 			# Commentary: New Verne is a late overseas consolidation milestone and should further mature the world-network state.
-			change_variable = {
-				which = verne_world_network
-				value = 1
-			}
-			change_variable = {
-				which = verne_overseas_projection
-				value = 1
-			}
+			verne_overhaul_advance_mature_overseas_state = yes
 			if = {
 				limit = { has_country_modifier = verne_overseas_commonwealth }
 				add_prestige = 10
@@ -2918,14 +2904,7 @@ A33_third_slot = {
 
 		effect = {
 			# Commentary: Lands of Adventure is a mature network threshold and should advance both world-network and overseas reach.
-			change_variable = {
-				which = verne_world_network
-				value = 1
-			}
-			change_variable = {
-				which = verne_overseas_projection
-				value = 1
-			}
+			verne_overhaul_advance_mature_overseas_state = yes
 			add_country_modifier = {
 				name = verne_overseas_commonwealth
 				duration = 3650
@@ -2977,14 +2956,7 @@ A33_third_slot = {
 
 		effect = {
 			# Commentary: Born of Valour is a late overseas-identity consolidation node and should deepen both mature network and projection state.
-			change_variable = {
-				which = verne_world_network
-				value = 1
-			}
-			change_variable = {
-				which = verne_overseas_projection
-				value = 1
-			}
+			verne_overhaul_advance_mature_overseas_state = yes
 			set_estate_privilege = estate_adventurers_alvari_accord
 			remove_estate_privilege = estate_adventurers_seas_of_valour
 			if = {

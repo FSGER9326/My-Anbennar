@@ -71,3 +71,14 @@ verne_overhaul_apply_regatta_spire_swap = {
 		change_trade_goods = precursor_relics
 	}
 }
+
+verne_overhaul_advance_mature_overseas_state = {
+	change_variable = {
+		which = verne_world_network
+		value = 1
+	}
+	change_variable = {
+		which = verne_overseas_projection
+		value = 1
+	}
+}
