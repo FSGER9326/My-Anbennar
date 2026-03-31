@@ -152,6 +152,18 @@ l_english:
  verne_wyvern_marshal:0 "Wyvern Marshal"
  verne_wyvern_marshal_desc:0 "Part knight-captain, part ducal war planner, the Wyvern Marshal stands at the meeting point of noble service, aerial doctrine, and battlefield prestige."
 
+ verne_overhaul_appoint_court_advisor:0 "Appoint a Court Specialist"
+ verne_overhaul_appoint_court_advisor_desc:0 "Verne's growing institutions can now call a specialized court figure into service, drawing on the active lane that the realm has cultivated most successfully."
+ verne_overhaul_appoint_court_advisor_tt:0 "A dedicated Verne court event will offer one of several bespoke advisors tied to your currently developed state lanes."
+
+ verne_overhaul_advisor.1.t:0 "A Specialist for the Ducal Court"
+ verne_overhaul_advisor.1.d:0 "The institutions now growing around the Vernman court have matured enough to present real specialists for ducal service. Whether we lean toward harbor discipline, worldly display, red-court administration, foundry rigor, or wyvern command, one of these figures could give the state sharper shape."
+ verne_overhaul_advisor.1.a:0 "Summon a Harbormaster of the Silver Wake"
+ verne_overhaul_advisor.1.b:0 "Invite a Curator of the Vernissage"
+ verne_overhaul_advisor.1.c:0 "Commission a Master of the Khenak Foundries"
+ verne_overhaul_advisor.1.d:0 "Raise up a Wyvern Marshal"
+ verne_overhaul_advisor.1.e:0 "Appoint a Magister of the Red Court"
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."

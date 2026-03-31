@@ -1,0 +1,116 @@
+# ===============================================
+# Verne overhaul advisor events
+# Status: first-wave advisor recruitment package
+# Scope: dedicated Verne-only event surface for spawning the first bespoke court advisors
+# ===============================================
+
+namespace = verne_overhaul_advisor
+
+country_event = {
+	id = verne_overhaul_advisor.1
+	title = verne_overhaul_advisor.1.t
+	desc = verne_overhaul_advisor.1.d
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = A33
+	}
+
+	option = {
+		name = verne_overhaul_advisor.1.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_country_flag = verne_seed_silver_oaths
+			}
+		}
+		define_advisor = {
+			type = verne_harbormaster_of_the_silver_wake
+			skill = 2
+			discount = yes
+			culture = ROOT
+			religion = ROOT
+		}
+		add_prestige = 5
+	}
+
+	option = {
+		name = verne_overhaul_advisor.1.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				verne_overhaul_has_adventure_network_started = yes
+			}
+		}
+		define_advisor = {
+			type = verne_curator_of_the_vernissage
+			skill = 2
+			discount = yes
+			culture = ROOT
+			religion = ROOT
+		}
+		add_prestige = 5
+	}
+
+	option = {
+		name = verne_overhaul_advisor.1.c
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_country_flag = verne_seed_khenak_foundry
+			}
+		}
+		define_advisor = {
+			type = verne_master_of_the_khenak_foundries
+			skill = 2
+			discount = yes
+			culture = ROOT
+			religion = ROOT
+		}
+		add_prestige = 5
+	}
+
+	option = {
+		name = verne_overhaul_advisor.1.e
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				verne_overhaul_dynasty_machine_started = yes
+			}
+		}
+		define_advisor = {
+			type = verne_magister_of_the_red_court
+			skill = 2
+			discount = yes
+			culture = ROOT
+			religion = ROOT
+		}
+		add_prestige = 5
+	}
+
+	option = {
+		name = verne_overhaul_advisor.1.d
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				verne_overhaul_has_dragonwake_path_seeded = yes
+			}
+		}
+		define_advisor = {
+			type = verne_wyvern_marshal
+			skill = 2
+			discount = yes
+			culture = ROOT
+			religion = ROOT
+		}
+		add_army_tradition = 2
+		add_prestige = 5
+	}
+}

@@ -102,4 +102,32 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	verne_overhaul_appoint_court_advisor = {
+		major = yes
+
+		potential = {
+			tag = A33
+		}
+
+		allow = {
+			OR = {
+				verne_overhaul_has_silver_oaths_path_seeded = yes
+				verne_overhaul_has_khenak_foundry_seeded = yes
+				verne_overhaul_has_dragonwake_path_seeded = yes
+				verne_overhaul_dynasty_machine_started = yes
+				verne_overhaul_has_adventure_network_started = yes
+			}
+			prestige = 10
+		}
+
+		effect = {
+			country_event = { id = verne_overhaul_advisor.1 }
+			custom_tooltip = verne_overhaul_appoint_court_advisor_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
