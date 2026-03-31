@@ -8,3 +8,9 @@
 on_new_heir = {
 	country_event = { id = verne_overhaul_dynasty.1 days = 1 }
 }
+
+on_yearly_pulse = {
+	events = {
+		verne_overhaul_advisor.5
+	}
+}

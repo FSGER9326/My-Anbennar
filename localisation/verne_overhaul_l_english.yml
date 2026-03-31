@@ -193,9 +193,15 @@ l_english:
  verne_overhaul_advisor.4.d:0 "The Dovesworn Gnolls have proven themselves loyal and capable allies. Their riders know the wyvern nest grounds better than most Vernman officers. Shall we formalize this partnership and grant them a permanent place in Verne's military tradition?"
  verne_overhaul_advisor.4.a:0 "Formalize the Dovesworn partnership"
  verne_overhaul_advisor.4.b:0 "Maintain a lighter relationship"
+ verne_overhaul_advisor.5.t:0 "The Debt Repaid"
+ verne_overhaul_advisor.5.d:0 "The mage estate has finally been paid back for the favors that made the wyvern program possible. Verne's military tradition stands on firmer ground, and the mages know it."
+ verne_overhaul_advisor.5.a:0 "Honor the mages with a public ceremony"
+ verne_overhaul_advisor.5.b:0 "Quietly acknowledge the debt and move on"
 
  verne_dovesworn_gnoll_partnership:0 "Dovesworn Gnoll Partnership"
  verne_dovesworn_gnoll_partnership_desc:0 "The Dovesworn Gnolls serve Verne as trusted military partners, bringing their knowledge of wyvern handling and frontier warfare to the Vernman military tradition."
+ verne_mage_debt_repaid_honor:0 "Honor of the Repaid Debt"
+ verne_mage_debt_repaid_honor_desc:0 "Verne has repaid its debt to the mages with honor, earning their respect and strengthening the military-mage partnership."
 
  merc_crimson_wake_lances:0 "Crimson Wake Lances"
  merc_crimson_wake_lances_mercenary_desc:0 "An order-host of crimson-bannered Vernman lancers, formed around Corinite martial patronage and disciplined aerial cavalry doctrine. They fight as a prestige arm of the realm's militant devotional state."
@@ -225,6 +231,9 @@ l_english:
  verne_overhaul_formalize_dovesworn_partnership:0 "Formalize the Dovesworn Partnership"
  verne_overhaul_formalize_dovesworn_partnership_desc:0 "The Dovesworn Gnolls have earned their place in Verne's military tradition. Formalize the partnership and grant them a permanent seat in the Vernman court."
  verne_overhaul_formalize_dovesworn_partnership_tt:0 "Gain §YDovesworn Gnoll Partnership§!, improving cavalry power, reducing attrition, and improving tolerance of heathen cultures."
+ verne_overhaul_pay_off_mage_debt:0 "Pay Off the Mage Debt"
+ verne_overhaul_pay_off_mage_debt_desc:0 "The mage estate's favors made the wyvern program possible, but the debt weighs on the crown. Pay it off now and secure a stronger military-mage partnership."
+ verne_overhaul_pay_off_mage_debt_tt:0 "Remove the §YIndebted to the Mages§! modifier and gain §YHonor of the Repaid Debt§!."
 
  verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
  verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."

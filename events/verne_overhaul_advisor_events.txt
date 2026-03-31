@@ -161,6 +161,41 @@ country_event = {
 }
 
 country_event = {
+	id = verne_overhaul_advisor.5
+	title = verne_overhaul_advisor.5.t
+	desc = verne_overhaul_advisor.5.d
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = A33
+		NOT = { has_country_modifier = verne_indebted_to_the_mages }
+		has_country_flag = verne_seed_dragonwake
+	}
+
+	immediate = {
+		set_country_flag = verne_mage_debt_repaid
+	}
+
+	option = {
+		name = verne_overhaul_advisor.5.a
+		add_prestige = 10
+		add_legitimacy = 5
+		add_country_modifier = {
+			name = verne_mage_debt_repaid_honor
+			duration = 3650
+		}
+	}
+
+	option = {
+		name = verne_overhaul_advisor.5.b
+		add_mil_power = 25
+		add_adm_power = 25
+	}
+}
+
+country_event = {
 	id = verne_overhaul_advisor.4
 	title = verne_overhaul_advisor.4.t
 	desc = verne_overhaul_advisor.4.d

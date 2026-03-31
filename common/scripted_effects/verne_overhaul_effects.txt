@@ -115,3 +115,54 @@ verne_overhaul_transfer_elector_seat = {
 		elector = yes
 	}
 }
+
+verne_overhaul_apply_mage_debt = {
+	# Applies a tiered mage-debt modifier based on how many mage-favor conditions are met.
+	# Tier 0 (none met): 100 years
+	# Tier 1 (one met): 75 years
+	# Tier 2 (two met): 50 years
+	if = {
+		limit = {
+			AND = {
+				ruler_is_powerful_mage = yes
+				OR = {
+					A85 = {
+						owes_favors = {
+							who = ROOT
+							value = 20
+						}
+					}
+					court_mage = 3
+				}
+			}
+		}
+		add_country_modifier = {
+			name = "verne_indebted_to_the_mages"
+			duration = 18250
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				ruler_is_powerful_mage = yes
+				A85 = {
+					owes_favors = {
+						who = ROOT
+						value = 20
+					}
+				}
+				court_mage = 3
+			}
+		}
+		add_country_modifier = {
+			name = "verne_indebted_to_the_mages"
+			duration = 27375
+		}
+	}
+	else = {
+		add_country_modifier = {
+			name = "verne_indebted_to_the_mages"
+			duration = 36500
+		}
+	}
+}

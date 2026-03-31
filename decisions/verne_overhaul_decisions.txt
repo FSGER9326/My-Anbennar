@@ -380,4 +380,36 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	verne_overhaul_pay_off_mage_debt = {
+		major = yes
+
+		potential = {
+			tag = A33
+			has_country_modifier = verne_indebted_to_the_mages
+		}
+
+		allow = {
+			treasury = 2000
+			OR = {
+				has_country_flag = verne_seed_dragonwake
+				verne_overhaul_seed_dragonwake_path = yes
+			}
+		}
+
+		effect = {
+			add_treasury = -2000
+			remove_country_modifier = verne_indebted_to_the_mages
+			add_prestige = 10
+			add_country_modifier = {
+				name = verne_mage_debt_repaid_honor
+				duration = 3650
+			}
+			custom_tooltip = verne_overhaul_pay_off_mage_debt_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

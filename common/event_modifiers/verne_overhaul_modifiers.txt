@@ -112,3 +112,8 @@ verne_dovesworn_gnoll_partnership = {
 	land_attrition = -0.10
 	tolerance_heathen = 1
 }
+
+verne_mage_debt_repaid_honor = {
+	mages_loyalty_modifier = 0.10
+	yearly_army_professionalism = 0.003
+}
