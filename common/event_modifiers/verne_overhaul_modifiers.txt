@@ -82,3 +82,15 @@ verne_union_court_protocols = {
 	same_dynasty_bonus = 0.10
 	liberty_desire_in_subjects = -5
 }
+
+verne_imperial_maritime_court = {
+	morale_of_navies = 0.05
+	diplomatic_reputation = 1
+	global_trade_power = 0.05
+}
+
+verne_apostolic_oceanic_command = {
+	global_missionary_strength = 0.01
+	naval_forcelimit_modifier = 0.10
+	prestige_from_land = 0.10
+}

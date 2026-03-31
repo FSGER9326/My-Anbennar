@@ -3975,6 +3975,10 @@ A33_fourth_slot = {
 				name = "verne_apostles_of_corin"
 				duration = -1
 			}
+			add_country_modifier = {
+				name = verne_apostolic_oceanic_command
+				duration = 3650
+			}
 		}
 	}
 
@@ -4015,6 +4019,10 @@ A33_fourth_slot = {
 			change_variable = {
 				which = verne_world_network
 				value = 1
+			}
+			if = {
+				limit = { has_country_modifier = verne_imperial_maritime_court }
+				add_prestige = 10
 			}
 			custom_tooltip = verne_D12_effect_tt
 			set_country_flag = 30_trade_power_for_propogate_religion
@@ -4960,6 +4968,10 @@ A33_fifth_sloth = {
 			change_variable = {
 				which = verne_world_network
 				value = 1
+			}
+			add_country_modifier = {
+				name = verne_imperial_maritime_court
+				duration = 3650
 			}
 			custom_tooltip = verne_E9_effect_tt5
 			set_country_flag = verne_aur_kes_akasik_enabled
