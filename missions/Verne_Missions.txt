@@ -1130,7 +1130,7 @@ A33_second_slot = {
 				custom_tooltip = verne_alvar_IV_condition_yes
 				add_reform_progress_medium_effect = yes
 				# Commentary: completing this state-founding mission now marks the first reform foundation as live for the overhaul helper layer.
-				set_country_flag = verne_unlock_tier1_reforms
+				verne_overhaul_seed_silver_oaths_path = yes
 				custom_tooltip = verne_overhaul_tt_seed_silver_oaths
 				take_estate_land_share_massive = { estate = all } 
 			}
@@ -1138,7 +1138,7 @@ A33_second_slot = {
 				custom_tooltip = verne_alvar_IV_condition_no
 				tooltip = {
 					add_reform_progress_medium_effect = yes
-					set_country_flag = verne_unlock_tier1_reforms
+					verne_overhaul_seed_silver_oaths_path = yes
 					custom_tooltip = verne_overhaul_tt_seed_silver_oaths
 					take_estate_land_share_massive = { estate = all } 
 				}
@@ -2258,7 +2258,7 @@ A33_third_slot = {
 
 		effect = {
 			# Commentary: this diplomatic state-building mission now reinforces the early reform/court foundation for the overhaul helper layer.
-			set_country_flag = verne_unlock_tier1_reforms
+			verne_overhaul_seed_silver_oaths_path = yes
 			custom_tooltip = verne_overhaul_tt_seed_silver_oaths
 			damespearl_area = { add_permanent_claim = ROOT }
 			365 = { add_claim = ROOT }
@@ -4496,10 +4496,6 @@ A33_fifth_sloth = {
 			# Commentary: this is the wyvern-state founding mission in the overhaul flow.
 			verne_overhaul_seed_dragonwake_path = yes
 			custom_tooltip = verne_overhaul_tt_seed_dragonwake
-			change_variable = {
-				which = verne_dynastic_magic_machine
-				value = 1
-			}
 			country_event = { id = verne.103 } 
 			enable_mythical_cavalry = { mount = wyvern } 
 			if = {
