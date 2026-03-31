@@ -3881,6 +3881,11 @@ A33_fourth_slot = {
 				name = "verne_dynasty_protected_court"
 				duration = 7300
 			}
+			set_country_flag = verne_dynasty_protected
+			unlock_merc_company = {
+				merc_company = merc_crimson_wake_lances
+				free_merc = yes
+			}
 			custom_tooltip = verne_D9_effect_tt1
 			set_global_flag = verne_only_dotf
 			custom_tooltip = verne_D9_effect_tt2
@@ -4078,6 +4083,11 @@ A33_fourth_slot = {
 			change_variable = {
 				which = verne_dynastic_magic_machine
 				value = 2
+			}
+			if = {
+				limit = { has_disaster = verne_red_court_scandal }
+				custom_tooltip = verne_overhaul_tt_crisis_suppressed
+				end_disaster = verne_red_court_scandal
 			}
 			country_event = { id = verne.120 }
 		} 
@@ -4867,6 +4877,10 @@ A33_fifth_sloth = {
 			add_country_modifier = {
 				name = "verne_might_of_the_wyvern"
 				duration = -1
+			}
+			unlock_merc_company = {
+				merc_company = merc_heartspier_skyguard
+				free_merc = yes
 			}
 		}
 	}

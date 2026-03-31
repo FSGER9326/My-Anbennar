@@ -190,6 +190,8 @@ l_english:
  verne_overhaul_crisis.100.d:0 "The worst of the scandal has passed. Verne's court remains ambitious and dangerous, but it has emerged more disciplined, more explicit, and better prepared to bear the weight of its own institutions."
  verne_overhaul_crisis.100.a:0 "The realm endures"
 
+ verne_overhaul_tt_crisis_suppressed:0 "If the §YRed Court Scandal§! is active, this mission will immediately end it."
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
