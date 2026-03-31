@@ -114,3 +114,48 @@ country_event = {
 		add_prestige = 5
 	}
 }
+
+country_event = {
+	id = verne_overhaul_advisor.2
+	title = verne_overhaul_advisor.2.t
+	desc = verne_overhaul_advisor.2.d
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = A33
+	}
+
+	option = {
+		name = verne_overhaul_advisor.2.a
+		define_advisor = {
+			type = verne_master_of_the_khenak_foundries
+			skill = 3
+			discount = yes
+			culture = ROOT
+			religion = ROOT
+		}
+		unlock_merc_company = {
+			merc_company = merc_khenak_talons
+			free_merc = yes
+		}
+		add_mil_power = 25
+	}
+
+	option = {
+		name = verne_overhaul_advisor.2.b
+		define_advisor = {
+			type = verne_wyvern_marshal
+			skill = 3
+			discount = yes
+			culture = ROOT
+			religion = ROOT
+		}
+		if = {
+			limit = { has_unlocked_merc_company = { merc_company = merc_heartspier_skyguard } }
+			add_army_professionalism = 0.02
+		}
+		add_army_tradition = 5
+	}
+}

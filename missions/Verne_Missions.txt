@@ -1173,6 +1173,10 @@ A33_second_slot = {
 		effect = {
 			# Commentary: this is the cleanest early industrial-state anchor for the Khenak branch helper state.
 			verne_overhaul_seed_khenak_foundry_path = yes
+			unlock_merc_company = {
+				merc_company = merc_khenak_talons
+				free_merc = yes
+			}
 			custom_tooltip = verne_overhaul_tt_seed_khenak_foundry
 			add_treasury = -200
 			add_country_modifier = {
@@ -1588,6 +1592,10 @@ A33_second_slot = {
 				which = verne_world_network
 				value = 1
 			}
+			if = {
+				limit = { has_unlocked_merc_company = { merc_company = merc_khenak_talons } }
+				country_event = { id = verne_overhaul_advisor.2 }
+			}
 			add_treasury = -200
 			add_manpower = -5
 			add_sailors = -5000
@@ -1711,6 +1719,10 @@ A33_second_slot = {
 			arawkelin_area = { add_permanent_claim = ROOT } 
 			dogo_babolo_area = { add_permanent_claim = ROOT } 
 			the_ohits_area = { add_permanent_claim = ROOT } 
+			if = {
+				limit = { has_unlocked_merc_company = { merc_company = merc_khenak_talons } }
+				add_army_professionalism = 0.02
+			}
 			add_prestige = 5
 			define_explorer = {
 				shock = 3
