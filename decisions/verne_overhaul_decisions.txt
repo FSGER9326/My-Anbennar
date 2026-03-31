@@ -190,4 +190,82 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	verne_overhaul_sponsor_curatorial_embassies = {
+		major = yes
+
+		potential = {
+			tag = A33
+			OR = {
+				verne_overhaul_has_adventure_network_started = yes
+				has_reform = verne_charter_of_the_vernissage_reform
+			}
+		}
+
+		allow = {
+			prestige = 15
+			NOT = { has_country_modifier = verne_curatorial_patronage }
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = verne_curatorial_patronage
+				duration = 3650
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = vernissage_tour_of_halann
+						has_country_modifier = vernissage_corins_fall
+						has_country_modifier = vernissage_mural_of_castellos_replica
+						has_country_modifier = vernissage_akasi_relic
+					}
+				}
+				country_event = { id = verne_overhaul_advisor.1 }
+			}
+			add_prestige = -10
+			custom_tooltip = verne_overhaul_sponsor_curatorial_embassies_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	verne_overhaul_form_harbormaster_general_staff = {
+		major = yes
+
+		potential = {
+			tag = A33
+			OR = {
+				verne_overhaul_has_silver_oaths_path_seeded = yes
+				has_reform = verne_court_of_silver_oaths_reform
+			}
+		}
+
+		allow = {
+			dip_power = 50
+			NOT = { has_country_modifier = verne_harbormaster_general_staff }
+		}
+
+		effect = {
+			add_dip_power = -50
+			add_country_modifier = {
+				name = verne_harbormaster_general_staff
+				duration = 3650
+			}
+			if = {
+				limit = { NOT = { has_unlocked_merc_company = { merc_company = merc_crimson_wake_lances } } }
+				unlock_merc_company = {
+					merc_company = merc_crimson_wake_lances
+					free_merc = yes
+				}
+			}
+			custom_tooltip = verne_overhaul_form_harbormaster_general_staff_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

@@ -62,3 +62,13 @@ verne_reforged_court_consensus = {
 	diplomatic_reputation = 1
 	advisor_cost = -0.05
 }
+
+verne_curatorial_patronage = {
+	improve_relation_modifier = 0.10
+	prestige = 0.5
+}
+
+verne_harbormaster_general_staff = {
+	trade_efficiency = 0.05
+	global_ship_trade_power = 0.10
+}
