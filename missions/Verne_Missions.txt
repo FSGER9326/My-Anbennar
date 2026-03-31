@@ -4164,82 +4164,40 @@ A33_fifth_sloth = {
 		trigger = {
 			has_country_modifier = verne_found_eggs
 			treasury = 1000
-			if = {
-				limit = { has_dlc = "Leviathan" } 
-				custom_trigger_tooltip = {
-					tooltip = verne_E3_trigger_tt_1
-					290 = {
-						num_of_times_expanded_infrastructure = 1
-						NOT = { has_construction = any } 
-					}
-					291 = {
-						num_of_times_expanded_infrastructure = 1
-						NOT = { has_construction = any } 
-					}
-					375 = {
-						num_of_times_expanded_infrastructure = 1
-						NOT = { has_construction = any } 
-					}
-					376 = {
-						num_of_times_expanded_infrastructure = 1
-						NOT = { has_construction = any } 
-					}
-				}
-			}
-			else = {
-				custom_trigger_tooltip = {
-					tooltip = verne_E3_trigger_tt_2
-					290 = {
-						development = 15
-						NOT = { has_construction = any } 
-					}
-					291 = {
-						development = 15
-						NOT = { has_construction = any } 
-					}
-					375 = {
-						development = 15
-						NOT = { has_construction = any } 
-					}
-					376 = {
-						development = 15
-						NOT = { has_construction = any } 
-					}
-				}
-			}
+			verne_overhaul_wyvern_nest_provinces_ready = yes
 			OR = {
 				accepted_culture = dovesworn_gnoll
-					custom_trigger_tooltip = {
-						tooltip = verne_E3_trigger_tt_3
-						290 = {
-							has_manpower_building_trigger = yes
-							OR = {
-								base_tax = 6
-								has_courthouse_building_trigger = yes
-							}
-						}
-						291 = {
-							has_manpower_building_trigger = yes
-							OR = {
-								base_tax = 6
-								has_courthouse_building_trigger = yes
-							}
-						}
-						375 = {
-							has_manpower_building_trigger = yes
-							OR = {
-								base_tax = 6
-								has_courthouse_building_trigger = yes
-							}
-						}
-						376 = {
-							has_manpower_building_trigger = yes
-							OR = {
-								base_tax = 6
-								has_courthouse_building_trigger = yes
-							}
+				custom_trigger_tooltip = {
+					tooltip = verne_E3_trigger_tt_3
+					290 = {
+						has_manpower_building_trigger = yes
+						OR = {
+							base_tax = 6
+							has_courthouse_building_trigger = yes
 						}
 					}
+					291 = {
+						has_manpower_building_trigger = yes
+						OR = {
+							base_tax = 6
+							has_courthouse_building_trigger = yes
+						}
+					}
+					375 = {
+						has_manpower_building_trigger = yes
+						OR = {
+							base_tax = 6
+							has_courthouse_building_trigger = yes
+						}
+					}
+					376 = {
+						has_manpower_building_trigger = yes
+						OR = {
+							base_tax = 6
+							has_courthouse_building_trigger = yes
+						}
+					}
+				}
 			}
 		}
 

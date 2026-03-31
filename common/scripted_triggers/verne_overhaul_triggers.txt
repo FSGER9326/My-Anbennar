@@ -183,6 +183,49 @@ verne_overhaul_has_foreign_doctrine_support = {
 	}
 }
 
+verne_overhaul_wyvern_nest_provinces_ready = {
+	OR = {
+		AND = {
+			has_dlc = "Leviathan"
+			290 = {
+				num_of_times_expanded_infrastructure = 1
+				NOT = { has_construction = any }
+			}
+			291 = {
+				num_of_times_expanded_infrastructure = 1
+				NOT = { has_construction = any }
+			}
+			375 = {
+				num_of_times_expanded_infrastructure = 1
+				NOT = { has_construction = any }
+			}
+			376 = {
+				num_of_times_expanded_infrastructure = 1
+				NOT = { has_construction = any }
+			}
+		}
+		AND = {
+			NOT = { has_dlc = "Leviathan" }
+			290 = {
+				development = 15
+				NOT = { has_construction = any }
+			}
+			291 = {
+				development = 15
+				NOT = { has_construction = any }
+			}
+			375 = {
+				development = 15
+				NOT = { has_construction = any }
+			}
+			376 = {
+				development = 15
+				NOT = { has_construction = any }
+			}
+		}
+	}
+}
+
 # Dynasty safeguard triggers (authoritative)
 # Ownership note:
 # - These triggers were consolidated from zzz_verne_overhaul_dynasty_triggers.txt.
