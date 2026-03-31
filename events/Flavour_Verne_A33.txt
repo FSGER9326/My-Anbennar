@@ -2377,6 +2377,10 @@ country_event = {
 		name = verne.902.a
 
 		add_army_tradition = 5
+		unlock_merc_company = {
+			merc_company = merc_crimson_wake_lances
+			free_merc = yes
+		}
 		if = {
 			limit = { has_country_flag = verne_refunding_holy_order_15 }
 			add_mil_power = 15
@@ -2396,6 +2400,10 @@ country_event = {
 	option = {
 		name = verne.903.a
 		set_country_flag = verne_has_discounted_wyvernrider
+		unlock_merc_company = {
+			merc_company = merc_heartspier_skyguard
+			free_merc = yes
+		}
 		change_variable = {
 			which = verne_wywvernrider_discount_count
 			value = 1

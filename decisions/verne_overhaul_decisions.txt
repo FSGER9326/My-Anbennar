@@ -130,4 +130,36 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	verne_overhaul_charter_khenak_talons = {
+		major = yes
+
+		potential = {
+			tag = A33
+			NOT = { has_unlocked_merc_company = { merc_company = merc_khenak_talons } }
+		}
+
+		allow = {
+			OR = {
+				verne_overhaul_has_khenak_foundry_seeded = yes
+				has_country_flag = verne_sarhali_adventures_unlocked
+			}
+			mil_power = 50
+			treasury = 100
+		}
+
+		effect = {
+			add_mil_power = -50
+			add_treasury = -100
+			unlock_merc_company = {
+				merc_company = merc_khenak_talons
+				free_merc = yes
+			}
+			custom_tooltip = verne_overhaul_charter_khenak_talons_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

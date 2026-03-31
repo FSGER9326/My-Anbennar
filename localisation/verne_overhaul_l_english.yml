@@ -171,6 +171,10 @@ l_english:
  merc_khenak_talons:0 "Khenak Talons"
  merc_khenak_talons_mercenary_desc:0 "These expedition-forged companies marry Khenak's harder campaigning culture with Vernman mobility, fielding a practical composite force of riders, gunners, and seasoned march officers."
 
+ verne_overhaul_charter_khenak_talons:0 "Charter the Khenak Talons"
+ verne_overhaul_charter_khenak_talons_desc:0 "The Sarhali and foundry-facing arms of Verne can be formalized into a dedicated expedition company, giving the crown a harder, more practical force for its overseas and frontier wars."
+ verne_overhaul_charter_khenak_talons_tt:0 "Unlock the Khenak Talons as a Verne-exclusive mercenary company and immediately make them available for service."
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
