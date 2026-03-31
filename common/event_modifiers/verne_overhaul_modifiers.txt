@@ -176,3 +176,15 @@ verne_expedition_supply_chain = {
 	merchants = 1
 	global_tariffs = 0.05
 }
+
+verne_red_brass_forge = {
+	artillery_power = 0.10
+	production_efficiency = 0.10
+	defensiveness = 0.10
+}
+
+verne_controlled_devastation = {
+	artillery_power = 0.15
+	land_morale = 0.05
+	army_tradition = 0.5
+}

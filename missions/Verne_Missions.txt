@@ -5082,3 +5082,82 @@ A33_seventh_slot = {
 		}
 	}
 }
+
+# ===============================================
+# Verne overhaul: Industrial Foundries expansion (Lane 9 from blueprint)
+# Status: extends existing Khenak foundry system
+# Scope: adds Red Brass forge and Controlled devastation missions
+# ===============================================
+
+A33_eighth_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	A33_red_brass_forge = {
+		icon = mission_industrialize_furnace
+		position = 20
+		required_missions = { A33_the_riches_of_the_khenak }
+
+		trigger = {
+			verne_overhaul_has_khenak_foundry_seeded = yes
+			OR = {
+				has_institution = manufactories
+				any_owned_province = {
+					has_manufactory = yes
+				}
+			}
+			OR = {
+				838 = { has_building = furnace }
+				292 = { has_building = furnace }
+				291 = { has_building = furnace }
+			}
+			treasury = 500
+		}
+
+		effect = {
+			add_treasury = -500
+			add_country_modifier = {
+				name = verne_red_brass_forge
+				duration = 5475
+			}
+			add_army_professionalism = 0.02
+			add_mil_power = 25
+		}
+	}
+
+	A33_controlled_devastation = {
+		icon = mission_control_the_black_sea
+		position = 22
+		required_missions = { A33_red_brass_forge }
+
+		trigger = {
+			verne_overhaul_has_khenak_foundry_seeded = yes
+			OR = {
+				has_idea = verne_doctrine_battle_evocation
+				has_idea = verne_doctrine_red_court
+				AND = {
+					has_country_flag = verne_seed_khenak_foundry
+					mil_power = 100
+				}
+			}
+			OR = {
+				is_at_war = yes
+				has_won_war_against = { who = A30 max_years_since = 10 }
+				has_won_war_against = { who = A01 max_years_since = 10 }
+			}
+		}
+
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = verne_controlled_devastation
+				duration = 5475
+			}
+			add_artillery_cost = -0.10
+			add_yearly_manpower = 0.5
+		}
+	}
+}
