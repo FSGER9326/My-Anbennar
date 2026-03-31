@@ -142,3 +142,31 @@ verne_luna_diplomatic_flexibility = {
 	improve_relation_modifier = 0.10
 	diplomatic_reputation = 1
 }
+
+verne_liliac_war_scarred = {
+	land_morale = -0.05
+	discipline = -0.02
+}
+
+verne_liliac_war_vengeful = {
+	land_morale = 0.10
+	war_exhaustion = -0.05
+}
+
+verne_liliac_diplomatic_recovery = {
+	improve_relation_modifier = 0.15
+	diplomatic_reputation = 1
+	diplomats = 1
+}
+
+verne_liliac_martial_fury = {
+	land_morale = 0.10
+	discipline = 0.02
+	shock_damage = 0.05
+}
+
+verne_liliac_unity_through_diplomacy = {
+	diplomatic_reputation = 2
+	legitimacy = 1
+	yearly_power_projection = 0.5
+}

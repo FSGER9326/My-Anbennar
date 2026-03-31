@@ -4863,6 +4863,134 @@ A33_fifth_sloth = {
 			}
 		}
 
-		effect = { country_event = { id = verne.117 } } 
+		effect = { country_event = { id = verne.117 } }
+	}
+}
+
+# ===============================================
+# Verne overhaul: Liliac War legacy lane
+# Status: first-wave new content from 10-lane blueprint
+# Scope: diplomatic/military legacy of the Liliac War defeat
+# ===============================================
+
+A33_sixth_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	A33_recount_liliac_defeat = {
+		icon = mission_mourning_court
+		position = 8
+		provinces_to_highlight = { }
+
+		trigger = {
+			NOT = { is_at_war = yes }
+			OR = {
+				is_year = 1485
+				AND = {
+					prestige = 40
+					legitimacy = 70
+				}
+			}
+		}
+
+		effect = {
+			country_event = { id = verne_liliac.1 }
+			add_legitimacy = 5
+		}
+	}
+
+	A33_seek_eastern_allies = {
+		icon = mission_diplomacy_of_the_silver_court
+		position = 10
+		required_missions = { A33_recount_liliac_defeat }
+
+		trigger = {
+			has_country_flag = verne_liliac_diplomacy_path_open
+			OR = {
+				any_known_country = {
+					NOT = { war_with = ROOT }
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+					capital_scope = {
+						OR = {
+							continent = europe
+							superregion = western_cannor_superregion
+						}
+					}
+				}
+			}
+			dip_power = 50
+		}
+
+		effect = {
+			add_dip_power = -50
+			country_event = { id = verne_liliac.2 }
+			add_country_modifier = {
+				name = verne_liliac_diplomatic_recovery
+				duration = 7300
+			}
+		}
+	}
+
+	A33_avenge_liliac_wars = {
+		icon = mission_heated_battle
+		position = 10
+		required_missions = { A33_recount_liliac_defeat }
+
+		trigger = {
+			has_country_flag = verne_liliac_war_vengeful
+			OR = {
+				has_claim = 288
+				has_claim = 353
+				army_tradition = 50
+			}
+			mil_power = 50
+		}
+
+		effect = {
+			add_mil_power = -50
+			country_event = { id = verne_liliac.3 }
+			add_country_modifier = {
+				name = verne_liliac_martial_fury
+				duration = 7300
+			}
+			add_permanent_claim = 288
+			add_permanent_claim = 353
+		}
+	}
+
+	A33_unity_through_diplomacy = {
+		icon = mission_grand_duke
+		position = 12
+		required_missions = {
+			A33_seek_eastern_allies
+			A33_avenge_liliac_wars
+		}
+
+		trigger = {
+			OR = {
+				has_country_flag = verne_liliac_diplomacy_path_open
+				has_country_flag = verne_liliac_vengeful_path
+			}
+			prestige = 60
+			legitimacy = 80
+			OR = {
+				has_reform = verne_vernman_court_of_the_world_reform
+				has_reform = verne_knights_of_the_crimson_scale_reform
+			}
+		}
+
+		effect = {
+			country_event = { id = verne_liliac.4 }
+			add_country_modifier = {
+				name = verne_liliac_unity_through_diplomacy
+				duration = -1
+			}
+		}
 	}
 }

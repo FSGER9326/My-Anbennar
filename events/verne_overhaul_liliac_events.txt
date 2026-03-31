@@ -1,0 +1,139 @@
+# ===============================================
+# Verne overhaul Liliac War legacy events
+# Status: first-wave Liliac War legacy content
+# Scope: events for the Liliac War reflection, diplomacy, and revenge paths
+# ===============================================
+
+namespace = verne_liliac
+
+# Liliac War recount event - triggers when the recount mission completes
+country_event = {
+	id = verne_liliac.1
+	title = verne_liliac.1.t
+	desc = verne_liliac.1.d
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = verne_liliac_war_recounted
+		set_country_flag = verne_liliac_diplomacy_path_open
+	}
+
+	option = {
+		name = verne_liliac.1.a
+		add_stability = 1
+		add_prestige = -10
+		add_country_modifier = {
+			name = verne_liliac_war_scarred
+			duration = 3650
+		}
+	}
+
+	option = {
+		name = verne_liliac.1.b
+		add_stability = -1
+		add_country_modifier = {
+			name = verne_liliac_war_vengeful
+			duration = 3650
+		}
+	}
+}
+
+# Seek Eastern Allies event - diplomacy path
+country_event = {
+	id = verne_liliac.2
+	title = verne_liliac.2.t
+	desc = verne_liliac.2.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = A33
+		has_country_flag = verne_liliac_diplomacy_path_open
+	}
+
+	option = {
+		name = verne_liliac.2.a
+		add_dip_power = 25
+		add_country_modifier = {
+			name = verne_liliac_diplomatic_recovery
+			duration = 5475
+		}
+		add_prestige = 5
+	}
+
+	option = {
+		name = verne_liliac.2.b
+		add_adm_power = 25
+		add_legitimacy = 5
+	}
+}
+
+# Liliac revenge event - military path
+country_event = {
+	id = verne_liliac.3
+	title = verne_liliac.3.t
+	desc = verne_liliac.3.d
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = A33
+		has_country_flag = verne_liliac_vengeful_path
+	}
+
+	option = {
+		name = verne_liliac.3.a
+		add_mil_power = 25
+		add_country_modifier = {
+			name = verne_liliac_martial_fury
+			duration = 5475
+		}
+		add_army_tradition = 5
+	}
+
+	option = {
+		name = verne_liliac.3.b
+		add_adm_power = 25
+		add_prestige = 5
+	}
+}
+
+# Liliac unity through diplomacy event - late-game
+country_event = {
+	id = verne_liliac.4
+	title = verne_liliac.4.t
+	desc = verne_liliac.4.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = A33
+		OR = {
+			has_country_flag = verne_liliac_diplomacy_path_open
+			has_country_flag = verne_liliac_vengeful_path
+		}
+	}
+
+	option = {
+		name = verne_liliac.4.a
+		add_prestige = 10
+		add_legitimacy = 10
+		add_country_modifier = {
+			name = verne_liliac_unity_through_diplomacy
+			duration = 7300
+		}
+		if = {
+			limit = { has_country_modifier = verne_liliac_war_scarred }
+			remove_country_modifier = verne_liliac_war_scarred
+		}
+		if = {
+			limit = { has_country_modifier = verne_liliac_war_vengeful }
+			remove_country_modifier = verne_liliac_war_vengeful
+		}
+	}
+}
