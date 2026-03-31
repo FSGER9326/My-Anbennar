@@ -106,3 +106,9 @@ verne_overseas_commonwealth = {
 	liberty_desire_in_subjects = -5
 	governing_capacity_modifier = 0.05
 }
+
+verne_dovesworn_gnoll_partnership = {
+	cavalry_power = 0.10
+	land_attrition = -0.10
+	tolerance_heathen = 1
+}

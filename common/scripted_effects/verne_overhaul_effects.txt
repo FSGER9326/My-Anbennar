@@ -82,3 +82,36 @@ verne_overhaul_advance_mature_overseas_state = {
 		value = 1
 	}
 }
+
+verne_overhaul_transfer_elector_seat = {
+	if = {
+		limit = { any_subject_country = { is_elector = yes } }
+		random_subject_country = {
+			limit = { is_elector = yes }
+			elector = no
+		}
+		elector = yes
+	}
+	else_if = {
+		limit = { A11 = { is_elector = yes } }
+		A11 = { elector = no }
+		elector = yes
+	}
+	else = {
+		random_elector = {
+			limit = {
+				NOT = {
+					tag = A46
+					tag = A31
+					tag = A45
+					tag = A85
+					tag = A73
+					tag = A12
+				}
+				ai = yes
+			}
+			elector = no
+		}
+		elector = yes
+	}
+}

@@ -348,4 +348,36 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	verne_overhaul_formalize_dovesworn_partnership = {
+		major = yes
+
+		potential = {
+			tag = A33
+			accepted_culture = dovesworn_gnoll
+		}
+
+		allow = {
+			mil_power = 50
+			OR = {
+				has_country_modifier = verne_found_eggs
+				has_country_flag = verne_overhaul_has_dovesworn_partnership
+			}
+			NOT = { has_country_modifier = verne_dovesworn_gnoll_partnership }
+		}
+
+		effect = {
+			add_mil_power = -50
+			add_country_modifier = {
+				name = verne_dovesworn_gnoll_partnership
+				duration = 7300
+			}
+			add_army_tradition = 5
+			custom_tooltip = verne_overhaul_formalize_dovesworn_partnership_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

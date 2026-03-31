@@ -189,6 +189,13 @@ l_english:
  verne_overhaul_advisor.3.d:0 "The Vernissage has grown beyond a gallery and into a true engine of state prestige. Its senior figures now compete to define the next stage of Verne's public culture: a curator of worldly splendor, or a magister able to bind ceremony more tightly to the machinery of rule."
  verne_overhaul_advisor.3.a:0 "Raise up a grand curator of the Vernissage"
  verne_overhaul_advisor.3.b:0 "Elevate a magister of ceremonial rule"
+ verne_overhaul_advisor.4.t:0 "The Dovesworn Compact"
+ verne_overhaul_advisor.4.d:0 "The Dovesworn Gnolls have proven themselves loyal and capable allies. Their riders know the wyvern nest grounds better than most Vernman officers. Shall we formalize this partnership and grant them a permanent place in Verne's military tradition?"
+ verne_overhaul_advisor.4.a:0 "Formalize the Dovesworn partnership"
+ verne_overhaul_advisor.4.b:0 "Maintain a lighter relationship"
+
+ verne_dovesworn_gnoll_partnership:0 "Dovesworn Gnoll Partnership"
+ verne_dovesworn_gnoll_partnership_desc:0 "The Dovesworn Gnolls serve Verne as trusted military partners, bringing their knowledge of wyvern handling and frontier warfare to the Vernman military tradition."
 
  merc_crimson_wake_lances:0 "Crimson Wake Lances"
  merc_crimson_wake_lances_mercenary_desc:0 "An order-host of crimson-bannered Vernman lancers, formed around Corinite martial patronage and disciplined aerial cavalry doctrine. They fight as a prestige arm of the realm's militant devotional state."
@@ -215,6 +222,9 @@ l_english:
  verne_overhaul_codify_union_court_protocols:0 "Codify Union Court Protocols"
  verne_overhaul_codify_union_court_protocols_desc:0 "If Verne is to rule through dynastic ties, those ties must be disciplined into a more formal court structure of succession, etiquette, and subject management."
  verne_overhaul_codify_union_court_protocols_tt:0 "Gain §YUnion Court Protocols§!, improving Verne's ability to manage dynastic unions and ceremonial hierarchy."
+ verne_overhaul_formalize_dovesworn_partnership:0 "Formalize the Dovesworn Partnership"
+ verne_overhaul_formalize_dovesworn_partnership_desc:0 "The Dovesworn Gnolls have earned their place in Verne's military tradition. Formalize the partnership and grant them a permanent seat in the Vernman court."
+ verne_overhaul_formalize_dovesworn_partnership_tt:0 "Gain §YDovesworn Gnoll Partnership§!, improving cavalry power, reducing attrition, and improving tolerance of heathen cultures."
 
  verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
  verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."

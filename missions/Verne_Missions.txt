@@ -2370,42 +2370,13 @@ A33_third_slot = {
 				value = 1
 			}
 			if = {
-				limit = { NOT = { is_elector = yes } } 
+				limit = { NOT = { is_elector = yes } }
+				verne_overhaul_transfer_elector_seat = yes
 				if = {
-					limit = { any_subject_country = { is_elector = yes } } 
-					random_subject_country = {
-						limit = { is_elector = yes } 
-						elector = no
-					}
-					elector = yes
-				}
-				else_if = {
-					limit = { A11 = { is_elector = yes } } 
-					A11 = { elector = no } 
-					elector = yes
-				}
-				else = {
-					random_elector = {
-						limit = {
-							NOT = {
-								tag = A46
-								tag = A31
-								tag = A45
-								tag = A85
-								tag = A73
-								tag = A12
-							}
-							ai = yes
-						}
-						elector = no
-					}
-					elector = yes
-				}
-				if = {
-					limit = { has_country_flag = verne_won_support_full } 
+					limit = { has_country_flag = verne_won_support_full }
 					add_treasury = -500
 				}
-				else = { add_treasury = -2000 } 
+				else = { add_treasury = -2000 }
 			}
 			add_country_modifier = {
 				name = "verne_the_wyvern_king"
@@ -4150,11 +4121,12 @@ A33_fifth_sloth = {
 
 		effect = {
 			if = {
-				limit = { accepted_culture = dovesworn_gnoll } 
+				limit = { accepted_culture = dovesworn_gnoll }
 				add_treasury = -50
+				country_event = { id = verne_overhaul_advisor.4 }
 			}
-			else = { add_treasury = -200 } 
-			country_event = { id = verne.1000 } 
+			else = { add_treasury = -200 }
+			country_event = { id = verne.1000 }
 			custom_tooltip = verne_D2_effect_tt
 		}
 	}
