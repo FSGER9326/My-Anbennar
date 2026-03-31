@@ -9,13 +9,15 @@ Use it as the main non-code workspace for planning, design, grounding, and local
 ### New? Start here
 - [start-here.md](./start-here.md)
 
-### Planning
+### Status + planning
+- [status/verne-live-implementation-status.md](./status/verne-live-implementation-status.md)
 - [mod-spec.md](./mod-spec.md)
 - [implementation-roadmap.md](./implementation-roadmap.md)
 - [first-wave-backlog.md](./first-wave-backlog.md)
 
 These files answer:
 
+- what is live right now
 - what the overhaul is trying to become
 - what order we should build it in
 - what the next concrete tasks are
@@ -72,16 +74,18 @@ Use this sequence to avoid bouncing between overlapping docs:
 
 1. **Start point:** [start-here.md](./start-here.md) for the minimal entry flow.
 2. **Command/index layer:** [wiki/checklist-automation-system.md](./wiki/checklist-automation-system.md) for operational commands only.
-3. **Ownership truth layer:** [wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md) for canonical-vs-legacy file ownership.
-4. **Then deep-dive by need:** design docs, planning docs, and references.
+3. **Live status truth layer:** [status/verne-live-implementation-status.md](./status/verne-live-implementation-status.md) for implementation truth.
+4. **Ownership truth layer:** [wiki/verne-canonical-vs-legacy-file-registry.md](./wiki/verne-canonical-vs-legacy-file-registry.md) for canonical-vs-legacy file ownership.
+5. **Then deep-dive by need:** design docs, planning docs, and references.
 
 ## Documentation organization recommendations
 
-If the repo feels crowded, a practical structure is:
+Use this structure going forward:
 
-- **`docs/design/`**: intended mechanics and design decisions
+- **`docs/status/`**: authoritative live implementation truth
+- **`docs/` planning files**: sequencing, scope, and next-work docs (`mod-spec.md`, `implementation-roadmap.md`, `first-wave-backlog.md`)
+- **`docs/wiki/`**: process, playbooks, and ownership/maintenance rules
 - **`docs/repo-maps/`**: implementation anchors and code-grounded patterns
 - **`docs/references/`**: static external references (EU4 snapshots)
-- **`docs/planning/`** *(optional future move)*: sequencing docs like roadmap/backlog/specs
 
 For low-risk cleanup, move files gradually and keep redirects/index links updated in the same commit.

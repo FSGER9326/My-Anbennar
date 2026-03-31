@@ -9,6 +9,10 @@
 - [ ] I updated docs/index/ledger files if this change needs them.
 - [ ] I checked whether shared hotspot files were touched.
 - [ ] I kept the scope to one small slice instead of one huge rewrite.
+- [ ] I updated `docs/status/verne-live-implementation-status.md` if implementation status changed.
+- [ ] I updated `docs/wiki/verne-canonical-vs-legacy-file-registry.md` if canonical/legacy file ownership changed.
+- [ ] I confirmed new gameplay objects have localization.
+- [ ] I confirmed roadmap/backlog were not used as status truth.
 
 ## Checks run
 

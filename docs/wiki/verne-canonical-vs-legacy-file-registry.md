@@ -1,11 +1,16 @@
 # Verne Canonical vs Legacy File Registry
 
-Status date: 2026-03-29  
+Status date: 2026-03-31  
 Owner: Docs governance / Verne overhaul maintainers
 
 ## Purpose
 
 This registry is the **file-ownership truth source** for Verne-related implementation files.
+
+It is **not** the live implementation-status source.
+
+For current implementation state, use:
+- [`docs/status/verne-live-implementation-status.md`](../status/verne-live-implementation-status.md)
 
 ## Status key
 
@@ -23,14 +28,18 @@ This registry is the **file-ownership truth source** for Verne-related implement
 | Overhaul reusable helpers | `common/event_modifiers/verne_overhaul_modifiers.txt` | Canonical | Add reusable modifiers here. | Dedicated overhaul modifier helper layer. |
 | Overhaul reusable helpers | `common/scripted_triggers/verne_overhaul_triggers.txt` | Canonical | Add cross-system Verne triggers here unless explicitly dynasty-only. | Main trigger library for overhaul and mission-route logic. |
 | Overhaul reusable helpers | `common/scripted_effects/verne_overhaul_effects.txt` | Canonical | Add reusable overhaul effects here. | Canonical shared effect layer for new Verne slices. |
+| Overhaul crisis/disaster definitions | `common/disasters/verne_overhaul_crisis.txt` | Canonical | Maintain Verne-specific disaster definitions here. | Live pressure/crisis state owner. |
+| Overhaul order companies | `common/mercenary_companies/verne_overhaul_orders.txt` | Canonical | Maintain bespoke Verne order/mercenary companies here. | Live Verne merc/order ownership layer. |
 | Overhaul doctrine content | `common/ideas/verne_doctrine_groups.txt` | Canonical | Add/modify doctrine groups here. | Primary overhaul doctrine object file. |
-| Overhaul policies | `common/policies/verne_doctrine_policies.txt` | Canonical | Add doctrine policy objects here. | Dedicated policy ownership file for doctrine expansion. **Maturity:** placeholder-only at present (`verne_placeholder_doctrine_policy`), so first-wave policies are not implemented yet. |
+| Overhaul policies | `common/policies/verne_doctrine_policies.txt` | Canonical | Add doctrine policy objects here. | Dedicated policy ownership file for doctrine expansion. See live implementation status doc for current maturity. |
 | Overhaul reforms | `common/government_reforms/verne_overhaul_reforms.txt` | Canonical | Add/modify overhaul reforms here. | Dedicated reform ownership layer. |
-| Overhaul decisions | `decisions/verne_overhaul_decisions.txt` | Canonical | Primary overhaul decision file. | Decision anchor for dynasty/court overhaul milestones. **Maturity:** placeholder-only at present (`verne_placeholder_overhaul_decision`), so first-wave decision gameplay is not implemented yet. |
+| Overhaul decisions | `decisions/verne_overhaul_decisions.txt` | Canonical | Primary overhaul decision file. | Decision anchor for dynasty/court/state steering milestones. See live implementation status doc for current maturity. |
 | Overhaul on_actions | `common/on_actions/verne_overhaul_on_actions.txt` | Canonical | Primary owner for live Verne dynasty safeguard hook dispatch. | Consolidated single source of truth for overhaul on_actions. |
 | Overhaul on_actions scaffold shell | `common/on_actions/zz_verne_overhaul_on_actions.txt` | Legacy (do not extend) | Retired stub only. | Ownership migrated to `common/on_actions/verne_overhaul_on_actions.txt`. |
 | Dynasty subsystem on_actions duplicate | `common/on_actions/zzz_verne_overhaul_dynasty_on_actions.txt` | Legacy (do not extend) | Retired stub only. | Duplicate retired after consolidation to non-`zzz` owner. |
 | Overhaul dynasty events | `events/verne_overhaul_dynasty_events.txt` | Canonical (dynasty subsystem) | Primary owner for live `verne_overhaul_dynasty.*` implementation. | Live dynasty event ownership target. |
+| Overhaul advisor events | `events/verne_overhaul_advisor_events.txt` | Canonical | Primary owner for bespoke Verne advisor recruitment events. | Live advisor/event package owner. |
+| Overhaul crisis events | `events/verne_overhaul_crisis_events.txt` | Canonical | Primary owner for Verne-specific court crisis events. | Live crisis event owner. |
 | Dynasty subsystem events duplicate | `events/zzz_verne_overhaul_dynasty_events.txt` | Legacy (do not extend) | Retired stub only. | Duplicate retired after move to `events/verne_overhaul_dynasty_events.txt`. |
 | Overhaul triggers (including dynasty safeguards) | `common/scripted_triggers/verne_overhaul_triggers.txt` | Canonical | Maintain dynasty safeguard triggers in shared non-`zzz` trigger library. | Consolidated trigger ownership target. |
 | Dynasty trigger split duplicate | `common/scripted_triggers/zzz_verne_overhaul_dynasty_triggers.txt` | Legacy (do not extend) | Retired stub only. | Legacy split retained only as migration trace. |
@@ -41,12 +50,9 @@ This registry is the **file-ownership truth source** for Verne-related implement
 | Prototype doctrine ideas | `common/ideas/verne_proto_adventure_ideas.txt` | Legacy (do not extend) | Do not add new production behavior. | Prototype artifact superseded by doctrine rollout files. |
 | Prototype doctrine policies | `common/policies/verne_proto_doctrine_expedition_policy.txt` | Legacy (do not extend) | Freeze and replace via canonical policy layer when needed. | Early prototype policy outside canonical doctrine path. |
 
-## Current live surface (implemented objects only, 2026-03-29)
+## Implementation-status rule
 
-- `common/ideas/verne_doctrine_groups.txt`: `verne_doctrine_silver_wake`.
-- `common/government_reforms/verne_overhaul_reforms.txt`: `verne_court_of_silver_oaths_reform`, `verne_charter_of_great_captains_reform`, `verne_ducal_muster_of_armoc_reform`.
-- `common/on_actions/verne_overhaul_on_actions.txt`: `on_new_heir` dispatches to `verne_overhaul_dynasty.1`.
-- `events/verne_overhaul_dynasty_events.txt`: `country_event` `verne_overhaul_dynasty.1`.
-- `common/scripted_triggers/verne_overhaul_triggers.txt`: `verne_overhaul_should_run_heir_safeguard_trigger` (and dependent safeguard triggers).
+Do not keep a duplicated implementation snapshot in this registry.
 
-Non-live scaffold note: canonical policy/decision ownership files above are still placeholder-only and must not be interpreted as first-wave completion.
+If you need to know whether a Verne system is **Live / Partial / Planned / Referenced but not verified**, use:
+- [`docs/status/verne-live-implementation-status.md`](../status/verne-live-implementation-status.md)

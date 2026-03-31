@@ -7,17 +7,19 @@ Each milestone should leave the repo in a better, still-loadable state. Early wo
 
 Use [`docs/codex-grounding-checklist.md`](./codex-grounding-checklist.md) at the start of every coding milestone.
 
-## Implementation status snapshot (2026-03-29)
-- **Policies:** scaffold only (`common/policies/verne_doctrine_policies.txt` currently exposes `verne_placeholder_doctrine_policy` as a no-op placeholder).
-- **Decisions:** scaffold only (`decisions/verne_overhaul_decisions.txt` currently exposes `verne_placeholder_overhaul_decision` as a no-op placeholder).
-- **Implication:** first-wave doctrine/reform/dynasty work is partially live, but first-wave policy/decision implementation is **not complete**.
+## Implementation status authority
 
-## Current live surface (implemented objects only)
-- Doctrine group: [`common/ideas/verne_doctrine_groups.txt`](../common/ideas/verne_doctrine_groups.txt) → `verne_doctrine_silver_wake`.
-- Reform set: [`common/government_reforms/verne_overhaul_reforms.txt`](../common/government_reforms/verne_overhaul_reforms.txt) → `verne_court_of_silver_oaths_reform`, `verne_charter_of_great_captains_reform`, `verne_ducal_muster_of_armoc_reform`.
-- Dynasty safeguard hook: [`common/on_actions/verne_overhaul_on_actions.txt`](../common/on_actions/verne_overhaul_on_actions.txt) → `on_new_heir` dispatch to `verne_overhaul_dynasty.1`.
-- Dynasty safeguard event: [`events/verne_overhaul_dynasty_events.txt`](../events/verne_overhaul_dynasty_events.txt) → `country_event id = verne_overhaul_dynasty.1`.
-- Shared trigger support: [`common/scripted_triggers/verne_overhaul_triggers.txt`](../common/scripted_triggers/verne_overhaul_triggers.txt) → `verne_overhaul_should_run_heir_safeguard_trigger` (+ dependent dynasty safeguard triggers).
+This roadmap is a **sequencing document**, not the live implementation-status source.
+
+Use [`docs/status/verne-live-implementation-status.md`](./status/verne-live-implementation-status.md) for current reality in repo code.
+
+This file should describe:
+- build order,
+- dependency order,
+- risk order,
+- and recommended sequencing.
+
+It should **not** carry a competing implementation snapshot.
 
 ## Safety gate before every coding milestone
 Before editing files, the session should confirm four things:
@@ -85,7 +87,6 @@ Ship the first seven doctrine groups exactly as named in the theorycraft.
 ### Done condition
 Verne has a usable first-wave doctrine menu, completion bonuses work, first-wave policy pairings exist, and the replacement does not blindly strand Verne outside shared generic systems.
 
-Status note (2026-03-29): doctrine group and reform triplet scaffolding are present, but first-wave policy pairings are still placeholder-only and must not be treated as completed.
 
 ## Milestone 2: First Constitutional Slice
 Implement the reform package that makes Verne feel different before the late game.
@@ -157,7 +158,6 @@ Turn the dynastic fantasy into real scripted state support.
 ### Done condition
 The silver Verne dynasty is mechanically protected and cultivated instead of left to pure RNG.
 
-Status note (2026-03-29): dynasty safeguard event/on_action path is live for the first authoritative slice, but decision-layer court tooling is still placeholder-only.
 
 ## Milestone 5: Order State and Pressure Layer
 Add the machinery that makes Verne powerful but demanding to maintain.
@@ -188,7 +188,7 @@ Verne has thematic failure states tied to the same pillars that make it strong.
 Only after the first playable slice is stable:
 
 - remaining 14 doctrine groups
-- full doctrine policy matrix
+- further doctrine policy expansion beyond the already-live policy layer
 - later reform tiers
 - additional orders and upgraded variants
 - advanced magic-state hooks

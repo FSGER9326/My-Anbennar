@@ -22,6 +22,13 @@ The answers can be given in chat, but they should follow this structure.
 
 If a section cannot be answered from the repo yet, that is a signal to keep reading instead of coding.
 
+For Verne documentation hygiene, also remember:
+- `docs/status/verne-live-implementation-status.md` is the single authoritative implementation-status source.
+- Roadmap/backlog/spec files are planning tools, not status-truth snapshots.
+- If implementation status changes, update the live-status doc in the same pass.
+- If canonical or legacy file ownership changes, update `docs/wiki/verne-canonical-vs-legacy-file-registry.md` in the same pass.
+- Use the status labels `Live`, `Partial`, `Planned`, and `Referenced but not verified in this pass` consistently.
+
 ## Task kickoff template
 
 ### 1. Task being attempted

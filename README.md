@@ -13,11 +13,12 @@ This repository contains the Verne overhaul work inside an Anbennar/EU4 mod work
 
 ## Current project docs
 
-If you want the current design-and-build layer, start here:
+If you want the current design/build/status layer, start here:
 
-- [mod-spec.md](docs/mod-spec.md)
-- [implementation-roadmap.md](docs/implementation-roadmap.md)
-- [first-wave-backlog.md](docs/first-wave-backlog.md)
+- [docs/status/verne-live-implementation-status.md](docs/status/verne-live-implementation-status.md) — authoritative live implementation status
+- [mod-spec.md](docs/mod-spec.md) — design intent and scope
+- [implementation-roadmap.md](docs/implementation-roadmap.md) — sequencing strategy
+- [first-wave-backlog.md](docs/first-wave-backlog.md) — next tasks
 - [design/README.md](docs/design/README.md)
 
 ## Working rule

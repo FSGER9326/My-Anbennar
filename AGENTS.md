@@ -54,6 +54,12 @@ Docs sync:
 - If a change invalidates README, backlog, roadmap, profile, dossier, lore note, or registry, say so.
 - Prefer updating docs in the same task when the change is material.
 - Maintain clear canonical vs legacy vs generated vs experimental vs deprecated status.
+- For Verne implementation truth, use `docs/status/verne-live-implementation-status.md` as the single authoritative status source.
+- Do not use roadmap/backlog/spec prose as implementation truth snapshots.
+- If a change alters the implementation status of a Verne system, update `docs/status/verne-live-implementation-status.md` in the same change.
+- Use the standard status labels exactly: `Live`, `Partial`, `Planned`, `Referenced but not verified in this pass`.
+- If a canonical gameplay owner file changes or a new one is introduced, update `docs/wiki/verne-canonical-vs-legacy-file-registry.md` in the same pass.
+- If a legacy file is retired, update the registry in the same pass.
 
 Conflict prevention:
 Prevent merge conflicts upstream.
