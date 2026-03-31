@@ -379,3 +379,66 @@ verne_articles_of_the_silver_line = {
 	removed_effect = {}
 	ai_will_do = { factor = 1 }
 }
+
+verne_compact_of_harbours_and_halls = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = verne_doctrine_silver_wake
+		has_idea_group = verne_doctrine_red_court
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_silver_wake
+		full_idea_group = verne_doctrine_red_court
+	}
+
+	diplomatic_reputation = 1
+	advisor_cost = -0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_charter_of_expeditionary_foundries = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = verne_doctrine_overseas_commandery
+		has_idea_group = verne_doctrine_khenak_foundry
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_overseas_commandery
+		full_idea_group = verne_doctrine_khenak_foundry
+	}
+
+	artillery_cost = -0.05
+	movement_speed = 0.05
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
+
+verne_settlement_of_the_reforged_court = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = verne_doctrine_imperial_chancery
+		has_idea_group = verne_doctrine_red_court
+	}
+
+	allow = {
+		full_idea_group = verne_doctrine_imperial_chancery
+		full_idea_group = verne_doctrine_red_court
+	}
+
+	reform_progress_growth = 0.05
+	yearly_legitimacy = 0.50
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = { factor = 1 }
+}
