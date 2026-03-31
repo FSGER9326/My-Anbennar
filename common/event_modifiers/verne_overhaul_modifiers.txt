@@ -132,3 +132,13 @@ verne_rogue_duchy_khenak_integration = {
 	production_efficiency = 0.10
 	build_cost = -0.05
 }
+
+verne_luna_red_court_integration = {
+	administrative_efficiency = 0.05
+	reform_progress_growth = 0.10
+}
+
+verne_luna_diplomatic_flexibility = {
+	improve_relation_modifier = 0.10
+	diplomatic_reputation = 1
+}

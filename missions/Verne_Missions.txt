@@ -2317,7 +2317,8 @@ A33_third_slot = {
 		}
 
 		effect = {
-			emperor = { country_event = { id = verne.500 } } 
+			emperor = { country_event = { id = verne.500 } }
+			country_event = { id = verne_overhaul_advisor.6 }
 			custom_tooltip = verne_C3_effect_tt
 		}
 	}

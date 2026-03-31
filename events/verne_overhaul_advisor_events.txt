@@ -161,6 +161,39 @@ country_event = {
 }
 
 country_event = {
+	id = verne_overhaul_advisor.6
+	title = verne_overhaul_advisor.6.t
+	desc = verne_overhaul_advisor.6.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = A33
+	}
+
+	option = {
+		name = verne_overhaul_advisor.6.a
+		add_country_modifier = {
+			name = verne_luna_red_court_integration
+			duration = 5475
+		}
+		add_adm_power = 25
+		add_legitimacy = 5
+	}
+
+	option = {
+		name = verne_overhaul_advisor.6.b
+		add_country_modifier = {
+			name = verne_luna_diplomatic_flexibility
+			duration = 5475
+		}
+		add_dip_power = 25
+		add_prestige = 5
+	}
+}
+
+country_event = {
 	id = verne_overhaul_advisor.5
 	title = verne_overhaul_advisor.5.t
 	desc = verne_overhaul_advisor.5.d
