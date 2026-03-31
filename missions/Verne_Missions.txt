@@ -476,6 +476,11 @@ A33_first_slot = {
 
 		effect = {
 			country_event = { id = verne.111 } 
+			add_country_modifier = {
+				name = verne_halanni_exposition_bureau
+				duration = 3650
+			}
+			country_event = { id = verne_overhaul_advisor.3 }
 			if = {
 				limit = { diplomatic_ideas = 7 } 
 				custom_tooltip = verne_A10_effect_tt_1
@@ -2016,6 +2021,10 @@ A33_second_slot = {
 				which = verne_overseas_projection
 				value = 1
 			}
+			if = {
+				limit = { has_country_modifier = verne_overseas_commonwealth }
+				add_prestige = 10
+			}
 			add_permanent_power_projection = {
 				type = 10_permanent_power_projection
 				amount = 10
@@ -2943,6 +2952,10 @@ A33_third_slot = {
 			change_variable = {
 				which = verne_overseas_projection
 				value = 1
+			}
+			add_country_modifier = {
+				name = verne_overseas_commonwealth
+				duration = 3650
 			}
 			if = {
 				limit = { in_golden_age = yes } 

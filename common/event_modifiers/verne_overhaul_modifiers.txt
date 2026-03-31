@@ -94,3 +94,15 @@ verne_apostolic_oceanic_command = {
 	naval_forcelimit_modifier = 0.10
 	prestige_from_land = 0.10
 }
+
+verne_halanni_exposition_bureau = {
+	diplomatic_reputation = 1
+	merchants = 1
+	prestige = 0.5
+}
+
+verne_overseas_commonwealth = {
+	global_tariffs = 0.10
+	liberty_desire_in_subjects = -5
+	governing_capacity_modifier = 0.05
+}
