@@ -5161,3 +5161,56 @@ A33_eighth_slot = {
 		}
 	}
 }
+
+# ===============================================
+# Verne overhaul: Vernissage secretariat (Lane 7 from blueprint)
+# Status: extends existing Vernissage chain with admin consolidation
+# Scope: adds Vernissage Secretariat mid-game mission
+# ===============================================
+
+A33_ninth_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	A33_vernissage_secretariat = {
+		icon = mission_university
+		position = 24
+		required_missions = { A33_expand_the_Vernissage }
+
+		trigger = {
+			292 = {
+				development = 45
+				has_state_edict = edict_advancement_effort
+			}
+			num_of_merchants = 4
+			treasury = 1500
+			dip_power = 100
+			OR = {
+				has_reform = verne_vernissage_secretariat_reform
+				has_reform = verne_charter_of_the_vernissage_reform
+				AND = {
+					292 = {
+						check_variable = {
+							which = verne_number_of_adventures_completed
+							value = 8
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_treasury = -1500
+			add_dip_power = -100
+			add_country_modifier = {
+				name = verne_vernissage_secretariat
+				duration = 5475
+			}
+			add_merchants = 1
+			change_variable = { which = verne_world_network value = 1 }
+		}
+	}
+}

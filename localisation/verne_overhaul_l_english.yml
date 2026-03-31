@@ -724,3 +724,7 @@ l_english:
  A33_red_brass_forge_desc:0 "The Khenak foundries now produce more than tools and wares. The Red Brass Forge turns Verne's industrial muscle into a weapon of war — artillery, ordnance, and the metallurgical science that sustains it."
  A33_controlled_devastation_title:0 "Protocols of Controlled Devastation"
  A33_controlled_devastation_desc:0 "Verne's industrial output has matured into a doctrine of controlled devastation: precise, disciplined, and overwhelmingly destructive. The Silver Court now wages war with foundry logic."
+
+ # --- Vernissage secretariat mission (Lane 7) ---
+ A33_vernissage_secretariat_title:0 "The Vernissage Secretariat"
+ A33_vernissage_secretariat_desc:0 "The Vernissage has grown beyond a gallery of wonders — it is now an engine of state prestige, a center of foreign exchange, and the administrative heart of Verne's cultural diplomacy."

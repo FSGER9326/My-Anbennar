@@ -188,3 +188,9 @@ verne_controlled_devastation = {
 	land_morale = 0.05
 	army_tradition = 0.5
 }
+
+verne_vernissage_secretariat = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.10
+	merchants = 1
+}
