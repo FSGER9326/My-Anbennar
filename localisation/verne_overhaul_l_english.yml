@@ -164,6 +164,13 @@ l_english:
  verne_overhaul_advisor.1.d:0 "Raise up a Wyvern Marshal"
  verne_overhaul_advisor.1.e:0 "Appoint a Magister of the Red Court"
 
+ merc_crimson_wake_lances:0 "Crimson Wake Lances"
+ merc_crimson_wake_lances_mercenary_desc:0 "An order-host of crimson-bannered Vernman lancers, formed around Corinite martial patronage and disciplined aerial cavalry doctrine. They fight as a prestige arm of the realm's militant devotional state."
+ merc_heartspier_skyguard:0 "Heartspier Skyguard"
+ merc_heartspier_skyguard_mercenary_desc:0 "Drawn from veteran wyvernrider cadres and harbor-watch command, the Heartspier Skyguard serve as Verne's fast-striking elite, equally suited to guarding the gulf and breaking an enemy line."
+ merc_khenak_talons:0 "Khenak Talons"
+ merc_khenak_talons_mercenary_desc:0 "These expedition-forged companies marry Khenak's harder campaigning culture with Vernman mobility, fielding a practical composite force of riders, gunners, and seasoned march officers."
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."

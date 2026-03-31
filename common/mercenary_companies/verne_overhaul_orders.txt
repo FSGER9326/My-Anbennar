@@ -1,0 +1,72 @@
+# ===============================================
+# Verne overhaul order companies
+# Status: first-wave grounded order/mercenary package
+# Scope: bespoke Verne companies tied to existing mission and event flags
+# ===============================================
+
+merc_crimson_wake_lances = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+	regiments_per_development = 0.03
+	cavalry_weight = 0.9
+	artillery_weight = 0
+	cavalry_cap = 12
+	home_province = 288
+	sprites = { easterngfx_sprite_pack }
+	trigger = {
+		tag = A33
+		has_country_flag = verne_refunding_holy_order_15
+	}
+	cost_modifier = 0.85
+	modifier = {
+		cav_to_inf_ratio = 1.0
+		cavalry_power = 0.2
+		movement_speed = 0.1
+		prestige_from_land = 0.5
+	}
+}
+
+merc_heartspier_skyguard = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+	regiments_per_development = 0.025
+	cavalry_weight = 0.75
+	artillery_weight = 0.1
+	cavalry_cap = 10
+	home_province = 288
+	sprites = { easterngfx_sprite_pack }
+	trigger = {
+		tag = A33
+		OR = {
+			has_country_modifier = verne_might_of_the_wyvern
+			has_country_modifier = verne_the_wyvern_king
+		}
+	}
+	cost_modifier = 0.9
+	modifier = {
+		cavalry_power = 0.15
+		shock_damage = 0.1
+		movement_speed = 0.15
+	}
+}
+
+merc_khenak_talons = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+	regiments_per_development = 0.035
+	cavalry_weight = 0.35
+	artillery_weight = 0.25
+	cavalry_cap = 6
+	home_province = 2520
+	sprites = { easterngfx_sprite_pack }
+	trigger = {
+		tag = A33
+		OR = {
+			verne_overhaul_has_khenak_foundry_seeded = yes
+			has_country_flag = verne_sarhali_adventures_unlocked
+		}
+	}
+	cost_modifier = 0.95
+	modifier = {
+		artillery_power = 0.1
+		reinforce_speed = 0.1
+		land_attrition = -0.1
+	}
+}
