@@ -72,3 +72,13 @@ verne_harbormaster_general_staff = {
 	trade_efficiency = 0.05
 	global_ship_trade_power = 0.10
 }
+
+verne_pearlescent_diplomatic_corps = {
+	diplomatic_reputation = 1
+	diplomatic_annexation_cost = -0.05
+}
+
+verne_union_court_protocols = {
+	same_dynasty_bonus = 0.10
+	liberty_desire_in_subjects = -5
+}

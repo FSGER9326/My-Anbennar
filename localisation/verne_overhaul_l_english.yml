@@ -32,6 +32,10 @@ l_english:
  verne_curatorial_patronage_desc:0 "Verne's court leans into prestige display, curated embassies, and world-facing ceremonial exchange."
  verne_harbormaster_general_staff:0 "Harbormaster General Staff"
  verne_harbormaster_general_staff_desc:0 "The Silver Wake's disciplined harbor service has been elevated into a state command apparatus for commerce, shipping, and mobilization."
+ verne_pearlescent_diplomatic_corps:0 "Pearlescent Diplomatic Corps"
+ verne_pearlescent_diplomatic_corps_desc:0 "Verne's dynastic court and world-facing ceremonial machine now sustain a more disciplined and effective diplomatic service."
+ verne_union_court_protocols:0 "Union Court Protocols"
+ verne_union_court_protocols_desc:0 "Court ceremony, marriage diplomacy, and dynastic administration have been formalized into a stronger protocol of personal union governance."
 
  verne_fading_ducal_authority:0 "Fading Ducal Authority"
  verne_fading_ducal_authority_desc:0 "Ducal authority is visibly weakening, emboldening challengers across the realm."
@@ -197,6 +201,12 @@ l_english:
  verne_overhaul_form_harbormaster_general_staff:0 "Form a Harbormaster General Staff"
  verne_overhaul_form_harbormaster_general_staff_desc:0 "The Silver Wake's discipline can be sharpened into a permanent state command for shipping, convoy administration, and martial readiness."
  verne_overhaul_form_harbormaster_general_staff_tt:0 "Gain §YHarbormaster General Staff§! and, if necessary, unlock the §YCrimson Wake Lances§! as a ready instrument of ducal force."
+ verne_overhaul_organize_pearlescent_diplomatic_corps:0 "Organize the Pearlescent Diplomatic Corps"
+ verne_overhaul_organize_pearlescent_diplomatic_corps_desc:0 "The dynastic and ceremonial machinery of Verne can be made more explicit, turning prestige, marriage politics, and public culture into a sharper diplomatic instrument."
+ verne_overhaul_organize_pearlescent_diplomatic_corps_tt:0 "Gain the §YPearlescent Diplomatic Corps§! and reinforce the court's world-facing ceremonial machinery."
+ verne_overhaul_codify_union_court_protocols:0 "Codify Union Court Protocols"
+ verne_overhaul_codify_union_court_protocols_desc:0 "If Verne is to rule through dynastic ties, those ties must be disciplined into a more formal court structure of succession, etiquette, and subject management."
+ verne_overhaul_codify_union_court_protocols_tt:0 "Gain §YUnion Court Protocols§!, improving Verne's ability to manage dynastic unions and ceremonial hierarchy."
 
  verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
  verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."

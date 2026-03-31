@@ -268,4 +268,84 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	verne_overhaul_organize_pearlescent_diplomatic_corps = {
+		major = yes
+
+		potential = {
+			tag = A33
+			OR = {
+				has_reform = verne_vernman_court_of_the_world_reform
+				verne_overhaul_dynasty_machine_started = yes
+			}
+		}
+
+		allow = {
+			dip_power = 75
+			OR = {
+				has_country_flag = verne_marriage_court_active
+				has_country_modifier = verne_marriage_court_protocol
+			}
+			NOT = { has_country_modifier = verne_pearlescent_diplomatic_corps }
+		}
+
+		effect = {
+			add_dip_power = -75
+			add_country_modifier = {
+				name = verne_pearlescent_diplomatic_corps
+				duration = 3650
+			}
+			if = {
+				limit = { NOT = { has_country_modifier = verne_curatorial_patronage } }
+				add_country_modifier = {
+					name = verne_curatorial_patronage
+					duration = 1825
+				}
+			}
+			custom_tooltip = verne_overhaul_organize_pearlescent_diplomatic_corps_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	verne_overhaul_codify_union_court_protocols = {
+		major = yes
+
+		potential = {
+			tag = A33
+			OR = {
+				has_country_flag = verne_marriage_court_active
+				has_country_flag = verne_dynasty_protected
+			}
+		}
+
+		allow = {
+			legitimacy = 75
+			OR = {
+				any_subject_country = { is_union = yes }
+				has_country_modifier = verne_marriage_court_protocol
+				verne_overhaul_dynasty_machine_started = yes
+			}
+			NOT = { has_country_modifier = verne_union_court_protocols }
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = verne_union_court_protocols
+				duration = 3650
+			}
+			add_prestige = 10
+			if = {
+				limit = { has_country_modifier = verne_reforged_court_consensus }
+				add_legitimacy = 5
+			}
+			custom_tooltip = verne_overhaul_codify_union_court_protocols_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
