@@ -1288,30 +1288,7 @@ A33_second_slot = {
 		provinces_to_highlight = { } 
 
 		trigger = {
-			OR = {
-				any_subject_country = { capital_scope = { region = akasik_region } } 
-				any_ally = {
-					OR = {
-						any_subject_country = {
-							num_of_owned_provinces_with = {
-								value = 5
-								region = akasik_region
-							}
-						}
-						num_of_owned_provinces_with = {
-							region = akasik_region
-							value = 15
-						}
-					}
-				}
-				any_ally = {
-					capital_scope = { region = akasik_region } 
-					has_opinion = {
-						who = ROOT
-						value = 200
-					}
-				}
-			}
+			verne_overhaul_has_early_akasik_access_route = yes
 			num_of_transport = 20
 			mil_power = 100
 		}
@@ -1576,11 +1553,7 @@ A33_second_slot = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = verne_overhaul_tt_in_search_expedition_capacity
-				OR = {
-					verne_overhaul_in_search_colonizer_route = yes
-					verne_overhaul_in_search_subject_projection_route = yes
-					verne_overhaul_in_search_network_or_monument_route = yes
-				}
+				verne_overhaul_has_expedition_capacity = yes
 			}
 			OR = {
 				has_personal_deity = corin

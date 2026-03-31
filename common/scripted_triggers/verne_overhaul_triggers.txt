@@ -113,6 +113,48 @@ verne_overhaul_in_search_network_or_monument_route = {
 	}
 }
 
+verne_overhaul_has_akasik_subject_or_ally_bridge = {
+	OR = {
+		any_subject_country = { capital_scope = { region = akasik_region } }
+		any_ally = {
+			OR = {
+				capital_scope = { region = akasik_region }
+				any_subject_country = {
+					num_of_owned_provinces_with = {
+						value = 5
+						region = akasik_region
+					}
+				}
+				num_of_owned_provinces_with = {
+					value = 15
+					region = akasik_region
+				}
+			}
+		}
+	}
+}
+
+verne_overhaul_has_expedition_capacity = {
+	OR = {
+		verne_overhaul_in_search_colonizer_route = yes
+		verne_overhaul_in_search_subject_projection_route = yes
+		verne_overhaul_in_search_network_or_monument_route = yes
+	}
+}
+
+verne_overhaul_has_early_akasik_access_route = {
+	OR = {
+		verne_overhaul_has_akasik_subject_or_ally_bridge = yes
+		any_ally = {
+			capital_scope = { region = akasik_region }
+			has_opinion = {
+				who = ROOT
+				value = 200
+			}
+		}
+	}
+}
+
 # Dynasty safeguard triggers (authoritative)
 # Ownership note:
 # - These triggers were consolidated from zzz_verne_overhaul_dynasty_triggers.txt.
