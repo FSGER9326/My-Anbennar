@@ -234,6 +234,17 @@ l_english:
  verne_overhaul_pay_off_mage_debt:0 "Pay Off the Mage Debt"
  verne_overhaul_pay_off_mage_debt_desc:0 "The mage estate's favors made the wyvern program possible, but the debt weighs on the crown. Pay it off now and secure a stronger military-mage partnership."
  verne_overhaul_pay_off_mage_debt_tt:0 "Remove the §YIndebted to the Mages§! modifier and gain §YHonor of the Repaid Debt§!."
+ verne_overhaul_levy_silver_wake_convoy:0 "Levy a Silver Wake Convoy"
+ verne_overhaul_levy_silver_wake_convoy_desc:0 "The Silver Wake's disciplined maritime service can be mobilized for a period of intensive convoy operations, strengthening Verne's naval presence."
+ verne_overhaul_levy_silver_wake_convoy_tt:0 "Gain §YSilver Wake Convoy Levy§!, improving light ship power and increasing sailors for 5 years."
+ verne_overhaul_muster_dragonwake_cadets:0 "Muster Dragonwake Cadets"
+ verne_overhaul_muster_dragonwake_cadets_desc:0 "The Dragonwake's wyvern-training tradition can be expanded to produce a new wave of rider cadets, strengthening Verne's military-mage arm."
+ verne_overhaul_muster_dragonwake_cadets_tt:0 "Gain §YDragonwake Cadet Muster§!, improving cavalry power and reinforce speed for 5 years."
+
+ verne_silver_wake_convoy_levy:0 "Silver Wake Convoy Levy"
+ verne_silver_wake_convoy_levy_desc:0 "The Silver Wake's maritime service has been mobilized for intensive operations, projecting Verne's naval strength across the seas."
+ verne_dragonwake_cadet_muster:0 "Dragonwake Cadet Muster"
+ verne_dragonwake_cadet_muster_desc:0 "A new generation of wyvern riders has been mustered, bringing fresh discipline and shock potential to Verne's military tradition."
 
  verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
  verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."

@@ -117,3 +117,13 @@ verne_mage_debt_repaid_honor = {
 	mages_loyalty_modifier = 0.10
 	yearly_army_professionalism = 0.003
 }
+
+verne_silver_wake_convoy_levy = {
+	light_ship_power = 0.10
+	global_sailors_modifier = 0.10
+}
+
+verne_dragonwake_cadet_muster = {
+	cavalry_power = 0.10
+	reinforce_speed = 0.10
+}

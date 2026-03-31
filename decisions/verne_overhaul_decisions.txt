@@ -412,4 +412,74 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	verne_overhaul_levy_silver_wake_convoy = {
+		major = yes
+
+		potential = {
+			tag = A33
+			verne_overhaul_has_silver_oaths_path_seeded = yes
+		}
+
+		allow = {
+			dip_power = 50
+			treasury = 300
+			OR = {
+				has_country_modifier = verne_harbormaster_general_staff
+				verne_overhaul_has_silver_oaths_path_seeded = yes
+			}
+		}
+
+		effect = {
+			add_dip_power = -50
+			add_treasury = -300
+			add_country_modifier = {
+				name = verne_silver_wake_convoy_levy
+				duration = 1825
+			}
+			add_sailors = 2000
+			add_navy_tradition = 3
+			custom_tooltip = verne_overhaul_levy_silver_wake_convoy_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	verne_overhaul_muster_dragonwake_cadets = {
+		major = yes
+
+		potential = {
+			tag = A33
+			verne_overhaul_has_dragonwake_path_seeded = yes
+		}
+
+		allow = {
+			mil_power = 75
+			OR = {
+				has_country_modifier = verne_indebted_to_the_mages
+				has_country_flag = verne_mage_debt_repaid
+			}
+			estate_loyalty = {
+				estate = estate_mages
+				loyalty = 50
+			}
+		}
+
+		effect = {
+			add_mil_power = -75
+			add_country_modifier = {
+				name = verne_dragonwake_cadet_muster
+				duration = 1825
+			}
+			add_army_tradition = 5
+			add_yearly_manpower = 1
+			custom_tooltip = verne_overhaul_muster_dragonwake_cadets_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
