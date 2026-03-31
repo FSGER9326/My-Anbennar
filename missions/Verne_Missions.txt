@@ -266,6 +266,7 @@ A33_first_slot = {
 			}
 			add_treasury = -1000
 			add_dip_power = -200
+			country_event = { id = verne_overhaul_advisor.3 }
 			country_event = {
 				id = verne.105
 				days = 730
@@ -303,6 +304,7 @@ A33_first_slot = {
 				value = 1
 			}
 			add_treasury = -3000
+			country_event = { id = verne_overhaul_advisor.3 }
 			hidden_effect = { 292 = { remove_province_modifier = verne_vernissage_tier1 } } 
 			292 = {
 				add_province_modifier = {
@@ -629,6 +631,7 @@ A33_first_slot = {
 
 		effect = {
 			country_event = { id = verne.112 } 
+			country_event = { id = verne_overhaul_advisor.3 }
 			custom_tooltip = verne_A12_effect_tt
 			if = {
 				limit = {

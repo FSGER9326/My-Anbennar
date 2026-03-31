@@ -173,6 +173,10 @@ l_english:
  verne_overhaul_advisor.2.d:0 "Verne's expeditionary and foundry interests in the Khenak have matured enough to demand a more specialized command cadre. We can lean into a harder logistical-industrial program or sharpen the wyvern-service arm of the state."
  verne_overhaul_advisor.2.a:0 "Elevate a Khenak master of logistics"
  verne_overhaul_advisor.2.b:0 "Promote a field-tested wyvern commander"
+ verne_overhaul_advisor.3.t:0 "Masters of the Grand Vernissage"
+ verne_overhaul_advisor.3.d:0 "The Vernissage has grown beyond a gallery and into a true engine of state prestige. Its senior figures now compete to define the next stage of Verne's public culture: a curator of worldly splendor, or a magister able to bind ceremony more tightly to the machinery of rule."
+ verne_overhaul_advisor.3.a:0 "Raise up a grand curator of the Vernissage"
+ verne_overhaul_advisor.3.b:0 "Elevate a magister of ceremonial rule"
 
  merc_crimson_wake_lances:0 "Crimson Wake Lances"
  merc_crimson_wake_lances_mercenary_desc:0 "An order-host of crimson-bannered Vernman lancers, formed around Corinite martial patronage and disciplined aerial cavalry doctrine. They fight as a prestige arm of the realm's militant devotional state."
