@@ -67,6 +67,56 @@ country_event = {
 }
 
 country_event = {
+	id = verne_overhaul_crisis.4
+	title = verne_overhaul_crisis.4.t
+	desc = verne_overhaul_crisis.4.d
+	picture = NAVAL_SUPPLIES_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = verne_overhaul_crisis.4.a
+		add_dip_power = -50
+		if = {
+			limit = { has_unlocked_merc_company = { merc_company = merc_crimson_wake_lances } }
+			add_army_tradition = 5
+		}
+	}
+	option = {
+		name = verne_overhaul_crisis.4.b
+		add_country_modifier = {
+			name = verne_tarnished_courtly_reputation
+			duration = 730
+		}
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = verne_overhaul_crisis.5
+	title = verne_overhaul_crisis.5.t
+	desc = verne_overhaul_crisis.5.d
+	picture = ADVISOR_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = verne_overhaul_crisis.5.a
+		add_adm_power = -50
+		if = {
+			limit = { has_country_flag = verne_marriage_court_active }
+			add_legitimacy = 5
+		}
+	}
+	option = {
+		name = verne_overhaul_crisis.5.b
+		add_mil_power = -50
+		if = {
+			limit = { has_unlocked_merc_company = { merc_company = merc_heartspier_skyguard } }
+			add_army_professionalism = 0.02
+		}
+	}
+}
+
+country_event = {
 	id = verne_overhaul_crisis.100
 	title = verne_overhaul_crisis.100.t
 	desc = verne_overhaul_crisis.100.d

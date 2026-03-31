@@ -84,6 +84,8 @@ verne_red_court_scandal = {
 			1000 = 0
 			80 = verne_overhaul_crisis.2
 			80 = verne_overhaul_crisis.3
+			70 = verne_overhaul_crisis.4
+			70 = verne_overhaul_crisis.5
 		}
 	}
 }
