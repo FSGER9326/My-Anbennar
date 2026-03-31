@@ -1,0 +1,84 @@
+namespace = verne_overhaul_crisis
+
+country_event = {
+	id = verne_overhaul_crisis.1
+	title = verne_overhaul_crisis.1.t
+	desc = verne_overhaul_crisis.1.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = verne_overhaul_red_court_scandal_started
+	}
+
+	option = {
+		name = verne_overhaul_crisis.1.a
+		add_stability = -1
+		add_prestige = -10
+	}
+}
+
+country_event = {
+	id = verne_overhaul_crisis.2
+	title = verne_overhaul_crisis.2.t
+	desc = verne_overhaul_crisis.2.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = verne_overhaul_crisis.2.a
+		add_legitimacy = -10
+		add_prestige = -5
+	}
+	option = {
+		name = verne_overhaul_crisis.2.b
+		add_adm_power = -75
+		if = {
+			limit = { NOT = { has_country_flag = verne_dynasty_protected } }
+			verne_overhaul_activate_dynasty_protection = yes
+		}
+	}
+}
+
+country_event = {
+	id = verne_overhaul_crisis.3
+	title = verne_overhaul_crisis.3.t
+	desc = verne_overhaul_crisis.3.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = verne_overhaul_crisis.3.a
+		add_dip_power = -75
+		add_country_modifier = {
+			name = verne_tarnished_courtly_reputation
+			duration = 1825
+		}
+	}
+	option = {
+		name = verne_overhaul_crisis.3.b
+		add_treasury = -150
+		if = {
+			limit = { NOT = { has_country_flag = verne_marriage_court_active } }
+			verne_overhaul_activate_marriage_court = yes
+		}
+	}
+}
+
+country_event = {
+	id = verne_overhaul_crisis.100
+	title = verne_overhaul_crisis.100.t
+	desc = verne_overhaul_crisis.100.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = verne_overhaul_crisis.100.a
+		set_country_flag = verne_overhaul_red_court_scandal_resolved
+		clr_country_flag = verne_overhaul_red_court_scandal_started
+		add_prestige = 15
+		add_legitimacy = 10
+	}
+}

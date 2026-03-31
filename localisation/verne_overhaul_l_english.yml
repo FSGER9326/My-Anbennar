@@ -175,6 +175,21 @@ l_english:
  verne_overhaul_charter_khenak_talons_desc:0 "The Sarhali and foundry-facing arms of Verne can be formalized into a dedicated expedition company, giving the crown a harder, more practical force for its overseas and frontier wars."
  verne_overhaul_charter_khenak_talons_tt:0 "Unlock the Khenak Talons as a Verne-exclusive mercenary company and immediately make them available for service."
 
+ verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
+ verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."
+ verne_overhaul_crisis.1.a:0 "The court reels under the blow"
+ verne_overhaul_crisis.2.t:0 "A Question of Succession and Oaths"
+ verne_overhaul_crisis.2.d:0 "Critics of the Red Court now question whether the dynasty's magical and marital machinery truly serves the realm, or merely shields the court from its own errors."
+ verne_overhaul_crisis.2.a:0 "Let the accusations spread"
+ verne_overhaul_crisis.2.b:0 "Reassert dynastic discipline"
+ verne_overhaul_crisis.3.t:0 "Fractures in the Vernman Compact"
+ verne_overhaul_crisis.3.d:0 "Merchants, captains, and noble households now demand visible concessions. Without a more ordered settlement, Verne's authority may curdle into a lasting crisis of reputation."
+ verne_overhaul_crisis.3.a:0 "Endure the diplomatic embarrassment"
+ verne_overhaul_crisis.3.b:0 "Buy time and formalize the court"
+ verne_overhaul_crisis.100.t:0 "The Court Stabilized"
+ verne_overhaul_crisis.100.d:0 "The worst of the scandal has passed. Verne's court remains ambitious and dangerous, but it has emerged more disciplined, more explicit, and better prepared to bear the weight of its own institutions."
+ verne_overhaul_crisis.100.a:0 "The realm endures"
+
  # --- v0.2 verne doctrine group: silver wake ---
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."

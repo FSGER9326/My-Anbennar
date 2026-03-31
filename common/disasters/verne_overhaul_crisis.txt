@@ -1,0 +1,89 @@
+verne_red_court_scandal = {
+	potential = {
+		tag = A33
+		OR = {
+			verne_overhaul_dynasty_machine_started = yes
+			verne_overhaul_has_silver_oaths_path_seeded = yes
+		}
+		NOT = { has_country_flag = verne_overhaul_red_court_scandal_resolved }
+	}
+
+	can_start = {
+		has_any_disaster = no
+		OR = {
+			stability = -1
+			war_exhaustion = 3
+			legitimacy = 50
+		}
+		OR = {
+			NOT = { has_country_flag = verne_dynasty_protected }
+			NOT = { has_country_flag = verne_marriage_court_active }
+		}
+	}
+
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			stability = 1
+			NOT = { war_exhaustion = 3 }
+			legitimacy = 70
+		}
+	}
+
+	progress = {
+		modifier = {
+			factor = 1
+			war_exhaustion = 3
+		}
+		modifier = {
+			factor = 1
+			NOT = { legitimacy = 60 }
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 1
+			NOT = { has_country_flag = verne_dynasty_protected }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { has_country_flag = verne_marriage_court_active }
+		}
+		modifier = {
+			factor = -1
+			has_country_flag = verne_dynasty_protected
+			has_country_flag = verne_marriage_court_active
+			stability = 2
+			legitimacy = 75
+		}
+	}
+
+	can_end = {
+		stability = 1
+		legitimacy = 70
+		NOT = { war_exhaustion = 2 }
+		custom_trigger_tooltip = {
+			tooltip = disaster_active_for_5_years_tooltip
+			had_country_flag = { flag = verne_overhaul_red_court_scandal_started days = 1825 }
+		}
+	}
+
+	modifier = {
+		global_tax_modifier = -0.1
+		diplomatic_reputation = -1
+		legitimacy = -0.5
+	}
+
+	on_start = verne_overhaul_crisis.1
+	on_end = verne_overhaul_crisis.100
+
+	on_monthly = {
+		random_events = {
+			1000 = 0
+			80 = verne_overhaul_crisis.2
+			80 = verne_overhaul_crisis.3
+		}
+	}
+}
