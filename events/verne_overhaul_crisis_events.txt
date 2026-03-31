@@ -128,6 +128,11 @@ country_event = {
 		name = verne_overhaul_crisis.100.a
 		set_country_flag = verne_overhaul_red_court_scandal_resolved
 		clr_country_flag = verne_overhaul_red_court_scandal_started
+		remove_country_modifier = verne_tarnished_courtly_reputation
+		add_country_modifier = {
+			name = verne_reforged_court_consensus
+			duration = 3650
+		}
 		add_prestige = 15
 		add_legitimacy = 10
 	}

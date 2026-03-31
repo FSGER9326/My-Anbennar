@@ -162,4 +162,32 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	verne_overhaul_consolidate_reforged_court = {
+		major = yes
+
+		potential = {
+			tag = A33
+			has_country_flag = verne_overhaul_red_court_scandal_resolved
+			NOT = { has_country_modifier = verne_reforged_court_consensus }
+		}
+
+		allow = {
+			stability = 1
+			legitimacy = 75
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = verne_reforged_court_consensus
+				duration = 3650
+			}
+			add_prestige = 10
+			custom_tooltip = verne_overhaul_consolidate_reforged_court_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

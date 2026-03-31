@@ -26,6 +26,8 @@ l_english:
 
  verne_tarnished_courtly_reputation:0 "Tarnished Courtly Reputation"
  verne_tarnished_courtly_reputation_desc:0 "Court scandals weaken confidence in state discipline and raise governance friction."
+ verne_reforged_court_consensus:0 "Reforged Court Consensus"
+ verne_reforged_court_consensus_desc:0 "Having endured scandal and emerged with clearer institutions, Verne's court now projects steadier legitimacy and more disciplined statecraft."
 
  verne_fading_ducal_authority:0 "Fading Ducal Authority"
  verne_fading_ducal_authority_desc:0 "Ducal authority is visibly weakening, emboldening challengers across the realm."
@@ -174,6 +176,9 @@ l_english:
  verne_overhaul_charter_khenak_talons:0 "Charter the Khenak Talons"
  verne_overhaul_charter_khenak_talons_desc:0 "The Sarhali and foundry-facing arms of Verne can be formalized into a dedicated expedition company, giving the crown a harder, more practical force for its overseas and frontier wars."
  verne_overhaul_charter_khenak_talons_tt:0 "Unlock the Khenak Talons as a Verne-exclusive mercenary company and immediately make them available for service."
+ verne_overhaul_consolidate_reforged_court:0 "Consolidate the Reforged Court"
+ verne_overhaul_consolidate_reforged_court_desc:0 "Having survived scandal, the crown can codify a more durable court settlement and turn hard-earned stability into a lasting administrative advantage."
+ verne_overhaul_consolidate_reforged_court_tt:0 "Gain the §YReforged Court Consensus§! modifier, representing a stabilized post-crisis settlement."
 
  verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
  verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."

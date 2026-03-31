@@ -55,3 +55,10 @@ verne_empty_boasts_of_the_wake = {
 	morale_of_navies = -0.05
 	global_ship_recruit_speed = -0.10
 }
+
+# --- Crisis payoff layer ---
+verne_reforged_court_consensus = {
+	legitimacy = 1
+	diplomatic_reputation = 1
+	advisor_cost = -0.05
+}
