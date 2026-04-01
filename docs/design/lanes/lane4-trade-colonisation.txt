@@ -1,292 +1,131 @@
-# Verne Overhaul - Lane 4: Trade & Colonisation
-# Slot 4 (fourth_slot) — Overseas commerce, colonial expansion, and maritime command structure.
-# Status: Draft design — 2026-03-31
-# Branch: chore/verne-10-lane-blueprint
+# Verne Overhaul - Lane 5: Trade & Colonisation
+# Slot 5 (A33_fifth_sloth) — Wyvern economy, overseas commerce, religious
+# mercantilism, and artificery production. The commercial backbone of
+# Verne's sea-state identity.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: PARTIALLY IMPLEMENTED — 10 missions in A33_fifth_sloth
 
-# ============================================================
-# Wrapper
-# ============================================================
-
-A33_fourth_slot = {
-	slot = 4
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = { tag = A33 }
-
-	# Commentary (plain-language): Chartered overseas companies give Verne a formal apparatus for
-	# extracting colonial wealth and staffing far-flung trade posts.  This is the early lane entry —
-	# it requires a colonial foothold and either the Vernissage charter (tier 4) or the estuary
-	# companies reform (tier 2), ensuring the player has invested in either cultural or commercial
-	# infrastructure before expanding overseas.
-	# Base vs new: new
-	# Playstyle effect: Opens the colonisation lane; rewards early colonial reach with governing
-	# capacity headroom and tariff income.  The decision unlock is flavour / mechanical extension.
-	# Risk note: gated on owning at least one colonial province, so it cannot fire on a landlocked
-	# Verne.  Tier-reform check uses scripted triggers for consistency with other lanes.
-	# Province context: no specific provinces highlighted — the trigger is count-based.
-	# Lore-fit note: "Charter of the Vernissage" already implies overseas commercial ambition;
-	# estuary companies (Heartspier) are the mercantile counterpart.
-	A33_charter_overseas_companies = {
-		icon = mission_establish_high_seas_innovation
-		position = 2
-		required_missions = { }
-		provinces_to_highlight = {
-			is_colony = yes
-			owned_by = ROOT
-		}
-
-		trigger = {
-			# Must own at least one colonial province.
-			num_of_owned_provinces_with = {
-				value = 1
-				is_colony = no
-				OR = {
-					continent = north_america
-					continent = south_america
-					continent = africa
-					continent = oceania
-					continent = new_world
-				}
-			}
-			# Must hold either the Vernissage charter (tier 4) or estuary companies (tier 2).
-			OR = {
-				has_reform = verne_charter_of_the_vernissage_reform
-				has_reform = verne_estuary_companies_of_heartspier_reform
-			}
-		}
-
-		effect = {
-			# Commentary: Chartered companies unlock a formal decision to establish overseas trading
-			# companies, and grant immediate mechanical bonuses to governing capacity and tariffs.
-			add_country_modifier = {
-				name = "verne_chartered_overseas_companies"
-				duration = -1
-			}
-			change_government_reform_progress = 10
-			custom_tooltip = verne_overhaul_tt_charter_overseas_companies_decision
-			hidden_effect = {
-				set_country_flag = verne_charter_overseas_companies_unlocked
-			}
-			# Advance the overseas projection variable used by cross-lane dependencies.
-			change_variable = {
-				which = verne_overseas_projection
-				value = 1
-			}
-		}
-	}
-
-	# Commentary (plain-language): Distant Horizons Expansion is the mid-lane mission that
-	# formalises Verne's colonial reach.  It requires a meaningful number of colonial provinces
-	# (5+) and the Hall of Distant Horizons reform (tier 4), which already grants colonial range
-	# and attrition reduction.  Completing this mission stacks further range and settler bonuses,
-	# making deep colonisation viable.
-	# Base vs new: new
-	# Playstyle effect: The +15% colonial range stacks with the tier-4 reform's own +20% range for
-	# a total of +35%, enabling trans-oceanic colonisation.  Settler chance and naval attrition
-	# round out the package.
-	# Risk note: 5 colonial provinces is achievable by mid-game for a focused coloniser but not
-	# trivially so.  The tier-4 reform gate ensures the player has progressed through the court
-	# ladder.  provinces_to_highlight shows the player their colonial holdings so they can track
-	# progress.
-	# Province context: highlights all owned colonial provinces.
-	# Lore-fit note: "Distant Horizons" echoes the tier-4 reform name, reinforcing the thematic
-	# through-line of Verne as a sea-state looking outward.
-	A33_distant_horizons_expansion = {
-		icon = mission_distant_fleet
-		position = 5
-		required_missions = { A33_charter_overseas_companies }
-		provinces_to_highlight = {
-			owned_by = ROOT
-			OR = {
-				continent = north_america
-				continent = south_america
-				continent = africa
-				continent = oceania
-				continent = new_world
-			}
-		}
-
-		trigger = {
-			# Must own at least 5 colonial provinces.
-			num_of_owned_provinces_with = {
-				value = 5
-				is_colony = no
-				OR = {
-					continent = north_america
-					continent = south_america
-					continent = africa
-					continent = oceania
-					continent = new_world
-				}
-			}
-			# Must hold the Hall of Distant Horizons reform (tier 4).
-			has_reform = verne_hall_of_distant_horizons_reform
-		}
-
-		effect = {
-			# Commentary: Distant Horizons Expansion delivers three complementary bonuses:
-			# colonial range for reach, naval attrition for survivability, and settler chance
-			# for speed.  These stack with the tier-4 reform's own modifiers.
-			add_country_modifier = {
-				name = "verne_distant_horizons_expansion"
-				duration = -1
-			}
-			# Advance cross-lane variables.
-			change_variable = {
-				which = verne_overseas_projection
-				value = 1
-			}
-			change_variable = {
-				which = verne_world_network
-				value = 1
-			}
-			# Reward: grant a free colonist charge.
-			add_colonist = 1
-		}
-	}
-
-	# Commentary (plain-language): Overseas Commanderies is the late-lane capstone that completes
-	# Verne's transition from colonial power to maritime empire.  It requires the Distant Horizons
-	# Expansion mission and the tier-6 Overseas Commanderies reform, which already grants tariff and
-	# governing capacity bonuses.  The mission stacks additional tariff income, governing capacity,
-	# and diplomatic annexation cost reduction, and unlocks a decision to swap colonial governors
-	# for maritime commandants — a flavourful mechanical choice.
-	# Base vs new: new
-	# Playstyle effect: Completes the colonisation lane.  The -10% diplo-annex cost is a strong
-	# incentive to use subjects (colonial nations, marches) rather than direct conquest.  The
-	# governing capacity bonus supports the wider empire.  The governor-to-commandant swap decision
-	# is cosmetic / mechanical flavour.
-	# Risk note: position 9 places this as a late-game mission.  The tier-6 reform gate ensures
-	# significant prior investment in the Verne reform ladder.  Cross-lane dependencies are
-	# handled via variables rather than required_missions from other slots.
-	# Province context: highlights colonial provinces to show the player's overseas holdings.
-	# Lore-fit note: "Commanderies" evokes both maritime command and colonial administration —
-	# a fitting capstone for Verne's sea-state identity.
-	A33_overseas_commanderies = {
-		icon = mission_african_gold
-		position = 9
-		required_missions = { A33_distant_horizons_expansion }
-		provinces_to_highlight = {
-			owned_by = ROOT
-			OR = {
-				continent = north_america
-				continent = south_america
-				continent = africa
-				continent = oceania
-				continent = new_world
-			}
-		}
-
-		trigger = {
-			# Must hold the Overseas Commanderies reform (tier 6).
-			has_reform = verne_overseas_commanderies_reform
-			# Must have completed Distant Horizons Expansion.
-			has_country_flag = verne_distant_horizons_expansion_completed
-			# Must own at least 10 colonial provinces for a true commandery network.
-			num_of_owned_provinces_with = {
-				value = 10
-				is_colony = no
-				OR = {
-					continent = north_america
-					continent = south_america
-					continent = africa
-					continent = oceania
-					continent = new_world
-				}
-			}
-		}
-
-		effect = {
-			# Commentary: Overseas Commanderies is the lane capstone.  It delivers stacking tariff
-			# and governing capacity bonuses, diplomatic annexation cost reduction, and unlocks
-			# the governor-to-commandant swap decision.
-			add_country_modifier = {
-				name = "verne_overseas_commanderies_established"
-				duration = -1
-			}
-			custom_tooltip = verne_overhaul_tt_overseas_commanderies_governor_swap
-			hidden_effect = {
-				set_country_flag = verne_overseas_commanderies_governor_swap_unlocked
-			}
-			# Final cross-lane variable advances.
-			change_variable = {
-				which = verne_overseas_projection
-				value = 1
-			}
-			change_variable = {
-				which = verne_world_network
-				value = 1
-			}
-		}
-	}
-}
-
-# ============================================================
-# --- New modifiers ---
-# ============================================================
-
-# verne_chartered_overseas_companies — permanent
-#   +10 governing_capacity
-#   +5% global_tariffs
+# ===============================================
+# Lane 5 - Trade & Colonisation (Slot 5, early→late)
+# ===============================================
+# This lane forms Verne's economic-production spine — from the wyvern
+# egg quest through nest infrastructure to religious trade networks and
+# artificery manufacturing.
 #
-# verne_distant_horizons_expansion — permanent
-#   +15% range (colonial_range)
-#   -0.15 naval_attrition
-#   +5% global_colonial_growth
+# The lane has three arcs:
+# 1. Early:   Gnoll conquest → Wyvern egg quest → Nest infrastructure
+# 2. Mid:     Nest expansion → Sea nest (naval trade) → Crimson Sea (overseas commerce)
+# 3. Late:    Religious mercantilism → Artificery production
 #
-# verne_overseas_commanderies_established — permanent
-#   +10% global_tariffs
-#   +10% governing_capacity_modifier
-#   -10% diplomatic_annexation_cost
+# Note: Some missions in this slot (A33_break_the_queen_of_the_hill,
+# A33_expand_the_wyvern_nests, A33_the_might_of_the_wyvern) lean military
+# but serve as infrastructure gates for the economic content.
+# The Red Court & Arcane track (Lane 6) runs in parallel at pos 2, 5, 9.
 
-# ============================================================
-# --- New localisation ---
-# ============================================================
+# --- Actual missions implemented ---
 
-# verne_charter_overseas_companies_decision: "Charter Overseas Companies"
-# verne_overhaul_tt_charter_overseas_companies_decision: "Charter Overseas Companies\nUnlocks the decision to establish formal overseas trading companies. [+10 Governing Capacity, +5% Global Tariffs]"
-# verne_distant_horizons_expansion: "Distant Horizons Expansion"
-# verne_overhaul_tt_distant_horizons_expansion: "Our colonial reach has extended to distant shores, supported by the Hall of Distant Horizons. [+15% Colonial Range, -0.15 Naval Attrition, +5% Settler Chance]"
-# verne_overseas_commanderies_established: "Overseas Commanderies"
-# verne_overhaul_tt_overseas_commanderies: "Verne's colonial territories are now governed by maritime commanderies. [+10% Global Tariffs, +10% Governing Capacity, -10% Diplomatic Annexation Cost]"
-# verne_overhaul_tt_overseas_commanderies_governor_swap: "Swap colonial governors for maritime commandants — a decision unlocked by the Overseas Commanderies."
+# A33_break_the_queen_of_the_hill (pos 1)
+# Requires: none
+# Trigger: Treasury 100, MIL 50, province 364 owned+cored, khenak_area owned+cored,
+#          377 has 10 units with leader
+# Effect: Fires verne.102
+# Commentary: Military opener that secures the Khenak region — the economic heartland
+# for Verne's foundry and wyvern economy. Prerequisite for the egg quest.
 
-# ============================================================
-# --- Modifier definitions (common/defines or common/event_modifiers) ---
-# ============================================================
+# A33_the_quest_for_eggs (pos 2)
+# Requires: A33_break_the_queen_of_the_hill
+# Trigger: ADM 100, treasury 200 (or 50 with dovesworn_gnoll culture), either
+#          adventurer loyalty/influence or 20 units in 6513
+# Effect: Fires verne.1000, sets verne_found_eggs modifier
+# Commentary: The economic adventure that kickstarts Verne's wyvern industry.
+# The dovesworn_gnoll cultural acceptance path reduces costs — rewarding
+# diplomatic investment alongside military preparation.
 
-# These should be added to a separate modifier file.  Placeholder text below for reference.
+# A33_the_wyvern_nest_initiative (pos 3)
+# Requires: A33_the_quest_for_eggs
+# Trigger: Has verne_found_eggs, treasury 1000, provinces 290/291/375/376
+#          expanded infra or dev 15, manpower buildings + tax/courthouse
+# Effect: Builds mage_tower in all 4 provinces, creates wyvern_nest modifiers,
+#         adds mage estate influence, verne_indebted_to_mages (50yr)
+# Commentary: The infrastructure investment that converts the egg quest into
+# permanent wyvern production. The mage debt modifier creates a meaningful
+# trade-off — powerful cavalry but indebted to the mage estate.
 
-# verne_chartered_overseas_companies = {
-# 	icon = "trade"
-# 	modifier = {
-# 		governing_capacity = 10
-# 		global_tariffs = 0.05
-# 	}
-# }
+# A33_binding_the_beast (pos 4)
+# Requires: A33_the_wyvern_nest_initiative
+# Trigger: Mage estate privileges (magocratic_administration, reduced_research),
+#          ruler is mage or has ward, mage loyalty 60, court mage 3 or A85 favors
+#          or 100 all power
+# Effect: Seeds dragonwake path, fires verne.103, enables mythical cavalry (wyvern),
+#         applies mage debt
+# Commentary: The arcane-economic gateway. Binding wyverns for commercial/military
+# use requires deep mage estate investment. This mission bridges the trade lane
+# (economics of wyvern industry) and the arcane lane (mage state integration).
 
-# verne_distant_horizons_expansion = {
-# 	icon = "exploration"
-# 	modifier = {
-# 		range = 0.15
-# 		naval_attrition = -0.15
-# 		global_colonial_growth = 5
-# 	}
-# }
+# A33_the_sea_nest (pos 6)
+# Requires: A33_a_union_of_crowns (Lane 4), A33_expand_the_wyvern_nests (pos 5)
+# Trigger: Treasury 500, no flagship, naval reformer 3 or navy tradition 75,
+#          provinces 380 and 50 dev 30 with shipyard
+# Effect: Creates flagship "The Sea Nest" (heavy ship with mortars + integrated marines),
+#         enables wyvern carrier creation
+# Commentary: The naval-economic capstone of the wyvern chain. Converting land-based
+# wyvern production into naval force projection — a heavy ship carrying wyvern-riding
+# marines. This is Verne's unique naval-economic identity made manifest.
 
-# verne_overseas_commanderies_established = {
-# 	icon = "exploration"
-# 	modifier = {
-# 		global_tariffs = 0.10
-# 		governing_capacity_modifier = 0.10
-# 		diplomatic_annexation_cost = -0.10
-# 	}
-# }
+# A33_a_crimson_sea (pos 9)
+# Requires: A33_united_under_crimson_wings (Lane 4)
+# Trigger: Akasik region all subject-held, corinite religion in owned provinces,
+#          accepted Akasi cultures, treasury 500, CoT level 2 in 402/400/382
+# Effect: Advances overseas_projection +1, world_network +1, verne_imperial_maritime_court (10yr),
+#         enables Aur-Kes-Akasik monument, converts subject religion, reduces liberty desire
+# Commentary: The overseas commercial capstone. Conquering the Akasik coast and converting
+# it to Corinite trade networks — religious mercantilism at scale. The CoT requirements
+# ensure this is a trade-focused mission, not pure conquest.
 
-# ============================================================
-# --- Decision definitions (common/decisions) ---
-# ============================================================
+# A33_religious_mercantilism (pos 10)
+# Requires: A33_a_crimson_sea
+# Trigger: 16 merchants, 50 heavy ships, 150 light ships
+# Effect: Enables propagate religion in trade companies, verne_trade_company_conversion
+#         (permanent, converts TC provinces to corinite), inquisitor advisor,
+#         verne_grand_fleet_tier1 (permanent)
+# Commentary: The ultimate religious-commerce fusion. Verne's trade fleet becomes
+# a conversion engine — every trade company province slowly turns Corinite.
+# The light ship requirement (150!) makes this a serious economic commitment.
 
-# verne_charter_overseas_companies_decision — unlocked by A33_charter_overseas_companies
-# verne_swap_governors_for_commandants_decision — unlocked by A33_overseas_commanderies
+# A33_on_wings_of_artificery (pos 12)
+# Requires: A33_the_vernman_era (Lane 3 convergence)
+# Trigger: Treasury 10000, MIL 200, 10 provinces in south_america with damestear
+#          or precursor_relics (dev 10, production building, manufactory), artifice 40
+# Effect: Fires verne.117
+# Commentary: The artificery production capstone. Extracting magical resources from
+# the New World and converting them into artificery-grade materials. The 10000 treasury
+# cost makes this a late-game economic milestone.
+
+# --- Cross-lane dependencies ---
+# - A33_break_the_queen_of_the_hill gates A33_a_matter_of_pride (Lane 3)
+# - A33_binding_the_beast bridges to Lane 6 (Red Court & Arcane)
+# - A33_the_sea_nest requires A33_a_union_of_crowns (Lane 4)
+# - A33_a_crimson_sea requires A33_united_under_crimson_wings (Lane 4)
+# - A33_religious_mercantilism gates A33_the_vernman_era (Lane 3 convergence)
+# - A33_on_wings_of_artificery gates A33_type_2_wyverns (Lane 4)
+
+# --- New modifiers (referenced) ---
+#
+# verne_found_eggs                          — temporary, from quest_for_eggs event
+# verne_indebted_to_the_mages_small         — 50yr, from wyvern nest initiative
+# verne_imperial_maritime_court             — 10yr, from crimson sea
+# verne_trade_company_conversion            — permanent, from religious mercantilism
+# verne_grand_fleet_tier1                   — permanent, from religious mercantilism
+
+# --- Potential expansion ---
+# The 10-column blueprint calls for additional trade missions:
+# - A33_establish_trade_network (new, pos 5/8) — formalise trade company routes
+# - A33_vernman_merchant_marine (new) — light ship trade power focus
+# - A33_spice_route_monopoly (new) — late-game trade dominance
+# These are NOT in the current codebase. Consider adding to fill available
+# positions (pos 8 in slot 5, or create a dedicated trade slot).
+
+# --- Localisation keys ---
+# verne_needs_6_ports_of_adventure_tt (reused from Lane 2)
+# verne_overhaul_tt_overseas_projection_gain
+# verne_overhaul_tt_world_network_gain
