@@ -87,6 +87,15 @@ Full report: `docs/deep-research-agent-improvement.md`
 - Don't spawn parallel subagents for same browser tab — they compete
 - Stagger or use separate tabs if parallel browser work needed
 
+### Browser Automation (2026-04-01)
+- **Architecture:** 5-layer stack — Policy Skills → Structured Snapshot/Ref → Lease Manager → Signal Registry → Model Router
+- **New skills:** browser-selector-contract, browser-completion-signals, browser-lease-recovery, browser-chat-streaming, browser-vision-fallback
+- **Selector hierarchy:** data-oc > getByRole > label/text > iframe > CSS/XPath (never nth-child or generated classes)
+- **Completion:** event-driven (waitForResponse + DOM sentinel + MutationObserver), NEVER networkidle
+- **Model:** MiniMax-M2.7-highspeed as default browser operator, M2.7 for planning, VLM fallback only for visual/canvas
+- **Lease:** one hot tab per session, keyed by {origin, account, proxyId, profile}, retire on hard_block/auth_expired
+- **chatgpt-dom-driver.js** — 17 micro-queries (isGenerating, isComplete, getLastAssistantText, etc.) — enrichment only, not primary surface
+
 ### Memory Capture (critical!)
 - **Decisions made in chat MUST be written to daily file immediately** — don't rely on memory between sessions
 - Session context is lost at compaction; only written notes survive

@@ -177,3 +177,68 @@ The autonomous skill creator connects them.
 
 Notes tell you "we made this mistake before."
 Skills tell you "just run this to do it right."
+
+---
+
+## 2026-04-01 Optimization Round (based on ChatGPT research)
+
+Applied from cross-framework research (LangGraph, CrewAI, AutoGen, BabyAGI3, Airflow/Prefect).
+
+### 1. Spawn Manifest — Context Compression ✅ DONE
+- Created `scripts/spawn-compiler.ps1` — task-specific context capsules
+- 6 worker types: researcher, coder, verifier, memory_writer, planner, worker
+- Each capsule: narrow tools_allow, tools_deny, contexts, budgets, retrieval_keys
+- Workers get ONLY what their task type needs — no universal bootstrap
+- Token savings: verifier gets ~80% less context than universal load
+
+### 2. Concurrency Hard-Cap ✅ DONE
+- `maxConcurrent: 8` → **3** (memory-constrained)
+- `maxChildrenPerAgent: 2`
+- maxSpawnDepth: 1 (no chains)
+- Browser lane: 1, exec-heavy lane: 1, generic: 1
+- Config updated in `openclaw.json` via gateway patch
+
+### 3. Health Monitor → Lightweight ✅ DONE
+- Old: ran `openclaw CLI` commands → 50% timeout (broken memory-lancedb)
+- New: `scripts/health-lightweight.ps1` — gateway HTTP ping only
+- Cron job updated: `4e9fbcbb-cc30-441a-9ebd-81bab6f872d8`
+- No more CLI dependency for health checks
+
+### 4. Lifeboat Hard-Cap ✅ DONE
+- Created `LIFEBOAT.md` — ~400 token compact state
+- Contains: identity, current objective, next 3 actions, blockers, critical prefs, memory keys
+- Loaded FIRST on every session bootstrap
+- Replaces narrative-style session notes as primary state
+
+### 5. Role Separation (partially done)
+- Tool allowlists defined in spawn-compiler.ps1 per task type
+- Agent roles: planner, worker, verifier, memory_writer defined
+- Gap: memory_writer role is defined but no cron/job dedicated to it
+- Trial logging still falls to main agent — needs automation
+
+### 6. Auto-planner → Event-Driven (pending)
+- Current: fixed 4h interval cron
+- Target: on-demand trigger from new tasks, upstream changes, blocker detection
+- Implementation: add trigger conditions to auto-planner cron message
+- Status: documented, not yet implemented
+
+### 7. QA Subagent Timeouts (critical gap)
+- Root cause: subagents spend too much time reading context before editing
+- Fix applied: spawn-compiler gives narrow tool access + budget caps
+- QA tasks now get `verifier` capsule (read/exec only, 8 tool calls, 300s)
+- Also: "ship first, verify later" rule added — make edit, then verify
+- Status: mechanism in place, needs real trial to validate
+
+### 8. npm Update (BLOCKED — needs admin)
+- `C:\Program Files\nodejs\node_modules\openclaw` — broken from failed update
+- Both appdata and program files installs exist; appdata was patched to 2026.3.28
+- Fix: Run PowerShell as Administrator → `npm update -g openclaw`
+- After fix: memory-lancedb will auto-install vectordb dependency
+
+### Metrics to Track (per ChatGPT recommendation)
+- Worker startup latency (before/after manifest adoption)
+- Initial prompt size (tokens per worker type)
+- Cache hit rate (prompt caching benefit)
+- Queue wait time (concurrency pressure)
+- Success/failure by task class
+- Verifier pass rate (QA quality)

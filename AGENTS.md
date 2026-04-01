@@ -143,5 +143,55 @@ When heartbeat fires and main session is idle (no running subagents, human not a
 - If gateway is up → HEALTH_OK. If down → alert with fix steps.
 - CLI health, npm status, plugin health → handled by main agent on demand
 
+## Browser Automation (production-grade)
+
+**Read `docs/browser-architecture.md` for full design. TL;DR:**
+
+### 5-Layer Stack
+```
+Policy Skills → Structured Snapshot/Ref → Lease Manager → Signal Registry → Model Router
+```
+
+### Browser Skills (read before browser tasks)
+- `skills/browser-selector-contract/SILL.md` — selector hierarchy: data-oc > role/name > label/text > iframe > CSS/XPath
+- `skills/browser-completion-signals/SKILL.md` — event-driven completion: waitForResponse + DOM sentinel + MutationObserver
+- `skills/browser-lease-recovery/SKILL.md` — recovery ladder: stale_ref → tab_gone → soft_429 → hard_block → circuit_break
+- `skills/browser-chat-streaming/SKILL.md` — ChatGPT streaming: 3-signal composite (transport + sentinel + stable)
+- `skills/browser-vision-fallback/SKILL.md` — VLM escalation only when text-first fails
+
+### Selector Hierarchy (always in order)
+```
+1. data-oc="name"             → explicit contract (owned UI)      ⭐ BEST
+2. getByRole('role', {name})  → user-semantic (all UI)          ✅ DEFAULT
+3. label / placeholder / text → semantic fallbacks               ✅ IF NEEDED
+4. frameLocator + above       → iframe boundaries                ✅ IF NEEDED
+5. CSS / XPath               → emergency only                   ⚠️ LAST RESORT
+```
+
+### Completion Signals (never use networkidle)
+```
+✅ waitForResponse()           → HTTP/GraphQL responses
+✅ DOM sentinel (Stop btn gone) → UI state changes
+✅ MutationObserver debounce   → DOM stability
+❌ networkidle / blind timeout / screenshot polling
+```
+
+### Lease Rules
+- One hot tab per lease (keep warm, don't reopen each task)
+- Lease key: {origin, account, proxyId, profile}
+- Retire on hard_block or auth_expired — never retry
+- Store targetId in Session Handoff for next session
+
+### Model Router
+- **MiniMax-M2.7-highspeed** — default browser operator (fast + capable)
+- **MiniMax-M2.7** — planner/diagnosis only
+- **VLM fallback** — only for canvas, anti-bot, accessibility-poor UIs
+- **llm-task** — micro-classifications (failure class, completion detector choice)
+
+### MCP Sidecars
+- **Chrome DevTools MCP** — same-host live Chrome reuse (best fit for OpenClaw existing-session)
+- **Playwright MCP** — deterministic automation, accessibility snapshots
+- **Browserbase MCP** — hosted scale, persistent sessions
+
 ## Make It Yours
 Add your own conventions, style, and rules as you figure out what works.
