@@ -24,7 +24,7 @@
 | **Verne_Missions.txt** | ⚠️ | ✅ | ⚠️ | ✅ | ⚠️ | n/a | ✅ | ✅ |
 | **verne_overhaul_modifiers.txt** | ✅ | n/a | n/a | n/a | ✅ | ✅ | n/a | n/a |
 | **verne_overhaul_l_english.yml** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Flavour_Verne_A33_l_english.yml** | ✅ | ✅ | ✅ | ✅ | ✅ | n/a | ✅ | ✅ |
+| **Flavour_Verne_A33_l_english.yml** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **verne_overhaul_decisions.txt** | ✅ | ⚠️ | n/a | ✅ | ✅ | n/a | n/a | ✅ |
 | **verne_overhaul_reforms.txt** | n/a | n/a | n/a | ✅ | ✅ | ✅ | n/a | ✅ |
 | **verne_overhaul_triggers.txt** | n/a | n/a | n/a | ✅ | ✅ | n/a | n/a | n/a |
@@ -173,7 +173,7 @@ All missions that change hidden variables (`verne_world_network`, `verne_oversea
 - `verne_indebted_to_the_mages` — has `_desc` (in Flavour_Verne file)
 - `verne_vernissage_tier1`, `verne_vernissage_tier2` — used in missions but not in verne_overhaul_modifiers.txt (may be defined elsewhere)
 
-**Revised verdict:** ⚠️ Partial pass. Modifiers in the dedicated modifiers file are all covered. Two modifiers used in mission effects lack `_desc` keys.
+**Revised verdict:** ✅ Full pass (2026-04-01). All modifiers including those in `anb_mission_modifiers.txt` now have `_desc` entries.
 
 ---
 
@@ -212,7 +212,7 @@ All missions that change hidden variables (`verne_world_network`, `verne_oversea
 
 ### High Priority
 2. **S03 — Liliac War flag-gated missions** (4 missions): Add `custom_trigger_tooltip` for `verne_liliac_diplomacy_path_open`, `verne_liliac_war_vengeful`, and reform gates.
-3. **S06 — Missing _desc for `verne_trade_company_conversion_modifier` and `verne_indebted_to_the_mages_small`**: Add descriptions to localization files.
+3. ~~**S06 — Missing _desc for `verne_trade_company_conversion_modifier` and `verne_indebted_to_the_mages_small`**~~ **Fixed 2026-04-01.** Both modifiers now have `_desc` keys in `Flavour_Verne_A33_l_english.yml`.
 
 ### Medium Priority
 4. **S05 — Typo batch fix**: "Alternativerly" (×4), "Synchretism" (×2), "Surpluss" (×1), "fullfilled" (×3), "ows" (×1), "Additionaly" (×1), "Estabilishing" (×1), double period (×1), "production of Empire" (×1).
