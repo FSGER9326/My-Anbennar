@@ -89,7 +89,10 @@ Full report: `docs/deep-research-agent-improvement.md`
 
 ### Browser Automation (2026-04-01)
 - **Architecture:** 5-layer stack — Policy Skills → Structured Snapshot/Ref → Lease Manager → Signal Registry → Model Router
-- **New skills:** browser-selector-contract, browser-completion-signals, browser-lease-recovery, browser-chat-streaming, browser-vision-fallback
+- **Skills:** browser-selector-contract, browser-completion-signals, browser-lease-recovery, browser-chat-streaming, browser-vision-fallback
+- **Plugins (workspace):**
+  - `skills/browser-lease-manager/` — lease CRUD + state machine (active/cooldown/retired), circuit breaker at 3 failures, JS+TS, 24 tests pass
+  - `skills/browser-signal-registry/` — per-site completion signal registry (chatgpt.com, claude.ai, gemini.google.com), TS, CLI ready
 - **Selector hierarchy:** data-oc > getByRole > label/text > iframe > CSS/XPath (never nth-child or generated classes)
 - **Completion:** event-driven (waitForResponse + DOM sentinel + MutationObserver), NEVER networkidle
 - **Model:** MiniMax-M2.7-highspeed as default browser operator, M2.7 for planning, VLM fallback only for visual/canvas
