@@ -5095,6 +5095,7 @@ A33_seventh_slot = {
 
 		effect = {
 			add_treasury = -500
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = { which = verne_world_network value = 1 }
 			add_country_modifier = {
 				name = verne_expedition_supply_chain
