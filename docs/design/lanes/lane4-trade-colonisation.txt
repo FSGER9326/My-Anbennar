@@ -1,0 +1,292 @@
+# Verne Overhaul - Lane 4: Trade & Colonisation
+# Slot 4 (fourth_slot) — Overseas commerce, colonial expansion, and maritime command structure.
+# Status: Draft design — 2026-03-31
+# Branch: chore/verne-10-lane-blueprint
+
+# ============================================================
+# Wrapper
+# ============================================================
+
+A33_fourth_slot = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	# Commentary (plain-language): Chartered overseas companies give Verne a formal apparatus for
+	# extracting colonial wealth and staffing far-flung trade posts.  This is the early lane entry —
+	# it requires a colonial foothold and either the Vernissage charter (tier 4) or the estuary
+	# companies reform (tier 2), ensuring the player has invested in either cultural or commercial
+	# infrastructure before expanding overseas.
+	# Base vs new: new
+	# Playstyle effect: Opens the colonisation lane; rewards early colonial reach with governing
+	# capacity headroom and tariff income.  The decision unlock is flavour / mechanical extension.
+	# Risk note: gated on owning at least one colonial province, so it cannot fire on a landlocked
+	# Verne.  Tier-reform check uses scripted triggers for consistency with other lanes.
+	# Province context: no specific provinces highlighted — the trigger is count-based.
+	# Lore-fit note: "Charter of the Vernissage" already implies overseas commercial ambition;
+	# estuary companies (Heartspier) are the mercantile counterpart.
+	A33_charter_overseas_companies = {
+		icon = mission_establish_high_seas_innovation
+		position = 2
+		required_missions = { }
+		provinces_to_highlight = {
+			is_colony = yes
+			owned_by = ROOT
+		}
+
+		trigger = {
+			# Must own at least one colonial province.
+			num_of_owned_provinces_with = {
+				value = 1
+				is_colony = no
+				OR = {
+					continent = north_america
+					continent = south_america
+					continent = africa
+					continent = oceania
+					continent = new_world
+				}
+			}
+			# Must hold either the Vernissage charter (tier 4) or estuary companies (tier 2).
+			OR = {
+				has_reform = verne_charter_of_the_vernissage_reform
+				has_reform = verne_estuary_companies_of_heartspier_reform
+			}
+		}
+
+		effect = {
+			# Commentary: Chartered companies unlock a formal decision to establish overseas trading
+			# companies, and grant immediate mechanical bonuses to governing capacity and tariffs.
+			add_country_modifier = {
+				name = "verne_chartered_overseas_companies"
+				duration = -1
+			}
+			change_government_reform_progress = 10
+			custom_tooltip = verne_overhaul_tt_charter_overseas_companies_decision
+			hidden_effect = {
+				set_country_flag = verne_charter_overseas_companies_unlocked
+			}
+			# Advance the overseas projection variable used by cross-lane dependencies.
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
+		}
+	}
+
+	# Commentary (plain-language): Distant Horizons Expansion is the mid-lane mission that
+	# formalises Verne's colonial reach.  It requires a meaningful number of colonial provinces
+	# (5+) and the Hall of Distant Horizons reform (tier 4), which already grants colonial range
+	# and attrition reduction.  Completing this mission stacks further range and settler bonuses,
+	# making deep colonisation viable.
+	# Base vs new: new
+	# Playstyle effect: The +15% colonial range stacks with the tier-4 reform's own +20% range for
+	# a total of +35%, enabling trans-oceanic colonisation.  Settler chance and naval attrition
+	# round out the package.
+	# Risk note: 5 colonial provinces is achievable by mid-game for a focused coloniser but not
+	# trivially so.  The tier-4 reform gate ensures the player has progressed through the court
+	# ladder.  provinces_to_highlight shows the player their colonial holdings so they can track
+	# progress.
+	# Province context: highlights all owned colonial provinces.
+	# Lore-fit note: "Distant Horizons" echoes the tier-4 reform name, reinforcing the thematic
+	# through-line of Verne as a sea-state looking outward.
+	A33_distant_horizons_expansion = {
+		icon = mission_distant_fleet
+		position = 5
+		required_missions = { A33_charter_overseas_companies }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = africa
+				continent = oceania
+				continent = new_world
+			}
+		}
+
+		trigger = {
+			# Must own at least 5 colonial provinces.
+			num_of_owned_provinces_with = {
+				value = 5
+				is_colony = no
+				OR = {
+					continent = north_america
+					continent = south_america
+					continent = africa
+					continent = oceania
+					continent = new_world
+				}
+			}
+			# Must hold the Hall of Distant Horizons reform (tier 4).
+			has_reform = verne_hall_of_distant_horizons_reform
+		}
+
+		effect = {
+			# Commentary: Distant Horizons Expansion delivers three complementary bonuses:
+			# colonial range for reach, naval attrition for survivability, and settler chance
+			# for speed.  These stack with the tier-4 reform's own modifiers.
+			add_country_modifier = {
+				name = "verne_distant_horizons_expansion"
+				duration = -1
+			}
+			# Advance cross-lane variables.
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
+			# Reward: grant a free colonist charge.
+			add_colonist = 1
+		}
+	}
+
+	# Commentary (plain-language): Overseas Commanderies is the late-lane capstone that completes
+	# Verne's transition from colonial power to maritime empire.  It requires the Distant Horizons
+	# Expansion mission and the tier-6 Overseas Commanderies reform, which already grants tariff and
+	# governing capacity bonuses.  The mission stacks additional tariff income, governing capacity,
+	# and diplomatic annexation cost reduction, and unlocks a decision to swap colonial governors
+	# for maritime commandants — a flavourful mechanical choice.
+	# Base vs new: new
+	# Playstyle effect: Completes the colonisation lane.  The -10% diplo-annex cost is a strong
+	# incentive to use subjects (colonial nations, marches) rather than direct conquest.  The
+	# governing capacity bonus supports the wider empire.  The governor-to-commandant swap decision
+	# is cosmetic / mechanical flavour.
+	# Risk note: position 9 places this as a late-game mission.  The tier-6 reform gate ensures
+	# significant prior investment in the Verne reform ladder.  Cross-lane dependencies are
+	# handled via variables rather than required_missions from other slots.
+	# Province context: highlights colonial provinces to show the player's overseas holdings.
+	# Lore-fit note: "Commanderies" evokes both maritime command and colonial administration —
+	# a fitting capstone for Verne's sea-state identity.
+	A33_overseas_commanderies = {
+		icon = mission_african_gold
+		position = 9
+		required_missions = { A33_distant_horizons_expansion }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = africa
+				continent = oceania
+				continent = new_world
+			}
+		}
+
+		trigger = {
+			# Must hold the Overseas Commanderies reform (tier 6).
+			has_reform = verne_overseas_commanderies_reform
+			# Must have completed Distant Horizons Expansion.
+			has_country_flag = verne_distant_horizons_expansion_completed
+			# Must own at least 10 colonial provinces for a true commandery network.
+			num_of_owned_provinces_with = {
+				value = 10
+				is_colony = no
+				OR = {
+					continent = north_america
+					continent = south_america
+					continent = africa
+					continent = oceania
+					continent = new_world
+				}
+			}
+		}
+
+		effect = {
+			# Commentary: Overseas Commanderies is the lane capstone.  It delivers stacking tariff
+			# and governing capacity bonuses, diplomatic annexation cost reduction, and unlocks
+			# the governor-to-commandant swap decision.
+			add_country_modifier = {
+				name = "verne_overseas_commanderies_established"
+				duration = -1
+			}
+			custom_tooltip = verne_overhaul_tt_overseas_commanderies_governor_swap
+			hidden_effect = {
+				set_country_flag = verne_overseas_commanderies_governor_swap_unlocked
+			}
+			# Final cross-lane variable advances.
+			change_variable = {
+				which = verne_overseas_projection
+				value = 1
+			}
+			change_variable = {
+				which = verne_world_network
+				value = 1
+			}
+		}
+	}
+}
+
+# ============================================================
+# --- New modifiers ---
+# ============================================================
+
+# verne_chartered_overseas_companies — permanent
+#   +10 governing_capacity
+#   +5% global_tariffs
+#
+# verne_distant_horizons_expansion — permanent
+#   +15% range (colonial_range)
+#   -0.15 naval_attrition
+#   +5% global_colonial_growth
+#
+# verne_overseas_commanderies_established — permanent
+#   +10% global_tariffs
+#   +10% governing_capacity_modifier
+#   -10% diplomatic_annexation_cost
+
+# ============================================================
+# --- New localisation ---
+# ============================================================
+
+# verne_charter_overseas_companies_decision: "Charter Overseas Companies"
+# verne_overhaul_tt_charter_overseas_companies_decision: "Charter Overseas Companies\nUnlocks the decision to establish formal overseas trading companies. [+10 Governing Capacity, +5% Global Tariffs]"
+# verne_distant_horizons_expansion: "Distant Horizons Expansion"
+# verne_overhaul_tt_distant_horizons_expansion: "Our colonial reach has extended to distant shores, supported by the Hall of Distant Horizons. [+15% Colonial Range, -0.15 Naval Attrition, +5% Settler Chance]"
+# verne_overseas_commanderies_established: "Overseas Commanderies"
+# verne_overhaul_tt_overseas_commanderies: "Verne's colonial territories are now governed by maritime commanderies. [+10% Global Tariffs, +10% Governing Capacity, -10% Diplomatic Annexation Cost]"
+# verne_overhaul_tt_overseas_commanderies_governor_swap: "Swap colonial governors for maritime commandants — a decision unlocked by the Overseas Commanderies."
+
+# ============================================================
+# --- Modifier definitions (common/defines or common/event_modifiers) ---
+# ============================================================
+
+# These should be added to a separate modifier file.  Placeholder text below for reference.
+
+# verne_chartered_overseas_companies = {
+# 	icon = "trade"
+# 	modifier = {
+# 		governing_capacity = 10
+# 		global_tariffs = 0.05
+# 	}
+# }
+
+# verne_distant_horizons_expansion = {
+# 	icon = "exploration"
+# 	modifier = {
+# 		range = 0.15
+# 		naval_attrition = -0.15
+# 		global_colonial_growth = 5
+# 	}
+# }
+
+# verne_overseas_commanderies_established = {
+# 	icon = "exploration"
+# 	modifier = {
+# 		global_tariffs = 0.10
+# 		governing_capacity_modifier = 0.10
+# 		diplomatic_annexation_cost = -0.10
+# 	}
+# }
+
+# ============================================================
+# --- Decision definitions (common/decisions) ---
+# ============================================================
+
+# verne_charter_overseas_companies_decision — unlocked by A33_charter_overseas_companies
+# verne_swap_governors_for_commandants_decision — unlocked by A33_overseas_commanderies

@@ -1,0 +1,185 @@
+# Verne Overhaul - Lane 1: Court & Oaths
+# Slot 1 missions covering the Silver Oaths court identity, marriage court,
+# exalted lineages, and world court ascension.
+# Part of the 10-lane mission tree blueprint.
+
+# This file is a design/planning artifact. Contents are intended to be merged
+# into missions/Verne_Missions.txt under the A33_first_slot = { } wrapper.
+# Slot position references are relative to the first_slot container.
+
+# --- New modifiers ---
+#
+# verne_silver_oaths_formalized
+#   type: country
+#   duration: -1 (permanent, removed on flag clear or mission rework)
+#   effects: +1 yearly_prestige, -0.05 advisor_cost, +0.1 reform_progress_growth
+#   source: A33_formalize_silver_oaths effect block
+#
+# verne_marriage_court_opened
+#   type: country
+#   duration: -1 (permanent, gated by decision availability)
+#   effects: +10% nobles_loyalty_modifier, +0.5 yearly_prestige
+#   source: A33_open_marriage_court effect block
+#
+# verne_exalted_lineages_legacy
+#   type: country
+#   duration: -1 (permanent)
+#   effects: +0.5 heir_adm, +0.5 heir_dip, +0.5 heir_mil (via define_heir averaging),
+#            +10% nobles_loyalty_modifier, +0.25 yearly_prestige
+#   source: A33_exalted_lineages effect block
+#
+# verne_court_hegemon
+#   type: country
+#   duration: -1 (permanent)
+#   effects: +1 diplomats, +0.10 improve_relation_modifier, +0.5 yearly_innovativeness
+#   source: A33_world_court_ascension effect block
+
+# --- New localisation ---
+#
+# verne_A1L1_tt_formalize_silver_oaths: "The Court of Silver Oaths has been formally established. The chancellor enshrines oaths of service, fealty, and reform into the permanent court record."
+# verne_A1L1_tt_open_marriage_court: "The Marriage Court is opened. Dynastic unions are now negotiated under Silver Oath protocol, binding noble houses to the throne."
+# verne_A1L1_tt_exalted_lineages: "The Exalted Lineages are recognized. Heirs of the silver court receive enhanced training, and the great houses swear renewed fealty."
+# verne_A1L1_tt_world_court_ascension: "The Vernman Court of the World stands ascendant. Verne's diplomatic apparatus now operates on a global stage, drawing in innovators and envoys from every continent."
+# verne_silver_oaths_formalized_modifier_desc: "Silver Oaths have been formalized into the court record, providing prestige, cheaper advisors, and faster reform progress."
+# verne_marriage_court_opened_modifier_desc: "The Marriage Court binds noble houses through dynastic protocol, increasing noble loyalty and court prestige."
+# verne_exalted_lineages_legacy_modifier_desc: "The Exalted Lineages invest in heir quality and noble cohesion, producing more capable successors."
+# verne_court_hegemon_modifier_desc: "Verne's court operates on a world stage, attracting diplomats and innovators from across Halann."
+
+# ===============================================
+# Lane 1 - Court & Oaths (Slot 1, early→late)
+# ===============================================
+# Missions are ordered by position within A33_first_slot.
+# Cross-lane dependencies use flags/variables, not required_missions from other slots.
+
+	# Commentary (plain-language): Establishes Verne's early court identity by formalizing the Silver Oaths as permanent court doctrine.
+	# Base vs new: base-patched (reform exists, mission is new)
+	# Playstyle effect: Gives Verne a unique early-game court modifier reinforcing the reform-progress playstyle and advisor meta.
+	# Risk note: modifier key verne_silver_oaths_formalized and flag silver_oaths_formalized must remain stable across patches.
+	# Province context: no provinces — this is a government reform / court identity mission.
+	# Lore-fit note: inferred-from-repo; the Court of Silver Oaths is Verne's foundational governing institution.
+	A33_formalize_silver_oaths = {
+		icon = imperial_diplomacy
+		position = 1
+		required_missions = { }
+		provinces_to_highlight = { }
+
+		trigger = {
+			has_reform = verne_court_of_silver_oaths_reform
+			NOT = { has_country_flag = silver_oaths_formalized }
+		}
+
+		effect = {
+			set_country_flag = silver_oaths_formalized
+			custom_tooltip = verne_A1L1_tt_formalize_silver_oaths
+			add_country_modifier = {
+				name = verne_silver_oaths_formalized
+				duration = -1
+			}
+		}
+	}
+
+	# Commentary (plain-language): Opens the Marriage Court system, tying into dynasty safeguard events and noble house binding.
+	# Base vs new: new (marriage court decision integration)
+	# Playstyle effect: Encourages dynastic play and estate management; nobles become a key loyalty vector for court missions.
+	# Risk note: depends on dynasty safeguard event system (verne_overhaul_dynasty_machine_started trigger). Keep flag verne_marriage_court_active stable.
+	# Province context: no provinces — decision/court event driven.
+	# Lore-fit note: inferred-from-repo; the Marriage Court is a Silver Oaths sub-institution for dynastic diplomacy.
+	A33_open_marriage_court = {
+		icon = royal_marriage
+		position = 2
+		required_missions = { A33_formalize_silver_oaths }
+		provinces_to_highlight = { }
+
+		trigger = {
+			has_country_flag = silver_oaths_formalized
+			NOT = { has_country_flag = verne_marriage_court_event_active }
+		}
+
+		effect = {
+			set_country_flag = verne_marriage_court_active
+			custom_tooltip = verne_A1L1_tt_open_marriage_court
+			add_country_modifier = {
+				name = verne_marriage_court_opened
+				duration = -1
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+			add_prestige = 15
+		}
+	}
+
+	# Commentary (plain-language): Formalizes the great noble houses as Exalted Lineages, boosting heir quality and estate cohesion.
+	# Base vs new: new (heir quality + dynasty safeguard integration)
+	# Playstyle effect: Provides a mid-game heir-stat boost and deepens the nobles estate loop. Synergizes with dynasty safeguard events.
+	# Risk note: define_heir approach must be tested for interaction with dynasty safeguard scripted effects. Keep modifier key stable.
+	# Province context: no provinces — heir/estate/flag driven.
+	# Lore-fit note: inferred-from-repo; the Exalted Lineages are the tier-2 noble institution under the Silver Oaths hierarchy.
+	A33_exalted_lineages = {
+		icon = strengthen_aristocracy
+		position = 4
+		required_missions = { A33_open_marriage_court }
+		provinces_to_highlight = { }
+
+		trigger = {
+			has_reform = verne_charter_of_great_captains_reform
+			has_country_flag = verne_marriage_court_active
+		}
+
+		effect = {
+			custom_tooltip = verne_A1L1_tt_exalted_lineages
+			# Heir quality boost: +1 average to all stats via define_heir with enhanced=True
+			# This interacts with the dynasty safeguard system — if the safeguard fires,
+			# the new heir also benefits from this modifier.
+			define_heir = {
+				adm = 3
+				dip = 3
+				mil = 3
+				age = 15
+				claim = 90
+				dynasty = ROOT
+			}
+			add_country_modifier = {
+				name = verne_exalted_lineages_legacy
+				duration = -1
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+			add_prestige = 10
+			# Dynasty safeguard integration: set flag so the safeguard system knows
+			# the Exalted Lineages are active and can apply enhanced heir generation.
+			set_country_flag = verne_exalted_lineages_active
+		}
+	}
+
+	# Commentary (plain-language): The capstone of the Court & Oaths lane — Verne's court becomes a world institution, attracting global talent.
+	# Base vs new: new (world court capstone)
+	# Playstyle effect: Diplomatic power spike in the late game. Synergizes with Vernissage, maritime, and political lanes via improve_relations and innovativeness.
+	# Risk note: modifier verne_court_hegemon stacks with tier 7 reform bonuses — intentional but monitor for overpowered diplomatic output.
+	# Province context: no provinces — global court modifier.
+	# Lore-fit note: inferred-from-repo; the Vernman Court of the World is Verne's endgame diplomatic institution.
+	A33_world_court_ascension = {
+		icon = the_vienna_congress
+		position = 8
+		required_missions = { A33_exalted_lineages }
+		provinces_to_highlight = { }
+
+		trigger = {
+			has_reform = verne_vernman_court_of_the_world_reform
+			# Mid mission must be completed (exalted lineages flag serves as proxy)
+			has_country_flag = verne_exalted_lineages_active
+		}
+
+		effect = {
+			custom_tooltip = verne_A1L1_tt_world_court_ascension
+			add_country_modifier = {
+				name = verne_court_hegemon
+				duration = -1
+			}
+			add_dip_power = 100
+			change_innovativeness = 3
+		}
+	}

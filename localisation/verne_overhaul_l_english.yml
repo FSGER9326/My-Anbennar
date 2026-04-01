@@ -1,35 +1,215 @@
-l_english:
+﻿l_english:
  # ===============================================
- # Verne overhaul reusable layer
- # Ownership: Verne overhaul reusable layer (v0.1)
- # Scope: dedicated localization namespace for overhaul helpers/modifiers
+ # Verne Overhaul Localisation — Full Skeleton
+ # Ownership: Verne overhaul (v0.3)
+ # Scope: missions, modifiers, events, tooltips, doctrines, advisors, mercs, reforms
  # ===============================================
 
- # --- v0.1 reusable modifiers ---
+ # ============================================================
+ # LANE 1 — THE VERNE COURT & OATHS
+ # ============================================================
+
+ # --- Missions ---
+ A33_formalize_silver_oaths_title:0 "Formalize the Silver Oaths"
+ A33_formalize_silver_oaths_desc:0 "Establish the ancient Silver Oaths as a formal diplomatic system binding foreign powers to Verne. These ancient pacts, enforced by magical courts rather than blood ties, will form the foundation of Verne's diplomatic future."
+ A33_establish_court_of_oaths_title:0 "Establish the Court of Oaths"
+ A33_establish_court_of_oaths_desc:0 "Institutionalize the Silver Oaths into a standing court with enforcement powers. The Court of Oaths will become the beating heart of Verne's diplomatic machine, binding subjects and allies alike through arcane contract."
+ A33_royal_arbitration_title:0 "Royal Arbitration"
+ A33_royal_arbitration_desc:0 "Expand the Court's mandate to include binding arbitration between Verne and its subjects. In Verne, the duke is judge, jury, and enforcement — and the Silver Oaths ensure all parties accept the verdict."
+ A33_diplomatic_hegemony_title:0 "Diplomatic Hegemony"
+ A33_diplomatic_hegemony_desc:0 "Verne's web of oaths and alliances now makes it the unchallenged diplomatic hegemon of the world. Allies do not waver. Subjects do not rebel. The Silver Court speaks, and Halann listens."
+
+ # --- Modifiers ---
+ verne_silver_oaths:0 "Silver Oaths"
+ verne_silver_oaths_desc:0 "The Silver Oaths grant Verne enhanced diplomatic standing and vassal loyalty through arcane contracts that bind foreign powers to the ducal court."
+ verne_court_of_oaths:0 "Court of Oaths"
+ verne_court_of_oaths_desc:0 "The Court of Oaths streamlines the annexation of willing subjects and strengthens Verne's web of diplomatic connections."
+ verne_royal_arbitration:0 "Royal Arbitration"
+ verne_royal_arbitration_desc:0 "Royal arbitration ensures subjects remain loyal and content under Verne's binding legal framework."
+ verne_diplomatic_hegemony:0 "Diplomatic Hegemony"
+ verne_diplomatic_hegemony_desc:0 "Verne's diplomatic hegemony ensures allies never waver and subjects never rebel — the Silver Court stands unchallenged."
+
+ # --- Custom Tooltips ---
+ verne_silver_oaths_tt:0 "Verne's Silver Oaths system allows binding diplomatic contracts that persist beyond normal alliance mechanics."
+
+ # ============================================================
+ # LANE 2 — MARITIME EMPIRE
+ # ============================================================
+
+ # --- Missions ---
+ A33_secure_port_of_heartspier_title:0 "Secure the Port of Heartspier"
+ A33_secure_port_of_heartspier_desc:0 "Harden Verne's primary port against pirate raids and rival navies. Heartspier is the economic heart of the realm — its port drives the entire Crimson Wake trade network."
+ A33_form_estuary_companies_title:0 "Form the Estuary Companies"
+ A33_form_estuary_companies_desc:0 "Charter semi-autonomous trade guilds to control key estuary provinces. These companies channel wealth through Verne's waterways, turning river mouths into engines of maritime commerce."
+ A33_fleet_of_the_crimson_wake_title:0 "Fleet of the Crimson Wake"
+ A33_fleet_of_the_crimson_wake_desc:0 "Build a fleet worthy of Verne's crimson-sailed legacy. The Crimson Wake earned its name from the red-bannered warships that patrol Verne's trade routes — now those sails must rule the seas."
+ A33_imperial_sea_court_title:0 "The Imperial Sea Court"
+ A33_imperial_sea_court_desc:0 "Establish a permanent maritime court to govern Verne's oceanic interests. The Sea Court adjudicates maritime law across Verne's sphere of influence, projecting power as reliably as fleets project force."
+
+ # --- Province Modifiers ---
+ verne_heartspier_port:0 "Heartspier Harbour"
+ verne_heartspier_port_desc:0 "Heartspier's harbour has been fortified against pirate raids and rival navies, swelling the ranks of Verne's sailors."
+ verne_heartspier_trade_powers:0 "Heartspier Trade Powers"
+ verne_heartspier_trade_powers_desc:0 "Light ships operating from Heartspier enjoy enhanced trade power through disciplined harbour administration."
+
+ # --- Country Modifiers ---
+ verne_heartspier_companies:0 "Estuary Companies"
+ verne_heartspier_companies_desc:0 "The Estuary Companies channel wealth through Verne's ports, sharpening trade efficiency and light ship performance."
+ verne_crimson_wake_fleet:0 "Fleet of the Crimson Wake"
+ verne_crimson_wake_fleet_desc:0 "The Crimson Wake fleet ensures naval dominance across Verne's trade routes, building tradition and morale with every voyage."
+ verne_crimson_wake_discount:0 "Crimson Wake Construction Drive"
+ verne_crimson_wake_discount_desc:0 "Massive shipbuilding investment reduces construction costs as the Crimson Wake fleet expands."
+ verne_imperial_sea_court:0 "Imperial Sea Court"
+ verne_imperial_sea_court_desc:0 "The Imperial Sea Court projects Verne's power across the seas, combining diplomatic prestige with naval authority."
+
+ # ============================================================
+ # LANE 3 — DYNASTIC MACHINE
+ # ============================================================
+
+ # --- Missions ---
+ A33_enact_dynastic_safeguard_title:0 "Enact the Dynastic Safeguard"
+ A33_enact_dynastic_safeguard_desc:0 "Establish legal protections for Verne's succession to prevent future crises. The Safeguard was enacted after the Succession Crisis of 1444, ensuring Verne would never again face an unclaimed throne."
+ A33_expand_noble_privileges_title:0 "Expand Noble Privileges"
+ A33_expand_noble_privileges_desc:0 "Grant expanded privileges to Verne's noble houses in exchange for their unwavering loyalty. The expanded privileges cement the noble houses as partners, not rivals, in Verne's governance."
+ A33_exalted_dynasty_machine_title:0 "The Exalted Dynasty Machine"
+ A33_exalted_dynasty_machine_desc:0 "Activate the ancient magical apparatus that elevates Verne's ruling dynasty to divine status. The Exalted Dynasty Machine amplifies the ruling family's aura, making them literally divinely anointed."
+
+ # --- Modifiers ---
+ verne_dynastic_safeguard:0 "Dynastic Safeguard"
+ verne_dynastic_safeguard_desc:0 "The Dynastic Safeguard ensures stable succession in Verne, reducing the chance of random events targeting the throne."
+ verne_noble_charter:0 "Noble Charter"
+ verne_noble_charter_desc:0 "The Noble Charter binds the aristocracy to the crown through shared interests, boosting manpower and noble loyalty."
+ verne_exalted_dynasty_machine:0 "Exalted Dynasty Machine"
+ verne_exalted_dynasty_machine_desc:0 "The Exalted Dynasty Machine amplifies the ruling family's legitimacy through arcane means, spreading institutions and prestige."
+
+ # ============================================================
+ # LANE 4 — TRADE & COLONISATION
+ # ============================================================
+
+ # --- Missions ---
+ A33_charter_overseas_companies_title:0 "Charter Overseas Companies"
+ A33_charter_overseas_companies_desc:0 "Grant royal charters to joint-stock companies for overseas expansion. These ventures fund exploration and settlement with Verne's ducal backing, turning curiosity into colonies."
+ A33_distant_horizons_expansion_title:0 "Distant Horizons"
+ A33_distant_horizons_expansion_desc:0 "Establish a dedicated planning chamber to coordinate Verne's global expansion. The Hall of Distant Horizons maps and directs the realm's reach across every ocean."
+ A33_overseas_commanderies_title:0 "Overseas Commanderies"
+ A33_overseas_commanderies_desc:0 "Formalize Verne's colonial provinces as commanderies under military governors. Commanderies are Verne's answer to governing distant lands — military governors with broad autonomy and fierce loyalty."
+
+ # --- Modifiers ---
+ verne_chartered_overseas_companies:0 "Chartered Overseas Companies"
+ verne_chartered_overseas_companies_desc:0 "Chartered companies expand Verne's administrative capacity overseas, enabling broader colonial governance."
+ verne_distant_horizons:0 "Distant Horizons"
+ verne_distant_horizons_desc:0 "The Hall of Distant Horizons extends Verne's reach across the seas, improving colonial range, reducing attrition, and accelerating settlement."
+ verne_overseas_commanderies:0 "Overseas Commanderies"
+ verne_overseas_commanderies_desc:0 "Overseas Commanderies streamline colonial governance and trade, turning distant territories into administered provinces."
+
+ # --- Decisions ---
+ verne_charter_overseas_decision:0 "Charter Overseas Ventures"
+ verne_charter_overseas_decision_desc:0 "Renew the royal charter for Verne's overseas companies, securing fresh investment for colonial expansion."
+ verne_commandant_swap_decision:0 "Appoint a Commandant"
+ verne_commandant_swap_decision_desc:0 "Replace a colonial governor with a military commandant, trading commercial efficiency for martial discipline."
+
+ # ============================================================
+ # LANE 5 — RED COURT & ARCANE
+ # ============================================================
+
+ # --- Missions ---
+ A33_establish_red_court_title:0 "Establish the Red Court"
+ A33_establish_red_court_desc:0 "Found Verne's arcane advisory council to study magical knowledge for statecraft. The Red Court is a council of mage-advisors whose insight transforms governance through magical precision."
+ A33_dragonwake_ordinance_title:0 "The Dragonwake Ordinance"
+ A33_dragonwake_ordinance_desc:0 "Formalize Verne's war magic doctrine based on ancient dragon resonance. The Dragonwake Ordinance names the magical resonance after the ancient dragon magic that Verne's mages learned to harness for warfare."
+ A33_battle_mage_collegium_title:0 "The Battle Mage Collegium"
+ A33_battle_mage_collegium_desc:0 "Establish a permanent institution for training mage-soldiers. The Collegium produces battle mages who channel destructive energy on the battlefield, giving Verne's armies a unique arcane edge."
+
+ # --- Modifiers ---
+ verne_red_court_advisory:0 "Red Court Advisory"
+ verne_red_court_advisory_desc:0 "The Red Court enhances Verne's governance through arcane wisdom, expanding the advisor pool and accelerating reform."
+ verne_dragonwake_profession:0 "Dragonwake Professionalism"
+ verne_dragonwake_profession_desc:0 "The Dragonwake Ordinance drives constant improvement in military professionalism through disciplined war-mage training."
+ verne_dragonwake_shock:0 "Dragonwake Shock Doctrine"
+ verne_dragonwake_shock_desc:0 "Battlefield mages channel dragon resonance into devastating shock attacks, giving Verne's armies a fearsome first strike."
+ verne_war_wizard:0 "War Wizard"
+ verne_war_wizard_desc:0 "A war wizard of the Red Court commands devastating arcane power on the battlefield, turning the tide through magical fire and precision."
+ verne_battle_mage_collegium:0 "Battle Mage Collegium"
+ verne_battle_mage_collegium_desc:0 "The Battle Mage Collegium gives Verne's armies a devastating arcane edge through disciplined mage-soldier training."
+ verne_collegium_fire_artillery:0 "Collegium Fire — Artillery"
+ verne_collegium_fire_artillery_desc:0 "Battle mages enhance artillery batteries with spell-guided munitions, sharpening every volley."
+ verne_collegium_fire_army:0 "Collegium Fire — Army"
+ verne_collegium_fire_army_desc:0 "Evocation-trained officers bring arcane firepower to the field army, breaking enemy lines with magical precision."
+
+ # ============================================================
+ # LANE 6 — LEGITIMACY & RECOGNITION
+ # ============================================================
+
+ # --- Missions ---
+ A33_entrench_royal_census_title:0 "Entrench the Royal Census"
+ A33_entrench_royal_census_desc:0 "Establish a permanent census to document and legitimize Verne's rule over its population. In Verne, legitimacy comes from the Silver Oaths AND from documented governance — the Census proves you rule over real people, not just paper claims."
+ A33_secure_academic_endowments_title:0 "Secure Academic Endowments"
+ A33_secure_academic_endowments_desc:0 "Fund a network of universities and academies to cement Verne's institutional authority. The Academic Endowments ensure Verne's mages and scholars have permanent, state-funded positions."
+ A33_stamp_of_sovereign_legitimacy_title:0 "The Stamp of Sovereign Legitimacy"
+ A33_stamp_of_sovereign_legitimacy_desc:0 "Forge the Seal of Sovereign Legitimacy — the ultimate symbol of Verne's divinely sanctioned right to rule. The Seal is forged from the combined authority of Verne's institutions: the Court's oaths, the Dynasty's bloodline, and the Census's documentation."
+
+ # --- Modifiers ---
+ verne_royal_census:0 "Royal Census"
+ verne_royal_census_desc:0 "The Royal Census ensures accurate documentation of Verne's subjects and territories, strengthening tax collection and reform progress."
+ verne_academic_endowments:0 "Academic Endowments"
+ verne_academic_endowments_desc:0 "Academic Endowments fund the brightest minds in Verne's service, accelerating institutional development and innovative thought."
+ verne_sovereign_legitimacy:0 "Sovereign Legitimacy"
+ verne_sovereign_legitimacy_desc:0 "The Stamp of Sovereign Legitimacy represents the convergence of Verne's institutional authority — oaths, bloodline, and documentation united."
+
+ # ============================================================
+ # LANE 8 — FAITH & APOSTOLIC EMPIRE
+ # ============================================================
+
+ # --- Missions ---
+ A33_corinite_stewardship_title:0 "Corinite Stewardship"
+ A33_corinite_stewardship_desc:0 "Formalize Verne's role as guardian and patron of the Corinite faith. The Corinite Stewardship funds missions and holy orders, projecting Verne's piety as a tool of statecraft."
+ A33_pearlescent_concord_title:0 "The Pearlescent Concord"
+ A33_pearlescent_concord_desc:0 "Unite Corinite nations under a shared religious diplomatic framework. The Concord is a pact between Verne and other Corinite nations, binding faith and diplomacy into a single instrument."
+ A33_world_faith_emperor_title:0 "World Faith Emperor"
+ A33_world_faith_emperor_desc:0 "Claim supreme spiritual authority over all Corinite believers. The World Faith Emperor combines secular and religious power in one throne — Verne speaks for the faithful, and the faithful answer."
+
+ # --- Modifiers ---
+ verne_corinite_stewardship:0 "Corinite Stewardship"
+ verne_corinite_stewardship_desc:0 "Verne's stewardship of the Corinite faith grants enhanced missionary capability and reduced cost of enforcing religious unity."
+ verne_pearlescent_concord:0 "Pearlescent Concord"
+ verne_pearlescent_concord_desc:0 "The Pearlescent Concord binds Corinite nations in mutual support, easing diplomatic annexation and reducing subject restlessness."
+ verne_world_faith_emperor:0 "World Faith Emperor"
+ verne_world_faith_emperor_desc:0 "The World Faith Emperor's authority extends Verne's influence through faith, granting additional military leadership and commercial reach."
+ verne_faith_emperor_innovat:0 "Faith Emperor's Innovativeness"
+ verne_faith_emperor_innovat_desc:0 "Verne's spiritual authority drives innovative thought and strengthens missionary resolve across the realm."
+ verne_minor_holy_order:0 "Minor Holy Order"
+ verne_minor_holy_order_desc:0 "A small holy order founded under Verne's patronage, providing modest military and religious bonuses."
+
+ # --- Custom Tooltips ---
+ verne_cb_against_heathen_pirates_tt:0 "Grants a casus belli against heathen pirate states, allowing Verne to wage holy war against maritime raiders."
+
+ # ============================================================
+ # REUSABLE LAYER — v0.1 Modifiers
+ # ============================================================
+
+ # --- Adventure & Projection ---
  verne_adventure_projection_foothold:0 "Adventure Projection Foothold"
  verne_adventure_projection_foothold_desc:0 "The court has committed resources to secure an early Vernman foothold abroad."
-
  verne_adventure_projection_network:0 "Adventure Projection Network"
  verne_adventure_projection_network_desc:0 "Our maritime-adventure web is now organized as a reusable strategic network."
-
  verne_reward_old_friends_old_rivals:0 "Old Friends, Old Rivals"
  verne_reward_old_friends_old_rivals_desc:0 "This reward package anchors early diplomatic and trade momentum in the Verne overhaul flow."
 
+ # --- Dynasty & Court ---
  verne_dynasty_protected_court:0 "Dynasty-Protected Court"
  verne_dynasty_protected_court_desc:0 "Court protocol and succession planning are actively safeguarding the Verne line."
-
  verne_dynasty_exalted_lineage:0 "Exalted Verne Lineage"
  verne_dynasty_exalted_lineage_desc:0 "The ruling line has entered a consolidated exalted phase with stronger central authority."
-
  verne_marriage_court_protocol:0 "Marriage Court Protocol"
  verne_marriage_court_protocol_desc:0 "Formalized marriage-court institutions improve dynastic continuity and diplomatic positioning."
-
  verne_tarnished_courtly_reputation:0 "Tarnished Courtly Reputation"
  verne_tarnished_courtly_reputation_desc:0 "Court scandals weaken confidence in state discipline and raise governance friction."
  verne_reforged_court_consensus:0 "Reforged Court Consensus"
  verne_reforged_court_consensus_desc:0 "Having endured scandal and emerged with clearer institutions, Verne's court now projects steadier legitimacy and more disciplined statecraft."
  verne_curatorial_patronage:0 "Curatorial Patronage"
  verne_curatorial_patronage_desc:0 "Verne's court leans into prestige display, curated embassies, and world-facing ceremonial exchange."
+
+ # --- Maritime & Administrative ---
  verne_harbormaster_general_staff:0 "Harbormaster General Staff"
  verne_harbormaster_general_staff_desc:0 "The Silver Wake's disciplined harbor service has been elevated into a state command apparatus for commerce, shipping, and mobilization."
  verne_pearlescent_diplomatic_corps:0 "Pearlescent Diplomatic Corps"
@@ -45,13 +225,13 @@ l_english:
  verne_overseas_commonwealth:0 "Overseas Commonwealth"
  verne_overseas_commonwealth_desc:0 "Verne's overseas possessions and subject structures are no longer a loose web of adventures, but a more coherent commonwealth of governed expansion."
 
+ # --- Decay & Crisis ---
  verne_fading_ducal_authority:0 "Fading Ducal Authority"
  verne_fading_ducal_authority_desc:0 "Ducal authority is visibly weakening, emboldening challengers across the realm."
-
  verne_empty_boasts_of_the_wake:0 "Empty Boasts of the Wake"
  verne_empty_boasts_of_the_wake_desc:0 "Grand maritime rhetoric outpaces practical readiness, undermining naval confidence."
 
- # --- Overhaul helper-facing tooltip namespace stubs ---
+ # --- Overhaul Helper Tooltips ---
  verne_overhaul_tt_unlock_network_of_adventure:0 "Unlocks the reusable §YNetwork of Adventure§! helper state and related expansion tools."
  verne_overhaul_tt_unlock_sarhali_adventures:0 "Unlocks Sarhali §YAdventures§! for the overhaul mission flow."
  verne_overhaul_tt_port_of_adventure_button:0 "Enables the overhaul-facing §YPort of Adventure§! province action in valid coastal centers of trade."
@@ -61,155 +241,23 @@ l_english:
  verne_overhaul_tt_needs_20_ports_of_adventure:0 "Requires §Y20§! total Ports of Adventure in the active network."
  verne_overhaul_tt_in_search_akasik_or_projection:0 "Either clear §YAkasik§! of Gnollish rule, project influence there via a §Ysubject/ally§!, or prove sustained reach through your §Yadventure network/monuments§!."
  verne_overhaul_tt_in_search_expedition_capacity:0 "Field expedition capability through classic §YColonizer+Explorer§! staffing, §Ysubject/ally projection§!, or an established §Ynetwork/monument§! route."
-
  verne_overhaul_tt_seed_silver_oaths:0 "Seeds the §YSilver Oaths§! path and establishes Verne's first reform foundation."
  verne_overhaul_tt_seed_khenak_foundry:0 "Seeds the §YKhenak Foundry§! industrial path for later Verne overhaul content."
  verne_overhaul_tt_seed_dragonwake:0 "Seeds the §YDragonwake§! martial-dynastic path for later Verne overhaul content."
  verne_overhaul_tt_activate_dynasty_protection:0 "Activates the first durable §Ydynasty protection§! state for the Verne overhaul."
  verne_overhaul_tt_activate_marriage_court:0 "Activates the §YMarriage Court§! support state for later dynastic progression."
  verne_overhaul_tt_seed_estuary_companies:0 "Seeds the §YEstuary Companies§! maritime-finance path for the Verne overhaul."
+ verne_overhaul_tt_crisis_suppressed:0 "If the §YRed Court Scandal§! is active, this mission will immediately end it."
+ verne_overhaul_tt_world_network_gain:0 "Advances Verne's §YWorld Network§! — the maturity of Vernman international influence and institutional reach."
+ verne_overhaul_tt_overseas_projection_gain:0 "Advances Verne's §YOverseas Projection§! — the breadth of Vernman maritime and colonial power abroad."
+ verne_overhaul_tt_mature_overseas_state_gain:0 "Advances both Verne's §YWorld Network§! and §YOverseas Projection§!, deepening the mature overseas state."
+ verne_overhaul_tt_dynastic_magic_machine_gain:0 "Advances Verne's §YDynastic Magic Machine§! — the integration of magecraft into the Vernman ruling apparatus."
 
+ # --- Overhaul Decisions ---
  verne_overhaul_formalize_silver_oaths:0 "Formalize the Silver Oaths"
  verne_overhaul_formalize_silver_oaths_desc:0 "By formally codifying the Silver Oaths, Verne anchors its first reform foundation in dynastic legitimacy, court discipline, and practical statecraft."
-
  verne_overhaul_open_marriage_court:0 "Open the Marriage Court"
  verne_overhaul_open_marriage_court_desc:0 "With the first reform foundation secured, the ducal court can now turn toward managed marriages, line continuity, and a more deliberate dynastic machine."
-
- # --- v0.1 doctrine + reform prototypes ---
- verne_proto_doctrine_ideas:0 "Verne Prototype Doctrine"
- verne_proto_doctrine_ideas_desc:0 "A cautious first doctrine draft used to validate overhaul wiring before wider doctrine rollout."
-
- verne_proto_doctrine_charter:0 "Prototype Doctrine Charter"
- verne_proto_doctrine_charter_desc:0 "Court-backed chartering practices give Verne a stable baseline for early doctrine experimentation."
-
- verne_court_of_silver_oaths_reform:0 "Court of Silver Oaths"
- verne_court_of_silver_oaths_reform_desc:0 "A disciplined oath-court binds dynastic legitimacy, diplomatic trust, and orderly administration into Verne's first true state foundation."
-
- verne_charter_of_great_captains_reform:0 "Charter of Great Captains"
- verne_charter_of_great_captains_reform_desc:0 "The ducal charter raises proven captains into a formal state estate, blending expeditionary prestige, frontier initiative, and practical command."
-
- verne_ducal_muster_of_armoc_reform:0 "Ducal Muster of Armoc"
- verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's muster tradition turns noble military identity into a disciplined ducal war machine built around recovery, prestige, and mounted force."
-
- verne_admiralty_of_the_crimson_wake_reform:0 "Admiralty of the Crimson Wake"
- verne_admiralty_of_the_crimson_wake_reform_desc:0 "Verne's sea-state is entrusted to a disciplined admirality that binds convoy command, trade projection, and fleet confidence into a single maritime doctrine of rule."
-
- verne_estuary_companies_of_heartspier_reform:0 "Estuary Companies of Heartspier"
- verne_estuary_companies_of_heartspier_reform_desc:0 "Heartspier's estuarine financiers and port companies turn maritime administration into commercial leverage, cheaper building, and steadier credit."
-
- verne_regatta_discipline_reform:0 "Regatta Discipline"
- verne_regatta_discipline_reform_desc:0 "The Regatta becomes more than prestige spectacle: it codifies sailor culture, maritime readiness, and practical seamanship across the Vernman coast."
-
- verne_red_court_arcana_reform:0 "Red Court Arcana"
- verne_red_court_arcana_reform_desc:0 "The Red Court is formalized as a state-bearing institution, integrating mage influence, advisor depth, and dynastic shaping into the machinery of rule."
-
- verne_dragonwake_ordinance_reform:0 "Dragonwake Ordinance"
- verne_dragonwake_ordinance_reform_desc:0 "Wyvern service and martial dynastic training are codified into an ordinance that prizes shock leadership, officer tradition, and battlefield discipline."
-
- verne_battle_mage_collegium_reform:0 "Battle-Mage Collegium"
- verne_battle_mage_collegium_reform_desc:0 "Evocation doctrine and officer training are fused into a single war-collegium, giving Verne a harder striking field army and a deeper mage-officer bench."
-
- verne_charter_of_the_vernissage_reform:0 "Charter of the Vernissage"
- verne_charter_of_the_vernissage_reform_desc:0 "The Vernissage is elevated into a state-bearing court institution, turning magnificence, administration, and prestige into a deliberate machine of rule."
-
- verne_hall_of_distant_horizons_reform:0 "Hall of Distant Horizons"
- verne_hall_of_distant_horizons_reform_desc:0 "Verne's overseas doctrine is formalized around long-range movement, diplomatic reach, and practical infrastructure for sustained projection abroad."
-
- verne_vernissage_secretariat_reform:0 "Vernissage Secretariat"
- verne_vernissage_secretariat_reform_desc:0 "What began as spectacle becomes bureaucracy: a secretariat of exhibitions, correspondence, and worldly administration that binds prestige to practical governance."
-
- verne_wyvern_marshalate_reform:0 "Wyvern Marshalate"
- verne_wyvern_marshalate_reform_desc:0 "The wyvern-rider corps is raised into a true marshalate, organizing noble riders, officer tradition, and disciplined reinforcement under ducal authority."
-
- verne_crimson_eyrie_commandery_reform:0 "Crimson Eyrie Commandery"
- verne_crimson_eyrie_commandery_reform_desc:0 "Verne's wyvern infrastructure and martial orders are folded into a commandery system that lowers upkeep and expands state-directed mounted force."
-
- verne_sea_nest_ascendancy_reform:0 "Sea-Nest Ascendancy"
- verne_sea_nest_ascendancy_reform_desc:0 "Wyvern doctrine and sea power are fused into an expeditionary air-sea state, emphasizing maneuver, fleet reach, and fast-strike projection."
-
- verne_secretariat_of_the_grand_regatta_reform:0 "Secretariat of the Grand Regatta"
- verne_secretariat_of_the_grand_regatta_reform_desc:0 "The Grand Regatta becomes an institution of maritime reputation, commercial coordination, and world-facing logistics rather than merely a display of splendor."
-
- verne_imperial_sea_court_reform:0 "Imperial Sea Court"
- verne_imperial_sea_court_reform_desc:0 "Verne's diplomatic and naval prestige are fused into an imperial sea court that projects legitimacy abroad as reliably as fleets project force."
-
- verne_overseas_commanderies_reform:0 "Overseas Commanderies"
- verne_overseas_commanderies_reform_desc:0 "Strategic enclaves abroad are formalized into commanderies, giving Verne a more durable subject-and-enclave model for overseas power."
-
- verne_apostolic_court_of_corin_reform:0 "Apostolic Court of Corin"
- verne_apostolic_court_of_corin_reform_desc:0 "The Verne court becomes an apostolic institution of Corinite rule, blending missionary strength, diplomatic authority, and religious enforcement."
-
- verne_vernman_court_of_the_world_reform:0 "Vernman Court of the World"
- verne_vernman_court_of_the_world_reform_desc:0 "Prestige, commerce, diplomacy, and worldly attraction are drawn into one great cosmopolitan court that seeks to make Verne the center of Halann's gaze."
-
- verne_knights_of_the_crimson_scale_reform:0 "Knights of the Crimson Scale"
- verne_knights_of_the_crimson_scale_reform_desc:0 "Corinite militancy and knightly tradition are reorganized into an order-minded state arm that joins piety, warlike prestige, and disciplined service."
-
- verne_throne_of_the_wyvern_kings_reform:0 "Throne of the Wyvern-Kings"
- verne_throne_of_the_wyvern_kings_reform_desc:0 "Verne's final dynastic synthesis crowns military excellence, naval confidence, and war-mage kingship in a single supreme throne-state."
-
- verne_the_crimson_world_order_reform:0 "The Crimson World-Order"
- verne_the_crimson_world_order_reform_desc:0 "Global commerce, imperial administration, and diplomatic reach are fused into a singular world-order centered on Verne's maritime empire."
-
- verne_storm_crowned_hegemony_reform:0 "Storm-Crowned Hegemony"
- verne_storm_crowned_hegemony_reform_desc:0 "This final hegemonic form exalts Verne as a storm-crowned military and oceanic power, joining land supremacy with fleet-borne dominion."
-
- # --- Verne overhaul advisor layer ---
- verne_harbormaster_of_the_silver_wake:0 "Harbormaster of the Silver Wake"
- verne_harbormaster_of_the_silver_wake_desc:0 "A senior harbour administrator of the Silver Wake tradition, equally concerned with ledgers, pilots, convoy discipline, and the political theater of maritime trust."
-
- verne_curator_of_the_vernissage:0 "Curator of the Vernissage"
- verne_curator_of_the_vernissage_desc:0 "This courtly organizer shapes exhibitions, audiences, and diplomatic encounters into instruments of prestige and statecraft."
-
- verne_master_of_the_khenak_foundries:0 "Master of the Khenak Foundries"
- verne_master_of_the_khenak_foundries_desc:0 "A hard practical mind of furnaces, powder, and iron accounts, charged with turning foundry discipline into state strength."
-
- verne_magister_of_the_red_court:0 "Magister of the Red Court"
- verne_magister_of_the_red_court_desc:0 "A senior Red Court official who binds arcane administration, dynastic cultivation, and court procedure into one scarlet machine."
-
- verne_wyvern_marshal:0 "Wyvern Marshal"
- verne_wyvern_marshal_desc:0 "Part knight-captain, part ducal war planner, the Wyvern Marshal stands at the meeting point of noble service, aerial doctrine, and battlefield prestige."
-
- verne_overhaul_appoint_court_advisor:0 "Appoint a Court Specialist"
- verne_overhaul_appoint_court_advisor_desc:0 "Verne's growing institutions can now call a specialized court figure into service, drawing on the active lane that the realm has cultivated most successfully."
- verne_overhaul_appoint_court_advisor_tt:0 "A dedicated Verne court event will offer one of several bespoke advisors tied to your currently developed state lanes."
-
- verne_overhaul_advisor.1.t:0 "A Specialist for the Ducal Court"
- verne_overhaul_advisor.1.d:0 "The institutions now growing around the Vernman court have matured enough to present real specialists for ducal service. Whether we lean toward harbor discipline, worldly display, red-court administration, foundry rigor, or wyvern command, one of these figures could give the state sharper shape."
- verne_overhaul_advisor.1.a:0 "Summon a Harbormaster of the Silver Wake"
- verne_overhaul_advisor.1.b:0 "Invite a Curator of the Vernissage"
- verne_overhaul_advisor.1.c:0 "Commission a Master of the Khenak Foundries"
- verne_overhaul_advisor.1.d:0 "Raise up a Wyvern Marshal"
- verne_overhaul_advisor.1.e:0 "Appoint a Magister of the Red Court"
- verne_overhaul_advisor.2.t:0 "The Khenak Officer Corps"
- verne_overhaul_advisor.2.d:0 "Verne's expeditionary and foundry interests in the Khenak have matured enough to demand a more specialized command cadre. We can lean into a harder logistical-industrial program or sharpen the wyvern-service arm of the state."
- verne_overhaul_advisor.2.a:0 "Elevate a Khenak master of logistics"
- verne_overhaul_advisor.2.b:0 "Promote a field-tested wyvern commander"
- verne_overhaul_advisor.3.t:0 "Masters of the Grand Vernissage"
- verne_overhaul_advisor.3.d:0 "The Vernissage has grown beyond a gallery and into a true engine of state prestige. Its senior figures now compete to define the next stage of Verne's public culture: a curator of worldly splendor, or a magister able to bind ceremony more tightly to the machinery of rule."
- verne_overhaul_advisor.3.a:0 "Raise up a grand curator of the Vernissage"
- verne_overhaul_advisor.3.b:0 "Elevate a magister of ceremonial rule"
- verne_overhaul_advisor.4.t:0 "The Dovesworn Compact"
- verne_overhaul_advisor.4.d:0 "The Dovesworn Gnolls have proven themselves loyal and capable allies. Their riders know the wyvern nest grounds better than most Vernman officers. Shall we formalize this partnership and grant them a permanent place in Verne's military tradition?"
- verne_overhaul_advisor.4.a:0 "Formalize the Dovesworn partnership"
- verne_overhaul_advisor.4.b:0 "Maintain a lighter relationship"
- verne_overhaul_advisor.5.t:0 "The Debt Repaid"
- verne_overhaul_advisor.5.d:0 "The mage estate has finally been paid back for the favors that made the wyvern program possible. Verne's military tradition stands on firmer ground, and the mages know it."
- verne_overhaul_advisor.5.a:0 "Honor the mages with a public ceremony"
- verne_overhaul_advisor.5.b:0 "Quietly acknowledge the debt and move on"
-
- verne_dovesworn_gnoll_partnership:0 "Dovesworn Gnoll Partnership"
- verne_dovesworn_gnoll_partnership_desc:0 "The Dovesworn Gnolls serve Verne as trusted military partners, bringing their knowledge of wyvern handling and frontier warfare to the Vernman military tradition."
- verne_mage_debt_repaid_honor:0 "Honor of the Repaid Debt"
- verne_mage_debt_repaid_honor_desc:0 "Verne has repaid its debt to the mages with honor, earning their respect and strengthening the military-mage partnership."
-
- merc_crimson_wake_lances:0 "Crimson Wake Lances"
- merc_crimson_wake_lances_mercenary_desc:0 "An order-host of crimson-bannered Vernman lancers, formed around Corinite martial patronage and disciplined aerial cavalry doctrine. They fight as a prestige arm of the realm's militant devotional state."
- merc_heartspier_skyguard:0 "Heartspier Skyguard"
- merc_heartspier_skyguard_mercenary_desc:0 "Drawn from veteran wyvernrider cadres and harbor-watch command, the Heartspier Skyguard serve as Verne's fast-striking elite, equally suited to guarding the gulf and breaking an enemy line."
- merc_khenak_talons:0 "Khenak Talons"
- merc_khenak_talons_mercenary_desc:0 "These expedition-forged companies marry Khenak's harder campaigning culture with Vernman mobility, fielding a practical composite force of riders, gunners, and seasoned march officers."
-
  verne_overhaul_charter_khenak_talons:0 "Charter the Khenak Talons"
  verne_overhaul_charter_khenak_talons_desc:0 "The Sarhali and foundry-facing arms of Verne can be formalized into a dedicated expedition company, giving the crown a harder, more practical force for its overseas and frontier wars."
  verne_overhaul_charter_khenak_talons_tt:0 "Unlock the Khenak Talons as a Verne-exclusive mercenary company and immediately make them available for service."
@@ -241,21 +289,164 @@ l_english:
  verne_overhaul_muster_dragonwake_cadets_desc:0 "The Dragonwake's wyvern-training tradition can be expanded to produce a new wave of rider cadets, strengthening Verne's military-mage arm."
  verne_overhaul_muster_dragonwake_cadets_tt:0 "Gain §YDragonwake Cadet Muster§!, improving cavalry power and reinforce speed for 5 years."
 
+ # --- Overhaul Decision Modifiers ---
  verne_silver_wake_convoy_levy:0 "Silver Wake Convoy Levy"
  verne_silver_wake_convoy_levy_desc:0 "The Silver Wake's maritime service has been mobilized for intensive operations, projecting Verne's naval strength across the seas."
  verne_dragonwake_cadet_muster:0 "Dragonwake Cadet Muster"
  verne_dragonwake_cadet_muster_desc:0 "A new generation of wyvern riders has been mustered, bringing fresh discipline and shock potential to Verne's military tradition."
  verne_rogue_duchy_khenak_integration:0 "Rogue Duchy Integration"
  verne_rogue_duchy_khenak_integration_desc:0 "The Rogue Duchy's conquest has been integrated into the Khenak industrial system, boosting production and reducing construction costs."
- verne_overhaul_advisor.6.t:0 "The Luna River Question"
- verne_overhaul_advisor.6.d:0 "The Luna River Basin is now under Verne's influence. Shall we integrate it fully into the Red Court's administrative machinery, or maintain the diplomatic flexibility of the old alliance structure?"
- verne_overhaul_advisor.6.a:0 "Integrate into the Red Court"
- verne_overhaul_advisor.6.b:0 "Maintain diplomatic flexibility"
  verne_luna_red_court_integration:0 "Luna Red Court Integration"
  verne_luna_red_court_integration_desc:0 "The Luna River Basin has been integrated into the Red Court's administrative system, strengthening Verne's domestic statecraft."
  verne_luna_diplomatic_flexibility:0 "Luna Diplomatic Flexibility"
  verne_luna_diplomatic_flexibility_desc:0 "Verne has maintained diplomatic flexibility over the Luna River Basin, preserving alliance structures and prestige abroad."
 
+ # --- Dovesworn & Mage Debt ---
+ verne_dovesworn_gnoll_partnership:0 "Dovesworn Gnoll Partnership"
+ verne_dovesworn_gnoll_partnership_desc:0 "The Dovesworn Gnolls serve Verne as trusted military partners, bringing their knowledge of wyvern handling and frontier warfare to the Vernman military tradition."
+ verne_mage_debt_repaid_honor:0 "Honor of the Repaid Debt"
+ verne_mage_debt_repaid_honor_desc:0 "Verne has repaid its debt to the mages with honor, earning their respect and strengthening the military-mage partnership."
+
+ # ============================================================
+ # GOVERNMENT REFORMS
+ # ============================================================
+
+ # --- Doctrine & Reform Prototypes ---
+ verne_proto_doctrine_ideas:0 "Verne Prototype Doctrine"
+ verne_proto_doctrine_ideas_desc:0 "A cautious first doctrine draft used to validate overhaul wiring before wider doctrine rollout."
+ verne_proto_doctrine_charter:0 "Prototype Doctrine Charter"
+ verne_proto_doctrine_charter_desc:0 "Court-backed chartering practices give Verne a stable baseline for early doctrine experimentation."
+
+ # --- Tier Reforms ---
+ verne_court_of_silver_oaths_reform:0 "Court of Silver Oaths"
+ verne_court_of_silver_oaths_reform_desc:0 "A disciplined oath-court binds dynastic legitimacy, diplomatic trust, and orderly administration into Verne's first true state foundation."
+ verne_charter_of_great_captains_reform:0 "Charter of Great Captains"
+ verne_charter_of_great_captains_reform_desc:0 "The ducal charter raises proven captains into a formal state estate, blending expeditionary prestige, frontier initiative, and practical command."
+ verne_ducal_muster_of_armoc_reform:0 "Ducal Muster of Armoc"
+ verne_ducal_muster_of_armoc_reform_desc:0 "Armoc's muster tradition turns noble military identity into a disciplined ducal war machine built around recovery, prestige, and mounted force."
+ verne_admiralty_of_the_crimson_wake_reform:0 "Admiralty of the Crimson Wake"
+ verne_admiralty_of_the_crimson_wake_reform_desc:0 "Verne's sea-state is entrusted to a disciplined admiralty that binds convoy command, trade projection, and fleet confidence into a single maritime doctrine of rule."
+ verne_estuary_companies_of_heartspier_reform:0 "Estuary Companies of Heartspier"
+ verne_estuary_companies_of_heartspier_reform_desc:0 "Heartspier's estuarine financiers and port companies turn maritime administration into commercial leverage, cheaper building, and steadier credit."
+ verne_regatta_discipline_reform:0 "Regatta Discipline"
+ verne_regatta_discipline_reform_desc:0 "The Regatta becomes more than prestige spectacle: it codifies sailor culture, maritime readiness, and practical seamanship across the Vernman coast."
+ verne_red_court_arcana_reform:0 "Red Court Arcana"
+ verne_red_court_arcana_reform_desc:0 "The Red Court is formalized as a state-bearing institution, integrating mage influence, advisor depth, and dynastic shaping into the machinery of rule."
+ verne_dragonwake_ordinance_reform:0 "Dragonwake Ordinance"
+ verne_dragonwake_ordinance_reform_desc:0 "Wyvern service and martial dynastic training are codified into an ordinance that prizes shock leadership, officer tradition, and battlefield discipline."
+ verne_battle_mage_collegium_reform:0 "Battle-Mage Collegium"
+ verne_battle_mage_collegium_reform_desc:0 "Evocation doctrine and officer training are fused into a single war-collegium, giving Verne a harder striking field army and a deeper mage-officer bench."
+ verne_charter_of_the_vernissage_reform:0 "Charter of the Vernissage"
+ verne_charter_of_the_vernissage_reform_desc:0 "The Vernissage is elevated into a state-bearing court institution, turning magnificence, administration, and prestige into a deliberate machine of rule."
+ verne_hall_of_distant_horizons_reform:0 "Hall of Distant Horizons"
+ verne_hall_of_distant_horizons_reform_desc:0 "Verne's overseas doctrine is formalized around long-range movement, diplomatic reach, and practical infrastructure for sustained projection abroad."
+ verne_vernissage_secretariat_reform:0 "Vernissage Secretariat"
+ verne_vernissage_secretariat_reform_desc:0 "What began as spectacle becomes bureaucracy: a secretariat of exhibitions, correspondence, and worldly administration that binds prestige to practical governance."
+ verne_wyvern_marshalate_reform:0 "Wyvern Marshalate"
+ verne_wyvern_marshalate_reform_desc:0 "The wyvern-rider corps is raised into a true marshalate, organizing noble riders, officer tradition, and disciplined reinforcement under ducal authority."
+ verne_crimson_eyrie_commandery_reform:0 "Crimson Eyrie Commandery"
+ verne_crimson_eyrie_commandery_reform_desc:0 "Verne's wyvern infrastructure and martial orders are folded into a commandery system that lowers upkeep and expands state-directed mounted force."
+ verne_sea_nest_ascendancy_reform:0 "Sea-Nest Ascendancy"
+ verne_sea_nest_ascendancy_reform_desc:0 "Wyvern doctrine and sea power are fused into an expeditionary air-sea state, emphasizing maneuver, fleet reach, and fast-strike projection."
+ verne_secretariat_of_the_grand_regatta_reform:0 "Secretariat of the Grand Regatta"
+ verne_secretariat_of_the_grand_regatta_reform_desc:0 "The Grand Regatta becomes an institution of maritime reputation, commercial coordination, and world-facing logistics rather than merely a display of splendor."
+ verne_imperial_sea_court_reform:0 "Imperial Sea Court"
+ verne_imperial_sea_court_reform_desc:0 "Verne's diplomatic and naval prestige are fused into an imperial sea court that projects legitimacy abroad as reliably as fleets project force."
+ verne_overseas_commanderies_reform:0 "Overseas Commanderies"
+ verne_overseas_commanderies_reform_desc:0 "Strategic enclaves abroad are formalized into commanderies, giving Verne a more durable subject-and-enclave model for overseas power."
+ verne_apostolic_court_of_corin_reform:0 "Apostolic Court of Corin"
+ verne_apostolic_court_of_corin_reform_desc:0 "The Verne court becomes an apostolic institution of Corinite rule, blending missionary strength, diplomatic authority, and religious enforcement."
+ verne_vernman_court_of_the_world_reform:0 "Vernman Court of the World"
+ verne_vernman_court_of_the_world_reform_desc:0 "Prestige, commerce, diplomacy, and worldly attraction are drawn into one great cosmopolitan court that seeks to make Verne the center of Halann's gaze."
+ verne_knights_of_the_crimson_scale_reform:0 "Knights of the Crimson Scale"
+ verne_knights_of_the_crimson_scale_reform_desc:0 "Corinite militancy and knightly tradition are reorganized into an order-minded state arm that joins piety, warlike prestige, and disciplined service."
+ verne_throne_of_the_wyvern_kings_reform:0 "Throne of the Wyvern-Kings"
+ verne_throne_of_the_wyvern_kings_reform_desc:0 "Verne's final dynastic synthesis crowns military excellence, naval confidence, and war-mage kingship in a single supreme throne-state."
+ verne_the_crimson_world_order_reform:0 "The Crimson World-Order"
+ verne_the_crimson_world_order_reform_desc:0 "Global commerce, imperial administration, and diplomatic reach are fused into a singular world-order centered on Verne's maritime empire."
+ verne_storm_crowned_hegemony_reform:0 "Storm-Crowned Hegemony"
+ verne_storm_crowned_hegemony_reform_desc:0 "This final hegemonic form exalts Verne as a storm-crowned military and oceanic power, joining land supremacy with fleet-borne dominion."
+
+ # ============================================================
+ # ADVISOR LAYER
+ # ============================================================
+
+ verne_harbormaster_of_the_silver_wake:0 "Harbormaster of the Silver Wake"
+ verne_harbormaster_of_the_silver_wake_desc:0 "A senior harbour administrator of the Silver Wake tradition, equally concerned with ledgers, pilots, convoy discipline, and the political theater of maritime trust."
+ verne_curator_of_the_vernissage:0 "Curator of the Vernissage"
+ verne_curator_of_the_vernissage_desc:0 "This courtly organizer shapes exhibitions, audiences, and diplomatic encounters into instruments of prestige and statecraft."
+ verne_master_of_the_khenak_foundries:0 "Master of the Khenak Foundries"
+ verne_master_of_the_khenak_foundries_desc:0 "A hard practical mind of furnaces, powder, and iron accounts, charged with turning foundry discipline into state strength."
+ verne_magister_of_the_red_court:0 "Magister of the Red Court"
+ verne_magister_of_the_red_court_desc:0 "A senior Red Court official who binds arcane administration, dynastic cultivation, and court procedure into one scarlet machine."
+ verne_wyvern_marshal:0 "Wyvern Marshal"
+ verne_wyvern_marshal_desc:0 "Part knight-captain, part ducal war planner, the Wyvern Marshal stands at the meeting point of noble service, aerial doctrine, and battlefield prestige."
+
+ # --- Advisor Events ---
+ verne_overhaul_appoint_court_advisor:0 "Appoint a Court Specialist"
+ verne_overhaul_appoint_court_advisor_desc:0 "Verne's growing institutions can now call a specialized court figure into service, drawing on the active lane that the realm has cultivated most successfully."
+ verne_overhaul_appoint_court_advisor_tt:0 "A dedicated Verne court event will offer one of several bespoke advisors tied to your currently developed state lanes."
+ verne_overhaul_advisor.1.t:0 "A Specialist for the Ducal Court"
+ verne_overhaul_advisor.1.d:0 "The institutions now growing around the Vernman court have matured enough to present real specialists for ducal service. Whether we lean toward harbor discipline, worldly display, red-court administration, foundry rigor, or wyvern command, one of these figures could give the state sharper shape."
+ verne_overhaul_advisor.1.a:0 "Summon a Harbormaster of the Silver Wake"
+ verne_overhaul_advisor.1.b:0 "Invite a Curator of the Vernissage"
+ verne_overhaul_advisor.1.c:0 "Commission a Master of the Khenak Foundries"
+ verne_overhaul_advisor.1.d:0 "Raise up a Wyvern Marshal"
+ verne_overhaul_advisor.1.e:0 "Appoint a Magister of the Red Court"
+ verne_overhaul_advisor.2.t:0 "The Khenak Officer Corps"
+ verne_overhaul_advisor.2.d:0 "Verne's expeditionary and foundry interests in the Khenak have matured enough to demand a more specialized command cadre. We can lean into a harder logistical-industrial program or sharpen the wyvern-service arm of the state."
+ verne_overhaul_advisor.2.a:0 "Elevate a Khenak master of logistics"
+ verne_overhaul_advisor.2.b:0 "Promote a field-tested wyvern commander"
+ verne_overhaul_advisor.3.t:0 "Masters of the Grand Vernissage"
+ verne_overhaul_advisor.3.d:0 "The Vernissage has grown beyond a gallery and into a true engine of state prestige. Its senior figures now compete to define the next stage of Verne's public culture: a curator of worldly splendor, or a magister able to bind ceremony more tightly to the machinery of rule."
+ verne_overhaul_advisor.3.a:0 "Raise up a grand curator of the Vernissage"
+ verne_overhaul_advisor.3.b:0 "Elevate a magister of ceremonial rule"
+ verne_overhaul_advisor.4.t:0 "The Dovesworn Compact"
+ verne_overhaul_advisor.4.d:0 "The Dovesworn Gnolls have proven themselves loyal and capable allies. Their riders know the wyvern nest grounds better than most Vernman officers. Shall we formalize this partnership and grant them a permanent place in Verne's military tradition?"
+ verne_overhaul_advisor.4.a:0 "Formalize the Dovesworn partnership"
+ verne_overhaul_advisor.4.b:0 "Maintain a lighter relationship"
+ verne_overhaul_advisor.5.t:0 "The Debt Repaid"
+ verne_overhaul_advisor.5.d:0 "The mage estate has finally been paid back for the favors that made the wyvern program possible. Verne's military tradition stands on firmer ground, and the mages know it."
+ verne_overhaul_advisor.5.a:0 "Honor the mages with a public ceremony"
+ verne_overhaul_advisor.5.b:0 "Quietly acknowledge the debt and move on"
+ verne_overhaul_advisor.6.t:0 "The Luna River Question"
+ verne_overhaul_advisor.6.d:0 "The Luna River Basin is now under Verne's influence. Shall we integrate it fully into the Red Court's administrative machinery, or maintain the diplomatic flexibility of the old alliance structure?"
+ verne_overhaul_advisor.6.a:0 "Integrate into the Red Court"
+ verne_overhaul_advisor.6.b:0 "Maintain diplomatic flexibility"
+
+ # --- Red Court Mage Recruitment Event ---
+ verne_overhaul_advisor.100.t:0 "A Mage for the Red Court"
+ verne_overhaul_advisor.100.d:0 "The Red Court's growing arcane apparatus now commands enough prestige and resources to attract a skilled mage-advisor. This specialist could sharpen our governance through magical insight, dynastic cultivation, or battlefield preparation."
+ verne_overhaul_advisor.100.a:0 "Recruit a court mage"
+ verne_overhaul_advisor.100.b:0 "Seek a war-mage instructor"
+ verne_overhaul_advisor.100.c:0 "Pass for now"
+
+ # ============================================================
+ # MERCENARY COMPANIES
+ # ============================================================
+
+ merc_crimson_wake_lances:0 "Crimson Wake Lances"
+ merc_crimson_wake_lances_mercenary_desc:0 "An order-host of crimson-bannered Vernman lancers, formed around Corinite martial patronage and disciplined aerial cavalry doctrine. They fight as a prestige arm of the realm's militant devotional state."
+ merc_heartspier_skyguard:0 "Heartspier Skyguard"
+ merc_heartspier_skyguard_mercenary_desc:0 "Drawn from veteran wyvernrider cadres and harbor-watch command, the Heartspier Skyguard serve as Verne's fast-striking elite, equally suited to guarding the gulf and breaking an enemy line."
+ merc_khenak_talons:0 "Khenak Talons"
+ merc_khenak_talons_mercenary_desc:0 "These expedition-forged companies marry Khenak's harder campaigning culture with Vernman mobility, fielding a practical composite force of riders, gunners, and seasoned march officers."
+
+ # ============================================================
+ # LILIAC WAR LEGACY EVENTS & MODIFIERS
+ # ============================================================
+
+ # --- Missions ---
+ A33_recount_liliac_defeat_title:0 "Recount the Liliac War Legacy"
+ A33_recount_liliac_defeat_desc:0 "The Liliac War — Verne's greatest military humiliation — left deep scars on the Silver Court's psyche. Confronting this legacy, whether through diplomacy or martial resolve, is the first step toward Verne's future identity."
+ A33_seek_eastern_allies_title:0 "Seek Eastern Allies"
+ A33_seek_eastern_allies_desc:0 "Verne's Liliac legacy could become diplomatic capital. Building bridges with eastern neighbors transforms a history of defeat into a present of pragmatism."
+ A33_avenge_liliac_wars_title:0 "Avenge the Liliac War"
+ A33_avenge_liliac_wars_desc:0 "The Liliac War left Verne's martial pride wounded. Claims on the contested territories, military alliances, and the willingness to fight — these are the instruments of a Verne willing to right old wrongs."
+ A33_unity_through_diplomacy_title:0 "Unity Through Diplomacy"
+ A33_unity_through_diplomacy_desc:0 "Whether through diplomatic recovery or martial vengeance, Verne's Liliac legacy has been transformed. The Silver Court now stands as a beacon of diplomatic pragmatism, turning past humiliation into present authority."
+
+ # --- Liliac Events ---
  verne_liliac.1.t:0 "The Liliac War Legacy"
  verne_liliac.1.d:0 "The court remembers the Liliac War — Verne's defeat, the loss of prestige, the humiliation of the silver banners. Shall we confront this wound and rebuild, or let it harden us into something fiercer?"
  verne_liliac.1.a:0 "Confront the wound and rebuild"
@@ -272,6 +463,7 @@ l_english:
  verne_liliac.4.d:0 "Verne's Liliac legacy — whether of defeat or vengeance — has been transformed into something greater. The Silver Court now projects legitimacy through sustained diplomatic effort, turning past humiliation into present authority."
  verne_liliac.4.a:0 "Verne endures and thrives"
 
+ # --- Liliac Modifiers ---
  verne_liliac_war_scarred:0 "Liliac War Scars"
  verne_liliac_war_scarred_desc:0 "The memory of the Liliac War still weighs on the military. Morale is lower and discipline suffers from the lingering humiliation."
  verne_liliac_war_vengeful:0 "Liliac War Vengeance"
@@ -282,6 +474,10 @@ l_english:
  verne_liliac_martial_fury_desc:0 "The memory of the Liliac War drives Verne's military to greater discipline and shock potential, willing to fight harder for every inch."
  verne_liliac_unity_through_diplomacy:0 "Unity Through Diplomacy"
  verne_liliac_unity_through_diplomacy_desc:0 "Verne's Liliac legacy has become a beacon of diplomatic pragmatism, turning past humiliation into present authority and sustained legitimacy."
+
+ # ============================================================
+ # RED COURT SCANDAL — CRISIS EVENTS & MODIFIERS
+ # ============================================================
 
  verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
  verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."
@@ -306,38 +502,81 @@ l_english:
  verne_overhaul_crisis.100.d:0 "The worst of the scandal has passed. Verne's court remains ambitious and dangerous, but it has emerged more disciplined, more explicit, and better prepared to bear the weight of its own institutions."
  verne_overhaul_crisis.100.a:0 "The realm endures"
 
- verne_overhaul_tt_crisis_suppressed:0 "If the §YRed Court Scandal§! is active, this mission will immediately end it."
+ # ============================================================
+ # SILVER WAKE EVENTS
+ # ============================================================
 
- # --- v0.2 verne doctrine group: silver wake ---
+ verne_overhaul_oaths.1.t:0 "The Silver Oaths Awaken"
+ verne_overhaul_oaths.1.d:0 "The ancient Silver Oaths — binding contracts enforced by magical courts — stir once more. Verne's diplomats sense an opportunity to formalize these arcane pacts into a system that could reshape the realm's foreign relations for generations."
+ verne_overhaul_oaths.1.a:0 "Embrace the Silver Oaths"
+ verne_overhaul_oaths.1.b:0 "Study them cautiously"
+ verne_overhaul_oaths.2.t:0 "The Court of Oaths Convenes"
+ verne_overhaul_oaths.2.d:0 "With the Silver Oaths formally recognized, the first session of the Court of Oaths is ready to begin. This institution will bind Verne's allies and subjects through arcane contract, enforcing loyalty through magical law."
+ verne_overhaul_oaths.2.a:0 "Open the Court with ceremony"
+ verne_overhaul_oaths.2.b:0 "Begin quietly with test cases"
+ verne_overhaul_oaths.3.t:0 "The First Arbitration"
+ verne_overhaul_oaths.3.d:0 "The Court of Oaths faces its first true test: a dispute between a Verne subject and an allied power. The Silver Oaths demand resolution — and the duke's verdict carries the weight of arcane law."
+ verne_overhaul_oaths.3.a:0 "Rule in favor of the subject"
+ verne_overhaul_oaths.3.b:0 "Seek a balanced compromise"
+ verne_overhaul_oaths.3.c:0 "Defer to the ally's claim"
+
+ # ============================================================
+ # DYNASTY EVENTS
+ # ============================================================
+
+ verne_overhaul_dynasty.1.t:0 "The Dynastic Safeguard"
+ verne_overhaul_dynasty.1.d:0 "Verne's throne faces uncertainty — whether through a vacant heir or faltering legitimacy. The court moves to enact the Dynastic Safeguard, a set of ancient protections designed to prevent the realm from collapsing into succession chaos."
+ verne_overhaul_dynasty.1.a:0 "Enact the Safeguard immediately"
+ verne_overhaul_dynasty.1.b:0 "Delay and negotiate with the nobles"
+
+ # ============================================================
+ # BATTLE MAGE COLLEGIUM EVENT CHAIN
+ # ============================================================
+
+ verne.200.t:0 "The Battle Mage Collegium Opens"
+ verne.200.d:0 "The Battle Mage Collegium is ready to accept its first cadets. Evocation-trained officers will fuse arcane power with battlefield command, giving Verne's army a devastating new edge. But the Collegium demands resources and commitment."
+ verne.200.a:0 "Fund the Collegium generously"
+ verne.200.b:0 "Start with a modest program"
+ verne.200.c:0 "Redirect the budget elsewhere"
+
+ # ============================================================
+ # HOLY ORDER EVENTS
+ # ============================================================
+
+ verne_holy_order.1.t:0 "A New Holy Order"
+ verne_holy_order.1.d:0 "The faithful of Verne petition the court for permission to found a new holy order in Corin's name. This small but devoted brotherhood would serve the state through prayer, discipline, and arms."
+ verne_holy_order.1.a:0 "Charter the holy order"
+ verne_holy_order.1.b:0 "Decline — we need soldiers, not monks"
+ verne_holy_order.1.c:0 "Offer limited support"
+
+ # ============================================================
+ # DOCTRINE IDEAS — SILVER WAKE
+ # ============================================================
+
  verne_doctrine_silver_wake:0 "Doctrine of the Silver Wake"
  verne_doctrine_silver_wake_desc:0 "This doctrine binds Verne's ducal court, captains, and quayside guilds into one practical maritime system: account carefully, sail consistently, arbitrate quickly, and profit without overstraining the realm."
-
  verne_doctrine_silver_wake_start:0 "Foundations of the Silver Wake"
  verne_doctrine_silver_wake_start_desc:0 "Our first duty is to keep dependable crews at sea in every season, so that doctrine remains a daily practice rather than a ceremonial boast."
-
  verne_doctrine_silver_wake_bonus:0 "Silver Wake Finisher"
  verne_doctrine_silver_wake_bonus_desc:0 "By unifying crown ledgers and captaincy custom, Verne can move goods more efficiently across every established route."
-
  verne_doctrine_silver_wake_harbor_ledgers:0 "Harbor Ledgers"
  verne_doctrine_silver_wake_harbor_ledgers_desc:0 "Standardized port ledgers reduce leakages and help ducal tax officers track maritime revenue with fewer disputes."
-
  verne_doctrine_silver_wake_tide_charts:0 "Tide Charts of Verne"
  verne_doctrine_silver_wake_tide_charts_desc:0 "Shared coastal charting routines let each new generation of officers inherit practical seamanship rather than relearn it."
-
  verne_doctrine_silver_wake_marine_rotations:0 "Marine Rotations"
  verne_doctrine_silver_wake_marine_rotations_desc:0 "Crew rotations and dockside rationing plans lower long-term upkeep strain on the fleet payroll."
-
  verne_doctrine_silver_wake_convoy_discipline:0 "Convoy Discipline"
  verne_doctrine_silver_wake_convoy_discipline_desc:0 "Procurement rules and common hull standards make escort squadrons cheaper to field and easier to replace."
-
  verne_doctrine_silver_wake_prize_law:0 "Prize Law Codex"
  verne_doctrine_silver_wake_prize_law_desc:0 "A clearer legal path for captured ships encourages captains to seize enemy vessels intact whenever possible."
-
  verne_doctrine_silver_wake_captains_compact:0 "Captains' Compact"
  verne_doctrine_silver_wake_captains_compact_desc:0 "Recognized captaincy privileges create a disciplined officer corps that foreign courts increasingly trust."
-
  verne_doctrine_silver_wake_quayside_arbitration:0 "Quayside Arbitration"
  verne_doctrine_silver_wake_quayside_arbitration_desc:0 "Fast harbor arbitration settles merchant conflicts before they spill into wider unrest at home."
+
+ # ============================================================
+ # DOCTRINE IDEAS — VERNISSAGE
+ # ============================================================
 
  verne_doctrine_vernissage:0 "Vernissage Ideas"
  verne_doctrine_vernissage_desc:0 "Adventure, courtly display, and overseas projection are woven together into a prestige-state doctrine of discovery, spectacle, and contact."
@@ -356,6 +595,10 @@ l_english:
  verne_doctrine_vernissage_worlds_on_display:0 "Worlds on Display"
  verne_doctrine_vernissage_worlds_on_display_desc:0 "The Vernissage becomes a worldly institution where commerce, prestige, and global curiosity are displayed as one."
 
+ # ============================================================
+ # DOCTRINE IDEAS — DRAGONWAKE
+ # ============================================================
+
  verne_doctrine_dragonwake:0 "Dragonwake Ideas"
  verne_doctrine_dragonwake_desc:0 "The Dragonwake doctrine raises wyvern nobility and martial dynastic discipline into a coherent doctrine of shock, professionalism, and aerial command."
  verne_doctrine_dragonwake_sky_lance_discipline:0 "Sky-Lance Discipline"
@@ -370,6 +613,10 @@ l_english:
  verne_doctrine_dragonwake_red_wake_shock_desc:0 "The most terrifying strength of the Dragonwake is not spectacle but the crushing shock of its first strike."
  verne_doctrine_dragonwake_knights_of_the_crimson_wing:0 "Knights of the Crimson Wing"
  verne_doctrine_dragonwake_knights_of_the_crimson_wing_desc:0 "Knightly service under the Dragonwake deepens martial tradition and gives wyvern warfare a noble institutional shell."
+
+ # ============================================================
+ # DOCTRINE IDEAS — GRAND REGATTA
+ # ============================================================
 
  verne_doctrine_grand_regatta:0 "Grand Regatta Ideas"
  verne_doctrine_grand_regatta_desc:0 "The Grand Regatta turns maritime competition into state capacity, building a doctrine of sailors, speed, navigation, and prestige at sea."
@@ -388,6 +635,10 @@ l_english:
  verne_doctrine_grand_regatta_sea_lords_festivals:0 "Sea-Lords' Festivals"
  verne_doctrine_grand_regatta_sea_lords_festivals_desc:0 "Ceremony, sailors, and commerce all feed one another when the sea-lords' prestige is ritualized across the coast."
 
+ # ============================================================
+ # DOCTRINE IDEAS — IMPERIAL SEA COURT
+ # ============================================================
+
  verne_doctrine_imperial_sea_court:0 "Imperial Sea Court Ideas"
  verne_doctrine_imperial_sea_court_desc:0 "Fleet-backed diplomacy, maritime prestige, and ceremonial sea power are organized into a doctrine fit for an imperial thalassocratic court."
  verne_doctrine_imperial_sea_court_oath_harbours:0 "Oath Harbours"
@@ -402,6 +653,10 @@ l_english:
  verne_doctrine_imperial_sea_court_embassies_of_the_wake_desc:0 "The wake of a Vernman fleet serves as an embassy in itself, accelerating contact across the world."
  verne_doctrine_imperial_sea_court_thrones_across_the_waves:0 "Thrones Across the Waves"
  verne_doctrine_imperial_sea_court_thrones_across_the_waves_desc:0 "Imperial sea power turns commercial shipping into an extension of courtly influence and rank."
+
+ # ============================================================
+ # DOCTRINE IDEAS — ESTUARY COMPANIES
+ # ============================================================
 
  verne_doctrine_estuary_companies:0 "Estuary Companies Ideas"
  verne_doctrine_estuary_companies_desc:0 "Port finance, estuarine commerce, and disciplined maritime investment are woven into a doctrine of fiscal ship-state power."
@@ -418,6 +673,10 @@ l_english:
  verne_doctrine_estuary_companies_crowned_investors:0 "Crowned Investors"
  verne_doctrine_estuary_companies_crowned_investors_desc:0 "Royal and ducal investment in estuarine commerce turns capital accumulation into a direct tool of state growth."
 
+ # ============================================================
+ # DOCTRINE IDEAS — RED COURT
+ # ============================================================
+
  verne_doctrine_red_court:0 "Red Court Ideas"
  verne_doctrine_red_court_desc:0 "The Red Court transforms dynastic magic and mage administration into a systematic doctrine of courtly statecraft."
  verne_doctrine_red_court_scarlet_curriculum:0 "The Scarlet Curriculum"
@@ -432,6 +691,10 @@ l_english:
  verne_doctrine_red_court_wards_desc:0 "The ducal household is protected and educated through a permanent red-court warding tradition."
  verne_doctrine_red_court_bloodline_examinations:0 "Bloodline Examinations"
  verne_doctrine_red_court_bloodline_examinations_desc:0 "The Red Court treats dynastic quality as a matter of scrutiny, instruction, and magical cultivation."
+
+ # ============================================================
+ # DOCTRINE IDEAS — KHENAK FOUNDRY
+ # ============================================================
 
  verne_doctrine_khenak_foundry:0 "Khenak Foundry Ideas"
  verne_doctrine_khenak_foundry_desc:0 "Verne's military-industry is systematized through foundries, powder works, and the red-brass state."
@@ -448,6 +711,10 @@ l_english:
  verne_doctrine_khenak_foundry_furnaces:0 "Khenak Furnaces"
  verne_doctrine_khenak_foundry_furnaces_desc:0 "The furnaces of Khenak feed Verne's manpower system as much as its metalworks."
 
+ # ============================================================
+ # DOCTRINE IDEAS — OVERSEAS COMMANDERY
+ # ============================================================
+
  verne_doctrine_overseas_commandery:0 "Overseas Commandery Ideas"
  verne_doctrine_overseas_commandery_desc:0 "Strategic footholds, island stations, and loyal captains are woven into a doctrine of durable overseas command."
  verne_doctrine_overseas_commandery_fortified_havens:0 "Fortified Havens"
@@ -462,6 +729,10 @@ l_english:
  verne_doctrine_overseas_commandery_island_magazines_desc:0 "Logistical depth abroad comes from carefully provisioned depots and magazines across key stations."
  verne_doctrine_overseas_commandery_long_hand_of_verne:0 "The Long Hand of Verne"
  verne_doctrine_overseas_commandery_long_hand_of_verne_desc:0 "What begins as a coastal principality becomes a power able to reach, govern, and absorb distant commanderies."
+
+ # ============================================================
+ # DOCTRINE IDEAS — EASTERN CORRESPONDENCE
+ # ============================================================
 
  verne_doctrine_eastern_correspondence:0 "Eastern Correspondence Ideas"
  verne_doctrine_eastern_correspondence_desc:0 "Embassies, letters, gifts, and negotiated access abroad form a doctrine of polished long-distance diplomacy."
@@ -478,6 +749,10 @@ l_english:
  verne_doctrine_eastern_correspondence_princes_exchanges:0 "Princes' Exchanges"
  verne_doctrine_eastern_correspondence_princes_exchanges_desc:0 "Regular exchanges among elites make conquest easier to digest and distant rule easier to normalize."
 
+ # ============================================================
+ # DOCTRINE IDEAS — CRIMSON WAKE ORDER
+ # ============================================================
+
  verne_doctrine_crimson_wake_order:0 "Crimson Wake Order Ideas"
  verne_doctrine_crimson_wake_order_desc:0 "Knightly orders, institutional retinues, and subsidized mounted service are hardened into a military doctrine of elite state riders."
  verne_doctrine_crimson_wake_order_muster_houses:0 "Order Muster-Houses"
@@ -492,6 +767,10 @@ l_english:
  verne_doctrine_crimson_wake_order_marshal_chaplains_desc:0 "The order's internal discipline and martial instruction deepen Verne's professional military tradition."
  verne_doctrine_crimson_wake_order_permanent_commanderies:0 "Permanent Commanderies"
  verne_doctrine_crimson_wake_order_permanent_commanderies_desc:0 "Permanent commanderies turn knightly power into fixed state infrastructure that can be expanded and sustained."
+
+ # ============================================================
+ # DOCTRINE IDEAS — BATTLE-EVOCATION
+ # ============================================================
 
  verne_doctrine_battle_evocation:0 "Battle-Evocation Ideas"
  verne_doctrine_battle_evocation_desc:0 "War-mage command and battlefield sorcery are transformed into a doctrine of offensive magical professionalism."
@@ -508,6 +787,10 @@ l_english:
  verne_doctrine_battle_evocation_prince_in_the_van:0 "The Prince in the Van"
  verne_doctrine_battle_evocation_prince_in_the_van_desc:0 "In Verne, command magic and princely leadership are expected to stand at the front of war."
 
+ # ============================================================
+ # DOCTRINE IDEAS — RED BRASS
+ # ============================================================
+
  verne_doctrine_red_brass:0 "Red Brass Ideas"
  verne_doctrine_red_brass_desc:0 "Artillery, red-brass engineering, and fleet gunnery are organized into a doctrine of methodical destructive force."
  verne_doctrine_red_brass_foundry_calibration:0 "Foundry Calibration"
@@ -522,6 +805,10 @@ l_english:
  verne_doctrine_red_brass_gunnery_instructors_desc:0 "Instruction and drill turn artillery and naval firepower into reproducible state competence."
  verne_doctrine_red_brass_ironwilled_crews:0 "Ironwilled Crews"
  verne_doctrine_red_brass_ironwilled_crews_desc:0 "Disciplined crews and engineers make Vernman warcraft harder to break and harder to replace."
+
+ # ============================================================
+ # DOCTRINE IDEAS — SEA-LANCE
+ # ============================================================
 
  verne_doctrine_sea_lance:0 "Sea-Lance Doctrine Ideas"
  verne_doctrine_sea_lance_desc:0 "Integrated air-sea warfare becomes a Vernman doctrine of maneuver, assault, and expeditionary reach."
@@ -538,6 +825,10 @@ l_english:
  verne_doctrine_sea_lance_oceanic_pursuit:0 "Oceanic Pursuit"
  verne_doctrine_sea_lance_oceanic_pursuit_desc:0 "The Sea-Lance doctrine culminates in aggressive operational pursuit across whole maritime theaters."
 
+ # ============================================================
+ # DOCTRINE IDEAS — CORINITE STEWARDSHIP
+ # ============================================================
+
  verne_doctrine_corinite_stewardship:0 "Corinite Stewardship Ideas"
  verne_doctrine_corinite_stewardship_desc:0 "The Corinite state is organized through pious administration, mission discipline, and dynastic legitimacy under faith."
  verne_doctrine_corinite_stewardship_offices_of_instruction:0 "Offices of Pious Instruction"
@@ -552,6 +843,10 @@ l_english:
  verne_doctrine_corinite_stewardship_pilgrim_administration_desc:0 "The state learns to administer pilgrimage, devotion, and courtly reputation as a single faith-bearing system."
  verne_doctrine_corinite_stewardship_emperors_example:0 "The Emperor's Example"
  verne_doctrine_corinite_stewardship_emperors_example_desc:0 "The ruler's public example becomes part of the machinery that keeps the clergy aligned and loyal."
+
+ # ============================================================
+ # DOCTRINE IDEAS — IMPERIAL CHANCERY
+ # ============================================================
 
  verne_doctrine_imperial_chancery:0 "Imperial Chancery Ideas"
  verne_doctrine_imperial_chancery_desc:0 "Compact imperial government is formalized through ledgers, seals, audits, and the hard grammar of state administration."
@@ -568,6 +863,10 @@ l_english:
  verne_doctrine_imperial_chancery_absolutes:0 "Chancery Absolutes"
  verne_doctrine_imperial_chancery_absolutes_desc:0 "Administrative technique itself becomes a source of imperial efficiency and strength."
 
+ # ============================================================
+ # DOCTRINE IDEAS — APOSTOLIC SEA-LANES
+ # ============================================================
+
  verne_doctrine_apostolic_sea_lanes:0 "Apostolic Sea-Lanes Ideas"
  verne_doctrine_apostolic_sea_lanes_desc:0 "Maritime movement, evangelization, and diplomatic prestige are fused into a faith-bearing doctrine of sea power."
  verne_doctrine_apostolic_sea_lanes_pilgrim_convoys:0 "Pilgrim Convoys"
@@ -582,6 +881,10 @@ l_english:
  verne_doctrine_apostolic_sea_lanes_preachers_desc:0 "Missionary work travels with fleets and trade, turning the wake of Verne into a missionary instrument."
  verne_doctrine_apostolic_sea_lanes_wake_of_corin:0 "The Wake of Corin"
  verne_doctrine_apostolic_sea_lanes_wake_of_corin_desc:0 "The sea itself becomes part of Corinite prestige when Verne's fleets carry faith with them."
+
+ # ============================================================
+ # DOCTRINE IDEAS — PEARLESCENT CONCORD
+ # ============================================================
 
  verne_doctrine_pearlescent_concord:0 "Pearlescent Concord Ideas"
  verne_doctrine_pearlescent_concord_desc:0 "Alliance webs, princely mediation, and prestige diplomacy become a coherent doctrine of managed concord."
@@ -598,6 +901,10 @@ l_english:
  verne_doctrine_pearlescent_concord_princes_word:0 "The Prince's Word"
  verne_doctrine_pearlescent_concord_princes_word_desc:0 "When the prince's word carries enough prestige, integration and annexation become easier to secure."
 
+ # ============================================================
+ # DOCTRINE IDEAS — APOSTOLIC VALOUR
+ # ============================================================
+
  verne_doctrine_apostolic_valour:0 "Apostolic Valour Ideas"
  verne_doctrine_apostolic_valour_desc:0 "Corinite militancy and righteous imperial war are transformed into a disciplined doctrine of devotion in battle."
  verne_doctrine_apostolic_valour_bannered_devotion:0 "Bannered Devotion"
@@ -612,6 +919,10 @@ l_english:
  verne_doctrine_apostolic_valour_commanderies_desc:0 "Militant commanderies institutionalize piety and prestige as tools of permanent war-readiness."
  verne_doctrine_apostolic_valour_emperors_sword:0 "The Emperor's Sword"
  verne_doctrine_apostolic_valour_emperors_sword_desc:0 "The ruler's sword becomes an article of state devotion and a source of military endurance."
+
+ # ============================================================
+ # DOCTRINE IDEAS — SILVER BANNER
+ # ============================================================
 
  verne_doctrine_silver_banner:0 "Silver Banner Ideas"
  verne_doctrine_silver_banner_desc:0 "Compact elite force, court discipline, and professional military excellence are fused into a doctrine of silver-bannered dominance."
@@ -628,70 +939,52 @@ l_english:
  verne_doctrine_silver_banner_reserve_companies:0 "Imperial Reserve Companies"
  verne_doctrine_silver_banner_reserve_companies_desc:0 "Reserve companies are drilled and replenished fast enough to sustain elite warfare over the long term."
 
- # --- v0.3 first-wave verne doctrine policies ---
+ # ============================================================
+ # DOCTRINE POLICIES (v0.3)
+ # ============================================================
+
  verne_silver_wake_oath_harbormasters_act:0 "Act of the Oathbound Harbormasters"
  verne_silver_wake_oath_harbormasters_act_desc:0 "Silver Wake discipline paired with the Court of Silver Oaths creates a harbor administration that is both trusted abroad and orderly at home."
-
  verne_silver_wake_captains_charter_act:0 "Captains' Charter Act"
  verne_silver_wake_captains_charter_act_desc:0 "Where the Silver Wake and the Charter of Great Captains meet, Verne rewards practical convoy leadership, disciplined commerce, and steady seamanship."
-
  verne_silver_wake_ducal_convoy_ordinance_act:0 "Ducal Convoy Ordinance"
  verne_silver_wake_ducal_convoy_ordinance_act_desc:0 "Armoc's muster traditions are applied to convoy security, producing a fleet-backed state that recovers manpower reliably and hardens its key strongpoints."
-
  verne_silver_wake_quayside_discipline_act:0 "Quayside Discipline Act"
  verne_silver_wake_quayside_discipline_act_desc:0 "This general Silver Wake statute extends dockside discipline across the realm, reducing unrest and keeping sailor administration from slipping into wasteful disorder."
-
  verne_articles_of_the_silver_admiralty:0 "Articles of the Silver Admiralty"
  verne_articles_of_the_silver_admiralty_desc:0 "Silver Oaths statecraft and the Imperial Sea Court together produce a disciplined maritime code of legitimacy, fleet poise, and naval authority."
-
  verne_charter_of_overseas_audiences:0 "Charter of Overseas Audiences"
  verne_charter_of_overseas_audiences_desc:0 "Courtly diplomacy and Vernissage projection combine to speed contact abroad and improve Verne's standing in distant halls."
-
  verne_ordinance_of_noble_service:0 "Ordinance of Noble Service"
  verne_ordinance_of_noble_service_desc:0 "Silver Oaths administration and Dragonwake martial custom are fused into a service code that honors noble arms while strengthening dynastic legitimacy."
-
  verne_heartspier_shipping_code:0 "Heartspier Shipping Code"
  verne_heartspier_shipping_code_desc:0 "Port-finance discipline and Regatta seamanship combine into a shipping code that sharpens light-ship performance and maritime commerce."
-
  verne_convoys_of_state:0 "Convoys of State"
  verne_convoys_of_state_desc:0 "The sea court and Heartspier's companies together transform convoys into instruments of both commerce and state prestige."
-
  verne_accords_of_the_eastern_princes:0 "Accords of the Eastern Princes"
  verne_accords_of_the_eastern_princes_desc:0 "Vernissage prestige and eastern correspondence join into a diplomatic network that extends Verne's reach and authority abroad."
-
  verne_regatta_of_distant_harbours:0 "Regatta of Distant Harbours"
  verne_regatta_of_distant_harbours_desc:0 "The Vernissage and the Grand Regatta together turn world-facing maritime display into faster fleets and deeper sailor culture."
-
  verne_articles_of_remote_command:0 "Articles of Remote Command"
  verne_articles_of_remote_command_desc:0 "Overseas commandery doctrine and Vernissage projection produce a stronger legal and logistical framework for distant rule."
-
  verne_capitular_articles_of_the_wake:0 "Capitular Articles of the Wake"
  verne_capitular_articles_of_the_wake_desc:0 "Dragonwake nobility and the Crimson Wake orders together produce a harsher mounted service tradition built on commanderies, subsidies, and elite riders."
-
  verne_storm_crowned_doctrine:0 "Storm-Crowned Doctrine"
  verne_storm_crowned_doctrine_desc:0 "Dragonwake aristocracy and battle-evocation merge into a harsher doctrine of shock leadership and war-mage command."
-
  verne_sea_nest_command_statutes:0 "Sea-Nest Command Statutes"
  verne_sea_nest_command_statutes_desc:0 "The Crimson Wake and the Sea-Lance schools together codify a doctrine of faster maritime coordination and expeditionary movement."
-
  verne_protocols_of_controlled_devastation:0 "Protocols of Controlled Devastation"
  verne_protocols_of_controlled_devastation_desc:0 "Red Court statecraft and battle-evocation discipline combine into a doctrine of highly managed, highly destructive magical war."
-
  verne_foundry_war_ordinances:0 "Foundry War Ordinances"
  verne_foundry_war_ordinances_desc:0 "The Khenak foundry-state and the Red Brass doctrine are bound together into a centralized artillery war machine."
-
  verne_audit_of_chartered_harbours:0 "Audit of Chartered Harbours"
  verne_audit_of_chartered_harbours_desc:0 "Imperial chancery discipline and estuary-company bookkeeping combine into a harder, cleaner maritime fiscal machine."
-
  verne_concord_of_seals_and_oaths:0 "Concord of Seals and Oaths"
  verne_concord_of_seals_and_oaths_desc:0 "Chancery seals and pearlescent concord together make annexation smoother and subject politics steadier."
-
  verne_pilgrim_convoy_articles:0 "Pilgrim Convoy Articles"
  verne_pilgrim_convoy_articles_desc:0 "Corinite stewardship and apostolic sea-lanes combine to carry both faith and morale over sea routes."
-
  verne_capitular_ordinance_of_corin:0 "Capitular Ordinance of Corin"
  verne_capitular_ordinance_of_corin_desc:0 "Corinite state order and apostolic valour are joined into a stern military ordinance of faith and legitimacy."
-
  verne_articles_of_the_silver_line:0 "Articles of the Silver Line"
  verne_articles_of_the_silver_line_desc:0 "Dragonwake prestige and Silver Banner professionalism combine into a harder elite military tradition for Verne's chosen line."
  verne_compact_of_harbours_and_halls:0 "Compact of Harbours and Halls"
@@ -701,30 +994,29 @@ l_english:
  verne_settlement_of_the_reforged_court:0 "Settlement of the Reforged Court"
  verne_settlement_of_the_reforged_court_desc:0 "A post-scandal accommodation between chancery order and Red Court ambition gives the realm a steadier, more legitimate institutional machine."
 
- # --- Liliac War legacy missions ---
- A33_recount_liliac_defeat_title:0 "Recount the Liliac War Legacy"
- A33_recount_liliac_defeat_desc:0 "The Liliac War — Verne's greatest military humiliation — left deep scars on the Silver Court's psyche. Confronting this legacy, whether through diplomacy or martial resolve, is the first step toward Verne's future identity."
- A33_seek_eastern_allies_title:0 "Seek Eastern Allies"
- A33_seek_eastern_allies_desc:0 "Verne's Liliac legacy could become diplomatic capital. Building bridges with eastern neighbors transforms a history of defeat into a present of pragmatism."
- A33_avenge_liliac_wars_title:0 "Avenge the Liliac War"
- A33_avenge_liliac_wars_desc:0 "The Liliac War left Verne's martial pride wounded. Claims on the contested territories, military alliances, and the willingness to fight — these are the instruments of a Verne willing to right old wrongs."
- A33_unity_through_diplomacy_title:0 "Unity Through Diplomacy"
- A33_unity_through_diplomacy_desc:0 "Whether through diplomatic recovery or martial vengeance, Verne's Liliac legacy has been transformed. The Silver Court now stands as a beacon of diplomatic pragmatism, turning past humiliation into present authority."
+ # ============================================================
+ # ADVENTURE NETWORK MISSIONS (Lane 6 Legacy)
+ # ============================================================
 
- # --- Adventure Network expansion missions (Lane 6) ---
  A33_charter_the_expedition_fleet_title:0 "Charter the Expedition Fleet"
  A33_charter_the_expedition_fleet_desc:0 "If Verne is to become the home of adventurers, we must make voyages routine: sailors, supply, and the institutional capacity to go again."
  A33_ports_of_adventure_program_title:0 "Ports of Adventure Program"
- A33_ports_of_adventure_program_desc:0 "A true network is not one daring voyage—it is a web of harbors, guild charters, and reliable staging points."
+ A33_ports_of_adventure_program_desc:0 "A true network is not one daring voyage — it is a web of harbors, guild charters, and reliable staging points."
  A33_expedition_supply_chain_title:0 "Expedition Supply Chain"
  A33_expedition_supply_chain_desc:0 "Verne's adventurers need more than brave hearts — they need merchants, contracts, and steady logistical support to sustain overseas operations."
 
- # --- Industrial Foundries expansion missions (Lane 9) ---
+ # ============================================================
+ # INDUSTRIAL FOUNDRY MISSIONS (Lane 9)
+ # ============================================================
+
  A33_red_brass_forge_title:0 "The Red Brass Forge"
  A33_red_brass_forge_desc:0 "The Khenak foundries now produce more than tools and wares. The Red Brass Forge turns Verne's industrial muscle into a weapon of war — artillery, ordnance, and the metallurgical science that sustains it."
  A33_controlled_devastation_title:0 "Protocols of Controlled Devastation"
  A33_controlled_devastation_desc:0 "Verne's industrial output has matured into a doctrine of controlled devastation: precise, disciplined, and overwhelmingly destructive. The Silver Court now wages war with foundry logic."
 
- # --- Vernissage secretariat mission (Lane 7) ---
+ # ============================================================
+ # VERNISSAGE SECRETARIAT MISSION (Lane 7)
+ # ============================================================
+
  A33_vernissage_secretariat_title:0 "The Vernissage Secretariat"
  A33_vernissage_secretariat_desc:0 "The Vernissage has grown beyond a gallery of wonders — it is now an engine of state prestige, a center of foreign exchange, and the administrative heart of Verne's cultural diplomacy."

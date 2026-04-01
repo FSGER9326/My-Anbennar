@@ -1,0 +1,213 @@
+# ===============================================
+# Lane 2: Maritime Empire
+# ===============================================
+# Verne overhaul - Naval/commercial maritime lane
+# Slot 2 (second_slot)
+# Four missions: early maritime infrastructure → fleet → imperial sea court
+# ===============================================
+
+A33_second_slot = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	# --- New modifiers ---
+	# heartspier_port_sailors        - +10% sailors (province, duration 10y)
+	# heartspier_port_trade_power    - +10% light ship trade power in node (province, duration 10y)
+	# heartspier_companies           - +5% trade efficiency, +10% light ship power, -5% build cost (country, duration -1)
+	# fleet_crimson_wake_rewards     - +0.25 yearly navy tradition, +10% naval morale (country, duration -1)
+	# fleet_crimson_wake_ship_cost   - reduced ship costs (country, duration 15y)
+	# imperial_sea_court_rewards     - +1 dip rep, +10% naval force limit (country, duration -1)
+
+	# --- New localisation ---
+	# A33_secure_port_of_heartspier_title: "Secure the Port of Heartspier"
+	# A33_secure_port_of_heartspier_desc: "Heartspier is the beating heart of Verne's maritime ambitions. Before we can command the seas, we must first ensure our harbour is fit for the fleets that will sail from it. A proper shipyard — whether modest or grand — will anchor our naval tradition for generations."
+	# A33_form_estuary_companies_title: "Form the Estuary Companies"
+	# A33_form_estuary_companies_desc: "The estuaries of our realm are natural chokepoints of commerce. By chartering trading companies along these waterways, we can funnel wealth into Heartspier and project Verne's mercantile influence far beyond our shores."
+	# A33_fleet_of_the_crimson_wake_title: "Fleet of the Crimson Wake"
+	# A33_fleet_of_the_crimson_wake_desc: "The Crimson Wake is more than a name — it is a doctrine. Our admirals must forge a fleet worthy of Verne's maritime heritage, one that leaves a trail of naval tradition across every sea it sails."
+	# A33_imperial_sea_court_title: "The Imperial Sea Court"
+	# A33_imperial_sea_court_desc: "From the bridge of our flagship to the halls of the Imperial Court, Verne's naval power now commands diplomatic respect. The Sea Court is our instrument of soft and hard power alike — a floating embassy and a war council in one."
+	# verne_overhaul_tt_secure_port_no: "You do not yet control Heartspier or lack the required shipyard."
+	# verne_overhaul_tt_secure_port_yes: "Heartspier's harbour is secured for Verne's fleet."
+	# verne_overhaul_tt_estuary_companies_no: "You must own 2+ estuary provinces and adopt the Estuary Companies reform."
+	# verne_overhaul_tt_estuary_companies_yes: "The Estuary Companies are chartered. Commerce flows to Heartspier."
+	# verne_overhaul_tt_fleet_crimson_no: "You need 50+ ships and the Admiralty or Regatta reform."
+	# verne_overhaul_tt_fleet_crimson_yes: "The Fleet of the Crimson Wake sails! Our navy is second to none."
+	# verne_overhaul_tt_sea_court_no: "You must complete the Fleet of the Crimson Wake and adopt the Imperial Sea Court reform."
+	# verne_overhaul_tt_sea_court_yes: "The Imperial Sea Court is convened. Verne's word carries weight on every shore."
+	# heartspier_port_sailors_desc: "+10% local sailors"
+	# heartspier_port_trade_power_desc: "+10% light ship trade power in node"
+	# heartspier_companies_desc: "+5% trade efficiency, +10% light ship power, -5% build cost"
+	# fleet_crimson_wake_rewards_desc: "+0.25 yearly navy tradition, +10% naval morale"
+	# fleet_crimson_wake_ship_cost_desc: "-10% ship cost"
+	# imperial_sea_court_rewards_desc: "+1 diplomatic reputation, +10% naval force limit"
+
+	# ===============================================
+	# Mission 1: Secure the Port of Heartspier
+	# ===============================================
+
+	# Commentary (plain-language):
+	# - Opens the maritime lane by requiring Heartspier (capital) to have a Shipyard or Drydock.
+	# - Grants province-level sailor and trade-power bonuses to Heartspier, reinforcing it as the naval anchor.
+	# - Playstyle effect: Encourages early naval infrastructure investment over military expansion.
+	# - Risk note: province ID 288 (Heartspier) must remain stable. Shipyard/Drydock building keys must match vanilla Anbennar.
+	# - Lore-fit note: inferred-from-repo — Heartspier is Verne's canonical capital and harbour.
+	A33_secure_port_of_heartspier = {
+		icon = mission_galleys_in_port
+		position = 1
+		provinces_to_highlight = {
+			province_id = 288
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = {
+					OR = {
+						has_building = shipyard
+						has_building = drydock
+					}
+				}
+			}
+		}
+
+		trigger = {
+			owns = 288
+			288 = {
+				OR = {
+					has_building = shipyard
+					has_building = drydock
+				}
+			}
+		}
+
+		effect = {
+			288 = {
+				add_province_modifier = {
+					name = "heartspier_port_sailors"
+					duration = 3650
+				}
+				add_province_modifier = {
+					name = "heartspier_port_trade_power"
+					duration = 3650
+				}
+			}
+			add_sailors = 500
+			custom_tooltip = verne_overhaul_tt_secure_port_yes
+		}
+	}
+
+	# ===============================================
+	# Mission 2: Form the Estuary Companies
+	# ===============================================
+
+	# Commentary (plain-language):
+	# - Requires completing Secure Port and owning 2+ estuary provinces, plus the tier 2 Estuary Companies reform.
+	# - Grants a permanent country modifier boosting trade efficiency, light ship power, and reducing build cost.
+	# - Playstyle effect: Bridges maritime infrastructure (Mission 1) into trade-economic scaling.
+	# - Risk note: estuary province detection relies on vanilla `has_estuary` scripted trigger. Reform key
+	#   verne_estuary_companies_of_heartspier_reform must match verne_overhaul_reforms.txt.
+	# - Lore-fit note: inferred-from-repo — estuary companies are a classic Verne mercantile institution.
+	A33_form_estuary_companies = {
+		icon = mission_dominate_home_trade_node
+		position = 3
+		required_missions = { A33_secure_port_of_heartspier }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_estuary = yes
+		}
+
+		trigger = {
+			has_reform = verne_estuary_companies_of_heartspier_reform
+			num_of_owned_provinces_with = {
+				value = 2
+				has_estuary = yes
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "heartspier_companies"
+				duration = -1
+			}
+			add_mercantilism = 2
+			custom_tooltip = verne_overhaul_tt_estuary_companies_yes
+		}
+	}
+
+	# ===============================================
+	# Mission 3: Fleet of the Crimson Wake
+	# ===============================================
+
+	# Commentary (plain-language):
+	# - Mid-game naval milestone requiring 50+ ships and either the Admiralty or Regatta reform.
+	# - Grants permanent navy tradition, naval morale, and temporary ship cost reduction.
+	# - Sets fleet_crimson_wake_complete flag for cross-lane dependency gating.
+	# - Playstyle effect: Rewards sustained naval investment and unlocks the late-game Sea Court path.
+	# - Risk note: ship count trigger (num_of_ships) is vanilla. Flag fleet_crimson_wake_complete must be
+	#   checked by dependent missions. Reform keys admiry_of_crimson_wake / regatta_discipline must match
+	#   verne_overhaul_reforms.txt (verne_admiralty_of_the_crimson_wake_reform / verne_regatta_discipline_reform).
+	# - Lore-fit note: inferred-from-repo — "Crimson Wake" is Verne's signature naval doctrine motif.
+	A33_fleet_of_the_crimson_wake = {
+		icon = mission_establish_high_seas_navy
+		position = 5
+		required_missions = { A33_form_estuary_companies }
+		provinces_to_highlight = { }
+
+		trigger = {
+			num_of_ships = 50
+			OR = {
+				has_reform = verne_admiralty_of_the_crimson_wake_reform
+				has_reform = verne_regatta_discipline_reform
+			}
+		}
+
+		effect = {
+			set_country_flag = fleet_crimson_wake_complete
+			add_country_modifier = {
+				name = "fleet_crimson_wake_rewards"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "fleet_crimson_wake_ship_cost"
+				duration = 5475
+			}
+			add_navy_tradition = 10
+			custom_tooltip = verne_overhaul_tt_fleet_crimson_yes
+		}
+	}
+
+	# ===============================================
+	# Mission 4: The Imperial Sea Court
+	# ===============================================
+
+	# Commentary (plain-language):
+	# - Late-game capstone requiring the Fleet of the Crimson Wake flag and the tier 6 Imperial Sea Court reform.
+	# - Grants diplomatic reputation, an extra merchant, and naval force limit — the full maritime-empire payoff.
+	# - Playstyle effect: Caps the maritime lane with diplomatic-military synergy, rewarding players who
+	#   committed to naval play from Mission 1 onward.
+	# - Risk note: flag fleet_crimson_wake_complete must be set by A33_fleet_of_the_crimson_wake. Reform key
+	#   imperial_sea_court must match verne_imperial_sea_court_reform in verne_overhaul_reforms.txt.
+	#   Extra merchant uses `merchants = 1` modifier (vanilla EU4).
+	# - Lore-fit note: inferred-from-repo — the Imperial Sea Court is Verne's diplomatic apex institution.
+	A33_imperial_sea_court = {
+		icon = mission_monarch_in_throne_room
+		position = 8
+		required_missions = { A33_fleet_of_the_crimson_wake }
+		provinces_to_highlight = { }
+
+		trigger = {
+			has_country_flag = fleet_crimson_wake_complete
+			has_reform = verne_imperial_sea_court_reform
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "imperial_sea_court_rewards"
+				duration = -1
+			}
+			add_merchants = 1
+			custom_tooltip = verne_overhaul_tt_sea_court_yes
+		}
+	}
+}

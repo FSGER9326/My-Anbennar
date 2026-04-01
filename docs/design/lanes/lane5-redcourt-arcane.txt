@@ -1,0 +1,192 @@
+# Lane 5: Red Court & Arcane
+# Slot: A33_fifth_sloth (slot 5)
+# Theme: Mage state transformation via Red Court reforms
+# Last updated: 2026-03-31
+# Source: Verne overhaul lane blueprint
+#
+# This lane is a parallel track within the existing A33_fifth_sloth block.
+# The three missions here form the Red Court -> Dragonwake -> Battle Mage reform chain.
+# They interleave with the existing gnoll/wyvern missions in the same slot.
+#
+# Existing slot 5 layout (for reference):
+#   pos 1: A33_break_the_queen_of_the_hill (gnolls)
+#   pos 2: A33_the_quest_for_eggs (eggs/wyvern) — A33_establish_red_court goes here too
+#   pos 3: A33_the_wyvern_nest_initiative
+#   pos 4: A33_binding_the_beast
+#   pos 5: A33_expand_the_wyvern_nests — A33_dragonwake_ordinance goes here too
+#   pos 6: A33_the_sea_nest
+#   pos 7: A33_the_might_of_the_wyvern
+#   pos 8: (available / united_under_crimson_wings chain)
+#   pos 9: A33_a_crimson_sea — A33_battle_mage_collegium goes here too
+#   pos 10: A33_religious_mercantilism
+
+# ============================================
+# MISSIONS
+# ============================================
+
+# A33_fifth_sloth wrapper (existing — do not duplicate, this block goes inside it)
+
+	# Commentary:
+	# First Red Court mission. Establishes the mage advisory pipeline by proving
+	# Verne can support a university and has embraced the Renaissance. The tier 3
+	# reform verne_red_court_arcana_reform is the institutional gate — the player
+	# must commit to the Red Court reform path early.
+	# Lore: The Red Court is Verne's council of arcane advisors, formally woven
+	# into the silver oath infrastructure. This mission formalizes that relationship.
+	A33_establish_red_court = {
+		icon = mission_magic
+		position = 2
+		required_missions = { A33_break_the_queen_of_the_hill }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_building = university
+		}
+
+		trigger = {
+			has_institution = renaissance
+			has_reform = verne_red_court_arcana_reform
+			any_owned_province = {
+				has_building = university
+			}
+		}
+
+		effect = {
+			add_advisor_pool = 1
+			add_country_modifier = {
+				name = "verne_red_court_advisory"
+				duration = -1
+			}
+			custom_tooltip = verne_L5_establish_red_court_tt
+			hidden_effect = {
+				set_country_flag = verne_red_court_mage_advisors_enabled
+			}
+			country_event = { id = verne_overhaul_advisor.100 }
+		}
+	}
+
+	# Commentary:
+	# Mid-tier Red Court mission. Fuses military professionalism with arcane doctrine.
+	# Requires the Dragonwake Ordinance reform — a deliberate power spike that
+	# justifies fielding war wizards in conventional armies.
+	# Lore: The Dragonwake Ordinance codifies the use of battle magic in
+	# Vernman military formations, blending academy theory with battlefield doctrine.
+	A33_dragonwake_ordinance = {
+		icon = mission_wizard
+		position = 5
+		required_missions = { A33_establish_red_court }
+		provinces_to_highlight = { }
+
+		trigger = {
+			has_reform = verne_dragonwake_ordinance_reform
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "verne_dragonwake_doctrine"
+				duration = 7300
+			}
+			add_yearly_army_professionalism = 0.5
+			add_country_modifier = {
+				name = "verne_arcane_shock_pip"
+				duration = 7300
+			}
+			define_general = {
+				name = "Verne War Wizard"
+				fire = 4
+				shock = 6
+				manuever = 3
+				siege = 2
+			}
+			add_country_modifier = {
+				name = "verne_temporary_war_wizard"
+				duration = 7300	# 20 years
+			}
+			custom_tooltip = verne_L5_dragonwake_ordinance_tt
+		}
+	}
+
+	# Commentary:
+	# Late Red Court capstone. The Battle Mage Collegium represents full integration
+	# of arcane warfare into the Vernman military state. This is the final reform
+	# gate in the Red Court chain and unlocks a permanent military buff plus a
+	# strategic event chain decision.
+	# Lore: The Battle Mage Collegium is an elite institution training mages for
+	# frontline combat roles — artillery support, fire bombardment, and morale
+	# enchantment. It transforms Verne from a state that uses mages into a state
+	# built around mage warfare.
+	A33_battle_mage_collegium = {
+		icon = mission_cannon
+		position = 9
+		required_missions = { A33_dragonwake_ordinance }
+		provinces_to_highlight = {
+			province_id = 288
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { has_building = university }
+			}
+		}
+
+		trigger = {
+			has_reform = verne_battle_mage_collegium_reform
+			288 = {
+				owned_by = ROOT
+				has_building = university
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "verne_battle_mage_artillery_fire"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "verne_battle_mage_land_fire"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "verne_battle_mage_morale"
+				duration = -1
+			}
+			custom_tooltip = verne_L5_battle_mage_collegium_tt
+			hidden_effect = {
+				set_country_flag = verne_battle_mage_collegium_unlocked
+			}
+			country_event = { id = verne.200 }
+		}
+	}
+
+# --- New modifiers ---
+#
+# verne_red_court_advisory          (permanent) +1 advisor pool, +0.1 reform progress
+# verne_dragonwake_doctrine         (20 years)  +0.5 army professionalism yearly
+# verne_arcane_shock_pip            (20 years)  +1 land shock pip
+# verne_temporary_war_wizard        (20 years)  Grants a war wizard general
+# verne_battle_mage_artillery_fire  (permanent) +1 artillery fire
+# verne_battle_mage_land_fire       (permanent) +1 land fire
+# verne_battle_mage_morale          (permanent) +5% morale of armies
+#
+# Modifiers defined in common/event_modifiers/verne_overhaul_lane5_modifiers.txt
+# or inline in the relevant event/mission files above.
+
+# --- New localisation ---
+#
+# English localisation keys (add to localisation/english/verne_overhaul_l5_l_english.yml):
+#
+#  verne_L5_establish_red_court_tt:0 "Enable recruitment of mage advisors through the Red Court advisory pipeline."
+#  verne_L5_dragonwake_ordinance_tt:0 "A war wizard has been assigned to your command. The Dragonwake Ordinance ensures arcane support for 20 years."
+#  verne_L5_battle_mage_collegium_tt:0 "The Battle Mage Collegium has been established. Mages now serve as frontline combat specialists."
+#
+#  verne_red_court_advisory_desc:0 "The Red Court advisory pipeline draws from Verne's arcane academies, ensuring a steady stream of mage advisors to the ducal court."
+#  verne_dragonwake_doctrine_desc:0 "The Dragonwake Ordinance accelerates military professionalism through arcane training regimens."
+#  verne_arcane_shock_pip_desc:0 "Battle mages in conventional formations amplify shock damage through targeted enchantments."
+#  verne_temporary_war_wizard_desc:0 "A war wizard serves at the ducal's pleasure, bringing devastating arcane firepower to the field."
+#  verne_battle_mage_artillery_fire_desc:0 "The Battle Mage Collegium trains mages to enhance artillery bombardment with fire enchantments."
+#  verne_battle_mage_land_fire_desc:0 "Collegium mages integrate into infantry formations, providing direct fire support."
+#  verne_battle_mage_morale_desc:0 "The presence of trained battle mages inspires confidence in every Vernman soldier."
+#
+#  A33_establish_red_court:0 "Establish the Red Court"
+#  A33_establish_red_court_desc:0 "Formalize the Red Court as the ducal council of arcane advisors, weaving mage expertise into the silver oath infrastructure of Verne."
+#  A33_dragonwake_ordinance:0 "The Dragonwake Ordinance"
+#  A33_dragonwake_ordinance_desc:0 "Codify the deployment of battle magic in Vernman military formations, merging academy theory with battlefield doctrine."
+#  A33_battle_mage_collegium:0 "The Battle Mage Collegium"
+#  A33_battle_mage_collegium_desc:0 "Found the Battle Mage Collegium — an elite institution training mages for frontline combat, artillery support, and morale enchantment. Verne becomes a state built around mage warfare."

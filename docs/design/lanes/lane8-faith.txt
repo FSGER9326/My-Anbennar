@@ -1,0 +1,168 @@
+# ===============================================
+# Verne overhaul: Faith & Apostolic Empire (Lane 8 from blueprint)
+# Status: design document — to be merged into missions/Verne_Missions.txt
+# Slot: A33_eighth_slot (slot = 5 in UI, positioned after existing eighth_slot missions)
+# Theme: Corinite stewardship → Pearlescent Concord → World Faith Emperor
+# ===============================================
+
+# --- New modifiers ---
+# verne_corinite_stewardship_missionary       — +1 missionary, -33% enforce religion cost (permanent, removable)
+# verne_pearlescent_concord_diplomacy         — -10% diplomatic annexation cost, -5% liberty desire in subjects (permanent, removable)
+# verne_world_faith_emperor_capstone          — +0.25 yearly innovativeness, +1 free leader pool, +1 merchant, +1% global missionary strength (permanent, removable)
+# verne_minor_holy_order                      — +0.5 tolerance_own, +0.5 yearly legitimacy (granted by event after corinite_stewardship)
+
+# --- New localisation ---
+# A33_corinite_stewardship:0 "Corinite Stewardship"
+# A33_corinite_stewardship_desc:0 "Verne shall be the shield and steward of the Corinite faith. Through the Apostolic Court or the guidance of Corinite missionaries, we will spread the faith of Corin across the known world — and make her enemies tremble."
+# A33_pearlescent_concord:0 "The Pearlescent Concord"
+# A33_pearlescent_concord_desc:0 "The Concord of Oaths and Faith binds our vassals to us with silver chains of trust. Through alliance, arbitration, and the Pearlescent doctrine, Verne becomes the arbiter of continental peace."
+# A33_world_faith_emperor:0 "World Faith Emperor"
+# A33_world_faith_emperor_desc:0 "From the Court of the World, Verne rules not just by sword and coin but by faith and law. The Apostolic Empire stands as beacon and hammer — innovating, commanding, and sending merchants where heathen pirates once reigned."
+# verne_corinite_stewardship_missionary:0 "Corinite Stewardship"
+# verne_corinite_stewardship_missionary_desc:0 "Verne's Apostolic Court sends missionaries into the heartlands, and the cost of enforcing the true faith upon allies and subjects is reduced."
+# verne_pearlescent_concord_diplomacy:0 "Pearlescent Concord"
+# verne_pearlescent_concord_diplomacy_desc:0 "The Concord binds vassals with silver oaths and trust, reducing their desire for independence and the cost of integrating them."
+# verne_world_faith_emperor_capstone:0 "World Faith Emperor"
+# verne_world_faith_emperor_capstone_desc:0 "The Court of the World brings innovation, free leadership, new merchants, and the strength of Corinite faith to every corner of the empire."
+# verne_minor_holy_order:0 "Minor Holy Order of Corin"
+# verne_minor_holy_order_desc:0 "A small but zealous holy order has been founded under Verne's patronage, strengthening the faithful and legitimizing our rule."
+# verne_founding_minor_holy_order_tt:0 "Found a Minor Holy Order (requires 200 ADM and 100 DIP)"
+
+# Commentary (plain-language):
+# This is the opening faith mission for Lane 8. It gates on either the Apostolic Court reform (tier 7)
+# or simply employing a Corinite missionary advisor — making it reachable from both the reform ladder
+# and the advisor recruitment path. Rewards a permanent missionary and reduced enforce-religion cost,
+# plus seeds the minor holy order flag for a follow-up event.
+# Base vs new: new mission
+# Playstyle effect: Encourages Corinite religious investment as a viable mid-game strategy.
+# Risk note: The missionary advisor check uses employed_advisor with religion = corinite — verify
+# that corinite is the correct religion tag in the Anbennar religion system.
+# Province context: No provinces highlighted; this is a reform/advisor gate.
+# Lore-fit note: Verne as Corinite steward aligns with the Apostolic Court tier 7 reform and the
+# doctrine bible's "First Corinite Emperors" doctrine (idea 6).
+A33_corinite_stewardship = {
+	icon = mission_corinite_cross
+	position = 2
+	required_missions = { }
+	provinces_to_highlight = { }
+
+	trigger = {
+		OR = {
+			has_reform = verne_apostolic_court_of_corin_reform
+			employed_advisor = { religion = corinite }
+		}
+		religion = corinite
+	}
+
+	effect = {
+		add_country_modifier = {
+			name = verne_corinite_stewardship_missionary
+			duration = -1
+		}
+		set_country_flag = verne_corinite_stewardship_done
+		custom_tooltip = verne_founding_minor_holy_order_tt
+		hidden_effect = {
+			set_country_flag = verne_can_found_minor_holy_order
+		}
+	}
+}
+
+# Commentary (plain-language):
+# Mid-faith mission that requires the Pearlescent Concord doctrine (DIP idea group 14) and the prior
+# stewardship mission. Rewards diplo-annexation cost reduction and liberty desire reduction —
+# synergizing directly with the Concord's own vassal bonuses. Also spawns an Apostolic legate advisor
+# to give the player an immediate tangible payoff.
+# Base vs new: new mission
+# Playstyle effect: Rewards players who invest in diplomatic idea groups and vassal management
+# alongside their religious path. The spawned advisor provides a free admin/dip/mil advisor.
+# Risk note: The full_idea_group check assumes verne_doctrine_pearlescent_concord is treated as
+# an idea group — verify this matches the Anbennar doctrine system.
+# Province context: No provinces highlighted; this is a doctrine/advisor gate.
+# Lore-fit note: "Pearlescent Concord" is doctrine 14 in the bible. The Concord of Seals and Oaths
+# policy (Imperial Chancery + Pearlescent Concord) gives exactly the same diplo-annex/liberty-desire
+# pair, so this mission rewards players who layer doctrines and policies together.
+A33_pearlescent_concord = {
+	icon = mission_diplomatic_relation
+	position = 5
+	required_missions = { A33_corinite_stewardship }
+	provinces_to_highlight = { }
+
+	trigger = {
+		full_idea_group = verne_doctrine_pearlescent_concord
+		OR = {
+			has_reform = verne_apostolic_court_of_corin_reform
+			has_reform = verne_charter_of_the_vernissage_reform
+			diplomatic_reputation = 3
+		}
+	}
+
+	effect = {
+		add_country_modifier = {
+			name = verne_pearlescent_concord_diplomacy
+			duration = -1
+		}
+		# Spawn Apostolic legate advisor
+		if = {
+			limit = { monthly_income = 10 }
+			define_advisor = {
+				type = diplomat
+				name = "Apostolic Legate"
+				skill = 2
+				culture = castellyrian
+				religion = corinite
+				discount = yes
+			}
+		}
+		else = {
+			define_advisor = {
+				type = diplomat
+				name = "Apostolic Legate"
+				skill = 1
+				culture = castellyrian
+				religion = corinite
+				discount = yes
+			}
+		}
+	}
+}
+
+# Commentary (plain-language):
+# The Lane 8 capstone. Gates on the Court of the World reform (tier 7) and the Pearlescent Concord
+# mission. Rewards a stacked permanent modifier: innovativeness, free leader pool, merchant, and
+# global missionary strength. Also enables a unique CB against heathen pirates (likely a custom wargoal
+# or casus belli against nations with the pirate government reform or specific religion groups).
+# Base vs new: new mission
+# Playstyle effect: The ultimate faith-empire payoff — you're now a global power with religious,
+# military, and economic reach. The unique CB pushes the player toward anti-piracy campaigns.
+# Risk note: The "heathen pirates" CB needs a corresponding CB definition in common/cb_types/.
+# For now the mission sets a flag; the CB itself is a follow-up implementation task.
+# Province context: No provinces highlighted; this is a reform/capstone gate.
+# Lore-fit note: The Court of the World reform (tier 7) gives prestige, improve_relations, merchants,
+# free leader pool, and innovativeness — this mission stacks on top of those bonuses. The unique
+# CB against heathen pirates references Verne's maritime state identity and the regatta/naval theme
+# from the blueprint's Slot 8 maritime lane (which overlaps with this faith lane in the endgame).
+A33_world_faith_emperor = {
+	icon = mission_emperor_of_hre
+	position = 9
+	required_missions = { A33_pearlescent_concord }
+	provinces_to_highlight = { }
+
+	trigger = {
+		has_reform = verne_vernman_court_of_the_world_reform
+		OR = {
+			has_reform = verne_apostolic_court_of_corin_reform
+			full_idea_group = verne_doctrine_pearlescent_concord
+		}
+		prestige = 50
+	}
+
+	effect = {
+		add_country_modifier = {
+			name = verne_world_faith_emperor_capstone
+			duration = -1
+		}
+		# Enable unique CB against heathen pirates
+		set_country_flag = verne_cb_against_heathen_pirates
+		custom_tooltip = verne_cb_against_heathen_pirates_tt
+	}
+}

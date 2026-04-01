@@ -3652,7 +3652,7 @@ verne_foreign_doctrines = { #Verne B1
 	adventurers_loyalty_modifier = -0.10
 }
 
-verne_redbrass_surpluss = { #Verne B2
+verne_redbrass_surplus = { #Verne B2
 	naval_maintenance_modifier = -0.10
 	land_maintenance_modifier = -0.05
 }
@@ -3767,7 +3767,7 @@ verne_martao_deal = { #Martao Deal
 verne_international_investment = { #Verne A10
 	local_development_cost = -0.20
 }
-verne_corinite_synchretism = {
+verne_corinite_syncretism = {
 	local_missionary_strength = -1
 	local_tolerance_of_heathens = 10
 }
