@@ -1,0 +1,162 @@
+============================================================
+REDESIGN — EXISTING VERNE MISSIONS
+============================================================
+
+Purpose: Map existing Verne missions to the new lane system.
+This document identifies which existing missions need modification
+to coexist with the 8 new lanes.
+
+NOTE: Redesign subagent did not complete. This is a first pass based
+on existing codebase knowledge. Actual implementation will require
+review of missions/Verne_Missions.txt for exact mission IDs and content.
+
+────────────────────────────────────────
+EXISTING SLOT MAPPING
+────────────────────────────────────────
+
+Slot 1: Lane 1 (Court & Oaths) — NEW missions only, no existing
+Slot 2: Lane 2 (Maritime Empire) — NEW missions only, no existing
+Slot 3: Lane 3 (Dynastic Machine) — Interleaves with gnoll/wyvern missions
+Slot 4: Lane 4 (Trade & Colonisation) — NEW missions only, no existing
+Slot 5: Lane 5 (Red Court & Arcane) — Interleaves with gnoll/wyvern missions
+  NOTE: Wrapper is A33_fifth_sloth (typo preserved)
+Slot 6: Lane 6 (Legitimacy) — Interleaves with existing slot 6 missions
+Slot 7: Lane 7 — Not assigned to new lane; existing missions remain
+Slot 8: Lane 8 (Faith & Apostolic Empire) — Interleaves with existing faith missions
+
+────────────────────────────────────────
+MISSIONS REQUIRING CHANGES
+────────────────────────────────────────
+
+## 1. Slot 3 (A33_third_slot) — Dynastic interleaving
+
+Existing missions in this slot need position adjustments to make room
+for the 3 new Dynastic missions (positions 1, 4, 8).
+
+Actions:
+- Shift existing gnoll/wyvern missions to unused positions (2, 3, 5, 6, 7, 9)
+- Ensure no position conflicts between existing and new missions
+- Verify required_missions chains still work after repositioning
+
+## 2. Slot 5 (A33_fifth_sloth) — Red Court interleaving
+
+Existing missions in this slot need position adjustments for 3 new
+Red Court missions (positions 2, 5, 9).
+
+Actions:
+- Shift existing missions to positions 1, 3, 4, 6, 7, 8
+- Ensure gnoll/wyvern missions don't conflict with arcane mission gates
+- The "sloth" typo in the wrapper name must be preserved (it's referenced
+  in the codebase)
+
+## 3. Slot 6 (A33_sixth_slot) — Legitimacy interleaving
+
+Depends on what existing missions exist in this slot. The new Legitimacy
+missions occupy positions 2, 4, 7. Remaining positions available for existing:
+1, 3, 5, 6, 8, 9.
+
+Actions:
+- Audit existing slot 6 missions
+- Reposition if necessary
+
+## 4. Slot 8 (A33_eighth_slot) — Faith interleaving
+
+Existing faith missions share this slot. New Faith missions at positions
+2, 5, 9. Remaining positions for existing: 1, 3, 4, 6, 7, 8.
+
+Actions:
+- Audit existing slot 8 missions
+- Ensure Corinite-specific gates don't conflict
+
+────────────────────────────────────────
+CROSS-LANE GATES
+────────────────────────────────────────
+
+Several new lanes reference flags from other lanes:
+
+- fleet_crimson_wake_complete (Lane 2 → used by other lanes as gate)
+- verne_dynasty_protected (Lane 3 → used by Lane 6 as alternative capstone)
+- verne_census_established (Lane 6 → internal chain)
+- verne_endowments_established (Lane 6 → internal chain)
+- verne_corinite_founded (Lane 8 → internal chain)
+- verne_charter_unlocked (Lane 4 → internal chain)
+- verne_distant_horizons_expansion_completed (Lane 4 → internal chain)
+- verne_battle_mage_collegium_unlocked (Lane 5 → for future content)
+
+These flags must be set by the preceding mission's effects block.
+Review each mission to verify flag propagation.
+
+────────────────────────────────────────
+MODIFIER FILE INTEGRATION
+────────────────────────────────────────
+
+All new modifiers defined across the 8 lanes should be consolidated
+into a single modifier file (e.g., common/modifiers/verne_new_modifiers.txt).
+
+Modifier list (deduplicated):
+1. verne_silver_oaths — +1 dip rep, +5% vassal income
+2. verne_court_of_oaths — -10% dip-annex, +10% vassal FL, +1 relation
+3. verne_royal_arbitration — -15% lib desire, +1 estate influence/subject
+4. verne_diplomatic_hegemony — +2 dip rep, +1 relation, -15% dip-annex, +10% vassal income
+5. verne_heartspier_port — +10% sailors (province, 10yr)
+6. verne_heartspier_trade_powers — +10% light ship trade power (province, 10yr)
+7. verne_heartspier_companies — +5% trade efficiency, +10% light ship power, -5% build cost
+8. verne_crimson_wake_fleet — +0.5 navy tradition/year, +10% naval morale
+9. verne_crimson_wake_discount — -15% ship build cost (15yr)
+10. verne_imperial_sea_court — +1 dip rep, +10% naval FL, +1 merchant
+11. verne_dynastic_safeguard — +1 legitimacy/year, -10% succession events
+12. verne_noble_charter — +5% manpower, +10% nobles loyalty (25yr)
+13. verne_exalted_dynasty_machine — +2 prestige/year, +1 legitimacy/year, +10% inst spread
+14. verne_chartered_overseas_companies — +10 governing capacity, +5% tariffs
+15. verne_distant_horizons — +15% colonial range, -0.15 naval attrition, +5% settler growth
+16. verne_overseas_commanderies — +10% tariffs, +10% governing capacity, -10% diplo-annex
+17. verne_red_court_advisory — +1 advisor pool, +0.1 reform progress
+18. verne_dragonwake_profession — +0.5 army professionalism/year
+19. verne_dragonwake_shock — +1 land shock pip (20yr)
+20. verne_war_wizard — War wizard general (20yr)
+21. verne_battle_mage_collegium — +5% morale of armies
+22. verne_collegium_fire_artillery — +1 artillery fire
+23. verne_collegium_fire_army — +1 land fire pip
+24. verne_royal_census — +0.1 reform progress growth, +5% tax efficiency
+25. verne_academic_endowments — +10% institution spread, +5% research efficiency, +0.1 innovativeness
+26. verne_sovereign_legitimacy — +1 legitimacy/year, +1 prestige/year, -15% stab cost, +10% inst spread, +1 dip rep
+27. verne_corinite_stewardship — +1 missionary, -33% enforce religion cost
+28. verne_pearlescent_concord — -10% diplo-annex cost, -5% liberty desire
+29. verne_world_faith_emperor — +1 free leader, +1 merchant
+30. verne_faith_emperor_innovat — +0.25 yearly innovativeness, +1% missionary strength
+
+────────────────────────────────────────
+LOCALISATION FILE INTEGRATION
+────────────────────────────────────────
+
+All localisation keys across 8 lanes need to be consolidated into
+localisation/english/verne_missions_lanes.yml (or similar).
+
+Estimated key count: ~90 keys (3 per mission × 24 missions + modifiers + tooltips)
+
+────────────────────────────────────────
+EVENT FILE INTEGRATION
+────────────────────────────────────────
+
+Events referenced by new missions (already exist or need creation):
+- verne_overhaul_oaths.1, .2, .3 — Silver Oaths event chain
+- verne_overhaul_dynasty.1 — Dynastic Safeguard event
+- verne_overhaul_advisor.100 — Mage advisor recruitment
+- verne.200 — Battle Mage Collegium event chain
+- verne_holy_order.1 — Minor holy order founding
+
+Action: Verify these events exist in the codebase. Create stubs if missing.
+
+────────────────────────────────────────
+FOLLOW-UP IMPLEMENTATION TASKS
+────────────────────────────────────────
+
+1. Create common/modifiers/verne_new_modifiers.txt with all 30 modifiers
+2. Create/update localisation/english/verne_missions_lanes.yml
+3. Create stub events for any missing event IDs
+4. Implement verne_cb_against_heathen_pirates CB in common/cb_types/
+5. Add decision definitions for:
+   - verne_charter_overseas_decision (Lane 4)
+   - verne_commandant_swap_decision (Lane 4)
+6. Verify all government reform references exist in common/government_reforms/
+7. Playtest lane chains for broken required_missions dependencies

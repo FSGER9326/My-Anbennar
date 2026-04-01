@@ -1,0 +1,141 @@
+============================================================
+LANE 1 — THE VERNE COURT & OATHS
+============================================================
+
+Wrapper: A33_first_slot
+Interleaves with: existing gnoll/wyvern missions
+
+────────────────────────────────────────
+1. A33_formalize_silver_oaths  (position 1, early)
+────────────────────────────────────────
+
+# Commentary:
+# Establishes the Silver Oaths mechanic — Verne's unique diplomatic system
+# based on binding contracts with allied powers. Early-game gate that requires
+# minimal investment (2+ allies). Sets up the entire court/oath arc.
+# Playstyle: Diplomatic/Vassal. Low risk, standard alliance maintenance.
+# Lore: The Silver Oaths are ancient pacts that bind foreign powers to Verne's
+# service, enforced by magical courts rather than blood ties.
+
+has_country_flag = verne_mission_start
+num_of_allies = 2
+
+# Effects:
+country_event = { id = verne_overhaul_oaths.1 }
+add_legitimacy = 10
+add_prestige = 5
+set_country_flag = verne_mission_start
+
+# Permanent modifier: verne_silver_oaths
+# ── +1 diplomatic reputation, +5% vassal income
+
+# Custom tooltip:
+# verne_silver_oaths_tt: "Verne's Silver Oaths system allows binding diplomatic
+# contracts that persist beyond normal alliance mechanics."
+
+# Required by: A33_establish_court_of_oaths
+
+────────────────────────────────────────
+2. A33_establish_court_of_oaths  (position 4, mid)
+────────────────────────────────────────
+
+# Commentary:
+# Formalizes the Court of Oaths as a state institution. Requires the reform
+# from mission 1's event. Grants the core diplomatic engine: cheaper relations,
+# stronger vassals, and the ability to enforce oaths via decision.
+# Playstyle: Still diplomatic, now with teeth. Mid-game pivot.
+# Risk: Requires reform investment; delays military spending.
+
+has_country_flag = verne_silver_oaths_established
+has_reform = verne_court_of_silver_oaths_reform
+
+# Effects:
+add_country_modifier = {
+    name = verne_court_of_oaths
+    duration = -1
+}
+country_event = { id = verne_overhaul_oaths.2 }
+add_diplo_power = 50
+
+# Permanent modifier: verne_court_of_oaths
+# ── -10% diplomatic annexation cost, +10% vassal force limit contribution, +1 max relations
+
+# Required by: A33_royal_arbitration, A33_diplomatic_hegemony
+
+────────────────────────────────────────
+3. A33_royal_arbitration  (position 5, mid)
+────────────────────────────────────────
+
+# Commentary:
+# Extends the oath system into conflict resolution. Verne can arbitrate
+# disputes between subjects and force peaceful resolution. Unique mechanic
+# that fits the "lawful neutral" Verne identity.
+# Playstyle: Hegemon diplomat. You're the judge, jury, and enforcement.
+# Risk: Needs multiple subjects to be useful. Gated on reform + subjects.
+
+has_country_flag = verne_court_of_oaths_established
+num_of_subjects = 2
+has_reform = verne_court_of_silver_oaths_reform
+
+# Effects:
+add_country_modifier = {
+    name = verne_royal_arbitration
+    duration = -1
+}
+country_event = { id = verne_overhaul_oaths.3 }
+add_prestige = 15
+set_country_flag = verne_royal_arbitration_complete
+
+# Permanent modifier: verne_royal_arbitration
+# ── -15% liberty desire in subjects, +1 influence per subject (estate)
+
+# Required by: A33_diplomatic_hegemony
+
+────────────────────────────────────────
+4. A33_diplomatic_hegemony  (position 7, capstone)
+────────────────────────────────────────
+
+# Commentary:
+# Capstone of the Court & Oaths lane. Verne becomes a diplomatic superpower
+# with unbreakable alliances, loyal subjects, and the ability to project
+# influence globally. Requires tier 8 reform (Crown of the Oathkeeper) and
+# completion of the chain.
+# Playstyle: End-game diplomatic victory path. Allies don't dare leave.
+# Risk: Massive opportunity cost vs military investment. Requires all prior missions.
+
+has_reform = verne_throne_of_the_wyvern_kings_reform
+has_country_flag = verne_royal_arbitration_complete
+num_of_allies = 4
+num_of_subjects = 3
+
+# Effects:
+add_country_modifier = {
+    name = verne_diplomatic_hegemony
+    duration = -1
+}
+add_diplo_power = 100
+add_prestige = 25
+
+# Permanent modifier: verne_diplomatic_hegemony
+# ── +2 diplomatic reputation, +1 diplomatic relation, -15% diplomatic annexation cost,
+#    +10% vassal income, allies cannot decline call to arms (custom flag)
+
+# --- New modifiers ---
+# verne_silver_oaths: +1 dip rep, +5% vassal income (permanent, from mission 1)
+# verne_court_of_oaths: -10% dip-annex cost, +10% vassal FL, +1 max relations (permanent)
+# verne_royal_arbitration: -15% lib desire, +1 estate influence per subject (permanent)
+# verne_diplomatic_hegemony: +2 dip rep, +1 relation, -15% dip-annex, +10% vassal income (permanent)
+
+# --- New localisation ---
+# A33_formalize_silver_oaths_title: "Formalize the Silver Oaths"
+# A33_formalize_silver_oaths_desc: "Establish the ancient Silver Oaths as a formal diplomatic system binding foreign powers to Verne."
+# A33_establish_court_of_oaths_title: "Establish the Court of Oaths"
+# A33_establish_court_of_oaths_desc: "Institutionalize the Silver Oaths into a standing court with enforcement powers."
+# A33_royal_arbitration_title: "Royal Arbitration"
+# A33_royal_arbitration_desc: "Expand the Court's mandate to include binding arbitration between Verne and its subjects."
+# A33_diplomatic_hegemony_title: "Diplomatic Hegemony"
+# A33_diplomatic_hegemony_desc: "Verne's web of oaths and alliances now makes it the unchallenged diplomatic hegemon of the world."
+# verne_silver_oaths_modifier_desc: "The Silver Oaths grant Verne enhanced diplomatic standing and vassal loyalty."
+# verne_court_of_oaths_modifier_desc: "The Court of Oaths streamlines the annexation of willing subjects."
+# verne_royal_arbitration_modifier_desc: "Royal arbitration ensures subjects remain loyal and content."
+# verne_diplomatic_hegemony_modifier_desc: "Verne's diplomatic hegemony ensures allies never waver and subjects never rebel."

@@ -1,0 +1,117 @@
+============================================================
+LANE 4 — TRADE & COLONISATION
+============================================================
+
+Wrapper: A33_fourth_slot
+Interleaves with: existing missions in slot 4
+
+NOTE: 'new_world' continent used alongside specific continents. Review if
+Anbennar's map uses different continent names for colonial zones.
+NOTE: is_colony = no ensures only settled provinces count toward thresholds.
+NOTE: verne_chartered_overseas_companies uses governing_capacity = 10 (flat).
+      Consider governing_capacity_modifier (percentage) for balance.
+
+────────────────────────────────────────
+1. A33_charter_overseas_companies  (position 2, early)
+────────────────────────────────────────
+
+# Commentary:
+# Verne's first step into overseas expansion. Requires at least 1 colonial
+# province and a tier 2 or 4 government reform. Grants the Chartered Overseas
+# Companies modifier and unlocks the charter decision.
+# Playstyle: Early colonial expansion. You need to reach colonial regions.
+# Risk: Naval investment required. Colonial range can be limiting early on.
+# Lore: The overseas companies are joint-stock ventures that fund exploration
+# and settlement with Verne's backing.
+
+num_of_provinces = 1  # colonial province
+OR = { has_reform = verne_admiralty_of_the_crimson_wake_reform has_reform = verne_charter_of_the_vernissage_reform }
+
+# Effects:
+add_country_modifier = { name = verne_chartered_overseas_companies duration = -1 }
+add_country_modifier = { name = verne_overseas_projection_add_1 duration = -1 }
+change_variable = { name = verne_overseas_projection add = 1 }
+set_country_flag = verne_charter_unlocked
+
+# Permanent modifier: verne_chartered_overseas_companies
+# ── +10 governing capacity (flat), +5% tariffs
+
+# Decision: verne_charter_overseas_decision
+# Grants +1 merchant for 10 years when triggered (once per 10 years)
+
+# Required by: A33_distant_horizons_expansion
+
+────────────────────────────────────────
+2. A33_distant_horizons_expansion  (position 1, mid, chains from #1)
+────────────────────────────────────────
+
+# Commentary:
+# Scales up Verne's colonial enterprise. Requires 5+ settled colonial provinces
+# and the Hall of Distant Horizons reform. Grants colonial range, attrition
+# reduction, settler growth, and a colonist. Advances both projection variables.
+# Playstyle: Full colonial expansion. You need 5 settled colonies.
+# Risk: Major naval + colonial investment. Other colonial powers will compete.
+# Lore: The Hall of Distant Horizons is a planning chamber that maps and
+# coordinates Verne's global expansion.
+
+has_country_flag = verne_charter_unlocked
+num_of_provinces = 5  # colonial, is_colony = no
+has_reform = verne_hall_of_distant_horizons_reform
+
+# Effects:
+add_country_modifier = { name = verne_distant_horizons duration = -1 }
+add_colonist = 1
+change_variable = { name = verne_overseas_projection add = 1 }
+change_variable = { name = verne_world_network add = 1 }
+set_country_flag = verne_distant_horizons_expansion_completed
+
+# Permanent modifier: verne_distant_horizons
+# ── +15% colonial range, -0.15 naval attrition, +5% settler growth
+
+# Required by: A33_overseas_commanderies
+
+────────────────────────────────────────
+3. A33_overseas_commanderies  (position 6, late capstone, chains from #2)
+────────────────────────────────────────
+
+# Commentary:
+# Capstone of the Trade & Colonisation lane. Establishes overseas commanderies
+# — military-governor-administered colonial provinces. Requires tier 6 reform,
+# completion flag from #2, and 10+ settled colonial provinces. Unlocks the
+# governor-to-commandant swap decision.
+# Playstyle: Colonial superpower. You're running a global empire.
+# Risk: 10 settled colonies is a massive investment. Late-game payoff.
+# Lore: Commanderies are Verne's answer to governing distant lands —
+# military governors with broad autonomy.
+
+has_reform = verne_overseas_commanderies_reform
+has_country_flag = verne_distant_horizons_expansion_completed
+num_of_provinces = 10  # colonial, is_colony = no
+
+# Effects:
+add_country_modifier = { name = verne_overseas_commanderies duration = -1 }
+add_prestige = 15
+add_diplo_power = 50
+set_country_flag = verne_commanderies_unlocked
+
+# Permanent modifier: verne_overseas_commanderies
+# ── +10% tariffs, +10% governing capacity, -10% diplo-annex cost
+
+# Decision: verne_commandant_swap_decision
+# Swap a governor for a commandant (military bonus vs trade bonus)
+
+# --- New modifiers ---
+# verne_chartered_overseas_companies: +10 governing capacity, +5% tariffs (permanent)
+# verne_distant_horizons: +15% colonial range, -0.15 naval attrition, +5% settler growth (permanent)
+# verne_overseas_commanderies: +10% tariffs, +10% governing capacity, -10% diplo-annex cost (permanent)
+
+# --- New localisation ---
+# A33_charter_overseas_companies_title: "Charter Overseas Companies"
+# A33_charter_overseas_companies_desc: "Grant royal charters to joint-stock companies for overseas expansion."
+# A33_distant_horizons_expansion_title: "Distant Horizons"
+# A33_distant_horizons_expansion_desc: "Establish a dedicated planning chamber to coordinate Verne's global expansion."
+# A33_overseas_commanderies_title: "Overseas Commanderies"
+# A33_overseas_commanderies_desc: "Formalize Verne's colonial provinces as commanderies under military governors."
+# verne_chartered_overseas_companies_modifier_desc: "Chartered companies expand Verne's administrative capacity overseas."
+# verne_distant_horizons_modifier_desc: "The Hall of Distant Horizons extends Verne's reach across the seas."
+# verne_overseas_commanderies_modifier_desc: "Overseas Commanderies streamline colonial governance and trade."

@@ -1,0 +1,69 @@
+# Full Cross-Slot Dependency List for ChatGPT
+# Parsed from missions/Verne_Missions.txt
+
+## Slot 1 missions (Court & Oaths) - 9 missions
+A33_the_vernman_renaissance (entry) -> [none]
+A33_alvars_reforms (entry) -> [none]
+A33_the_vernissage -> A33_the_vernman_renaissance
+A33_expand_the_Vernissage -> A33_the_vernissage, A33_a_most_prized_item (SLOT2)
+A33_zenith_of_the_eastern_princes -> A33_expand_the_Vernissage
+A33_the_halanni_exposition -> A33_zenith_of_the_eastern_princes
+A33_the_heart_of_darkness -> A33_the_halanni_exposition
+A33_the_grand_vernissage -> A33_the_heart_of_darkness, A33_the_might_of_the_wyvern (SLOT5)
+A33_project_holohana -> A33_the_grand_vernissage
+
+## Slot 2 missions (Adventures) - 9 missions
+A33_the_riches_of_the_khenak -> A33_alvars_reforms (SLOT1)
+A33_the_rogue_duchy -> A33_the_riches_of_the_khenak
+A33_across_the_pond -> A33_the_rogue_duchy, A33_the_allure_of_the_luna (SLOT3)
+A33_in_search_of_adventure -> A33_across_the_pond
+A33_the_lands_of_adventure -> A33_the_vernissage (SLOT1)
+A33_a_most_prized_item -> A33_in_search_of_adventure, A33_the_lands_of_adventure
+A33_laments_regatta -> A33_a_most_prized_item
+A33_new_verne -> A33_laments_regatta, A33_the_vernman_renaissance (SLOT1), A33_the_kingdom_of_Verne (SLOT3)
+
+## Slot 3 missions (Maritime/Dynastic) - 12 missions
+A33_old_friends_old_rivals (entry) -> [none]
+A33_a_matter_of_pride -> A33_alvars_reforms (SLOT1), A33_old_friends_old_rivals, A33_break_the_queen_of_the_hill (SLOT5)
+A33_the_allure_of_the_luna -> A33_the_vernman_renaissance (SLOT1)
+A33_the_kingdom_of_Verne -> A33_the_allure_of_the_luna, A33_a_crimson_sea (SLOT5)
+A33_corins_shield (entry) -> [none]
+A33_spread_the_word -> A33_a_matter_of_pride, A33_corins_shield
+A33_in_the_name_corin -> A33_spread_the_word, A33_type_2_wyverns (SLOT4)
+A33_born_of_valour -> A33_the_rogue_duchy (SLOT2), A33_the_kingdom_of_Verne
+A33_the_vernman_era -> A33_born_of_valour, A33_a_union_of_crowns (SLOT4)
+A33_valour_on_the_seas -> A33_born_of_valour, A33_taking_to_the_seas (SLOT4)
+A33_all_roads_lead_to_verne -> A33_the_vernman_era, A33_a_crimson_sea (SLOT5), A33_taming_the_lion (SLOT4), A33_vernissage_secretariat (SLOT5)
+A33_the_verne_halann -> A33_all_roads_lead_to_verne, A33_holy_corinite_empire (SLOT4)
+
+## Slot 4 missions (Wyvern/Faith) - 8 missions
+A33_taking_to_the_seas -> A33_a_matter_of_pride (SLOT3)
+A33_taming_the_lion -> A33_taking_to_the_seas
+A33_a_union_of_crowns -> A33_taming_the_lion, A33_binding_the_beast (SLOT5)
+A33_united_under_crimson_wings -> A33_spread_the_word (SLOT3), A33_the_might_of_the_wyvern (SLOT5), A33_a_union_of_crowns
+A33_corins_devout_protectors -> A33_united_under_crimson_wings, A33_in_the_name_corin (SLOT3)
+A33_with_sword_and_shield -> A33_corins_devout_protectors
+A33_the_holy_corinite_empire -> A33_with_sword_and_shield
+A33_type_2_wyverns -> A33_binding_the_beast (SLOT5), A33_recount_liliac_defeat (SLOT5)
+
+## Slot 5 missions (Red Court/Trade/Liliac/Foundries/Expeditions) - 20 missions
+A33_break_the_queen_of_the_hill (entry) -> [none]
+A33_the_quest_for_eggs -> A33_break_the_queen_of_the_hill
+A33_the_wyvern_nest_initiative -> A33_the_quest_for_eggs, A33_in_search_of_adventure (SLOT2)
+A33_binding_the_beast -> A33_the_wyvern_nest_initiative
+A33_expand_the_wyvern_nests -> A33_binding_the_beast
+A33_the_sea_nest -> A33_expand_the_wyvern_nests, A33_taking_to_the_seas (SLOT4)
+A33_the_might_of_the_wyvern -> A33_the_sea_nest
+A33_a_crimson_sea -> A33_the_might_of_the_wyvern
+A33_religious_mercantilism -> A33_the_kingdom_of_Verne (SLOT3), A33_a_crimson_sea
+A33_on_wings_of_artificery -> A33_religious_mercantilism
+A33_recount_liliac_defeat (entry) -> [none]
+A33_seek_eastern_allies -> A33_recount_liliac_defeat
+A33_avenge_liliac_wars -> A33_seek_eastern_allies
+A33_unity_through_diplomacy -> A33_avenge_liliac_wars, A33_united_under_crimson_wings (SLOT4)
+A33_charter_the_expedition_fleet -> A33_laments_regatta (SLOT2)
+A33_ports_of_adventure_program -> A33_charter_the_expedition_fleet, A33_the_lands_of_adventure (SLOT2)
+A33_expedition_supply_chain -> A33_ports_of_adventure_program, A33_religious_mercantilism
+A33_red_brass_forge -> A33_on_wings_of_artificery, A33_the_quest_for_eggs
+A33_controlled_devastation -> A33_avenge_liliac_wars
+A33_vernissage_secretariat -> A33_expedition_supply_chain, A33_the_halanni_exposition (SLOT1)

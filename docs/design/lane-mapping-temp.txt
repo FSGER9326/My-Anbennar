@@ -1,0 +1,141 @@
+# Verne 10-Lane Mission Mapping (Working Reference)
+# Generated: 2026-04-01
+# Source: missions/Verne_Missions.txt + existing lane design docs
+
+## Slot Blocks in Verne_Missions.txt
+
+| Block Name        | Slot # | Actual Lane | Theme |
+|-------------------|--------|-------------|-------|
+| A33_first_slot    | 1      | Lane 1      | Court & Oaths |
+| A33_second_slot   | 2      | Mixed (2+3+5+10) | Adventure, Maritime, Reform, Liliac |
+| A33_third_slot    | 3      | Lane 3      | Maritime Empire (Overseas) |
+| A33_fourth_slot   | 4      | Lane 4      | Dynastic Machine (Imperial) |
+| A33_fifth_sloth   | 5      | Lane 6+7+5  | Trade, Red Court, Wyvern Military |
+| A33_sixth_slot    | 5      | Lane 10     | Liliac War Legacy |
+| A33_seventh_slot  | 5      | Lane 2      | Adventure Network |
+| A33_eighth_slot   | 5      | Lane 9      | Industrial Foundries |
+| A33_ninth_slot    | 5      | Lane 5 (ext)| Vernissage Secretariat |
+
+## Full Mission → Lane Mapping
+
+### Lane 1: Court & Oaths (Slot 1)
+| Mission ID | Pos | Description |
+|-----------|-----|-------------|
+| A33_the_vernman_renaissance | 2 | Cultural-religious modernization opener |
+| A33_the_grand_port_of_heartspier | 3 | Maritime infrastructure + Ports of Adventure |
+| A33_the_vernissage | 6 | Vernissage cultural institution establishment |
+| A33_expand_the_Vernissage | 8 | Vernissage Tier 2 upgrade |
+| A33_zenith_of_the_eastern_princes | 9 | Eastern colonial capstone (Lupulan) |
+| A33_the_halanni_exposition | 10 | World's Fair / Halanni Exposition |
+| A33_the_heart_of_darkness | 11 | Effelai Heart expedition |
+| A33_the_grand_vernissage | 12 | Grand Vernissage (relic collection) |
+| A33_project_holohana | 14 | Ultimate mega-project capstone |
+
+### Lane 2: Adventure Network (Slot 2 → new block)
+| Mission ID | Pos | Description |
+|-----------|-----|-------------|
+| A33_across_the_pond | 4 | Opens overseas access, adventure system init |
+| A33_in_search_of_adventure | 5 | Network of Adventure tier 1, Sarhal access |
+| A33_the_lands_of_adventure | 7 | Adventure infrastructure + explorers |
+| A33_a_most_prized_item | 9 | Taychend conquest (religion + dev check) |
+| A33_laments_regatta | 10 | Maritime prestige + monuments |
+| A33_new_verne | 12 | New Verne colonial capstone |
+| [NEW] A33_charter_the_expedition_fleet | 14 | Expedition fleet chartering |
+| [NEW] A33_ports_of_adventure_program | 16 | Ports of Adventure scaling |
+| [NEW] A33_expedition_supply_chain | 18 | Supply chain for expeditions |
+
+### Lane 3: Maritime Empire (Overseas Consolidation)
+| Mission ID | Pos | Description |
+|-----------|-----|-------------|
+| A33_old_friends_old_rivals | 1 | Diplomatic rivals setup |
+| A33_a_matter_of_pride | 2 | Damespearl conquest + prestige |
+| A33_the_allure_of_the_luna | 3 | Luna River Basin diplomacy |
+| A33_the_kingdom_of_Verne | 4 | Kingdom rank + elector seat |
+| A33_corins_shield | 6 | Corinite defender of faith |
+| A33_spread_the_word | 7 | Corinite missionary push |
+| A33_in_the_name_corin | 8 | Taychend Corinite syncretism |
+| A33_born_of_valour | 9 | Half-ruinborn tolerance + Valour seas |
+| A33_the_vernman_era | 11 | Golden age + Vernman Era |
+| A33_valour_on_the_seas | 12 | Trollsbay consolidation |
+| A33_all_roads_lead_to_verne | 13 | Naval hegemon + highest trade node |
+| A33_the_verne_halann | 14 | World naval capstone |
+
+### Lane 4: Dynastic Machine (Imperial Governance)
+| Mission ID | Pos | Description |
+|-----------|-----|-------------|
+| A33_taking_to_the_seas | 3 | Naval buildup vs A29 |
+| A33_taming_the_lion | 4 | Busilar conquest/alliance |
+| A33_a_union_of_crowns | 5 | Businor consolidation + crowns |
+| A33_united_under_crimson_wings | 8 | HRE emperor + wyvern nest upgrades |
+| A33_corins_devout_protectors | 9 | HRE faith lock + merc company |
+| A33_with_sword_and_shield | 10 | Faith-war capstone |
+| A33_the_holy_corinite_empire | 12 | Full HRE Corinite conversion |
+| A33_type_2_wyverns | 13 | Artificery wyvern + mage synergy |
+
+### Lane 5: Trade & Colonisation
+| Mission ID | Pos | Description |
+|-----------|-----|-------------|
+| A33_break_the_queen_of_the_hill | 1 | Gnoll conquest in Khenak |
+| A33_the_quest_for_eggs | 2 | Wyvern egg quest |
+| A33_the_wyvern_nest_initiative | 3 | Wyvern nest infrastructure |
+| A33_binding_the_beast | 4 | Wyvern binding (mage gate) |
+| A33_expand_the_wyvern_nests | 5 | Nest expansion to new provinces |
+| A33_the_sea_nest | 6 | Wyvern carrier flagship |
+| A33_the_might_of_the_wyvern | 7 | Full military might |
+| A33_a_crimson_sea | 9 | Akasik region control |
+| A33_religious_mercantilism | 10 | Trade company conversion |
+| A33_on_wings_of_artificery | 12 | Artificery + damestear |
+
+### Lane 6: Red Court & Arcane (from A33_fifth_sloth overlay)
+Note: Not implemented in current Verne_Missions.txt. Design doc references:
+- A33_establish_red_court, A33_dragonwake_ordinance, A33_battle_mage_collegium
+These are PLANNED missions, not yet in the codebase.
+
+### Lane 7: Military Orders (Wyvern Military)
+Missions from A33_fifth_sloth (same slot as trade/wyvern):
+- A33_break_the_queen_of_the_hill (pos 1)
+- A33_the_quest_for_eggs (pos 2)
+- A33_the_wyvern_nest_initiative (pos 3)
+- A33_binding_the_beast (pos 4)
+- A33_expand_the_wyvern_nests (pos 5)
+- A33_the_sea_nest (pos 6)
+- A33_the_might_of_the_wyvern (pos 7)
+
+### Lane 8: Faith & Apostolic Empire
+Note: The old lane8-faith.txt references PLANNED missions (A33_corinite_stewardship,
+A33_pearlescent_concord, A33_world_faith_emperor) NOT in the codebase.
+Actual faith missions are in slots 3 and 4:
+- A33_corins_shield (slot 3, pos 6)
+- A33_spread_the_word (slot 3, pos 7)
+- A33_in_the_name_corin (slot 3, pos 8)
+- A33_united_under_crimson_wings (slot 4, pos 8)
+- A33_corins_devout_protectors (slot 4, pos 9)
+- A33_with_sword_and_shield (slot 4, pos 10)
+- A33_the_holy_corinite_empire (slot 4, pos 12)
+
+### Lane 9: Industrial Foundries (NEW block)
+| Mission ID | Pos | Description |
+|-----------|-----|-------------|
+| A33_the_riches_of_the_khenak | 2 | Khenak foundry seeds (from slot 2) |
+| [NEW] A33_red_brass_forge | 20 | Red brass forge expansion |
+| [NEW] A33_controlled_devastation | 22 | Controlled devastation doctrine |
+
+### Lane 10: Diplomacy & Liliac War Legacy (NEW block)
+| Mission ID | Pos | Description |
+|-----------|-----|-------------|
+| [NEW] A33_recount_liliac_defeat | 8 | Liliac War remembrance |
+| [NEW] A33_seek_eastern_allies | 10 | Diplomatic recovery path |
+| [NEW] A33_avenge_liliac_wars | 10 | Vengeful martial path |
+| [NEW] A33_unity_through_diplomacy | 12 | Reconciliation capstone |
+
+## Cross-Lane Dependencies
+- A33_the_grand_port_of_heartspier (L1) → A33_across_the_pond (L2)
+- A33_the_vernissage (L1) → A33_the_lands_of_adventure (L2)
+- A33_alvars_reforms (L2 early) → A33_a_matter_of_pride (L3)
+- A33_a_matter_of_pride (L3) → A33_taking_to_the_seas (L4), A33_the_rogue_duchy (L5)
+- A33_the_kingdom_of_Verne (L3) → A33_a_union_of_crowns (L4)
+- A33_expand_the_Vernissage (L1) → [NEW] A33_vernissage_secretariat (L5 ext)
+- A33_the_riches_of_the_khenak (L9) → [NEW] A33_red_brass_forge (L9)
+- A33_recount_liliac_defeat (L10) → A33_seek_eastern_allies / A33_avenge_liliac_wars (L10)
+- A33_the_halanni_exposition (L1) → A33_the_vernman_era (L3 convergence)
+- A33_the_grand_vernissage (L1) + A33_all_roads_lead_to_verne (L3) → A33_project_holohana (L1)

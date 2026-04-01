@@ -1,0 +1,74 @@
+# Verne Mission Dependency Analysis
+# Generated: 2026-04-01 11:45 CET
+# Source: missions/Verne_Missions.txt (58 missions parsed)
+
+## Summary
+- Total missions: 58
+- With prerequisites: 52
+- Entry points (no prereqs): 6
+- Leaf missions (not required by anything): 7
+- Cross-slot dependencies: 41
+- Max dependency depth: 13
+- Broken references: 0
+
+## Slots Found (mapped to 10-column design)
+| Slot | Theme (design) | Missions in code | Code container |
+|------|---------------|------------------|----------------|
+| 1 | Court & Oaths | 9 | A33_first_slot |
+| 2 | Adventure Network | 9 | A33_second_slot |
+| 3 | Maritime Empire | 12 | A33_third_slot |
+| 4 | Dynastic Machine | 8 | A33_fourth_slot |
+| 5 | Trade/Red Court/Wyvern/Liliac | 20 | A33_fifth_slot |
+
+NOTE: Only 5 slots have content. Slots 6-10 are not yet in the codebase.
+
+## Key Cross-Slot Dependencies (41 total)
+- Slot 1 ↔ Slot 2: heavily interconnected (bidirectional)
+- Slot 1 → Slot 3: multiple missions feed into Maritime/Dynastic
+- Slot 3 ↔ Slot 4: strong connection
+- Slot 4 ↔ Slot 5: bidirectional
+- Slot 2 → Slot 5: adventures feed into expedition fleet, forge, secretariat
+
+## Longest Chains (depth 13)
+1. alvar_reforms → riches_of_khenak → grand_port → vernissage → lands_of_adventure → expand_Vernissage → zenith → halanni_exposition → heart_of_darkness → grand_vernissage → project_holohana
+
+2. alvar_reforms → riches_of_khenak → grand_port → vernissage → lands_of_adventure → in_the_name_corin → most_prized_item → laments_regatta → vernman_era → holy_corinite_empire → all_roads_lead_to_verne → vernne_halann
+
+## Lane Connectivity
+| Lane | Exports | Imports | Status |
+|------|---------|---------|--------|
+| 1 | 6 | 3 | Connected |
+| 2 | 12 | 8 | Connected |
+| 3 | 11 | 11 | Connected |
+| 4 | 6 | 10 | Connected |
+| 5 | 6 | 9 | Connected |
+
+## Entry Points (6 missions, no prerequisites)
+- A33_the_vernman_renaissance
+- A33_alvars_reforms
+- A33_the_vernissage (orphan container)
+- A33_old_friends_old_rivals
+- A33_corins_shield
+- A33_break_the_queen_of_the_hill
+- A33_recount_liliac_defeat
+
+## Leaf Missions (7, not required by anything)
+- A33_the_verne_halann
+- A33_project_holohana
+- A33_vernissage_secretariat
+- A33_controlled_devastation
+- A33_unity_through_diplomacy
+- A33_type_2_wyverns
+- A33_the_might_of_the_wyvern
+
+## ChatGPT Extended Thinking Analysis (flag-level)
+- No circular dependencies at lane level
+- 7 of 10 lanes globally isolated (at flag level, not mission level)
+- Lane 10 under-gated for narrative weight
+- Best single fix: add verne_dynastic_legitimacy to Lane 10 gates
+- Best full fix:
+  - Lane 5 requires verne_maritime_established
+  - Lane 8 requires verne_court_unified
+  - Lane 7 requires verne_apostolic_church
+  - Lane 9 requires verne_trade_network_active
+  - Lane 10 requires verne_court_unified + verne_maritime_established + verne_dynastic_legitimacy

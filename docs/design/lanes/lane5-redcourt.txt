@@ -1,0 +1,117 @@
+============================================================
+LANE 5 — RED COURT & ARCANE
+============================================================
+
+Wrapper: A33_fifth_sloth  (typo preserved from existing code)
+Interleaves with: existing gnoll/wyvern missions in same slot
+
+────────────────────────────────────────
+1. A33_establish_red_court  (position 3, early)
+────────────────────────────────────────
+
+# Commentary:
+# Founds the Red Court — Verne's arcane advisory body. Requires a university
+# (any province) and the Renaissance institution, plus the Red Court Arcana
+# reform. Grants advisor pool expansion and reform progress, and fires an
+# event for recruiting mage advisors.
+# Playstyle: Academic/arcane investment. Build a university early.
+# Risk: Requires Renaissance — can be slow without European contact.
+# Lore: The Red Court is a council of mage-advisors who study arcane knowledge
+# to enhance Verne's governance through magical insight.
+
+has_institution = renaissance
+has_reform = verne_red_court_arcana_reform
+any_owned_province = { has_building = university }
+
+# Effects:
+add_country_modifier = { name = verne_red_court_advisory duration = -1 }
+country_event = { id = verne_overhaul_advisor.100 }
+
+# Permanent modifier: verne_red_court_advisory
+# ── +1 advisor pool, +0.1 reform progress growth
+
+# Event: verne_overhaul_advisor.100
+# Allows recruiting a mage advisor (level 2, 50% discount for 10 years)
+
+# Required by: A33_dragonwake_ordinance
+
+────────────────────────────────────────
+2. A33_dragonwake_ordinance  (position 7, mid)
+────────────────────────────────────────
+
+# Commentary:
+# Formalizes Verne's war magic doctrine. Requires the Dragonwake Ordinance
+# reform. Grants army professionalism, a temporary land shock pip, and a
+# war wizard general (20-year modifier).
+# Playstyle: Military-magical hybrid. You're fielding battle mages.
+# Risk: Opportunity cost vs pure military investment. The wizard is temporary.
+# Lore: The Dragonwake Ordinance names the magical resonance after the ancient
+# dragon magic that Verne's mages learned to harness for warfare.
+
+has_reform = verne_dragonwake_ordinance_reform
+
+# Effects:
+add_country_modifier = { name = verne_dragonwake_profession duration = -1 }
+add_country_modifier = { name = verne_dragonwake_shock duration = 7300 }  # 20 years
+add_country_modifier = { name = verne_war_wizard duration = 7300 }  # 20 years
+
+# Permanent modifier: verne_dragonwake_profession
+# ── +0.5 army professionalism yearly
+
+# Temporary modifier: verne_dragonwake_shock (20 years)
+# ── +1 land shock pip
+
+# Temporary modifier: verne_war_wizard (20 years)
+# ── Grants a general: Fire 4, Shock 6, Maneuver 3, Siege 2
+
+# Required by: A33_battle_mage_collegium
+
+────────────────────────────────────────
+3. A33_battle_mage_collegium  (position 8, capstone)
+────────────────────────────────────────
+
+# Commentary:
+# Capstone of the Red Court lane. Establishes the Battle Mage Collegium —
+# an institution that trains mage-soldiers. Requires the Collegium reform
+# and a university in Heartspier. Grants artillery fire, land fire, and
+# morale bonuses. Fires event chain for advanced mage units.
+# Playstyle: Magically enhanced military. Your armies hit harder with fire.
+# Risk: Late-game investment. Requires both arcane and military infrastructure.
+# Lore: The Collegium produces battle mages who channel destructive energy
+# on the battlefield, giving Verne's armies a unique arcane edge.
+
+has_reform = verne_battle_mage_collegium_reform
+province_id = 288  # Heartspier must have university
+has_building = university
+
+# Effects:
+add_country_modifier = { name = verne_battle_mage_collegium duration = -1 }
+add_country_modifier = { name = verne_collegium_fire_artillery duration = -1 }
+add_country_modifier = { name = verne_collegium_fire_army duration = -1 }
+set_country_flag = verne_battle_mage_collegium_unlocked
+country_event = { id = verne.200 }  # event chain start
+
+# Permanent modifiers:
+# verne_battle_mage_collegium: +5% morale of armies
+# verne_collegium_fire_artillery: +1 artillery fire
+# verne_collegium_fire_army: +1 land fire pip
+
+# --- New modifiers ---
+# verne_red_court_advisory: +1 advisor pool, +0.1 reform progress (permanent)
+# verne_dragonwake_profession: +0.5 army professionalism/year (permanent)
+# verne_dragonwake_shock: +1 land shock pip (20 years)
+# verne_war_wizard: War wizard general (Fire 4/Shock 6/Man 3/Siege 2) (20 years)
+# verne_battle_mage_collegium: +5% morale of armies (permanent)
+# verne_collegium_fire_artillery: +1 artillery fire (permanent)
+# verne_collegium_fire_army: +1 land fire pip (permanent)
+
+# --- New localisation ---
+# A33_establish_red_court_title: "Establish the Red Court"
+# A33_establish_red_court_desc: "Found Verne's arcane advisory council to study magical knowledge for statecraft."
+# A33_dragonwake_ordinance_title: "The Dragonwake Ordinance"
+# A33_dragonwake_ordinance_desc: "Formalize Verne's war magic doctrine based on ancient dragon resonance."
+# A33_battle_mage_collegium_title: "The Battle Mage Collegium"
+# A33_battle_mage_collegium_desc: "Establish a permanent institution for training mage-soldiers."
+# verne_red_court_advisory_modifier_desc: "The Red Court enhances Verne's governance through arcane wisdom."
+# verne_dragonwake_profession_modifier_desc: "The Dragonwake Ordinance drives constant improvement in military professionalism."
+# verne_battle_mage_collegium_modifier_desc: "The Battle Mage Collegium gives Verne's armies a devastating arcane edge."

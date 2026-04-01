@@ -1,0 +1,131 @@
+============================================================
+LANE 8 — FAITH & APOSTOLIC EMPIRE
+============================================================
+
+Wrapper: A33_eighth_slot
+Interleaves with: existing faith missions in slot 8
+
+NOTE: Cross-gate on verne_apostolic_court_of_corin_reform (tier 7) is used
+as an alternative path — lane reachable without full reform ladder.
+NOTE: verne_cb_against_heathen_pirates flag is set but actual CB definition
+in common/cb_types/ is a follow-up implementation task.
+NOTE: verne_minor_holy_order modifier granted by event, not directly by mission.
+
+────────────────────────────────────────
+1. A33_corinite_stewardship  (position 1, early)
+────────────────────────────────────────
+
+# Commentary:
+# Verne's embrace of Corinite faith. Requires Corinite religion and the
+# Apostolic Court of Corin reform OR a Corinite missionary advisor. Grants
+# missionary strength and unlocks a holy order founding event.
+# Playstyle: Faith-based expansion. Missionary strength for converting subjects.
+# Risk: Locked to Corinite — no switching back easily.
+# Lore: The Corinite Stewardship formalizes Verne's role as a protector of
+# the Corinite faith, funding missions and holy orders.
+
+religion = corinite
+OR = {
+    has_reform = verne_apostolic_court_of_corin_reform
+    hasAdvisor = corinite_missionary
+}
+
+# Effects:
+add_country_modifier = { name = verne_corinite_stewardship duration = -1 }
+add_missionary_strength = 0.01
+set_country_flag = verne_corinite_founded
+
+# Permanent modifier: verne_corinite_stewardship
+# ── +1 missionary, -33% enforce religion cost
+
+# Event flag: verne_corinite_founded
+# Triggers minor holy order founding event (verne_holy_order.1)
+
+# Required by: A33_pearlescent_concord
+
+────────────────────────────────────────
+2. A33_pearlescent_concord  (position 4, mid)
+────────────────────────────────────────
+
+# Commentary:
+# The Pearlescent Concord — a religious diplomatic agreement. Requires the
+# stewardship mission, full Pearlescent Concord ideas, and either the reform,
+# charter, or 3+ diplo rep. Grants diplo annexation cost reduction and spawns
+# an Apostolic Legate advisor.
+# Playstyle: Religious diplomacy. Converting and integrating subjects.
+# Risk: Requires full idea group commitment. Opportunity cost vs other ideas.
+# Lore: The Concord is a pact between Verne and other Corinite nations,
+# uniting them under a shared religious diplomatic framework.
+
+has_country_flag = verne_corinite_founded
+full_idea_group = verne_doctrine_pearlescent_concord
+OR = {
+    has_reform = verne_apostolic_court_of_corin_reform
+    has_reform = verne_vernissage_charter_reform
+    diplomatic_reputation = 3
+}
+
+# Effects:
+add_country_modifier = { name = verne_pearlescent_concord duration = -1 }
+add_diplo_power = 50
+add_prestige = 10
+
+# Permanent modifier: verne_pearlescent_concord
+# ── -10% diplomatic annexation cost, -5% liberty desire in subjects
+
+# Advisor: Apostolic Legate (diplomat, level 2, 50% cheaper)
+
+# Required by: A33_world_faith_emperor
+
+────────────────────────────────────────
+3. A33_world_faith_emperor  (position 5, late capstone)
+────────────────────────────────────────
+
+# Commentary:
+# Capstone of the Faith lane. Verne becomes the World Faith Emperor —
+# supreme authority over the Corinite religion. Requires the Vernman Court
+# of the World reform, 50+ prestige, and either the Apostolic Court reform
+# or full Pearlescent Concord ideas. Grants innovativeness, leader pool,
+# merchant, and missionary strength. Sets flag for unique CB against
+# heathen pirates.
+# Playstyle: Religious hegemon. You are the faith.
+# Risk: Massive prestige investment. CB still needs actual implementation.
+# Lore: The World Faith Emperor claims spiritual authority over all Corinite
+# believers, combining secular and religious power in one throne.
+
+has_country_flag = verne_corinite_founded
+has_reform = verne_vernman_court_of_the_world_reform
+prestige = 50
+OR = {
+    has_reform = verne_apostolic_court_of_corin_reform
+    full_idea_group = verne_doctrine_pearlescent_concord
+}
+
+# Effects:
+add_country_modifier = { name = verne_world_faith_emperor duration = -1 }
+add_innovativeness = 1
+add_country_modifier = { name = verne_faith_emperor_innovat duration = -1 }
+add_prestige = 15
+set_country_flag = verne_cb_against_heathen_pirates
+
+# Permanent modifiers:
+# verne_world_faith_emperor: +1 free leader pool, +1 merchant
+# verne_faith_emperor_innovat: +0.25 yearly innovativeness, +1% global missionary strength
+
+# --- New modifiers ---
+# verne_corinite_stewardship: +1 missionary, -33% enforce religion cost (permanent)
+# verne_pearlescent_concord: -10% diplo-annex cost, -5% liberty desire (permanent)
+# verne_world_faith_emperor: +1 free leader, +1 merchant (permanent)
+# verne_faith_emperor_innovat: +0.25 yearly innovativeness, +1% missionary strength (permanent)
+# verne_minor_holy_order: (granted by event, holy order bonuses)
+
+# --- New localisation ---
+# A33_corinite_stewardship_title: "Corinite Stewardship"
+# A33_corinite_stewardship_desc: "Formalize Verne's role as guardian and patron of the Corinite faith."
+# A33_pearlescent_concord_title: "The Pearlescent Concord"
+# A33_pearlescent_concord_desc: "Unite Corinite nations under a shared religious diplomatic framework."
+# A33_world_faith_emperor_title: "World Faith Emperor"
+# A33_world_faith_emperor_desc: "Claim supreme spiritual authority over all Corinite believers."
+# verne_corinite_stewardship_modifier_desc: "Verne's stewardship of the Corinite faith grants enhanced missionary capability."
+# verne_pearlescent_concord_modifier_desc: "The Pearlescent Concord binds Corinite nations in mutual support."
+# verne_world_faith_emperor_modifier_desc: "The World Faith Emperor's authority extends Verne's influence through faith."

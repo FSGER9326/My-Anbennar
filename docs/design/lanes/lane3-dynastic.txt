@@ -1,0 +1,105 @@
+============================================================
+LANE 3 — DYNASTIC MACHINE
+============================================================
+
+Wrapper: A33_third_slot
+Interleaves with: existing gnoll/wyvern missions in slot 3
+
+────────────────────────────────────────
+1. A33_enact_dynastic_safeguard  (position 2, early)
+────────────────────────────────────────
+
+# Commentary:
+# Protects Verne's succession from instability. Gated on crisis conditions
+# (no heir or low legitimacy) plus completion of Silver Oaths. Fires an event
+# that establishes the Dynastic Safeguard modifier and sets a flag for the
+# next mission.
+# Playstyle: Crisis management. Only triggers when you're vulnerable.
+# Risk: You're already in trouble when this fires — the modifier helps recover.
+# Lore: The Safeguard was enacted after the Succession Crisis of 1444, ensuring
+# Verne would never again face an unclaimed throne.
+
+OR = { NOT = { has_heir = yes } legitimacy < 70 }
+has_completed_mission = A33_formalize_silver_oaths
+
+# Effects:
+country_event = { id = verne_overhaul_dynasty.1 }
+add_legitimacy = 10
+add_country_modifier = { name = verne_dynastic_safeguard duration = -1 }
+set_country_flag = verne_dynasty_protected
+
+# Permanent modifier: verne_dynastic_safeguard
+# ── +1 yearly legitimacy, -10% chance of random events targeting succession
+
+# Required by: A33_expand_noble_privileges
+
+────────────────────────────────────────
+2. A33_expand_noble_privileges  (position 6, mid)
+────────────────────────────────────────
+
+# Commentary:
+# Deepens Verne's relationship with the nobility. Requires the safeguard flag,
+# nobles influence < 80, and a ducal muster-type estate privilege. Grants
+# nobles loyalty, reduces crown land share, and advances the dynastic variable.
+# Playstyle: Estate management. Balancing noble loyalty vs crown power.
+# Risk: -5% crown land means less absolutism later. Plan accordingly.
+# Lore: The expanded privileges cement the noble houses as partners, not rivals,
+# in Verne's governance.
+
+has_country_flag = verne_dynasty_protected
+NOT = { estate_influence = { estate = estate_nobles influence = 80 } }
+has_estate_privilege = estate_nobles_ducal_muster
+
+# Effects:
+add_estate_loyalty = { estate = estate_nobles loyalty = 10 }
+add_country_modifier = { name = verne_noble_charter duration = 9125 }  # 25 years
+change_estate_land_share = { estate = estate_nobles share = -5 }
+change_variable = { name = verne_dynastic_magic_machine add = 1 }
+
+# Temporary modifier: verne_noble_charter (25 years)
+# ── +5% manpower, +10% nobles loyalty
+
+# Required by: A33_exalted_dynasty_machine
+
+────────────────────────────────────────
+3. A33_exalted_dynasty_machine  (position 9, capstone)
+────────────────────────────────────────
+
+# Commentary:
+# Capstone of the Dynastic lane. Unlocks the Throne of the Wyvern Kings reform
+# and grants massive prestige/legitimacy bonuses. Requires the noble privileges
+# mission, tier 8 reform, high legitimacy, and high prestige.
+# Playstyle: End-game legitimacy build. You ARE the dynasty.
+# Risk: Requires legitimacy ≥ 90 and prestige ≥ 50 — significant investment.
+# Lore: The Exalted Dynasty Machine is a magical apparatus that amplifies the
+# ruling family's aura, making them literally divinely anointed.
+
+has_country_flag = verne_dynasty_protected
+has_reform = verne_throne_of_the_wyvern_kings_reform
+legitimacy = 90
+prestige = 50
+
+# Effects:
+unlock_reform = verne_exalted_dynasty_machine_reform
+add_country_modifier = { name = verne_exalted_dynasty_machine duration = -1 }
+add_prestige = 20
+add_legitimacy = 10
+
+# Permanent modifier: verne_exalted_dynasty_machine
+# ── +2 yearly prestige, +1 yearly legitimacy, +10% institution spread
+
+# --- New modifiers ---
+# verne_dynastic_safeguard: +1 yearly legitimacy, -10% succession events (permanent)
+# verne_noble_charter: +5% manpower, +10% nobles loyalty (25 years)
+# verne_exalted_dynasty_machine: +2 prestige/year, +1 legitimacy/year, +10% inst. spread (permanent)
+
+# --- New localisation ---
+# A33_enact_dynastic_safeguard_title: "Enact the Dynastic Safeguard"
+# A33_enact_dynastic_safeguard_desc: "Establish legal protections for Verne's succession to prevent future crises."
+# A33_expand_noble_privileges_title: "Expand Noble Privileges"
+# A33_expand_noble_privileges_desc: "Grant expanded privileges to Verne's noble houses in exchange for their unwavering loyalty."
+# A33_exalted_dynasty_machine_title: "The Exalted Dynasty Machine"
+# A33_exalted_dynasty_machine_desc: "Activate the ancient magical apparatus that elevates Verne's ruling dynasty to divine status."
+# verne_dynastic_safeguard_modifier_desc: "The Dynastic Safeguard ensures stable succession in Verne."
+# verne_noble_charter_modifier_desc: "The Noble Charter binds the aristocracy to the crown through shared interests."
+# verne_exalted_dynasty_machine_modifier_desc: "The Exalted Dynasty Machine amplifies the ruling family's legitimacy through arcane means."

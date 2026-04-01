@@ -1,6 +1,6 @@
 # Verne Overhaul QA Standards Tracker
 
-**Last updated:** 2026-04-01 07:00 CET (S05 typos fixed)
+**Last updated:** 2026-04-01 11:38 CET (Lane design doc tooltip review complete)
 
 ## Standards Definitions
 
@@ -35,6 +35,24 @@
 | **verne_overhaul_liliac_events.txt** | ✅ | n/a | n/a | ✅ | ✅ | n/a | n/a | ⚠️ |
 
 **Legend:** ✅ Full pass | ⚠️ Partial pass | ❌ Fail | n/a Not applicable
+
+---
+
+## Compliance Matrix — Lane Design Docs (2026-04-01 scan)
+
+| File | S01 | S02 | S03 | S04 | S05 | Issues |
+|------|-----|-----|-----|-----|-----|--------|
+| lane0-redesign-existing | ✅ | ✅ | ✅ | ✅ | ✅ | 0 |
+| lane1-court | ❌ | ✅ | ✅ | ✅ | ✅ | 2 |
+| lane2-maritime | ✅ | ✅ | ✅ | ✅ | ✅ | 0 |
+| lane3-dynastic | ❌ | ✅ | ✅ | ✅ | ✅ | 1 |
+| lane4-trade | ✅ | ❌ | ✅ | ✅ | ❌ | 4 |
+| lane5-redcourt | ❌ | ✅ | ❌ | ✅ | ❌ | 5 |
+| lane6-legitimacy | ✅ | ✅ | ✅ | ✅ | ✅ | 0 |
+| lane8-faith | ❌ | ✅ | ❌ | ❌ | ✅ | 5 |
+| **Totals** | **4 fail** | **1 fail** | **2 fail** | **1 fail** | **2 fail** | **17** |
+
+**Note:** These are DESIGN DOC issues (what needs to be implemented), not implementation bugs. The existing codebase S02 pass stands — the S02 failure is in lane4 design which hasn't been implemented yet.
 
 ---
 
@@ -209,15 +227,20 @@ All missions that change hidden variables (`verne_world_network`, `verne_oversea
 
 ### ~~Critical (Fix Soon)~~ ✅ Resolved
 1. ~~**S02 — Variable tracking in tooltips** (15+ missions): Create shared tooltip template for `verne_world_network` and `verne_overseas_projection` gains. This is the single biggest compliance gap.~~ **Fixed 2026-04-01.** All 22+ variable change sites now have `custom_tooltip`. Only `A33_expedition_supply_chain` was actually missing — the rest had been added in prior sessions.
+   - **NEW:** Lane 4 design doc has 3 S02 violations (missions not yet implemented). Must add tooltips when implementing.
 
 ### High Priority
 2. **S03 — Liliac War flag-gated missions** (4 missions): Add `custom_trigger_tooltip` for `verne_liliac_diplomacy_path_open`, `verne_liliac_war_vengeful`, and reform gates.
-3. ~~**S06 — Missing _desc for `verne_trade_company_conversion_modifier` and `verne_indebted_to_the_mages_small`**~~ **Fixed 2026-04-01.** Both modifiers now have `_desc` keys in `Flavour_Verne_A33_l_english.yml`.
+3. **S03 — Lane design prerequisites** (5 issues): lane5-redcourt (3) and lane8-faith (2) missions have prerequisites not explained in tooltips. See `docs/tooltip-compliance-report.md`.
+4. ~~**S06 — Missing _desc for `verne_trade_company_conversion_modifier` and `verne_indebted_to_the_mages_small`**~~ **Fixed 2026-04-01.** Both modifiers now have `_desc` keys in `Flavour_Verne_A33_l_english.yml`.
 
 ### Medium Priority
-4. **S05 — Typo batch fix**: "Alternativerly" (×4), "Synchretism" (×2), "Surpluss" (×1), "fullfilled" (×3), "ows" (×1), "Additionaly" (×1), "Estabilishing" (×1), double period (×1), "production of Empire" (×1).
-5. **S01 — Expansion mission tooltips**: Add custom tooltips to expansion missions showing numeric rewards (consistent with original missions).
+5. **S01 — Modifier descriptions missing numbers** (6 issues in lane design docs): `verne_silver_oaths`, `verne_corinite_stewardship`, `verne_world_faith_emperor`, `verne_court_of_oaths`, `verne_noble_charter`, `verne_battle_mage_collegium` use vague language instead of specific values in `_modifier_desc`.
+6. **S05 — Typo batch fix**: "Alternativerly" (×4), "Synchretism" (×2), "Surpluss" (×1), "fullfilled" (×3), "ows" (×1), "Additionaly" (×1), "Estabilishing" (×1), double period (×1), "production of Empire" (×1).
+7. **S01 — Expansion mission tooltips**: Add custom tooltips to expansion missions showing numeric rewards (consistent with original missions).
 
 ### Low Priority
-6. **S08 — Tone consistency**: Consider reworking Liliac War and expansion mission descriptions to match the in-character pub-tavern voice of the originals.
-7. **S03 — Year gate tooltip**: Add explanation for `is_year = 1485` check in `A33_recount_liliac_defeat`.
+8. **S04 — Reform name inconsistency**: `verne_vernissage_charter_reform` vs `verne_charter_of_the_vernissage_reform` — verify correct ID in codebase.
+9. **S05 — Debug modifier**: `verne_overseas_projection_add_1` in lane4 needs localisation or removal.
+10. **S08 — Tone consistency**: Consider reworking Liliac War and expansion mission descriptions to match the in-character pub-tavern voice of the originals.
+11. **S03 — Year gate tooltip**: Add explanation for `is_year = 1485` check in `A33_recount_liliac_defeat`.

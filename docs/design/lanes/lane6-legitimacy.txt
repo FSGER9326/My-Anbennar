@@ -1,0 +1,113 @@
+============================================================
+LANE 6 — LEGITIMACY & RECOGNITION
+============================================================
+
+Wrapper: A33_sixth_slot
+Interleaves with: existing missions in slot 6
+NOTE: Lane 6 subagent did not complete. Designed from scratch based on
+Verne's legitimacy mechanics, existing reform names, and cross-lane context.
+
+────────────────────────────────────────
+1. A33_entrench_royal_census  (position 2, early)
+────────────────────────────────────────
+
+# Commentary:
+# The Royal Census — counting Verne's population to establish legal
+# legitimacy through documented rule. Requires a certain development
+# threshold and at least one owned province with a town hall. Establishes
+# the census mechanic that feeds into later legitimacy missions.
+# Playstyle: Internal development. Build up your provinces.
+# Risk: Low. Standard building investment.
+# Lore: In Verne, legitimacy comes from the Silver Oaths AND from documented
+# governance — the Census proves you rule over real people, not just paper claims.
+
+total_development = 50
+any_owned_province = { has_building = town_hall }
+
+# Effects:
+add_country_modifier = { name = verne_royal_census duration = -1 }
+add_legitimacy = 15
+add_adm_power = 25
+set_country_flag = verne_census_established
+
+# Permanent modifier: verne_royal_census
+# ── +0.1 reform progress growth, +5% tax efficiency
+
+# Required by: A33_secure_academic_endowments
+
+────────────────────────────────────────
+2. A33_secure_academic_endowments  (position 4, mid)
+────────────────────────────────────────
+
+# Commentary:
+# Verne's legitimacy rests on intellectual legitimacy as much as military
+# power. This mission funds universities and academies, establishing a
+# network of academic endowments that enhance Verne's institutional
+# authority. Requires the census flag and multiple universities.
+# Playstyle: Institution-focused. You're building an educated state.
+# Risk: University spam is expensive. Competes with military spending.
+# Lore: The Academic Endowments were established by the Red Court to ensure
+# that Verne's mages and scholars had permanent, state-funded positions.
+
+has_country_flag = verne_census_established
+num_of_owned_provinces = { has_building = university value = 3 }
+
+# Effects:
+add_country_modifier = { name = verne_academic_endowments duration = -1 }
+add_innovativeness = 1
+add_splendor = 10
+set_country_flag = verne_endowments_established
+
+# Permanent modifier: verne_academic_endowments
+# ── +10% institution spread, +5% research efficiency, +0.1 yearly innovativeness
+
+# Required by: A33_stamp_of_sovereign_legitimacy
+
+────────────────────────────────────────
+3. A33_stamp_of_sovereign_legitimacy  (position 7, late)
+────────────────────────────────────────
+
+# Commentary:
+# The Seal of Sovereign Legitimacy — a magical sigil that represents Verne's
+# absolute right to rule. Requires the endowments flag, legitimacy ≥ 80, and
+# either the Crown of the Oathkeeper (tier 8, from Court lane) or the Throne
+# of the Wyvern Kings (tier 8, from Dynastic lane). This is a cross-lane
+# capstone that requires completion of EITHER the Court or Dynastic lane.
+# Playstyle: The ultimate legitimacy flex. You've earned it.
+# Risk: Requires late-game reform AND high legitimacy. Long investment.
+# Lore: The Seal is forged from the combined authority of Verne's institutions —
+# the Court's oaths, the Dynasty's bloodline, and the Census's documentation.
+
+OR = {
+    has_reform = verne_crown_of_the_oathkeeper_reform
+    has_reform = verne_throne_of_the_wyvern_kings_reform
+}
+legitimacy = 80
+has_country_flag = verne_endowments_established
+
+# Effects:
+add_country_modifier = { name = verne_sovereign_legitimacy duration = -1 }
+add_legitimacy = 20
+add_prestige = 20
+add_stability = 1
+set_country_flag = verne_legitimacy_stamp
+
+# Permanent modifier: verne_sovereign_legitimacy
+# ── +1 yearly legitimacy, +1 yearly prestige, -15% stability cost,
+#    +10% institution spread, +1 diplomatic reputation
+
+# --- New modifiers ---
+# verne_royal_census: +0.1 reform progress growth, +5% tax efficiency (permanent)
+# verne_academic_endowments: +10% institution spread, +5% research efficiency, +0.1 innovativeness (permanent)
+# verne_sovereign_legitimacy: +1 legitimacy/year, +1 prestige/year, -15% stab cost, +10% inst spread, +1 dip rep (permanent)
+
+# --- New localisation ---
+# A33_entrench_royal_census_title: "Entrench the Royal Census"
+# A33_entrench_royal_census_desc: "Establish a permanent census to document and legitimize Verne's rule over its population."
+# A33_secure_academic_endowments_title: "Secure Academic Endowments"
+# A33_secure_academic_endowments_desc: "Fund a network of universities and academies to cement Verne's institutional authority."
+# A33_stamp_of_sovereign_legitimacy_title: "The Stamp of Sovereign Legitimacy"
+# A33_stamp_of_sovereign_legitimacy_desc: "Forge the Seal of Sovereign Legitimacy — the ultimate symbol of Verne's divinely sanctioned right to rule."
+# verne_royal_census_modifier_desc: "The Royal Census ensures accurate documentation of Verne's subjects and territories."
+# verne_academic_endowments_modifier_desc: "Academic Endowments fund the brightest minds in Verne's service."
+# verne_sovereign_legitimacy_modifier_desc: "The Stamp of Sovereign Legitimacy represents the convergence of Verne's institutional authority."

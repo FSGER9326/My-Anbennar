@@ -1,0 +1,254 @@
+{
+  "tasks": [
+    {
+      "id": "task-001",
+      "title": "Write modifier definitions file",
+      "description": "Create verne_overhaul_modifiers.txt with all modifier definitions for lanes 1-8",
+      "status": "backlog",
+      "priority": 1,
+      "assignee": "jordan",
+      "tags": [
+        "modding",
+        "modifiers"
+      ],
+      "createdAt": "2026-03-31T22:00:00+02:00",
+      "updatedAt": "2026-03-31T22:00:00+02:00"
+    },
+    {
+      "id": "task-002",
+      "title": "Write localisation skeleton file",
+      "description": "Create base localisation file for all Verne overhaul content",
+      "status": "backlog",
+      "priority": 1,
+      "assignee": "jordan",
+      "tags": [
+        "modding",
+        "localisation"
+      ],
+      "createdAt": "2026-03-31T22:00:00+02:00",
+      "updatedAt": "2026-03-31T22:00:00+02:00"
+    },
+    {
+      "id": "task-003",
+      "title": "Run full QA compliance scan",
+      "description": "Scan all 8 lane design files against 8 standards (S01-S08)",
+      "status": "backlog",
+      "priority": 2,
+      "assignee": "subagent-qa",
+      "tags": [
+        "modding",
+        "qa"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-004",
+      "title": "Generate remaining 11 GFX assets",
+      "description": "Use ChatGPT DALL-E to create mission icon art for remaining slots",
+      "status": "backlog",
+      "priority": 2,
+      "assignee": "jordan",
+      "tags": [
+        "art",
+        "gfx"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-005",
+      "title": "Verify government reform references",
+      "description": "Check all reform IDs in design docs exist in common/government_reforms/",
+      "status": "backlog",
+      "priority": 2,
+      "assignee": "subagent-audit",
+      "tags": [
+        "modding",
+        "audit"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-006",
+      "title": "Scan wiki pages (decisions, scripting)",
+      "description": "Scrape EU4 wiki for decisions and scripting tutorial pages",
+      "status": "backlog",
+      "priority": 3,
+      "assignee": "subagent-wiki",
+      "tags": [
+        "research",
+        "wiki"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-007",
+      "title": "Research mod inspiration sources",
+      "description": "Check Paradox forums, Steam Workshop for Verne-like mods",
+      "status": "backlog",
+      "priority": 3,
+      "assignee": "subagent-inspire",
+      "tags": [
+        "research"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-008",
+      "title": "Consolidate learnings into MEMORY.md",
+      "description": "Promote important .learnings/ entries to MEMORY.md",
+      "status": "backlog",
+      "priority": 3,
+      "assignee": "jordan",
+      "tags": [
+        "memory",
+        "cleanup"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-009",
+      "title": "Check Anbennar upstream sync",
+      "description": "Check for new commits since last sync on Anbennar main repo",
+      "status": "backlog",
+      "priority": 3,
+      "assignee": "subagent-sync",
+      "tags": [
+        "sync",
+        "upstream"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-010",
+      "title": "Upload art pack to ChatGPT Verne project",
+      "description": "Upload reference files to ChatGPT VerneArtPack project",
+      "status": "backlog",
+      "priority": 4,
+      "assignee": "jordan",
+      "tags": [
+        "art",
+        "chatgpt"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-011",
+      "title": "Review tooltip compliance (S01-S05)",
+      "description": "Check all design docs for tooltip standards compliance",
+      "status": "in-progress",
+      "priority": 4,
+      "assignee": "jordan",
+      "tags": [
+        "qa",
+        "docs"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-03-31T23:29:28.956Z"
+    },
+    {
+      "id": "task-012",
+      "title": "Update roadmap with current status",
+      "description": "Refresh verne-roadmap.md with latest implementation state",
+      "status": "backlog",
+      "priority": 4,
+      "assignee": "jordan",
+      "tags": [
+        "docs"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-013",
+      "title": "Run autonomous skill creator scan",
+      "description": "Scan conversation history for repeated patterns, create new skills",
+      "status": "backlog",
+      "priority": 5,
+      "assignee": "jordan",
+      "tags": [
+        "self-improvement",
+        "skills"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-014",
+      "title": "Review Trial Log patterns",
+      "description": "Consolidate learnings from subagent-patterns.md trial log",
+      "status": "backlog",
+      "priority": 5,
+      "assignee": "jordan",
+      "tags": [
+        "self-improvement"
+      ],
+      "createdAt": "2026-04-01T00:50:00+02:00",
+      "updatedAt": "2026-04-01T00:50:00+02:00"
+    },
+    {
+      "id": "task-015",
+      "title": "Fix verne_mission_start flag",
+      "description": "Add missing mission start flag to lane1",
+      "status": "done",
+      "priority": 1,
+      "assignee": "subagent-bg",
+      "tags": [
+        "modding",
+        "bugfix"
+      ],
+      "createdAt": "2026-03-31T21:00:00+02:00",
+      "updatedAt": "2026-03-31T21:02:00+02:00"
+    },
+    {
+      "id": "task-016",
+      "title": "Fix reform name typos (2 fixes)",
+      "description": "Corrected typos in reform names across lane1 files",
+      "status": "done",
+      "priority": 1,
+      "assignee": "subagent-bg",
+      "tags": [
+        "modding",
+        "bugfix"
+      ],
+      "createdAt": "2026-03-31T21:00:00+02:00",
+      "updatedAt": "2026-03-31T21:03:00+02:00"
+    },
+    {
+      "id": "task-017",
+      "title": "Remap 5 conflicting positions (Lanes 1, 4)",
+      "description": "Fixed position number conflicts in mission definitions",
+      "status": "done",
+      "priority": 1,
+      "assignee": "subagent-bg",
+      "tags": [
+        "modding",
+        "bugfix"
+      ],
+      "createdAt": "2026-03-31T21:00:00+02:00",
+      "updatedAt": "2026-03-31T21:05:00+02:00"
+    },
+    {
+      "id": "task-018",
+      "title": "Remap 6 position conflicts (Lanes 3, 5, 8)",
+      "description": "Second pass of position conflict fixes",
+      "status": "done",
+      "priority": 1,
+      "assignee": "subagent-bg",
+      "tags": [
+        "modding",
+        "bugfix"
+      ],
+      "createdAt": "2026-03-31T21:30:00+02:00",
+      "updatedAt": "2026-03-31T21:35:00+02:00"
+    }
+  ],
+  "lastId": 18
+}

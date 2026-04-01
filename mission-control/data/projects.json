@@ -1,0 +1,63 @@
+{
+  "projects": [
+    {
+      "id": "proj-verne",
+      "name": "Verne Overhaul",
+      "description": "Complete Verne mission overhaul for Anbennar EU4 mod",
+      "status": "active",
+      "progress": 35,
+      "color": "#8b5cf6",
+      "lastUpdated": "2026-04-01T00:50:00+02:00",
+      "milestones": [
+        { "name": "Design docs written", "done": true },
+        { "name": "Critical fixes applied", "done": true },
+        { "name": "Modifier definitions", "done": false },
+        { "name": "Localisation skeleton", "done": false },
+        { "name": "Lane 1 implementation", "done": false },
+        { "name": "QA compliance scan", "done": false }
+      ],
+      "tasks": ["task-001", "task-002", "task-003", "task-004", "task-005", "task-006"],
+      "planningNotes": [
+        "Start with Lane 1 (Court & Oaths) as foundation",
+        "All other lanes depend on Lane 1 flags",
+        "Modifier definitions must come before implementation"
+      ]
+    },
+    {
+      "id": "proj-mission-control",
+      "name": "Mission Control",
+      "description": "Self-hosted mission control dashboard for Verne modding workflow",
+      "status": "active",
+      "progress": 60,
+      "color": "#3b82f6",
+      "lastUpdated": "2026-04-01T01:17:00+02:00",
+      "milestones": [
+        { "name": "Project scaffolded", "done": true },
+        { "name": "Kanban board", "done": true },
+        { "name": "Calendar view", "done": true },
+        { "name": "Projects page", "done": false },
+        { "name": "Planning mode", "done": false }
+      ],
+      "tasks": [],
+      "planningNotes": []
+    },
+    {
+      "id": "proj-self-enhance",
+      "name": "Self-Enhancement System",
+      "description": "Autonomous skill creation, memory indexing, subagent learning loops",
+      "status": "active",
+      "progress": 80,
+      "color": "#10b981",
+      "lastUpdated": "2026-04-01T00:58:00+02:00",
+      "milestones": [
+        { "name": "Subagent learning system", "done": true },
+        { "name": "Memory layered indexing", "done": true },
+        { "name": "Background worker", "done": true },
+        { "name": "Skill creator integration", "done": true },
+        { "name": "Autonomous skill creation", "done": false }
+      ],
+      "tasks": [],
+      "planningNotes": []
+    }
+  ]
+}
