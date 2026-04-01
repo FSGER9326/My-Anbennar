@@ -2,7 +2,12 @@
 # Spread across slots 3-5 — Corinite stewardship, religious expansion,
 # HRE faith lock, and world faith emperor capstone.
 # Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
-# Status: PARTIALLY IMPLEMENTED — 6 missions across 3 slots
+# Status: PARTIALLY IMPLEMENTED — 6 missions across 3 slots + 3 design goals
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
 
 # ===============================================
 # Lane 8 - Faith & Apostolic Empire (positions across slots, early→late)
@@ -24,7 +29,7 @@
 
 # --- Actual missions implemented ---
 
-# A33_corins_shield (pos 6, slot 3)
+# A33_corins_shield (pos 6, slot 3) [IMPLEMENTED]
 # Requires: none (standalone)
 # Trigger: Religion corinite, is defender of faith
 # Effect: Converts vernman provinces to corinite (50% chance), stability, inquisitor advisor
@@ -32,7 +37,7 @@
 # the defender of the faith. The 50% conversion chance on vernman provinces
 # is a powerful early-game religious consolidation tool.
 
-# A33_spread_the_word (pos 7, slot 3)
+# A33_spread_the_word (pos 7, slot 3) [IMPLEMENTED]
 # Requires: A33_corins_shield
 # Trigger: DIP 200, religious unity 0.90, stability 2, province 43 (corinite),
 #          provinces 380/367 owned by corinite or trusted allies/subjects
@@ -41,7 +46,7 @@
 # unity and external Corinite allies, pushing Verne to actively spread the faith
 # beyond its borders through diplomacy or conversion events.
 
-# A33_in_the_name_corin (pos 8, slot 3)
+# A33_in_the_name_corin (pos 8, slot 3) [IMPLEMENTED]
 # Requires: A33_the_lands_of_adventure (Lane 2), A33_spread_the_word
 # Trigger: 3 colonial nations with 10 provinces each, theologian/inquisitor 4,
 #          H67 opinion 100 (or not exist), province 6559 (corinite, dev 25, shipyard, manpower)
@@ -53,7 +58,7 @@
 # weaves Corinite practice into it. The Port of Adventure at 6559 ties faith
 # expansion to the adventure network.
 
-# A33_the_holy_corinite_empire (pos 12, slot 4)
+# A33_the_holy_corinite_empire (pos 12, slot 4) [IMPLEMENTED]
 # Requires: A33_the_vernman_era (Lane 3 convergence)
 # Trigger: Legitimacy 90, power projection 75, prestige 90, all HRE nations corinite
 #          with reform passed, OR is Z01
@@ -64,7 +69,7 @@
 # trade power bonus make Verne a religious-economic hegemon. The color change
 # (to crimson) is a visual statement of faith dominance.
 
-# A33_a_crimson_sea (pos 9, slot 5)
+# A33_a_crimson_sea (pos 9, slot 5) [IMPLEMENTED]
 # Requires: A33_united_under_crimson_wings (Lane 4)
 # Trigger: Akasik region all subject-held, corinite religion, accepted Akasi cultures,
 #          treasury 500, CoT level 2 in 402/400/382
@@ -74,7 +79,7 @@
 # Corinite trade networks. Shared with Lane 5 (Trade) — the CoT requirements
 # ensure this is as much about commerce as faith.
 
-# A33_religious_mercantilism (pos 10, slot 5)
+# A33_religious_mercantilism (pos 10, slot 5) [IMPLEMENTED]
 # Requires: A33_a_crimson_sea
 # Trigger: 16 merchants, 50 heavy ships, 150 light ships
 # Effect: Enables propagate religion in trade companies, verne_trade_company_conversion,
@@ -91,26 +96,39 @@
 # - A33_religious_mercantilism is shared with Lane 5 (Trade) — gates Lane 3 convergence
 
 # --- Reform connection ---
-# verne_apostolic_court_of_corin_reform — referenced in old Lane 8 design but NOT in
-# the current codebase reform list. May be aspirational or renamed.
-# verne_knights_of_the_crimson_scale_reform — exists, more relevant to Lane 7 (Military Orders)
-# verne_vernman_court_of_the_world_reform — exists, gates some late triggers
+# verne_apostolic_court_of_corin_reform [IMPLEMENTED] — EXISTS in verne_overhaul_reforms.txt
+#   (despite old design doc claiming otherwise — verified in codebase)
+# verne_knights_of_the_crimson_scale_reform [IMPLEMENTED] — exists, more relevant to Lane 7 (Military Orders)
+# verne_vernman_court_of_the_world_reform [IMPLEMENTED] — exists, gates some late triggers
 
-# --- New modifiers (referenced) ---
+# --- New modifiers (referenced) [IMPLEMENTED] — all exist in verne_overhaul_modifiers.txt ---
 #
-# verne_corinite_syncretism          (permanent) — oren_nayiru provinces in Taychend
-# verne_corinite_halann              (permanent) — +2 missionaries, +2% missionary strength
-# verne_imperial_maritime_court      (10yr)      — +2 dip rep, +1 merchant
-# verne_grand_fleet_tier1            (permanent) — +15% naval morale, +10% heavy ship combat
-# verne_trade_company_conversion     (permanent) — converts TC provinces to corinite
+# verne_corinite_syncretism          [IMPLEMENTED] (permanent) — oren_nayiru provinces in Taychend
+# verne_corinite_halann              [IMPLEMENTED] (permanent) — +2 missionaries, +2% missionary strength
+# verne_imperial_maritime_court      [IMPLEMENTED] (10yr)      — +2 dip rep, +1 merchant
+# verne_grand_fleet_tier1            [IMPLEMENTED] (permanent) — +15% naval morale, +10% heavy ship combat
+# verne_trade_company_conversion     [IMPLEMENTED] (permanent) — converts TC provinces to corinite
 
-# --- Potential expansion ---
-# The old Lane 8 design doc described 3 new missions (corinite_stewardship,
-# pearlescent_concord, world_faith_emperor) that are NOT in the codebase.
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# The old Lane 8 design doc described 3 new missions that are NOT in the codebase.
 # These fill positions not covered by existing missions:
-# - A33_corinite_stewardship (new, pos 2) — early faith gate
-# - A33_pearlescent_concord (new, pos 5) — diplomatic faith
-# - A33_world_faith_emperor (new, pos 9+) — faith capstone
+#
+#   [DESIGN GOAL] A33_corinite_stewardship (new, pos 2 slot 3) — early faith gate
+#     → Implementation: Requires A33_old_friends_old_rivals. Trigger: corinite religion,
+#       religious unity 0.80, 5 corinite provinces owned. Effect: verne_corinite_stewardship
+#       (permanent modifier, EXISTS in modifiers), +missionary strength, seeds faith path.
+#
+#   [DESIGN GOAL] A33_pearlescent_concord (new, pos 5 slot 3) — diplomatic faith
+#     → Implementation: Requires A33_corinite_stewardship. Trigger: 3 corinite allies,
+#       dip rep 3, 100 DIP. Effect: verne_pearlescent_concord (permanent modifier, EXISTS),
+#       verne_pearlescent_diplomatic_corps (permanent, EXISTS), +dip rep, +improve relations.
+#
+#   [DESIGN GOAL] A33_world_faith_emperor (new, pos 14 slot 4) — faith capstone
+#     → Implementation: Requires A33_the_holy_corinite_empire. Trigger: Tier 8
+#       verne_the_crimson_world_order_reform active (EXISTS), 3000 corinite provinces,
+#       10 corinite vassals/PUs. Effect: verne_world_faith_emperor (permanent modifier, EXISTS),
+#       verne_faith_emperor_innovat (permanent, EXISTS). Supreme faith capstone.
+#
 # Consider implementing these as slot 3/4 additions to complete the faith lane.
 
 # --- Localisation keys ---

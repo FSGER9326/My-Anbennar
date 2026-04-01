@@ -3,6 +3,11 @@
 # the Halanni world network, and the Project Holohana capstone.
 # Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
 # Status: IMPLEMENTED — all 9 missions present in missions/Verne_Missions.txt
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
 
 # ===============================================
 # Lane 1 - Court & Oaths (Slot 1, early→late)
@@ -87,10 +92,11 @@
 # ultimate mega-project — a world-changing initiative that requires mastery of every system.
 
 # --- New modifiers (referenced from common/event_modifiers/verne_overhaul_modifiers.txt) ---
+# [IMPLEMENTED] — all modifiers below exist in verne_overhaul_modifiers.txt
 #
-# verne_new_armada              — +navy tradition, +naval morale (25yr, from Grand Port)
-# verne_halanni_exposition_bureau — +1 dip rep, +1 merchant, +0.5 prestige (3yr)
-# verne_vernissage_tier1/tier2  — province modifiers on 292 (permanent)
+# verne_new_armada              [IMPLEMENTED] — +navy tradition, +naval morale (25yr, from Grand Port)
+# verne_halanni_exposition_bureau [IMPLEMENTED] — +1 dip rep, +1 merchant, +0.5 prestige (3yr)
+# verne_vernissage_tier1/tier2  [IMPLEMENTED] — province modifiers on 292 (permanent)
 
 # --- Cross-lane dependencies ---
 # - A33_the_grand_port_of_heartspier gates A33_across_the_pond (Lane 2)
@@ -99,13 +105,31 @@
 # - A33_the_halanni_exposition is required by A33_the_vernman_era (Lane 3 convergence)
 # - A33_the_grand_vernissage + A33_all_roads_lead_to_verne gate A33_project_holohana
 
-# --- Potential expansion ---
-# - The design blueprint calls for A33_formalize_silver_oaths, A33_open_marriage_court,
-#   A33_exalted_lineages, and A33_world_court_ascension as Court & Oaths missions.
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# - The design blueprint calls for the following Court & Oaths missions.
 #   These are NOT in the current codebase. The reform ladder (Tier 1-8) serves a similar
 #   purpose through government reforms rather than missions.
-# - Consider adding a "Formalize Silver Oaths" mission as a Lane 1 opener if the
-#   reform-gated Court missions are desired.
+#
+#   [DESIGN GOAL] A33_formalize_silver_oaths — Lane 1 opener
+#     → Implementation: New mission in A33_first_slot. Trigger: corinite religion, Tier 1 reform
+#       verne_court_of_silver_oaths_reform active. Effect: set silver_oaths_formalized flag,
+#       verne_silver_oaths (permanent modifier). Would gate A33_the_vernman_renaissance.
+#
+#   [DESIGN GOAL] A33_open_marriage_court — early Court mission
+#     → Implementation: Requires A33_formalize_silver_oaths. Trigger: 150 DIP, 3 marriages,
+#       stability 1. Effect: verne_marriage_court_protocol (permanent modifier),
+#       royal_marriage_court flag, +dip rep. Would feed into Lane 3 diplomacy.
+#
+#   [DESIGN GOAL] A33_exalted_lineages — mid Court mission
+#     → Implementation: Requires A33_open_marriage_court. Trigger: 3 PU subjects or
+#       dynasty spread to 5+ countries, legitimacy 90. Effect: verne_dynasty_exalted_lineage
+#       (permanent modifier, exists in modifiers file), +legitimacy, +dynasty prestige.
+#
+#   [DESIGN GOAL] A33_world_court_ascension — Court capstone
+#     → Implementation: Requires A33_exalted_lineages, A33_the_halanni_exposition. Trigger:
+#       Tier 7 verne_vernman_court_of_the_world_reform active, dip rep 8, 25 countries
+#       with 150+ opinion. Effect: verne_world_faith_emperor (permanent modifier, exists),
+#       verne_royal_arbitration (permanent, exists). Supreme diplomatic capstone.
 
 # --- Localisation keys ---
 # verne_overhaul_tt_seed_estuary_companies
