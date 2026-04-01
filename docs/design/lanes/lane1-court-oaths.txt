@@ -1,185 +1,115 @@
 # Verne Overhaul - Lane 1: Court & Oaths
-# Slot 1 missions covering the Silver Oaths court identity, marriage court,
-# exalted lineages, and world court ascension.
-# Part of the 10-lane mission tree blueprint.
-
-# This file is a design/planning artifact. Contents are intended to be merged
-# into missions/Verne_Missions.txt under the A33_first_slot = { } wrapper.
-# Slot position references are relative to the first_slot container.
-
-# --- New modifiers ---
-#
-# verne_silver_oaths_formalized
-#   type: country
-#   duration: -1 (permanent, removed on flag clear or mission rework)
-#   effects: +1 yearly_prestige, -0.05 advisor_cost, +0.1 reform_progress_growth
-#   source: A33_formalize_silver_oaths effect block
-#
-# verne_marriage_court_opened
-#   type: country
-#   duration: -1 (permanent, gated by decision availability)
-#   effects: +10% nobles_loyalty_modifier, +0.5 yearly_prestige
-#   source: A33_open_marriage_court effect block
-#
-# verne_exalted_lineages_legacy
-#   type: country
-#   duration: -1 (permanent)
-#   effects: +0.5 heir_adm, +0.5 heir_dip, +0.5 heir_mil (via define_heir averaging),
-#            +10% nobles_loyalty_modifier, +0.25 yearly_prestige
-#   source: A33_exalted_lineages effect block
-#
-# verne_court_hegemon
-#   type: country
-#   duration: -1 (permanent)
-#   effects: +1 diplomats, +0.10 improve_relation_modifier, +0.5 yearly_innovativeness
-#   source: A33_world_court_ascension effect block
-
-# --- New localisation ---
-#
-# verne_A1L1_tt_formalize_silver_oaths: "The Court of Silver Oaths has been formally established. The chancellor enshrines oaths of service, fealty, and reform into the permanent court record."
-# verne_A1L1_tt_open_marriage_court: "The Marriage Court is opened. Dynastic unions are now negotiated under Silver Oath protocol, binding noble houses to the throne."
-# verne_A1L1_tt_exalted_lineages: "The Exalted Lineages are recognized. Heirs of the silver court receive enhanced training, and the great houses swear renewed fealty."
-# verne_A1L1_tt_world_court_ascension: "The Vernman Court of the World stands ascendant. Verne's diplomatic apparatus now operates on a global stage, drawing in innovators and envoys from every continent."
-# verne_silver_oaths_formalized_modifier_desc: "Silver Oaths have been formalized into the court record, providing prestige, cheaper advisors, and faster reform progress."
-# verne_marriage_court_opened_modifier_desc: "The Marriage Court binds noble houses through dynastic protocol, increasing noble loyalty and court prestige."
-# verne_exalted_lineages_legacy_modifier_desc: "The Exalted Lineages invest in heir quality and noble cohesion, producing more capable successors."
-# verne_court_hegemon_modifier_desc: "Verne's court operates on a world stage, attracting diplomats and innovators from across Halann."
+# Slot 1 — Verne's cultural-diplomatic foundation, the Vernissage,
+# the Halanni world network, and the Project Holohana capstone.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: IMPLEMENTED — all 9 missions present in missions/Verne_Missions.txt
 
 # ===============================================
 # Lane 1 - Court & Oaths (Slot 1, early→late)
 # ===============================================
-# Missions are ordered by position within A33_first_slot.
-# Cross-lane dependencies use flags/variables, not required_missions from other slots.
+# Missions in A33_first_slot forming the cultural-diplomatic backbone.
+# The Vernissage system (Port of Adventure network) runs through this lane,
+# establishing Verne as a network state projecting soft power worldwide.
 
-	# Commentary (plain-language): Establishes Verne's early court identity by formalizing the Silver Oaths as permanent court doctrine.
-	# Base vs new: base-patched (reform exists, mission is new)
-	# Playstyle effect: Gives Verne a unique early-game court modifier reinforcing the reform-progress playstyle and advisor meta.
-	# Risk note: modifier key verne_silver_oaths_formalized and flag silver_oaths_formalized must remain stable across patches.
-	# Province context: no provinces — this is a government reform / court identity mission.
-	# Lore-fit note: inferred-from-repo; the Court of Silver Oaths is Verne's foundational governing institution.
-	A33_formalize_silver_oaths = {
-		icon = imperial_diplomacy
-		position = 1
-		required_missions = { }
-		provinces_to_highlight = { }
+# --- Actual missions implemented ---
 
-		trigger = {
-			has_reform = verne_court_of_silver_oaths_reform
-			NOT = { has_country_flag = silver_oaths_formalized }
-		}
+# A33_the_vernman_renaissance (pos 2)
+# Trigger: Corinite religion, renaissance embraced, 3 advisors or culturally diverse advisors
+# Effect: Institution spread to Heartspier + Calasandur, splendor, potential general (Alvar IV)
+# Modifier: escanni_center_of_learning (province, 25yr)
+# Commentary: Opens the Verne playthrough by requiring cultural-religious modernization.
+# This is the founding mission of the entire tree — no required_missions.
 
-		effect = {
-			set_country_flag = silver_oaths_formalized
-			custom_tooltip = verne_A1L1_tt_formalize_silver_oaths
-			add_country_modifier = {
-				name = verne_silver_oaths_formalized
-				duration = -1
-			}
-		}
-	}
+# A33_the_grand_port_of_heartspier (pos 3)
+# Requires: A33_the_riches_of_the_khenak, A33_the_vernman_renaissance
+# Trigger: Heartspier (288) dev 25, base production 7, trade building, CoT level 2, expanded infra
+#           Moorhalls (376) CoT level 2
+# Effect: Creates Ports of Adventure at 288 and 376, seeds estuary companies path,
+#         advances overseas_projection, grants verne_new_armada (25yr) + wyvern gulf (20yr, Alvar IV)
+# Commentary: The first real sea-state mission. Establishes the maritime infrastructure
+# that feeds both the Vernissage system and the Adventure Network.
 
-	# Commentary (plain-language): Opens the Marriage Court system, tying into dynasty safeguard events and noble house binding.
-	# Base vs new: new (marriage court decision integration)
-	# Playstyle effect: Encourages dynastic play and estate management; nobles become a key loyalty vector for court missions.
-	# Risk note: depends on dynasty safeguard event system (verne_overhaul_dynasty_machine_started trigger). Keep flag verne_marriage_court_active stable.
-	# Province context: no provinces — decision/court event driven.
-	# Lore-fit note: inferred-from-repo; the Marriage Court is a Silver Oaths sub-institution for dynastic diplomacy.
-	A33_open_marriage_court = {
-		icon = royal_marriage
-		position = 2
-		required_missions = { A33_formalize_silver_oaths }
-		provinces_to_highlight = { }
+# A33_the_vernissage (pos 6)
+# Requires: A33_the_grand_port_of_heartspier
+# Trigger: Province 292 (Vernissage) expanded infra x2 or dev 30, marketplace, edict,
+#          level 3 artist or level 4 ADM advisor, 1000 treasury, 200 DIP, 3 adventures completed
+# Effect: Advances world_network, fires advisor event + verne.105 delayed event
+# Commentary: The Vernissage is Verne's unique cultural institution — a university-museum-hotel
+# that draws international visitors. This mission establishes it as a network node.
 
-		trigger = {
-			has_country_flag = silver_oaths_formalized
-			NOT = { has_country_flag = verne_marriage_court_event_active }
-		}
+# A33_expand_the_Vernissage (pos 8)
+# Requires: A33_the_lands_of_adventure
+# Trigger: Province 292 dev 40, edict, level 3 advisors in all categories, 3000 treasury,
+#          5 adventures completed
+# Effect: Advances world_network, upgrades to verne_vernissage_tier2 (permanent),
+#         conditional bonuses from infrastructure/economic/admin ideas
+# Commentary: Deepens the Vernissage into a mature institution. The idea-group conditional
+# bonuses reward players who invested in the right idea groups alongside the Vernissage.
 
-		effect = {
-			set_country_flag = verne_marriage_court_active
-			custom_tooltip = verne_A1L1_tt_open_marriage_court
-			add_country_modifier = {
-				name = verne_marriage_court_opened
-				duration = -1
-			}
-			add_estate_loyalty = {
-				estate = estate_nobles
-				loyalty = 10
-			}
-			add_prestige = 15
-		}
-	}
+# A33_zenith_of_the_eastern_princes (pos 9)
+# Requires: A33_expand_the_Vernissage
+# Trigger: Province 4963 (Taychend hub) fully built up (manpower, fort, forcelimit, shipyard,
+#          infra x2 or dev 30, most trade power), 10 provinces in lupulan_rainforest_region
+# Effect: Fires verne.110 event
+# Commentary: Verne's eastern colonial capstone — consolidating the Lupulan Rainforest
+# and establishing a dominant trade hub in Taychend.
 
-	# Commentary (plain-language): Formalizes the great noble houses as Exalted Lineages, boosting heir quality and estate cohesion.
-	# Base vs new: new (heir quality + dynasty safeguard integration)
-	# Playstyle effect: Provides a mid-game heir-stat boost and deepens the nobles estate loop. Synergizes with dynasty safeguard events.
-	# Risk note: define_heir approach must be tested for interaction with dynasty safeguard scripted effects. Keep modifier key stable.
-	# Province context: no provinces — heir/estate/flag driven.
-	# Lore-fit note: inferred-from-repo; the Exalted Lineages are the tier-2 noble institution under the Silver Oaths hierarchy.
-	A33_exalted_lineages = {
-		icon = strengthen_aristocracy
-		position = 4
-		required_missions = { A33_open_marriage_court }
-		provinces_to_highlight = { }
+# A33_the_halanni_exposition (pos 10)
+# Requires: A33_zenith_of_the_eastern_princes
+# Trigger: Province 292 dev 50, prosperous, edict, level 5 advisors all categories,
+#          3000 treasury, 200 DIP, dip rep 6, 20 countries with 100+ opinion, 8 adventures
+# Effect: Fires verne.111, grants verne_halanni_exposition_bureau (3yr), advisor event,
+#         conditional bonuses from diplomatic/influence/court ideas
+# Commentary: The Halanni Exposition is Verne's world's fair — a global cultural event
+# that cements Verne as the world's premier network state.
 
-		trigger = {
-			has_reform = verne_charter_of_great_captains_reform
-			has_country_flag = verne_marriage_court_active
-		}
+# A33_the_heart_of_darkness (pos 11)
+# Requires: A33_the_halanni_exposition
+# Trigger: Province 2219 has Port of Adventure + 40 units present, 40 provinces in effelai_superregion
+# Effect: Fires verne.1004
+# Commentary: Verne's deepest overseas reach — the Effelai Heart expedition.
+# A late-game colonial capstone requiring massive military commitment.
 
-		effect = {
-			custom_tooltip = verne_A1L1_tt_exalted_lineages
-			# Heir quality boost: +1 average to all stats via define_heir with enhanced=True
-			# This interacts with the dynasty safeguard system — if the safeguard fires,
-			# the new heir also benefits from this modifier.
-			define_heir = {
-				adm = 3
-				dip = 3
-				mil = 3
-				age = 15
-				claim = 90
-				dynasty = ROOT
-			}
-			add_country_modifier = {
-				name = verne_exalted_lineages_legacy
-				duration = -1
-			}
-			add_estate_loyalty = {
-				estate = estate_nobles
-				loyalty = 10
-			}
-			add_prestige = 10
-			# Dynasty safeguard integration: set flag so the safeguard system knows
-			# the Exalted Lineages are active and can apply enhanced heir generation.
-			set_country_flag = verne_exalted_lineages_active
-		}
-	}
+# A33_the_grand_vernissage (pos 12)
+# Requires: A33_the_heart_of_darkness
+# Trigger: Province 292 infra x4 or dev 60, 40 cavalry in province, level 5 advisors all,
+#          10000 treasury, 10 adventures completed
+# Effect: Fires verne.112, advisor event, scaled rewards based on Vernissage relic collection
+#         (15 relics, each adding ADM/DIP/MIL power, prestige, splendor, innovativeness)
+# Commentary: The Vernissage Grand Opening is the ultimate cultural achievement.
+# The relic-collection scaling makes this one of the most rewarding missions in the tree.
 
-	# Commentary (plain-language): The capstone of the Court & Oaths lane — Verne's court becomes a world institution, attracting global talent.
-	# Base vs new: new (world court capstone)
-	# Playstyle effect: Diplomatic power spike in the late game. Synergizes with Vernissage, maritime, and political lanes via improve_relations and innovativeness.
-	# Risk note: modifier verne_court_hegemon stacks with tier 7 reform bonuses — intentional but monitor for overpowered diplomatic output.
-	# Province context: no provinces — global court modifier.
-	# Lore-fit note: inferred-from-repo; the Vernman Court of the World is Verne's endgame diplomatic institution.
-	A33_world_court_ascension = {
-		icon = the_vienna_congress
-		position = 8
-		required_missions = { A33_exalted_lineages }
-		provinces_to_highlight = { }
+# A33_project_holohana (pos 14)
+# Requires: A33_the_grand_vernissage, A33_all_roads_lead_to_verne
+# Trigger: 300 ADM/DIP/MIL, mage tower in 292, 30000 treasury, 13 adventures completed
+# Effect: Fires verne.128
+# Commentary: The final capstone of the Court & Oaths lane. Project Holohana is Verne's
+# ultimate mega-project — a world-changing initiative that requires mastery of every system.
 
-		trigger = {
-			has_reform = verne_vernman_court_of_the_world_reform
-			# Mid mission must be completed (exalted lineages flag serves as proxy)
-			has_country_flag = verne_exalted_lineages_active
-		}
+# --- New modifiers (referenced from common/event_modifiers/verne_overhaul_modifiers.txt) ---
+#
+# verne_new_armada              — +navy tradition, +naval morale (25yr, from Grand Port)
+# verne_halanni_exposition_bureau — +1 dip rep, +1 merchant, +0.5 prestige (3yr)
+# verne_vernissage_tier1/tier2  — province modifiers on 292 (permanent)
 
-		effect = {
-			custom_tooltip = verne_A1L1_tt_world_court_ascension
-			add_country_modifier = {
-				name = verne_court_hegemon
-				duration = -1
-			}
-			add_dip_power = 100
-			change_innovativeness = 3
-		}
-	}
+# --- Cross-lane dependencies ---
+# - A33_the_grand_port_of_heartspier gates A33_across_the_pond (Lane 2)
+# - A33_the_vernissage gates A33_the_lands_of_adventure (Lane 2)
+# - A33_expand_the_Vernissage gates A33_vernissage_secretariat (Lane 5, new content)
+# - A33_the_halanni_exposition is required by A33_the_vernman_era (Lane 3 convergence)
+# - A33_the_grand_vernissage + A33_all_roads_lead_to_verne gate A33_project_holohana
+
+# --- Potential expansion ---
+# - The design blueprint calls for A33_formalize_silver_oaths, A33_open_marriage_court,
+#   A33_exalted_lineages, and A33_world_court_ascension as Court & Oaths missions.
+#   These are NOT in the current codebase. The reform ladder (Tier 1-8) serves a similar
+#   purpose through government reforms rather than missions.
+# - Consider adding a "Formalize Silver Oaths" mission as a Lane 1 opener if the
+#   reform-gated Court missions are desired.
+
+# --- Localisation keys ---
+# verne_overhaul_tt_seed_estuary_companies
+# verne_overhaul_tt_world_network_gain
+# verne_A1_tt_1yes, verne_A1_tt_1no
+# verne_A1_tt_2yes, verne_A1_tt_2no
+# verne_alvar_IV_condition_yes, verne_alvar_IV_condition_no
