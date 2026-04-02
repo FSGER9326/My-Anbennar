@@ -12,6 +12,9 @@ files_to_check = [
     os.path.join(VERNE_PATH, "common", "scripted_effects", "verne_overhaul_effects.txt"),
     os.path.join(VERNE_PATH, "common", "event_modifiers", "verne_overhaul_modifiers.txt"),
     os.path.join(VERNE_PATH, "events", "verne_overhaul_crisis_events.txt"),
+    os.path.join(VERNE_PATH, "events", "verne_overhaul_liliac_events.txt"),
+    os.path.join(VERNE_PATH, "events", "verne_overhaul_dynasty_events.txt"),
+    os.path.join(VERNE_PATH, "events", "verne_overhaul_advisor_events.txt"),
 ]
 
 flags_to_verify = [
