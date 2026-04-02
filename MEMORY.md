@@ -4,10 +4,13 @@
 - **Falk Stürmann** — Timezone: Europe/Berlin. Prefers casual/practical tone. Verne EU4 modding.
 
 ## Architecture (2026-04-02)
+**Pinned targets:** EU4 1.37.5, Anbennar Update 19 "The Final Empire"
 **Source priority:** repo HEAD > upstream MR > EU4 wiki > Anbennar gameplay wiki > lore wiki. Repo wins on conflict.
 **No prose → files:** All non-trivial changes go through mod-spec.yaml first.
 **Registry:** All IDs allocated before writing. Registry files in `design/registry/`.
-**Skills:** 7 EU4 skills in `skills/` (eu4-source-priority, eu4-encoding-rules, eu4-scope-rules, anbennar-canon-retrieval, anbennar-precedent-lookup, eu4-bugfix-triage, eu4-content-compiler).
+**Skills:** 11 EU4 skills in `skills/` (source-priority, encoding-rules, scope-rules, canon-retrieval, precedent-lookup, bugfix-triage, content-compiler, file-conventions, events-decisions-missions, localisation, anbennar-mechanics-ontology).
+**CI:** GitHub Actions in `.github/workflows/eu4-validate-pr.yml` — CWTools + encoding scan + duplicate-loc + placeholder-loc.
+**Validators:** `tools/validate/encoding-unicode-scan.ps1` — encoding BOM check + hidden/bidi Unicode scan.
 **Upstream lock:** `design/upstream-lock.json` — tracked upstream SHA.
 **Blast-radius policy:** High/critical changes need explicit justification + test plan.
 **CWTools + encoding scan** required before any PR merge.

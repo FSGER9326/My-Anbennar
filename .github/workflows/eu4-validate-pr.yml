@@ -1,0 +1,103 @@
+name: eu4-validate-pr
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+
+jobs:
+  encoding-scan:
+    name: encoding-unicode-scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run encoding scan
+        run: |
+          pwsh -Command "
+            ./tools/validate/encoding-unicode-scan.ps1 -Path .
+            if ($LASTEXITCODE -gt 0) { exit 1 }
+          "
+
+      - name: Upload scan artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: encoding-scan-results
+          path: encoding-scan-results.txt
+
+  duplicate-loc-scan:
+    name: duplicate-loc-key-scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run duplicate key scan
+        run: |
+          pwsh -Command "
+            \$locFiles = Get-ChildItem -Recurse -Include '*_l_english.yml' -Path .
+            \$keyCounts = @{}
+            foreach (\$file in \$locFiles) {
+              \$content = Get-Content \$file.FullName -Raw
+              if (\$content -match 'l_english:') {
+                \$keys = [regex]::Matches(\$content, '^([A-Za-z0-9_]+):0', [System.Text.RegularExpressions.RegexOptions]::Multiline) | ForEach-Object { \$_.Groups[1].Value }
+                foreach (\$key in \$keys) {
+                  if (-not \$keyCounts.ContainsKey(\$key)) { \$keyCounts[\$key] = @() }
+                  \$keyCounts[\$key] += \$file.FullName
+                }
+              }
+            }
+            \$dups = \$keyCounts.GetEnumerator() | Where-Object { \$_.Value.Count -gt 1 }
+            if (\$dups) {
+              Write-Host 'DUPLICATE LOC KEYS FOUND:'
+              \$dups | ForEach-Object { Write-Host \"  \$(\$_.Key) appears in: \$(\$_.Value -join ', ')\" }
+              exit 1
+            }
+          "
+
+  cwtools-validate:
+    name: cwtools-eu4-validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run CWTools
+        uses: cwtools/cwtools-action@v1.1.0
+        with:
+          game: eu4
+          modPath: .
+          locLanguages: "english"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload CWTools output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cwtools-output
+          path: output.json
+
+  placeholder-loc-scan:
+    name: placeholder-loc-scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan for placeholder loc
+        run: |
+          pwsh -Command "
+            \$locFiles = Get-ChildItem -Recurse -Include '*_l_english.yml' -Path .
+            \$placeholders = @()
+            foreach (\$file in \$locFiles) {
+              \$content = Get-Content \$file.FullName -Raw
+              if (\$content -match 'TODO|FIXME|PLACEHOLDER|XXX') {
+                \$placeholders += \$file.FullName
+              }
+            }
+            if (\$placeholders.Count -gt 0) {
+              Write-Host 'PLACEHOLDER LOC FOUND:'
+              \$placeholders | ForEach-Object { Write-Host \"  \$_\" }
+              exit 1
+            }
+          "
