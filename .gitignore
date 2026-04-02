@@ -2,3 +2,25 @@ docs/wiki/current-work-queue.md
 automation/reports/*.json
 scripts/__pycache__/
 *.pyc
+
+# OpenClaw workspace files (personal agent data — not mod files)
+.openclaw/
+MEMORY.md
+SESSION_HANDOFF.md
+HEARTBEAT.md
+CORE_MEMORY.md
+LIFEBOAT.md
+IDENTITY.md
+SOUL.md
+USER.md
+AGENTS.md
+TOOLS.md
+BOOTSTRAP.md
+memory/
+.learnings/
+skills/self-improving-agent/
+skills/autonomous-skill-creator/
+mission-control/
+*.log
+openclaw*.log
+
