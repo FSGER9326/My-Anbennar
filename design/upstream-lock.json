@@ -1,0 +1,20 @@
+{
+  "generated": "2026-04-02T02:07:03Z",
+  "origin": {
+    "remote": "origin",
+    "url": "https://github.com/FSGER9326/My-Anbennar.git",
+    "branch": "chore/verne-10-lane-blueprint",
+    "head_sha": "d93ae55e80bc7f536ea2860d0f7eecac70785a04"
+  },
+  "upstream": {
+    "remote": "upstream",
+    "url": "https://gitlab.com/Sando13/anbennar-eu4-dev.git",
+    "branch": "new-master",
+    "head_sha": "6e2ca48ec6c78c67abd8de9878d5649a4566e0d6",
+    "head_message": "PR !3817 Renowned Adventurer Personality Trait"
+  },
+  "eu4_patch_marker": "unknown",
+  "anbennar_release_marker": "new-master (current dev)",
+  "validation_baseline_sha": "d93ae55e80bc7f536ea2860d0f7eecac70785a04",
+  "notes": "upstream is a personal fork of the Anbennar dev repo; EU4 patch not recorded in .version file — check mod descriptor or game version at runtime"
+}

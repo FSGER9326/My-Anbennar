@@ -31,6 +31,83 @@
 - **NEVER use `profile=user`** — always `profile=openclaw` for browser.
 - Ask before acting externally.
 
+## EU4 Modding Operations (Verne/Anbennar)
+
+### Source Priority (in descending order)
+1. **Checked-out repo at HEAD** — the source of truth
+2. **Upstream dev history / merge requests** — for precedent and mechanical specifics
+3. **EU4 modding wiki** — mechanics, trigger/effect reference
+4. **Anbennar gameplay wiki** — balance and flavor context
+5. **Anbennar lore wiki** — worldbuilding context only
+
+When repo and wiki disagree, repo wins. Always cite source provenance in specs.
+
+### The Mod-Spec Rule (no prose → files)
+**Never write EU4 files directly from a prose request.**
+
+Every non-trivial change must go through:
+1. **mod-spec.yaml** — structured description of: what, why, precedent files, IDs to reserve, risk tier, test plan
+2. **File plan** — list of files to create/modify with blast-radius classification
+3. **Codegen / templates** — compile spec → actual EU4 files
+4. **Static validation** — CWTools + custom validators
+5. **Dynamic test** — run file, testevent, log parse
+
+Trivial fixes (typos, obvious loc gaps, single-file edits with clear precedent) are exempt from the full spec workflow, but must still cite a repo precedent.
+
+### No Write Before Allocation
+Before generating any content, reserve the following in `design/registry/`:
+- Country tags
+- Event namespaces
+- Loc prefixes
+- Scripted effect/trigger names
+- Decision keys
+- Modifier keys
+- Mission tree IDs
+
+If a key already exists in the registry, use it. If it doesn't exist, allocate and document.
+
+### No Merge on Red
+Blocking rules (must pass before any PR merge):
+- CWTools EU4 validation
+- Encoding scan (UTF-8 BOM for localisation, Windows-1252 for script files)
+- Unicode scan (no bidirectional / hidden characters)
+- Namespace collision scan
+- Placeholder loc scan (no untranslated keys leaking to player)
+- Registry scan (all IDs must be registered)
+
+### Blast-Radius Classification
+Every file plan must classify each file by blast radius:
+- **Low** — localisation only, single event file, single mission
+- **Medium** — modifier definitions, single country changes, new events
+- **High** — map/trade nodes, common/ files, government reforms, estate mechanics
+- **Critical** — anything touching multiple systems, race mechanics, formable decisions
+
+High/Critical changes require explicit justification and a test plan.
+
+### Map / Trade-Node Work = Dedicated Lane
+Map and trade-node changes are high-risk. Always handle them through a dedicated subagent with:
+- Full province/terrain validation
+- Trade node connectivity checks
+- Playtest verification
+
+### Lore-Sensitive Tasks
+Must cite canon sources in the spec. Lore wiki = support material, not authority. If lore and repo diverge, repo wins.
+
+### Upstream Awareness
+Before any non-trivial task:
+1. Check `design/upstream-lock.json` — note current upstream SHA
+2. Compare to last known SHA
+3. If upstream moved — check what changed and invalidate any cached precedent
+4. After task — update `validation_baseline_sha` in upstream-lock.json
+
+### Memory on Every Task
+After every non-trivial task, write to `memory/YYYY-MM-DD.md`:
+- What changed
+- What IDs were allocated
+- What upstream SHA was used
+- What validation was run
+- Any follow-up work needed
+
 ## Spawn Manifest (Context Compression)
 Before spawning any subagent, use `scripts/spawn-compiler.ps1` to generate a task-specific context capsule:
 ```powershell
@@ -57,9 +134,17 @@ Workers get ONLY what their task type needs — no universal bootstrap.
 - Save structured notes (decisions, task status, blockers) to daily file — survives compaction
 
 ### Verne Modding
+- **Repo:** `C:\Users\User\Documents\GitHub\My-Anbennar` (branch: `chore/verne-10-lane-blueprint`)
+- **Upstream:** `https://gitlab.com/Sando13/anbennar-eu4-dev.git` (branch: `new-master`)
+- **Upstream lock:** `design/upstream-lock.json` — check and update this before any non-trivial task
 - Reference `docs/design/lanes/` for mission designs. Use absolute paths for subagents.
+- Design docs are blueprints, not code — verify IDs exist in repo before referencing
 - Ask before pushing to remote. Commit locally freely.
 - If >20 files affected, confirm scope first.
+- **Mod-spec required** for any non-trivial change — never go straight from prose to EU4 files
+- **Registry required** before generating new IDs (tags, events, modifiers, decisions)
+- **CWTools + encoding scan** required before any PR
+- See `docs/verne-roadmap.md` for current implementation status
 
 ### Subagent Self-Improvement
 - **BEFORE spawning:** Read `docs/subagent-patterns.md` — check **Timeout Tuning Table** for learned timeouts, check trial log for similar tasks

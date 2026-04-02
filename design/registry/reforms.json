@@ -1,0 +1,37 @@
+{
+  "description": "Verne government reform IDs from common/government_reforms/verne_overhaul_reforms.txt",
+  "source": "C:\\Users\\User\\Documents\\GitHub\\My-Anbennar\\common\\government_reforms\\verne_overhaul_reforms.txt",
+  "upstream_sha": "6e2ca48ec6c78c67abd8de9878d5649a4566e0d6",
+  "collected": "2026-04-02T02:10:00Z",
+  "reforms": [
+    "verne_court_of_silver_oaths_reform",
+    "verne_charter_of_great_captains_reform",
+    "verne_ducal_demilitarisation_zones_reform",
+    "verne_ducal_muster_of_armoc_reform",
+    "verne_admiralty_of_the_crimson_wake_reform",
+    "verne_estuary_companies_of_heartspier_reform",
+    "verne_regatta_discipline_reform",
+    "verne_red_court_arcana_reform",
+    "verne_dragonwake_ordinance_reform",
+    "verne_battle_mage_collegium_reform",
+    "verne_charter_of_the_vernissage_reform",
+    "verne_hall_of_distant_horizons_reform",
+    "verne_vernissage_secretariat_reform",
+    "verne_wyvern_marshalate_reform",
+    "verne_crimson_eyrie_commandery_reform",
+    "verne_sea_nest_ascendancy_reform",
+    "verne_secretariat_of_the_grand_regatta_reform",
+    "verne_imperial_sea_court_reform",
+    "verne_overseas_commanderies_reform",
+    "verne_apostolic_court_of_corin_reform",
+    "verne_vernman_court_of_the_world_reform",
+    "verne_knights_of_the_crimson_scale_reform",
+    "verne_throne_of_the_wyvern_kings_reform",
+    "verne_the_crimson_world_order_reform",
+    "verne_storm_crowned_hegemony_reform"
+  ],
+  "design_doc_missing": [
+    "verne_crown_of_the_oathkeeper_reform",
+    "verne_exalted_dynasty_machine_reform"
+  ]
+}

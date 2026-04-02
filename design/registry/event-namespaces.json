@@ -1,0 +1,13 @@
+{
+  "description": "Event namespaces used in Verne events",
+  "source": "C:\\Users\\User\\Documents\\GitHub\\My-Anbennar\\events\\verne_overhaul_*.txt",
+  "upstream_sha": "6e2ca48ec6c78c67abd8de9878d5649a4566e0d6",
+  "collected": "2026-04-02T02:10:00Z",
+  "namespaces": [
+    "verne_overhaul_advisor",
+    "verne_overhaul_crisis",
+    "verne_overhaul_dynasty",
+    "verne_liliac"
+  ],
+  "notes": "verne_overhaul_oaths namespace is DESIGN DOC ONLY — not implemented in codebase"
+}

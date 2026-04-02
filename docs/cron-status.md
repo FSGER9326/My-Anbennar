@@ -9,7 +9,7 @@ Track cron job health and provide on-demand trigger capability.
 | health-monitor | Every 30 min | ~17:00 | ⚠ CLI broken (EPERM) | Gateway healthy, CLI corrupted. Fix: run npm update as admin. |
 | auto-planner | Every 4h | ~20:00 | ✅ OK | Gateway healthy |
 | obsidian-sync | Every 30 min | ~17:00 | ✅ OK | Running well |
-| verne-qa-check | Mon/Wed/Fri 2 AM | Fri 02:00 | ✅ OK | Delivery: none (no Telegram chatId) |
+| verne-qa-check | Mon/Wed/Fri 2 AM | Fri 02:00 | ⚠️ false-error | Ran Wed 18:40 (manual trigger), found 40+ missing tooltips. Cron status shows error but run succeeded. |
 | anbennar-upstream-sync | Wed/Sun 10 AM | Sun 10:00 | ⚠ Partial | Timed out at 181s but generated full report |
 | mod-inspiration-scout | Mon/Thu 8 PM | Thu 20:00 | ✅ OK | — |
 | chatgpt-extended-thinking | Tue/Fri 6 PM | Fri 18:00 | ✅ OK | — |
@@ -74,8 +74,10 @@ Run PowerShell as Administrator, then: npm update -g openclaw
 | "Health check now" | openclaw cron run 4e9fbcbb-cc30-441a-9ebd-81bab6f872d8 |
 
 ## Last Auto-Check
-- Date: 2026-04-01 18:45
-- Jobs: 10 active, 3 subagents running (QA fixes), human active
-- Fixes: CLI entry.js partially restored, gateway confirmed healthy
+- Date: 2026-04-01 20:03
+- Jobs: 10 active, 2 triggered manually (verne-qa-check, anbennar-upstream-sync)
+- Health: Gateway healthy, memory-lancedb still disabled
+- verne-qa-check: false error flag — actual run succeeded (18:40, 40+ missing tooltips found)
+- anbennar-upstream-sync: re-triggered manually (timed out at 181s but generated report)
 - Pending: Admin npm update for full CLI fix, memory-lancedb vectordb install
-- Next check: ~20:00
+- Next check: ~22:00

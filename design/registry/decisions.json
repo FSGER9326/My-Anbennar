@@ -1,0 +1,27 @@
+{
+  "description": "Verne decision IDs from decisions/Verne*.txt",
+  "source": "C:\\Users\\User\\Documents\\GitHub\\My-Anbennar\\decisions\\Verne*.txt",
+  "upstream_sha": "6e2ca48ec6c78c67abd8de9878d5649a4566e0d6",
+  "collected": "2026-04-02T02:10:00Z",
+  "decisions": [
+    "verne_launch_adventure",
+    "verne_can_send_expedition",
+    "verne_overhaul_formalize_silver_oaths",
+    "verne_overhaul_seed_silver_oaths_path",
+    "verne_overhaul_open_marriage_court",
+    "verne_overhaul_has_first_wave_reform_foundation",
+    "verne_overhaul_activate_marriage_court",
+    "verne_overhaul_enforce_dynastic_safeguard",
+    "verne_overhaul_invalid_heir_state_trigger",
+    "verne_overhaul_activate_dynasty_protection",
+    "verne_overhaul_proclaim_exalted_lineage",
+    "verne_overhaul_appoint_court_advisor",
+    "verne_overhaul_has_silver_oaths_path_seeded",
+    "verne_overhaul_has_khenak_foundry_seeded"
+  ],
+  "design_doc_references": [
+    "verne_charter_overseas_decision",
+    "verne_commandant_swap_decision"
+  ],
+  "design_doc_note": "design doc Lane 4 references two decisions that may not exist in codebase"
+}

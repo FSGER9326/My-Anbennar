@@ -1,5 +1,5 @@
 ﻿# Anbennar Upstream Sync Report
-Generated: 2026-04-01T10:00:42Z
+Generated: 2026-04-01T23:54:18Z
 Upstream: Sando13/anbennar-eu4-dev (new-master)
 Your fork base: FSGER9326/My-Anbennar
 

@@ -1,0 +1,18 @@
+{
+  "description": "Verne mission slots — 9 active slots in missions/Verne_Missions.txt",
+  "source": "C:\\Users\\User\\Documents\\GitHub\\My-Anbennar\\missions\\Verne_Missions.txt",
+  "upstream_sha": "6e2ca48ec6c78c67abd8de9878d5649a4566e0d6",
+  "collected": "2026-04-02T02:10:00Z",
+  "slots": {
+    "slot_1": "first_slot — Lane 1: Court & Oaths",
+    "slot_2": "second_slot — Lane 2: Adventure Network",
+    "slot_3": "third_slot — Lane 3: Maritime Empire",
+    "slot_4": "fourth_slot — Lane 4: Dynastic Machine",
+    "slot_5": "fifth_slot — Lane 5: Trade & Colonisation",
+    "slot_6": "sixth_slot — Lane 6: Red Court & Arcane",
+    "slot_7": "seventh_slot — Lane 7: Military Orders",
+    "slot_8": "eighth_slot — Lane 8: Faith & Apostolic Empire",
+    "slot_9": "ninth_slot — Lane 9: Industrial Foundries"
+  },
+  "notes": "Slot naming is inconsistent: fifth_slot uses 'fifth_sloth' typo in some places. Also: lane 10 (Liliac War) is slot-based without verne_mission_slot_X reference."
+}
