@@ -1,0 +1,145 @@
+# Verne Overhaul - Lane 7: Military Orders
+# Spread across slots 3-5 — Knights of the Crimson Scale, holy military
+# unification, and Corinite martial doctrine.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: PARTIALLY IMPLEMENTED — missions exist but are scattered; no dedicated slot.
+# verne_knights_of_the_crimson_scale_reform EXISTS in reforms but is not yet gated by any mission.
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
+
+# ===============================================
+# Lane 7 - Military Orders (positions across slots, mid→late)
+# ===============================================
+# This lane forms Verne's holy-military backbone — the path from early military
+# pride through imperial unification to holy order dominance and martial supremacy.
+#
+# The lane currently has no dedicated slot block. Missions that fit this theme
+# are spread across slots 3, 4, and 5:
+#
+# Slot 3: A33_a_matter_of_pride (pos 2) — military pride / territorial consolidation
+# Slot 4: A33_united_under_crimson_wings (pos 8) — military unification under faith
+#         A33_corins_devout_protectors (pos 9) — holy order / defender of faith
+#         A33_with_sword_and_shield (pos 10) — faith warfare capstone
+# Slot 5: A33_the_might_of_the_wyvern (pos 7) — military power projection
+#         A33_break_the_queen_of_the_hill (pos 1) — military conquest opener
+#
+# The verne_knights_of_the_crimson_scale_reform (in verne_overhaul_reforms.txt)
+# exists in the codebase but is not yet gated by any mission. This lane is the
+# natural home for it.
+
+# --- Actual missions that fit this lane ---
+
+# A33_a_matter_of_pride (pos 2, slot 3) [IMPLEMENTED]
+# Requires: A33_alvars_reforms, A33_old_friends_old_rivals, A33_break_the_queen_of_the_hill
+# Trigger: damespearl_area all owned, prestige 40, power projection 25, DIP 50
+# Effect: Fires verne.101
+# Commentary: The territorial consolidation mission that establishes Verne's military
+# confidence. Securing the Damespearl is a statement of martial intent — the first
+# step toward military order status. Shared with Lane 3 (Maritime Empire).
+
+# A33_break_the_queen_of_the_hill (pos 1, slot 5) [IMPLEMENTED]
+# Requires: none
+# Trigger: Treasury 100, MIL 50, 364 owned+cored, khenak_area owned+cored, 377 has 10 units
+# Effect: Fires verne.102
+# Commentary: The military conquest of the Khenak gnolls — establishing Verne's
+# martial credibility in the homeland. Shared with Lane 5 (Trade & Colonisation)
+# as the gateway to the wyvern economy.
+
+# A33_united_under_crimson_wings (pos 8, slot 4) [IMPLEMENTED]
+# Requires: A33_spread_the_word, A33_the_might_of_the_wyvern, A33_a_union_of_crowns
+# Trigger: Is emperor or Z01, forcelimit buildings in 7 key provinces, supply depots
+#          in wyvernmark/khenak/hapiande/busilari_straits (if defavored adventurers)
+# Effect: +15 imperial influence, upgrades wyvern_nest_expanded → wyvern_nest_grand,
+#         +10 MIL/DIP for 20 Corinite HRE nations
+# Commentary: The imperial unification mission — Verne consolidates its military
+# orders under the crimson banner of the emperor. The supply depot requirement
+# (for defavored adventurer path) rewards military infrastructure investment.
+
+# A33_corins_devout_protectors (pos 9, slot 4) [IMPLEMENTED]
+# Requires: A33_united_under_crimson_wings, A33_in_the_name_corin
+# Trigger: HRE religion locked corinite OR is emperor with reform, defender of faith tier 3,
+#          400 corinite provinces
+# Effect: verne_dynasty_protected_court (20yr), sets verne_dynasty_protected flag,
+#         unlocks merc_crimson_wake_lances, sets verne_only_dotf (global),
+#         sets verne_special_cb_enabled, removes ravelian societies, fires verne.116
+# Commentary: The holy order capstone — Verne becomes the sole defender of the
+# Corinite faith and claims special CBs against heathens. The Crimson Wake Lances
+# mercenary company is the military order made manifest.
+
+# A33_with_sword_and_shield (pos 10, slot 4) [IMPLEMENTED]
+# Requires: A33_corins_devout_protectors, A33_a_crimson_sea
+# Trigger: Defender of faith tier 5, army size 300, highest dev in western Cannor,
+#          14 corinite African countries OR 500 corinite African provinces
+# Effect: world_network +1, verne_apostles_of_corin (permanent),
+#         verne_apostolic_oceanic_command (10yr)
+# Commentary: The faith warfare capstone. Verne's military orders now project
+# power across continents — the Apostles of Corin modifier represents a permanent
+# holy military presence worldwide.
+
+# A33_the_might_of_the_wyvern (pos 7, slot 5) [IMPLEMENTED]
+# Requires: A33_the_sea_nest
+# Trigger: Land forcelimit 150, naval forcelimit 100, 20 hussars/40 cavalry,
+#          2 generals, 2 conquistadors, 2 admirals, 2 explorers, power projection 50+
+# Effect: Fires verne.109, verne_might_of_the_wyvern (permanent), unlocks merc_heartspier_skyguard
+# Commentary: Military power projection through the wyvern cavalry corps and the
+# Heartspier Skyguard mercenary company. The ultimate expression of Verne's
+# military orders — airborne knights riding wyverns into battle.
+
+# --- Reform (exists but ungated by missions) ---
+#
+# verne_knights_of_the_crimson_scale_reform [IMPLEMENTED] — exists in verne_overhaul_reforms.txt
+# This reform should be gated by a mission in this lane:
+#
+# [DESIGN GOAL] A33_found_the_crimson_scale_order (new, pos 8 slot 5)
+#   → Implementation: Requires A33_corins_devout_protectors. Trigger: verne_knights_of_the_crimson_scale_reform
+#     active (Tier 7, EXISTS in reforms), army tradition 60, 300 army size, defender of faith tier 3.
+#     Effect: Fires Crimson Scale founding event, merc_crimson_wake_lances (EXISTS), unlocks
+#     Knights of the Crimson Scale military order system.
+
+# --- Cross-lane dependencies ---
+# - A33_a_matter_of_pride is shared with Lane 3 (Maritime Empire) — gate for Lane 4
+# - A33_break_the_queen_of_the_hill is shared with Lane 5 (Trade) — gate for wyvern chain
+# - A33_united_under_crimson_wings requires Lanes 4+5+8 convergence
+# - A33_corins_devout_protectors requires faith content from Lane 8 (Faith)
+# - A33_with_sword_and_shield requires overseas content from Lane 5 (Crimson Sea)
+# - A33_the_might_of_the_wyvern is shared with Lane 6 (Arcane)
+
+# --- New modifiers (referenced) [IMPLEMENTED] — all exist in verne_overhaul_modifiers.txt ---
+#
+# verne_dynasty_protected_court      [IMPLEMENTED] (20yr)     +2 dip rep, -20% liberty desire
+# verne_apostles_of_corin            [IMPLEMENTED] (permanent) +2 missionaries, +3% missionary strength
+# verne_apostolic_oceanic_command    [IMPLEMENTED] (10yr)      +20% naval morale, +10% heavy ship combat
+# verne_might_of_the_wyvern          [IMPLEMENTED] (permanent) +20% cavalry combat, +10% morale
+
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# This lane needs a dedicated slot block. Consider:
+#
+#   [DESIGN GOAL] A33_the_crimson_lances (new, pos 10 slot 5) — military order recruitment
+#     → Implementation: Requires A33_found_the_crimson_scale_order. Trigger: 500 army size,
+#       merc_crimson_wake_lances active, army tradition 70. Effect: Crimson Lances event,
+#       +military order capacity, unique unit recruitment decisions.
+#
+#   [DESIGN GOAL] A33_holy_fortification_network (new, pos 11 slot 5) — military order infrastructure
+#     → Implementation: Requires A33_the_crimson_lances. Trigger: 10 fort provinces in
+#       HRE with corinite religion, 3000 treasury. Effect: Holy Fortification event,
+#       +fort defense in corinite HRE, military order stronghold province modifiers.
+#
+#   [DESIGN GOAL] A33_the_grand_master (new, pos 13 slot 5) — military order leader capstone
+#     → Implementation: Requires A33_holy_fortification_network. Trigger: Tier 8
+#       verne_throne_of_the_wyvern_kings_reform active, 600 army, army tradition 80,
+#       all HRE corinite. Effect: Grand Master event, verne_grand_master (permanent),
+#       supreme military order capstone.
+#
+# Available positions: pos 8 in slot 5 (currently unused), or create A33_tenth_slot.
+
+# --- Mercenary companies ---
+# merc_crimson_wake_lances — unlocked by A33_corins_devout_protectors
+# merc_heartspier_skyguard — unlocked by A33_the_might_of_the_wyvern
+# Both defined in common/mercenary_companies/
+
+# --- Localisation keys ---
+# verne_D8_effect_tt1, verne_D8_effect_tt2, verne_D8_effect_tt3
+# verne_D9_effect_tt1, verne_D9_effect_tt2, verne_D9_effect_tt3

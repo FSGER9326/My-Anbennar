@@ -1,0 +1,157 @@
+# Verne Overhaul - Lane 6: Red Court & Arcane
+# Slot 5 (A33_fifth_sloth) — Mage state transformation, Red Court reforms,
+# Dragonwake doctrine, and artificery-collegium integration.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: PARTIALLY IMPLEMENTED — reforms exist, 3 lane-specific missions are DESIGN GOALs
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
+
+# ===============================================
+# Lane 6 - Red Court & Arcane (Slot 5, early→late)
+# ===============================================
+# This lane forms Verne's arcane-military backbone — from establishing the
+# Red Court advisory council through the Dragonwake military-mage doctrine
+# to the Battle Mage Collegium capstone.
+#
+# The lane runs IN PARALLEL with Lane 5 (Trade & Colonisation) in the same
+# A33_fifth_sloth block. The Red Court missions occupy specific positions
+# between the wyvern/trade missions:
+#
+# Position map (slot 5):
+#   pos 1: A33_break_the_queen_of_the_hill  — Lane 5 opener
+#   pos 2: A33_the_quest_for_eggs           — Lane 5 (economic), A33_establish_red_court — Lane 6
+#   pos 3: A33_the_wyvern_nest_initiative   — Lane 5
+#   pos 4: A33_binding_the_beast            — Lane 5 / Lane 6 bridge
+#   pos 5: A33_expand_the_wyvern_nests      — Lane 5, A33_dragonwake_ordinance — Lane 6
+#   pos 6: A33_the_sea_nest                 — Lane 5
+#   pos 7: A33_the_might_of_the_wyvern      — Lane 5 (military)
+#   pos 9: A33_a_crimson_sea                — Lane 5, A33_battle_mage_collegium — Lane 6
+#   pos 10: A33_religious_mercantilism      — Lane 5
+#   pos 12: A33_on_wings_of_artificery      — Lane 5/6 convergence
+
+# --- Actual missions implemented ---
+
+# A33_establish_red_court (pos 2) [DESIGN GOAL — not yet implemented]
+# → Implementation: New mission in A33_fifth_sloth. Requires A33_break_the_queen_of_the_hill.
+#   Trigger: has renaissance, verne_red_court_arcana_reform active (Tier 3, EXISTS in reforms),
+#   any province with university. Effect: +1 advisor pool, verne_red_court_advisory
+#   (permanent modifier, EXISTS in modifiers), sets red_court_mage_advisors flag,
+#   fires verne_overhaul_advisor.100 event.
+# Requires: A33_break_the_queen_of_the_hill (Lane 5)
+# Trigger: Has renaissance, has verne_red_court_arcana_reform, any province with university
+# Effect: +1 advisor pool, verne_red_court_advisory (permanent), sets red_court_mage_advisors flag,
+#         fires verne_overhaul_advisor.100
+# Commentary: The Red Court is Verne's council of arcane advisors, formally woven into the
+# silver oath infrastructure. This mission formalises that relationship. The tier 3 reform
+# gate (verne_red_court_arcana_reform) ensures the player has committed to the mage state
+# path before unlocking specialised mage advisors.
+
+# A33_dragonwake_ordinance (pos 5) [DESIGN GOAL — not yet implemented]
+# → Implementation: New mission in A33_fifth_sloth. Requires A33_establish_red_court.
+#   Trigger: verne_dragonwake_ordinance_reform active (Tier 5, EXISTS in reforms).
+#   Effect: verne_dragonwake_doctrine (20yr modifier, EXISTS), +0.5 yearly army
+#   professionalism, verne_arcane_shock_pip (20yr, EXISTS), spawns war wizard general.
+# Requires: A33_establish_red_court
+# Trigger: Has verne_dragonwake_ordinance_reform
+# Effect: verne_dragonwake_doctrine (20yr), +0.5 yearly army professionalism,
+#         verne_arcane_shock_pip (20yr), spawns war wizard general,
+#         verne_temporary_war_wizard (20yr)
+# Commentary: The Dragonwake Ordinance is the mid-lane power spike — it fuses military
+# professionalism with arcane doctrine. The tier 5 reform gate ensures the player has
+# progressed through both the court and military reform ladders. The war wizard general
+# is a tangible, immediate reward.
+
+# A33_binding_the_beast (pos 4) [IMPLEMENTED]
+# Requires: A33_the_wyvern_nest_initiative (Lane 5)
+# Trigger: Mage estate privileges, ruler is mage or has ward, mage loyalty 60,
+#          court mage 3 or A85 favors or 100 all power
+# Effect: Seeds dragonwake path, fires verne.103, enables mythical cavalry (wyvern),
+#         applies mage debt
+# Commentary: This mission bridges Lane 5 (Trade — wyvern economy) and Lane 6 (Arcane —
+# mage state). Binding wyverns requires both economic investment (Lane 5 nests) and
+# arcane capability (mage estate). Completing it seeds the dragonwake path for the
+# Red Court chain.
+
+# A33_the_might_of_the_wyvern (pos 7) [IMPLEMENTED]
+# Requires: A33_the_sea_nest (Lane 5)
+# Trigger: Land forcelimit 150, naval forcelimit 100, 20 hussars (or 40 cavalry),
+#          2 generals, 2 conquistadors, 2 admirals, 2 explorers, power projection 50+
+# Effect: Fires verne.109, verne_might_of_the_wyvern (permanent), unlocks merc_heartspier_skyguard
+# Commentary: The military manifestation of the Red Court/wyvern integration. Full-spectrum
+# force projection — land, sea, and air (wyvern cavalry). The permanent modifier and
+# unique mercenary company represent Verne's mage-enhanced military at its peak.
+
+# A33_battle_mage_collegium (pos 9) [DESIGN GOAL — not yet implemented]
+# → Implementation: New mission in A33_fifth_sloth. Requires A33_dragonwake_ordinance.
+#   Trigger: verne_battle_mage_collegium_reform active (Tier 9, EXISTS in reforms),
+#   province 288 (Heartspier) has university. Effect: verne_battle_mage_artillery_fire
+#   (permanent, EXISTS), verne_battle_mage_land_fire (permanent, EXISTS),
+#   verne_battle_mage_morale (permanent, EXISTS), fires verne.200 event.
+# Requires: A33_dragonwake_ordinance
+# Trigger: Has verne_battle_mage_collegium_reform, province 288 (Heartspier) has university
+# Effect: verne_battle_mage_artillery_fire (permanent), verne_battle_mage_land_fire (permanent),
+#         verne_battle_mage_morale (permanent), sets verne_battle_mage_collegium_unlocked flag,
+#         fires verne.200
+# Commentary: The Lane 6 capstone. The Battle Mage Collegium represents full integration
+# of arcane warfare into the Vernman military state — artillery fire, land fire, and
+# morale bonuses are all permanent and stack with other military modifiers.
+# The tier 9 reform gate is the highest in the Red Court chain.
+
+# A33_on_wings_of_artificery (pos 12) [IMPLEMENTED]
+# Requires: A33_the_vernman_era (Lane 3 convergence)
+# Trigger: Treasury 10000, MIL 200, 10 provinces in south_america with damestear
+#          or precursor_relics (dev 10, production building, manufactory), artifice 40
+# Effect: Fires verne.117
+# Commentary: Bridges Lane 5 (Trade — artificery production) and Lane 6 (Arcane —
+# magical technology). This is the late-game convergence point where economic and
+# arcane investments combine into artificery manufacturing.
+
+# --- Cross-lane dependencies ---
+# - A33_establish_red_court requires A33_break_the_queen_of_the_hill (Lane 5)
+# - A33_binding_the_beast bridges from Lane 5 (wyvern nests) to Lane 6 (dragonwake)
+# - A33_dragonwake_ordinance gates A33_battle_mage_collegium (pos 9)
+# - A33_battle_mage_collegium is one of the required_missions for late convergence
+# - A33_on_wings_of_artificery converges with Lane 3 (vernman era) and gates
+#   A33_type_2_wyverns (Lane 4)
+
+# --- Reform chain (gates) [IMPLEMENTED] — all reforms exist in verne_overhaul_reforms.txt ---
+# Tier 3: verne_red_court_arcana_reform      [IMPLEMENTED] → gates A33_establish_red_court [DESIGN GOAL]
+# Tier 5: verne_dragonwake_ordinance_reform   [IMPLEMENTED] → gates A33_dragonwake_ordinance [DESIGN GOAL]
+# Tier 9: verne_battle_mage_collegium_reform  [IMPLEMENTED] → gates A33_battle_mage_collegium [DESIGN GOAL]
+
+# --- New modifiers (referenced) [IMPLEMENTED] — all exist in verne_overhaul_modifiers.txt ---
+#
+# verne_red_court_advisory          [IMPLEMENTED] (permanent) +1 advisor pool, +0.1 reform progress
+# verne_dragonwake_doctrine         [IMPLEMENTED] (20yr)  +0.5 army professionalism yearly
+# verne_arcane_shock_pip            [IMPLEMENTED] (20yr)  +1 land shock pip
+# verne_temporary_war_wizard        [IMPLEMENTED] (20yr)  Grants a war wizard general
+# verne_battle_mage_artillery_fire  [IMPLEMENTED] (permanent) +1 artillery fire
+# verne_battle_mage_land_fire       [IMPLEMENTED] (permanent) +1 land fire
+# verne_battle_mage_morale          [IMPLEMENTED] (permanent) +5% morale of armies
+# verne_might_of_the_wyvern         [IMPLEMENTED] (permanent) +20% cavalry combat ability, +10% morale
+
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+#
+#   [DESIGN GOAL] A33_arcane_academy (new, pos 8) — university/research focus, bridges Red Court to artificery
+#     → Implementation: Requires A33_dragonwake_ordinance. Trigger: 5 provinces with university
+#       + mage_tower, artifice 20, mages estate 50+ loyalty. Effect: verne_arcane_academy
+#       (permanent modifier), +research, seeds artificery path.
+#
+#   [DESIGN GOAL] A33_dragonwake_research_initiative (new) — R&D spending for arcane military tech
+#     → Implementation: Requires A33_arcane_academy. Trigger: treasury 5000, mages 60+ loyalty,
+#       war_wizard modifier active. Effect: verne_dragonwake_research (permanent, +shock/fire),
+#       advanced military-magic tech event.
+#
+#   [DESIGN GOAL] A33_the_red_council_of_war (new) — late-game military-mage council event
+#     → Implementation: Requires A33_battle_mage_collegium. Trigger: at war, army 200+,
+#       battle_mage_collegium_unlocked flag. Effect: Red Council event chain, war decisions.
+#
+# Consider filling pos 8 (currently unused in slot 5) with an arcane academy mission.
+
+# --- Localisation keys ---
+# verne_L5_establish_red_court_tt
+# verne_L5_dragonwake_ordinance_tt
+# verne_L5_battle_mage_collegium_tt

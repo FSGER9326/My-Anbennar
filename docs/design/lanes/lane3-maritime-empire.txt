@@ -1,0 +1,211 @@
+# Verne Overhaul - Lane 3: Maritime Empire (Overseas Consolidation)
+# Slot 3 — Verne's overseas empire-building, from early diplomacy through
+# colonial consolidation to the ultimate naval capstone.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: IMPLEMENTED — 12 missions in missions/Verne_Missions.txt (A33_third_slot)
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
+
+# ===============================================
+# Lane 3 - Maritime Empire (Slot 3, full spectrum)
+# ===============================================
+# This is the longest and most complex lane, running from early diplomatic
+# maneuvering through kingdom formation, religious colonial expansion, and
+# culminating in the Vernman Era golden age and ultimate naval hegemony.
+#
+# The lane has two major arcs:
+# 1. Early→Mid: Diplomatic consolidation (rivals, Damespearl, Luna, Kingdom)
+# 2. Mid→Late:  Overseas religious-military expansion (Corinite colonialism,
+#                Taychend syncretism, Valour seas, Vernman Era, Halann capstone)
+
+# --- Actual missions implemented ---
+
+# A33_old_friends_old_rivals (pos 1) [IMPLEMENTED]
+# Trigger: Rival A11 and A29, insult both, alliance with A47 (150+ opinion)
+# Effect: Seeds Silver Oaths path, claims on Damespearl area, gives A47 claims
+#         on Busilar/busilari_straits, verne_wyvern_stride (25yr, Alvar IV)
+# Modifier: verne_wyvern_stride (from event, Alvar IV conditional)
+# Commentary: Establishes Verne's diplomatic posture. The three-way split
+# (rival, rival, friend) sets up the early-game power dynamic.
+
+# A33_a_matter_of_pride (pos 2) [IMPLEMENTED]
+# Requires: A33_alvars_reforms (Lane 2), A33_old_friends_old_rivals, A33_break_the_queen_of_the_hill (Lane 5)
+# Trigger: Damespearl fully owned, 40 prestige, 25 power projection, 50 DIP
+# Effect: Fires verne.101
+# Commentary: A convergence mission requiring both diplomatic and military
+# preparation. The event verne.101 handles the Damespearl integration.
+
+# A33_the_allure_of_the_luna (pos 3) [IMPLEMENTED]
+# Requires: A33_a_matter_of_pride
+# Trigger: Luna River Basin all controlled/influenced (smaller army, insulted,
+#          allied, or free city with 150+ opinion/70+ trust), enchanting envoy
+#          embassy cast, no active imperial incident
+# Effect: Fires verne.500 (emperor event) + verne_overhaul_advisor.6
+# Commentary: Verne's first major HRE diplomatic play. The enchanting envoy
+# embassy is a unique Verne mechanic — a magical diplomatic tool.
+
+# A33_the_kingdom_of_Verne (pos 4) [IMPLEMENTED]
+# Requires: A33_the_allure_of_the_luna, A33_the_rogue_duchy (Lane 5)
+# Trigger: Emperor/Z01 or won support flags or won war vs emperor (10yr),
+#          2000 treasury (or 500 with full support)
+# Effect: +1 world_network, transfers elector seat, verne_the_wyvern_king
+#         (permanent), rank 2, 10 permanent power projection, Alvar IV bonuses
+# Modifier: verne_the_wyvern_king (permanent)
+# Commentary: THE kingdom mission. Gaining an elector seat while becoming
+# kingdom rank is a massive power spike. The Alvar IV path gives extra rewards.
+
+# A33_corins_shield (pos 6) [IMPLEMENTED]
+# Trigger: Corinite religion, defender of the faith
+# Effect: Converts vernman culture provinces to corinite (50% chance),
+#         stability, level 3 inquisitor advisor
+# Commentary: Opens the religious arc of the overseas lane. Being DoF is
+# required before spreading Corinite influence abroad.
+
+# A33_spread_the_word (pos 7) [IMPLEMENTED]
+# Requires: A33_corins_shield
+# Trigger: 200 DIP, 90% religious unity, stability 2, province 43 owned and
+#          corinite, provinces 380 and 367 with corinite owners or trusted allies
+# Effect: Fires verne.104 (corinite conversion event) for target nations
+# Commentary: The missionary push before overseas expansion. Requires
+# controlling key Cannorian provinces and having corinite neighbors/allies.
+
+# A33_in_the_name_corin (pos 8) [IMPLEMENTED]
+# Requires: A33_the_lands_of_adventure (Lane 2), A33_spread_the_word
+# Trigger: 3 colonial nations (10+ provinces each), level 4 theologian/inquisitor,
+#          H67 (Taychend tag) opinion 100+ or not existing, 6559 controlled with
+#          corinite religion, dev 25, shipyard + manpower buildings
+# Effect: Corinite syncretism in Taychend, claims in colonial_lai_peninsula
+#         (if H67 doesn't exist), fires verne.113, creates Port of Adventure at 6559
+# Modifier: verne_corinite_syncretism (permanent province modifier in Taychend)
+# Commentary: The Corinite overseas expansion mission. Creates a unique
+# syncretism system where Oren Nayiru provinces get a permanent modifier
+# instead of forced conversion.
+
+# A33_born_of_valour (pos 9) [IMPLEMENTED]
+# Requires: A33_in_the_name_corin
+# Trigger: 75 prestige, 200 DIP, 30 heavy ships, 3 dip rep, H36 alliance/subject
+#          or trollsbay colonial nation, 11+ Ports of Adventure
+# Effect: Half-ruinborn tolerance, seas_of_valour estate privilege, historical
+#         friend with H36, half_ruinborn modifier on 292
+# Modifier: verne_half_ruinborn_small_modifier (permanent province, 292)
+# Commentary: Verne's cultural-culinary legacy with the Trollsbay ruinborn.
+# The half-ruinborn system is unique to Verne and provides tolerance/pop bonuses.
+
+# A33_the_vernman_era (pos 11) [IMPLEMENTED]
+# Requires: A33_laments_regatta (Lane 2), A33_the_halanni_exposition (Lane 1),
+#           A33_with_sword_and_shield (Lane 4), A33_religious_mercantilism (Lane 5)
+# Trigger: Golden age or had golden age, 10 damestear/precursor provinces in
+#          south_america, 5 colonial nations (25+ provinces), 90 prestige,
+#          50 power projection, 1000 corinite provinces, 20+ Ports of Adventure
+# Effect: Advances mature_overseas_state, verne_overseas_commonwealth (3yr),
+#         extends/resets golden age, artifice_magic_switch_to_mixed_mode,
+#         verne_vernman_era (permanent)
+# Modifier: verne_overseas_commonwealth (3yr), verne_vernman_era (permanent)
+# Commentary: The Vernman Era is Verne's golden age capstone — a convergence
+# of every system (adventure, faith, colonial, trade) into a single milestone.
+
+# A33_valour_on_the_seas (pos 12) [IMPLEMENTED]
+# Requires: A33_the_vernman_era
+# Trigger: H36 trust 60+/opinion 190+/alliance OR trollsbay fully controlled,
+#          300 DIP, 300 MIL
+# Effect: Advances mature_overseas_state, alvari_accord privilege (replaces
+#         seas_of_valour), claims for H36 in colonial regions, 10x half-ruinborn
+#         pop growth
+# Commentary: Deepens the Verne-H36 partnership. The privilege swap from
+# seas_of_valour to alvari_accord represents a formalization of the relationship.
+
+# A33_all_roads_lead_to_verne (pos 13) [IMPLEMENTED]
+# Requires: A33_the_holy_corinite_empire (Lane 4), A33_valour_on_the_seas,
+#           A33_new_verne (Lane 2)
+# Trigger: 292 highest dev in world, 8 or 380 highest trade node, 2500 corinite
+#          provinces, 100 shipyard provinces, naval hegemon or 300 DIP + any hegemon
+# Effect: +2 world_network, verne_grand_fleet_tier2 (permanent, replaces tier1),
+#         verne_all_roads_lead_to_verne (permanent), corinite opinion bonus
+# Modifier: verne_grand_fleet_tier2 (permanent), verne_all_roads_lead_to_verne (permanent)
+# Commentary: The penultimate naval milestone. Requires having the highest-dev
+# province in the world AND a hegemon status.
+
+# A33_the_verne_halann (pos 14) [IMPLEMENTED]
+# Requires: A33_all_roads_lead_to_verne, A33_type_2_wyverns (Lane 4)
+# Trigger: 10 port provinces with shipyard+dock+mage_tower in africa/asia,
+#          417 controlled (dev 45), 500 naval forcelimit, 50000 treasury
+# Effect: +2 world_network, +1 overseas_projection, fires verne.133
+# Commentary: THE ultimate capstone. Verne of Halann represents total global
+# naval dominance. The requirement for mage towers in foreign ports shows
+# the integration of arcane and maritime power.
+
+# --- Reform references (Tier 2-6, maritime chain) ---
+# verne_admiralty_of_the_crimson_wake_reform  — Tier 2 (+naval morale, +naval FL, +trade power)
+# verne_estuary_companies_of_heartspier_reform — Tier 2 (+trade efficiency, +light ship power)
+# verne_regatta_discipline_reform             — Tier 2 (+sailors, +navy tradition)
+# verne_secretariat_of_the_grand_regatta_reform — Tier 6 (+trade steering, +trade efficiency)
+# verne_imperial_sea_court_reform             — Tier 6 (+dip rep, +naval morale, +prestige)
+# verne_overseas_commanderies_reform           — Tier 6 (+tariffs, +gov cap, -diplo annex cost)
+
+# --- Event references ---
+# verne.101 — Damespearl integration (A33_a_matter_of_pride)
+# verne.104 — Corinite conversion push (A33_spread_the_word)
+# verne.106 — Union of Crowns event (A33_a_union_of_crowns, Lane 4)
+# verne.113 — Taychend religious event (A33_in_the_name_corin)
+# verne.114 — Most Prized Item event (A33_a_most_prized_item, Lane 2)
+# verne.115 — Historical friend event with H36 (A33_born_of_valour)
+# verne.119 — Alvari Accord event (A33_valour_on_the_seas)
+# verne.123 — Lament's Regatta event (A33_laments_regatta, Lane 2)
+# verne.133 — Verne of Halann event (A33_the_verne_halann)
+# verne.500 — Emperor diplomatic event (A33_the_allure_of_the_luna)
+
+# --- Cross-lane dependencies ---
+# - A33_alvars_reforms (Lane 2 early) gates A33_a_matter_of_pride
+# - A33_break_the_queen_of_the_hill (Lane 5) gates A33_a_matter_of_pride
+# - A33_the_rogue_duchy (Lane 5) gates A33_the_kingdom_of_Verne
+# - A33_the_lands_of_adventure (Lane 2) gates A33_in_the_name_corin
+# - A33_the_halanni_exposition (Lane 1) gates A33_the_vernman_era
+# - A33_laments_regatta (Lane 2) gates A33_the_vernman_era
+# - A33_with_sword_and_shield (Lane 4) gates A33_the_vernman_era
+# - A33_religious_mercantilism (Lane 5) gates A33_the_vernman_era
+# - A33_the_holy_corinite_empire (Lane 4) gates A33_all_roads_lead_to_verne
+# - A33_new_verne (Lane 2) gates A33_all_roads_lead_to_verne
+# - A33_type_2_wyverns (Lane 4) gates A33_the_verne_halann
+
+# --- Notes on planned vs implemented ---
+# The old lane2-maritime.txt (now this file) documented 4 PLANNED missions
+# that are NOT present in the actual Verne_Missions.txt codebase:
+#
+#   [DESIGN GOAL] A33_secure_port (pos 5-6) — early fleet infrastructure
+#     → Implementation: New mission in A33_third_slot. Requires A33_the_kingdom_of_Verne.
+#       Trigger: 7 port provinces with shipyard+dock, 15 heavy ships, naval forcelimit 50.
+#       Effect: Claims on contested sea zones, verne_secure_port (permanent, +navy tradition),
+#       seeds Fleet of the Crimson Wake path.
+#
+#   [DESIGN GOAL] A33_estuary_companies (pos 7-8) — trade company infrastructure
+#     → Implementation: Requires A33_secure_port. Trigger: estuary_companies path seeded
+#       (by A33_the_grand_port_of_heartspier), 5 trade company provinces, 3 merchants.
+#       Effect: verne_estuary_companies_of_heartspier reform unlock (Tier 2, exists in reforms),
+#       verne_heartspier_companies (permanent modifier, exists in modifiers file).
+#
+#   [DESIGN GOAL] A33_fleet_of_the_crimson_wake (pos 9-10) — naval power projection
+#     → Implementation: Requires A33_estuary_companies. Trigger: 30 heavy ships, naval
+#       forcelimit 100, flagship, won 3 naval battles. Effect: verne_crimson_wake_fleet
+#       (permanent modifier, exists), merc_crimson_wake_lances (exists, also from devout protectors).
+#
+#   [DESIGN GOAL] A33_imperial_sea_court (pos 11-12) — naval governance capstone
+#     → Implementation: Requires A33_fleet_of_the_crimson_wake. Trigger: verne_imperial_sea_court
+#       reform active (Tier 6, exists in reforms), emperor or Z01, naval hegemon.
+#       Effect: verne_imperial_sea_court (permanent modifier, exists), +dip rep, +prestige.
+#
+# The actual maritime lane is formed by A33_third_slot which contains 12
+# implemented missions covering the full diplomatic→colonial→naval arc.
+
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# - Consider adding dedicated fleet-building missions (like the old "Secure Port"
+#   or "Fleet of the Crimson Wake" concepts) as mid-lane fillers between pos 5-7
+#
+#   [DESIGN GOAL] A33_regatta_governance (new, pos 10) — regatta system mission
+#     → Implementation: Requires A33_born_of_valour. Trigger: verne_secretariat_of_the_grand_regatta
+#       reform active (Tier 6, exists), 10 ports with shipyard, naval tradition 75.
+#       Effect: verne_secretariat_of_the_grand_regatta reform effects bonus, regatta event.
+#
+# - The Sea Nest (A33_the_sea_nest, Lane 5) could be cross-referenced here
