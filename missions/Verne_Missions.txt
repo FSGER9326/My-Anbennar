@@ -4967,7 +4967,7 @@ A33_sixth_slot = {
 		custom_tooltip = verne_liliac_avenge_tt
 
 		trigger = {
-			has_country_flag = verne_liliac_war_vengeful
+			has_country_flag = verne_liliac_vengeful_path
 			OR = {
 				has_claim = 288
 				has_claim = 353

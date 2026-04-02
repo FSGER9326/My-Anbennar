@@ -33,6 +33,7 @@ country_event = {
 	option = {
 		name = verne_liliac.1.b
 		add_stability = -1
+		set_country_flag = verne_liliac_vengeful_path
 		add_country_modifier = {
 			name = verne_liliac_war_vengeful
 			duration = 3650
