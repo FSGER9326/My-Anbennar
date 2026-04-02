@@ -104,7 +104,7 @@ The missions still needing real titles are listed in `automation/reports/mission
 
 ## Recommended Priority Fix Order
 
-1. **V-M1:** Define the 28 missing modifiers in `verne_overhaul_modifiers.txt` — especially Wyvern nest tiers, Vernissage tiers, and fleet tiers
+1. **V-M1:** ✅ DONE — all 31 missing modifier definitions added to `verne_overhaul_modifiers.txt` (commit d88c74208a)
 2. **V-M2:** Trace `verne_seed_khenak_foundry` — where is it supposed to be set? Add to the mission or decision that seeds the Khenak path
 3. **V-M3:** Audit Liliac War flags (`verne_attacked`, `verne_liliac_*`) — are they set by the Liliac War event chain?
 4. **V-M4:** Get human titles for the 48 placeholder missions (ChatGPT or Falk)
