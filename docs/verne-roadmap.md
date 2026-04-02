@@ -1,8 +1,10 @@
 # Verne Mod Living Roadmap
 
-**Updated:** 2026-04-01 03:06 CET
+**Updated:** 2026-04-02 02:58 CET
 **Branch:** `chore/verne-10-lane-blueprint`
 **Background worker:** ✅ Running (auto-improves)
+**Self-improvement cron:** ✅ Installed (every 6h)
+**Autonomous skill creator:** ✅ Installed
 
 ---
 
@@ -31,15 +33,16 @@
   - **Total:** ~117 missions
 - **Modifiers implemented:** 34 in `common/event_modifiers/verne_overhaul_modifiers.txt`
 - **GFX assets:** Unknown — no gfx audit completed yet
-- **Standards compliance:** 8 standards defined (S01–S08), **QA scan completed** 2026-04-01
-  - S01 (Numbers in tooltips): ⚠️ Partial — expansion missions (slots 6-9) lack numeric tooltips
-  - S02 (Variable tracking): ❌ FAIL — 15+ missions change hidden variables without tooltip notification (biggest gap)
-  - S03 (Prerequisite tooltips): ⚠️ Partial — Liliac War flag-gated missions lack explanation
+- **Standards compliance:** 8 standards defined (S01–S08), **QA scan completed** 2026-04-02
+  - S01 (Numbers in tooltips): ⚠️ Partial — design docs need numeric values (17 issues, design doc only)
+  - S02 (Variable tracking): ✅ Pass (fixed 2026-04-01)
+  - S03 (Prerequisite tooltips): ⚠️ Partial — Liliac War flag-gate needs trigger tooltip
   - S04 (Cross-references): ✅ Pass
-  - S05 (Terminology): ⚠️ 13 typos found in player-facing text
-  - S06 (Modifier _desc): ⚠️ 2 modifiers missing descriptions
+  - S05 (Terminology): ✅ Pass (fixed 2026-04-01)
+  - S06 (Modifier _desc): ✅ Pass (fixed 2026-04-01)
   - S07 (Mission keys): ✅ Pass — all 117 missions have _title/_desc
   - S08 (Lore): ✅ Pass
+  - **40+ missing tooltip keys fixed in commit 1363ba5cc7**
 - **Events:** 6 event files exist, ~200+ events total across `Flavour_Verne_A33.txt` and overhaul files
 
 ---
