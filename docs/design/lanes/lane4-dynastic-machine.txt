@@ -1,0 +1,184 @@
+# Verne Overhaul - Lane 4: Dynastic Machine (Imperial Governance)
+# Slot 4 — Verne's imperial governance, from naval buildup through
+# Busilar consolidation to HRE supremacy and artificery wyverns.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: IMPLEMENTED — 8 missions in missions/Verne_Missions.txt (A33_fourth_slot)
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
+
+# ===============================================
+# Lane 4 - Dynastic Machine (Slot 4, mid→late)
+# ===============================================
+# This lane forms Verne's imperial spine — the path from duchy to empire.
+# It covers naval military buildup, Busilar conquest/alliance, HRE emperor
+# mechanics, and culminates in the Holy Corinite Empire and artificery
+# wyvern technology.
+#
+# The lane has two major arcs:
+# 1. Mid:     Naval buildup → Busilar conquest → Union of Crowns → HRE emperor
+# 2. Late:    Faith lock → Sword & Shield → Holy Empire → Artificery wyverns
+
+# --- Actual missions implemented ---
+
+# A33_taking_to_the_seas (pos 3) [IMPLEMENTED]
+# Requires: A33_a_matter_of_pride (Lane 3)
+# Trigger: Navy size >= A29, 10 heavy ships, 2 naval leaders, 7 port provinces
+#          with shipyard/dock/high production
+# Effect: Claims on Busilar (if not allied), verne_impressment_drive (25yr),
+#         glorious_engagement naval doctrine (or navy tradition + sailors)
+# Modifier: verne_impressment_drive (25yr)
+# Commentary: The naval military opener for the dynastic lane. Compares
+# directly against rival A29's navy size, creating a competitive dynamic.
+
+# A33_taming_the_lion (pos 4) [IMPLEMENTED]
+# Requires: A33_taking_to_the_seas, A33_the_wyvern_nest_initiative (Lane 5)
+# Trigger: Busilar areas fully owned OR fully owned+allied with A47,
+#          level 3 mil advisor or level 2 theologian/commandant
+# Effect: Claims on businor_region (or split with A47), army tradition,
+#         splendor, potential admiral, trust with A47
+# Commentary: The Busilar conquest is one of Verne's defining mid-game
+# moments. The alliance vs conquest choice creates a meaningful split.
+
+# A33_a_union_of_crowns (pos 5) [IMPLEMENTED]
+# Requires: A33_taming_the_lion, A33_across_the_pond (Lane 2), A33_the_kingdom_of_Verne (Lane 3)
+# Trigger: 200 DIP, 50 power projection, Businor fully controlled (with or
+#          without A47 alliance, trust 80+), no unrest
+# Effect: +1 world_network, claims on isle_of_tef, verne_wingspan (25yr),
+#         fires verne.106 (crowns event), potential A47 vassal bonuses
+# Modifier: verne_wingspan (25yr)
+# Commentary: The Union of Crowns is the dynastic culmination of the Busilar
+# arc. The three-path trigger (conquest, alliance, vassal) creates branching.
+
+# A33_united_under_crimson_wings (pos 8) [IMPLEMENTED]
+# Requires: A33_spread_the_word (Lane 3), A33_the_might_of_the_wyvern (Lane 5),
+#           A33_a_union_of_crowns
+# Trigger: Emperor or Z01, 7 specific provinces with forcelimit buildings,
+#          supply depots in 4 areas (if defavored adventurers) or 100 MIL
+# Effect: 15 imperial influence, +10/+10 ADM/DIP for 20 corinite HRE members,
+#         upgrades wyvern_nest_expanded → wyvern_nest_grand (permanent)
+# Commentary: The HRE consolidation mission. Requires emperor status and
+# military infrastructure across the heartland. The wyvern nest upgrade
+# transforms temporary military bonuses into permanent infrastructure.
+
+# A33_corins_devout_protectors (pos 9) [IMPLEMENTED]
+# Requires: A33_united_under_crimson_wings, A33_in_the_name_corin (Lane 3)
+# Trigger: HRE corinite locked or (emperor + aristo_revoke/imperial_dynasty),
+#          DoF tier 3, 400 corinite provinces
+# Effect: verne_dynasty_protected_court (2yr), dynasty_protected flag,
+#         merc_crimson_wake_lances, verne_only_dotf global flag,
+#         verne_special_cb_enabled flag, removes ravelian societies (50%),
+#         verne_no_imperial_rectorate flag, fires verne.116
+# Commentary: Locks the HRE to Corinite faith and removes Ravelian influence.
+# The global flag verne_only_dotf prevents other nations from becoming DoF.
+# This is an irreversible mechanical commitment.
+
+# A33_with_sword_and_shield (pos 10) [IMPLEMENTED]
+# Requires: A33_corins_devout_protectors, A33_a_crimson_sea (Lane 5)
+# Trigger: DoF tier 5, 300 army size, highest dev in western Cannor,
+#          14 corinite african countries OR 500 corinite african provinces
+# Effect: +1 world_network, verne_apostles_of_corin (permanent),
+#         verne_apostolic_oceanic_command (3yr)
+# Modifier: verne_apostles_of_corin (permanent), verne_apostolic_oceanic_command (3yr)
+# Commentary: The faith-war capstone. Requires total military and religious
+# dominance in both Cannor and Africa.
+
+# A33_the_holy_corinite_empire (pos 12) [IMPLEMENTED]
+# Requires: A33_the_vernman_era (Lane 3)
+# Trigger: 90 legitimacy, 75 power projection, 90 prestige, all HRE members
+#          corinite + aristo_revoke/imperial_dynasty (or Z01)
+# Effect: +1 world_network, prestige if maritime court active,
+#         30 trade power for propagate religion flag, verne_refunding_holy_order_15,
+#         verne_corinite_halann (permanent), color change (if Z01)
+# Modifier: verne_corinite_halann (permanent)
+# Commentary: THE holy empire capstone. Every HRE member must be Corinite.
+# The color change to crimson (if Z01) is a visual representation of the
+# Corinite world order.
+
+# A33_type_2_wyverns (pos 13) [IMPLEMENTED]
+# Requires: A33_on_wings_of_artificery (Lane 5), A33_the_holy_corinite_empire
+# Trigger: 25000 treasury, damestear or precursor relic trading bonus,
+#          artificers+mages loyalty 60+, mithril province (10 dev, production,
+#          manufactory) owned/subject/ally
+# Effect: +2 dynastic_magic_machine, ends verne_red_court_scandal disaster
+#         if active, fires verne.120
+# Commentary: The artificery-magic fusion capstone. Type 2 Wyverns represent
+# the pinnacle of Verne's arcane-military technology — bio-engineered war
+# mounts powered by damestear and mithril.
+
+# --- Reform references (Tier 5-8, imperial chain) ---
+# verne_wyvern_marshalate_reform           — Tier 5 (+cav ratio, +cavalry, +shock, +army tradition)
+# verne_crimson_eyrie_commandery_reform    — Tier 5 (-merc cost, +cav ratio, +free leader)
+# verne_sea_nest_ascendancy_reform         — Tier 5 (+naval morale, +fleet speed, +naval FL)
+# verne_secretariat_of_the_grand_regatta_reform — Tier 6 (+trade steering, +trade efficiency)
+# verne_imperial_sea_court_reform          — Tier 6 (+dip rep, +naval morale, +prestige)
+# verne_apostolic_court_of_corin_reform    — Tier 7 (+missionary, +dip rep, -enforce cost)
+# verne_vernman_court_of_the_world_reform  — Tier 7 (+prestige, +improve relations, +merchant)
+# verne_knights_of_the_crimson_scale_reform — Tier 7 (+morale, +army tradition, +prestige from land)
+# verne_throne_of_the_wyvern_kings_reform  — Tier 8 (-all power cost, +morale, +shock)
+# verne_the_crimson_world_order_reform     — Tier 8 (+merchant, +trade eff, +gov cap, +relations)
+# verne_storm_crowned_hegemony_reform      — Tier 8 (+morale, +naval FL, +fire, +prestige)
+
+# --- Event references ---
+# verne.106 — Union of Crowns event (A33_a_union_of_crowns)
+# verne.109 — Might of the Wyvern event (A33_the_might_of_the_wyvern, Lane 5)
+# verne.116 — Devout Protectors event (A33_corins_devout_protectors)
+# verne.117 — On Wings of Artificery event (A33_on_wings_of_artificery, Lane 5)
+# verne.120 — Type 2 Wyverns event (A33_type_2_wyverns)
+# verne.904 — Special CB event (A33_corins_devout_protectors)
+
+# --- Cross-lane dependencies ---
+# - A33_a_matter_of_pride (Lane 3) gates A33_taking_to_the_seas
+# - A33_the_wyvern_nest_initiative (Lane 5) gates A33_taming_the_lion
+# - A33_across_the_pond (Lane 2) gates A33_a_union_of_crowns
+# - A33_the_kingdom_of_Verne (Lane 3) gates A33_a_union_of_crowns
+# - A33_spread_the_word (Lane 3) gates A33_united_under_crimson_wings
+# - A33_the_might_of_the_wyvern (Lane 5) gates A33_united_under_crimson_wings
+# - A33_in_the_name_corin (Lane 3) gates A33_corins_devout_protectors
+# - A33_a_crimson_sea (Lane 5) gates A33_with_sword_and_shield
+# - A33_the_vernman_era (Lane 3) gates A33_the_holy_corinite_empire
+# - A33_on_wings_of_artificery (Lane 5) gates A33_type_2_wyverns
+
+# --- Notes on planned vs implemented [DESIGN GOAL — not yet implemented] ---
+# The old lane3-dynastic.txt documented 3 PLANNED missions that are NOT
+# present in the actual Verne_Missions.txt. Those missions may represent
+# future content targeting the dynasty-protection system specifically.
+#
+#   [DESIGN GOAL] A33_enact_dynastic_safeguard (pos 1-2, Slot 4)
+#     → Implementation: New mission, requires A33_alvars_reforms (Lane 2). Trigger:
+#       legitimacy 80, 3 royal marriages, Tier 2 reform active. Effect:
+#       verne_dynastic_safeguard (permanent modifier, exists in modifiers), sets
+#       dynasty_safeguarded flag, +dip rep, -liberty desire on PUs.
+#
+#   [DESIGN GOAL] A33_expand_noble_privileges (pos 2-3, Slot 4)
+#     → Implementation: Requires A33_enact_dynastic_safeguard. Trigger: nobility 60+
+#       loyalty, 3 privileges granted, stability 2. Effect: verne_noble_charter
+#       (permanent modifier, exists), +estate loyalty, +gov reform progress.
+#
+#   [DESIGN GOAL] A33_exalted_dynasty_machine (pos 14-15, Slot 4)
+#     → Implementation: Requires A33_type_2_wyverns. Trigger: Tier 8
+#       verne_throne_of_the_wyvern_kings_reform active (exists in reforms), 5 PU subjects,
+#       legitimacy 95, dynasty in 10+ countries. Effect: verne_exalted_dynasty_machine
+#       (permanent modifier, exists in modifiers), -all power cost, dynasty capstone.
+#
+# The actual dynastic/imperial lane is formed by A33_fourth_slot which
+# contains 8 implemented missions covering the full naval→HRE→artificery arc.
+#
+# The dynasty-protection system IS implemented as helper functions
+# (verne_overhaul_activate_dynasty_protection, etc.) called by other missions,
+# but doesn't have its own dedicated mission chain yet.
+
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# - Consider adding dedicated dynasty-protection missions (from old lane 3 design)
+#   between pos 1-2, gating on A33_alvars_reforms from Lane 2
+# - The "Exalted Dynasty Machine" concept could become a Lane 4 capstone
+#   at pos 14-15, after Type 2 Wyverns
+# - The Red Court scandal disaster (verne_red_court_scandal) could be tied
+#   to a crisis mission in this lane
+#
+#   [DESIGN GOAL] A33_red_court_crisis (new, pos 6-7, Slot 4) — crisis mission
+#     → Implementation: Requires A33_a_union_of_crowns. Trigger: verne_red_court_scandal
+#       disaster active, mage estate 40+ influence. Effect: resolve disaster, event chain,
+#       choice between mage integration or mage suppression. Would add narrative depth.

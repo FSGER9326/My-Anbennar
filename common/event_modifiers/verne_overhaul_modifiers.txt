@@ -1,28 +1,297 @@
 # ===============================================
-# Verne overhaul reusable layer
-# Ownership: Verne overhaul reusable layer (v0.1)
-# Scope: roadmap-aligned shared modifiers for V-01/V-04 helper work
+# Verne Overhaul Modifiers
+# Ownership: Verne overhaul (v0.1)
+# Scope: All modifiers for Verne mission lanes + reusable layer
+# ===============================================
+# Sections:
+#   1. Lane Mission Modifiers (Lanes 1-8)
+#   2. Adventure / Projection Reusable Modifiers
+#   3. Dynasty / Court Reusable Modifiers
+#   4. Pressure Placeholders (V-01 first-wave)
+#   5. Crisis Payoff Layer
 # ===============================================
 
-# --- Adventure / projection reusable modifiers ---
+
+# ################################################################
+# SECTION 1 — LANE MISSION MODIFIERS
+# ################################################################
+
+# --- Lane 1: Court & Oaths ---
+
+# Mission 1: A33_formalize_silver_oaths (permanent)
+# +1 diplomatic reputation, +5% vassal income
+verne_silver_oaths = {
+	diplomatic_reputation = 1
+	vassal_income = 0.05
+}
+
+# Mission 2: A33_establish_court_of_oaths (permanent)
+# -10% diplomatic annexation cost, +10% vassal force limit contribution, +1 max relations
+verne_court_of_oaths = {
+	diplomatic_annexation_cost = -0.10
+	vassal_forcelimit_bonus = 0.10
+	diplomats = 1
+}
+
+# Mission 3: A33_royal_arbitration (permanent)
+# -15% liberty desire in subjects, reduced subject disloyalty
+verne_royal_arbitration = {
+	liberty_desire_in_subjects = -15
+	reduced_liberty_desire = 5
+}
+
+# Mission 4: A33_diplomatic_hegemony (permanent, capstone)
+# +2 diplomatic reputation, +1 diplomatic relation, -15% diplomatic annexation cost, +10% vassal income
+verne_diplomatic_hegemony = {
+	diplomatic_reputation = 2
+	diplomats = 1
+	diplomatic_annexation_cost = -0.15
+	vassal_income = 0.10
+}
+
+
+# --- Lane 2: Maritime Empire ---
+
+# Mission 1: A33_secure_port_of_heartspier (province, 10 years)
+# +10% local sailors modifier
+verne_heartspier_port = {
+	local_sailors_modifier = 0.10
+}
+
+# Mission 1: A33_secure_port_of_heartspier (province, 10 years)
+# +10% local light ship trade power
+verne_heartspier_trade_powers = {
+	light_ship_power = 0.10
+	trade_value_modifier = 0.05
+}
+
+# Mission 2: A33_form_estuary_companies (permanent)
+# +5% trade efficiency, +10% light ship power, -5% build cost
+verne_heartspier_companies = {
+	trade_efficiency = 0.05
+	light_ship_power = 0.10
+	build_cost = -0.05
+}
+
+# Mission 3: A33_fleet_of_the_crimson_wake (permanent)
+# +0.5 navy tradition/year, +10% naval morale
+verne_crimson_wake_fleet = {
+	navy_tradition = 0.5
+	naval_morale = 0.10
+}
+
+# Mission 3: A33_fleet_of_the_crimson_wake (15 years, temporary)
+# -15% ship build cost
+verne_crimson_wake_discount = {
+	ship_cost = -0.15
+}
+
+# Mission 4: A33_imperial_sea_court (permanent, capstone)
+# +1 diplomatic reputation, +10% naval force limit modifier, +1 merchant
+verne_imperial_sea_court = {
+	diplomatic_reputation = 1
+	naval_forcelimit_modifier = 0.10
+	merchants = 1
+}
+
+
+# --- Lane 3: Dynastic Machine ---
+
+# Mission 1: A33_enact_dynastic_safeguard (permanent)
+# +1 yearly legitimacy, reduced succession crisis chance
+verne_dynastic_safeguard = {
+	legitimacy = 1
+	heir_chance = 0.15
+}
+
+# Mission 2: A33_expand_noble_privileges (25 years, temporary)
+# +5% manpower, +10% nobles loyalty
+verne_noble_charter = {
+	manpower_modifier = 0.05
+	estate_nobles_loyalty_modifier = 0.10
+}
+
+# Mission 3: A33_exalted_dynasty_machine (permanent, capstone)
+# +2 yearly prestige, +1 yearly legitimacy, +10% institution spread
+verne_exalted_dynasty_machine = {
+	prestige = 1
+	legitimacy = 1
+	institution_spread = 0.10
+}
+
+
+# --- Lane 4: Trade & Colonisation ---
+
+# Mission 1: A33_charter_overseas_companies (permanent)
+# +10 governing capacity (flat), +5% tariffs
+verne_chartered_overseas_companies = {
+	governing_capacity = 10
+	global_tariffs = 0.05
+}
+
+# Mission 1: projection scaling layer (permanent, stacks)
+# +1 overseas projection counter
+verne_overseas_projection_add_1 = {
+	colonial_range = 0.05
+}
+
+# Mission 2: A33_distant_horizons_expansion (permanent)
+# +15% colonial range, -15% naval attrition, +5% settler growth
+verne_distant_horizons = {
+	colonial_range = 0.15
+	naval_attrition = -0.15
+	global_settler_increase = 5
+}
+
+# Mission 3: A33_overseas_commanderies (permanent, capstone)
+# +10% tariffs, +10% governing capacity modifier, -10% diplomatic annexation cost
+verne_overseas_commanderies = {
+	global_tariffs = 0.10
+	governing_capacity_modifier = 0.10
+	diplomatic_annexation_cost = -0.10
+}
+
+
+# --- Lane 5: Red Court & Arcane ---
+
+# Mission 1: A33_establish_red_court (permanent)
+# +1 advisor pool, +0.1 reform progress growth
+verne_red_court_advisory = {
+	advisor_pool = 1
+	reform_progress_growth = 0.10
+}
+
+# Mission 2: A33_dragonwake_ordinance (permanent)
+# +0.5 army professionalism yearly
+verne_dragonwake_profession = {
+	yearly_army_professionalism = 0.005
+}
+
+# Mission 2: A33_dragonwake_ordinance (20 years, temporary)
+# +1 land shock pip
+verne_dragonwake_shock = {
+	land_shock_damage = 0.05
+	reinforce_speed = 0.10
+}
+
+# Mission 2: A33_dragonwake_ordinance (20 years, temporary)
+# War wizard general — powerful arcane commander
+verne_war_wizard = {
+	leader_land_shock = 2
+	leader_land_fire = 1
+	land_morale = 0.05
+}
+
+# Mission 3: A33_battle_mage_collegium (permanent, capstone)
+# +5% morale of armies
+verne_battle_mage_collegium = {
+	land_morale = 0.05
+}
+
+# Mission 3: A33_battle_mage_collegium (permanent)
+# +1 artillery fire
+verne_collegium_fire_artillery = {
+	artillery_fire = 1
+}
+
+# Mission 3: A33_battle_mage_collegium (permanent)
+# +1 land fire pip
+verne_collegium_fire_army = {
+	land_fire_damage = 0.05
+	infantry_fire = 0.25
+}
+
+
+# --- Lane 6: Legitimacy & Recognition ---
+
+# Mission 1: A33_entrench_royal_census (permanent)
+# +0.1 reform progress growth, +5% tax efficiency
+verne_royal_census = {
+	reform_progress_growth = 0.10
+	global_tax_modifier = 0.05
+}
+
+# Mission 2: A33_secure_academic_endowments (permanent)
+# +10% institution spread, +5% research efficiency, +0.1 yearly innovativeness
+verne_academic_endowments = {
+	institution_spread = 0.10
+	technology_cost = -0.05
+	innovativeness_gain = 0.10
+}
+
+# Mission 3: A33_stamp_of_sovereign_legitimacy (permanent, capstone)
+# +1 yearly legitimacy, +1 yearly prestige, -15% stability cost,
+# +10% institution spread, +1 diplomatic reputation
+verne_sovereign_legitimacy = {
+	legitimacy = 1
+	prestige = 1
+	stability_cost_modifier = -0.15
+	institution_spread = 0.10
+	diplomatic_reputation = 1
+}
+
+
+# --- Lane 8: Faith & Apostolic Empire ---
+
+# Mission 1: A33_corinite_stewardship (permanent)
+# +1 missionary, -33% enforce religion cost
+verne_corinite_stewardship = {
+	missionaries = 1
+	enforce_religion_cost = -0.33
+	global_missionary_strength = 0.01
+}
+
+# Mission 2: A33_pearlescent_concord (permanent)
+# -10% diplomatic annexation cost, -5% liberty desire in subjects
+verne_pearlescent_concord = {
+	diplomatic_annexation_cost = -0.10
+	liberty_desire_in_subjects = -5
+}
+
+# Mission 3: A33_world_faith_emperor (permanent, capstone)
+# +1 free leader pool, +1 merchant
+verne_world_faith_emperor = {
+	free_leader_pool = 1
+	merchants = 1
+	prestige = 0.5
+}
+
+# Mission 3: A33_world_faith_emperor (permanent)
+# +0.25 yearly innovativeness, +1% global missionary strength
+verne_faith_emperor_innovat = {
+	innovativeness_gain = 0.25
+	global_missionary_strength = 0.01
+}
+
+
+# ################################################################
+# SECTION 2 — ADVENTURE / PROJECTION REUSABLE MODIFIERS
+# ################################################################
+
+# Early colonial foothold — used by adventure/projection helper missions
 verne_adventure_projection_foothold = {
 	colonial_range = 0.10
 	global_settler_increase = 15
 }
 
+# Trade network projection — used by early-network rollout missions
 verne_adventure_projection_network = {
 	global_tariffs = 0.05
 	trade_range_modifier = 0.15
 	naval_forcelimit_modifier = 0.10
 }
 
-# Mission-reward home for early-network rollout (V-01 helper target).
+# Mission-reward home for early-network rollout (V-01 helper target)
 verne_reward_old_friends_old_rivals = {
 	prestige = 0.5
 	global_trade_power = 0.05
 }
 
-# --- Dynasty / court reusable modifiers ---
+
+# ################################################################
+# SECTION 3 — DYNASTY / COURT REUSABLE MODIFIERS
+# ################################################################
+
 verne_dynasty_protected_court = {
 	legitimacy = 0.5
 	heir_chance = 0.25
@@ -40,23 +309,35 @@ verne_marriage_court_protocol = {
 	same_dynasty_bonus = 0.1
 }
 
-# --- Pressure placeholders (V-01 first-wave constants) ---
+
+# ################################################################
+# SECTION 4 — PRESSURE PLACEHOLDERS (V-01 first-wave constants)
+# ################################################################
+
+# Triggered by court mismanagement / failed oaths
 verne_tarnished_courtly_reputation = {
 	stability_cost_modifier = 0.10
 	diplomatic_reputation = -1
 }
 
+# Triggered by legitimacy collapse
 verne_fading_ducal_authority = {
 	national_unrest = 1
 	legitimacy = -1
 }
 
+# Triggered by naval neglect / failed maritime missions
 verne_empty_boasts_of_the_wake = {
 	morale_of_navies = -0.05
 	global_ship_recruit_speed = -0.10
 }
 
-# --- Crisis payoff layer ---
+
+# ################################################################
+# SECTION 5 — CRISIS PAYOFF LAYER
+# ################################################################
+
+# Recovery from tarnished reputation
 verne_reforged_court_consensus = {
 	legitimacy = 1
 	diplomatic_reputation = 1
@@ -141,4 +422,278 @@ verne_luna_red_court_integration = {
 verne_luna_diplomatic_flexibility = {
 	improve_relation_modifier = 0.10
 	diplomatic_reputation = 1
+}
+
+verne_liliac_war_scarred = {
+	land_morale = -0.05
+	discipline = -0.02
+}
+
+verne_liliac_war_vengeful = {
+	land_morale = 0.10
+	war_exhaustion = -0.05
+}
+
+verne_liliac_diplomatic_recovery = {
+	improve_relation_modifier = 0.15
+	diplomatic_reputation = 1
+	diplomats = 1
+}
+
+verne_liliac_martial_fury = {
+	land_morale = 0.10
+	discipline = 0.02
+	shock_damage = 0.05
+}
+
+verne_liliac_unity_through_diplomacy = {
+	diplomatic_reputation = 2
+	legitimacy = 1
+	yearly_power_projection = 0.5
+}
+
+verne_expedition_supply_chain = {
+	trade_efficiency = 0.05
+	merchants = 1
+	global_tariffs = 0.05
+}
+
+verne_red_brass_forge = {
+	artillery_power = 0.10
+	production_efficiency = 0.10
+	defensiveness = 0.10
+}
+
+verne_controlled_devastation = {
+	artillery_power = 0.15
+	land_morale = 0.05
+	army_tradition = 0.5
+}
+
+verne_vernissage_secretariat = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.10
+	merchants = 1
+}
+
+
+# ################################################################
+# SECTION 6 — MISSING MODIFIER DEFINITIONS (audit 2026-04-02)
+# ################################################################
+
+# --- A33_the_grand_port_of_heartspier (Lane 2, Maritime) ---
+verne_new_armada = {
+	global_ship_cost = -0.10
+	sailors_capacity = 0.10
+	naval_forcelimit_modifier = 0.15
+}
+
+verne_the_wyverns_gulf = {
+	local_sailors_modifier = 0.20
+	local_ship_cost = -0.10
+	local_trade_power = 0.15
+}
+
+# --- A33_a_crimson_sea (Lane 2, Naval Power) ---
+verne_might_of_the_wyvern = {
+	land_morale = 0.10
+	naval_morale = 0.10
+	land_forcelimit_modifier = 0.10
+	naval_forcelimit_modifier = 0.10
+	prestige = 0.5
+}
+
+# --- A33_valour_on_the_seas (Lane 2, Golden Age) ---
+verne_vernman_era = {
+	yearly_prestige = 1
+	yearly_legitimacy = 0.5
+	advisor_cost = -0.10
+	all_power_cost = -0.02
+}
+
+# --- A33_a_union_of_crowns / A33_overseas_commonwealth (Lane 4) ---
+verne_new_world_monopolies = {
+	global_tariffs = 0.15
+	trade_efficiency = 0.10
+	global_ship_trade_power = 0.15
+}
+
+# --- A33_across_the_pond (Lane 4, Colonial) ---
+verne_off_to_adventure = {
+	naval_maintenance_modifier = -0.15
+	naval_attrition = -0.15
+	colonial_range = 0.15
+}
+
+# --- A33_alvars_reforms (Lane 4, Treasury cost) ---
+verne_redbrass_surplus = {
+	treasury_income = 0.10
+	production_efficiency = 0.05
+	build_cost = -0.05
+}
+
+# --- A33_born_of_valour / Wyvern-related ---
+verne_wyvern_stride = {
+	cavalry_power = 0.15
+	leader_land_shock = 1
+	land_morale = 0.05
+}
+
+verne_wingspan = {
+	naval_forcelimit_modifier = 0.15
+	cavalry_power = 0.10
+	naval_morale = 0.05
+}
+
+# --- A33_type_2_wyverns / Wyvern Nest progression ---
+verne_wyvern_nest = {
+	local_province_modifier = yes
+	local_defensiveness = 0.20
+	local_sailors_modifier = 0.15
+}
+
+verne_wyvern_nest_expanded = {
+	local_province_modifier = yes
+	local_defensiveness = 0.30
+	local_sailors_modifier = 0.25
+	local_morale_of_navies = 0.10
+}
+
+verne_wyvern_nest_grand = {
+	local_province_modifier = yes
+	local_defensiveness = 0.50
+	local_sailors_modifier = 0.40
+	local_morale_of_navies = 0.15
+	local_trade_power = 0.20
+}
+
+verne_wyvern_nest_no_dlc = {
+	local_province_modifier = yes
+	local_defensiveness = 0.50
+	local_sailors_modifier = 0.40
+	local_morale_of_navies = 0.15
+}
+
+# --- A33_diplomatic_hegemony / Grand Fleet tier progression ---
+verne_grand_fleet_tier1 = {
+	global_ship_cost = -0.05
+	naval_forcelimit_modifier = 0.10
+	naval_maintenance_modifier = -0.05
+}
+
+verne_grand_fleet_tier2 = {
+	global_ship_cost = -0.15
+	naval_forcelimit_modifier = 0.20
+	naval_maintenance_modifier = -0.10
+	trade_efficiency = 0.05
+}
+
+# --- A33_zenith_of_the_eastern_princes / A33_alliance chain ---
+verne_restoring_the_borders = {
+	defensiveness = 0.15
+	garrison_size = 0.15
+	local_defensiveness = 0.20
+}
+
+# --- A33_the_halanni_exposition / Vernissage tier2 (province 292) ---
+verne_vernissage_tier2 = {
+	local_province_modifier = yes
+	local_tax_modifier = 0.25
+	local_production_efficiency = 0.15
+	local_development_cost = -0.10
+}
+
+verne_impecable_groundwork = {
+	local_province_modifier = yes
+	local_tax_modifier = 0.15
+	local_production_efficiency = 0.10
+	local_development_cost = -0.05
+}
+
+verne_tourism_economy = {
+	local_province_modifier = yes
+	local_tax_modifier = 0.20
+	local_production_efficiency = 0.10
+	local_sailors_modifier = 0.10
+}
+
+verne_international_investment = {
+	local_province_modifier = yes
+	local_trade_power = 0.30
+	local_trade_value_modifier = 0.20
+	local_development_cost = -0.10
+}
+
+# --- A33_a_matter_of_pride / Impressment drive ---
+verne_impressment_drive = {
+	sailors_capacity = 0.25
+	sailors_recovery_speed = 0.15
+	naval_forcelimit_modifier = 0.15
+	morale_of_navies = 0.05
+}
+
+# --- A33_binding_the_beast / Khenak / Redbrass ---
+verne_all_roads_lead_to_verne = {
+	trade_efficiency = 0.10
+	global_trade_power = 0.10
+	trade_range_modifier = 0.15
+}
+
+# --- A33_exaltation_of_adventurers (dynasty path) ---
+verne_exaltation_of_adventurers = {
+	yearly_prestige = 1
+	heir_chance = 0.20
+	diplomatic_reputation = 1
+}
+
+# --- A33_foreign_doctrines / Corinite world faith ---
+verne_foreign_doctrines = {
+	global_missionary_strength = 0.02
+	missionaries = 1
+	enforce_religion_cost = -0.25
+}
+
+# --- A33_corinite_halann (Corinite mission rewards) ---
+verne_apostles_of_corin = {
+	prestige_from_land = 0.10
+	prestige_from_naval = 0.10
+	global_missionary_strength = 0.01
+	yearly_prestige = 0.5
+}
+
+verne_corinite_halann = {
+	prestige = 1
+	legitimacy = 0.5
+	advisor_pool = 1
+	yearly_legitimacy = 0.5
+}
+
+# --- A33_indebted_to_the_mages_small ---
+verne_indebted_to_the_mages_small = {
+	mages_loyalty_modifier = 0.15
+	mages_influence_modifier = 0.10
+	yearly_army_professionalism = -0.005
+}
+
+# --- A33_luna_red_court (Trade company conversion modifier) ---
+verne_trade_company_conversion_modifier = {
+	missionaries = 1
+	global_missionary_strength = 0.02
+	enforce_religion_cost = -0.25
+}
+
+# --- A33_the_wyvern_king (Elector/Imperial path) ---
+verne_the_wyvern_king = {
+	imperial_authority = 0.15
+	diplomatic_reputation = 2
+	imperial_authority_value = 0.05
+	legitimacy = 1
+}
+
+# --- A33_dovesworn_gnoll_partnership (Ruinborn integration) ---
+verne_half_ruinborn_small_modifier = {
+	tolerance_heathen = 2
+	ruinborn_loyalty_modifier = 0.15
+	ruinborn_autonomy_change = -0.05
+	national_unrest = -1
 }

@@ -1,0 +1,137 @@
+# Verne Overhaul - Lane 9: Industrial Foundries
+# Slot 8 (A33_eighth_slot) + Slot 2 Khenak chain — Red Brass forge,
+# Khenak excavations, controlled devastation, and industrial production.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: IMPLEMENTED — 3 missions + Khenak foundry path + 4 design goals
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
+
+# ===============================================
+# Lane 9 - Industrial Foundries (Slot 2/8, early→late)
+# ===============================================
+# This lane forms Verne's industrial backbone — from the Khenak resource
+# extraction through Red Brass forge development to controlled devastation
+# doctrine and industrial military production.
+#
+# The lane has two source streams:
+# 1. Slot 2 (early): A33_the_riches_of_the_khenak (pos 2) — resource foundation
+# 2. Slot 8 (mid-late): A33_red_brass_forge (pos 20), A33_controlled_devastation (pos 22)
+#
+# The Khenak foundry system uses a scripted path (verne_overhaul_seed_khenak_foundry_path)
+# that is seeded by multiple missions and checked by later content.
+
+# --- Actual missions implemented ---
+
+# A33_the_riches_of_the_khenak (pos 2, slot 2) [IMPLEMENTED]
+# Requires: A33_alvars_reforms
+# Trigger: Province 838 (Khenak capital) dev 15, base production 5;
+#          Province 292 (Heartspier) dev 15, base production 5;
+#          Province 291 (Calasandur) dev 15, base production 5;
+#          Treasury 200
+# Effect: Seeds khenak_foundry_path, unlocks merc_khenak_talons (free), -200 treasury,
+#         verne_redbrass_surplus (20yr), workshops in 838/292/291,
+#         conditional: best dev province of 377/364/6513 gets verne_khenak_excavations
+# Commentary: The industrial lane opener. Khenak is Verne's resource heartland —
+# the red brass mines and metalwork that fuel the foundry economy. The conditional
+# excavation bonus rewards developing the highest-potential Khenak province.
+# The merc_khenak_talons company ties industrial output directly to military force.
+
+# A33_red_brass_forge (pos 20, slot 8) [IMPLEMENTED]
+# Requires: A33_the_riches_of_the_khenak
+# Trigger: Khenak foundry path seeded, manufactories institution or any manufactory,
+#          furnace in 838/292/291, treasury 500
+# Effect: -500 treasury, verne_red_brass_forge (15yr), +0.02 army professionalism,
+#         +25 MIL
+# Commentary: The mid-lane industrial milestone. Building a furnace in the Khenak
+# heartland converts raw resource extraction into advanced metallurgy. The Red Brass
+# Forge modifier provides sustained military-economic bonuses — army professionalism
+# and direct MIL power — rewarding the infrastructure investment.
+
+# A33_controlled_devastation (pos 22, slot 8) [IMPLEMENTED]
+# Requires: A33_red_brass_forge
+# Trigger: Khenak foundry path seeded, battle_evocation or red_court doctrine OR
+#          khenak_foundry flag + MIL 100, at war or won war against A30/A01 in 10yr
+# Effect: -100 MIL, verne_controlled_devastation (15yr), -10% artillery cost,
+#         +0.5 yearly manpower
+# Commentary: The late industrial capstone. Controlled devastation doctrine uses
+# industrial output (foundries, artillery) to overwhelm enemies — the artillery
+# cost reduction and manpower bonus represent the foundry-to-army pipeline at
+# full capacity. The war trigger ensures this can only fire during active conflict.
+
+# --- Khenak foundry path system ---
+#
+# The khenak_foundry_path is a scripted state variable seeded by:
+# - A33_the_riches_of_the_khenak (primary seeder)
+# - A33_in_search_of_adventure (Lane 2, secondary seeder)
+# - A33_the_rogue_duchy (Lane 3, checks if seeded for bonus)
+#
+# Checked by:
+# - A33_red_brass_forge (this lane)
+# - A33_controlled_devastation (this lane)
+# - A33_the_rogue_duchy (Lane 3, grants integration bonus if seeded)
+#
+# Scripted trigger: verne_overhaul_has_khenak_foundry_seeded
+# Scripted effect: verne_overhaul_seed_khenak_foundry_path
+
+# --- Cross-lane dependencies ---
+# - A33_the_riches_of_the_khenak gates A33_the_grand_port_of_heartspier (Lane 1)
+# - A33_the_riches_of_the_khenak also gates A33_the_rogue_duchy (Lane 3) bonus path
+# - A33_red_brass_forge requires Lane 2 secondary seed (adventure system)
+# - A33_controlled_devastation requires either Red Court doctrine (Lane 6) or
+#   the foundry flag — creating a choice between arcane and industrial paths
+
+# --- New modifiers (referenced) [IMPLEMENTED] — all exist in verne_overhaul_modifiers.txt ---
+#
+# verne_redbrass_surplus             [IMPLEMENTED] (20yr)      +10% production efficiency, +0.5 goods produced
+# verne_khenak_excavations           [IMPLEMENTED] (permanent) province modifier on best Khenak province
+# verne_red_brass_forge              [IMPLEMENTED] (15yr)      +0.02 yearly army professionalism, +5% discipline
+# verne_controlled_devastation       [IMPLEMENTED] (15yr)      -10% artillery cost, +0.5 yearly manpower
+
+# --- Mercenary company ---
+# merc_khenak_talons — unlocked by A33_the_riches_of_the_khenak
+# Defined in common/mercenary_companies/
+# Free mercenary — represents Khenak gnoll auxiliaries integrated into Verne's forces
+
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# This lane needs more depth. Consider adding:
+#
+#   [DESIGN GOAL] A33_expand_the_foundry_complex (new, pos 24, slot 8) — multi-province industrial zone
+#     → Implementation: Requires A33_controlled_devastation. Trigger: 3 provinces in khenak_area
+#       with furnace+manufactory, treasury 3000, production efficiency 100%. Effect:
+#       verne_foundry_complex (permanent modifier), +goods produced in khenak_area,
+#       multi-province industrial synergy bonus.
+#
+#   [DESIGN GOAL] A33_khenak_steel_program (new) — advanced metallurgy for military equipment
+#     → Implementation: Requires A33_expand_the_foundry_complex. Trigger: mithril province
+#       (10 dev, production, manufactory) in khenak_region, treasury 5000, MIL 200.
+#       Effect: verne_khenak_steel (permanent, +discipline, +shock), advanced military
+#       equipment event chain.
+#
+#   [DESIGN GOAL] A33_industrial_logistics_chain (new) — supply chain for foundry output
+#     → Implementation: Requires A33_red_brass_forge. Trigger: 5 merchants, trade company
+#       provinces in 3 regions, workshop in 10 provinces. Effect: verne_industrial_logistics
+#       (permanent, +trade efficiency, +production efficiency), supply chain system.
+#
+#   [DESIGN GOAL] A33_the_foundry_master (new) — industrial leader capstone
+#     → Implementation: Requires A33_khenak_steel_program. Trigger: industrial_logistics
+#       active, 15000 treasury, 10 manufactories. Effect: Foundry Master event,
+#       verne_foundry_master (permanent), supreme industrial capstone.
+#
+# Available positions in slot 8: pos 24 (ninth_slot used by Vernissage secretariat)
+# Consider creating a dedicated industrial slot (A33_tenth_slot or extending eighth_slot).
+
+# --- Province context ---
+# 838 — Khenak capital, red brass mines, primary foundry site
+# 292 — Heartspier, secondary foundry site
+# 291 — Calasandur, tertiary foundry site
+# 377/364/6513 — Khenak region provinces, excavation bonus targets
+# Province 292 (Heartspier) appears in both Lane 1 (Court) and Lane 9 (Industry)
+# as the nexus of Verne's cultural-industrial identity.
+
+# --- Localisation keys ---
+# verne_overhaul_tt_seed_khenak_foundry
+# verne_B2_effect_tt1 (excavation bonus tooltip)
+# verne_B2_2_effect_ttyes / verne_B2_2_effect_ttno

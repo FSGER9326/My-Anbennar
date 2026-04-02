@@ -1,0 +1,162 @@
+# Verne Overhaul - Lane 2: Adventure Network
+# Slot 2 — Verne's overseas adventure system, Port of Adventure network,
+# expedition infrastructure, and colonial consolidation in Taychend/Effelai.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: IMPLEMENTED — 6 core missions + 3 new expansion missions
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
+
+# ===============================================
+# Lane 2 - Adventure Network (Slot 2, early→late)
+# ===============================================
+# Missions forming Verne's adventure-projection backbone.
+# The Port of Adventure system runs through this lane, establishing Verne
+# as a network state projecting power through exploration and overseas
+# infrastructure rather than pure land conquest.
+
+# --- Actual missions implemented ---
+
+# A33_across_the_pond (pos 4) [IMPLEMENTED]
+# Requires: A33_the_grand_port_of_heartspier (Lane 1)
+# Trigger: Early Akasik access route, 20 transports, 100 MIL
+# Effect: Advances overseas_projection, claims in Akasik, abolishes slavery,
+#         unlocks adventure system, seeds Silver Oaths path, creates Port of
+#         Adventure at 402, unlocks Sarhal/Bulwari adventures
+# Modifier: verne_new_armada (from Lane 1 prerequisite), innovative_modifier (3yr),
+#           the_abolish_slavery_act (permanent)
+# Commentary: THE adventure system opener. This mission converts Heartspier's
+# maritime infrastructure into actual overseas projection. The slavery abolition
+# is a hard mechanical lock — once done, Verne cannot trade slaves.
+
+# A33_in_search_of_adventure (pos 5) [IMPLEMENTED]
+# Requires: A33_across_the_pond
+# Trigger: Akasik gnoll-free or subject/network route, expedition capacity,
+#          Corinite religion, 200 treasury, 5 manpower, 5000 sailors
+# Effect: +2 overseas_projection, +1 world_network, unlocks Network of
+#         Adventure tier 1, seeds Khenak foundry path, unlocks Sarhal adventures,
+#         claims in Sarhal, creates Port of Adventure at 402
+# Modifier: verne_off_to_adventure (25yr)
+# Commentary: Establishes the Network of Adventure — Verne's unique scaling
+# system where completed adventures unlock more adventures. The expedition
+# capacity check ensures the player has built sufficient infrastructure.
+
+# A33_the_lands_of_adventure (pos 7) [IMPLEMENTED]
+# Requires: A33_the_vernissage (Lane 1), A33_in_search_of_adventure
+# Trigger: Adventurers estate 50+ influence, 4+ privileges (if defavored),
+#          2 explorers or level 3 navigator, colonial nation in south_america,
+#          3 trade company provinces in dao_nako_region, 6+ Ports of Adventure
+# Effect: Claims in orenkoraim/arawkelin/dogo_babolo/ohits areas,
+#         army professionalism (if Khenak Talons unlocked), 2 explorers,
+#         unlocks Taychend+Kheionai adventures
+# Modifier: None permanent (explorers are the reward)
+# Commentary: The mid-game adventure milestone. Requires balanced investment
+# in both the estate system and overseas infrastructure.
+
+# A33_a_most_prized_item (pos 9) [IMPLEMENTED]
+# Requires: A33_in_the_name_corin (Lane 3/8), A33_expand_the_Vernissage (Lane 1)
+# Trigger: 30 units at 6559, 2520 owned by subject, flagship, 62 provinces
+#          in taychend_superregion with correct religion and no devastation,
+#          blue house adventure completed flag
+# Effect: Fires verne.114
+# Commentary: Taychend conquest capstone. Requires extensive religious and
+# military preparation across the superregion.
+
+# A33_laments_regatta (pos 10) [IMPLEMENTED]
+# Requires: A33_a_most_prized_item, A33_born_of_valour (Lane 3)
+# Trigger: Province 5763 (New Hookfield) has Port of Adventure + Kazakesh tier 3,
+#          Province 383 has Aur-Kes-Akasik tier 3, Akasik access, court mage 4
+#          or mages loyalty/influence or A85 favors
+# Effect: Advances mature_overseas_state, fires verne.123
+# Commentary: The Lament's Regatta is Verne's maritime prestige ceremony —
+# a convergence of adventure achievements, monument building, and arcane power.
+
+# A33_new_verne (pos 12) [IMPLEMENTED]
+# Requires: A33_the_heart_of_darkness (Lane 1), A33_the_vernman_era (Lane 3)
+# Trigger: Full south_america control (except ruin_proper/tor_nayyi), 50
+#          military-built provinces in taychend, 2500 (New Verne capital) dev 30
+#          with manufactory, courthouse, university/innovativeness, CoT level 2
+# Effect: Advances mature_overseas_state, 10 permanent power projection,
+#         verne_new_world_monopolies (permanent), renames colonial nation to
+#         "New Verne", moves capital to 2500, renames 6559 to "New Heartspier"
+# Commentary: The ultimate colonial capstone. Verne literally recreates itself
+# in the New World. The capital relocation and renaming are irreversible.
+
+# --- NEW expansion missions (A33_seventh_slot block) [IMPLEMENTED] ---
+
+# A33_charter_the_expedition_fleet (pos 14) [IMPLEMENTED]
+# Requires: A33_across_the_pond
+# Trigger: Expedition capacity, 3000 sailors, 200 treasury
+# Effect: verne_off_to_adventure (3yr), unlocks adventure system,
+#         +1 overseas_projection
+# Commentary: Redundant with in_search_of_adventure for players who already
+# unlocked the system. Serves as an alternative entry for different playthroughs.
+
+# A33_ports_of_adventure_program (pos 16) [IMPLEMENTED]
+# Requires: A33_charter_the_expedition_fleet, A33_in_search_of_adventure
+# Trigger: 6+ Ports of Adventure
+# Effect: +1 overseas_projection, verne_network_of_adventure_tier_1 (3yr)
+# Commentary: A mid-lane consolidation mission that rewards Port of Adventure
+# expansion. The temporary modifier provides a boost while the player builds
+# toward the Lands of Adventure.
+
+# A33_expedition_supply_chain (pos 18) [IMPLEMENTED]
+# Requires: A33_the_lands_of_adventure
+# Trigger: Adventure network started, 5 merchants, 500 treasury
+# Effect: +1 world_network, verne_expedition_supply_chain (3yr), +1 merchant
+# Modifier: verne_expedition_supply_chain (+5% trade efficiency, +1 merchant,
+#           +5% global tariffs)
+# Commentary: Supply chain consolidation for the mid-late game adventure system.
+# The extra merchant helps sustain the increasingly complex trade network.
+
+# --- Adventure system variables ---
+# verne_overseas_projection  — tracks overseas reach (used cross-lane)
+# verne_world_network        — tracks network state maturity (used cross-lane)
+# verne_network_of_adventure — count of Ports of Adventure created
+# verne_number_of_adventures_completed — adventures completed at Vernissage (292)
+
+# --- Port of Adventure locations (from code) ---
+# 288 — Heartspier (created by A33_the_grand_port_of_heartspier, Lane 1)
+# 376 — Moorhalls (created by A33_the_grand_port_of_heartspier, Lane 1)
+# 402 — Sarhal coast (created by A33_in_search_of_adventure)
+# 6559 — Taychend (created by A33_in_the_name_corin, Lane 3/8)
+
+# --- Cross-lane dependencies ---
+# - A33_the_grand_port_of_heartspier (Lane 1) gates A33_across_the_pond
+# - A33_the_vernissage (Lane 1) co-requires A33_the_lands_of_adventure
+# - A33_expand_the_Vernissage (Lane 1) co-requires A33_a_most_prized_item
+# - A33_in_the_name_corin (Lane 3/8) gates A33_a_most_prized_item
+# - A33_born_of_valour (Lane 3) gates A33_laments_regatta
+# - A33_the_heart_of_darkness (Lane 1) gates A33_new_verne
+# - A33_the_vernman_era (Lane 3) gates A33_new_verne
+
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# - The design blueprint calls for deeper Sarhal/Effelai adventure chains.
+#   These are NOT in the current codebase.
+#
+#   [DESIGN GOAL] A33_deep_jungle_expeditions (new, pos 11-13, Slot 2)
+#     → Implementation: Requires A33_a_most_prized_item. Trigger: 20 provinces in
+#       effelai_superregion, expedition capacity, 30 units at Port of Adventure in region.
+#       Effect: Claims in deep Effelai, verne_effelai_expedition (10yr modifier), +adventure count.
+#
+#   [DESIGN GOAL] A33_heart_of_the_effelai (new, pos 13-15, Slot 2)
+#     → Implementation: Requires A33_deep_jungle_expeditions. Trigger: province with
+#       effelai_heart modifier controlled, 50 units present, mage_tower built.
+#       Effect: Fires Effelai event chain, verne_effelai_heart_claimed (permanent),
+#       unique Effelai resource bonus.
+#
+# - The adventure system scaling (verne_network_of_adventure) could support
+#   additional milestones at 15 and 25 ports — not yet implemented
+
+# --- Localisation keys ---
+# verne_overhaul_tt_overseas_projection_gain
+# verne_overhaul_tt_world_network_gain
+# verne_overhaul_tt_unlock_network_of_adventure
+# verne_overhaul_tt_unlock_sarhali_adventures
+# verne_overhaul_tt_seed_khenak_foundry
+# verne_overhaul_tt_seed_silver_oaths
+# verne_needs_6_ports_of_adventure_tt
+# verne_needs_11_ports_of_adventure_tt
+# verne_needs_20_ports_of_adventure_tt

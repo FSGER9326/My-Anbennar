@@ -1,0 +1,151 @@
+# Verne Overhaul - Lane 10: Diplomacy & Liliac War Legacy
+# Slot 5 (A33_sixth_slot) — Diplomatic/military legacy of the Liliac War,
+# eastern alliances, and post-war national identity.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: IMPLEMENTED — 4 missions in A33_sixth_slot + 4 design goals
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
+
+# ===============================================
+# Lane 10 - Diplomacy & Liliac War Legacy (Slot 5, mid→late)
+# ===============================================
+# This lane forms Verne's post-conflict identity — the diplomatic and military
+# response to the Liliac War defeat, branching into either peaceful recovery
+# or vengeful reconquest.
+#
+# The lane has a branch structure:
+# 1. Opener:  A33_recount_liliac_defeat (pos 8) — historical reckoning
+# 2. Branch:  A33_seek_eastern_allies (pos 10) — diplomatic recovery path
+#             A33_avenge_liliac_wars (pos 10) — vengeful reconquest path
+# 3. Capstone: A33_unity_through_diplomacy (pos 12) — convergent endpoint
+#
+# Note: A33_sixth_slot is defined as slot = 5 with positions starting at 8.
+# This creates a vertical branch below the main slot 5 content, using the
+# same UI column but later positions.
+
+# --- Actual missions implemented ---
+
+# A33_recount_liliac_defeat (pos 8) [IMPLEMENTED]
+# Requires: none
+# Trigger: NOT at war, either year 1485 OR prestige 40 + legitimacy 70
+# Effect: Fires verne_liliac.1, +5 legitimacy
+# Commentary: The historical reckoning mission. Verne must confront the legacy
+# of the Liliac War — either through time (1485) or through earned prestige.
+# The event chain branches the player toward either diplomatic recovery or
+# military vengeance. The peacetime requirement forces the player to choose
+# their moment of reflection.
+
+# A33_seek_eastern_allies (pos 10) [IMPLEMENTED]
+# Requires: A33_recount_liliac_defeat
+# Trigger: Has verne_liliac_diplomacy_path_open flag, any known country with
+#          100+ opinion and capital in europe/western_cannor, DIP 50
+# Effect: -50 DIP, fires verne_liliac.2, verne_liliac_diplomatic_recovery (20yr)
+# Commentary: The diplomatic recovery path. Verne seeks allies among eastern
+# Cannorian powers to rebuild its position after the Liliac War defeat.
+# The diplomatic recovery modifier provides sustained diplomatic bonuses —
+# improve relations, diplomatic reputation, or similar soft-power tools.
+
+# A33_avenge_liliac_wars (pos 10) [IMPLEMENTED]
+# Requires: A33_recount_liliac_defeat
+# Trigger: Has verne_liliac_war_vengeful flag, claims on 288/353 or army tradition 50, MIL 50
+# Effect: -50 MIL, fires verne_liliac.3, verne_liliac_martial_fury (20yr),
+#         permanent claims on 288 and 353
+# Commentary: The vengeful reconquest path. Verne channels the trauma of defeat
+# into military preparation — claims on key provinces (288 = Heartspier, 353 = contested
+# territory) and a martial fury modifier that boosts military capability. The
+# army tradition alternative to claims allows the military-focused player to
+# pursue vengeance without pre-existing territorial ambitions.
+
+# A33_unity_through_diplomacy (pos 12) [IMPLEMENTED]
+# Requires: A33_seek_eastern_allies OR A33_avenge_liliac_wars
+# Trigger: Either diplomacy or vengeful path flag, prestige 60, legitimacy 80,
+#          verne_vernman_court_of_the_world_reform OR verne_knights_of_the_crimson_scale_reform
+# Effect: Fires verne_liliac.4, verne_liliac_unity_through_diplomacy (permanent)
+# Commentary: The convergent capstone. Whether Verne chose diplomacy or vengeance,
+# the outcome is the same — national unity forged through confronting the Liliac
+# War legacy. The permanent modifier represents a transformed national identity.
+# The reform gate (Court of the World or Knights of the Crimson Scale) ensures
+# this capstone only fires for players who have invested in Verne's government
+# reforms — tying the Liliac War resolution to institutional maturity.
+
+# --- Branch structure ---
+#
+# The Liliac War lane has a unique branch design:
+#
+#                    A33_recount_liliac_defeat (pos 8)
+#                           /              \
+#               seek_eastern_allies    avenge_liliac_wars
+#                    (pos 10)              (pos 10)
+#                           \              /
+#                 A33_unity_through_diplomacy (pos 12)
+#
+# Both branches occupy pos 10 — they appear side-by-side in the UI.
+# The branch is controlled by event flags set during verne_liliac.1:
+# - verne_liliac_diplomacy_path_open → seek_eastern_allies
+# - verne_liliac_war_vengeful → avenge_liliac_wars
+
+# --- Event chain ---
+# verne_liliac.1 — Recount Liliac Defeat event (sets branch flag)
+# verne_liliac.2 — Seek Eastern Allies event (diplomatic path)
+# verne_liliac.3 — Avenge Liliac Wars event (martial path)
+# verne_liliac.4 — Unity Through Diplomacy event (convergence)
+# Events defined in events/verne_liliac_events.txt
+
+# --- Cross-lane dependencies ---
+# - A33_recount_liliac_defeat has no required_missions — standalone opener
+# - A33_seek_eastern_allies feeds into Lane 3 (Maritime Empire) diplomacy
+# - A33_avenge_liliac_wars feeds into Lane 7 (Military Orders) martial content
+# - A33_unity_through_diplomacy requires reform investment from Lane 1 (Court & Oaths)
+#   or Lane 7 (Military Orders — crimson scale reform)
+
+# --- New modifiers (referenced) [IMPLEMENTED] — all exist in verne_overhaul_modifiers.txt ---
+#
+# verne_liliac_diplomatic_recovery    [IMPLEMENTED] (20yr) +2 dip rep, +15% improve relations
+# verne_liliac_martial_fury           [IMPLEMENTED] (20yr) +10% morale, +5% discipline
+# verne_liliac_unity_through_diplomacy [IMPLEMENTED] (permanent) +1 legitimacy yearly, +0.5 prestige,
+#                                       -10% stability cost, +1 diplomatic reputation
+
+# --- Reform connection ---
+# verne_vernman_court_of_the_world_reform [IMPLEMENTED] — exists in codebase, tier 7 capstone
+# verne_knights_of_the_crimson_scale_reform [IMPLEMENTED] — exists in codebase, military order reform
+# Both can gate A33_unity_through_diplomacy, creating a meaningful choice:
+# diplomatic path → Court of the World, military path → Knights of the Crimson Scale
+
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# The Liliac War branch is well-structured but thin (4 missions). Consider:
+#
+#   [DESIGN GOAL] A33_the_liliac_memorial (new, pos 9) — cultural remembrance, monument
+#     → Implementation: Requires A33_recount_liliac_defeat. Trigger: province 288 (Heartspier)
+#       has monument or temple, prestige 50, not at war. Effect: Liliac Memorial event,
+#       verne_liliac_memorial (permanent province modifier), +prestige, +stability.
+#
+#   [DESIGN GOAL] A33_eastern_trade_pact (new, pos 11, diplomacy branch) — economic alliance
+#     → Implementation: Requires A33_seek_eastern_allies. Trigger: 3 eastern allies with
+#       150+ opinion, 5 merchants, trade income 30/month. Effect: Eastern Trade Pact event,
+#       verne_eastern_trade_pact (permanent, +trade efficiency with eastern nations).
+#
+#   [DESIGN GOAL] A33_prepare_for_the_next_war (new, pos 11, martial branch) — military buildup
+#     → Implementation: Requires A33_avenge_liliac_wars. Trigger: army size 200, 20 forts,
+#       army tradition 60, MIL 200. Effect: Next War Preparation event,
+#       verne_prepare_next_war (20yr, +fort defense, +manpower recovery).
+#
+#   [DESIGN GOAL] A33_liliac_reconciliation (new, pos 13) — late-game diplomatic capstone
+#     → Implementation: Requires A33_unity_through_diplomacy. Trigger: prestige 80,
+#       legitimacy 90, 5 historical friends, Tier 7 reform active. Effect:
+#       Reconciliation event, verne_liliac_reconciliation (permanent, +diplomacy, +prestige).
+#
+# These would deepen both branches and create more meaningful progression.
+
+# --- Province context ---
+# 288 — Heartspier, claim target for vengeful path (Verne's own capital region)
+# 353 — Contested territory, secondary claim target
+# These claims on home territory suggest the Liliac War involved territorial losses
+# that Verne must recover — or that the vengeance path involves reasserting control
+# over disputed borders.
+
+# --- Localisation keys ---
+# verne_liliac_diplomacy_path_open (country flag)
+# verne_liliac_war_vengeful (country flag)

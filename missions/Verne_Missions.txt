@@ -260,6 +260,7 @@ A33_first_slot = {
 
 		effect = {
 			# Commentary: The Vernissage now explicitly advances Verne's international network state.
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 1
@@ -299,6 +300,7 @@ A33_first_slot = {
 
 		effect = {
 			# Commentary: expanding the Vernissage should deepen the mature network state, not just add colonial utility.
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 1
@@ -1148,7 +1150,7 @@ A33_second_slot = {
 			custom_tooltip = verne_overhaul_tt_seed_khenak_foundry
 			add_treasury = -200
 			add_country_modifier = {
-				name = "verne_redbrass_surpluss"
+				name = "verne_redbrass_surplus"
 				duration = 7300
 			}
 			838 = { add_building = workshop } 
@@ -1262,6 +1264,7 @@ A33_second_slot = {
 		}
 
 		effect = {
+			custom_tooltip = verne_overhaul_tt_overseas_projection_gain
 			change_variable = {
 				which = verne_overseas_projection
 				value = 1
@@ -1533,10 +1536,12 @@ A33_second_slot = {
 		}
 
 		effect = {
+			custom_tooltip = verne_overhaul_tt_overseas_projection_gain
 			change_variable = {
 				which = verne_overseas_projection
 				value = 2
 			}
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 1
@@ -1831,6 +1836,7 @@ A33_second_slot = {
 
 		effect = {
 			# Commentary: the first-wave Regatta is a maritime prestige threshold and should advance both network and overseas reach.
+			custom_tooltip = verne_overhaul_tt_mature_overseas_state_gain
 			verne_overhaul_advance_mature_overseas_state = yes
 			country_event = { id = verne.123 }
 		} 
@@ -1947,6 +1953,7 @@ A33_second_slot = {
 
 		effect = {
 			# Commentary: New Verne is a late overseas consolidation milestone and should further mature the world-network state.
+			custom_tooltip = verne_overhaul_tt_mature_overseas_state_gain
 			verne_overhaul_advance_mature_overseas_state = yes
 			if = {
 				limit = { has_country_modifier = verne_overseas_commonwealth }
@@ -2374,6 +2381,7 @@ A33_third_slot = {
 
 		effect = {
 			# Commentary: the kingdom mission now explicitly advances Verne's court-state and imperial-governance maturity.
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 1
@@ -2621,7 +2629,7 @@ A33_third_slot = {
 							}
 						}
 						add_province_modifier = {
-							name = verne_corinite_synchretism
+							name = verne_corinite_syncretism
 							duration = -1
 						}
 					}
@@ -2630,7 +2638,7 @@ A33_third_slot = {
 					}
 				}
 			}
-			set_country_flag = verne_corinite_synchretism_flag
+			set_country_flag = verne_corinite_syncretism_flag
 			if = {
 				limit = { NOT = { exists = H67 } } 
 				colonial_lai_peninsula = { add_claim = ROOT } 
@@ -2844,6 +2852,7 @@ A33_third_slot = {
 
 		effect = {
 			# Commentary: Lands of Adventure is a mature network threshold and should advance both world-network and overseas reach.
+			custom_tooltip = verne_overhaul_tt_mature_overseas_state_gain
 			verne_overhaul_advance_mature_overseas_state = yes
 			add_country_modifier = {
 				name = verne_overseas_commonwealth
@@ -2896,6 +2905,7 @@ A33_third_slot = {
 
 		effect = {
 			# Commentary: Born of Valour is a late overseas-identity consolidation node and should deepen both mature network and projection state.
+			custom_tooltip = verne_overhaul_tt_mature_overseas_state_gain
 			verne_overhaul_advance_mature_overseas_state = yes
 			set_estate_privilege = estate_adventurers_alvari_accord
 			remove_estate_privilege = estate_adventurers_seas_of_valour
@@ -3005,6 +3015,7 @@ A33_third_slot = {
 
 		effect = {
 			# Commentary: this is one of the clearest mature hegemonic nodes and should significantly deepen the world-network state.
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 2
@@ -3066,10 +3077,12 @@ A33_third_slot = {
 
 		effect = {
 			# Commentary: Verne of Halann marks world-projecting maturity and should visibly advance the late score model.
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 2
 			}
+			custom_tooltip = verne_overhaul_tt_overseas_projection_gain
 			change_variable = {
 				which = verne_overseas_projection
 				value = 1
@@ -3445,6 +3458,7 @@ A33_fourth_slot = {
 
 		effect = {
 			# Commentary: Union of Crowns is a mid-tree empire-consolidation milestone and should deepen the world-network state.
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 1
@@ -3865,6 +3879,7 @@ A33_fourth_slot = {
 
 		effect = {
 			# Commentary: Sword and Shield is an obvious late faith-war milestone and should deepen world-network maturity.
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 1
@@ -3914,6 +3929,7 @@ A33_fourth_slot = {
 		}
 
 		effect = {
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 1
@@ -4001,6 +4017,7 @@ A33_fourth_slot = {
 
 		effect = {
 			# Commentary: Type 2 Wyverns should clearly advance the dynastic-magic machine and late military-mage state.
+			custom_tooltip = verne_overhaul_tt_dynastic_magic_machine_gain
 			change_variable = {
 				which = verne_dynastic_magic_machine
 				value = 2
@@ -4424,6 +4441,7 @@ A33_fifth_sloth = {
 
 		effect = {
 			# Commentary: nest expansion is one of the cleanest places to advance the dynastic-magic machine in a reusable way.
+			custom_tooltip = verne_overhaul_tt_dynastic_magic_machine_gain
 			change_variable = {
 				which = verne_dynastic_magic_machine
 				value = 1
@@ -4715,10 +4733,12 @@ A33_fifth_sloth = {
 
 		effect = {
 			# Commentary: Crimson Sea is a late overseas-faith dominance mission and should materially advance both global scores.
+			custom_tooltip = verne_overhaul_tt_overseas_projection_gain
 			change_variable = {
 				which = verne_overseas_projection
 				value = 1
 			}
+			custom_tooltip = verne_overhaul_tt_world_network_gain
 			change_variable = {
 				which = verne_world_network
 				value = 1
@@ -4863,6 +4883,364 @@ A33_fifth_sloth = {
 			}
 		}
 
-		effect = { country_event = { id = verne.117 } } 
+		effect = { country_event = { id = verne.117 } }
+	}
+}
+
+# ===============================================
+# Verne overhaul: Liliac War legacy lane
+# Status: first-wave new content from 10-lane blueprint
+# Scope: diplomatic/military legacy of the Liliac War defeat
+# ===============================================
+
+A33_sixth_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	A33_recount_liliac_defeat = {
+		icon = mission_mourning_court
+		position = 8
+		provinces_to_highlight = { }
+
+		trigger = {
+			NOT = { is_at_war = yes }
+			OR = {
+				is_year = 1485
+				AND = {
+					prestige = 40
+					legitimacy = 70
+				}
+			}
+		}
+
+		effect = {
+			country_event = { id = verne_liliac.1 }
+			add_legitimacy = 5
+		}
+	}
+
+	A33_seek_eastern_allies = {
+		icon = mission_diplomacy_of_the_silver_court
+		position = 10
+		required_missions = { A33_recount_liliac_defeat }
+
+		custom_tooltip = verne_liliac_seek_eastern_tt
+
+		trigger = {
+			has_country_flag = verne_liliac_diplomacy_path_open
+			OR = {
+				any_known_country = {
+					NOT = { war_with = ROOT }
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+					capital_scope = {
+						OR = {
+							continent = europe
+							superregion = western_cannor_superregion
+						}
+					}
+				}
+			}
+			dip_power = 50
+		}
+
+		effect = {
+			add_dip_power = -50
+			country_event = { id = verne_liliac.2 }
+			add_country_modifier = {
+				name = verne_liliac_diplomatic_recovery
+				duration = 7300
+			}
+		}
+	}
+
+	A33_avenge_liliac_wars = {
+		icon = mission_heated_battle
+		position = 10
+		required_missions = { A33_recount_liliac_defeat }
+
+		custom_tooltip = verne_liliac_avenge_tt
+
+		trigger = {
+			has_country_flag = verne_liliac_vengeful_path
+			OR = {
+				has_claim = 288
+				has_claim = 353
+				army_tradition = 50
+			}
+			mil_power = 50
+		}
+
+		effect = {
+			add_mil_power = -50
+			country_event = { id = verne_liliac.3 }
+			add_country_modifier = {
+				name = verne_liliac_martial_fury
+				duration = 7300
+			}
+			add_permanent_claim = 288
+			add_permanent_claim = 353
+		}
+	}
+
+	A33_unity_through_diplomacy = {
+		icon = mission_grand_duke
+		position = 12
+		required_missions = {
+			A33_seek_eastern_allies
+			A33_avenge_liliac_wars
+		}
+
+		custom_tooltip = verne_liliac_unity_tt
+
+		trigger = {
+			OR = {
+				has_country_flag = verne_liliac_diplomacy_path_open
+				has_country_flag = verne_liliac_vengeful_path
+			}
+			prestige = 60
+			legitimacy = 80
+			OR = {
+				has_reform = verne_vernman_court_of_the_world_reform
+				has_reform = verne_knights_of_the_crimson_scale_reform
+			}
+		}
+
+		effect = {
+			country_event = { id = verne_liliac.4 }
+			add_country_modifier = {
+				name = verne_liliac_unity_through_diplomacy
+				duration = -1
+			}
+		}
+	}
+}
+
+# ===============================================
+# Verne overhaul: Adventure Network expansion (Lane 6 from blueprint)
+# Status: extends existing adventure network system
+# Scope: builds on A33_across_the_pond chain with new buildup missions
+# ===============================================
+
+A33_seventh_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	A33_charter_the_expedition_fleet = {
+		icon = mission_fleet
+		position = 14
+		required_missions = { A33_across_the_pond }
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = verne_overhaul_tt_in_search_expedition_capacity
+				verne_overhaul_has_expedition_capacity = yes
+			}
+			sailors = 3000
+			treasury = 200
+		}
+
+		effect = {
+			add_treasury = -200
+			add_sailors = -3000
+			add_country_modifier = {
+				name = verne_off_to_adventure
+				duration = 3650
+			}
+			set_country_flag = verne_unlocked_adventure_system
+			custom_tooltip = verne_overhaul_tt_overseas_projection_gain
+			change_variable = { which = verne_overseas_projection value = 1 }
+		}
+	}
+
+	A33_ports_of_adventure_program = {
+		icon = mission_fleet_arrival
+		position = 16
+		required_missions = {
+			A33_charter_the_expedition_fleet
+			A33_in_search_of_adventure
+		}
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = verne_needs_6_ports_of_adventure_tt
+				292 = {
+					check_variable = { which = verne_network_of_adventure value = 6 }
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = verne_overhaul_tt_overseas_projection_gain
+			change_variable = { which = verne_overseas_projection value = 1 }
+			add_country_modifier = {
+				name = verne_network_of_adventure_tier_1
+				duration = 3650
+			}
+		}
+	}
+
+	A33_expedition_supply_chain = {
+		icon = mission_market
+		position = 18
+		required_missions = { A33_the_lands_of_adventure }
+
+		trigger = {
+			verne_overhaul_has_adventure_network_started = yes
+			num_of_merchants = 5
+			treasury = 500
+		}
+
+		effect = {
+			add_treasury = -500
+			custom_tooltip = verne_overhaul_tt_world_network_gain
+			change_variable = { which = verne_world_network value = 1 }
+			add_country_modifier = {
+				name = verne_expedition_supply_chain
+				duration = 3650
+			}
+			add_merchants = 1
+		}
+	}
+}
+
+# ===============================================
+# Verne overhaul: Industrial Foundries expansion (Lane 9 from blueprint)
+# Status: extends existing Khenak foundry system
+# Scope: adds Red Brass forge and Controlled devastation missions
+# ===============================================
+
+A33_eighth_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	A33_red_brass_forge = {
+		icon = mission_industrialize_furnace
+		position = 20
+		required_missions = { A33_the_riches_of_the_khenak }
+
+		trigger = {
+			verne_overhaul_has_khenak_foundry_seeded = yes
+			OR = {
+				has_institution = manufactories
+				any_owned_province = {
+					has_manufactory = yes
+				}
+			}
+			OR = {
+				838 = { has_building = furnace }
+				292 = { has_building = furnace }
+				291 = { has_building = furnace }
+			}
+			treasury = 500
+		}
+
+		effect = {
+			add_treasury = -500
+			add_country_modifier = {
+				name = verne_red_brass_forge
+				duration = 5475
+			}
+			add_army_professionalism = 0.02
+			add_mil_power = 25
+		}
+	}
+
+	A33_controlled_devastation = {
+		icon = mission_control_the_black_sea
+		position = 22
+		required_missions = { A33_red_brass_forge }
+
+		trigger = {
+			verne_overhaul_has_khenak_foundry_seeded = yes
+			OR = {
+				has_idea = verne_doctrine_battle_evocation
+				has_idea = verne_doctrine_red_court
+				AND = {
+					has_country_flag = verne_seed_khenak_foundry
+					mil_power = 100
+				}
+			}
+			OR = {
+				is_at_war = yes
+				has_won_war_against = { who = A30 max_years_since = 10 }
+				has_won_war_against = { who = A01 max_years_since = 10 }
+			}
+		}
+
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = verne_controlled_devastation
+				duration = 5475
+			}
+			add_artillery_cost = -0.10
+			add_yearly_manpower = 0.5
+		}
+	}
+}
+
+# ===============================================
+# Verne overhaul: Vernissage secretariat (Lane 7 from blueprint)
+# Status: extends existing Vernissage chain with admin consolidation
+# Scope: adds Vernissage Secretariat mid-game mission
+# ===============================================
+
+A33_ninth_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A33 }
+
+	A33_vernissage_secretariat = {
+		icon = mission_university
+		position = 24
+		required_missions = { A33_expand_the_Vernissage }
+
+		trigger = {
+			292 = {
+				development = 45
+				has_state_edict = edict_advancement_effort
+			}
+			num_of_merchants = 4
+			treasury = 1500
+			dip_power = 100
+			OR = {
+				has_reform = verne_vernissage_secretariat_reform
+				has_reform = verne_charter_of_the_vernissage_reform
+				AND = {
+					292 = {
+						check_variable = {
+							which = verne_number_of_adventures_completed
+							value = 8
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_treasury = -1500
+			add_dip_power = -100
+			add_country_modifier = {
+				name = verne_vernissage_secretariat
+				duration = 5475
+			}
+			add_merchants = 1
+			custom_tooltip = verne_overhaul_tt_world_network_gain
+			change_variable = { which = verne_world_network value = 1 }
+		}
 	}
 }

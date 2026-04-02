@@ -1,0 +1,150 @@
+# Verne Overhaul - Lane 5: Trade & Colonisation
+# Slot 5 (A33_fifth_sloth) — Wyvern economy, overseas commerce, religious
+# mercantilism, and artificery production. The commercial backbone of
+# Verne's sea-state identity.
+# Part of the 10-lane mission tree (10-column blueprint, 2026-04-01).
+# Status: IMPLEMENTED — 10 missions in A33_fifth_sloth + 3 design goals
+#
+# === STATUS LEGEND ===
+# [IMPLEMENTED] = exists in codebase (missions/Verne_Missions.txt, reforms, modifiers)
+# [DESIGN GOAL — not yet implemented] = design target, not yet coded
+# ===============================================
+
+# ===============================================
+# Lane 5 - Trade & Colonisation (Slot 5, early→late)
+# ===============================================
+# This lane forms Verne's economic-production spine — from the wyvern
+# egg quest through nest infrastructure to religious trade networks and
+# artificery manufacturing.
+#
+# The lane has three arcs:
+# 1. Early:   Gnoll conquest → Wyvern egg quest → Nest infrastructure
+# 2. Mid:     Nest expansion → Sea nest (naval trade) → Crimson Sea (overseas commerce)
+# 3. Late:    Religious mercantilism → Artificery production
+#
+# Note: Some missions in this slot (A33_break_the_queen_of_the_hill,
+# A33_expand_the_wyvern_nests, A33_the_might_of_the_wyvern) lean military
+# but serve as infrastructure gates for the economic content.
+# The Red Court & Arcane track (Lane 6) runs in parallel at pos 2, 5, 9.
+
+# --- Actual missions implemented ---
+
+# A33_break_the_queen_of_the_hill (pos 1) [IMPLEMENTED]
+# Requires: none
+# Trigger: Treasury 100, MIL 50, province 364 owned+cored, khenak_area owned+cored,
+#          377 has 10 units with leader
+# Effect: Fires verne.102
+# Commentary: Military opener that secures the Khenak region — the economic heartland
+# for Verne's foundry and wyvern economy. Prerequisite for the egg quest.
+
+# A33_the_quest_for_eggs (pos 2) [IMPLEMENTED]
+# Requires: A33_break_the_queen_of_the_hill
+# Trigger: ADM 100, treasury 200 (or 50 with dovesworn_gnoll culture), either
+#          adventurer loyalty/influence or 20 units in 6513
+# Effect: Fires verne.1000, sets verne_found_eggs modifier
+# Commentary: The economic adventure that kickstarts Verne's wyvern industry.
+# The dovesworn_gnoll cultural acceptance path reduces costs — rewarding
+# diplomatic investment alongside military preparation.
+
+# A33_the_wyvern_nest_initiative (pos 3) [IMPLEMENTED]
+# Requires: A33_the_quest_for_eggs
+# Trigger: Has verne_found_eggs, treasury 1000, provinces 290/291/375/376
+#          expanded infra or dev 15, manpower buildings + tax/courthouse
+# Effect: Builds mage_tower in all 4 provinces, creates wyvern_nest modifiers,
+#         adds mage estate influence, verne_indebted_to_mages (50yr)
+# Commentary: The infrastructure investment that converts the egg quest into
+# permanent wyvern production. The mage debt modifier creates a meaningful
+# trade-off — powerful cavalry but indebted to the mage estate.
+
+# A33_binding_the_beast (pos 4) [IMPLEMENTED]
+# Requires: A33_the_wyvern_nest_initiative
+# Trigger: Mage estate privileges (magocratic_administration, reduced_research),
+#          ruler is mage or has ward, mage loyalty 60, court mage 3 or A85 favors
+#          or 100 all power
+# Effect: Seeds dragonwake path, fires verne.103, enables mythical cavalry (wyvern),
+#         applies mage debt
+# Commentary: The arcane-economic gateway. Binding wyverns for commercial/military
+# use requires deep mage estate investment. This mission bridges the trade lane
+# (economics of wyvern industry) and the arcane lane (mage state integration).
+
+# A33_the_sea_nest (pos 6) [IMPLEMENTED]
+# Requires: A33_a_union_of_crowns (Lane 4), A33_expand_the_wyvern_nests (pos 5)
+# Trigger: Treasury 500, no flagship, naval reformer 3 or navy tradition 75,
+#          provinces 380 and 50 dev 30 with shipyard
+# Effect: Creates flagship "The Sea Nest" (heavy ship with mortars + integrated marines),
+#         enables wyvern carrier creation
+# Commentary: The naval-economic capstone of the wyvern chain. Converting land-based
+# wyvern production into naval force projection — a heavy ship carrying wyvern-riding
+# marines. This is Verne's unique naval-economic identity made manifest.
+
+# A33_a_crimson_sea (pos 9) [IMPLEMENTED]
+# Requires: A33_united_under_crimson_wings (Lane 4)
+# Trigger: Akasik region all subject-held, corinite religion in owned provinces,
+#          accepted Akasi cultures, treasury 500, CoT level 2 in 402/400/382
+# Effect: Advances overseas_projection +1, world_network +1, verne_imperial_maritime_court (10yr),
+#         enables Aur-Kes-Akasik monument, converts subject religion, reduces liberty desire
+# Commentary: The overseas commercial capstone. Conquering the Akasik coast and converting
+# it to Corinite trade networks — religious mercantilism at scale. The CoT requirements
+# ensure this is a trade-focused mission, not pure conquest.
+
+# A33_religious_mercantilism (pos 10) [IMPLEMENTED]
+# Requires: A33_a_crimson_sea
+# Trigger: 16 merchants, 50 heavy ships, 150 light ships
+# Effect: Enables propagate religion in trade companies, verne_trade_company_conversion
+#         (permanent, converts TC provinces to corinite), inquisitor advisor,
+#         verne_grand_fleet_tier1 (permanent)
+# Commentary: The ultimate religious-commerce fusion. Verne's trade fleet becomes
+# a conversion engine — every trade company province slowly turns Corinite.
+# The light ship requirement (150!) makes this a serious economic commitment.
+
+# A33_on_wings_of_artificery (pos 12) [IMPLEMENTED]
+# Requires: A33_the_vernman_era (Lane 3 convergence)
+# Trigger: Treasury 10000, MIL 200, 10 provinces in south_america with damestear
+#          or precursor_relics (dev 10, production building, manufactory), artifice 40
+# Effect: Fires verne.117
+# Commentary: The artificery production capstone. Extracting magical resources from
+# the New World and converting them into artificery-grade materials. The 10000 treasury
+# cost makes this a late-game economic milestone.
+
+# --- Cross-lane dependencies ---
+# - A33_break_the_queen_of_the_hill gates A33_a_matter_of_pride (Lane 3)
+# - A33_binding_the_beast bridges to Lane 6 (Red Court & Arcane)
+# - A33_the_sea_nest requires A33_a_union_of_crowns (Lane 4)
+# - A33_a_crimson_sea requires A33_united_under_crimson_wings (Lane 4)
+# - A33_religious_mercantilism gates A33_the_vernman_era (Lane 3 convergence)
+# - A33_on_wings_of_artificery gates A33_type_2_wyverns (Lane 4)
+
+# --- New modifiers (referenced) [IMPLEMENTED] — all exist in verne_overhaul_modifiers.txt ---
+#
+# verne_found_eggs               [IMPLEMENTED] — temporary, from quest_for_eggs event
+# verne_indebted_to_the_mages_small [IMPLEMENTED] — 50yr, from wyvern nest initiative
+# verne_imperial_maritime_court  [IMPLEMENTED] — 10yr, from crimson sea
+# verne_trade_company_conversion [IMPLEMENTED] — permanent, from religious mercantilism
+# verne_grand_fleet_tier1        [IMPLEMENTED] — permanent, from religious mercantilism
+
+# --- Potential expansion [DESIGN GOAL — not yet implemented] ---
+# The 10-column blueprint calls for additional trade missions.
+# These are NOT in the current codebase.
+#
+#   [DESIGN GOAL] A33_establish_trade_network (new, pos 5/8, Slot 5)
+#     → Implementation: Requires A33_expand_the_wyvern_nests. Trigger: 8 merchants,
+#       trade company provinces in 3 regions, 50 light ships. Effect: verne_trade_network
+#       (permanent, +trade efficiency), +1 merchant, enables trade company decisions.
+#
+#   [DESIGN GOAL] A33_vernman_merchant_marine (new, pos 8, Slot 5)
+#     → Implementation: Requires A33_establish_trade_network. Trigger: 100 light ships,
+#       15 merchants, trade income 50/month. Effect: verne_merchant_marine (permanent,
+#       +light ship combat, +trade power), +2 merchants.
+#
+#   [DESIGN GOAL] A33_spice_route_monopoly (new, pos 14, Slot 5)
+#     → Implementation: Requires A33_religious_mercantilism. Trigger: dominant trade
+#       power in 5 end nodes or upstream nodes, 20 merchants, 300 light ships.
+#       Effect: verne_spice_route_monopoly (permanent, +trade steering, +goods produced),
+#       trade monopoly event chain. Late-game trade dominance capstone.
+#
+# Consider adding to fill available positions (pos 8 in slot 5, or create a dedicated trade slot).
+
+# --- Localisation keys ---
+# verne_needs_6_ports_of_adventure_tt (reused from Lane 2)
+# verne_overhaul_tt_overseas_projection_gain
+# verne_overhaul_tt_world_network_gain
