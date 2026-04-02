@@ -1,6 +1,6 @@
 # Verne Live Implementation Status
 
-Last reviewed from code: **2026-04-02**
+Last reviewed from code: **2026-04-03**
 Authoritative scope: live Verne overhaul implementation state derived from repo files, not older roadmap/backlog prose.
 
 ## Purpose
@@ -119,6 +119,27 @@ Status claims about Verne implementation must:
 - be updated in this file when implementation status changes.
 
 Roadmap/backlog/spec docs must **not** carry their own competing implementation-status snapshot if that would duplicate or contradict this file.
+
+## Night session notes (2026-04-03)
+
+### Real bugs fixed this session
+- **7 duplicate loc keys removed** from `verne_overhaul_l_english.yml` (EU4 randomly picks one when duplicates exist). Duplicates were introduced by the "NEW MISSIONS" append block.
+- **verne_overhaul_advisor.1.d collision** — event option name `verne_overhaul_advisor.1.d` conflicted with event desc key `verne_overhaul_advisor.1.d`. Renamed option to `verne_overhaul_advisor.1.d_wyvern`.
+- **39 missing mission name loc entries added** — all `name` values from `Verne_Missions.txt` now have loc entries.
+
+### Known design-level issue (not a bug)
+- **Slots 6–9 invisible**: `interface/countrymissionsview.gui` has `max_slots_horizontal = 5`. The mission file defines 9 slot groups (slots 1–9). Slots 6–9 are present in data but invisible in the standard UI. This is consistent with the 10-column mission redesign documented in the Deep Research reports. No fix applied — requires design decision.
+
+### Smoke check results
+- All 6/6 smoke checks pass
+- Event ID audit: 122 IDs checked, 0 issues
+- Localization audit: 1195 keys indexed, 0 duplicate keys
+- Markdown link audit: 206 local links checked, 0 issues
+
+### Files changed this session
+- `localisation/verne_overhaul_l_english.yml` — loc additions, duplicate removals, advisor fix
+- `events/verne_overhaul_advisor_events.txt` — option name collision fix
+- `docs/status/verne-live-implementation-status.md` — status update
 
 ## Single best next gameplay task
 
