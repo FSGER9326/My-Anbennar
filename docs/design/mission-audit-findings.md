@@ -104,7 +104,13 @@ The missions still needing real titles are listed in `automation/reports/mission
 
 ## Recommended Priority Fix Order
 
-1. **V-M1:** ✅ DONE — all 31 missing modifier definitions added to `verne_overhaul_modifiers.txt` (commit d88c74208a)
-2. **V-M2:** Trace `verne_seed_khenak_foundry` — where is it supposed to be set? Add to the mission or decision that seeds the Khenak path
-3. **V-M3:** Audit Liliac War flags (`verne_attacked`, `verne_liliac_*`) — are they set by the Liliac War event chain?
+1. **V-M1:** ✅ DONE — all 31 missing modifier definitions added (commit d88c74208a)
+2. **V-M2:** ✅ DONE — `verne_seed_khenak_foundry` IS set by `A33_the_riches_of_the_khenak` mission effect via `verne_overhaul_seed_khenak_foundry_path = yes`. Not a broken flag — the audit was only checking `Verne_Missions.txt` for SET, not the effects file.
+3. **V-M3:** ✅ DONE — Liliac War flags traced via `flag_trace.py`. All clean:
+   - `verne_won_support_full`: SET in `Flavour_Verne_A33.txt` ✅
+   - `verne_won_support_partial`: SET in `Flavour_Verne_A33.txt` ✅
+   - `verne_liliac_diplomacy_path_open`: SET in `verne_overhaul_liliac_events.txt` ✅
+   - `verne_liliac_vengeful_path`: SET in `verne_overhaul_liliac_events.txt` ✅
+   - `verne_liliac_war_vengeful`: MODIFIER not flag — correctly applied by `verne_liliac.1` option B ✅
+   - **FIXED**: `verne_liliac.1` option B was setting modifier instead of flag; `A33_avenge_liliac_wars` trigger was checking wrong flag — both fixed (commit 9aaf81d868)
 4. **V-M4:** Get human titles for the 48 placeholder missions (ChatGPT or Falk)
