@@ -605,7 +605,11 @@ A33_first_slot = {
 	A33_the_grand_vernissage = {
 		icon = wittenberg_university
 		position = 12
-		required_missions = { A33_the_heart_of_darkness } 
+		required_missions = {
+			A33_the_heart_of_darkness
+			A33_might_of_the_wyvern
+			A33_vernissage_secretariat
+		}
 		provinces_to_highlight = { } 
 
 		trigger = {
@@ -3958,6 +3962,7 @@ A33_fourth_slot = {
 		required_missions = {
 			A33_on_wings_of_artificery
 			A33_the_holy_corinite_empire
+			A33_seek_eastern_allies
 		}
 		provinces_to_highlight = {
 			trade_goods = mithril
@@ -4031,7 +4036,7 @@ A33_fourth_slot = {
 		} 
 	}
 }
-A33_fifth_sloth = {
+A33_fifth_slot = {
 	slot = 5
 	generic = no
 	ai = yes
@@ -4894,7 +4899,7 @@ A33_fifth_sloth = {
 # ===============================================
 
 A33_sixth_slot = {
-	slot = 5
+	slot = 6
 	generic = no
 	ai = yes
 	has_country_shield = yes
@@ -4903,6 +4908,10 @@ A33_sixth_slot = {
 	A33_recount_liliac_defeat = {
 		icon = mission_mourning_court
 		position = 8
+		required_missions = {
+			A33_the_vernman_renaissance
+			A33_taking_to_the_seas
+		}
 		provinces_to_highlight = { }
 
 		trigger = {
@@ -4925,7 +4934,10 @@ A33_sixth_slot = {
 	A33_seek_eastern_allies = {
 		icon = mission_diplomacy_of_the_silver_court
 		position = 10
-		required_missions = { A33_recount_liliac_defeat }
+		required_missions = {
+			A33_recount_liliac_defeat
+			A33_across_the_pond
+		}
 
 		custom_tooltip = verne_liliac_seek_eastern_tt
 
@@ -4962,7 +4974,10 @@ A33_sixth_slot = {
 	A33_avenge_liliac_wars = {
 		icon = mission_heated_battle
 		position = 10
-		required_missions = { A33_recount_liliac_defeat }
+		required_missions = {
+			A33_recount_liliac_defeat
+			A33_might_of_the_wyvern
+		}
 
 		custom_tooltip = verne_liliac_avenge_tt
 
@@ -4994,6 +5009,7 @@ A33_sixth_slot = {
 		required_missions = {
 			A33_seek_eastern_allies
 			A33_avenge_liliac_wars
+			A33_all_roads_lead_to_verne
 		}
 
 		custom_tooltip = verne_liliac_unity_tt
@@ -5028,7 +5044,7 @@ A33_sixth_slot = {
 # ===============================================
 
 A33_seventh_slot = {
-	slot = 5
+	slot = 7
 	generic = no
 	ai = yes
 	has_country_shield = yes
@@ -5119,7 +5135,7 @@ A33_seventh_slot = {
 # ===============================================
 
 A33_eighth_slot = {
-	slot = 5
+	slot = 8
 	generic = no
 	ai = yes
 	has_country_shield = yes
@@ -5160,7 +5176,10 @@ A33_eighth_slot = {
 	A33_controlled_devastation = {
 		icon = mission_control_the_black_sea
 		position = 22
-		required_missions = { A33_red_brass_forge }
+		required_missions = {
+			A33_red_brass_forge
+			A33_the_holy_corinite_empire
+		}
 
 		trigger = {
 			verne_overhaul_has_khenak_foundry_seeded = yes
@@ -5198,7 +5217,7 @@ A33_eighth_slot = {
 # ===============================================
 
 A33_ninth_slot = {
-	slot = 5
+	slot = 9
 	generic = no
 	ai = yes
 	has_country_shield = yes
