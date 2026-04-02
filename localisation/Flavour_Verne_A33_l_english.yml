@@ -344,7 +344,7 @@ verne_indebted_to_the_mages_small_desc:0 "Small debts to the mage guilds for enc
 
  A33_a_crimson_sea_title:0 "A Crimson Sea"
  A33_a_crimson_sea_desc:0 "�We need not kill the Mother to birth the Daughter! Mother Akasik is the stuff of our bones, ourselves, I would never argue against this. But Corin may yet prove the voice of our desires, our crying call for justice. I beg you, do not do this! Do not soak the Mother�s flanks in blood because you are so afraid of the future!�\n\nAnsekas Ayar Musitshka, �Plea To The Wainwright�s Guild On The Eve Of War�"
- verne_aur_kes_akasik_tt:0 "Corinite-Akasi Synchretism achieved"
+ verne_aur_kes_akasik_tt:0 "Corinite-Akasi Syncretism achieved"
  verne_E9_effect_tt2:0 "\n�no� If any Akasi subject does not follow the �YCorinite�! faith they will convert to the �YCorinite Faith�! and lose �R6�! Stability, �R100�! Legitimacy and gain �R5�! War Exhaustion."
  verne_E9_effect_tt1:0 "\n�yes� If any Akasi subject does not follow the �YCorinite�! faith they will convert to the �YCorinite Faith�! and lose �R6�! Stability, �R100�! Legitimacy and gain �R5�! War Exhaustion."
  verne_E9_effect_tt4:0 "\n�no� �TAlternatively�!\n If all Akasi subjects follow the �YCorinite�! faith, the following effects happen:"
@@ -1401,3 +1401,6 @@ verne_trade_company_conversion_modifier_desc:0 "Corinite preaching follows the c
  verne.14.a:0 "They must feast on glory alone."
  verne.14.b:0 "They will fight for their country!"
  verne.14.c:0 "They will map Halann for us."
+ verne_liliac_seek_eastern_tt:0 "Requires §Y[Root.GetName]§! to have chosen the §YDiplomatic§! path after the §YLiliac War§!: The §YLiliac War Must Be Addressed§! event must have been answered with §YOption A§!."
+ verne_liliac_avenge_tt:0 "Requires §Y[Root.GetName]§! to have chosen the §YRevengeful§! path after the §YLiliac War§!: The §YLiliac War Must Be Addressed§! event must have been answered with §YOption B§!."
+ verne_liliac_unity_tt:0 "Requires §Y[Root.GetName]§! to have completed either the §YDiplomatic§! or §YRevengeful§! Liliac War path (the §YLiliac War Must Be Addressed§! event must have been answered with §YOption A or B§!)."

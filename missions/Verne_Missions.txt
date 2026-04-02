@@ -4927,6 +4927,8 @@ A33_sixth_slot = {
 		position = 10
 		required_missions = { A33_recount_liliac_defeat }
 
+		custom_tooltip = verne_liliac_seek_eastern_tt
+
 		trigger = {
 			has_country_flag = verne_liliac_diplomacy_path_open
 			OR = {
@@ -4962,6 +4964,8 @@ A33_sixth_slot = {
 		position = 10
 		required_missions = { A33_recount_liliac_defeat }
 
+		custom_tooltip = verne_liliac_avenge_tt
+
 		trigger = {
 			has_country_flag = verne_liliac_war_vengeful
 			OR = {
@@ -4991,6 +4995,8 @@ A33_sixth_slot = {
 			A33_seek_eastern_allies
 			A33_avenge_liliac_wars
 		}
+
+		custom_tooltip = verne_liliac_unity_tt
 
 		trigger = {
 			OR = {
