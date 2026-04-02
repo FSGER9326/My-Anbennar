@@ -1111,6 +1111,10 @@ verne_vernman_merchant_marine_tt:0 "Grants additional merchants and permanent li
 
 verne_spice_route_monopoly:0 "Spice Route Monopoly"
 verne_spice_route_monopoly_desc:0 "Dominate the spice trade entirely. Every merchant road, every sea lane, every profitable route belongs to Verne."
+ verne_take_corin_as_state_deity:0 "Take Corin as State Deity"
+ verne_take_corin_as_state_deity_desc:0 "The worship of Corin is elevated above all other gods. Verne is no longer merely Corinite — it is a Corinite state in truth, with Corin as its divine patron and defender."
+ verne_take_corin_as_state_deity_tt:0 "Requires: Defender of the Faith, Corinite religion, and 10 Corinite provinces"
+ verne_corins_pride_desc:0 "Corin's faith empowers Verne's armies with divine conviction."
 
  verne_trade_network:0 "Trade Network"
  verne_trade_network_desc:0 "Verne's trade network spans the Known World, generating steady commercial income."

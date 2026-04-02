@@ -2477,6 +2477,7 @@ A33_third_slot = {
 	A33_corins_shield = {
 		icon = mission_shield_of_corin
 		position = 6
+		required_missions = { A33_corinite_stewardship }
 		provinces_to_highlight = { } 
 
 		trigger = {
@@ -3885,13 +3886,30 @@ A33_fourth_slot = {
 			country_event = { id = verne.116 } 
 		}
 	}
+	A33_take_corin_as_state_deity = {
+		icon = mission_holy_star
+		position = 11
+		required_missions = { A33_corins_devout_protectors }
+		provinces_to_highlight = { }
+		trigger = {
+			is_defender_of_faith = yes
+			religion = corinite
+			num_of_owned_provinces_with = { value = 10 religion = corinite }
+		}
+		effect = {
+			set_country_flag = verne_corin_state_deity_chosen
+			add_country_modifier = { name = verne_corins_pride duration = -1 }
+			add_prestige = 5
+		}
+	}
+
 	A33_world_faith_emperor = {
 		icon = mission_holy_star
 		position = 14
 		required_missions = { A33_the_holy_corinite_empire }
 		provinces_to_highlight = { }
 		trigger = {
-			num_of_owned_provinces_with = { value = 3000 religion = corinite }
+			num_of_owned_provinces_with = { value = 50 religion = corinite }
 			num_of_subjects = 10
 			all_of_subjects = {
 				religion = corinite
@@ -3969,7 +3987,8 @@ A33_fourth_slot = {
 	A33_the_holy_corinite_empire = {
 		icon = carolingian_empire
 		position = 12
-		required_missions = { A33_the_vernman_era } 
+		required_missions = { A33_the_vernman_era 
+			A33_take_corin_as_state_deity } 
 		provinces_to_highlight = {
 			is_capital = yes
 			owner = {
@@ -4657,7 +4676,7 @@ A33_fifth_slot = {
 	}
 	A33_found_the_crimson_scale_order = {
 		icon = mission_holy_star
-		position = 8
+		position = 9
 		required_missions = { A33_corins_devout_protectors }
 		provinces_to_highlight = { }
 		trigger = {
@@ -4700,7 +4719,7 @@ A33_fifth_slot = {
 			light_ships = 100
 			num_of_merchants = 15
 			trade_income_percentage = 0.5
-			treasury = 1000
+			treasury = 500
 		}
 		effect = {
 			add_merchant = 2
@@ -4938,7 +4957,7 @@ A33_fifth_slot = {
 		trigger = {
 			num_of_merchants = 16
 			num_of_heavy_ship = 50
-			num_of_light_ship = 150
+			num_of_light_ship = 100
 		}
 
 		effect = {
@@ -4975,8 +4994,8 @@ A33_fifth_slot = {
 		provinces_to_highlight = { }
 		trigger = {
 			num_of_end_trade_nodes_controlled = 5
-			num_of_merchants = 20
-			light_ships = 300
+			num_of_merchants = 16
+			light_ships = 175
 			trade_efficiency = 0.5
 		}
 		effect = {
