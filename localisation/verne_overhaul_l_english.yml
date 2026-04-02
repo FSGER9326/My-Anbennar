@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  # ===============================================
  # Verne Overhaul Localisation — Full Skeleton
  # Ownership: Verne overhaul (v0.3)
@@ -10,13 +10,9 @@ l_english:
  # ============================================================
 
  # --- Missions ---
- A33_formalize_silver_oaths_title:0 "Formalize the Silver Oaths"
  A33_formalize_silver_oaths_desc:0 "Establish the ancient Silver Oaths as a formal diplomatic system binding foreign powers to Verne. These ancient pacts, enforced by magical courts rather than blood ties, will form the foundation of Verne's diplomatic future."
- A33_establish_court_of_oaths_title:0 "Establish the Court of Oaths"
  A33_establish_court_of_oaths_desc:0 "Institutionalize the Silver Oaths into a standing court with enforcement powers. The Court of Oaths will become the beating heart of Verne's diplomatic machine, binding subjects and allies alike through arcane contract."
- A33_royal_arbitration_title:0 "Royal Arbitration"
  A33_royal_arbitration_desc:0 "Expand the Court's mandate to include binding arbitration between Verne and its subjects. In Verne, the duke is judge, jury, and enforcement — and the Silver Oaths ensure all parties accept the verdict."
- A33_diplomatic_hegemony_title:0 "Diplomatic Hegemony"
  A33_diplomatic_hegemony_desc:0 "Verne's web of oaths and alliances now makes it the unchallenged diplomatic hegemon of the world. Allies do not waver. Subjects do not rebel. The Silver Court speaks, and Halann listens."
 
  # --- Modifiers ---
@@ -37,13 +33,9 @@ l_english:
  # ============================================================
 
  # --- Missions ---
- A33_secure_port_of_heartspier_title:0 "Secure the Port of Heartspier"
  A33_secure_port_of_heartspier_desc:0 "Harden Verne's primary port against pirate raids and rival navies. Heartspier is the economic heart of the realm — its port drives the entire Crimson Wake trade network."
- A33_form_estuary_companies_title:0 "Form the Estuary Companies"
  A33_form_estuary_companies_desc:0 "Charter semi-autonomous trade guilds to control key estuary provinces. These companies channel wealth through Verne's waterways, turning river mouths into engines of maritime commerce."
- A33_fleet_of_the_crimson_wake_title:0 "Fleet of the Crimson Wake"
  A33_fleet_of_the_crimson_wake_desc:0 "Build a fleet worthy of Verne's crimson-sailed legacy. The Crimson Wake earned its name from the red-bannered warships that patrol Verne's trade routes — now those sails must rule the seas."
- A33_imperial_sea_court_title:0 "The Imperial Sea Court"
  A33_imperial_sea_court_desc:0 "Establish a permanent maritime court to govern Verne's oceanic interests. The Sea Court adjudicates maritime law across Verne's sphere of influence, projecting power as reliably as fleets project force."
 
  # --- Province Modifiers ---
@@ -67,11 +59,8 @@ l_english:
  # ============================================================
 
  # --- Missions ---
- A33_enact_dynastic_safeguard_title:0 "Enact the Dynastic Safeguard"
  A33_enact_dynastic_safeguard_desc:0 "Establish legal protections for Verne's succession to prevent future crises. The Safeguard was enacted after the Succession Crisis of 1444, ensuring Verne would never again face an unclaimed throne."
- A33_expand_noble_privileges_title:0 "Expand Noble Privileges"
  A33_expand_noble_privileges_desc:0 "Grant expanded privileges to Verne's noble houses in exchange for their unwavering loyalty. The expanded privileges cement the noble houses as partners, not rivals, in Verne's governance."
- A33_exalted_dynasty_machine_title:0 "The Exalted Dynasty Machine"
  A33_exalted_dynasty_machine_desc:0 "Activate the ancient magical apparatus that elevates Verne's ruling dynasty to divine status. The Exalted Dynasty Machine amplifies the ruling family's aura, making them literally divinely anointed."
 
  # --- Modifiers ---
@@ -87,11 +76,8 @@ l_english:
  # ============================================================
 
  # --- Missions ---
- A33_charter_overseas_companies_title:0 "Charter Overseas Companies"
  A33_charter_overseas_companies_desc:0 "Grant royal charters to joint-stock companies for overseas expansion. These ventures fund exploration and settlement with Verne's ducal backing, turning curiosity into colonies."
- A33_distant_horizons_expansion_title:0 "Distant Horizons"
  A33_distant_horizons_expansion_desc:0 "Establish a dedicated planning chamber to coordinate Verne's global expansion. The Hall of Distant Horizons maps and directs the realm's reach across every ocean."
- A33_overseas_commanderies_title:0 "Overseas Commanderies"
  A33_overseas_commanderies_desc:0 "Formalize Verne's colonial provinces as commanderies under military governors. Commanderies are Verne's answer to governing distant lands — military governors with broad autonomy and fierce loyalty."
 
  # --- Modifiers ---
@@ -113,11 +99,8 @@ l_english:
  # ============================================================
 
  # --- Missions ---
- A33_establish_red_court_title:0 "Establish the Red Court"
  A33_establish_red_court_desc:0 "Found Verne's arcane advisory council to study magical knowledge for statecraft. The Red Court is a council of mage-advisors whose insight transforms governance through magical precision."
- A33_dragonwake_ordinance_title:0 "The Dragonwake Ordinance"
  A33_dragonwake_ordinance_desc:0 "Formalize Verne's war magic doctrine based on ancient dragon resonance. The Dragonwake Ordinance names the magical resonance after the ancient dragon magic that Verne's mages learned to harness for warfare."
- A33_battle_mage_collegium_title:0 "The Battle Mage Collegium"
  A33_battle_mage_collegium_desc:0 "Establish a permanent institution for training mage-soldiers. The Collegium produces battle mages who channel destructive energy on the battlefield, giving Verne's armies a unique arcane edge."
 
  # --- Modifiers ---
@@ -141,11 +124,8 @@ l_english:
  # ============================================================
 
  # --- Missions ---
- A33_entrench_royal_census_title:0 "Entrench the Royal Census"
  A33_entrench_royal_census_desc:0 "Establish a permanent census to document and legitimize Verne's rule over its population. In Verne, legitimacy comes from the Silver Oaths AND from documented governance — the Census proves you rule over real people, not just paper claims."
- A33_secure_academic_endowments_title:0 "Secure Academic Endowments"
  A33_secure_academic_endowments_desc:0 "Fund a network of universities and academies to cement Verne's institutional authority. The Academic Endowments ensure Verne's mages and scholars have permanent, state-funded positions."
- A33_stamp_of_sovereign_legitimacy_title:0 "The Stamp of Sovereign Legitimacy"
  A33_stamp_of_sovereign_legitimacy_desc:0 "Forge the Seal of Sovereign Legitimacy — the ultimate symbol of Verne's divinely sanctioned right to rule. The Seal is forged from the combined authority of Verne's institutions: the Court's oaths, the Dynasty's bloodline, and the Census's documentation."
 
  # --- Modifiers ---
@@ -161,11 +141,8 @@ l_english:
  # ============================================================
 
  # --- Missions ---
- A33_corinite_stewardship_title:0 "Corinite Stewardship"
  A33_corinite_stewardship_desc:0 "Formalize Verne's role as guardian and patron of the Corinite faith. The Corinite Stewardship funds missions and holy orders, projecting Verne's piety as a tool of statecraft."
- A33_pearlescent_concord_title:0 "The Pearlescent Concord"
  A33_pearlescent_concord_desc:0 "Unite Corinite nations under a shared religious diplomatic framework. The Concord is a pact between Verne and other Corinite nations, binding faith and diplomacy into a single instrument."
- A33_world_faith_emperor_title:0 "World Faith Emperor"
  A33_world_faith_emperor_desc:0 "Claim supreme spiritual authority over all Corinite believers. The World Faith Emperor combines secular and religious power in one throne — Verne speaks for the faithful, and the faithful answer."
 
  # --- Modifiers ---
