@@ -1,6 +1,6 @@
 # Verne Canonical vs Legacy File Registry
 
-Status date: 2026-03-31  
+Status date: 2026-04-02  
 Owner: Docs governance / Verne overhaul maintainers
 
 ## Purpose
