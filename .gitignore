@@ -23,6 +23,8 @@ skills/autonomous-skill-creator/
 mission-control/
 research-agent/
 docs/openclaw/
+docs/cron-status.md
+docs/qa-watch-changelog.txt
 *.log
 openclaw*.log
 
