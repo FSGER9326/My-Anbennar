@@ -9,7 +9,7 @@ A33_first_slot = {
 	# Base vs new: base-patched
 	# Playstyle effect: Encourages a combined faith, institution, and court-quality opening instead of a pure conquest rush.
 	# Risk note: keep mission key A33_the_vernman_renaissance and tooltip keys verne_A1_tt_* stable.
-	# Province context: 288 (Heartspier) and 291 (Calasandur) in Cannor; both are scripted institution/reward anchors.
+	# Province context: 288 (Heartspier) and 291 (Calasandur) in Cannor, both are scripted institution/reward anchors.
 	# Lore-fit note: inferred-from-repo
 	A33_the_vernman_renaissance = {
 		icon = continue_the_renaissance
@@ -2224,6 +2224,50 @@ A33_third_slot = {
 			}
 		}
 	}
+	A33_corinite_stewardship = {
+		icon = mission_shield_of_corin
+		position = 2
+		required_missions = { A33_old_friends_old_rivals }
+		provinces_to_highlight = { province_id = 292 }
+		trigger = {
+			religion = corinite
+			religious_unity = 0.8
+			num_of_owned_provinces_with = { value = 5 religion = corinite }
+			legitimacy = 60
+		}
+		effect = {
+			add_prestige = 5
+			add_militarised_economy = 1
+			add_country_modifier = { name = verne_corinite_stewardship duration = -1 }
+			custom_tooltip = verne_corinite_stewardship_effect_tt
+		}
+	}
+	A33_pearlescent_concord = {
+		icon = mission_religious
+		position = 5
+		required_missions = { A33_corinite_stewardship }
+		provinces_to_highlight = { province_id = 292 }
+		trigger = {
+			num_of_allies = 3
+			all_of_countries = {
+				limit = { not_tag = ROOT }
+				religion = corinite
+			}
+			diplomatic_reputation = 3
+			dip_power = 100
+		}
+		effect = {
+			add_country_modifier = { name = verne_pearlescent_concord duration = -1 }
+			add_country_modifier = { name = verne_pearlescent_diplomatic_corps duration = -1 }
+			custom_tooltip = verne_pearlescent_concord_tt
+		}
+	}
+
+
+	
+	
+
+
 
 	A33_a_matter_of_pride = {
 		icon = mission_heated_battle
@@ -3841,6 +3885,29 @@ A33_fourth_slot = {
 			country_event = { id = verne.116 } 
 		}
 	}
+	A33_world_faith_emperor = {
+		icon = mission_holy_star
+		position = 14
+		required_missions = { A33_the_holy_corinite_empire }
+		provinces_to_highlight = { }
+		trigger = {
+			num_of_owned_provinces_with = { value = 3000 religion = corinite }
+			num_of_subjects = 10
+			all_of_subjects = {
+				religion = corinite
+			}
+			has_reform = verne_the_crimson_world_order_reform
+			prestige = 90
+		}
+		effect = {
+			add_country_modifier = { name = verne_world_faith_emperor duration = -1 }
+			add_country_modifier = { name = verne_faith_emperor_innovat duration = -1 }
+			custom_tooltip = verne_world_faith_emperor_tt
+		}
+	}
+
+	
+
 
 	A33_with_sword_and_shield = {
 		icon = mission_sword_of_corin
@@ -4588,6 +4655,61 @@ A33_fifth_slot = {
 			}
 		}
 	}
+	A33_found_the_crimson_scale_order = {
+		icon = mission_holy_star
+		position = 8
+		required_missions = { A33_corins_devout_protectors }
+		provinces_to_highlight = { }
+		trigger = {
+			army_tradition = 60
+			army_size = 300
+			is_defender_of_faith = yes
+			has_reform = verne_knights_of_the_crimson_scale_reform
+			legitimacy = 80
+		}
+		effect = {
+			add_army_tradition = 25
+			add_country_modifier = { name = verne_crimson_scale_order_established duration = -1 }
+			custom_tooltip = verne_found_crimson_scale_order_tt
+		}
+	}
+
+	A33_establish_trade_network = {
+		icon = mission_market
+		position = 8
+		required_missions = { A33_expand_the_wyvern_nests }
+		provinces_to_highlight = { }
+		trigger = {
+			num_of_merchants = 8
+			num_of_trade_companies = 3
+			light_ships = 50
+			trade_efficiency = 0.25
+		}
+		effect = {
+			add_merchant = 1
+			add_country_modifier = { name = verne_trade_network duration = -1 }
+			custom_tooltip = verne_trade_network_tt
+		}
+	}
+	A33_vernman_merchant_marine = {
+		icon = mission_fleet
+		position = 11
+		required_missions = { A33_establish_trade_network }
+		provinces_to_highlight = { }
+		trigger = {
+			light_ships = 100
+			num_of_merchants = 15
+			trade_income_percentage = 0.5
+			treasury = 1000
+		}
+		effect = {
+			add_merchant = 2
+			add_country_modifier = { name = verne_merchant_marine duration = -1 }
+			custom_tooltip = verne_vernman_merchant_marine_tt
+		}
+	}
+
+
 
 	A33_the_sea_nest = {
 		icon = mission_fleet
@@ -4846,6 +4968,30 @@ A33_fifth_slot = {
 			}
 		}
 	}
+	A33_spice_route_monopoly = {
+		icon = overseas_empire
+		position = 13
+		required_missions = { A33_religious_mercantilism }
+		provinces_to_highlight = { }
+		trigger = {
+			num_of_end_trade_nodes_controlled = 5
+			num_of_merchants = 20
+			light_ships = 300
+			trade_efficiency = 0.5
+		}
+		effect = {
+			add_country_modifier = { name = verne_spice_route_monopoly duration = -1 }
+			add_prestige = 10
+			custom_tooltip = verne_spice_route_monopoly_tt
+		}
+	}
+
+	
+	
+	
+
+
+
 
 	A33_on_wings_of_artificery = {
 		icon = mission_artificier_experience
@@ -5002,6 +5148,10 @@ A33_sixth_slot = {
 			add_permanent_claim = 353
 		}
 	}
+	
+
+	
+
 
 	A33_unity_through_diplomacy = {
 		icon = mission_grand_duke
@@ -5172,6 +5322,23 @@ A33_eighth_slot = {
 			add_mil_power = 25
 		}
 	}
+	A33_industrial_logistics_chain = {
+		icon = mission_market
+		position = 27
+		required_missions = { A33_red_brass_forge }
+		provinces_to_highlight = { }
+		trigger = {
+			num_of_merchants = 5
+			num_of_trade_companies = 3
+			num_of_owned_provinces_with = { value = 10 has_building = workshop }
+			production_efficiency = 0.4
+		}
+		effect = {
+			add_country_modifier = { name = verne_industrial_logistics duration = -1 }
+			custom_tooltip = verne_industrial_logistics_tt
+		}
+	}
+
 
 	A33_controlled_devastation = {
 		icon = mission_control_the_black_sea
@@ -5208,6 +5375,57 @@ A33_eighth_slot = {
 			add_yearly_manpower = 0.5
 		}
 	}
+	A33_expand_the_foundry_complex = {
+		icon = mission_industrialize_furnace
+		position = 24
+		required_missions = { A33_controlled_devastation }
+		provinces_to_highlight = { area = khenak_area }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				area = khenak_area
+				has_building = furnace
+				has_building = manufactory
+			}
+			treasury = 3000
+			production_efficiency = 0.5
+		}
+		effect = {
+			add_country_modifier = { name = verne_foundry_complex duration = -1 }
+			add_treasury = -500
+			custom_tooltip = verne_expand_foundry_tt
+		}
+	}
+	A33_khenak_steel_program = {
+		icon = mission_iron_and_copper
+		position = 26
+		required_missions = { A33_expand_the_foundry_complex }
+		provinces_to_highlight = { }
+		trigger = {
+			treasury = 5000
+			mil_power = 200
+			num_of_manufactories = 10
+			num_of_owned_provinces_with = {
+				value = 1
+				development = 10
+				has_building = furnace
+				has_building = production_building
+			}
+		}
+		effect = {
+			add_country_modifier = { name = verne_khenak_steel duration = -1 }
+			add_mil_power = -200
+			custom_tooltip = verne_khenak_steel_tt
+		}
+	}
+
+
+	
+	
+	
+
+
+
 }
 
 # ===============================================
