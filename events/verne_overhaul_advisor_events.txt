@@ -95,7 +95,7 @@ country_event = {
 	}
 
 	option = {
-		name = verne_overhaul_advisor.1.d
+		name = verne_overhaul_advisor.1.d_wyvern
 		ai_chance = {
 			factor = 1
 			modifier = {
