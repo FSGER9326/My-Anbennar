@@ -1,0 +1,22 @@
+{
+  "name": "browser-signal-registry",
+  "version": "0.1.0",
+  "description": "Per-site browser completion signal registry — source of truth for how to detect done on any site",
+  "main": "src/cli.ts",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "tsc --noEmit && node --test src/*.test.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.4.0"
+  },
+  "openclaw": {
+    "plugin": {
+      "id": "browser-signal-registry",
+      "kind": "utility",
+      "version": "0.1.0"
+    }
+  }
+}
