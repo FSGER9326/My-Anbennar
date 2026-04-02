@@ -1111,6 +1111,23 @@ verne_vernman_merchant_marine_tt:0 "Grants additional merchants and permanent li
 
 verne_spice_route_monopoly:0 "Spice Route Monopoly"
 verne_spice_route_monopoly_desc:0 "Dominate the spice trade entirely. Every merchant road, every sea lane, every profitable route belongs to Verne."
+
+ verne_trade_network:0 "Trade Network"
+ verne_trade_network_desc:0 "Verne's trade network spans the Known World, generating steady commercial income."
+ verne_merchant_marine:0 "Merchant Marine"
+ verne_merchant_marine_desc:0 "A dedicated merchant fleet strengthens Verne's commercial dominance."
+ verne_corins_pride:0 "Corin's Pride"
+ verne_corins_pride_desc:0 "Corin's faith empowers Verne's armies with divine conviction."
+ verne_crimson_scale_order_established:0 "Crimson Scale Order Established"
+ verne_crimson_scale_order_established_desc:0 "The Knights of the Crimson Scale stand ready to defend Verne."
+ verne_foundry_complex:0 "Foundry Complex"
+ verne_foundry_complex_desc:0 "Verne's industrial foundries churn out arms and armaments."
+ verne_khenak_steel:0 "Khenak Steel Program"
+ verne_khenak_steel_desc:0 "Khenak steel gives Verne's soldiers an edge in metallurgy."
+ verne_industrial_logistics:0 "Industrial Logistics Chain"
+ verne_industrial_logistics_desc:0 "Streamlined logistics keep Verne's armies supplied and moving."
+ verne_foundry_master:0 "Foundry Master"
+ verne_foundry_master_desc:0 "Master foundrymen drive innovation in Verne's industrial heartland."
 verne_spice_route_monopoly_tt:0 "Grants permanent trade steering and goods produced bonuses. Triggers special trade monopoly events."
 
 # === NEW MISSIONS: LANE 7 MILITARY ORDERS ===
