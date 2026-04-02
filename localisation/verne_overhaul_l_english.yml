@@ -146,12 +146,10 @@
  A33_world_faith_emperor_desc:0 "Claim supreme spiritual authority over all Corinite believers. The World Faith Emperor combines secular and religious power in one throne — Verne speaks for the faithful, and the faithful answer."
 
  # --- Modifiers ---
- verne_corinite_stewardship:0 "Corinite Stewardship"
- verne_corinite_stewardship_desc:0 "Verne's stewardship of the Corinite faith grants enhanced missionary capability and reduced cost of enforcing religious unity."
+
  verne_pearlescent_concord:0 "Pearlescent Concord"
  verne_pearlescent_concord_desc:0 "The Pearlescent Concord binds Corinite nations in mutual support, easing diplomatic annexation and reducing subject restlessness."
  verne_world_faith_emperor:0 "World Faith Emperor"
- verne_world_faith_emperor_desc:0 "The World Faith Emperor's authority extends Verne's influence through faith, granting additional military leadership and commercial reach."
  verne_faith_emperor_innovat:0 "Faith Emperor's Innovativeness"
  verne_faith_emperor_innovat_desc:0 "Verne's spiritual authority drives innovative thought and strengthens missionary resolve across the realm."
  verne_minor_holy_order:0 "Minor Holy Order"
@@ -364,12 +362,6 @@
  verne_overhaul_appoint_court_advisor_desc:0 "Verne's growing institutions can now call a specialized court figure into service, drawing on the active lane that the realm has cultivated most successfully."
  verne_overhaul_appoint_court_advisor_tt:0 "A dedicated Verne court event will offer one of several bespoke advisors tied to your currently developed state lanes."
  verne_overhaul_advisor.1.t:0 "A Specialist for the Ducal Court"
- verne_overhaul_advisor.1.d:0 "The institutions now growing around the Vernman court have matured enough to present real specialists for ducal service. Whether we lean toward harbor discipline, worldly display, red-court administration, foundry rigor, or wyvern command, one of these figures could give the state sharper shape."
- verne_overhaul_advisor.1.a:0 "Summon a Harbormaster of the Silver Wake"
- verne_overhaul_advisor.1.b:0 "Invite a Curator of the Vernissage"
- verne_overhaul_advisor.1.c:0 "Commission a Master of the Khenak Foundries"
- verne_overhaul_advisor.1.d:0 "Raise up a Wyvern Marshal"
- verne_overhaul_advisor.1.e:0 "Appoint a Magister of the Red Court"
  verne_overhaul_advisor.2.t:0 "The Khenak Officer Corps"
  verne_overhaul_advisor.2.d:0 "Verne's expeditionary and foundry interests in the Khenak have matured enough to demand a more specialized command cadre. We can lean into a harder logistical-industrial program or sharpen the wyvern-service arm of the state."
  verne_overhaul_advisor.2.a:0 "Elevate a Khenak master of logistics"
@@ -1114,12 +1106,10 @@ verne_spice_route_monopoly_desc:0 "Dominate the spice trade entirely. Every merc
  verne_take_corin_as_state_deity:0 "Take Corin as State Deity"
  verne_take_corin_as_state_deity_desc:0 "The worship of Corin is elevated above all other gods. Verne is no longer merely Corinite — it is a Corinite state in truth, with Corin as its divine patron and defender."
  verne_take_corin_as_state_deity_tt:0 "Requires: Defender of the Faith, Corinite religion, and 10 Corinite provinces"
- verne_corins_pride_desc:0 "Corin's faith empowers Verne's armies with divine conviction."
-
+ # --- Trade & colonisation modifier names ---
  verne_trade_network:0 "Trade Network"
- verne_trade_network_desc:0 "Verne's trade network spans the Known World, generating steady commercial income."
- verne_merchant_marine:0 "Merchant Marine"
- verne_merchant_marine_desc:0 "A dedicated merchant fleet strengthens Verne's commercial dominance."
+
+
  verne_corins_pride:0 "Corin's Pride"
  verne_corins_pride_desc:0 "Corin's faith empowers Verne's armies with divine conviction."
  verne_crimson_scale_order_established:0 "Crimson Scale Order Established"
@@ -1209,8 +1199,7 @@ verne_industrial_logistics_tt:0 "Grants permanent trade efficiency and productio
  verne_wyvern_nest_grand_desc:0 "A grand wyvern nesting ground, where the great beasts roost under the care of Vernman handlers."
  verne_wyvern_nest_expanded:0 "Expanded Wyvern Nests"
  verne_wyvern_nest_expanded_desc:0 "Verne's wyvern nests have been expanded with new grounds, training facilities, and hatching chambers."
- verne_dynasty_protected_court:0 "Dynasty-Protected Court"
- verne_dynasty_protected_court_desc:0 "Court protocol and succession planning actively safeguard the Verne ruling line."
+
  verne_apostles_of_corin:0 "Apostles of Corin"
  verne_apostles_of_corin_desc:0 "Verne's missionaries spread the faith of Corin across the Known World, making the Silver Court's piety visible abroad."
  verne_corinite_halann:0 "Corinite Halann"
