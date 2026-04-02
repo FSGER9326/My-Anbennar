@@ -1,0 +1,65 @@
+# design/registries/namespaces.yaml
+# Event/decision/mission namespace allocations
+# All new namespaces must be registered here before use.
+
+allocated:
+  # Verne core namespaces (from repo scan)
+  verne_overhaul_advisor:
+    file: "events/verne_overhaul_advisor.txt"
+    ids_start: 1
+    reserved_by: "verne-core"
+  verne_overhaul_crisis:
+    file: "events/verne_overhaul_crisis.txt"
+    ids_start: 1
+    reserved_by: "verne-core"
+  verne_overhaul_dynasty:
+    file: "events/verne_overhaul_dynasty.txt"
+    ids_start: 1
+    reserved_by: "verne-core"
+  verne_liliac:
+    file: "events/verne_liliac.txt"
+    ids_start: 1
+    reserved_by: "verne-core"
+
+  # Verne mission namespaces (slot-based)
+  verne_mission_slot_1:
+    type: mission_slot
+    reserved_by: verne-core
+  verne_mission_slot_2:
+    type: mission_slot
+    reserved_by: verne-core
+  verne_mission_slot_3:
+    type: mission_slot
+    reserved_by: verne-core
+  verne_mission_slot_4:
+    type: mission_slot
+    reserved_by: verne-core
+  verne_mission_slot_5:
+    type: mission_slot
+    reserved_by: verne-core
+  verne_mission_slot_6:
+    type: mission_slot
+    reserved_by: verne-core
+  verne_mission_slot_7:
+    type: mission_slot
+    reserved_by: verne-core
+  verne_mission_slot_8:
+    type: mission_slot
+    reserved_by: verne-core
+  verne_mission_slot_9:
+    type: mission_slot
+    reserved_by: verne-core
+
+reservations:
+  # Add new namespace reservations here:
+  # flavour_masovia:
+  #   type: event
+  #   file: "events/Flavour_Masovia_MAS.txt"
+  #   reserved_by: "<feature>"
+  #   date: "2026-04-02"
+
+rules:
+  - Event namespaces use format: flavour_<slug> or <mod>_<feature>
+  - Mission slot namespaces use format: verne_mission_slot_N
+  - All namespace IDs must be allocated in blocks of 10 minimum
+  - Decision keys go in decisions/ files under country_decisions = { }

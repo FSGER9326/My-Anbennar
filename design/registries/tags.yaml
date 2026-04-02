@@ -1,0 +1,31 @@
+# design/registries/tags.yaml
+# Tag allocations for Verne submod work. All new tags must be registered here
+# before use to prevent collisions with upstream Anbennar tags.
+# Source: Anbennar common/country_tags/00_countries.txt, anb_countries.txt
+
+allocated:
+  # Verne core tags (from repo scan)
+  VRN:
+    full_name: "The Empire of Verne"
+    file: "common/countries/Verne.txt"
+    history_file: "history/countries/VRN.txt"
+    upstream: true
+
+  # Reserved for Verne submod additions — add new tags below this line
+  # Format: TAG: { full_name, file, history_file, reserved_by }
+
+reservations:
+  # Tags reserved for specific submod features
+  # Uncomment and fill in when allocating:
+  # MAS:
+  #   full_name: "Masovia"
+  #   file: "common/countries/Masovia.txt"
+  #   history_file: "history/countries/MAS - Masovia.txt"
+  #   reserved_by: "<feature or agent session>"
+  #   date: "2026-04-02"
+
+rules:
+  - New submod tags should use a separate overlay file: common/country_tags/zzz_<modid>_countries.txt
+  - Do NOT edit anb_countries.txt or 00_countries.txt directly for submod work
+  - All tag registrations must include history_file path
+  - Tag must have matching entry in common/countries/ and history/countries/

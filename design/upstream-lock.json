@@ -11,10 +11,17 @@
     "url": "https://gitlab.com/Sando13/anbennar-eu4-dev.git",
     "branch": "new-master",
     "head_sha": "6e2ca48ec6c78c67abd8de9878d5649a4566e0d6",
-    "head_message": "PR !3817 Renowned Adventurer Personality Trait"
+    "head_message": "PR !3817 Renowned Adventurer Personality Trait",
+    "vendor_pin": "6e2ca48"
   },
-  "eu4_patch_marker": "unknown",
-  "anbennar_release_marker": "new-master (current dev)",
+  "eu4_patch_marker": "1.37.5",
+  "anbennar_release_marker": "Update 19 — The Final Empire",
   "validation_baseline_sha": "d93ae55e80bc7f536ea2860d0f7eecac70785a04",
-  "notes": "upstream is a personal fork of the Anbennar dev repo; EU4 patch not recorded in .version file — check mod descriptor or game version at runtime"
+  "upstream_tools": {
+    "checkEncoding_sh": "tools/upstream/checkEncoding.sh",
+    "hash_collision_detect_py": "tools/upstream/hash_collision_detect.py",
+    "vanilla_hashes_txt": "tools/upstream/vanilla_hashes.txt",
+    "UPSTREAM_SHA": "tools/upstream/UPSTREAM_SHA"
+  },
+  "notes": "upstream is a personal fork; EU4 patch confirmed 1.37.5; Anbennar release Update 19; upstream tools vendor from upstream/new-master"
 }

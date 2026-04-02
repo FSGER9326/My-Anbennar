@@ -42,6 +42,40 @@
 
 When repo and wiki disagree, repo wins. Always cite source provenance in specs.
 
+### Scripted-Helper-First Rule
+**Before writing any new raw effect or trigger block, search the helper libraries.**
+
+1. Search `common/scripted_effects/anb_*.txt` for close matches
+2. Search `common/scripted_triggers/anb_*.txt` for close matches
+3. Search `common/scripted_effects/00_scripted_effects.txt`
+4. Search `common/scripted_triggers/00_scripted_triggers.txt`
+
+Use `tools/index/helper_lookup.py` to search. If a helper exists within top-3 similarity, **use it** — do not duplicate logic. Only create a new `anb_<modid>_scripted_effects.txt` or `anb_<modid>_scripted_triggers.txt` when:
+- No close helper match exists AND
+- The same logic is reused 3+ times in the current plan
+
+### Anbennar Real File Shapes
+Generate these concrete structures, not generic abstractions:
+- **Mission files:** `mytag_1 = { slot = 1 generic = no ai = yes has_country_shield = yes potential = { tag = TAG } mytag_mission_1 = { name = "..." desc = "..." } }`
+- **Event files:** `namespace = flavour_<slug>` + IDs like `flavour_<slug>.1`
+- **Loc files:** `Flavour_<Name>_<TAG>_l_english.yml` with BOM + `l_english:` header
+- **Decision files:** `country_decisions = { ... }`
+- **Tag registry:** separate overlay file `common/country_tags/zzz_<modid>_countries.txt` unless explicitly patching upstream
+
+### Every-Task Loop (run in order)
+1. Read `MEMORY.md`, today's memory note, and `design/upstream-lock.json`
+2. Record current branch, HEAD SHA, and tracked upstream SHA
+3. Retrieve repo precedents BEFORE wiki precedents
+4. Search `common/scripted_effects/` and `common/scripted_triggers/` before writing raw logic
+5. Reserve tag / namespace / loc prefix / decision keys in `design/registries/` before generating
+6. Generate `mod-spec.yaml` first — never write raw Clausewitz from prose
+7. Compile spec into Anbennar-shaped files using `tools/generate/emit_*.py`
+8. Run upstream validators: `bash tools/upstream/checkEncoding.sh` + `hash_collision_detect.py`
+9. Run extra validators: `tools/validate/scan_*.py`
+10. If high-risk paths touched (`map/`, `common/country_tags/`, `common/scripted_effects/`, etc.) → require stricter review
+11. Open PR with validator artifacts + blast-radius summary
+12. Write memory entry with allocations, upstream SHA used, and unresolved caveats
+
 ### The Mod-Spec Rule (no prose → files)
 **Never write EU4 files directly from a prose request.**
 

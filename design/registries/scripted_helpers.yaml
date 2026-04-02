@@ -1,0 +1,34 @@
+# design/registries/scripted_helpers.yaml
+# Scripted effect/trigger allocations
+# Before writing new raw trigger/effect blocks, search common/scripted_effects/
+# and common/scripted_triggers/ for existing helpers.
+# Only create new helpers if no close match exists AND logic is reused 3+ times.
+
+allocated:
+  # Verne-core helpers (from repo scan — partial list)
+  # Add entries as they are used in Verne missions/events/decisions
+
+  # Example Verne-specific helpers:
+  # verne_unlock_adventure_network:
+  #   type: scripted_effect
+  #   file: "common/scripted_effects/anb_verne_effects.txt"
+  #   params: [province_id, network_type]
+  #   reserved_by: "verne-core"
+
+reservations:
+  # masovia_effects:
+  #   type: scripted_effect
+  #   file: "common/scripted_effects/anb_masovia_effects.txt"
+  #   reserved_by: "<feature>"
+  #   date: "2026-04-02"
+
+rules:
+  - Before writing any new effect/trigger, search:
+  -   1. common/scripted_effects/anb_*.txt
+  -   2. common/scripted_triggers/anb_*.txt
+  -   3. common/scripted_effects/00_scripted_effects.txt
+  -   4. common/scripted_triggers/00_scripted_triggers.txt
+  - If a helper exists within top 3 matches by similarity, USE IT — do not duplicate
+  - If no helper exists and the same logic appears 3+ times, create a new anb_<modid>_*.txt
+  - New helpers must be registered here before use
+  - Helper lookup: tools/index/helper_lookup.py

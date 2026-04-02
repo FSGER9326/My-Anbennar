@@ -1,0 +1,27 @@
+# CODEOWNERS — Auto-request review when these paths are modified
+# GitHub: owners are auto-requested for review when PRs modify their files
+
+# Core content paths — require review from owner
+/missions/          @FSGER9326
+/events/            @FSGER9326
+/decisions/        @FSGER9326
+/common/ideas/     @FSGER9326
+/common/country_tags/  @FSGER9326
+/history/countries/    @FSGER9326
+/localisation/     @FSGER9326
+/map/              @FSGER9326
+
+# Generator/validator tooling
+/tools/generate/    @FSGER9326
+/tools/validate/    @FSGER9326
+/tools/upstream/    @FSGER9326
+
+# Agent configuration
+/.agents/           @FSGER9326
+/skills/            @FSGER9326
+/AGENTS.md          @FSGER9326
+/MEMORY.md          @FSGER9326
+/design/registries/ @FSGER9326
+
+# GitHub CI/CD
+/.github/workflows/ @FSGER9326

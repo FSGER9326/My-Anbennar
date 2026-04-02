@@ -1,0 +1,51 @@
+# design/registries/loc_prefixes.yaml
+# Localisation key prefixes for all Verne/submod content
+# All new loc prefixes must be registered here before use.
+
+allocated:
+  # Verne core prefixes
+  verne_:
+    files:
+      - "localisation/verne_overhaul_l_english.yml"
+      - "localisation/verne_liliac_l_english.yml"
+      - "localisation/Flavour_Verne_A33_l_english.yml"
+    reserved_by: "verne-core"
+    note: "Verne mission/loc prefix — do not reuse"
+
+  verne_liliac_war_:
+    files:
+      - "localisation/verne_liliac_war_l_english.yml"
+    reserved_by: "verne-core"
+    note: "Liliac War event/loc prefix"
+
+  # Verne modifier loc keys
+  verne_silver_oaths:
+    type: modifier
+    reserved_by: "verne-core"
+  verne_court_of_oaths:
+    type: modifier
+    reserved_by: "verne-core"
+  verne_exalted_dynasty_machine_reform:
+    type: modifier
+    reserved_by: "verne-core"
+  verne_dynasty_protected_court:
+    type: modifier
+    reserved_by: "verne-core"
+  verne_dynasty_exalted_lineage:
+    type: modifier
+    reserved_by: "verne-core"
+
+reservations:
+  # Add new prefix reservations here:
+  # mas_:
+  #   files:
+  #     - "localisation/Flavour_Masovia_MAS_l_english.yml"
+  #     - "localisation/replace/masovia_l_english.yml"
+  #   reserved_by: "<feature>"
+  #   date: "2026-04-02"
+
+rules:
+  - Loc prefix format: lowercase_{tag}_ or {feature}_
+  - All mission title/desc/tt keys must use the registered prefix
+  - Dynamic loc keys registered separately in design/registries/dynamic_loc.yaml
+  - Replacement loc files must end in _l_english.yml and go in localisation/replace/

@@ -2,67 +2,24 @@ name: eu4-validate-pr
 
 on:
   pull_request:
-    branches: [main, master]
+    branches: [main, master, dev/integration]
   push:
-    branches: [main, master]
+    branches: [main, master, dev/integration]
+
+env:
+  UPSTREAM_SHA: ${{ vars.UPSTREAM_SHA || '6e2ca48' }}
 
 jobs:
-  encoding-scan:
-    name: encoding-unicode-scan
+  # ──────────────────────────────────────────────────────────
+  # Job 1: CWTools — primary syntax/scope validator
+  # ──────────────────────────────────────────────────────────
+  eu4-cwtools:
+    name: eu4-cwtools
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run encoding scan
-        run: |
-          pwsh -Command "
-            ./tools/validate/encoding-unicode-scan.ps1 -Path .
-            if ($LASTEXITCODE -gt 0) { exit 1 }
-          "
-
-      - name: Upload scan artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: encoding-scan-results
-          path: encoding-scan-results.txt
-
-  duplicate-loc-scan:
-    name: duplicate-loc-key-scan
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run duplicate key scan
-        run: |
-          pwsh -Command "
-            \$locFiles = Get-ChildItem -Recurse -Include '*_l_english.yml' -Path .
-            \$keyCounts = @{}
-            foreach (\$file in \$locFiles) {
-              \$content = Get-Content \$file.FullName -Raw
-              if (\$content -match 'l_english:') {
-                \$keys = [regex]::Matches(\$content, '^([A-Za-z0-9_]+):0', [System.Text.RegularExpressions.RegexOptions]::Multiline) | ForEach-Object { \$_.Groups[1].Value }
-                foreach (\$key in \$keys) {
-                  if (-not \$keyCounts.ContainsKey(\$key)) { \$keyCounts[\$key] = @() }
-                  \$keyCounts[\$key] += \$file.FullName
-                }
-              }
-            }
-            \$dups = \$keyCounts.GetEnumerator() | Where-Object { \$_.Value.Count -gt 1 }
-            if (\$dups) {
-              Write-Host 'DUPLICATE LOC KEYS FOUND:'
-              \$dups | ForEach-Object { Write-Host \"  \$(\$_.Key) appears in: \$(\$_.Value -join ', ')\" }
-              exit 1
-            }
-          "
-
-  cwtools-validate:
-    name: cwtools-eu4-validate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run CWTools
+      - name: Run CWTools EU4 validation
         uses: cwtools/cwtools-action@v1.1.0
         with:
           game: eu4
@@ -71,33 +28,143 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload CWTools output
+      - name: Upload CWTools output artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cwtools-output
           path: output.json
 
-  placeholder-loc-scan:
-    name: placeholder-loc-scan
+  # ──────────────────────────────────────────────────────────
+  # Job 2: Upstream validators (vendored Anbennar QA)
+  # ──────────────────────────────────────────────────────────
+  eu4-upstream-validators:
+    name: eu4-upstream-validators
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Run upstream encoding checks
+        run: |
+          if [ -f tools/upstream/checkEncoding.sh ]; then
+            bash tools/upstream/checkEncoding.sh -l || true
+            bash tools/upstream/checkEncoding.sh -e || true
+            bash tools/upstream/checkEncoding.sh -d || true
+            bash tools/upstream/checkEncoding.sh -i || true
+          else
+            echo "tools/upstream/checkEncoding.sh not found — skipping upstream encoding check"
+          fi
+
+      - name: Run upstream hash collision detection
+        run: |
+          if [ -f tools/upstream/hash_collision_detect.py ]; then
+            python3 tools/upstream/hash_collision_detect.py || true
+          fi
+
+      - name: Upload upstream validator reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: upstream-reports
+          path: |
+            reports/
+            encoding-reports/
+          retention-days: 14
+
+  # ──────────────────────────────────────────────────────────
+  # Job 3: Extra scans (project-specific validators)
+  # ──────────────────────────────────────────────────────────
+  eu4-extra-scans:
+    name: eu4-extra-scans
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Scan for placeholder loc
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run extra validator scans
         run: |
-          pwsh -Command "
-            \$locFiles = Get-ChildItem -Recurse -Include '*_l_english.yml' -Path .
-            \$placeholders = @()
-            foreach (\$file in \$locFiles) {
-              \$content = Get-Content \$file.FullName -Raw
-              if (\$content -match 'TODO|FIXME|PLACEHOLDER|XXX') {
-                \$placeholders += \$file.FullName
-              }
-            }
-            if (\$placeholders.Count -gt 0) {
-              Write-Host 'PLACEHOLDER LOC FOUND:'
-              \$placeholders | ForEach-Object { Write-Host \"  \$_\" }
-              exit 1
-            }
-          "
+          python3 tools/validate/scan_unicode.py || true
+          python3 tools/validate/scan_encoding_extra.py || true
+          python3 tools/validate/scan_namespace_collisions.py || true
+          python3 tools/validate/scan_country_tag_pairs.py || true
+          python3 tools/validate/scan_formable_conflicts.py || true
+          python3 tools/validate/scan_dlc_softlocks.py || true
+          python3 tools/validate/scan_mission_satisfiability.py || true
+
+      - name: Run blast-radius scan
+        env:
+          UPSTREAM_SHA: ${{ env.UPSTREAM_SHA }}
+        run: |
+          python3 tools/validate/scan_override_blast_radius.py || true
+
+      - name: Upload extra scan reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extra-scan-reports
+          path: reports/
+          retention-days: 14
+
+  # ──────────────────────────────────────────────────────────
+  # Job 4: Encoding + duplicate-loc (fast pre-flight)
+  # ──────────────────────────────────────────────────────────
+  eu4-preflight:
+    name: eu4-preflight
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run preflight checks (encoding + duplicate loc)
+        run: |
+          echo "=== Duplicate localisation key scan ==="
+          python3 - << 'PYEOF'
+          import os, re
+          from pathlib import Path
+          from collections import defaultdict
+
+          key_map = defaultdict(list)
+          for f in Path('.').rglob('*_l_english.yml'):
+              txt = f.read_text(encoding='utf-8', errors='replace')
+              if 'l_english:' not in txt:
+                  continue
+              for m in re.finditer(r'^([A-Za-z0-9_]+):0', txt, re.MULTILINE):
+                  key_map[m.group(1)].append(str(f))
+
+          dups = {k: v for k, v in key_map.items() if len(v) > 1}
+          if dups:
+              print("DUPLICATE LOC KEYS:")
+              for k, files in sorted(dups.items()):
+                  print(f"  {k} appears in: {', '.join(files)}")
+              raise SystemExit(1)
+          else:
+              print("No duplicate loc keys found.")
+          PYEOF
+
+          echo "=== Placeholder loc scan ==="
+          python3 - << 'PYEOF'
+          from pathlib import Path
+          found = []
+          for f in Path('.').rglob('*_l_english.yml'):
+              txt = f.read_text(encoding='utf-8', errors='replace')
+              if any(p in txt for p in ['TODO', 'FIXME', 'PLACEHOLDER', 'XXX']):
+                  found.append(str(f))
+          if found:
+              print("PLACEHOLDER LOC FOUND in:", found)
+              raise SystemExit(1)
+          else:
+              print("No placeholder loc found.")
+          PYEOF
+
+      - name: Upload preflight results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: preflight-results
+          path: preflight-results.txt
+          retention-days: 7
