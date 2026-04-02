@@ -3,9 +3,19 @@
 ## People
 - **Falk Stürmann** — Timezone: Europe/Berlin. Prefers casual/practical tone. Verne EU4 modding.
 
+## Architecture (2026-04-02)
+**Source priority:** repo HEAD > upstream MR > EU4 wiki > Anbennar gameplay wiki > lore wiki. Repo wins on conflict.
+**No prose → files:** All non-trivial changes go through mod-spec.yaml first.
+**Registry:** All IDs allocated before writing. Registry files in `design/registry/`.
+**Skills:** 7 EU4 skills in `skills/` (eu4-source-priority, eu4-encoding-rules, eu4-scope-rules, anbennar-canon-retrieval, anbennar-precedent-lookup, eu4-bugfix-triage, eu4-content-compiler).
+**Upstream lock:** `design/upstream-lock.json` — tracked upstream SHA.
+**Blast-radius policy:** High/critical changes need explicit justification + test plan.
+**CWTools + encoding scan** required before any PR merge.
+
 ## Projects
-- **Anbennar Verne overhaul** — `C:\Users\User\Documents\GitHub\My-Anbennar`, branch `chore/verne-10-lane-blueprint`
+- **Anbennar Verne overhaul** — `C:\Users\User\Documents\GitHub\My-Anbennar`, branch `chore/verne-10-lane-blueprint`, upstream `new-master` @ `6e2ca48ec`
 - **10-column lane map** decided 2026-04-01 (design in ChatGPT, implementation in progress)
+- **Verne Registry:** 44 modifiers, 4 event namespaces, 9 mission slots, 25 reforms, 15 decisions
 
 ## Key Infrastructure
 - **Provider:** Minimax (`minimax/MiniMax-M2.7`) — primary model, API at `api.minimax.io/v1`
