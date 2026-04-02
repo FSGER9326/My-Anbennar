@@ -102,11 +102,23 @@ run_step() {
   fi
 }
 
-run_step "[1/6] Conflict hotspot registry audit" "${PYTHON_BIN} scripts/validate_conflict_hotspots.py"
-run_step "[2/6] Branch overlap planning check" "run_overlap_planning_check"
-run_step "[3/6] Docs conflict guard" "${PYTHON_BIN} scripts/docs_conflict_guard.py"
-run_step "[4/6] Checklist link audit" "${PYTHON_BIN} scripts/checklist_link_audit.py"
-run_step "[5/6] Verne checklist audit" "${PYTHON_BIN} scripts/verne_checklist_audit.py"
-run_step "[6/6] Verne country smoke runner" "${PYTHON_BIN} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
+run_step "[1/8] Conflict hotspot registry audit" "${PYTHON_BIN} scripts/validate_conflict_hotspots.py"
+run_step "[2/8] Branch overlap planning check" "run_overlap_planning_check"
+run_step "[3/8] Docs conflict guard" "${PYTHON_BIN} scripts/docs_conflict_guard.py"
+run_step "[4/8] Checklist link audit" "${PYTHON_BIN} scripts/checklist_link_audit.py"
+run_step "[5/8] Verne checklist audit" "${PYTHON_BIN} scripts/verne_checklist_audit.py"
+run_step "[6/8] Verne country smoke runner" "${PYTHON_BIN} scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json"
+
+# 7. Build the canonical/legacy registry JSON (non-fatal if no registry-md yet)
+run_step "[7/8] Canonical/legacy registry build" "${PYTHON_BIN} scripts/registry_expand.py --registry-md docs/wiki/verne-canonical-vs-legacy-file-registry.md --out automation/registries/verne_file_registry.json --fail-on-legacy-edit-risk" || {
+  echo "[7/8] WARNING: registry_expand failed — check that docs/wiki/verne-canonical-vs-legacy-file-registry.md exists and is valid"
+}
+
+# 8. Mission truth audit (required if mission files changed)
+if git diff --name-only | grep -qE '^missions/'; then
+  run_step "[8/8] Mission truth audit" "${PYTHON_BIN} scripts/mission_truth_audit.py --missions missions/Verne_Missions.txt --loc localisation/verne_overhaul_l_english.yml --registry automation/registries/verne_file_registry.json"
+else
+  echo "[8/8] Mission truth audit SKIPPED (no mission files changed)"
+fi
 
 echo "Pre-PR gate passed. Safe to open a PR."

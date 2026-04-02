@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/mod-spec.schema.json",
+  "title": "My-Anbennar Mod Specification",
+  "description": "Schema for structured EU4 mod specs used in the My-Anbennar autonomous modding pipeline.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["meta", "scope", "objects", "filePlan", "validationPlan"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "date", "author", "upstreamBase"],
+      "properties": {
+        "title": { "type": "string", "minLength": 4 },
+        "date": { "type": "string", "format": "date" },
+        "author": { "type": "string" },
+        "upstreamBase": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["anbennarSource", "ref"],
+          "properties": {
+            "anbennarSource": {
+              "type": "string",
+              "enum": ["gitlab/anbennar-eu4-dev", "github/JayBean-Anbennar-PublicFork", "other"]
+            },
+            "ref": { "type": "string" }
+          }
+        },
+        "description": { "type": "string", "minLength": 20 }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["countryTag", "featureSummary", "nonGoals"],
+      "properties": {
+        "countryTag": { "type": "string", "pattern": "^[A-Z0-9]{3}$" },
+        "featureSummary": { "type": "string", "minLength": 30 },
+        "nonGoals": { "type": "array", "items": { "type": "string" } },
+        "lane": { "type": "string", "enum": ["gameplay", "automation", "lore", "gfx"] }
+      }
+    },
+    "objects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["missions", "events", "effects", "triggers", "modifiers", "decisions", "ideas", "reforms", "localisationKeys"],
+      "properties": {
+        "missions": { "type": "array", "items": { "type": "string" } },
+        "events": { "type": "array", "items": { "type": "string" } },
+        "effects": { "type": "array", "items": { "type": "string" } },
+        "triggers": { "type": "array", "items": { "type": "string" } },
+        "modifiers": { "type": "array", "items": { "type": "string" } },
+        "decisions": { "type": "array", "items": { "type": "string" } },
+        "ideas": { "type": "array", "items": { "type": "string" } },
+        "reforms": { "type": "array", "items": { "type": "string" } },
+        "localisationKeys": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "filePlan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "policy", "changes"],
+        "properties": {
+          "path": { "type": "string" },
+          "policy": {
+            "type": "string",
+            "enum": ["canonical", "legacy-no-extend", "shared-touchpoint"]
+          },
+          "changes": { "type": "string", "minLength": 20 }
+        }
+      }
+    },
+    "validationPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mustPass", "niceToHave"],
+      "properties": {
+        "mustPass": { "type": "array", "items": { "type": "string" } },
+        "niceToHave": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

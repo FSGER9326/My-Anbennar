@@ -1,0 +1,28 @@
+{
+  "id": "my-anbennar-sheriff",
+  "name": "My-Anbennar Sheriff",
+  "kind": "context-engine",
+  "version": "1.0.0",
+  "description": "Lane-aware prompt injection + deterministic modding tools for My-Anbennar EU4 modding pipeline. Enforces conflict-hotspot policy, canonical/legacy registry, and pre-PR gate.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enforceHotspots": {
+        "type": "boolean",
+        "default": true,
+        "description": "Warn when changes touch single-writer hotspot files"
+      },
+      "enforceLegacyNoExtend": {
+        "type": "boolean",
+        "default": true,
+        "description": "Fail preflight if a Legacy (do not extend) file is edited"
+      },
+      "defaultLane": {
+        "type": "string",
+        "enum": ["gameplay", "automation", "lore", "gfx"],
+        "default": "gameplay"
+      }
+    }
+  }
+}

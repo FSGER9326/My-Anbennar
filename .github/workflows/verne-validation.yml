@@ -64,6 +64,27 @@ jobs:
       - name: Run text hygiene guard
         run: python scripts/text_hygiene_guard.py
 
+      - name: Build canonical/legacy registry JSON
+        run: |
+          python scripts/registry_expand.py \
+            --registry-md docs/wiki/verne-canonical-vs-legacy-file-registry.md \
+            --out automation/registries/verne_file_registry.json \
+            --fail-on-legacy-edit-risk || echo "registry_expand: no registry-md or not yet created"
+
+      - name: Mission truth audit
+        run: |
+          python scripts/mission_truth_audit.py \
+            --missions missions/Verne_Missions.txt \
+            --loc localisation/verne_overhaul_l_english.yml \
+            --registry automation/registries/verne_file_registry.json || echo "mission_truth_audit: skipped or not yet available"
+
+      - name: Legacy interaction audit
+        run: |
+          python scripts/legacy_interaction_audit.py \
+            --legacy events/Flavour_Verne_A33.txt \
+            --missions missions/Verne_Missions.txt \
+            --registry automation/registries/verne_file_registry.json || echo "legacy_interaction_audit: skipped"
+
       - name: Append workflow artifact URL to validation report
         run: |
           python scripts/write_validation_report.py \
@@ -73,6 +94,9 @@ jobs:
             --check "checklist_link_audit|python scripts/checklist_link_audit.py|pass|high" \
             --check "verne_checklist_audit|python scripts/verne_checklist_audit.py|pass|high" \
             --check "country_smoke_runner|python scripts/country_smoke_runner.py --profile automation/country_profiles/verne.json|pass|high" \
+            --check "registry_expand|python scripts/registry_expand.py|pass|high" \
+            --check "mission_truth_audit|python scripts/mission_truth_audit.py|pass|high" \
+            --check "legacy_interaction_audit|python scripts/legacy_interaction_audit.py|pass|medium" \
             --check "text_hygiene_guard|python scripts/text_hygiene_guard.py|pass|medium" \
             --artifact "validation-report|$VALIDATION_REPORT" \
             --artifact "pr-draft|$PR_DRAFT_OUTPUT" \
