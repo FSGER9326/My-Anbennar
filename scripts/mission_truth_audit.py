@@ -81,9 +81,12 @@ def find_loc_keys(loc_path: Path) -> tuple[set[str], set[str]]:
         return titles, descs
     text = _read_text(loc_path)
     for m in re.finditer(r"^\s*([a-z0-9_]+)(_title)\s*:", text, re.MULTILINE | re.IGNORECASE):
-        titles.add(m.group(1).lower())
+        # Strip _title suffix — store base key only
+        key = m.group(1).lower()
+        titles.add(key)
     for m in re.finditer(r"^\s*([a-z0-9_]+)(_desc)\s*:", text, re.MULTILINE | re.IGNORECASE):
-        descs.add(m.group(1).lower())
+        key = m.group(1).lower()
+        descs.add(key)
     return titles, descs
 
 
@@ -125,17 +128,17 @@ def main() -> int:
     missing_loc = []
     for mid in sorted(declared):
         # Normalise: mission IDs are A33_xxx, loc keys are a33_xxx
-        t_key = f"{mid.lower()}_title"
-        d_key = f"{mid.lower()}_desc"
-        has_title = t_key in loc_titles
-        has_desc  = d_key in loc_descs
+        # loc_titles/descs store base keys (no _title/_desc suffix)
+        base = mid.lower()
+        has_title = base in loc_titles
+        has_desc  = base in loc_descs
         if not has_title or not has_desc:
             missing_loc.append({
                 "mission_id": mid,
                 "missing_title": not has_title,
                 "missing_desc": not has_desc,
-                "title_key": t_key,
-                "desc_key": d_key,
+                "title_key": f"{base}_title",
+                "desc_key": f"{base}_desc",
             })
 
     # 4. Scan canonical files for mission_completed references
