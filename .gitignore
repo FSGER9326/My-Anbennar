@@ -21,6 +21,8 @@ memory/
 skills/self-improving-agent/
 skills/autonomous-skill-creator/
 mission-control/
+research-agent/
+docs/openclaw/
 *.log
 openclaw*.log
 
