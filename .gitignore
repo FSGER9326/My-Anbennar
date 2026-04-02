@@ -29,3 +29,9 @@ docs/anbennar-upstream-report.md
 *.log
 openclaw*.log
 
+
+# Kilo Code extension
+.kilo/
+
+# Automation registry output
+automation/registries/
