@@ -3,13 +3,12 @@
 mission_truth_audit.py — My-Anbennar
 Verne mission-spine truth audit.
 
-What it checks:
+Checks:
   1. Every mission ID in missions/Verne_Missions.txt has a corresponding
      localisation entry (title + desc keys).
   2. Every mission ID referenced via `mission_completed = <id>` in any canonical
      file actually exists in the mission file(s).
-  3. Every event option / effect that triggers/completes a mission has a valid
-     target mission ID.
+  3. Orphan mission refs (refs to non-existent missions) are reported.
 
 Outputs:
   automation/reports/mission_truth_report.json
@@ -24,22 +23,54 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-# Patterns
-MISSION_ID_RE = re.compile(r"^\s*([A-Z0-9_]+)\s*=\s*\{", re.MULTILINE)
-LOC_TITLE_RE  = re.compile(r"^\s*([a-z0-9_]+(_title))\s*:", re.MULTILINE | re.IGNORECASE)
-LOC_DESC_RE   = re.compile(r"^\s*([a-z0-9_]+(_desc))\s*:", re.MULTILINE | re.IGNORECASE)
-MISCOMP_RE    = re.compile(r"mission_completed\s*=\s*([A-Z0-9_]+)", re.IGNORECASE)
-MISSETC_RE    = re.compile(r"([A-Z0-9_]+)", re.IGNORECASE)
+RESERVED = {
+    "OR", "AND", "NOT", "IF", "ELSE", "LIMIT",
+    "FROM", "THIS", "PREV", "ROOT", "OWNER", "ANY", "ALL",
+}
+
+
+def _read_text(path: Path) -> str:
+    """Read file, strip BOM and all CR characters."""
+    return path.read_bytes().decode("utf-8-sig").replace("\r", "")
 
 
 def find_mission_ids(missions_path: Path) -> set[str]:
-    """Extract all top-level mission IDs from a mission file."""
+    """Extract top-level mission IDs from a Paradox mission file.
+
+    Strategy: walk line-by-line. When we see `id = {` at the top level
+    (no indent or 1 tab), record the ID. Deeply-indented entries (inside
+    provinces_to_highlight etc.) are ignored. Also filter out Paradox
+    reserved keywords.
+    """
     ids = set()
     if not missions_path.exists():
         return ids
-    text = missions_path.read_text(encoding="utf-8", errors="replace")
-    for m in MISSION_ID_RE.finditer(text):
-        ids.add(m.group(1))
+
+    text = _read_text(missions_path)
+    lines = text.split("\n")
+
+    for i, raw_line in enumerate(lines):
+        line = raw_line.strip()
+        # Skip blanks and comments
+        if not line or line.startswith("#"):
+            continue
+        # Match: ID = {
+        m = re.match(r"^([A-Z][A-Za-z0-9_]+)\s*=\s*\{", line)
+        if not m:
+            continue
+        mission_id = m.group(1)
+        if mission_id in RESERVED:
+            continue
+
+        # Determine indentation level: count leading tabs/spaces of raw line
+        raw = raw_line.rstrip("\n")
+        indent = len(raw) - len(raw.lstrip("\t "))
+
+        # Accept: no indent (top-level slot/mission block) or 1 tab (inside slot)
+        if indent <= 1:
+            ids.add(mission_id)
+        # else: deeply indented (inside provinces_to_highlight, etc.) — skip
+
     return ids
 
 
@@ -48,21 +79,21 @@ def find_loc_keys(loc_path: Path) -> tuple[set[str], set[str]]:
     titles, descs = set(), set()
     if not loc_path.exists():
         return titles, descs
-    text = loc_path.read_text(encoding="utf-8", errors="replace")
-    for m in LOC_TITLE_RE.finditer(text):
+    text = _read_text(loc_path)
+    for m in re.finditer(r"^\s*([a-z0-9_]+)(_title)\s*:", text, re.MULTILINE | re.IGNORECASE):
         titles.add(m.group(1).lower())
-    for m in LOC_DESC_RE.finditer(text):
+    for m in re.finditer(r"^\s*([a-z0-9_]+)(_desc)\s*:", text, re.MULTILINE | re.IGNORECASE):
         descs.add(m.group(1).lower())
     return titles, descs
 
 
-def scan_file_for_mission_refs(filepath: Path, pattern=re.compile(r"mission_completed\s*=\s*([A-Z0-9_]+)", re.IGNORECASE)) -> list[tuple[str, str]]:
-    """Return list of (file, mission_id) where missions are referenced."""
+def scan_file_for_mission_refs(filepath: Path) -> list[tuple[str, str]]:
+    """Return list of (file, mission_id) where mission_completed is referenced."""
     refs = []
     if not filepath.exists():
         return refs
-    text = filepath.read_text(encoding="utf-8", errors="replace")
-    for m in pattern.finditer(text):
+    text = _read_text(filepath)
+    for m in re.finditer(r"mission_completed\s*=\s*([A-Z0-9_]+)", text, re.IGNORECASE):
         refs.append((str(filepath), m.group(1)))
     return refs
 
@@ -113,11 +144,10 @@ def main() -> int:
         reg = json.loads(registry_path.read_text(encoding="utf-8"))
         for row in reg.get("rows", []):
             p = Path(row["path"])
-            if p.suffix in (".txt", ".yml", ".yaml"):
-                for ref_file in [p]:
-                    for fref in scan_file_for_mission_refs(ref_file):
-                        all_refs.append(fref)
-                        refd_missions.add(fref[1])
+            if p.suffix in (".txt", ".yml", ".yaml") and p.exists():
+                for fref in scan_file_for_mission_refs(p):
+                    all_refs.append(fref)
+                    refd_missions.add(fref[1])
 
     # 5. Check referenced mission IDs exist
     orphan_refs = [(f, m) for f, m in all_refs if m not in declared]
@@ -145,10 +175,20 @@ def main() -> int:
     print(f"Missing loc entries: {len(missing_loc)}")
     print(f"Orphan mission refs: {len(orphan_refs)}")
 
+    if missing_loc:
+        print("\n[ACTION REQUIRED] Missing loc entries:")
+        for e in missing_loc[:10]:
+            print(f"  {e['mission_id']}: title={e['missing_title']}, desc={e['missing_desc']}")
+        if len(missing_loc) > 10:
+            print(f"  ... and {len(missing_loc) - 10} more")
+    if orphan_refs:
+        print(f"\n[ACTION REQUIRED] Orphan mission refs:")
+        for f, m in orphan_refs:
+            print(f"  {f}: mission_completed = {m}")
+
     if missing_loc or orphan_refs:
-        print("\nACTION REQUIRED — run with --fix to generate fix script")
         return 1
-    print("\n✅ Mission truth audit PASSED")
+    print("\n[PASS] Mission truth audit PASSED")
     return 0
 
 

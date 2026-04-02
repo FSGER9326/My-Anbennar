@@ -5,7 +5,7 @@ Canonical / legacy coupling audit.
 
 Checks:
   1. The legacy anchor (events/Flavour_Verne_A33.txt) does not reference
-     zzz_* legacy stub IDs — these should be retired, not referenced.
+     zzz_* legacy stub IDs.
   2. Mission IDs referenced by legacy events actually exist in the mission file(s).
   3. Event IDs referenced by missions actually exist in the event file(s).
   4. Generates a coupling map artifact (JSON) for agent reasoning.
@@ -21,18 +21,35 @@ import re
 import sys
 from pathlib import Path
 
-EVENT_ID_RE   = re.compile(r"^\s*([A-Z][A-Za-z0-9_]+)\s*=\s*\{", re.MULTILINE)
-MIS_ID_RE     = re.compile(r"^\s*([A-Z0-9_]+)\s*=\s*\{", re.MULTILINE)
+EVENT_ID_RE   = re.compile(r"^\s{0,4}([A-Z][A-Za-z0-9_]+)\s*=\s*\{", re.MULTILINE)
+MIS_ID_RE     = re.compile(r"^\s{0,4}([A-Z][A-Za-z0-9_]+)\s*=\s*\{", re.MULTILINE)
 LEGACY_EVT_RE = re.compile(r"(zzz_[a-z_]+)", re.IGNORECASE)
 MISCOMP_RE    = re.compile(r"mission_completed\s*=\s*([A-Z0-9_]+)", re.IGNORECASE)
 EVTREF_RE     = re.compile(r"event\s*=\s*([A-Z][A-Za-z0-9_]+)", re.IGNORECASE)
+# Skip province-level entries (numeric IDs, or indented entries inside blocks)
+SKIP_PATTERNS = (
+    re.compile(r"^\s{8,}"),       # deeply indented (>7 spaces)
+    re.compile(r"^\d"),            # starts with digit (province IDs)
+)
 
 
 def collect_ids(filepath: Path, pattern) -> set[str]:
     if not filepath.exists():
         return set()
-    text = filepath.read_text(encoding="utf-8", errors="replace")
-    return {m.group(1) for m in pattern.finditer(text)}
+    raw = filepath.read_bytes()
+    text = raw.decode("utf-8-sig").replace("\r", "")
+    ids = set()
+    for m in pattern.finditer(text):
+        mid = m.group(1)
+        line_start = text.rfind("\n", 0, m.start()) + 1
+        line_end = text.find("\n", line_start)
+        if line_end < 0:
+            line_end = len(text)
+        line = text[line_start:line_end]
+        if SKIP_PATTERNS[0].match(line) or SKIP_PATTERNS[1].match(mid):
+            continue
+        ids.add(mid)
+    return ids
 
 
 def main() -> int:
@@ -55,8 +72,7 @@ def main() -> int:
     legacy_text      = legacy_path.read_text(encoding="utf-8", errors="replace") if legacy_path.exists() else ""
 
     # 1. Legacy file references to zzz_* stubs
-    zzz_refs = [(m.group(1)) for m in LEGACY_EVT_RE.finditer(legacy_text)]
-    zzz_refs = sorted(set(zzz_refs))
+    zzz_refs = sorted(set(m.group(1) for m in LEGACY_EVT_RE.finditer(legacy_text)))
 
     # 2. Legacy events reference which missions?
     legacy_mis_refs = sorted(set(m.group(1) for m in MISCOMP_RE.finditer(legacy_text)))
@@ -68,23 +84,24 @@ def main() -> int:
         reg = json.loads(registry_path.read_text(encoding="utf-8"))
         for row in reg.get("rows", []):
             p = Path(row["path"])
-            if p.suffix not in (".txt", ".yml", ".yaml"):
+            if p.suffix not in (".txt", ".yml", ".yaml") or not p.exists():
                 continue
-            ids = collect_ids(p, EVENT_ID_RE) | collect_ids(p, MIS_ID_RE)
-            couplings_for_file = {}
-            # mission completions
             text = p.read_text(encoding="utf-8", errors="replace")
-            mis_refs = {m.group(1) for m in MISCOMP_RE.finditer(text)}
-            evt_refs = {m.group(1) for m in EVTREF_RE.finditer(text)}
+            evt_ids = collect_ids(p, EVENT_ID_RE)
+            mis_ids = collect_ids(p, MIS_ID_RE)
+            mis_refs = sorted(set(m.group(1) for m in MISCOMP_RE.finditer(text)))
+            evt_refs = sorted(set(m.group(1) for m in EVTREF_RE.finditer(text)))
+            couplings_for_file = {}
             if mis_refs:
-                couplings_for_file["mission_completed"] = sorted(mis_refs)
+                couplings_for_file["mission_completed"] = mis_refs
             if evt_refs:
-                couplings_for_file["event_options"] = sorted(evt_refs)
-            if couplings_for_file:
+                couplings_for_file["event_options"] = evt_refs
+            if couplings_for_file or evt_ids or mis_ids:
                 coupling[row["path"]] = {
                     "status": row["status"],
                     "edit_policy": row["edit_policy"],
-                    "declared_ids": sorted(ids),
+                    "declared_event_ids": sorted(evt_ids),
+                    "declared_mission_ids": sorted(mis_ids),
                     "refs_to": couplings_for_file,
                 }
 
@@ -108,15 +125,18 @@ def main() -> int:
     print(f"zzz stub refs in legacy file: {len(zzz_refs)}")
     print(f"Orphan mission refs from legacy: {len(orphan_legacy_mis)}")
 
-    if zzz_refs or orphan_legacy_mis:
-        print("\n⚠️  LEGACY INTERACTION ISSUES FOUND")
-        if zzz_refs:
-            print(f"  zzz_* stubs still referenced: {zzz_refs}")
-        if orphan_legacy_mis:
-            print(f"  Legacy references non-existent missions: {orphan_legacy_mis}")
-        return 1
+    if zzz_refs:
+        print("\n[WARNING] zzz_* stubs still referenced in legacy file:")
+        for s in zzz_refs:
+            print(f"  {s}")
+    if orphan_legacy_mis:
+        print(f"\n[WARNING] Legacy file references non-existent missions:")
+        for m in orphan_legacy_mis:
+            print(f"  {m}")
 
-    print("\n✅ Legacy interaction audit PASSED")
+    if zzz_refs or orphan_legacy_mis:
+        return 1
+    print("\n[PASS] Legacy interaction audit PASSED")
     return 0
 
 
