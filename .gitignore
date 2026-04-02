@@ -25,6 +25,7 @@ research-agent/
 docs/openclaw/
 docs/cron-status.md
 docs/qa-watch-changelog.txt
+docs/anbennar-upstream-report.md
 *.log
 openclaw*.log
 
