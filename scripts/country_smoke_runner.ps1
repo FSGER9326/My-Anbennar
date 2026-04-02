@@ -1,4 +1,4 @@
-param(
+﻿param(
     [Parameter(Mandatory = $true)]
     [string]$Profile
 )
@@ -12,13 +12,22 @@ if (-not (Test-Path $profilePath)) {
     throw "Missing smoke profile: $Profile"
 }
 
+function Get-RelativePath {
+    param([string]$From, [string]$To)
+    $fromUri = New-Object System.Uri($From)
+    $toUri = New-Object System.Uri($To)
+    $relativeUri = $fromUri.MakeRelativeUri($toUri)
+    $relativePath = [System.Uri]::UnescapeDataString($relativeUri.ToString())
+    return $relativePath.Replace('/', '\')
+}
+
 function Read-Text {
     param([Parameter(Mandatory = $true)][string]$Path)
     return Get-Content $Path -Raw -Encoding UTF8
 }
 
 function Strip-Comment {
-    param([Parameter(Mandatory = $true)][string]$Line)
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Line)
     $inQuote = $false
     $builder = New-Object System.Text.StringBuilder
     foreach ($ch in $Line.ToCharArray()) {
@@ -65,7 +74,7 @@ function Get-StructuralErrors {
         $lineNumber += 1
         if ($rawLine.StartsWith("<<<<<<<") -or $rawLine.StartsWith("=======") -or $rawLine.StartsWith(">>>>>>>")) {
             $errors.Add(
-                "In $RelativePath around line $lineNumber: found a git merge conflict marker (<<<<<<<, =======, or >>>>>>>). Please resolve the conflict and remove markers."
+                ("In {0} around line {1}: found a git merge conflict marker (<<<<<<<, =======, or >>>>>>>). Please resolve the conflict and remove markers." -f $RelativePath, $lineNumber)
             )
         }
 
@@ -82,7 +91,7 @@ function Get-StructuralErrors {
                 } else {
                     $firstSeen = $topLevelKeys[$key]
                     $errors.Add(
-                        "In $RelativePath around line $lineNumber: duplicate top-level key '$key'. It was first defined around line $firstSeen. This can silently overwrite logic in scripted files."
+                        ("In {0} around line {1}: duplicate top-level key '$key'. It was first defined around line {2}. This can silently overwrite logic in scripted files." -f $RelativePath, $lineNumber, $firstSeen)
                     )
                 }
             }
@@ -90,13 +99,13 @@ function Get-StructuralErrors {
 
         $depth += ($opens - $closes)
         if ($depth -lt 0) {
-            $errors.Add("In $RelativePath around line $lineNumber: found '}' without matching '{' earlier in the file.")
+            $errors.Add(("In {0} around line {1}: found '}}' without matching '{{' earlier in the file." -f $RelativePath, $lineNumber))
             $depth = 0
         }
     }
 
     if ($depth -ne 0) {
-        $errors.Add("In $RelativePath: braces look unbalanced (net open braces: $depth). Check for a missing '{' or '}' near the end of the file.")
+        $errors.Add(("In {0}: braces look unbalanced (net open braces: {1}). Check for a missing '{{' or '}}' near the end of the file." -f $RelativePath, $depth))
     }
 
     return $errors
@@ -196,7 +205,8 @@ if (@($data.structural_checks).Count -gt 0) {
             $errors.Add("structural check: missing file $pathRel")
             continue
         }
-        $relativePath = [System.IO.Path]::GetRelativePath($repoRoot, $path).Replace("\", "/")
+$relativePath = Get-RelativePath -From $repoRoot -To $path
+        if (-not $relativePath) { continue }
         foreach ($structuralError in @(Get-StructuralErrors -Path $path -RelativePath $relativePath)) {
             $errors.Add($structuralError)
         }
