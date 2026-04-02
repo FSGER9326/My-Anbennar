@@ -475,3 +475,225 @@ verne_vernissage_secretariat = {
 	improve_relation_modifier = 0.10
 	merchants = 1
 }
+
+
+# ################################################################
+# SECTION 6 — MISSING MODIFIER DEFINITIONS (audit 2026-04-02)
+# ################################################################
+
+# --- A33_the_grand_port_of_heartspier (Lane 2, Maritime) ---
+verne_new_armada = {
+	global_ship_cost = -0.10
+	sailors_capacity = 0.10
+	naval_forcelimit_modifier = 0.15
+}
+
+verne_the_wyverns_gulf = {
+	local_sailors_modifier = 0.20
+	local_ship_cost = -0.10
+	local_trade_power = 0.15
+}
+
+# --- A33_a_crimson_sea (Lane 2, Naval Power) ---
+verne_might_of_the_wyvern = {
+	land_morale = 0.10
+	naval_morale = 0.10
+	land_forcelimit_modifier = 0.10
+	naval_forcelimit_modifier = 0.10
+	prestige = 0.5
+}
+
+# --- A33_valour_on_the_seas (Lane 2, Golden Age) ---
+verne_vernman_era = {
+	yearly_prestige = 1
+	yearly_legitimacy = 0.5
+	advisor_cost = -0.10
+	all_power_cost = -0.02
+}
+
+# --- A33_a_union_of_crowns / A33_overseas_commonwealth (Lane 4) ---
+verne_new_world_monopolies = {
+	global_tariffs = 0.15
+	trade_efficiency = 0.10
+	global_ship_trade_power = 0.15
+}
+
+# --- A33_across_the_pond (Lane 4, Colonial) ---
+verne_off_to_adventure = {
+	naval_maintenance_modifier = -0.15
+	naval_attrition = -0.15
+	colonial_range = 0.15
+}
+
+# --- A33_alvars_reforms (Lane 4, Treasury cost) ---
+verne_redbrass_surplus = {
+	treasury_income = 0.10
+	production_efficiency = 0.05
+	build_cost = -0.05
+}
+
+# --- A33_born_of_valour / Wyvern-related ---
+verne_wyvern_stride = {
+	cavalry_power = 0.15
+	leader_land_shock = 1
+	land_morale = 0.05
+}
+
+verne_wingspan = {
+	naval_forcelimit_modifier = 0.15
+	cavalry_power = 0.10
+	naval_morale = 0.05
+}
+
+# --- A33_type_2_wyverns / Wyvern Nest progression ---
+verne_wyvern_nest = {
+	local_province_modifier = yes
+	local_defensiveness = 0.20
+	local_sailors_modifier = 0.15
+}
+
+verne_wyvern_nest_expanded = {
+	local_province_modifier = yes
+	local_defensiveness = 0.30
+	local_sailors_modifier = 0.25
+	local_morale_of_navies = 0.10
+}
+
+verne_wyvern_nest_grand = {
+	local_province_modifier = yes
+	local_defensiveness = 0.50
+	local_sailors_modifier = 0.40
+	local_morale_of_navies = 0.15
+	local_trade_power = 0.20
+}
+
+verne_wyvern_nest_no_dlc = {
+	local_province_modifier = yes
+	local_defensiveness = 0.50
+	local_sailors_modifier = 0.40
+	local_morale_of_navies = 0.15
+}
+
+# --- A33_diplomatic_hegemony / Grand Fleet tier progression ---
+verne_grand_fleet_tier1 = {
+	global_ship_cost = -0.05
+	naval_forcelimit_modifier = 0.10
+	naval_maintenance_modifier = -0.05
+}
+
+verne_grand_fleet_tier2 = {
+	global_ship_cost = -0.15
+	naval_forcelimit_modifier = 0.20
+	naval_maintenance_modifier = -0.10
+	trade_efficiency = 0.05
+}
+
+# --- A33_zenith_of_the_eastern_princes / A33_alliance chain ---
+verne_restoring_the_borders = {
+	defensiveness = 0.15
+	garrison_size = 0.15
+	local_defensiveness = 0.20
+}
+
+# --- A33_the_halanni_exposition / Vernissage tier2 (province 292) ---
+verne_vernissage_tier2 = {
+	local_province_modifier = yes
+	local_tax_modifier = 0.25
+	local_production_efficiency = 0.15
+	local_development_cost = -0.10
+}
+
+verne_impecable_groundwork = {
+	local_province_modifier = yes
+	local_tax_modifier = 0.15
+	local_production_efficiency = 0.10
+	local_development_cost = -0.05
+}
+
+verne_tourism_economy = {
+	local_province_modifier = yes
+	local_tax_modifier = 0.20
+	local_production_efficiency = 0.10
+	local_sailors_modifier = 0.10
+}
+
+verne_international_investment = {
+	local_province_modifier = yes
+	local_trade_power = 0.30
+	local_trade_value_modifier = 0.20
+	local_development_cost = -0.10
+}
+
+# --- A33_a_matter_of_pride / Impressment drive ---
+verne_impressment_drive = {
+	sailors_capacity = 0.25
+	sailors_recovery_speed = 0.15
+	naval_forcelimit_modifier = 0.15
+	morale_of_navies = 0.05
+}
+
+# --- A33_binding_the_beast / Khenak / Redbrass ---
+verne_all_roads_lead_to_verne = {
+	trade_efficiency = 0.10
+	global_trade_power = 0.10
+	trade_range_modifier = 0.15
+}
+
+# --- A33_exaltation_of_adventurers (dynasty path) ---
+verne_exaltation_of_adventurers = {
+	yearly_prestige = 1
+	heir_chance = 0.20
+	diplomatic_reputation = 1
+}
+
+# --- A33_foreign_doctrines / Corinite world faith ---
+verne_foreign_doctrines = {
+	global_missionary_strength = 0.02
+	missionaries = 1
+	enforce_religion_cost = -0.25
+}
+
+# --- A33_corinite_halann (Corinite mission rewards) ---
+verne_apostles_of_corin = {
+	prestige_from_land = 0.10
+	prestige_from_naval = 0.10
+	global_missionary_strength = 0.01
+	yearly_prestige = 0.5
+}
+
+verne_corinite_halann = {
+	prestige = 1
+	legitimacy = 0.5
+	advisor_pool = 1
+	yearly_legitimacy = 0.5
+}
+
+# --- A33_indebted_to_the_mages_small ---
+verne_indebted_to_the_mages_small = {
+	mages_loyalty_modifier = 0.15
+	mages_influence_modifier = 0.10
+	yearly_army_professionalism = -0.005
+}
+
+# --- A33_luna_red_court (Trade company conversion modifier) ---
+verne_trade_company_conversion_modifier = {
+	missionaries = 1
+	global_missionary_strength = 0.02
+	enforce_religion_cost = -0.25
+}
+
+# --- A33_the_wyvern_king (Elector/Imperial path) ---
+verne_the_wyvern_king = {
+	imperial_authority = 0.15
+	diplomatic_reputation = 2
+	imperial_authority_value = 0.05
+	legitimacy = 1
+}
+
+# --- A33_dovesworn_gnoll_partnership (Ruinborn integration) ---
+verne_half_ruinborn_small_modifier = {
+	tolerance_heathen = 2
+	ruinborn_loyalty_modifier = 0.15
+	ruinborn_autonomy_change = -0.05
+	national_unrest = -1
+}
