@@ -66,8 +66,8 @@ def find_mission_ids(missions_path: Path) -> set[str]:
         raw = raw_line.rstrip("\n")
         indent = len(raw) - len(raw.lstrip("\t "))
 
-        # Accept: no indent (top-level slot/mission block) or 1 tab (inside slot)
-        if indent <= 1:
+        # Accept only indent==1 (inside slot block, not slot declarations at indent==0)
+        if indent == 1:
             ids.add(mission_id)
         # else: deeply indented (inside provinces_to_highlight, etc.) — skip
 
@@ -124,8 +124,9 @@ def main() -> int:
     # 3. Check that each declared mission has loc entries
     missing_loc = []
     for mid in sorted(declared):
-        t_key = f"{mid}_title".lower()
-        d_key = f"{mid}_desc".lower()
+        # Normalise: mission IDs are A33_xxx, loc keys are a33_xxx
+        t_key = f"{mid.lower()}_title"
+        d_key = f"{mid.lower()}_desc"
         has_title = t_key in loc_titles
         has_desc  = d_key in loc_descs
         if not has_title or not has_desc:
