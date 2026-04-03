@@ -144,6 +144,12 @@ Roadmap/backlog/spec docs must **not** carry their own competing implementation-
 - `events/verne_overhaul_advisor_events.txt` — option name collision fix
 - `docs/status/verne-live-implementation-status.md` — status update
 
+## Morning content pass (2026-04-03)
+
+- Replaced the remaining placeholder stub mission descriptions in `localisation/verne_overhaul_l_english.yml` for existing legacy/base Verne mission IDs.
+- Verified there are now **0** remaining `Verne mission:` placeholder descriptions in the Verne overhaul loc file.
+- This was a live-quality improvement to mission presentation/localization coverage, not a mission-script rewrite.
+
 ## Single best next gameplay task
 
 **Audit `missions/Verne_Missions.txt` against the live doctrine / reform / dynasty / order / crisis helper state and correct integration mismatches.**
