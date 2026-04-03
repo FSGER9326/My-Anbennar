@@ -126,6 +126,7 @@ Roadmap/backlog/spec docs must **not** carry their own competing implementation-
 - **7 duplicate loc keys removed** from `verne_overhaul_l_english.yml` (EU4 randomly picks one when duplicates exist). Duplicates were introduced by the "NEW MISSIONS" append block.
 - **verne_overhaul_advisor.1.d collision** — event option name `verne_overhaul_advisor.1.d` conflicted with event desc key `verne_overhaul_advisor.1.d`. Renamed option to `verne_overhaul_advisor.1.d_wyvern`.
 - **39 missing mission name loc entries added** — all `name` values from `Verne_Missions.txt` now have loc entries.
+- **30 redundant additions reverted** — discovered that `verne_overhaul_l_english.yml` loads BEFORE `Flavour_Verne_A33_l_english.yml` (vanilla). Vanilla overwrites any duplicate keys at runtime. 30 mission reward modifier name entries were removed (they were redundant with vanilla). Kept only 12 province/location names that genuinely don't exist in vanilla, plus `verne_dynasty_protected_court(_desc)`.
 
 ### Known design-level issue (not a bug)
 - **Slots 6–9 invisible**: `interface/countrymissionsview.gui` has `max_slots_horizontal = 5`. The mission file defines 9 slot groups (slots 1–9). Slots 6–9 are present in data but invisible in the standard UI. This is consistent with the 10-column mission redesign documented in the Deep Research reports. No fix applied — requires design decision.
