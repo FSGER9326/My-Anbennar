@@ -172,7 +172,7 @@
 
  # --- Dynasty & Court ---
  verne_dynasty_protected_court:0 "Dynasty-Protected Court"
- verne_dynasty_protected_court_desc:0 "Court protocol and succession planning are actively safeguarding the Verne line."
+ verne_dynasty_protected_court_desc:0 "Court protocol and succession planning actively safeguard the Verne ruling line."
  verne_dynasty_exalted_lineage:0 "Exalted Verne Lineage"
  verne_dynasty_exalted_lineage_desc:0 "The ruling line has entered a consolidated exalted phase with stronger central authority."
  verne_marriage_court_protocol:0 "Marriage Court Protocol"
@@ -1157,71 +1157,14 @@ verne_industrial_logistics_chain_desc:0 "From the Khenak mines to the Verne harb
 verne_industrial_logistics_tt:0 "Grants permanent trade efficiency and production efficiency. Supply chain decision unlocked."
 
 # ============================================================
-# MISSION NAME LOC (missing from Verne_Missions.txt)
+# VERNE OVERHAUL MISSION LOC — PROVINCE / LOCATION NAMES
+# NOTE: Mission reward modifier names (verne_wingspan, verne_wyvern_nest,
+# verne_new_armada, etc.) are defined in Flavour_Verne_A33_l_english.yml
+# which loads AFTER this file and overwrites any duplicate keys here.
+# Only add entries to this file if they do NOT exist in vanilla.
 # ============================================================
 
- # --- Mission reward modifier names ---
- verne_new_armada:0 "New Armada"
- verne_new_armada_desc:0 "Verne's new armada sails under crimson banners, projecting ducal power across the Known World."
- verne_the_wyverns_gulf:0 "Wyvern's Gulf"
- verne_the_wyverns_gulf_desc:0 "The Gulf of the Wyverns -- Verne's strategic maritime heartland where crimson sails outnumber all others."
- verne_vernissage_tier2:0 "Grand Vernissage"
- verne_vernissage_tier2_desc:0 "The Vernissage has grown into a grand institution of world-facing prestige, foreign exchange, and cultural diplomacy."
- verne_impecable_groundwork:0 "Impeccable Groundwork"
- verne_impecable_groundwork_desc:0 "Verne's institutional foundation is laid with care and precision, supporting everything that follows."
- verne_tourism_economy:0 "Tourism Economy"
- verne_tourism_economy_desc:0 "The Vernissage draws visitors and merchants from across Halann, turning spectacle into steady revenue."
- verne_international_investment:0 "International Investment"
- verne_international_investment_desc:0 "Verne's overseas ventures attract foreign capital, deepening the financial connections that sustain its maritime empire."
- verne_exaltation_of_adventurers:0 "Exaltation of Adventurers"
- verne_exaltation_of_adventurers_desc:0 "Verne elevates the Adventurers estate, granting them honor, land, and a formal place in the Vernman order."
- verne_foreign_doctrines:0 "Foreign Doctrines"
- verne_foreign_doctrines_desc:0 "Foreign military doctrines are studied and adopted, broadening Verne's strategic horizons at some domestic cost."
- verne_redbrass_surplus:0 "Red-Brass Surplus"
- verne_redbrass_surplus_desc:0 "Khenak's foundries produce a surplus of red-brass armaments, feeding Verne's military-industrial machine."
- verne_restoring_the_borders:0 "Restoring the Borders"
- verne_restoring_the_borders_desc:0 "Verne's frontiers are secured and garrisoned, turning contested marches into defended state territory."
- verne_off_to_adventure:0 "Off to Adventure"
- verne_off_to_adventure_desc:0 "Verne sends forth its adventurers, captains, and explorers into the wider world, seeking fortune and glory."
- verne_new_world_monopolies:0 "New World Monopolies"
- verne_new_world_monopolies_desc:0 "Verne secures exclusive trading rights in newly discovered territories, cornering the markets that matter most."
- verne_wyvern_stride:0 "Wyvern Stride"
- verne_wyvern_stride_desc:0 "The wyverns of Verne take to the skies in force, their shadow falling across lands that have never known such airborne majesty."
- verne_the_wyvern_king:0 "The Wyvern King"
- verne_the_wyvern_king_desc:0 "Verne's ruler is crowned as the Wyvern King -- master of the air above and the seas below."
- verne_half_ruinborn_small_modifier:0 "Half-Ruinborn Tolerance"
- verne_half_ruinborn_small_modifier_desc:0 "Verne shows measured tolerance toward its Half-Ruinborn subjects, integrating rather than excluding."
- verne_vernman_era:0 "The Vernman Era"
- verne_vernman_era_desc:0 "A new era dawns over Verne -- the Vernman Era, defined by maritime ambition, arcane discipline, and dynastic purpose."
- verne_grand_fleet_tier2:0 "Grand Fleet of the Crimson Wake"
- verne_grand_fleet_tier2_desc:0 "The Crimson Wake fleet has grown into a grand armada worthy of Verne's maritime ambitions."
- verne_all_roads_lead_to_verne:0 "All Roads Lead to Verne"
- verne_all_roads_lead_to_verne_desc:0 "Verne's centrality to Halann's geography and trade makes it the inevitable destination of all commercial traffic."
- verne_impressment_drive:0 "Impressment Drive"
- verne_impressment_drive_desc:0 "Verne impresses capable sailors into its fleet, building a larger navy through decisive state action."
- verne_wingspan:0 "Wingspan"
- verne_wingspan_desc:0 "The reach of Verne's wyverns and the alliances they guard stretches across half of Halann."
- verne_wyvern_nest_grand:0 "Grand Wyvern Nest"
- verne_wyvern_nest_grand_desc:0 "A grand wyvern nesting ground, where the great beasts roost under the care of Vernman handlers."
- verne_wyvern_nest_expanded:0 "Expanded Wyvern Nests"
- verne_wyvern_nest_expanded_desc:0 "Verne's wyvern nests have been expanded with new grounds, training facilities, and hatching chambers."
-
- verne_apostles_of_corin:0 "Apostles of Corin"
- verne_apostles_of_corin_desc:0 "Verne's missionaries spread the faith of Corin across the Known World, making the Silver Court's piety visible abroad."
- verne_corinite_halann:0 "Corinite Halann"
- verne_corinite_halann_desc:0 "Corin's light shines across Halann from Verne's pulpits and holy orders, making the Silver Court a beacon of true faith."
- verne_indebted_to_the_mages_small:0 "Indebted to the Mages"
- verne_indebted_to_the_mages_small_desc:0 "Verne owes a debt to the mages -- one that constrains ducal freedom until it is repaid."
- verne_wyvern_nest:0 "Wyvern Nest"
- verne_wyvern_nest_desc:0 "A maintained wyvern nesting ground under Vernman protection."
- verne_wyvern_nest_no_dlc:0 "Wyvern Nest (Base)"
- verne_wyvern_nest_no_dlc_desc:0 "A wyvern nesting ground that operates without the full Lions of the North DLC support."
- verne_grand_fleet_tier1:0 "Fleet of the Crimson Wake"
- verne_grand_fleet_tier1_desc:0 "The Crimson Wake fleet begins to take shape -- disciplined, crimson-sailed, and ready to patrol Verne's waters."
- verne_trade_company_conversion_modifier:0 "Trade Company Conversion"
- verne_trade_company_conversion_modifier_desc:0 "Verne's trade company infrastructure converts foreign commerce into Vernman profit."
-
- # --- Province / location names used as mission name loc ---
+ # --- Province / location names not in vanilla ---
  Aucanna sil na Bronzewing:0 "Aucanna Sil na Bronzewing"
  "Ricain of Humac's Rest":0 "Ricain of Humac's Rest"
  Sayar Jarmeshari:0 "Sayar Jarmeshari"
