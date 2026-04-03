@@ -602,6 +602,19 @@ A33_first_slot = {
 		}
 	}
 
+	A33_might_of_the_wyvern = {
+		icon = mission_coalition_war
+		position = 11
+		required_missions = { A33_the_heart_of_darkness }
+		trigger = {
+			has_country_flag = verne_wyvern_nest_initialized
+		}
+		effect = {
+			add_reputation = 1
+			custom_tooltip = verne_might_of_wyvern_tt
+		}
+	}
+
 	A33_the_grand_vernissage = {
 		icon = wittenberg_university
 		position = 12
