@@ -55,26 +55,14 @@ always verify the key does not exist in `Flavour_Verne_A33_l_english.yml`.
 
 ## Non-Standard Deviations
 
-### Slots 6–9 Invisible (Known Design Issue)
+### Slots 6–9 — NOT A BUG (Corrected 2026-04-03)
 
-**Deviation from:** 10-column mission tree design (per Deep Research reports)
+**Finding:** Slots 6–9 are empty container definitions with no missions assigned.
+Actual mission slot distribution: slot 1 = 7 missions, slot 2 = 20 missions,
+slot 3 = 4 missions, slots 4–5 = 0 missions.
 
-**Current state:** `interface/countrymissionsview.gui` sets
-`max_slots_horizontal = 5`. `missions/Verne_Missions.txt` defines 9 slot groups.
-Slots 6–9 are present in the data but invisible in the standard UI.
-
-**Content in invisible slots:**
-- Slot 6: Liliac War legacy lane (positions 8–12)
-- Slot 7: Adventure Network expansion (positions 14–20)
-- Slot 8: Industrial Foundries (red brass forge, controlled devastation)
-- Slot 9: Vernissage expansion (secretariat, expand the Vernissage)
-
-**Why no fix:** Expanding to 9 slots requires ~936px of window width
-(104px × 9 slots). The current GUI window is 530px wide. Changing
-`max_slots_horizontal` alone would clip slots 6–9 off-screen.
-A proper fix requires a UI redesign (tabs, scrolling, or resized grid).
-
-**Status:** Documented — awaiting design decision.
+`max_slots_horizontal = 5` is correct. Empty slot definitions don't affect gameplay.
+No design issue exists here.
 
 ---
 
