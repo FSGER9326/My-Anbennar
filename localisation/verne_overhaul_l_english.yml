@@ -1139,7 +1139,9 @@ verne_spice_route_monopoly_desc:0 "Dominate the spice trade entirely. Every merc
  verne_take_corin_as_state_deity_tt:0 "Requires: Defender of the Faith, Corinite religion, and 10 Corinite provinces"
  # --- Trade & colonisation modifier names ---
  verne_trade_network:0 "Trade Network"
-
+ verne_trade_network_desc:0 "Verne's trade network now binds distant ports, chartered factors, and convoy routes into a single commercial system that reliably enriches the crown."
+ verne_merchant_marine:0 "Merchant Marine"
+ verne_merchant_marine_desc:0 "A disciplined Vernman merchant fleet carries both profit and political influence, turning light ships and convoy protection into a permanent arm of state power."
 
  verne_corins_pride:0 "Corin's Pride"
  verne_corins_pride_desc:0 "Corin's faith empowers Verne's armies with divine conviction."

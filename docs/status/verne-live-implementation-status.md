@@ -1,6 +1,6 @@
 # Verne Live Implementation Status
 
-Last reviewed from code: **2026-04-03**
+Last reviewed from code: **2026-04-05**
 Authoritative scope: live Verne overhaul implementation state derived from repo files, not older roadmap/backlog prose.
 
 ## Purpose
@@ -119,6 +119,12 @@ Status claims about Verne implementation must:
 - be updated in this file when implementation status changes.
 
 Roadmap/backlog/spec docs must **not** carry their own competing implementation-status snapshot if that would duplicate or contradict this file.
+
+## Localisation follow-through (2026-04-05)
+
+- Added missing localisation coverage for live mission reward modifiers `verne_trade_network` and `verne_merchant_marine` in `localisation/verne_overhaul_l_english.yml`.
+- This closed a presentation gap in the new trade-lane rewards: the scripted modifiers existed in `common/event_modifiers/verne_overhaul_modifiers.txt`, but not all of their visible name/description strings were present in Verne overhaul loc.
+- No mission logic changed; this was a live-quality UI/tooltip completeness fix.
 
 ## Night session notes (2026-04-03)
 
