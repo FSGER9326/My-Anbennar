@@ -4129,6 +4129,7 @@ A33_fourth_slot = {
 			if = {
 				limit = { has_disaster = verne_red_court_scandal }
 				custom_tooltip = verne_overhaul_tt_crisis_suppressed
+				set_stage = 0
 				end_disaster = verne_red_court_scandal
 			}
 			country_event = { id = verne.120 }

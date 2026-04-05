@@ -50,6 +50,9 @@ For current implementation state, use:
 | Prototype doctrine ideas | `common/ideas/verne_proto_adventure_ideas.txt` | Legacy (do not extend) | Do not add new production behavior. | Prototype artifact superseded by doctrine rollout files. |
 | Prototype doctrine policies | `common/policies/verne_proto_doctrine_expedition_policy.txt` | Legacy (do not extend) | Freeze and replace via canonical policy layer when needed. | Early prototype policy outside canonical doctrine path. |
 
+| Legacy prototype ideas localization | `localisation/verne_overhaul_policy_split_l_english.yml` | Legacy (do not extend) | Contains loc for `verne_proto_adventure_ideas` and `verne_proto_doctrine_expedition_act` — both are themselves Legacy and should not gain new content. | Retained for completeness; proto ideas are frozen per registry above. |
+| Lane missions localization | `localisation/verne_overhaul_lanes_l_english.yml` | Canonical | Primary owner for lane-mission modifier names and descriptions (slot 1-9 mission reward modifiers). | Active loc file for lane mission rewards; committed and tracked. |
+
 ## Implementation-status rule
 
 Do not keep a duplicated implementation snapshot in this registry.

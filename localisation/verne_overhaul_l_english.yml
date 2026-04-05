@@ -149,6 +149,7 @@
 
  verne_pearlescent_concord:0 "Pearlescent Concord"
  verne_pearlescent_concord_desc:0 "The Pearlescent Concord binds Corinite nations in mutual support, easing diplomatic annexation and reducing subject restlessness."
+ verne_pearlescent_concord_tt:0 "This grants the Pearlescent Concord (reduced diplomatic annexation impact and reduced subject liberty desire) and the Pearlescent Diplomatic Corps modifier (increased diplomatic reputation and reduced envoy travel time)."
  verne_world_faith_emperor:0 "World Faith Emperor"
  verne_faith_emperor_innovat:0 "Faith Emperor's Innovativeness"
  verne_faith_emperor_innovat_desc:0 "Verne's spiritual authority drives innovative thought and strengthens missionary resolve across the realm."
@@ -390,13 +391,6 @@
  verne_overhaul_advisor.6.a:0 "Integrate into the Red Court"
  verne_overhaul_advisor.6.b:0 "Maintain diplomatic flexibility"
 
- # --- Red Court Mage Recruitment Event ---
- verne_overhaul_advisor.100.t:0 "A Mage for the Red Court"
- verne_overhaul_advisor.100.d:0 "The Red Court's growing arcane apparatus now commands enough prestige and resources to attract a skilled mage-advisor. This specialist could sharpen our governance through magical insight, dynastic cultivation, or battlefield preparation."
- verne_overhaul_advisor.100.a:0 "Recruit a court mage"
- verne_overhaul_advisor.100.b:0 "Seek a war-mage instructor"
- verne_overhaul_advisor.100.c:0 "Pass for now"
-
  # ============================================================
  # MERCENARY COMPANIES
  # ============================================================
@@ -455,6 +449,13 @@
  # RED COURT SCANDAL — CRISIS EVENTS & MODIFIERS
  # ============================================================
 
+ verne_red_court_scandal_stage_0:0 "Whispers at Court"
+ verne_red_court_scandal_stage_0_desc:0 "Rumors, muttered accusations, and private resentment stalk the halls of Verne's court. The scandal has not yet broken openly, but confidence in the Red Court is already weakening."
+ verne_red_court_scandal_stage_1:0 "The Scandal Breaks"
+ verne_red_court_scandal_stage_1_desc:0 "What began as whispers has become open political crisis. Noble houses, magisters, and harbor interests now force the crown to answer for the Red Court's failures in public."
+ verne_red_court_scandal_stage_2:0 "The Court Fractures"
+ verne_red_court_scandal_stage_2_desc:0 "The court is no longer merely embarrassed - it is splintering. Factional blocs, wounded legitimacy, and institutional distrust now threaten the entire Vernman compact."
+
  verne_overhaul_crisis.1.t:0 "The Red Court Scandal"
  verne_overhaul_crisis.1.d:0 "Whispers of mismanaged dynastic patronage, factional court favor, and Silver Wake resentment now spill into the open. Verne's statecraft has grown ambitious enough that its failures can no longer be hidden behind ceremony."
  verne_overhaul_crisis.1.a:0 "The court reels under the blow"
@@ -474,6 +475,18 @@
  verne_overhaul_crisis.5.d:0 "The Magisters insist that the scandal can still be contained, but only if the crown accepts a painful concession—either administrative embarrassment or military disruption—to preserve the larger machine."
  verne_overhaul_crisis.5.a:0 "Pay the administrative price"
  verne_overhaul_crisis.5.b:0 "Divert military effort instead"
+ verne_overhaul_crisis.6.t:0 "Whispers Become Testimony"
+ verne_overhaul_crisis.6.d:0 "Private grumbling has hardened into open testimony. Courtiers now repeat accusations before witnesses, and the scandal can no longer be contained within quiet chambers."
+ verne_overhaul_crisis.6.a:0 "The scandal breaks"
+ verne_overhaul_crisis.7.t:0 "The Scandal Breaks"
+ verne_overhaul_crisis.7.d:0 "Now that the court's secrets are openly contested, every faction tries to weaponize the scandal. Rival households demand purges, concessions, and visible humiliations."
+ verne_overhaul_crisis.7.a:0 "Every rival smells blood"
+ verne_overhaul_crisis.8.t:0 "The Court Fractures"
+ verne_overhaul_crisis.8.d:0 "The old settlement is collapsing. Magisters, captains, and dynastic clients are no longer merely maneuvering around one another - they are tearing apart the political machinery that once held the Vernman court together."
+ verne_overhaul_crisis.8.a:0 "The realm enters a harsher phase"
+ verne_overhaul_crisis.9.t:0 "A Realm of Factions"
+ verne_overhaul_crisis.9.d:0 "By now the crisis is no longer about one scandal. It is about whether Verne's institutions can still command belief at all. Every concession deepens the sense that the court has splintered into camps."
+ verne_overhaul_crisis.9.a:0 "Hold the realm together if we can"
  verne_overhaul_crisis.100.t:0 "The Court Stabilized"
  verne_overhaul_crisis.100.d:0 "The worst of the scandal has passed. Verne's court remains ambitious and dangerous, but it has emerged more disciplined, more explicit, and better prepared to bear the weight of its own institutions."
  verne_overhaul_crisis.100.a:0 "The realm endures"
@@ -1190,6 +1203,33 @@ verne_industrial_logistics_tt:0 "Grants permanent trade efficiency and productio
 # which loads AFTER this file and overwrites any duplicate keys here.
 # Only add entries to this file if they do NOT exist in vanilla.
 # ============================================================
+
+# --- Corinite propagation event chain (verne.1100-1104) ---
+ verne.1100.t:0 "The Doctrine of the Wake"
+ verne.1100.d:0 "Our missionaries have carried Corin's word into new lands, and the faithful now gather beneath the silver banner. How shall Verne guide these fledgling congregations?"
+ verne.1100.a:0 "Levy tribute from the newly converted — faith has its price."
+ verne.1100.b:0 "Invest in local clergy — a strong church needs strong roots."
+
+ verne.1101.t:0 "Corin's Banner Plants"
+ verne.1101.d:0 "The province has accepted the true faith, and Vernman priests now walk its streets. The question is whether to bind it tightly to the crown or give its people cause to love us."
+ verne.1101.a:0 "Grant it privileges — let the Corinite faithful prosper."
+ verne.1101.b:0 "Tighten our grip — a loyal province is a controlled one."
+ verne.1101.c:0 "Appoint a zealous governor to guide the faithful."
+
+ verne.1102.t:0 "The Faithful Recalcitrant"
+ verne.1102.d:0 "Despite our efforts, this province refuses to abandon its old ways. Its people cling to heresy, and their stubbornness mocks our missionaries."
+ verne.1102.a:0 "Send more missionaries — patience and coin will win them over."
+ verne.1102.b:0 "Force the issue — heresy must be stamped out."
+
+ verne.1103.t:0 "Halann's Will Done"
+ verne.1103.d:0 "The light of Corin shines bright in the converted lands. Verne has proven itself the instrument of divine purpose, and Halann itself seems to smile upon our works."
+ verne.1103.a:0 "Receive the blessing of the faithful."
+ verne.1103.b:0 "Honor the church that made this possible."
+
+ verne.1104.t:0 "Without Corin, Nothing"
+ verne.1104.d:0 "A key province has rejected Corinite conversion, and our missionaries return in defeat. The failure is a stain upon Verne's spiritual authority."
+ verne.1104.a:0 "Accept the setback and learn from it."
+ verne.1104.b:0 "Rally the faithful — this is not over."
 
  # --- Province / location names not in vanilla ---
  Aucanna sil na Bronzewing:0 "Aucanna Sil na Bronzewing"

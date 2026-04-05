@@ -709,7 +709,7 @@ country_event = { #The Vernman Missionary - C7
 		change_religion = corinite
 		force_converted = yes
 		add_favors = {
-			who = A33
+			who = FROM
 			amount = 20
 		}
 	}
@@ -717,13 +717,13 @@ country_event = { #The Vernman Missionary - C7
 		name = verne.104.b
 		ai_chance = { factor = 0 }
 		add_dip_power = -100
-		add_historical_rival = A33
-		break_alliance = A33
+		add_historical_rival = FROM
+		break_alliance = FROM
 		add_casus_belli = {
 			type = cb_heretic
-			target = A33
+			target = FROM
 		}
-		A33 = {
+		FROM = {
 			add_casus_belli = {
 				type = cb_heretic
 				target = PREV
@@ -8264,4 +8264,243 @@ country_event = { #Lokemeion adventure - 4
 		set_country_flag = verne_lokemeion_adventure_completed
 		clr_country_flag = verne_ongoing_adventure
 	}
+}
+
+# Corinite Propagation Event Chain (verne.1100-1104)
+# Commentary: Fired from A33_spread_the_word / verne.110 chain. Handles post-conversion province outcomes.
+# Lore-fit note: project-canon
+
+# verne.1100 - "The Doctrine of the Wake" — Opening event. Province just converted. Two options: extract or invest.
+province_event = {
+	id = verne.1100
+	title = verne.1100.t
+	desc = verne.1100.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_province_flag = verne_converted_this_mission
+		religion = corinite
+	}
+	
+	immediate = {
+		hidden_effect = {
+			clr_province_flag = verne_converted_this_mission
+		}
+	}
+	
+	option = { # Extract tribute from the newly converted
+		name = verne.1100.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				owner = { stability = 2 }
+			}
+		}
+		add_province_modifier = {
+			name = verne_tribute_to_wake
+			duration = 7300
+		}
+		owner = {
+			add_treasury = 100
+			add_prestige = 5
+		}
+	}
+	
+	option = { # Invest in local clergy
+		name = verne.1100.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				owner = { NOT = { stability = 3 } }
+			}
+		}
+		add_unrest = -5
+		owner = {
+			add_stability_or_adm_power = yes
+			add_missionary_strength = 1
+		}
+	}
+}
+
+# verne.1101 - "Corin's Banner Plants" — Follow-up. Province is now Corinite. Grant privileges or tighten control.
+province_event = {
+	id = verne.1101
+	title = verne.1101.t
+	desc = verne.1101.d
+	picture = CORINITE_WAR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = corinite
+		owner = { religion = corinite }
+	}
+	
+	option = { # Grant province privileges
+		name = verne.1101.a
+		ai_chance = {
+			factor = 60
+		}
+		add_local_autonomy = -10
+		add_province_modifier = {
+			name = verne_corinite_privilege
+			duration = -1
+		}
+		owner = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 5
+			}
+		}
+	}
+	
+	option = { # Tighten control
+		name = verne.1101.b
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				owner = { NOT = { stability = 2 } }
+			}
+		}
+		add_local_autonomy = 10
+		add_unrest = 3
+		owner = {
+			add_adm_power = 25
+			add_local_autonomy = -5
+		}
+	}
+	
+	option = { # Appoint a zealous governor
+		name = verne.1101.c
+		ai_chance = {
+			factor = 20
+		}
+		add_unrest = -3
+		add_province_modifier = {
+			name = verne_zealous_governor
+			duration = 7300
+		}
+		owner = {
+			add_missionary_strength = 1
+			add_prestige = 5
+		}
+	}
+}
+
+# verne.1102 - "The Faithful Recalcitrant" — Province resists conversion. Options: send missionaries or force.
+province_event = {
+	id = verne.1102
+	title = verne.1102.t
+	desc = verne.1102.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { religion = corinite }
+		owner = { religion = corinite }
+	}
+	
+	option = { # Send more missionaries
+		name = verne.1102.a
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 0.5
+				owner = { mil = 5 }
+			}
+		}
+		change_religion = corinite
+		add_unrest = 3
+		owner = {
+			add_treasury = -100
+			add_missionary_strength = 1
+		}
+	}
+	
+	option = { # Force conversion
+		name = verne.1102.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 0.5
+				owner = { stability = 3 }
+			}
+		}
+		change_religion = corinite
+		add_unrest = 8
+		owner = {
+			add_prestige = 10
+			add_war_exhaustion = 2
+			add_local_autonomy = 10
+		}
+	}
+}
+
+# verne.1103 - "Halann's Will Done" — Conversion complete. Major reward based on number of provinces.
+country_event = {
+	id = verne.1103
+	title = verne.1103.t
+	desc = verne.1103.d
+	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { # Reward the faithful
+		name = verne.1103.a
+		ai_chance = { factor = 1 }
+		add_legitimacy = 15
+		add_prestige = 25
+		add_country_modifier = {
+			name = verne_halanns_will_done
+			duration = 9125
+		}
+	}
+	
+	option = { # Celebrate with the church
+		name = verne.1103.b
+		ai_chance = { factor = 1 }
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 15
+		}
+		add_country_modifier = {
+			name = verne_halanns_will_done
+			duration = 9125
+		}
+	}
+}
+
+# verne.1104 - "Without Corin, Nothing" — Conversion failed in key province. Malus event.
+country_event = {
+	id = verne.1104
+	title = verne.1104.t
+	desc = verne.1104.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { # Bear the setback
+		name = verne.1104.a
+		ai_chance = { factor = 1 }
+		add_prestige = -15
+		add_stability = -1
+	}
+	
+	option = { # Rally the faithful
+		name = verne.1104.b
+		ai_chance = { factor = 1 }
+		add_missionary_strength = 1
+		add_local_autonomy = 5
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+	}
+}
 }

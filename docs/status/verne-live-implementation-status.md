@@ -1,6 +1,54 @@
 # Verne Live Implementation Status
 
 Last reviewed from code: **2026-04-05**
+## Session notes 2026-04-05 (evening, modding-army pass)
+### Mission and file integrity
+- Mission integration audit: all 70 missions cross-referenced against helper layers — **no broken references**
+- Mission prerequisite chains: **0 broken, 0 self-referential** (70 missions, 9 slots, check_mission_deps.py fixed this session — was reading from wrong directory)
+- check_mission_order.py rewritten with proper brace-counting parser (was producing false positives)
+- verne_pearlescent_concord_tt: **missing loc key added**
+
+### Crisis events
+- `verne_overhaul_crisis_events.txt` event 100 (on_end): added `remove_country_modifier = verne_dynasty_protected_court` and `remove_country_modifier = verne_marriage_court_protocol` — these were persisting indefinitely after crisis end (broken)
+- `verne_court_in_crisis`: confirmed **phantom modifier** — no callers anywhere in codebase (not broken, just never existed)
+
+### Advisor events
+- `verne_overhaul_advisor.100` loc keys (lines 394-398): **orphaned dead content** — no event ID 100 exists. Removed 5 dead loc keys.
+
+### Content depth (doctrine, orders, mercs)
+- `sailor_maintenance_modifer` typo in `verne_doctrine_silver_wake_marine_rotations`: **fixed** → `sailor_maintenance_modifier`
+- `merc_heartspier_skyguard` stat block: `shock_damage = 0.1` invalid merc stat → **fixed** → `discipline = 0.05`
+- `accepted_culture = dovesworn_gnoll` in advisor event 4: **not a bug** — valid EU4 country trigger
+
+### Crisis disaster (direct fixes — late evening inline pass)
+- `can_end` `custom_trigger_tooltip` bug: `had_country_flag` was nested inside `custom_trigger_tooltip` (display-only, no mechanical effect). **Fixed** — `had_country_flag` now direct conditional. Disaster must run ≥5 years before end conditions can trigger.
+- `can_stop` structural fix: removed `has_any_disaster = yes` from OR block (always true during disaster, would permanently halt progress). Restructured to require both protective measures active + legitimacy threshold, OR super-stability + legitimacy.
+- `can_start` reform-path gap: added missing `verne_overhaul_dynasty_machine_started = yes` / `verne_overhaul_has_silver_oaths_path_seeded = yes` gate to `can_start`, matching `potential` block. Prevents crisis firing before Verne seeds a path.
+
+### Decisions (direct fixes)
+- `verne_overhaul_pay_off_mage_debt`: removed broken `verne_overhaul_seed_dragonwake_path = yes` from OR (effect used as trigger — always false). Simplified to `has_country_flag = verne_seed_dragonwake`.
+- `verne_overhaul_muster_dragonwake_cadets`: `verne_mage_debt_repaid` flag (never set) → `has_country_modifier = verne_mage_debt_repaid_honor`. Decision properly unlocks post-debt payoff.
+
+### Documentation
+- `verne-canonical-vs-legacy-file-registry.md`: added missing entries for `verne_overhaul_policy_split_l_english.yml` (Legacy) and `verne_overhaul_lanes_l_english.yml` (Canonical)
+- Status doc: matches actual implementation state — no corrections needed
+
+### Flavour follow-through
+- Added `verne_overhaul_flavour.1`, a new Vernissage Secretariat flavour event that fires off the live `verne_vernissage_secretariat` mission reward modifier and grants one of three 10-year follow-through modifiers (`verne_secretariat_of_charts`, `verne_secretariat_of_curators`, `verne_secretariat_of_audiences`).
+
+### Active items (pending subagent results)
+- Disaster staging redesign (3-stage crisis with stage-gated can_end and monthly events): in progress via Codex subagent
+- Systems-orch subagent: re-spawned for direct analysis (Flavour_Verne, helpers, modifiers, decisions)
+- Lore-loc-orch subagent: running (loc completeness, lore consistency, event loc, doctrine loc)
+- Tooltip keys: all `verne_*` custom_tooltip references found across verne loc files (verne_overhaul_l_english.yml, Flavour_Verne_A33_l_english.yml, verne_overhaul_dynasty_l_english.yml, verne_overhaul_lanes_l_english.yml)
+- Modifiers: all mission-referenced modifiers found in anb_mission_modifiers.txt or verne_overhaul_modifiers.txt
+- Scripted triggers: all verne_overhaul_* triggers used in missions exist in verne_overhaul_triggers.txt
+- Scripted effects: all verne_overhaul_* effects used in missions exist in verne_overhaul_effects.txt
+- New industrial/steel/merchant marine missions (A33_expand_the_foundry_complex, A33_khenak_steel_program, A33_industrial_logistics_chain, A33_world_faith_emperor) all correctly wired: modifiers defined, tooltip keys in loc
+- `empty_line_tt` and `abolished_slavery_act_tooltip` in missions are vanilla game tooltips (not Verne responsibility) — correct
+- verne_pearlescent_concord_tt confirmed present in verne_overhaul_l_english.yml and verne_overhaul_lanes_l_english.yml
+- Result: **no broken references found in mission layer integration**
+
 Authoritative scope: live Verne overhaul implementation state derived from repo files, not older roadmap/backlog prose.
 
 ## Purpose
@@ -13,9 +61,6 @@ Use this file when answering:
 - what is still planned,
 - what is referenced in docs but was not re-verified in this pass.
 
-
-### Flavour follow-through
-- Added `verne_overhaul_flavour.1`, a new Vernissage Secretariat flavour event that fires off the live `verne_vernissage_secretariat` mission reward modifier and grants one of three 10-year follow-through modifiers (`verne_secretariat_of_charts`, `verne_secretariat_of_curators`, `verne_secretariat_of_audiences`).
 Do **not** treat roadmap/backlog/spec prose as implementation truth. Those files are planning tools, not status ledgers.
 
 ## Standard status labels
@@ -167,3 +212,16 @@ Why this is next:
 - Verne already has broad mechanical implementation.
 - Campaign quality now depends more on mission-spine integration than on adding more breadth.
 - This is the most direct way to improve real playability instead of just increasing object count.
+
+## Session notes 2026-04-05 (late evening, subagent verification pass)
+
+### MED-priority fixes verified/applied
+- **Fix 1 (duplicate loc erne_world_faith_emperor)**: No action needed � searches confirm erne_world_faith_emperor appears only at line 153 and erne_world_faith_emperor_desc only at line 1183. No stale duplicate present. File state does not match task premise of two occurrences.
+- **Fix 2 (registry update)**: No action needed � erne_overhaul_policy_split_l_english.yml and erne_overhaul_lanes_l_english.yml already have registry entries (Legacy and Canonical respectively). Entries already reflect correct current state.
+- **Fix 3 (crisis event 100 modifier cleanup)**: Already clean � 
+emove_country_modifier = verne_dynasty_protected_court (line 262) and 
+emove_country_modifier = verne_marriage_court_protocol (line 263) already present in event 100 effects block.
+- **Fix 4 (erne_court_in_crisis phantom callers)**: Confirmed � zero references to erne_court_in_crisis found across all .txt files in repo. No phantom callers exist.
+
+### Fix 5 (status doc update)
+- This entry documents the above verification results. The 3 HIGH fixes referenced in the parent task (crisis can_end, muster decision flag, payoff decision effect-as-trigger) are handled by a separate Codex subagent session.

@@ -19,14 +19,23 @@ verne_red_court_scandal = {
 			NOT = { has_country_flag = verne_dynasty_protected }
 			NOT = { has_country_flag = verne_marriage_court_active }
 		}
+		OR = {
+			verne_overhaul_dynasty_machine_started = yes
+			verne_overhaul_has_silver_oaths_path_seeded = yes
+		}
 	}
 
 	can_stop = {
 		OR = {
-			has_any_disaster = yes
-			stability = 1
-			NOT = { war_exhaustion = 3 }
-			legitimacy = 70
+			AND = {
+				has_country_flag = verne_dynasty_protected
+				has_country_flag = verne_marriage_court_active
+				legitimacy = 70
+			}
+			AND = {
+				stability = 2
+				legitimacy = 75
+			}
 		}
 	}
 
@@ -60,32 +69,91 @@ verne_red_court_scandal = {
 		}
 	}
 
-	can_end = {
-		stability = 1
-		legitimacy = 70
-		NOT = { war_exhaustion = 2 }
-		custom_trigger_tooltip = {
-			tooltip = disaster_active_for_5_years_tooltip
-			had_country_flag = { flag = verne_overhaul_red_court_scandal_started days = 1825 }
+	stages = {
+		stage_0 = {
+			icon = 1
+			trigger = {
+				disaster_stage = 0
+			}
+			modifier = {
+				global_tax_modifier = -0.05
+				diplomatic_reputation = -1
+				legitimacy = -0.25
+			}
+			on_monthly = {
+				random_events = {
+					1000 = 0
+					90 = verne_overhaul_crisis.2
+					90 = verne_overhaul_crisis.4
+					35 = verne_overhaul_crisis.6
+				}
+			}
+		}
+		stage_1 = {
+			icon = 2
+			trigger = {
+				disaster_stage = 1
+			}
+			modifier = {
+				global_tax_modifier = -0.1
+				diplomatic_reputation = -1
+				legitimacy = -0.5
+				national_unrest = 1
+			}
+			on_monthly = {
+				random_events = {
+					1000 = 0
+					85 = verne_overhaul_crisis.3
+					85 = verne_overhaul_crisis.5
+					45 = verne_overhaul_crisis.7
+					30 = verne_overhaul_crisis.8
+				}
+			}
+		}
+		stage_2 = {
+			icon = 3
+			trigger = {
+				disaster_stage = 2
+			}
+			modifier = {
+				global_tax_modifier = -0.15
+				diplomatic_reputation = -2
+				legitimacy = -1
+				national_unrest = 2
+				advisor_cost = 0.1
+			}
+			on_monthly = {
+				random_events = {
+					1000 = 0
+					85 = verne_overhaul_crisis.3
+					85 = verne_overhaul_crisis.5
+					70 = verne_overhaul_crisis.8
+					50 = verne_overhaul_crisis.9
+				}
+			}
 		}
 	}
 
-	modifier = {
-		global_tax_modifier = -0.1
-		diplomatic_reputation = -1
-		legitimacy = -0.5
+	can_end = {
+		stability = 1
+		NOT = { war_exhaustion = 2 }
+		OR = {
+			AND = {
+				disaster_stage = 0
+				legitimacy = 60
+			}
+			AND = {
+				disaster_stage = 1
+				legitimacy = 70
+			}
+			AND = {
+				disaster_stage = 2
+				legitimacy = 85
+			}
+		}
+		had_country_flag = { flag = verne_overhaul_red_court_scandal_started days = 1825 }
 	}
 
 	on_start = verne_overhaul_crisis.1
 	on_end = verne_overhaul_crisis.100
-
-	on_monthly = {
-		random_events = {
-			1000 = 0
-			80 = verne_overhaul_crisis.2
-			80 = verne_overhaul_crisis.3
-			70 = verne_overhaul_crisis.4
-			70 = verne_overhaul_crisis.5
-		}
-	}
 }

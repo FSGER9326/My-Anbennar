@@ -391,10 +391,7 @@ country_decisions = {
 
 		allow = {
 			treasury = 2000
-			OR = {
-				has_country_flag = verne_seed_dragonwake
-				verne_overhaul_seed_dragonwake_path = yes
-			}
+			has_country_flag = verne_seed_dragonwake
 		}
 
 		effect = {
@@ -459,7 +456,7 @@ country_decisions = {
 			mil_power = 75
 			OR = {
 				has_country_modifier = verne_indebted_to_the_mages
-				has_country_flag = verne_mage_debt_repaid
+				has_country_modifier = verne_mage_debt_repaid_honor
 			}
 			estate_loyalty = {
 				estate = estate_mages
