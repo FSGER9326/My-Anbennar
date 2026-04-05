@@ -621,7 +621,7 @@ A33_first_slot = {
 		required_missions = {
 			A33_the_heart_of_darkness
 			A33_might_of_the_wyvern
-			A33_vernissage_secretariat
+			A33_expand_the_Vernissage
 		}
 		provinces_to_highlight = { } 
 
