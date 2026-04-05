@@ -28,6 +28,17 @@ All 10 lane design docs written and committed (2026-04-01).
 
 ## Recent Fixes & Findings
 
+- **2026-04-05 — CRITICAL: 6 undefined scripted triggers found** — mission blockers. EU4 treats undefined scripted triggers as always `false`. All 6 must be defined in `common/scripted_triggers/verne_overhaul_triggers.txt`:
+  - `verne_overhaul_akasik_access_ready`
+  - `verne_overhaul_laments_regatta_anchor_state_ready`
+  - `verne_overhaul_in_search_expedition_capacity`
+  - `verne_overhaul_in_search_network_or_monument_route`
+  - `verne_overhaul_in_search_subject_projection_route`
+  - `verne_overhaul_early_akasik_access_route`
+  - Also: `verne_wyvern_nest_initialized` flag never set → `A33_might_of_the_wyvern` permanently unavailable
+  - Fix: create `common/scripted_triggers/verne_overhaul_triggers.txt` with trigger definitions; set flag in wyvern nest event
+  - See `docs/verne-audit/2026-04-05-deep-audit.md` and `docs/inspiration-bank.md` (Scripted Triggers section)
+
 - **2026-04-01 — 10-lane design docs complete:** All 6 remaining lanes (5-10) rewritten/created with actual mission IDs, modifiers, reform gates, and cross-lane dependencies.
 - **2026-04-01 — Reform verification pass:** Cross-checked all 17 government reform IDs referenced in lane design docs against `common/government_reforms/` definitions.
   - ✅ 15 reforms exist in both docs and codebase
@@ -37,7 +48,9 @@ All 10 lane design docs written and committed (2026-04-01).
 
 ## Needs Human Input
 
-_(none — design phase complete, ready for implementation review)_
+- [ ] Authoritative design intent: what should `verne_overhaul_in_search_expedition_capacity` actually check? (colonists? treasury? custom variable?)
+- [ ] Authoritative design intent: what should `verne_overhaul_laments_regatta_anchor_state_ready` represent? (coastal dev threshold? specific port building?)
+- [ ] Which wyvern nest event should set `verne_wyvern_nest_initialized`? Existing Verne event ID or new one?
 
 ## Planned
 
