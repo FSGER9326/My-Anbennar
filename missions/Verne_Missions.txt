@@ -4598,6 +4598,7 @@ A33_fifth_slot = {
 				}
 			}
 			custom_tooltip = verne_E5_effect_tt
+			set_country_flag = verne_wyvern_nest_initialized
 			hidden_effect = {
 				if = {
 					limit = { has_dlc = "Lions of the North" }
