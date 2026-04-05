@@ -63,33 +63,33 @@ def get_effect_names():
 def get_mission_ids():
     text = read(MISSIONS)
     ids = set()
-    # Real missions have indent=1 inside slot blocks (not slot declarations)
-    in_slot = False
+    # Track depth to know when we're inside a slot block
+    depth = 0
     for line in text.split('\n'):
         stripped = line.strip()
-        if stripped.startswith('A33_') and '=' in stripped and '{' in stripped:
-            if not in_slot:
-                ids.add(stripped.split('=')[0].strip().lower())
-            else:
-                if 'slot' in stripped or stripped.startswith('#'):
-                    continue
-                ids.add(stripped.split('=')[0].strip().lower())
-        if 'slot' in stripped and '=' in stripped:
-            in_slot = True
-        if stripped == '}':
-            if in_slot:
-                depth = len(line) - len(line.lstrip('\t'))
-                if depth == 0:
-                    in_slot = False
+        raw_indent = len(line) - len(line.lstrip())
+        # Detect slot entry: A33_xxx_slot = { at indent 0
+        if raw_indent == 0 and stripped.startswith('A33_') and 'slot' in stripped and '=' in stripped and '{' in stripped:
+            depth = 1
+            continue
+        # Real mission: at indent=1, starts with A33_, ends with = {
+        if raw_indent == 1 and stripped.startswith('A33_') and stripped.endswith(' = {'):
+            mission_id = stripped.split(' = ')[0].strip().lower()
+            ids.add(mission_id)
+        # Track depth via brace counters within slot content
+        if depth > 0:
+            depth += stripped.count('{') - stripped.count('}')
+            if depth <= 0:
+                depth = 0
     return ids
 
 def get_loc_keys():
     text = read(LOC)
     titles = set()
     descs = set()
-    for m in re.finditer(r'^\s*([a-z0-9_]+)(_title)\s*:', text, re.MULTILINE | re.IGNORECASE):
+    for m in re.finditer(r'^\s*([A-Za-z0-9_]+)(_title)\s*:', text, re.MULTILINE):
         titles.add(m.group(1).lower())
-    for m in re.finditer(r'^\s*([a-z0-9_]+)(_desc)\s*:', text, re.MULTILINE | re.IGNORECASE):
+    for m in re.finditer(r'^\s*([A-Za-z0-9_]+)(_desc)\s*:', text, re.MULTILINE):
         descs.add(m.group(1).lower())
     return titles, descs
 
