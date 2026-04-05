@@ -92,8 +92,8 @@ guiTypes = {
 			name = "countrymissionsview_missions_gridbox"
 			position = { x = 0 y = 0 }
 			size = { width = 400 height = 400 }
-			slotsize = { width = 104 height = 152 }
-			max_slots_horizontal = 5
+			slotsize = { width = 51 height = 152 }
+			max_slots_horizontal = 10
 			format = "UPPER_LEFT"
 		}
 	}
