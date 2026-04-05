@@ -1,0 +1,54 @@
+# ===============================================
+# Verne overhaul flavour events
+# Scope: lightweight lore follow-through for already-live mission rewards
+# ===============================================
+
+namespace = verne_overhaul_flavour
+
+country_event = {
+	id = verne_overhaul_flavour.1
+	title = verne_overhaul_flavour.1.t
+	desc = verne_overhaul_flavour.1.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		tag = A33
+		has_country_modifier = verne_vernissage_secretariat
+		NOT = { has_country_flag = verne_vernissage_secretariat_event_fired }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	immediate = {
+		set_country_flag = verne_vernissage_secretariat_event_fired
+	}
+
+	option = {
+		name = verne_overhaul_flavour.1.a
+		add_country_modifier = {
+			name = verne_secretariat_of_charts
+			duration = 3650
+		}
+		add_dip_power = 50
+	}
+
+	option = {
+		name = verne_overhaul_flavour.1.b
+		add_country_modifier = {
+			name = verne_secretariat_of_curators
+			duration = 3650
+		}
+		add_innovativeness = 1
+	}
+
+	option = {
+		name = verne_overhaul_flavour.1.c
+		add_country_modifier = {
+			name = verne_secretariat_of_audiences
+			duration = 3650
+		}
+		add_prestige = 10
+	}
+}

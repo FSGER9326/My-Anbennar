@@ -1,0 +1,19 @@
+# ===============================================
+# Verne overhaul flavour modifiers
+# Scope: temporary follow-through rewards for lightweight flavour events
+# ===============================================
+
+verne_secretariat_of_charts = {
+	global_tariffs = 0.10
+	trade_steering = 0.05
+}
+
+verne_secretariat_of_curators = {
+	advisor_cost = -0.05
+	idea_cost = -0.02
+}
+
+verne_secretariat_of_audiences = {
+	improve_relation_modifier = 0.15
+	diplomatic_reputation = 1
+}

@@ -13,6 +13,9 @@ Use this file when answering:
 - what is still planned,
 - what is referenced in docs but was not re-verified in this pass.
 
+
+### Flavour follow-through
+- Added `verne_overhaul_flavour.1`, a new Vernissage Secretariat flavour event that fires off the live `verne_vernissage_secretariat` mission reward modifier and grants one of three 10-year follow-through modifiers (`verne_secretariat_of_charts`, `verne_secretariat_of_curators`, `verne_secretariat_of_audiences`).
 Do **not** treat roadmap/backlog/spec prose as implementation truth. Those files are planning tools, not status ledgers.
 
 ## Standard status labels

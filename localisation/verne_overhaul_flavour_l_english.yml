@@ -1,0 +1,17 @@
+﻿l_english:
+ # ===============================================
+ # Verne overhaul flavour follow-through localisation
+ # ===============================================
+
+ verne_overhaul_flavour.1.t:0 "The Vernissage Secretariat"
+ verne_overhaul_flavour.1.d:0 "The Vernissage has outgrown the habits of an adventurous court and become a proper institution. Clerks, curators, and envoys now crowd its halls, each arguing that the new secretariat should serve a different purpose. Some want ledgers, routes, and shipping intelligence gathered into a single archive. Others insist the true power of the institution lies in curation, study, and disciplined patronage. A third faction argues that the secretariat must above all become the polished face of Vernman prestige abroad, receiving guests and directing the flow of favours through Heartspier."
+ verne_overhaul_flavour.1.a:0 "Build a secretariat of charts and ledgers."
+ verne_overhaul_flavour.1.b:0 "Let the curators and scholars take the lead."
+ verne_overhaul_flavour.1.c:0 "Make it the grand audience chamber of Verne."
+
+ verne_secretariat_of_charts:0 "Secretariat of Charts"
+ verne_secretariat_of_charts_desc:0 "The Vernissage secretariat has been tasked with gathering charts, manifests, and expedition reports into a coherent body of state knowledge."
+ verne_secretariat_of_curators:0 "Secretariat of Curators"
+ verne_secretariat_of_curators_desc:0 "Curators, archivists, and learned patrons now dominate the Vernissage secretariat, sharpening the realm's administrative and intellectual discipline."
+ verne_secretariat_of_audiences:0 "Secretariat of Audiences"
+ verne_secretariat_of_audiences_desc:0 "The Vernissage secretariat has become a refined diplomatic stage where visiting envoys are impressed, managed, and quietly steered toward Vernman priorities."
