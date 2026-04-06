@@ -315,6 +315,32 @@ verne_marriage_court_protocol = {
 # ################################################################
 
 # Triggered by court mismanagement / failed oaths
+# --- Crisis stage modifiers (verne_red_court_scandal) ---
+# Stage 0: tax=-5%, diplorep=-1, legitimacy=-0.25
+verne_red_court_crisis_stage_0 = {
+	global_tax_modifier = -0.05
+	diplomatic_reputation = -1
+	legitimacy = -0.25
+}
+
+# Stage 1: tax=-10%, diplorep=-1, legitimacy=-0.5, unrest=+1
+verne_red_court_crisis_stage_1 = {
+	global_tax_modifier = -0.10
+	diplomatic_reputation = -1
+	legitimacy = -0.5
+	national_unrest = 1
+}
+
+# Stage 2: tax=-15%, diplorep=-2, legitimacy=-1, unrest=+2, advisor_cost=+10%
+verne_red_court_crisis_stage_2 = {
+	global_tax_modifier = -0.15
+	diplomatic_reputation = -2
+	legitimacy = -1
+	national_unrest = 2
+	advisor_cost = 0.10
+}
+
+# --- Crisis pressure / court failure ---
 verne_tarnished_courtly_reputation = {
 	stability_cost_modifier = 0.10
 	diplomatic_reputation = -1
@@ -716,6 +742,36 @@ verne_spice_route_monopoly = {
 	caravan_power = 0.33
 }
 
+verne_chartered_spice_brokers = {
+	trade_steering = 0.10
+	global_trade_power = 0.10
+}
+
+verne_harbormasters_ledger_circuit = {
+	trade_efficiency = 0.10
+	envoy_travel_time = -0.10
+}
+
+verne_convoys_of_the_crimson_wake = {
+	light_ship_power = 0.10
+	sailors_recovery_speed = 0.15
+}
+
+verne_admiralty_of_factors = {
+	trade_efficiency = 0.10
+	naval_forcelimit = 0.10
+}
+
+verne_monopoly_of_clove_and_pepper = {
+	goods_produced = 0.10
+	global_trade_power = 0.10
+}
+
+verne_licensed_monopoly_fleet = {
+	trade_steering = 0.10
+	ship_trade_power_propagation = 0.15
+}
+
 # === MISSING LANE 7: MILITARY ORDERS ===
 verne_corins_pride = {
 	prestige = 0.5
@@ -760,5 +816,37 @@ verne_foundry_master = {
 	build_cost = -0.15
 	land_forcelimit = 25
 	naval_forcelimit = 15
+}
+
+# === MISSING LANE 10: CORINITE FAITH EVENTS ===
+verne_tribute_to_wake = {
+	prestige = 0.5
+	treasury = 50
+}
+
+verne_corinite_privilege = {
+	local_autonomy = -5
+	local_unrest = -1
+}
+
+verne_zealous_governor = {
+	local_unrest = -2
+	local_missionary_strength = 0.02
+}
+
+verne_halanns_will_done = {
+	prestige = 10
+	legitimacy = 5
+	stability_cost_modifier = -0.1
+}
+
+# ===============================================
+# VERNE CHARTERED MERCENARY SYSTEM
+# ===============================================
+
+# Country modifier: reduces mercenary maintenance cost by 10%
+# Granted by mission A33_the_riches_of_the_khenak
+verne_chartered_merc_maintenance = {
+	merc_maintenance_modifier = -0.10
 }
 

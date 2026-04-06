@@ -1,6 +1,22 @@
 # Verne Live Implementation Status
 
-Last reviewed from code: **2026-04-05**
+Last reviewed from code: **2026-04-06**
+## Session notes 2026-04-06 (morning, trade flavour follow-through pass)
+### Trade lane flavour follow-through
+- Added 3 new Verne overhaul flavour events in `events/verne_overhaul_flavour_events.txt` tied to live trade-lane reward modifiers:
+  - `verne_overhaul_flavour.2` for `verne_trade_network`
+  - `verne_overhaul_flavour.3` for `verne_merchant_marine`
+  - `verne_overhaul_flavour.4` for `verne_spice_route_monopoly`
+- Added 6 supporting timed modifiers in `common/event_modifiers/verne_overhaul_modifiers.txt`:
+  - `verne_chartered_spice_brokers`
+  - `verne_harbormasters_ledger_circuit`
+  - `verne_convoys_of_the_crimson_wake`
+  - `verne_admiralty_of_factors`
+  - `verne_monopoly_of_clove_and_pepper`
+  - `verne_licensed_monopoly_fleet`
+- Added all required event and modifier loc keys to `localisation/verne_overhaul_l_english.yml`
+- Result: the live trade-network / merchant-marine / spice-monopoly mission rewards now have the same kind of lore follow-through already given to the Vernissage Secretariat reward.
+
 ## Session notes 2026-04-05 (evening, modding-army pass)
 ### Mission and file integrity
 - Mission integration audit: all 70 missions cross-referenced against helper layers — **no broken references**
@@ -50,6 +66,61 @@ Last reviewed from code: **2026-04-05**
 - Result: **no broken references found in mission layer integration**
 
 Authoritative scope: live Verne overhaul implementation state derived from repo files, not older roadmap/backlog prose.
+
+## Session notes 2026-04-05 (late evening, estate and cross-system integration pass)
+
+### Estate privilege chains (new content)
+- **Mage estate — Red Court Arcana chain**: three-tier privilege chain implemented in `estate_mages_privileges.txt`:
+  - Tier 1: `estate_mages_verne_red_court_initiates` (granted by `verne_red_court_arcana_reform`)
+  - Tier 2: `estate_mages_verne_court_arcana_charter` (unlocked after Tier 1 + 55 loyalty)
+  - Tier 3: `estate_mages_verne_throne_of_the_magi` (unlocked after Tier 2 + dragonwake reform + 60 loyalty)
+- **Mage estate — Battle-Mage Collegium fix**: new `estate_mages_verne_battle_mage_charter` privilege (granted by reform, enables `RECRUIT_WAR_WIZARD` — bridges the mission-gated privilege gap)
+- **Mage estate — Dragonwake martial charter**: new `estate_mages_verne_dragonwake_martial_charter` privilege (granted by `verne_dragonwake_ordinance_reform`, grants leader shock + discipline + tactics)
+- **Noble estate — Wyvernrider chain**: three-tier privilege chain implemented in `02_nobility.txt`:
+  - Tier 1: `estate_nobles_verne_wyvern_initiates` (requires `verne_ducal_muster_of_armoc_reform`)
+  - Tier 2: `estate_nobles_verne_crimson_wyvern_cohort` (after Tier 1 + 50 loyalty)
+  - Tier 3: `estate_nobles_verne_storm_crowned_wyvern_knights` (after Tier 2 + wyvern_marshalate reform + 55 loyalty)
+
+### Crisis cross-system integration (new content)
+- Crisis events now touch estate loyalty:
+  - Crisis start (event 1): mages −5, nobles −5
+  - Dynasty protection choice (event 2B): mages +5
+  - Marriage court choice (event 3B): nobles +5
+  - Escalation (event 7): mages −5, nobles −5
+  - Resolution (event 100): mages +10, nobles +10
+
+### Crisis stage modifier fix
+- Three named stage modifiers created (`verne_red_court_crisis_stage_0/1/2`) in `verne_overhaul_modifiers.txt`
+- Stage blocks updated to use named modifiers with `duration = -1`
+- Event 100 now removes all three stage modifiers on crisis end
+
+### Faith event chain (new content)
+- Five new Corinite propagation events written: verne.1100–1104 (`Flavour_Verne_A33.txt`)
+- Four new modifiers defined in `verne_overhaul_modifiers.txt`: `verne_tribute_to_wake`, `verne_corinite_privilege`, `verne_zealous_governor`, `verne_halanns_will_done`
+- verne.110 wired to fire the new events into converted provinces
+- All 9 Corinite/faith mission loc entries confirmed present
+
+### Adventure lane fix
+- `A33_a_most_prized_item` dead-end: added OR condition so players who skip the Blue House event chain can still proceed via mission completion
+
+### Loc cleanup
+- 18 orphaned loc key pairs removed (36 lines): decision keys, orphan modifier keys, reform keys, idea/doctrine keys
+- `_tt` tooltip entries preserved (had valid references)
+
+### Reform tier 4-8 estate wiring
+- Tiers 4-8 estate privilege wiring: in progress via subagent (`verne-reform-estate-t4t8`)
+
+### Colonization estate integration
+- Colonial estate privileges: in progress via subagent (`verne-colonization-estates`)
+
+### Mercenary system cross-links
+- Mercenary estate connections: in progress via subagent (`verne-merc-system`)
+
+### Upstream integration scan
+- Anbennar dev upstream (gitlab): 10,878 commits behind `upstream/new-master`
+- Verne-specific upstream changes: `A33_a_union_of_crowns` mission, `A33_second_slot` colonial trigger fixes — our versions are diverged and intentional
+- Magic patch (PR !3955): touches vanilla Anbennar magic files, no Verne-specific files — safe to pull when ready
+- Planetouched estate, mages estate: upstream changes touch our modified estate files — evaluate per-file
 
 ## Purpose
 

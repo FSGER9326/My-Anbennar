@@ -52,3 +52,120 @@ country_event = {
 		add_prestige = 10
 	}
 }
+
+country_event = {
+	id = verne_overhaul_flavour.2
+	title = verne_overhaul_flavour.2.t
+	desc = verne_overhaul_flavour.2.d
+	picture = TRADEGOODS_eventPicture
+
+	trigger = {
+		tag = A33
+		has_country_modifier = verne_trade_network
+		NOT = { has_country_flag = verne_trade_network_event_fired }
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	immediate = {
+		set_country_flag = verne_trade_network_event_fired
+	}
+
+	option = {
+		name = verne_overhaul_flavour.2.a
+		add_country_modifier = {
+			name = verne_chartered_spice_brokers
+			duration = 3650
+		}
+		add_dip_power = 50
+	}
+
+	option = {
+		name = verne_overhaul_flavour.2.b
+		add_country_modifier = {
+			name = verne_harbormasters_ledger_circuit
+			duration = 3650
+		}
+		add_adm_power = 50
+	}
+}
+
+country_event = {
+	id = verne_overhaul_flavour.3
+	title = verne_overhaul_flavour.3.t
+	desc = verne_overhaul_flavour.3.d
+	picture = NAVAL_eventPicture
+
+	trigger = {
+		tag = A33
+		has_country_modifier = verne_merchant_marine
+		NOT = { has_country_flag = verne_merchant_marine_event_fired }
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	immediate = {
+		set_country_flag = verne_merchant_marine_event_fired
+	}
+
+	option = {
+		name = verne_overhaul_flavour.3.a
+		add_country_modifier = {
+			name = verne_convoys_of_the_crimson_wake
+			duration = 3650
+		}
+		add_sailors = 1500
+	}
+
+	option = {
+		name = verne_overhaul_flavour.3.b
+		add_country_modifier = {
+			name = verne_admiralty_of_factors
+			duration = 3650
+		}
+		add_mercantilism = 1
+	}
+}
+
+country_event = {
+	id = verne_overhaul_flavour.4
+	title = verne_overhaul_flavour.4.t
+	desc = verne_overhaul_flavour.4.d
+	picture = TRADE_eventPicture
+
+	trigger = {
+		tag = A33
+		has_country_modifier = verne_spice_route_monopoly
+		NOT = { has_country_flag = verne_spice_route_monopoly_event_fired }
+	}
+
+	mean_time_to_happen = {
+		days = 25
+	}
+
+	immediate = {
+		set_country_flag = verne_spice_route_monopoly_event_fired
+	}
+
+	option = {
+		name = verne_overhaul_flavour.4.a
+		add_country_modifier = {
+			name = verne_monopoly_of_clove_and_pepper
+			duration = 3650
+		}
+		add_prestige = 10
+	}
+
+	option = {
+		name = verne_overhaul_flavour.4.b
+		add_country_modifier = {
+			name = verne_licensed_monopoly_fleet
+			duration = 3650
+		}
+		add_treasury = 100
+	}
+}
