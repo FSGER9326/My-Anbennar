@@ -1,6 +1,13 @@
 # Verne Live Implementation Status
 
 Last reviewed from code: **2026-04-06**
+## Session notes 2026-04-06 (evening, mission-loc key repair pass)
+### Mission localisation key repair
+- Added proper `A33_*` mission name/description loc entries in `localisation/verne_overhaul_l_english.yml` for a batch of live Verne missions whose prose existed only under dead lowercase `a33_*_title` / `a33_*_desc` keys.
+- This restores visible mission titles/descriptions for the live mission IDs instead of relying on nonfunctional alias-style keys.
+- Scope included faith, trade, industry, wyvern, maritime, court, and overseas missions such as `A33_pearlescent_concord`, `A33_world_faith_emperor`, `A33_establish_trade_network`, `A33_expand_the_foundry_complex`, and `A33_united_under_crimson_wings`.
+- Removed the earlier duplicate desc-only entries for `A33_corinite_stewardship`, `A33_pearlescent_concord`, and `A33_world_faith_emperor` so the file has one canonical key per mission.
+
 ## Session notes 2026-04-06 (morning, trade flavour follow-through pass)
 ### Trade lane flavour follow-through
 - Added 3 new Verne overhaul flavour events in `events/verne_overhaul_flavour_events.txt` tied to live trade-lane reward modifiers:
