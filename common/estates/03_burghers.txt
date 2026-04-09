@@ -721,6 +721,8 @@ estate_burghers = {
 
 		#Tsukqiao
 		estate_burghers_league_of_xiongxiap
+		#Verne
+		estate_burghers_verne_trade_colony
 	}
 
 	agendas = {

@@ -5787,3 +5787,162 @@ estate_mages_U39_the_pan_aelantiri_paradigm = { #Orenvalyam
 		factor = 1
 	}
 }
+estate_mages_verne_red_court_initiates = {
+	icon = privilege_promote_maratha_nobility
+
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_red_court_arcana_reform
+	}
+	can_select = {
+		estate_loyalty = {
+			estate = estate_mages
+			loyalty = 50
+		}
+	}
+	can_revoke = {
+		always = no
+	}
+	on_granted = {
+		set_country_flag = verne_red_court_initiates_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_red_court_initiates_active
+	}
+	benefits = {
+		mages_loyalty_modifier = 0.05
+		mages_influence_modifier = 0.05
+		advisor_pool = 1
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_mages_verne_court_arcana_charter = {
+	icon = privilege_promote_maratha_nobility
+
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_estate_privilege = estate_mages_verne_red_court_initiates
+	}
+	can_select = {
+		estate_loyalty = {
+			estate = estate_mages
+			loyalty = 55
+		}
+	}
+	can_revoke = {
+		always = no
+	}
+	on_granted = {
+		set_country_flag = verne_court_arcana_charter_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_court_arcana_charter_active
+	}
+	benefits = {
+		global_tax_modifier = 0.05
+		advisor_cost = -0.1
+		mages_influence_modifier = 0.10
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_mages_verne_throne_of_the_magi = {
+	icon = privilege_promote_maratha_nobility
+
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_estate_privilege = estate_mages_verne_court_arcana_charter
+	}
+	can_select = {
+		estate_loyalty = {
+			estate = estate_mages
+			loyalty = 60
+		}
+		has_reform = verne_dragonwake_ordinance_reform
+	}
+	can_revoke = {
+		always = no
+	}
+	on_granted = {
+		set_country_flag = verne_throne_of_the_magi_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_throne_of_the_magi_active
+	}
+	benefits = {
+		all_power_cost = -0.05
+		mages_loyalty_modifier = 0.10
+		global_unrest = -1
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_mages_verne_battle_mage_charter = {
+	icon = privilege_demand_more_troops
+
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_battle_mage_collegium_reform
+	}
+	can_select = {
+		mages_loyalty = 50
+	}
+	can_revoke = {
+		always = no
+	}
+	on_granted = {
+		set_country_flag = verne_battle_mage_charter_active
+		enable_estate_action = { estate_action = RECRUIT_WAR_WIZARD }
+	}
+	on_invalid = {
+		clr_country_flag = verne_battle_mage_charter_active
+		disable_estate_action = { estate_action = RECRUIT_WAR_WIZARD }
+	}
+	penalties = {
+	}
+	benefits = {
+		army_tradition_decay = 0.01
+		land_morale = 0.05
+	}
+	ai_will_do = {
+		factor = 7
+	}
+}
+
+estate_mages_verne_dragonwake_martial_charter = {
+	icon = privilege_demand_more_troops
+
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_dragonwake_ordinance_reform
+	}
+	can_select = {
+		mages_loyalty = 50
+	}
+	can_revoke = {
+		always = no
+	}
+	on_granted = {
+		set_country_flag = verne_dragonwake_martial_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_dragonwake_martial_active
+	}
+	penalties = {
+	}
+	benefits = {
+		leader_land_shock = 1
+		discipline = 0.03
+		military_tactics = 0.05
+	}
+	ai_will_do = {
+		factor = 7
+	}
+}

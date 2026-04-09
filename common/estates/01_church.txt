@@ -692,6 +692,8 @@ estate_church = {
 		#Salla elyn
 		estate_church_I26_elders_knowledge
 		estate_church_ustiqlik_caretaking #Yudunyovi
+		#Verne
+		estate_church_verne_missionary_colony
 	}
 
 	agendas = {

@@ -1164,10 +1164,15 @@ A33_second_slot = {
 				merc_company = merc_khenak_talons
 				free_merc = yes
 			}
+			custom_tooltip = verne_merc_khenak_talons_unlock
 			custom_tooltip = verne_overhaul_tt_seed_khenak_foundry
 			add_treasury = -200
 			add_country_modifier = {
 				name = "verne_redbrass_surplus"
+				duration = 7300
+			}
+			add_country_modifier = {
+				name = "verne_chartered_merc_maintenance"
 				duration = 7300
 			}
 			838 = { add_building = workshop } 
@@ -1769,9 +1774,9 @@ A33_second_slot = {
 				}
 				NOT = { devastation = 1 } 
 			}
-			custom_trigger_tooltip = {
-				tooltip = verne_B9_trigger_tt
+			OR = {
 				has_country_flag = verne_blue_house_adventure_completed
+				mission_completed = A33_in_search_of_adventure
 			}
 		}
 
@@ -2166,6 +2171,7 @@ A33_second_slot = {
 				}
 			}
 		}
+		add_estate_privilege = estate_nobles_verne_overseas_governor
 	}
 }
 A33_third_slot = {
@@ -2613,6 +2619,10 @@ A33_third_slot = {
 					}
 				}
 			}
+		}
+		random_list = {
+			70 = { }
+			30 = { country_event = { id = verne.1104 } }
 		}
 	}
 
@@ -3875,6 +3885,7 @@ A33_fourth_slot = {
 				merc_company = merc_crimson_wake_lances
 				free_merc = yes
 			}
+			custom_tooltip = verne_merc_crimson_wake_lances_unlock
 			custom_tooltip = verne_D9_effect_tt1
 			set_global_flag = verne_only_dotf
 			custom_tooltip = verne_D9_effect_tt2
@@ -4838,6 +4849,7 @@ A33_fifth_slot = {
 				merc_company = merc_heartspier_skyguard
 				free_merc = yes
 			}
+			custom_tooltip = verne_merc_heartspier_skyguard_unlock
 		}
 	}
 
@@ -5285,6 +5297,29 @@ A33_seventh_slot = {
 				name = verne_network_of_adventure_tier_1
 				duration = 3650
 			}
+		}
+	}
+
+	A33_vernman_sea_empire = {
+		icon = mission_fleet
+		position = 17
+		required_missions = { A33_ports_of_adventure_program }
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+					NOT = { continent = north_america }
+			}
+		}
+
+		effect = {
+			add_naval_forcelimit_modifier = {
+				modifier = verne_vernman_sea_empire_naval
+				duration = -1
+			}
+			add_merchants = 1
+			custom_tooltip = verne_overhaul_tt_overseas_projection_gain
+			change_variable = { which = verne_overseas_projection value = 1 }
 		}
 	}
 

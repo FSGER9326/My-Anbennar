@@ -15,3 +15,16 @@
  verne_secretariat_of_curators_desc:0 "Curators, archivists, and learned patrons now dominate the Vernissage secretariat, sharpening the realm's administrative and intellectual discipline."
  verne_secretariat_of_audiences:0 "Secretariat of Audiences"
  verne_secretariat_of_audiences_desc:0 "The Vernissage secretariat has become a refined diplomatic stage where visiting envoys are impressed, managed, and quietly steered toward Vernman priorities."
+
+ # ===============================================
+ # Verne chartered mercenary system localisation
+ # ===============================================
+
+ estate_nobles_verne_crimson_lance_charter:0 "Charter of the Crimson Lances"
+ estate_nobles_verne_crimson_lance_charter_desc:0 "The Crown charters the Crimson Lances as a noble regiment of renown."
+
+ estate_adventurers_verne_khenak_foundry_charter:0 "Charter of the Khenak Foundry"
+ estate_adventurers_verne_khenak_foundry_charter_desc:0 "The Khenak Talons are chartered as an adventurer-linked military-industrial company."
+
+ verne_chartered_merc_maintenance:0 "Chartered Mercenary Contracts"
+ verne_chartered_merc_maintenance_desc:0 "Verne's chartered mercenary companies benefit from state-negotiated maintenance terms, reducing overall mercenary upkeep costs."

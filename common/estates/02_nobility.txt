@@ -775,6 +775,10 @@ estate_nobles = {
 
 		#Verne
 		estate_nobles_noble_wyvernriders
+		estate_nobles_verne_wyvern_initiates
+		estate_nobles_verne_crimson_wyvern_cohort
+		estate_nobles_verne_storm_crowned_wyvern_knights
+		estate_nobles_verne_overseas_governor
 
 		z22_clan_levies_privilege
 		z22_military_demonopolisation

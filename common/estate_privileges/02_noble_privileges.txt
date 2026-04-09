@@ -4664,3 +4664,265 @@ estate_nobles_fogharkarn_palace_privilege = {
 		factor = 100
 	}	
 }
+
+estate_nobles_verne_overseas_governor = {
+	icon = privilege_noble_satrapies
+	max_absolutism = 0
+	loyalty = 0.0
+	influence = 0.05
+	land_share = 0
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+	}
+	can_select = {
+		nobles_loyalty >= 50
+	}
+	can_revoke = {
+		always = yes
+	}
+	on_granted = {
+		set_country_flag = verne_overseas_governor_active
+	}
+	on_revoked = {
+		clr_country_flag = verne_overseas_governor_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_overseas_governor_active
+	}
+	penalties = {
+	}
+	benefits = {
+		local_colonial_growth_in_primary_culture = 0.25
+		local_unrest = -2
+	}
+	ai_will_do = {
+		factor = 7
+	}
+}
+estate_nobles_verne_wyvern_initiates = {
+	icon = privilege_cavalry_cost
+	max_absolutism = 0
+	loyalty = 0.0
+	influence = 0.05
+	land_share = 0
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_ducal_muster_of_armoc_reform
+	}
+	can_select = {
+		nobles_loyalty >= 45
+	}
+	can_revoke = {
+		always = yes
+	}
+	on_granted = {
+		set_country_flag = verne_wyvern_initiates_active
+	}
+	on_revoked = {
+		clr_country_flag = verne_wyvern_initiates_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_wyvern_initiates_active
+	}
+	penalties = {
+	}
+	benefits = {
+		nobles_loyalty_modifier = 0.05
+		cavalry_power = 0.10
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_nobles_verne_crimson_wyvern_cohort = {
+	icon = privilege_cavalry_cost
+	max_absolutism = 0
+	loyalty = 0.0
+	influence = 0.05
+	land_share = 0
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_estate_privilege = estate_nobles_verne_wyvern_initiates
+	}
+	can_select = {
+		nobles_loyalty >= 50
+	}
+	can_revoke = {
+		always = yes
+	}
+	on_granted = {
+		set_country_flag = verne_crimson_wyvern_cohort_active
+	}
+	on_revoked = {
+		clr_country_flag = verne_crimson_wyvern_cohort_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_crimson_wyvern_cohort_active
+	}
+	penalties = {
+	}
+	benefits = {
+		nobles_loyalty_modifier = 0.05
+		cav_to_inf_ratio = 0.15
+		leader_land_shock = 1
+	}
+	ai_will_do = {
+		factor = 6
+	}
+}
+
+estate_nobles_verne_storm_crowned_wyvern_knights = {
+	icon = privilege_cavalry_cost
+	max_absolutism = 0
+	loyalty = 0.0
+	influence = 0.05
+	land_share = 0
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_estate_privilege = estate_nobles_verne_crimson_wyvern_cohort
+		has_reform = verne_wyvern_marshalate_reform
+	}
+	can_select = {
+		nobles_loyalty >= 55
+	}
+	can_revoke = {
+		always = yes
+	}
+	on_granted = {
+		set_country_flag = verne_storm_crowned_wyvern_active
+	}
+	on_revoked = {
+		clr_country_flag = verne_storm_crowned_wyvern_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_storm_crowned_wyvern_active
+	}
+	penalties = {
+	}
+	benefits = {
+		nobles_loyalty_modifier = 0.10
+		mil_tech_cost = -0.05
+		army_tradition_decay = -0.005
+	}
+	ai_will_do = {
+		factor = 7
+	}
+}
+
+estate_nobles_verne_imperial_sea_charter = {
+	icon = privilege_cavalry_cost
+	max_absolutism = 0
+	loyalty = 0.05
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_imperial_sea_court_reform
+	}
+	can_select = {
+		nobles_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+		land_morale = -0.05
+	}
+	benefits = {
+		morale_of_navies = 0.10
+		diplomatic_reputation = 0.5
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_nobles_verne_crimson_scale_charter = {
+	icon = privilege_cavalry_cost
+	max_absolutism = 0
+	loyalty = 0.05
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_knights_of_the_crimson_scale_reform
+	}
+	can_select = {
+		nobles_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		cavalry_power = 0.15
+		global_missionary_strength = 0.01
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_nobles_verne_wyvern_throne_charter = {
+	icon = privilege_cavalry_cost
+	max_absolutism = 0
+	loyalty = 0.10
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_throne_of_the_wyvern_kings_reform
+	}
+	can_select = {
+		nobles_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		all_power_cost = -0.05
+		army_tradition = 0.50
+	}
+	ai_will_do = {
+		factor = 7
+	}
+}
+
+estate_nobles_verne_storm_hegemony_charter = {
+	icon = privilege_cavalry_cost
+	max_absolutism = 0
+	loyalty = 0.05
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_storm_crowned_hegemony_reform
+	}
+	can_select = {
+		nobles_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		naval_forcelimit_modifier = 0.10
+		cavalry_power = 0.15
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}

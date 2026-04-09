@@ -17,6 +17,8 @@ country_event = {
 		name = verne_overhaul_crisis.1.a
 		add_stability = -1
 		add_prestige = -10
+		add_estate_loyalty = { estate = estate_mages loyalty = -5 }
+		add_estate_loyalty = { estate = estate_nobles loyalty = -5 }
 	}
 }
 
@@ -40,6 +42,7 @@ country_event = {
 	option = {
 		name = verne_overhaul_crisis.2.b
 		add_adm_power = -75
+		add_estate_loyalty = { estate = estate_mages loyalty = 5 }
 		if = {
 			limit = { NOT = { has_country_flag = verne_dynasty_protected } }
 			verne_overhaul_activate_dynasty_protection = yes
@@ -73,6 +76,7 @@ country_event = {
 	option = {
 		name = verne_overhaul_crisis.3.b
 		add_treasury = -150
+		add_estate_loyalty = { estate = estate_nobles loyalty = 5 }
 		if = {
 			limit = { NOT = { has_country_flag = verne_marriage_court_active } }
 			verne_overhaul_activate_marriage_court = yes
@@ -180,6 +184,8 @@ country_event = {
 	option = {
 		name = verne_overhaul_crisis.7.a
 		add_legitimacy = -10
+		add_estate_loyalty = { estate = estate_mages loyalty = -5 }
+		add_estate_loyalty = { estate = estate_nobles loyalty = -5 }
 		add_country_modifier = {
 			name = verne_tarnished_courtly_reputation
 			duration = 1095
@@ -259,8 +265,13 @@ country_event = {
 		set_country_flag = verne_overhaul_red_court_scandal_resolved
 		clr_country_flag = verne_overhaul_red_court_scandal_started
 		remove_country_modifier = verne_tarnished_courtly_reputation
-			remove_country_modifier = verne_dynasty_protected_court
-			remove_country_modifier = verne_marriage_court_protocol
+		remove_country_modifier = verne_dynasty_protected_court
+		remove_country_modifier = verne_marriage_court_protocol
+		remove_country_modifier = verne_red_court_crisis_stage_0
+		remove_country_modifier = verne_red_court_crisis_stage_1
+		remove_country_modifier = verne_red_court_crisis_stage_2
+		add_estate_loyalty = { estate = estate_mages loyalty = 10 }
+		add_estate_loyalty = { estate = estate_nobles loyalty = 10 }
 		add_country_modifier = {
 			name = verne_reforged_court_consensus
 			duration = 3650

@@ -114,6 +114,9 @@ verne_red_court_arcana_reform = {
 		advisor_pool = 1
 		reform_progress_growth = 0.10
 	}
+	effects = {
+		add_estate_privilege = estate_mages_verne_red_court_initiates
+	}
 	ai = {
 		factor = 1
 	}
@@ -128,6 +131,10 @@ verne_dragonwake_ordinance_reform = {
 		yearly_army_professionalism = 0.005
 		military_tactics = 0.02
 	}
+	effects = {
+		add_estate_privilege = estate_mages_verne_throne_of_the_magi
+		add_estate_privilege = estate_mages_verne_dragonwake_martial_charter
+	}
 	ai = {
 		factor = 1
 	}
@@ -141,6 +148,10 @@ verne_battle_mage_collegium_reform = {
 		morale_of_armies = 0.05
 		artillery_fire = 0.05
 		possible_war_wizard = 1
+	}
+	effects = {
+		set_country_flag = verne_battle_mage_collegium_war_wizards_unlocked
+		add_estate_privilege = estate_mages_verne_battle_mage_charter
 	}
 	ai = {
 		factor = 1
@@ -160,6 +171,9 @@ verne_charter_of_the_vernissage_reform = {
 		development_cost = -0.05
 		institution_spread_from_true_faith = 0.10
 		reform_progress_growth = 0.10
+	}
+	effects = {
+		add_estate_privilege = estate_burghers_verne_vernissage_charter
 	}
 	ai = {
 		factor = 1
@@ -190,6 +204,9 @@ verne_vernissage_secretariat_reform = {
 		advisor_pool = 1
 		prestige = 0.50
 	}
+	effects = {
+		add_estate_privilege = estate_burghers_verne_vernissage_secretariat
+	}
 	ai = {
 		factor = 1
 	}
@@ -209,6 +226,9 @@ verne_wyvern_marshalate_reform = {
 		army_tradition = 0.50
 		reinforce_cost_modifier = -0.10
 	}
+	effects = {
+		add_estate_privilege = estate_nobles_verne_wyvern_initiates
+	}
 	ai = {
 		factor = 1
 	}
@@ -222,6 +242,9 @@ verne_crimson_eyrie_commandery_reform = {
 		merc_maintenance_modifier = -0.10
 		cav_to_inf_ratio = 0.20
 		free_leader_pool = 1
+	}
+	effects = {
+		add_estate_privilege = estate_church_verne_crimson_eyrie_charter
 	}
 	ai = {
 		factor = 1
@@ -256,6 +279,9 @@ verne_secretariat_of_the_grand_regatta_reform = {
 		envoy_travel_time = -0.10
 		global_ship_trade_power = 0.10
 	}
+	effects = {
+		add_estate_privilege = estate_burghers_verne_regatta_charter
+	}
 	ai = {
 		factor = 1
 	}
@@ -270,6 +296,9 @@ verne_imperial_sea_court_reform = {
 		morale_of_navies = 0.10
 		prestige = 1
 		naval_tradition_from_trade = 0.50
+	}
+	effects = {
+		add_estate_privilege = estate_nobles_verne_imperial_sea_charter
 	}
 	ai = {
 		factor = 1
@@ -304,6 +333,9 @@ verne_apostolic_court_of_corin_reform = {
 		tolerance_own = 1
 		global_missionary_strength = 0.02
 	}
+	effects = {
+		add_estate_privilege = estate_church_verne_apostolic_charter
+	}
 	ai = {
 		factor = 1
 	}
@@ -319,6 +351,9 @@ verne_vernman_court_of_the_world_reform = {
 		free_leader_pool = 1
 		yearly_innovativeness = 0.25
 	}
+	effects = {
+		add_estate_privilege = estate_burghers_verne_world_court_charter
+	}
 	ai = {
 		factor = 1
 	}
@@ -332,6 +367,9 @@ verne_knights_of_the_crimson_scale_reform = {
 		army_tradition = 0.50
 		prestige_from_land = 0.10
 		global_missionary_strength = 0.01
+	}
+	effects = {
+		add_estate_privilege = estate_nobles_verne_crimson_scale_charter
 	}
 	ai = {
 		factor = 1
@@ -351,6 +389,9 @@ verne_throne_of_the_wyvern_kings_reform = {
 		morale_of_navies = 0.10
 		leader_land_shock = 1
 	}
+	effects = {
+		add_estate_privilege = estate_nobles_verne_wyvern_throne_charter
+	}
 	ai = {
 		factor = 1
 	}
@@ -366,6 +407,9 @@ verne_the_crimson_world_order_reform = {
 		diplomatic_relations = 1
 		province_warscore_cost = -0.10
 	}
+	effects = {
+		add_estate_privilege = estate_burghers_verne_crimson_world_order_charter
+	}
 	ai = {
 		factor = 1
 	}
@@ -380,6 +424,9 @@ verne_storm_crowned_hegemony_reform = {
 		leader_land_fire = 1
 		morale_of_navies = 0.10
 		prestige = 1
+	}
+	effects = {
+		add_estate_privilege = estate_nobles_verne_storm_hegemony_charter
 	}
 	ai = {
 		factor = 1

@@ -1,10 +1,11 @@
 # Lane Assignments for Parallel Subagent Implementation
 
-## Status: 4/10 lanes done (from previous session)
+## Status: 5/10 lanes done (from previous session)
 - ✅ Lane 10: Liliac War Legacy (a49ad4ec)
-- ✅ Lane 6: Adventure Network expansion (491fe320)  
+- ✅ Lane 6: Adventure Network expansion (491fe320)
 - ✅ Lane 9: Industrial Foundries expansion (40a6576c)
 - ✅ Lane 7: Vernissage Secretariat (6e5a2ee9)
+- ✅ Lane 8: Faith & Apostolic Empire — Corinite propagation events (verne.1100-1104), 5 events with estate integration
 
 ## Remaining lanes to implement
 

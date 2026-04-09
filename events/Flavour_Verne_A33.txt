@@ -982,9 +982,39 @@ country_event = { #A Deal with the Martao - A9
 		custom_tooltip = verne_A9_effect_tt1
 		for = {
 			amount = 10
-			effect = "random_owned_province = { limit = { region = lupulan_rainforest_region } change_religion = corinite }"
+			effect = "random_owned_province = { limit = { region = lupulan_rainforest_region } set_province_flag = verne_converted_this_mission change_religion = corinite }"
 		}
 		custom_tooltip = verne_A9_effect_tt2
+		hidden_effect = {
+			# Fire verne.1100 for provinces just converted in this mission chain
+			random_owned_province = {
+				limit = {
+					has_province_flag = verne_converted_this_mission
+					religion = corinite
+				}
+				province_event = { id = verne.1100 }
+			}
+			# Fire verne.1101 for owned corinite provinces that weren't just converted
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = verne_converted_this_mission }
+					religion = corinite
+					owner = { religion = corinite }
+				}
+				province_event = { id = verne.1101 }
+			}
+			# Fire verne.1102 for owned non-corinite provinces held by corinite owners
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = verne_converted_this_mission }
+					NOT = { religion = corinite }
+					owner = { religion = corinite }
+				}
+				province_event = { id = verne.1102 }
+			}
+		}
+		# Fire verne.1103 as the success endpoint (conversion succeeded)
+		country_event = { id = verne.1103 }
 		set_country_flag = verne_halessi_adventures_unlocked
 	}
 }
@@ -8270,7 +8300,7 @@ country_event = { #Lokemeion adventure - 4
 # Commentary: Fired from A33_spread_the_word / verne.110 chain. Handles post-conversion province outcomes.
 # Lore-fit note: project-canon
 
-# verne.1100 - "The Doctrine of the Wake" — Opening event. Province just converted. Two options: extract or invest.
+# verne.1100 - "The Doctrine of the Wake" ï¿½ Opening event. Province just converted. Two options: extract or invest.
 province_event = {
 	id = verne.1100
 	title = verne.1100.t
@@ -8326,7 +8356,7 @@ province_event = {
 	}
 }
 
-# verne.1101 - "Corin's Banner Plants" — Follow-up. Province is now Corinite. Grant privileges or tighten control.
+# verne.1101 - "Corin's Banner Plants" ï¿½ Follow-up. Province is now Corinite. Grant privileges or tighten control.
 province_event = {
 	id = verne.1101
 	title = verne.1101.t
@@ -8392,7 +8422,7 @@ province_event = {
 	}
 }
 
-# verne.1102 - "The Faithful Recalcitrant" — Province resists conversion. Options: send missionaries or force.
+# verne.1102 - "The Faithful Recalcitrant" ï¿½ Province resists conversion. Options: send missionaries or force.
 province_event = {
 	id = verne.1102
 	title = verne.1102.t
@@ -8442,7 +8472,7 @@ province_event = {
 	}
 }
 
-# verne.1103 - "Halann's Will Done" — Conversion complete. Major reward based on number of provinces.
+# verne.1103 - "Halann's Will Done" ï¿½ Conversion complete. Major reward based on number of provinces.
 country_event = {
 	id = verne.1103
 	title = verne.1103.t
@@ -8476,7 +8506,7 @@ country_event = {
 	}
 }
 
-# verne.1104 - "Without Corin, Nothing" — Conversion failed in key province. Malus event.
+# verne.1104 - "Without Corin, Nothing" ï¿½ Conversion failed in key province. Malus event.
 country_event = {
 	id = verne.1104
 	title = verne.1104.t

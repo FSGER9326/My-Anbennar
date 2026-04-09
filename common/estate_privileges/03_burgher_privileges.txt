@@ -3433,4 +3433,198 @@ estate_burghers_U39_monasticist_faction = {
 	ai_will_do = {
 		factor = 1
 	}
+estate_burghers_verne_vernissage_charter = {
+	icon = privilege_grant_new_world_charter
+	loyalty = 0.05
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_charter_of_the_vernissage_reform
+	}
+	can_select = {
+		burghers_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		trade_steering = 0.10
+		prestige = 0.25
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_burghers_verne_vernissage_secretariat = {
+	icon = privilege_diplo_power
+	loyalty = 0.05
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_vernissage_secretariat_reform
+	}
+	can_select = {
+		burghers_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		merchants = 1
+		trade_efficiency = 0.05
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_burghers_verne_regatta_charter = {
+	icon = privilege_comission_merchant_ships_for_war
+	loyalty = 0.05
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_secretariat_of_the_grand_regatta_reform
+	}
+	can_select = {
+		burghers_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		global_ship_trade_power = 0.10
+		navy_tradition = 0.25
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_burghers_verne_world_court_charter = {
+	icon = privilege_diplo_power
+	loyalty = 0.05
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_vernman_court_of_the_world_reform
+	}
+	can_select = {
+		burghers_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		prestige = 0.50
+		improve_relation_modifier = 0.10
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_burghers_verne_crimson_world_order_charter = {
+	icon = privilege_grant_new_world_charter
+	loyalty = 0.05
+	influence = 0.05
+	land_share = 5
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_reform = verne_the_crimson_world_order_reform
+	}
+	can_select = {
+		burghers_loyalty >= 40
+	}
+	can_revoke = {
+		always = no
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		global_tariffs = 0.10
+		governing_capacity_modifier = 0.10
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+estate_burghers_verne_skyguard_charter = {
+	icon = privilege_one_faith_one_culture
+	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+	loyalty = 0.05
+	influence = 0.05
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+		has_unlocked_merc_company = { merc_company = merc_heartspier_skyguard }
+	}
+	can_select = {
+		always = yes
+	}
+	can_revoke = {
+		always = yes
+	}
+	benefits = {
+		mercenary_cost = -0.10
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+estate_burghers_verne_trade_colony = {
+	icon = privilege_trade_company_investment
+	max_absolutism = 0
+	loyalty = 0.0
+	influence = 0.05
+	is_valid = {
+		is_or_was_tag = { tag = A33 }
+	}
+	can_select = {
+		burghers_loyalty >= 50
+	}
+	can_revoke = {
+		always = yes
+	}
+	on_granted = {
+		set_country_flag = verne_trade_colony_active
+	}
+	on_revoked = {
+		clr_country_flag = verne_trade_colony_active
+	}
+	on_invalid = {
+		clr_country_flag = verne_trade_colony_active
+	}
+	penalties = {
+	}
+	benefits = {
+		local_trade_power = 0.25
+		local_sailors = 0.25
+	}
+	ai_will_do = {
+		factor = 6
+	}
 }
